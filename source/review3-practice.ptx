@@ -10,8 +10,7 @@
 
   <introduction>
     <p>
-      Sections: <xref ref="section-triple-integrals-spherical" text="title"/>,
-      <xref ref="section-mass-center-of-mass" text="title"/>, <xref ref="section-jacobian-substitution" text="title"/>,
+      Sections: <xref ref="section-mass-center-of-mass" text="title"/>, <xref ref="section-jacobian-substitution" text="title"/>,
       <xref ref="section-surface-integrals" text="title"/>, and
       <xref ref="section-greens-theorem" text="title"/>. Work each
       problem, then type your answers into the boxes and have them checked

@@ -15,8 +15,7 @@
   <title>Review Problems #3</title>
 
   <p>
-    Sections: <xref ref="section-triple-integrals-spherical" text="title"/>,
-    <xref ref="section-mass-center-of-mass" text="title"/>, <xref ref="section-jacobian-substitution" text="title"/>,
+    Sections: <xref ref="section-mass-center-of-mass" text="title"/>, <xref ref="section-jacobian-substitution" text="title"/>,
     <xref ref="section-surface-integrals" text="title"/>, and
     <xref ref="section-greens-theorem" text="title"/>.
   </p>
