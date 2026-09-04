@@ -121,5 +121,109 @@ with a double-headed arrow mark each spring's height.
     </statement>
   </exercise>
 
+
+  <!-- =================================================================== -->
+  <!-- Problems 38 and 41 and Example 7 of the textbook's "Using Time as   -->
+  <!-- the Parameter" material.                                            -->
+  <exercise xml:id="ex-hw1-semicircle-motion">
+    <statement>
+      <p>
+        Describe the motion of an object that moves along a curve so that at
+        time <m>t</m> it has coordinates <m>(x(t), y(t))</m>, where
+        <me>x(t) = \frac{3t}{\sqrt{t^2+1}}, \qquad
+            y(t) = \frac{3}{\sqrt{t^2+1}}.</me>
+        Identify the curve the object travels on, sketch it, and indicate the
+        direction of motion.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw1-ellipse-motion">
+    <statement>
+      <p>
+        Describe the motion of an object that moves along a curve so that at
+        time <m>t</m> it has coordinates <m>(x(t), y(t))</m>, where
+        <me>x(t) = \sin t - 2, \qquad y(t) = 4 - 2\cos t, \qquad
+            0 \le t \le 2\pi.</me>
+        Identify the curve the object travels on, sketch it, and indicate the
+        direction of motion.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw1-ellipse-parametrize">
+    <introduction>
+      <p>
+        Find parametric equations that trace out the ellipse
+        <me>\frac{x^2}{4} + y^2 = 1</me>
+        of <xref ref="fig-hw1-ellipse"/>, where the parameter <m>t</m> is time
+        (in seconds) and:
+      </p>
+      <figure xml:id="fig-hw1-ellipse">
+        <caption>
+          The ellipse <m>\dfrac{x^2}{4} + y^2 = 1</m>, with the starting point
+          of each motion marked.
+        </caption>
+        <image width="70%">
+          <shortdescription>
+          The ellipse x squared over four plus y squared equals one, with the points (2,0) and (0,1) marked.
+          </shortdescription>
+          <description>
+            <p>
+            An ellipse centered at the origin, crossing the x axis at plus and
+            minus two and the y axis at plus and minus one. The point two comma
+            zero is marked in orange and the point zero comma one in green.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw1-ellipse">
+            <diagram dimensions="(462,273)" margins="5">
+              <definition>c(t) = (2*cos(t), sin(t))</definition>
+              <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
+                <grid-axes xlabel="x" ylabel="y"/>
+                <group at="curve">
+                  <parametric-curve function="c" domain="(0,2*pi)" stroke="blue" thickness="3"/>
+                </group>
+                <group at="starts">
+                  <point p="(2,0)" size="4.5" stroke="#D55E00" fill="#D55E00"/>
+                  <label anchor="(2,0)" alignment="ne" offset="(6,6)" color="#D55E00" clear-background="yes">
+                    <m>(2,0)</m>
+                  </label>
+                  <point p="(0,1)" size="4.5" stroke="#009E73" fill="#009E73"/>
+                  <label anchor="(0,1)" alignment="ne" offset="(6,6)" color="#009E73" clear-background="yes">
+                    <m>(0,1)</m>
+                  </label>
+                </group>
+              </coordinates>
+              <annotations>
+                <annotation ref="figure" text="The ellipse x squared over four plus y squared equals one, which crosses the x axis at plus and minus two and the y axis at plus and minus one">
+                  <annotation ref="grid" text="The coordinate grid"/>
+                  <annotation ref="axes" text="The coordinate axes"/>
+                  <annotation ref="curve" text="The ellipse" sonify="yes"/>
+                  <annotation ref="starts" text="Two marked points: two comma zero, where the motion in part a begins, and zero comma one, where the motion in part b begins"/>
+                </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          The motion around the ellipse is counterclockwise, begins at the point
+          <m>(2,0)</m>, and requires <m>1</m> second for a complete revolution.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          The motion around the ellipse is clockwise, begins at the point
+          <m>(0,1)</m>, and requires <m>2</m> seconds for a complete revolution.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
   </exercises>
 </section>
