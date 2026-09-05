@@ -52,6 +52,614 @@
   <exercises xml:id="exercises-hw1-online">
 
   <!-- =================================================================== -->
+  <!-- Problems 38 and 41 and Example 7 of the textbook's "Using Time as   -->
+  <!-- the Parameter" material.                                            -->
+  <exercise xml:id="ex-hw1o-motion-i">
+    <title>Describing a Motion, I</title>
+    <statement>
+      <p>
+        An object moves along a curve so that at time <m>t</m> it has
+        coordinates
+        <me>x(t) = \frac{3t}{\sqrt{t^2+1}}, \qquad
+            y(t) = \frac{3}{\sqrt{t^2+1}}.</me>
+        Describe the motion.
+      </p>
+      <p>
+        Eliminate <m>t</m> to identify the curve the object travels on: it
+        is a <var width="10"/> (type <c>line</c>, <c>parabola</c>, <c>circle</c>,
+        <c>ellipse</c>, or <c>hyperbola</c>).
+      </p>
+      <p>
+        Then graph the path and indicate the direction of motion. There is
+        no box for this part: include the graph in the solution you submit
+        to the grader.
+      </p>
+    </statement>
+    <setup>
+      <var case="insensitive">
+        <condition string="circle">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string="ellipse">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw1-solutions">
+      <p>
+        For every <m>t</m>,
+        <me>x^2 + y^2 = \frac{9t^2}{t^2+1} + \frac{9}{t^2+1}
+            = \frac{9(t^2+1)}{t^2+1} = 9,</me>
+        so the object stays on the circle of radius <m>3</m> centered at the
+        origin. Since <m>y(t) = 3/\sqrt{t^2+1} > 0</m> for every <m>t</m>,
+        only the <em>upper</em> half of that circle is ever visited.
+      </p>
+      <p>
+        As <m>t \to -\infty</m>, <m>x \to -3</m> and <m>y \to 0</m>, so the
+        object comes in from near <m>(-3,0)</m>; at <m>t = 0</m> it is at
+        <m>(0,3)</m>, the top of the circle; and as <m>t \to \infty</m> it
+        approaches <m>(3,0)</m>. Because
+        <m>x'(t) = 3/(t^2+1)^{3/2} > 0</m>, the <m>x</m>-coordinate always
+        increases, so the object moves steadily from left to right over the top
+        of the circle: <em>clockwise</em>, as in
+        <xref ref="fig-hw1o-semicircle"/>. It never reaches the two endpoints
+        <m>(\pm 3, 0)</m>; it only approaches them.
+      </p>
+      <p>
+        The speed is <m>\lVert\mathbf{v}(t)\rVert = 3/(t^2+1)</m>: the
+        object is fastest at the top, at <m>t=0</m>, and slows down as it
+        nears either endpoint.
+      </p>
+      <figure xml:id="fig-hw1o-semicircle">
+        <caption>
+          The path of <xref ref="ex-hw1o-motion-i"/>: the upper half
+          of the circle <m>x^2+y^2=9</m>, traced clockwise.
+        </caption>
+        <image width="70%">
+          <shortdescription>
+          The upper semicircle of radius three, traced from left to right, with open dots at its two endpoints.
+          </shortdescription>
+          <description>
+            <p>
+            The upper half of the circle of radius three centered at the origin,
+            drawn in blue with an arrowhead showing motion from left to right.
+            Open dots at minus three comma zero and three comma zero mark the
+            endpoints the object approaches but never reaches; red dots mark the
+            positions at t equals minus one, t equals zero (the top point zero
+            comma three), and t equals one.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-semicircle">
+            <diagram dimensions="(420,270)" margins="5">
+              <definition>c(s) = (3*sin(s), 3*cos(s))</definition>
+              <definition>q(t) = (3*t/sqrt(t^2+1), 3/sqrt(t^2+1))</definition>
+              <coordinates bbox="(-5.2,-1.1,5.2,4.1)" aspect-ratio="1">
+                <grid-axes xlabel="x" ylabel="y"/>
+                <group at="curve">
+                  <parametric-curve function="c" domain="(-pi/2,pi/2)" stroke="blue" thickness="3"/>
+                  <parametric-curve function="c" domain="(0.5,0.7)" stroke="blue"
+                                    thickness="3" arrows="1"/>
+                </group>
+                <group at="ends">
+                  <point p="(-3,0)" size="4.5" stroke="blue" fill="white"/>
+                  <label anchor="(-3,0)" alignment="nw" offset="(-4,8)" clear-background="yes">
+                    <m>t\to-\infty</m>
+                  </label>
+                  <point p="(3,0)" size="4.5" stroke="blue" fill="white"/>
+                  <label anchor="(3,0)" alignment="ne" offset="(4,8)" clear-background="yes">
+                    <m>t\to\infty</m>
+                  </label>
+                </group>
+                <group at="marks">
+                  <point p="q(-1)" size="4" stroke="red" fill="red"/>
+                  <label anchor="q(-1)" alignment="nw" offset="(-6,6)" clear-background="yes">
+                    <m>t=-1</m>
+                  </label>
+                  <point p="q(0)" size="4" stroke="red" fill="red"/>
+                  <label anchor="q(0)" alignment="n" offset="(0,8)" clear-background="yes">
+                    <m>t=0</m>
+                  </label>
+                  <point p="q(1)" size="4" stroke="red" fill="red"/>
+                  <label anchor="q(1)" alignment="ne" offset="(6,6)" clear-background="yes">
+                    <m>t=1</m>
+                  </label>
+                </group>
+              </coordinates>
+              <annotations>
+                <annotation ref="figure" text="The upper half of the circle of radius three centered at the origin, traced clockwise from left to right">
+                  <annotation ref="grid" text="The coordinate grid"/>
+                  <annotation ref="axes" text="The coordinate axes"/>
+                  <annotation ref="curve" text="The upper semicircle of radius three, traced from left to right, that is, clockwise" sonify="yes"/>
+                  <annotation ref="ends" text="Open dots at minus three comma zero and three comma zero, the two endpoints the object approaches as t goes to minus infinity and to infinity but never reaches"/>
+                  <annotation ref="marks" text="Three dots marking the positions at t equals minus one, t equals zero at the top point zero comma three, and t equals one"/>
+                </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+  <!-- =================================================================== -->
+  <exercise xml:id="ex-hw1o-motion-ii">
+    <title>Describing a Motion, II</title>
+    <statement>
+      <p>
+        An object moves along a curve so that at time <m>t</m> it has
+        coordinates
+        <me>x(t) = \sin t - 2, \qquad y(t) = 4 - 2\cos t, \qquad
+            0 \le t \le 2\pi.</me>
+        Describe the motion.
+      </p>
+      <p>
+        Eliminate <m>t</m> to identify the curve the object travels on: it
+        is a <var width="10"/> (type <c>line</c>, <c>parabola</c>, <c>circle</c>,
+        <c>ellipse</c>, or <c>hyperbola</c>).
+      </p>
+      <p>
+        Then graph the path and indicate the direction of motion. There is
+        no box for this part: include the graph in the solution you submit
+        to the grader.
+      </p>
+    </statement>
+    <setup>
+      <var case="insensitive">
+        <condition string="ellipse">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string="circle">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw1-solutions">
+      <p>
+        From <m>x = \sin t - 2</m> and <m>y = 4 - 2\cos t</m> we get
+        <m>\sin t = x + 2</m> and <m>\cos t = (4 - y)/2</m>, so
+        <me>(x+2)^2 + \frac{(y-4)^2}{4} = \sin^2 t + \cos^2 t = 1.</me>
+        The path is the ellipse centered at <m>(-2,4)</m> that extends <m>1</m>
+        unit left and right of the center and <m>2</m> units above and below it.
+      </p>
+      <p>
+        Following the object through one period:
+        at <m>t=0</m> it is at <m>(-2,2)</m>, the bottom of the ellipse;
+        at <m>t=\pi/2</m> at <m>(-1,4)</m>, the rightmost point;
+        at <m>t=\pi</m> at <m>(-2,6)</m>, the top;
+        at <m>t=3\pi/2</m> at <m>(-3,4)</m>, the leftmost point;
+        and at <m>t=2\pi</m> it is back at <m>(-2,2)</m>.
+        Bottom, right, top, left is <em>counterclockwise</em>, so as <m>t</m>
+        runs from <m>0</m> to <m>2\pi</m> the object goes once around the
+        ellipse counterclockwise, starting and ending at its lowest point
+        (<xref ref="fig-hw1o-ellipse-motion"/>).
+      </p>
+      <figure xml:id="fig-hw1o-ellipse-motion">
+        <caption>
+          The path of <xref ref="ex-hw1o-motion-ii"/>: the ellipse
+          <m>(x+2)^2 + \dfrac{(y-4)^2}{4} = 1</m>, traced once counterclockwise
+          from its lowest point.
+        </caption>
+        <image width="50%">
+          <shortdescription>
+          An ellipse centered at (-2,4), taller than it is wide, traced counterclockwise starting from its bottom point.
+          </shortdescription>
+          <description>
+            <p>
+            An ellipse centered at minus two comma four, one unit wide on each
+            side of the center and two units tall on each side, drawn in blue
+            with an arrowhead showing counterclockwise motion. Red dots mark the
+            positions at t equals zero (bottom), pi over two (right), pi (top),
+            and three pi over two (left).
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse-motion">
+            <diagram dimensions="(320,416)" margins="5">
+              <definition>c(t) = (sin(t) - 2, 4 - 2*cos(t))</definition>
+              <coordinates bbox="(-4.6,-0.8,1.4,7.0)" aspect-ratio="1">
+                <grid-axes xlabel="x" ylabel="y"/>
+                <group at="curve">
+                  <parametric-curve function="c" domain="(0,2*pi)" stroke="blue" thickness="3"/>
+                  <parametric-curve function="c" domain="(3.5,3.9)" stroke="blue"
+                                    thickness="3" arrows="1"/>
+                </group>
+                <group at="center">
+                  <point p="(-2,4)" size="3.5" stroke="black" fill="black"/>
+                  <label anchor="(-2,4)" alignment="ne" offset="(5,4)" clear-background="yes">
+                    <m>(-2,4)</m>
+                  </label>
+                </group>
+                <group at="quarters">
+                  <point p="c(0)" size="4" stroke="red" fill="red"/>
+                  <label anchor="c(0)" alignment="s" offset="(0,-8)" clear-background="yes">
+                    <m>t=0</m>
+                  </label>
+                  <point p="c(pi/2)" size="4" stroke="red" fill="red"/>
+                  <label anchor="c(pi/2)" alignment="e" offset="(8,0)" clear-background="yes">
+                    <m>t=\pi/2</m>
+                  </label>
+                  <point p="c(pi)" size="4" stroke="red" fill="red"/>
+                  <label anchor="c(pi)" alignment="n" offset="(0,8)" clear-background="yes">
+                    <m>t=\pi</m>
+                  </label>
+                  <point p="c(3*pi/2)" size="4" stroke="red" fill="red"/>
+                  <label anchor="c(3*pi/2)" alignment="w" offset="(-8,0)" clear-background="yes">
+                    <m>t=3\pi/2</m>
+                  </label>
+                </group>
+              </coordinates>
+              <annotations>
+                <annotation ref="figure" text="An ellipse centered at minus two comma four, one unit wide on each side of the center and two units tall on each side, traced once counterclockwise starting from its lowest point">
+                  <annotation ref="grid" text="The coordinate grid"/>
+                  <annotation ref="axes" text="The coordinate axes"/>
+                  <annotation ref="curve" text="The ellipse, traced counterclockwise" sonify="yes"/>
+                  <annotation ref="center" text="The center of the ellipse, at minus two comma four"/>
+                  <annotation ref="quarters" text="Four dots marking the positions at t equals zero, at the bottom point minus two comma two; t equals pi over two, at the right point minus one comma four; t equals pi, at the top point minus two comma six; and t equals three pi over two, at the left point minus three comma four"/>
+                </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+  <!-- =================================================================== -->
+  <!-- The figure sits outside the exercise: PreTeXt keeps two copies of an -->
+  <!-- auto-graded exercise, so an xml:id or label inside one is doubled.   -->
+  <figure xml:id="fig-hw1o-ellipse">
+    <caption>
+      The ellipse <m>\dfrac{x^2}{4} + y^2 = 1</m>, with the starting point
+      of each motion marked.
+    </caption>
+    <image width="70%">
+      <shortdescription>
+      The ellipse x squared over four plus y squared equals one, with the points (2,0) and (0,1) marked.
+      </shortdescription>
+      <description>
+        <p>
+        An ellipse centered at the origin, crossing the x axis at plus and
+        minus two and the y axis at plus and minus one. The point two comma
+        zero is marked in orange and the point zero comma one in green.
+        </p>
+      </description>
+      <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse">
+        <diagram dimensions="(462,273)" margins="5">
+          <definition>c(t) = (2*cos(t), sin(t))</definition>
+          <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
+            <grid-axes xlabel="x" ylabel="y"/>
+            <group at="curve">
+              <parametric-curve function="c" domain="(0,2*pi)" stroke="blue" thickness="3"/>
+            </group>
+            <group at="starts">
+              <point p="(2,0)" size="4.5" stroke="#D55E00" fill="#D55E00"/>
+              <label anchor="(2,0)" alignment="ne" offset="(6,6)" color="#D55E00" clear-background="yes">
+                <m>(2,0)</m>
+              </label>
+              <point p="(0,1)" size="4.5" stroke="#009E73" fill="#009E73"/>
+              <label anchor="(0,1)" alignment="ne" offset="(6,6)" color="#009E73" clear-background="yes">
+                <m>(0,1)</m>
+              </label>
+            </group>
+          </coordinates>
+          <annotations>
+            <annotation ref="figure" text="The ellipse x squared over four plus y squared equals one, which crosses the x axis at plus and minus two and the y axis at plus and minus one">
+              <annotation ref="grid" text="The coordinate grid"/>
+              <annotation ref="axes" text="The coordinate axes"/>
+              <annotation ref="curve" text="The ellipse" sonify="yes"/>
+              <annotation ref="starts" text="Two marked points: two comma zero, where the motion in part a begins, and zero comma one, where the motion in part b begins"/>
+            </annotation>
+          </annotations>
+        </diagram>
+      </prefigure>
+    </image>
+  </figure>
+
+  <exercise xml:id="ex-hw1o-ellipse-parametrize">
+    <title>Parametrizing an Ellipse as a Motion</title>
+    <statement>
+      <p>
+        Find parametric equations that trace out the ellipse
+        <me>\frac{x^2}{4} + y^2 = 1</me>
+        of <xref ref="fig-hw1o-ellipse"/>, where the parameter <m>t</m> is
+        time (in seconds), in each of the two ways below. Write
+        <m>\pi</m> as <c>pi</c>: the expression <m>2\cos(2\pi t)</m>
+        is typed <c>2cos(2pi t)</c> or <c>2cos(2*pi*t)</c>.
+      </p>
+      <p>
+        <term>(a)</term> The motion around the ellipse is counterclockwise,
+        begins at the point <m>(2,0)</m>, and requires <m>1</m> second for
+        a complete revolution.
+      </p>
+      <p><m>x(t) =</m> <var width="14"/></p>
+      <p><m>y(t) =</m> <var width="14"/></p>
+      <p>
+        One complete revolution is <m>0 \le t \le</m> <var width="5"/>.
+      </p>
+      <p>
+        <term>(b)</term> The motion around the ellipse is clockwise, begins
+        at the point <m>(0,1)</m>, and requires <m>2</m> seconds for a
+        complete revolution.
+      </p>
+      <p><m>x(t) =</m> <var width="14"/></p>
+      <p><m>y(t) =</m> <var width="14"/></p>
+      <p>
+        One complete revolution is <m>0 \le t \le</m> <var width="5"/>.
+      </p>
+    </statement>
+    <setup>
+      <var case="insensitive">
+        <condition string="2\s*\*?\s*cos\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string="2\s*\*?\s*sin\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var case="insensitive">
+        <condition string="sin\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string="cos\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition number="6.283" tolerance="0.01">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var case="insensitive">
+        <condition string="2\s*\*?\s*sin\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string="2\s*\*?\s*cos\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var case="insensitive">
+        <condition string="cos\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string="sin\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="2" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition number="6.283" tolerance="0.01">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw1-solutions">
+      <p>
+        <term>(a)</term> The equations <m>x = 2\cos(\omega t)</m>,
+        <m>y = \sin(\omega t)</m> satisfy
+        <m>x^2/4 + y^2 = \cos^2(\omega t) + \sin^2(\omega t) = 1</m>, start
+        at <m>(2,0)</m> when <m>t=0</m>, and move counterclockwise, since just
+        after <m>t=0</m> the point has <m>y > 0</m> and <m>x</m> decreasing. One
+        revolution takes <m>2\pi/\omega</m> seconds, and we want this to be
+        <m>1</m>, so <m>\omega = 2\pi</m>:
+        <me>x(t) = 2\cos(2\pi t), \qquad y(t) = \sin(2\pi t), \qquad
+            0 \le t \le 1.</me>
+      </p>
+      <p>
+        <term>(b)</term> To start at <m>(0,1)</m>, swap the roles of sine and
+        cosine: <m>x = 2\sin(\omega t)</m>, <m>y = \cos(\omega t)</m> is at
+        <m>(0,1)</m> when <m>t=0</m>, and just afterwards <m>x</m> is positive
+        and <m>y</m> is decreasing, so the point heads toward <m>(2,0)</m>:
+        clockwise. A revolution takes <m>2\pi/\omega = 2</m> seconds, so
+        <m>\omega = \pi</m>:
+        <me>x(t) = 2\sin(\pi t), \qquad y(t) = \cos(\pi t), \qquad
+            0 \le t \le 2.</me>
+      </p>
+      <p>
+        <xref ref="fig-hw1o-ellipse-ccw"/> and
+        <xref ref="fig-hw1o-ellipse-cw"/> show the two motions, with the
+        position marked every quarter of a revolution.
+      </p>
+      <sidebyside widths="48% 48%" margins="0%" valign="middle">
+        <figure xml:id="fig-hw1o-ellipse-ccw">
+          <caption>
+            Part (a): counterclockwise from <m>(2,0)</m>, one revolution per
+            second.
+          </caption>
+          <image width="100%">
+            <shortdescription>
+            The ellipse traced counterclockwise from (2,0), with the quarter-second positions marked.
+            </shortdescription>
+            <description>
+              <p>
+              The ellipse x squared over four plus y squared equals one, drawn in
+              blue with an arrowhead showing counterclockwise motion. Red dots mark
+              the positions at t equals zero and one, at two comma zero; t equals
+              one quarter, at zero comma one; t equals one half, at minus two
+              comma zero; and t equals three quarters, at zero comma minus one.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse-ccw">
+              <diagram dimensions="(462,273)" margins="5">
+                <definition>c(t) = (2*cos(2*pi*t), sin(2*pi*t))</definition>
+                <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
+                  <grid-axes xlabel="x" ylabel="y"/>
+                  <group at="curve">
+                    <parametric-curve function="c" domain="(0,1)" stroke="blue" thickness="3"/>
+                    <parametric-curve function="c" domain="(0.08,0.14)" stroke="blue"
+                                      thickness="3" arrows="1"/>
+                  </group>
+                  <group at="quarters">
+                    <point p="c(0)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(0)" alignment="ne" offset="(6,8)" clear-background="yes">
+                      <m>t=0,\ 1</m>
+                    </label>
+                    <point p="c(0.25)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(0.25)" alignment="n" offset="(0,8)" clear-background="yes">
+                      <m>t=\tfrac14</m>
+                    </label>
+                    <point p="c(0.5)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(0.5)" alignment="nw" offset="(-6,6)" clear-background="yes">
+                      <m>t=\tfrac12</m>
+                    </label>
+                    <point p="c(0.75)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(0.75)" alignment="s" offset="(0,-8)" clear-background="yes">
+                      <m>t=\tfrac34</m>
+                    </label>
+                  </group>
+                </coordinates>
+                <annotations>
+                  <annotation ref="figure" text="The ellipse traced counterclockwise, starting at two comma zero and returning there after one second">
+                    <annotation ref="grid" text="The coordinate grid"/>
+                    <annotation ref="axes" text="The coordinate axes"/>
+                    <annotation ref="curve" text="The ellipse, traced counterclockwise" sonify="yes"/>
+                    <annotation ref="quarters" text="Four dots marking the positions at t equals zero and one, at two comma zero; t equals one quarter, at zero comma one; t equals one half, at minus two comma zero; and t equals three quarters, at zero comma minus one"/>
+                  </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </figure>
+        <figure xml:id="fig-hw1o-ellipse-cw">
+          <caption>
+            Part (b): clockwise from <m>(0,1)</m>, one revolution every two
+            seconds.
+          </caption>
+          <image width="100%">
+            <shortdescription>
+            The ellipse traced clockwise from (0,1), with the half-second positions marked.
+            </shortdescription>
+            <description>
+              <p>
+              The same ellipse, drawn in blue with an arrowhead showing clockwise
+              motion. Red dots mark the positions at t equals zero and two, at
+              zero comma one; t equals one half, at two comma zero; t equals one,
+              at zero comma minus one; and t equals three halves, at minus two
+              comma zero.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse-cw">
+              <diagram dimensions="(462,273)" margins="5">
+                <definition>c(t) = (2*sin(pi*t), cos(pi*t))</definition>
+                <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
+                  <grid-axes xlabel="x" ylabel="y"/>
+                  <group at="curve">
+                    <parametric-curve function="c" domain="(0,2)" stroke="blue" thickness="3"/>
+                    <parametric-curve function="c" domain="(0.25,0.38)" stroke="blue"
+                                      thickness="3" arrows="1"/>
+                  </group>
+                  <group at="quarters">
+                    <point p="c(0)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(0)" alignment="ne" offset="(8,6)" clear-background="yes">
+                      <m>t=0,\ 2</m>
+                    </label>
+                    <point p="c(0.5)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(0.5)" alignment="ne" offset="(6,6)" clear-background="yes">
+                      <m>t=\tfrac12</m>
+                    </label>
+                    <point p="c(1)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(1)" alignment="s" offset="(0,-8)" clear-background="yes">
+                      <m>t=1</m>
+                    </label>
+                    <point p="c(1.5)" size="4" stroke="red" fill="red"/>
+                    <label anchor="c(1.5)" alignment="nw" offset="(-6,6)" clear-background="yes">
+                      <m>t=\tfrac32</m>
+                    </label>
+                  </group>
+                </coordinates>
+                <annotations>
+                  <annotation ref="figure" text="The ellipse traced clockwise, starting at zero comma one and returning there after two seconds">
+                    <annotation ref="grid" text="The coordinate grid"/>
+                    <annotation ref="axes" text="The coordinate axes"/>
+                    <annotation ref="curve" text="The ellipse, traced clockwise" sonify="yes"/>
+                    <annotation ref="quarters" text="Four dots marking the positions at t equals zero and two, at zero comma one; t equals one half, at two comma zero; t equals one, at zero comma minus one; and t equals three halves, at minus two comma zero"/>
+                  </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </figure>
+      </sidebyside>
+    </solution>
+  </exercise>
+
+
+  <!-- =================================================================== -->
   <exercise xml:id="ex-hw1o-parametrize-intersection">
     <title>Parametrizing a Curve of Intersection</title>
     <statement>
@@ -517,888 +1125,6 @@ with a double-headed arrow mark each spring's height.
         <m>t=1</m>. The object is then at
         <m>\mathbf{r}(1)=\left\langle 12,\ 8,\ 3\right\rangle</m>.
       </p>
-    </solution>
-  </exercise>
-
-
-  <!-- =================================================================== -->
-  <!-- Problems 38 and 41 and Example 7 of the textbook's "Using Time as   -->
-  <!-- the Parameter" material.                                            -->
-  <exercise xml:id="ex-hw1o-semicircle-motion">
-    <title>Describing a Motion: Around a Circle</title>
-    <statement>
-      <p>
-        An object moves along a curve so that at time <m>t</m> it has
-        coordinates
-        <me>x(t) = \frac{3t}{\sqrt{t^2+1}}, \qquad
-            y(t) = \frac{3}{\sqrt{t^2+1}}.</me>
-        Describe the motion.
-      </p>
-      <p>
-        Every point of the path satisfies <m>x^2 + y^2 =</m>
-        <var width="6"/>, so the object stays on a circle centered at
-        the origin.
-      </p>
-      <p>
-        Since <m>y(t)</m> never changes sign, the object stays on the
-        <var width="8"/> half of that circle (type <c>upper</c> or
-        <c>lower</c>).
-      </p>
-      <p>
-        As <m>t \to -\infty</m> the object approaches the point
-        <m>(</m><var width="5"/>, <var width="5"/><m>)</m>;
-        at <m>t = 0</m> it is at
-        <m>(</m><var width="5"/>, <var width="5"/><m>)</m>;
-        and as <m>t \to \infty</m> it approaches
-        <m>(</m><var width="5"/>, <var width="5"/><m>)</m>.
-      </p>
-      <p>
-        So it travels <var width="18"/> around the circle (type
-        <c>clockwise</c> or <c>counterclockwise</c>).
-      </p>
-    </statement>
-    <setup>
-      <var>
-        <condition number="9" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="3" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var case="insensitive">
-        <condition string="upper">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string="lower">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="-3" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="3" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="0" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="0" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="3" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="3" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="-3" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="0" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var case="insensitive">
-        <condition string="clockwise">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string="counterclockwise">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-    </setup>
-    <solution component="hw1-solutions">
-      <p>
-        For every <m>t</m>,
-        <me>x^2 + y^2 = \frac{9t^2}{t^2+1} + \frac{9}{t^2+1}
-            = \frac{9(t^2+1)}{t^2+1} = 9,</me>
-        so the object stays on the circle of radius <m>3</m> centered at the
-        origin. Since <m>y(t) = 3/\sqrt{t^2+1} > 0</m> for every <m>t</m>,
-        only the <em>upper</em> half of that circle is ever visited.
-      </p>
-      <p>
-        As <m>t \to -\infty</m>, <m>x \to -3</m> and <m>y \to 0</m>, so the
-        object comes in from near <m>(-3,0)</m>; at <m>t = 0</m> it is at
-        <m>(0,3)</m>, the top of the circle; and as <m>t \to \infty</m> it
-        approaches <m>(3,0)</m>. Because
-        <m>x'(t) = 3/(t^2+1)^{3/2} > 0</m>, the <m>x</m>-coordinate always
-        increases, so the object moves steadily from left to right over the top
-        of the circle: <em>clockwise</em>, as in
-        <xref ref="fig-hw1o-semicircle"/>. It never reaches the two endpoints
-        <m>(\pm 3, 0)</m>; it only approaches them.
-      </p>
-      <p>
-        The speed is <m>\lVert\mathbf{v}(t)\rVert = 3/(t^2+1)</m>: the
-        object is fastest at the top, at <m>t=0</m>, and slows down as it
-        nears either endpoint.
-      </p>
-      <figure xml:id="fig-hw1o-semicircle">
-        <caption>
-          The path of <xref ref="ex-hw1o-semicircle-motion"/>: the upper half
-          of the circle <m>x^2+y^2=9</m>, traced clockwise.
-        </caption>
-        <image width="70%">
-          <shortdescription>
-          The upper semicircle of radius three, traced from left to right, with open dots at its two endpoints.
-          </shortdescription>
-          <description>
-            <p>
-            The upper half of the circle of radius three centered at the origin,
-            drawn in blue with an arrowhead showing motion from left to right.
-            Open dots at minus three comma zero and three comma zero mark the
-            endpoints the object approaches but never reaches; red dots mark the
-            positions at t equals minus one, t equals zero (the top point zero
-            comma three), and t equals one.
-            </p>
-          </description>
-          <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-semicircle">
-            <diagram dimensions="(420,270)" margins="5">
-              <definition>c(s) = (3*sin(s), 3*cos(s))</definition>
-              <definition>q(t) = (3*t/sqrt(t^2+1), 3/sqrt(t^2+1))</definition>
-              <coordinates bbox="(-5.2,-1.1,5.2,4.1)" aspect-ratio="1">
-                <grid-axes xlabel="x" ylabel="y"/>
-                <group at="curve">
-                  <parametric-curve function="c" domain="(-pi/2,pi/2)" stroke="blue" thickness="3"/>
-                  <parametric-curve function="c" domain="(0.5,0.7)" stroke="blue"
-                                    thickness="3" arrows="1"/>
-                </group>
-                <group at="ends">
-                  <point p="(-3,0)" size="4.5" stroke="blue" fill="white"/>
-                  <label anchor="(-3,0)" alignment="nw" offset="(-4,8)" clear-background="yes">
-                    <m>t\to-\infty</m>
-                  </label>
-                  <point p="(3,0)" size="4.5" stroke="blue" fill="white"/>
-                  <label anchor="(3,0)" alignment="ne" offset="(4,8)" clear-background="yes">
-                    <m>t\to\infty</m>
-                  </label>
-                </group>
-                <group at="marks">
-                  <point p="q(-1)" size="4" stroke="red" fill="red"/>
-                  <label anchor="q(-1)" alignment="nw" offset="(-6,6)" clear-background="yes">
-                    <m>t=-1</m>
-                  </label>
-                  <point p="q(0)" size="4" stroke="red" fill="red"/>
-                  <label anchor="q(0)" alignment="n" offset="(0,8)" clear-background="yes">
-                    <m>t=0</m>
-                  </label>
-                  <point p="q(1)" size="4" stroke="red" fill="red"/>
-                  <label anchor="q(1)" alignment="ne" offset="(6,6)" clear-background="yes">
-                    <m>t=1</m>
-                  </label>
-                </group>
-              </coordinates>
-              <annotations>
-                <annotation ref="figure" text="The upper half of the circle of radius three centered at the origin, traced clockwise from left to right">
-                  <annotation ref="grid" text="The coordinate grid"/>
-                  <annotation ref="axes" text="The coordinate axes"/>
-                  <annotation ref="curve" text="The upper semicircle of radius three, traced from left to right, that is, clockwise" sonify="yes"/>
-                  <annotation ref="ends" text="Open dots at minus three comma zero and three comma zero, the two endpoints the object approaches as t goes to minus infinity and to infinity but never reaches"/>
-                  <annotation ref="marks" text="Three dots marking the positions at t equals minus one, t equals zero at the top point zero comma three, and t equals one"/>
-                </annotation>
-              </annotations>
-            </diagram>
-          </prefigure>
-        </image>
-      </figure>
-    </solution>
-  </exercise>
-
-  <!-- =================================================================== -->
-  <exercise xml:id="ex-hw1o-ellipse-motion">
-    <title>Describing a Motion: Around an Ellipse</title>
-    <statement>
-      <p>
-        An object moves along a curve so that at time <m>t</m> it has
-        coordinates
-        <me>x(t) = \sin t - 2, \qquad y(t) = 4 - 2\cos t, \qquad
-            0 \le t \le 2\pi.</me>
-        Describe the motion.
-      </p>
-      <p>
-        Eliminating <m>t</m> shows that the path is an ellipse centered at
-        <m>(</m><var width="5"/>, <var width="5"/><m>)</m>, extending
-        <var width="5"/> unit(s) to the left and right of the center and
-        <var width="5"/> unit(s) above and below it.
-      </p>
-      <p>
-        At <m>t = 0</m> the object is at
-        <m>(</m><var width="5"/>, <var width="5"/><m>)</m>, and at
-        <m>t = \pi/2</m> it is at
-        <m>(</m><var width="5"/>, <var width="5"/><m>)</m>.
-      </p>
-      <p>
-        It travels <var width="18"/> around the ellipse (type
-        <c>clockwise</c> or <c>counterclockwise</c>), and as <m>t</m> runs
-        from <m>0</m> to <m>2\pi</m> it goes around the ellipse
-        <var width="4"/> time(s).
-      </p>
-    </statement>
-    <setup>
-      <var>
-        <condition number="-2" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="2" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="4" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="-4" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="1" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="2" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="4" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="-2" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="2" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="6" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="-1" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="-3" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="4" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var case="insensitive">
-        <condition string="counterclockwise">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string="clockwise">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="1" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="2" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-    </setup>
-    <solution component="hw1-solutions">
-      <p>
-        From <m>x = \sin t - 2</m> and <m>y = 4 - 2\cos t</m> we get
-        <m>\sin t = x + 2</m> and <m>\cos t = (4 - y)/2</m>, so
-        <me>(x+2)^2 + \frac{(y-4)^2}{4} = \sin^2 t + \cos^2 t = 1.</me>
-        The path is the ellipse centered at <m>(-2,4)</m> that extends <m>1</m>
-        unit left and right of the center and <m>2</m> units above and below it.
-      </p>
-      <p>
-        Following the object through one period:
-        at <m>t=0</m> it is at <m>(-2,2)</m>, the bottom of the ellipse;
-        at <m>t=\pi/2</m> at <m>(-1,4)</m>, the rightmost point;
-        at <m>t=\pi</m> at <m>(-2,6)</m>, the top;
-        at <m>t=3\pi/2</m> at <m>(-3,4)</m>, the leftmost point;
-        and at <m>t=2\pi</m> it is back at <m>(-2,2)</m>.
-        Bottom, right, top, left is <em>counterclockwise</em>, so as <m>t</m>
-        runs from <m>0</m> to <m>2\pi</m> the object goes once around the
-        ellipse counterclockwise, starting and ending at its lowest point
-        (<xref ref="fig-hw1o-ellipse-motion"/>).
-      </p>
-      <figure xml:id="fig-hw1o-ellipse-motion">
-        <caption>
-          The path of <xref ref="ex-hw1o-ellipse-motion"/>: the ellipse
-          <m>(x+2)^2 + \dfrac{(y-4)^2}{4} = 1</m>, traced once counterclockwise
-          from its lowest point.
-        </caption>
-        <image width="50%">
-          <shortdescription>
-          An ellipse centered at (-2,4), taller than it is wide, traced counterclockwise starting from its bottom point.
-          </shortdescription>
-          <description>
-            <p>
-            An ellipse centered at minus two comma four, one unit wide on each
-            side of the center and two units tall on each side, drawn in blue
-            with an arrowhead showing counterclockwise motion. Red dots mark the
-            positions at t equals zero (bottom), pi over two (right), pi (top),
-            and three pi over two (left).
-            </p>
-          </description>
-          <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse-motion">
-            <diagram dimensions="(320,416)" margins="5">
-              <definition>c(t) = (sin(t) - 2, 4 - 2*cos(t))</definition>
-              <coordinates bbox="(-4.6,-0.8,1.4,7.0)" aspect-ratio="1">
-                <grid-axes xlabel="x" ylabel="y"/>
-                <group at="curve">
-                  <parametric-curve function="c" domain="(0,2*pi)" stroke="blue" thickness="3"/>
-                  <parametric-curve function="c" domain="(3.5,3.9)" stroke="blue"
-                                    thickness="3" arrows="1"/>
-                </group>
-                <group at="center">
-                  <point p="(-2,4)" size="3.5" stroke="black" fill="black"/>
-                  <label anchor="(-2,4)" alignment="ne" offset="(5,4)" clear-background="yes">
-                    <m>(-2,4)</m>
-                  </label>
-                </group>
-                <group at="quarters">
-                  <point p="c(0)" size="4" stroke="red" fill="red"/>
-                  <label anchor="c(0)" alignment="s" offset="(0,-8)" clear-background="yes">
-                    <m>t=0</m>
-                  </label>
-                  <point p="c(pi/2)" size="4" stroke="red" fill="red"/>
-                  <label anchor="c(pi/2)" alignment="e" offset="(8,0)" clear-background="yes">
-                    <m>t=\pi/2</m>
-                  </label>
-                  <point p="c(pi)" size="4" stroke="red" fill="red"/>
-                  <label anchor="c(pi)" alignment="n" offset="(0,8)" clear-background="yes">
-                    <m>t=\pi</m>
-                  </label>
-                  <point p="c(3*pi/2)" size="4" stroke="red" fill="red"/>
-                  <label anchor="c(3*pi/2)" alignment="w" offset="(-8,0)" clear-background="yes">
-                    <m>t=3\pi/2</m>
-                  </label>
-                </group>
-              </coordinates>
-              <annotations>
-                <annotation ref="figure" text="An ellipse centered at minus two comma four, one unit wide on each side of the center and two units tall on each side, traced once counterclockwise starting from its lowest point">
-                  <annotation ref="grid" text="The coordinate grid"/>
-                  <annotation ref="axes" text="The coordinate axes"/>
-                  <annotation ref="curve" text="The ellipse, traced counterclockwise" sonify="yes"/>
-                  <annotation ref="center" text="The center of the ellipse, at minus two comma four"/>
-                  <annotation ref="quarters" text="Four dots marking the positions at t equals zero, at the bottom point minus two comma two; t equals pi over two, at the right point minus one comma four; t equals pi, at the top point minus two comma six; and t equals three pi over two, at the left point minus three comma four"/>
-                </annotation>
-              </annotations>
-            </diagram>
-          </prefigure>
-        </image>
-      </figure>
-    </solution>
-  </exercise>
-
-  <!-- =================================================================== -->
-  <!-- The figure sits outside the exercise: PreTeXt keeps two copies of an -->
-  <!-- auto-graded exercise, so an xml:id or label inside one is doubled.   -->
-  <figure xml:id="fig-hw1o-ellipse">
-    <caption>
-      The ellipse <m>\dfrac{x^2}{4} + y^2 = 1</m>, with the starting point
-      of each motion marked.
-    </caption>
-    <image width="70%">
-      <shortdescription>
-      The ellipse x squared over four plus y squared equals one, with the points (2,0) and (0,1) marked.
-      </shortdescription>
-      <description>
-        <p>
-        An ellipse centered at the origin, crossing the x axis at plus and
-        minus two and the y axis at plus and minus one. The point two comma
-        zero is marked in orange and the point zero comma one in green.
-        </p>
-      </description>
-      <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse">
-        <diagram dimensions="(462,273)" margins="5">
-          <definition>c(t) = (2*cos(t), sin(t))</definition>
-          <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
-            <grid-axes xlabel="x" ylabel="y"/>
-            <group at="curve">
-              <parametric-curve function="c" domain="(0,2*pi)" stroke="blue" thickness="3"/>
-            </group>
-            <group at="starts">
-              <point p="(2,0)" size="4.5" stroke="#D55E00" fill="#D55E00"/>
-              <label anchor="(2,0)" alignment="ne" offset="(6,6)" color="#D55E00" clear-background="yes">
-                <m>(2,0)</m>
-              </label>
-              <point p="(0,1)" size="4.5" stroke="#009E73" fill="#009E73"/>
-              <label anchor="(0,1)" alignment="ne" offset="(6,6)" color="#009E73" clear-background="yes">
-                <m>(0,1)</m>
-              </label>
-            </group>
-          </coordinates>
-          <annotations>
-            <annotation ref="figure" text="The ellipse x squared over four plus y squared equals one, which crosses the x axis at plus and minus two and the y axis at plus and minus one">
-              <annotation ref="grid" text="The coordinate grid"/>
-              <annotation ref="axes" text="The coordinate axes"/>
-              <annotation ref="curve" text="The ellipse" sonify="yes"/>
-              <annotation ref="starts" text="Two marked points: two comma zero, where the motion in part a begins, and zero comma one, where the motion in part b begins"/>
-            </annotation>
-          </annotations>
-        </diagram>
-      </prefigure>
-    </image>
-  </figure>
-
-  <exercise xml:id="ex-hw1o-ellipse-parametrize">
-    <title>Parametrizing an Ellipse as a Motion</title>
-    <statement>
-      <p>
-        Find parametric equations that trace out the ellipse
-        <me>\frac{x^2}{4} + y^2 = 1</me>
-        of <xref ref="fig-hw1o-ellipse"/>, where the parameter <m>t</m> is
-        time (in seconds), in each of the two ways below. Write
-        <m>\pi</m> as <c>pi</c>: the expression <m>2\cos(2\pi t)</m>
-        is typed <c>2cos(2pi t)</c> or <c>2cos(2*pi*t)</c>.
-      </p>
-      <p>
-        <term>(a)</term> The motion around the ellipse is counterclockwise,
-        begins at the point <m>(2,0)</m>, and requires <m>1</m> second for
-        a complete revolution.
-      </p>
-      <p><m>x(t) =</m> <var width="14"/></p>
-      <p><m>y(t) =</m> <var width="14"/></p>
-      <p>
-        One complete revolution is <m>0 \le t \le</m> <var width="5"/>.
-      </p>
-      <p>
-        <term>(b)</term> The motion around the ellipse is clockwise, begins
-        at the point <m>(0,1)</m>, and requires <m>2</m> seconds for a
-        complete revolution.
-      </p>
-      <p><m>x(t) =</m> <var width="14"/></p>
-      <p><m>y(t) =</m> <var width="14"/></p>
-      <p>
-        One complete revolution is <m>0 \le t \le</m> <var width="5"/>.
-      </p>
-    </statement>
-    <setup>
-      <var case="insensitive">
-        <condition string="2\s*\*?\s*cos\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string="2\s*\*?\s*sin\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var case="insensitive">
-        <condition string="sin\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string="cos\s*\(\s*2\s*\*?\s*(pi|π)\s*\*?\s*t\s*\)">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="1" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="6.283" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var case="insensitive">
-        <condition string="2\s*\*?\s*sin\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string="2\s*\*?\s*cos\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var case="insensitive">
-        <condition string="cos\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition string="sin\s*\(\s*((pi|π)\s*\*?\s*t|t\s*\*?\s*(pi|π))\s*\)">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="2" tolerance="0.01">
-          <feedback>
-            <p>Correct.</p>
-          </feedback>
-        </condition>
-        <condition number="6.283" tolerance="0.01">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-        <condition string=".*">
-          <feedback>
-            <p>Incorrect.</p>
-          </feedback>
-        </condition>
-      </var>
-    </setup>
-    <solution component="hw1-solutions">
-      <p>
-        <term>(a)</term> The equations <m>x = 2\cos(\omega t)</m>,
-        <m>y = \sin(\omega t)</m> satisfy
-        <m>x^2/4 + y^2 = \cos^2(\omega t) + \sin^2(\omega t) = 1</m>, start
-        at <m>(2,0)</m> when <m>t=0</m>, and move counterclockwise, since just
-        after <m>t=0</m> the point has <m>y > 0</m> and <m>x</m> decreasing. One
-        revolution takes <m>2\pi/\omega</m> seconds, and we want this to be
-        <m>1</m>, so <m>\omega = 2\pi</m>:
-        <me>x(t) = 2\cos(2\pi t), \qquad y(t) = \sin(2\pi t), \qquad
-            0 \le t \le 1.</me>
-      </p>
-      <p>
-        <term>(b)</term> To start at <m>(0,1)</m>, swap the roles of sine and
-        cosine: <m>x = 2\sin(\omega t)</m>, <m>y = \cos(\omega t)</m> is at
-        <m>(0,1)</m> when <m>t=0</m>, and just afterwards <m>x</m> is positive
-        and <m>y</m> is decreasing, so the point heads toward <m>(2,0)</m>:
-        clockwise. A revolution takes <m>2\pi/\omega = 2</m> seconds, so
-        <m>\omega = \pi</m>:
-        <me>x(t) = 2\sin(\pi t), \qquad y(t) = \cos(\pi t), \qquad
-            0 \le t \le 2.</me>
-      </p>
-      <p>
-        <xref ref="fig-hw1o-ellipse-ccw"/> and
-        <xref ref="fig-hw1o-ellipse-cw"/> show the two motions, with the
-        position marked every quarter of a revolution.
-      </p>
-      <sidebyside widths="48% 48%" margins="0%" valign="middle">
-        <figure xml:id="fig-hw1o-ellipse-ccw">
-          <caption>
-            Part (a): counterclockwise from <m>(2,0)</m>, one revolution per
-            second.
-          </caption>
-          <image width="100%">
-            <shortdescription>
-            The ellipse traced counterclockwise from (2,0), with the quarter-second positions marked.
-            </shortdescription>
-            <description>
-              <p>
-              The ellipse x squared over four plus y squared equals one, drawn in
-              blue with an arrowhead showing counterclockwise motion. Red dots mark
-              the positions at t equals zero and one, at two comma zero; t equals
-              one quarter, at zero comma one; t equals one half, at minus two
-              comma zero; and t equals three quarters, at zero comma minus one.
-              </p>
-            </description>
-            <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse-ccw">
-              <diagram dimensions="(462,273)" margins="5">
-                <definition>c(t) = (2*cos(2*pi*t), sin(2*pi*t))</definition>
-                <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
-                  <grid-axes xlabel="x" ylabel="y"/>
-                  <group at="curve">
-                    <parametric-curve function="c" domain="(0,1)" stroke="blue" thickness="3"/>
-                    <parametric-curve function="c" domain="(0.08,0.14)" stroke="blue"
-                                      thickness="3" arrows="1"/>
-                  </group>
-                  <group at="quarters">
-                    <point p="c(0)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(0)" alignment="ne" offset="(6,8)" clear-background="yes">
-                      <m>t=0,\ 1</m>
-                    </label>
-                    <point p="c(0.25)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(0.25)" alignment="n" offset="(0,8)" clear-background="yes">
-                      <m>t=\tfrac14</m>
-                    </label>
-                    <point p="c(0.5)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(0.5)" alignment="nw" offset="(-6,6)" clear-background="yes">
-                      <m>t=\tfrac12</m>
-                    </label>
-                    <point p="c(0.75)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(0.75)" alignment="s" offset="(0,-8)" clear-background="yes">
-                      <m>t=\tfrac34</m>
-                    </label>
-                  </group>
-                </coordinates>
-                <annotations>
-                  <annotation ref="figure" text="The ellipse traced counterclockwise, starting at two comma zero and returning there after one second">
-                    <annotation ref="grid" text="The coordinate grid"/>
-                    <annotation ref="axes" text="The coordinate axes"/>
-                    <annotation ref="curve" text="The ellipse, traced counterclockwise" sonify="yes"/>
-                    <annotation ref="quarters" text="Four dots marking the positions at t equals zero and one, at two comma zero; t equals one quarter, at zero comma one; t equals one half, at minus two comma zero; and t equals three quarters, at zero comma minus one"/>
-                  </annotation>
-                </annotations>
-              </diagram>
-            </prefigure>
-          </image>
-        </figure>
-        <figure xml:id="fig-hw1o-ellipse-cw">
-          <caption>
-            Part (b): clockwise from <m>(0,1)</m>, one revolution every two
-            seconds.
-          </caption>
-          <image width="100%">
-            <shortdescription>
-            The ellipse traced clockwise from (0,1), with the half-second positions marked.
-            </shortdescription>
-            <description>
-              <p>
-              The same ellipse, drawn in blue with an arrowhead showing clockwise
-              motion. Red dots mark the positions at t equals zero and two, at
-              zero comma one; t equals one half, at two comma zero; t equals one,
-              at zero comma minus one; and t equals three halves, at minus two
-              comma zero.
-              </p>
-            </description>
-            <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse-cw">
-              <diagram dimensions="(462,273)" margins="5">
-                <definition>c(t) = (2*sin(pi*t), cos(pi*t))</definition>
-                <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
-                  <grid-axes xlabel="x" ylabel="y"/>
-                  <group at="curve">
-                    <parametric-curve function="c" domain="(0,2)" stroke="blue" thickness="3"/>
-                    <parametric-curve function="c" domain="(0.25,0.38)" stroke="blue"
-                                      thickness="3" arrows="1"/>
-                  </group>
-                  <group at="quarters">
-                    <point p="c(0)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(0)" alignment="ne" offset="(8,6)" clear-background="yes">
-                      <m>t=0,\ 2</m>
-                    </label>
-                    <point p="c(0.5)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(0.5)" alignment="ne" offset="(6,6)" clear-background="yes">
-                      <m>t=\tfrac12</m>
-                    </label>
-                    <point p="c(1)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(1)" alignment="s" offset="(0,-8)" clear-background="yes">
-                      <m>t=1</m>
-                    </label>
-                    <point p="c(1.5)" size="4" stroke="red" fill="red"/>
-                    <label anchor="c(1.5)" alignment="nw" offset="(-6,6)" clear-background="yes">
-                      <m>t=\tfrac32</m>
-                    </label>
-                  </group>
-                </coordinates>
-                <annotations>
-                  <annotation ref="figure" text="The ellipse traced clockwise, starting at zero comma one and returning there after two seconds">
-                    <annotation ref="grid" text="The coordinate grid"/>
-                    <annotation ref="axes" text="The coordinate axes"/>
-                    <annotation ref="curve" text="The ellipse, traced clockwise" sonify="yes"/>
-                    <annotation ref="quarters" text="Four dots marking the positions at t equals zero and two, at zero comma one; t equals one half, at two comma zero; t equals one, at zero comma minus one; and t equals three halves, at minus two comma zero"/>
-                  </annotation>
-                </annotations>
-              </diagram>
-            </prefigure>
-          </image>
-        </figure>
-      </sidebyside>
     </solution>
   </exercise>
 
