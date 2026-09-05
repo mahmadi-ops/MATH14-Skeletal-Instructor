@@ -321,65 +321,14 @@
     </solution>
   </exercise>
 
-  <!-- =================================================================== -->
-  <!-- The figure sits outside the exercise: PreTeXt keeps two copies of an -->
-  <!-- auto-graded exercise, so an xml:id or label inside one is doubled.   -->
-  <figure xml:id="fig-hw1o-ellipse">
-    <caption>
-      The ellipse <m>\dfrac{x^2}{4} + y^2 = 1</m>, with the starting point
-      of each motion marked.
-    </caption>
-    <image width="70%">
-      <shortdescription>
-      The ellipse x squared over four plus y squared equals one, with the points (2,0) and (0,1) marked.
-      </shortdescription>
-      <description>
-        <p>
-        An ellipse centered at the origin, crossing the x axis at plus and
-        minus two and the y axis at plus and minus one. The point two comma
-        zero is marked in orange and the point zero comma one in green.
-        </p>
-      </description>
-      <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse">
-        <diagram dimensions="(462,273)" margins="5">
-          <definition>c(t) = (2*cos(t), sin(t))</definition>
-          <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
-            <grid-axes xlabel="x" ylabel="y"/>
-            <group at="curve">
-              <parametric-curve function="c" domain="(0,2*pi)" stroke="blue" thickness="3"/>
-            </group>
-            <group at="starts">
-              <point p="(2,0)" size="4.5" stroke="#D55E00" fill="#D55E00"/>
-              <label anchor="(2,0)" alignment="ne" offset="(6,6)" color="#D55E00" clear-background="yes">
-                <m>(2,0)</m>
-              </label>
-              <point p="(0,1)" size="4.5" stroke="#009E73" fill="#009E73"/>
-              <label anchor="(0,1)" alignment="ne" offset="(6,6)" color="#009E73" clear-background="yes">
-                <m>(0,1)</m>
-              </label>
-            </group>
-          </coordinates>
-          <annotations>
-            <annotation ref="figure" text="The ellipse x squared over four plus y squared equals one, which crosses the x axis at plus and minus two and the y axis at plus and minus one">
-              <annotation ref="grid" text="The coordinate grid"/>
-              <annotation ref="axes" text="The coordinate axes"/>
-              <annotation ref="curve" text="The ellipse" sonify="yes"/>
-              <annotation ref="starts" text="Two marked points: two comma zero, where the motion in part a begins, and zero comma one, where the motion in part b begins"/>
-            </annotation>
-          </annotations>
-        </diagram>
-      </prefigure>
-    </image>
-  </figure>
-
   <exercise xml:id="ex-hw1o-ellipse-parametrize">
     <title>Parametrizing an Ellipse as a Motion</title>
     <statement>
       <p>
         Find parametric equations that trace out the ellipse
-        <me>\frac{x^2}{4} + y^2 = 1</me>
-        of <xref ref="fig-hw1o-ellipse"/>, where the parameter <m>t</m> is
-        time (in seconds), in each of the two ways below. Write
+        <me>\frac{x^2}{4} + y^2 = 1,</me>
+        where the parameter <m>t</m> is time (in seconds), in each of the
+        two ways below. Write
         <m>\pi</m> as <c>pi</c>: the expression <m>2\cos(2\pi t)</m>
         is typed <c>2cos(2pi t)</c> or <c>2cos(2*pi*t)</c>.
       </p>
@@ -509,6 +458,57 @@
       </var>
     </setup>
     <solution component="hw1-solutions">
+      <p>
+        <xref ref="fig-hw1o-ellipse"/> shows the ellipse with the starting
+        point of each motion marked.
+      </p>
+      <figure xml:id="fig-hw1o-ellipse">
+        <caption>
+          The ellipse <m>\dfrac{x^2}{4} + y^2 = 1</m>, with the starting point
+          of each motion marked.
+        </caption>
+        <image width="70%">
+          <shortdescription>
+          The ellipse x squared over four plus y squared equals one, with the points (2,0) and (0,1) marked.
+          </shortdescription>
+          <description>
+            <p>
+            An ellipse centered at the origin, crossing the x axis at plus and
+            minus two and the y axis at plus and minus one. The point two comma
+            zero is marked in orange and the point zero comma one in green.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw1o-ellipse">
+            <diagram dimensions="(462,273)" margins="5">
+              <definition>c(t) = (2*cos(t), sin(t))</definition>
+              <coordinates bbox="(-3.1,-2.0,3.5,1.9)" aspect-ratio="1">
+                <grid-axes xlabel="x" ylabel="y"/>
+                <group at="curve">
+                  <parametric-curve function="c" domain="(0,2*pi)" stroke="blue" thickness="3"/>
+                </group>
+                <group at="starts">
+                  <point p="(2,0)" size="4.5" stroke="#D55E00" fill="#D55E00"/>
+                  <label anchor="(2,0)" alignment="ne" offset="(6,6)" color="#D55E00" clear-background="yes">
+                    <m>(2,0)</m>
+                  </label>
+                  <point p="(0,1)" size="4.5" stroke="#009E73" fill="#009E73"/>
+                  <label anchor="(0,1)" alignment="ne" offset="(6,6)" color="#009E73" clear-background="yes">
+                    <m>(0,1)</m>
+                  </label>
+                </group>
+              </coordinates>
+              <annotations>
+                <annotation ref="figure" text="The ellipse x squared over four plus y squared equals one, which crosses the x axis at plus and minus two and the y axis at plus and minus one">
+                  <annotation ref="grid" text="The coordinate grid"/>
+                  <annotation ref="axes" text="The coordinate axes"/>
+                  <annotation ref="curve" text="The ellipse" sonify="yes"/>
+                  <annotation ref="starts" text="Two marked points: two comma zero, where the motion in part a begins, and zero comma one, where the motion in part b begins"/>
+                </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
       <p>
         <term>(a)</term> The equations <m>x = 2\cos(\omega t)</m>,
         <m>y = \sin(\omega t)</m> satisfy
