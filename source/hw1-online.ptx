@@ -328,9 +328,8 @@
         Find parametric equations that trace out the ellipse
         <me>\frac{x^2}{4} + y^2 = 1,</me>
         where the parameter <m>t</m> is time (in seconds), in each of the
-        two ways below. Write
-        <m>\pi</m> as <c>pi</c>: the expression <m>2\cos(2\pi t)</m>
-        is typed <c>2cos(2pi t)</c> or <c>2cos(2*pi*t)</c>.
+        two ways below. Write <m>\pi</m> as <c>pi</c>: for instance,
+        <m>3\pi t</m> is typed <c>3pi t</c> or <c>3*pi*t</c>.
       </p>
       <p>
         <term>(a)</term> The motion around the ellipse is counterclockwise,
