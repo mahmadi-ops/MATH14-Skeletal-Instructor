@@ -1,0 +1,88 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-centroid-between-curves-figure" speech2="A coordinate grid showing the region between the curves y equals the square root of x, in blue, and y equals x squared, in red. The curves intersect at the origin and at the point 1 comma 1, enclosing a lens-shaped region shaded light blue. The centroid of the region, at 9 twentieths comma 9 twentieths, is marked in maroon.">
+      <grouped>prefigure-centroid-between-curves-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-centroid-between-curves-grid-axes</active>
+        <active>prefigure-centroid-between-curves-cb-sqrt</active>
+        <active>prefigure-centroid-between-curves-cb-square</active>
+        <active>prefigure-centroid-between-curves-cb-region</active>
+        <active>prefigure-centroid-between-curves-cb-one</active>
+        <active>prefigure-centroid-between-curves-cb-centroid</active>
+      </children>
+      <components>
+        <active>prefigure-centroid-between-curves-grid-axes</active>
+        <active>prefigure-centroid-between-curves-cb-sqrt</active>
+        <active>prefigure-centroid-between-curves-cb-square</active>
+        <active>prefigure-centroid-between-curves-cb-region</active>
+        <active>prefigure-centroid-between-curves-cb-one</active>
+        <active>prefigure-centroid-between-curves-cb-centroid</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>prefigure-centroid-between-curves-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-centroid-between-curves-grid</active>
+        <active>prefigure-centroid-between-curves-axes</active>
+      </children>
+      <components>
+        <active>prefigure-centroid-between-curves-grid</active>
+        <active>prefigure-centroid-between-curves-axes</active>
+      </components>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-grid" speech2="The coordinate grid">
+      <active>prefigure-centroid-between-curves-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-axes" speech2="The coordinate axes">
+      <active>prefigure-centroid-between-curves-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-cb-sqrt" speech2="The blue curve y equals the square root of x, the upper boundary of the region.">
+      <active>prefigure-centroid-between-curves-cb-sqrt</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-cb-square" speech2="The red curve y equals x squared, the lower boundary of the region.">
+      <active>prefigure-centroid-between-curves-cb-square</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-cb-region" speech2="The lens-shaped region between the two curves, shaded light blue, lying over the interval from 0 to 1.">
+      <active>prefigure-centroid-between-curves-cb-region</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-cb-one" speech2="The point 1 comma 1, where the two curves intersect.">
+      <active>prefigure-centroid-between-curves-cb-one</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-centroid-between-curves-cb-centroid" speech2="The centroid of the region at 9 twentieths comma 9 twentieths, marked in maroon. It lies on the line y equals x because the region is symmetric about that line.">
+      <active>prefigure-centroid-between-curves-cb-centroid</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-centroid-between-curves-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Triple Integrals in Spherical Coordinates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="section-triple-integrals-cylindrical.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-multiple-integrals.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-mass-center-of-mass.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-triple-integrals-spherical"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triple Integrals in Spherical Coordinates</span>
+</h2>
+<div class="para" id="section-triple-integrals-spherical-2">Today, we will study yet another useful coordinate system in three dimensions, which is known as the <em class="emphasis">spherical coordinate system</em>. It simplifies the evaluation of triple integrals over regions bounded by spheres or cones.<div class="autopermalink" data-description="Paragraph"><a href="#section-triple-integrals-spherical-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="sec-spherical-coordinates"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Spherical Coordinates</span>
+</h3>
+<div class="para" id="sec-spherical-coordinates-2">The spherical coordinates can be best explained in a figure. Consider the point <span class="process-math">\(P\)</span> with spherical coordinates <span class="process-math">\((\rho,\theta,\phi)\)</span> shown in <a href="section-triple-integrals-spherical.html#fig-spherical-point-tikz" class="xref" data-knowl="./knowl/xref/fig-spherical-point-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7.1">Figure 2.7.1</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-coordinates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="sec-spherical-coordinates-3">
+<ol class="decimal" id="sec-spherical-coordinates-3-1">
+<li id="sec-spherical-coordinates-3-1-1">
+<div class="para" id="sec-spherical-coordinates-3-1-1-1">
+<span class="process-math">\(\rho\)</span> is the distance of the point <span class="process-math">\(P\)</span> from the origin (<span class="process-math">\(\rho \ge 0\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-coordinates-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#sec-spherical-coordinates-3-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="sec-spherical-coordinates-3-1-2">
+<div class="para" id="sec-spherical-coordinates-3-1-2-1">
+<span class="process-math">\(\theta\)</span> is the angle the projection of <span class="process-math">\(\overrightarrow{OP}\)</span> makes with the positive <span class="process-math">\(x\)</span>-axis. This is the same <span class="process-math">\(\theta\)</span> as in cylindrical coordinates, <a href="section-triple-integrals-cylindrical.html#eq-cyl-to-rect" class="xref" data-knowl="./knowl/xref/eq-cyl-to-rect.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.1">(2.6.1)</a> (<span class="process-math">\(0 \le \theta \le 2\pi\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-coordinates-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#sec-spherical-coordinates-3-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="sec-spherical-coordinates-3-1-3">
+<div class="para" id="sec-spherical-coordinates-3-1-3-1">
+<span class="process-math">\(\phi\)</span> is the angle between <span class="process-math">\(\overrightarrow{OP}\)</span> and the positive <span class="process-math">\(z\)</span>-axis (<span class="process-math">\(0 \le \phi \le \pi\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-coordinates-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#sec-spherical-coordinates-3-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-coordinates-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-spherical-point-tikz"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-spherical-point-tikz-2.svg" role="img" class="contained" alt="A point in space located by a distance from the origin and two angles.Three coordinate axes in space. A segment of length rho runs from the origin to a point P above the x y plane. The angle phi is marked between the positive z axis and the segment, and the angle theta is marked in the x y plane between the positive x axis and the dashed projection of the segment. A dashed vertical line connects P to its projection."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point <span class="process-math">\(P(\rho,\theta,\phi)\)</span> in spherical coordinates: <span class="process-math">\(\rho\)</span> is the distance from the origin, <span class="process-math">\(\theta\)</span> is the usual polar angle of the projection into the <span class="process-math">\(xy\)</span>-plane, and <span class="process-math">\(\phi\)</span> is the angle between <span class="process-math">\(\overrightarrow{OP}\)</span> and the positive <span class="process-math">\(z\)</span>-axis.<div class="autopermalink" data-description="Figure 2.7.1"><a href="#fig-spherical-point-tikz" title="Copy heading and permalink for Figure 2.7.1" aria-label="Copy heading and permalink for Figure 2.7.1">🔗</a></div></figcaption></figure><article class="assemblage assemblage-like" id="assemblage-spherical-equations"><h4 class="heading"><span class="title">Equations Relating Spherical Coordinates to Cartesian and Cylindrical Coordinates.</span></h4>
+<div class="para logical" id="assemblage-spherical-equations-2">
+<div class="displaymath process-math" id="assemblage-spherical-equations-2-1">
+\begin{gather}
+r = \rho\sin\phi, \qquad
+x = r\cos\theta = \rho\sin\phi\cos\theta,\tag{2.7.1}\\
+z = \rho\cos\phi, \qquad
+y = r\sin\theta = \rho\sin\phi\sin\theta,\notag\\
+\rho = \sqrt{x^2 + y^2 + z^2} = \sqrt{r^2 + z^2}.\notag
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-spherical-equations-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Equations Relating Spherical Coordinates to Cartesian and Cylindrical Coordinates"><a href="#assemblage-spherical-equations" title="Copy heading and permalink for Assemblage: Equations Relating Spherical Coordinates to Cartesian and Cylindrical Coordinates" aria-label="Copy heading and permalink for Assemblage: Equations Relating Spherical Coordinates to Cartesian and Cylindrical Coordinates">🔗</a></div></article><div class="para" id="sec-spherical-coordinates-6">Spheres and cones have particularly simple equations in spherical coordinates. Substitute <a href="section-triple-integrals-spherical.html#assemblage-spherical-equations-2-1" class="xref" data-knowl="./knowl/xref/eq-spherical-to-rect.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.1">(2.7.1)</a> into the equation of a sphere of radius <span class="process-math">\(R\)</span> centered at the origin, <span class="process-math">\(x^2 + y^2 + z^2 = R^2\text{,}\)</span> and simplify.<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-coordinates-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-spherical-coordinates-7-1.svg" role="img" class="contained" alt="Blank box for converting the equation of a sphere centered at the origin to spherical coordinates."></div></div></div></div>
+<details id="example-spherical-shifted-sphere" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example I.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-spherical-shifted-sphere-2-1">Find the equation of the sphere <span class="process-math">\(x^2 + y^2 + (z-1)^2 = 1\)</span> in spherical coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-shifted-sphere-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-spherical-shifted-sphere-2-2">
+<em class="emphasis">Solution.</em> (Substitute <a href="section-triple-integrals-spherical.html#assemblage-spherical-equations-2-1" class="xref" data-knowl="./knowl/xref/eq-spherical-to-rect.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.1">(2.7.1)</a>, expand the square, and use <span class="process-math">\(\sin^2\phi + \cos^2\phi = 1\text{;}\)</span> a factor of <span class="process-math">\(\rho\)</span> cancels.)<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-shifted-sphere-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-spherical-shifted-sphere-2-3-1.svg" role="img" class="contained" alt="Blank box for converting the equation of the shifted sphere to spherical coordinates."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.7.2: Example I"><a href="#example-spherical-shifted-sphere" title="Copy heading and permalink for Example 2.7.2: Example I" aria-label="Copy heading and permalink for Example 2.7.2: Example I">🔗</a></div></article></details><details id="example-spherical-cones" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example II.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-spherical-cones-2-1">What are the equations of the two cones <span class="process-math">\(z = \sqrt{x^2+y^2}\)</span> and <span class="process-math">\(z = -\sqrt{x^2+y^2}\)</span> in spherical coordinates?<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-cones-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-spherical-cones-2-2">
+<em class="emphasis">Solution.</em> (What angle does each cone make with the positive <span class="process-math">\(z\)</span>-axis? Confirm algebraically by substituting <a href="section-triple-integrals-spherical.html#assemblage-spherical-equations-2-1" class="xref" data-knowl="./knowl/xref/eq-spherical-to-rect.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.1">(2.7.1)</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-cones-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-spherical-cones-2-3-1.svg" role="img" class="contained" alt="Blank box for the spherical equations of the two cones."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.7.3: Example II"><a href="#example-spherical-cones" title="Copy heading and permalink for Example 2.7.3: Example II" aria-label="Copy heading and permalink for Example 2.7.3: Example II">🔗</a></div></article></details><article class="assemblage assemblage-like" id="assemblage-conversion-formulas"><h4 class="heading"><span class="title">Coordinate Conversion Formulas.</span></h4>
+<div class="para logical" id="assemblage-conversion-formulas-2">
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dv-cylindrical.html ./knowl/xref/eq-dv-spherical.html" id="assemblage-conversion-formulas-2-1">
+\begin{align*}
+\text{Cylindrical to rectangular:}\quad
+\amp x = r\cos\theta, \quad y = r\sin\theta, \quad z = z\\
+\text{Spherical to rectangular:}\quad
+\amp x = \rho\sin\phi\cos\theta, \quad
+y = \rho\sin\phi\sin\theta, \quad z = \rho\cos\phi\\
+\text{Spherical to cylindrical:}\quad
+\amp r = \rho\sin\phi, \quad z = \rho\cos\phi, \quad \theta = \theta
+\end{align*}
+</div>
+<div class="para">The corresponding formulas for <span class="process-math">\(dV\)</span> in triple integrals (see <a href="section-triple-integrals-cylindrical.html#eq-dv-cylindrical" class="xref" data-knowl="./knowl/xref/eq-dv-cylindrical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> and <a href="section-triple-integrals-spherical.html#eq-dv-spherical" class="xref" data-knowl="./knowl/xref/eq-dv-spherical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.2">(2.7.2)</a>):</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-dv-cylindrical.html ./knowl/xref/eq-dv-spherical.html" id="assemblage-conversion-formulas-2-5">
+\begin{equation*}
+dV = dx\,dy\,dz
+= dz\ r\,dr\,d\theta
+= \rho^2\sin\phi\ d\rho\,d\phi\,d\theta.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-conversion-formulas-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Coordinate Conversion Formulas"><a href="#assemblage-conversion-formulas" title="Copy heading and permalink for Assemblage: Coordinate Conversion Formulas" aria-label="Copy heading and permalink for Assemblage: Coordinate Conversion Formulas">🔗</a></div></article><div class="autopermalink" data-description="Subsection 2.7.1: Spherical Coordinates"><a href="#sec-spherical-coordinates" title="Copy heading and permalink for Subsection 2.7.1: Spherical Coordinates" aria-label="Copy heading and permalink for Subsection 2.7.1: Spherical Coordinates">🔗</a></div></section><section class="subsection" id="sec-spherical-integration"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integration in Spherical Coordinates</span>
+</h3>
+<div class="para" id="sec-spherical-integration-2">The volume element <span class="process-math">\(dV\)</span> in spherical coordinates is illustrated in <a href="section-triple-integrals-spherical.html#fig-spherical-element-tikz" class="xref" data-knowl="./knowl/xref/fig-spherical-element-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7.4">Figure 2.7.4</a>: a spherical wedge with radial side <span class="process-math">\(d\rho\text{,}\)</span> one arc side <span class="process-math">\(\rho\,d\phi\text{,}\)</span> and the other arc side <span class="process-math">\(\rho\sin\phi\,d\theta\text{.}\)</span> Say where each of the three edge lengths comes from, and multiply them to get <span class="process-math">\(dV\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-integration-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-spherical-integration-3-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the three edge lengths of the spherical wedge and one for the volume element."></div></div></div></div>
+<article class="assemblage assemblage-like" id="assemblage-dv-spherical"><h4 class="heading"><span class="title">The Spherical Volume Element.</span></h4>
+<div class="para logical" id="assemblage-dv-spherical-2">
+<div class="displaymath process-math" id="eq-dv-spherical">
+\begin{equation}
+dV = \rho^2\sin\phi\ d\rho\,d\phi\,d\theta.\tag{2.7.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-dv-spherical-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: The Spherical Volume Element"><a href="#assemblage-dv-spherical" title="Copy heading and permalink for Assemblage: The Spherical Volume Element" aria-label="Copy heading and permalink for Assemblage: The Spherical Volume Element">🔗</a></div></article><figure class="figure figure-like" id="fig-spherical-element-tikz"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/tkybvufd/scaleContainerClass/interactive-iframe-container/width/600/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-spherical-element-tikz-2" style="width:600px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-spherical-element-tikz-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-spherical-element-tikz-2-1-1">Drag the background to rotate the picture, and use the three sliders to change <span class="process-math">\(d\rho\text{,}\)</span> <span class="process-math">\(d\theta\)</span> and <span class="process-math">\(d\phi\text{.}\)</span> None of the six faces of the wedge is flat: two are pieces of spheres, two are pieces of cones, and two are flat only because they are pieces of planes through the <span class="process-math">\(z\)</span>-axis.<div class="autopermalink" data-description="Paragraph"><a href="#fig-spherical-element-tikz-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="fig-spherical-element-tikz-2-1-2">Now pull the three sliders down toward zero. As the increments become very small the curvature of those faces stops mattering, and the wedge can be thought of as a box with edges <span class="process-math">\(d\rho\text{,}\)</span> <span class="process-math">\(\rho\,d\phi\)</span> and <span class="process-math">\(\rho\sin\phi\,d\theta\text{.}\)</span> Multiplying those three edge lengths is exactly where <span class="process-math">\(dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta\)</span> comes from.<div class="autopermalink" data-description="Paragraph"><a href="#fig-spherical-element-tikz-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-spherical-element-tikz-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The spherical volume element (spherical wedge), with sliders for the three increments. Its three mutually perpendicular sides have lengths <span class="process-math">\(d\rho\text{,}\)</span> <span class="process-math">\(\rho\,d\phi\text{,}\)</span> and <span class="process-math">\(\rho\sin\phi\,d\theta\text{.}\)</span><div class="autopermalink" data-description="Figure 2.7.4"><a href="#fig-spherical-element-tikz" title="Copy heading and permalink for Figure 2.7.4" aria-label="Copy heading and permalink for Figure 2.7.4">🔗</a></div></figcaption></figure><div class="para" id="sec-spherical-integration-6">Then, the triple integral over a region <span class="process-math">\(D\)</span> described in spherical coordinates by <span class="process-math">\(\alpha\le\theta\le\beta\text{,}\)</span> <span class="process-math">\(\phi_{\min}\le\phi\le\phi_{\max}\text{,}\)</span> and <span class="process-math">\(g_1(\phi,\theta)\le\rho\le g_2(\phi,\theta)\)</span> can be converted into spherical coordinates as follows:<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-integration-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-spherical-element-tikz.html" id="eq-triple-spherical">
+\begin{equation}
+\iiint_D f(x,y,z)\,dV
+= \int_{\alpha}^{\beta}\!\!\int_{\phi_{\min}}^{\phi_{\max}}
+\!\!\int_{g_1(\theta,\phi)}^{g_2(\theta,\phi)}
+f\!\left(\rho\sin\phi\cos\theta,\ \rho\sin\phi\sin\theta,\
+\rho\cos\phi\right)\rho^2\sin\phi\ d\rho\,d\phi\,d\theta.\tag{2.7.3}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Subsection 2.7.2: Integration in Spherical Coordinates"><a href="#sec-spherical-integration" title="Copy heading and permalink for Subsection 2.7.2: Integration in Spherical Coordinates" aria-label="Copy heading and permalink for Subsection 2.7.2: Integration in Spherical Coordinates">🔗</a></div></section><section class="subsection" id="sec-spherical-icecream"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Ice Cream Cone</span>
+</h3>
+<details id="example-spherical-icecream" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example III.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-spherical-icecream-2-1">Find the volume of the “ice cream cone” <span class="process-math">\(D\)</span> cut from the solid sphere <span class="process-math">\(\rho \le 1\)</span> by the cone <span class="process-math">\(\phi = \pi/3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-icecream-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-spherical-icecream-2-2">
+<em class="emphasis">Solution.</em> (Plot the ice cream cone, shown in <a href="section-triple-integrals-spherical.html#fig-icecream-tikz" class="xref" data-knowl="./knowl/xref/fig-icecream-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7.6">Figure 2.7.6</a>, and describe it by the ranges of <span class="process-math">\(\theta\text{,}\)</span> <span class="process-math">\(\phi\)</span> and <span class="process-math">\(\rho\text{.}\)</span> Then use <a href="section-triple-integrals-rectangular.html#eq-volume-triple" class="xref" data-knowl="./knowl/xref/eq-volume-triple.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.2">(2.5.2)</a> and <a href="section-triple-integrals-spherical.html#eq-triple-spherical" class="xref" data-knowl="./knowl/xref/eq-triple-spherical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.3">(2.7.3)</a> with <span class="process-math">\(f = 1\text{,}\)</span> and compare with <a href="section-triple-integrals-spherical.html#fig-spherical-video" class="xref" data-knowl="./knowl/xref/fig-spherical-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7.7">Figure 2.7.7</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-icecream-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-spherical-icecream-2-3-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the spherical description of the ice cream cone and one for the volume integral and its evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.7.5: Example III"><a href="#example-spherical-icecream" title="Copy heading and permalink for Example 2.7.5: Example III" aria-label="Copy heading and permalink for Example 2.7.5: Example III">🔗</a></div></article></details><figure class="figure figure-like" id="fig-icecream-tikz"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-icecream-tikz-2.svg" role="img" class="contained" alt="An ice cream cone shape: a cone from the origin capped by a piece of a sphere.Three coordinate axes in space with an ice cream cone shaped solid: a cone with vertex at the origin opening upward at sixty degrees from the z axis, capped by a dome which is part of the unit sphere. The circle where the cone meets the sphere is drawn."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The “ice cream cone” of <a href="section-triple-integrals-spherical.html#example-spherical-icecream" class="xref" data-knowl="./knowl/xref/example-spherical-icecream.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.7.5: Example III">Example 2.7.5</a>: the region inside the sphere <span class="process-math">\(\rho = 1\)</span> and above the cone <span class="process-math">\(\phi = \pi/3\text{.}\)</span><div class="autopermalink" data-description="Figure 2.7.6"><a href="#fig-icecream-tikz" title="Copy heading and permalink for Figure 2.7.6" aria-label="Copy heading and permalink for Figure 2.7.6">🔗</a></div></figcaption></figure><div class="para" id="sec-spherical-icecream-4">How the spherical description of the ice cream cone works—the angle <span class="process-math">\(\phi\)</span> sweeping from the <span class="process-math">\(z\)</span>-axis down to the cone while <span class="process-math">\(\rho\)</span> reaches out to the sphere—is animated in <a href="section-triple-integrals-spherical.html#fig-spherical-video" class="xref" data-knowl="./knowl/xref/fig-spherical-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7.7">Figure 2.7.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-spherical-icecream-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-spherical-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-spherical-icecream" class="video" controls="" poster="external/play-button.png"><source src="external/videos/spherical_icecream_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Animation of spherical coordinates and the ice cream cone. A ray from the origin at angles <span class="process-math">\((\theta,\phi)\)</span> carries the point <span class="process-math">\(P(\rho,\theta,\phi)\text{;}\)</span> sweeping <span class="process-math">\(\theta\)</span> spins the ray around the <span class="process-math">\(z\)</span>-axis, sweeping <span class="process-math">\(\phi\)</span> tilts it away from the axis, and restricting <span class="process-math">\(0\le\rho\le 1\text{,}\)</span> <span class="process-math">\(0\le\phi\le\pi/3\)</span> fills out the ice cream cone of <a href="section-triple-integrals-spherical.html#example-spherical-icecream" class="xref" data-knowl="./knowl/xref/example-spherical-icecream.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.7.5: Example III">Example 2.7.5</a>.<div class="autopermalink" data-description="Figure 2.7.7"><a href="#fig-spherical-video" title="Copy heading and permalink for Figure 2.7.7" aria-label="Copy heading and permalink for Figure 2.7.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.7.3: The Ice Cream Cone"><a href="#sec-spherical-icecream" title="Copy heading and permalink for Subsection 2.7.3: The Ice Cream Cone" aria-label="Copy heading and permalink for Subsection 2.7.3: The Ice Cream Cone">🔗</a></div></section><section class="subsection" id="sec-spherical-shifted-example"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Converting a Triple Integral to Spherical Coordinates</span>
+</h3>
+<details id="example-spherical-convert" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example IV.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-spherical-convert-2-1">Calculate the triple integral below by converting it to spherical coordinates:<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-convert-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-shifted-sphere-tikz.html ./knowl/xref/example-spherical-shifted-sphere.html ./knowl/xref/eq-triple-spherical.html" id="example-spherical-convert-2-2">
+\begin{equation*}
+\int_{-2}^{2}\!\!\int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}}
+\!\!\int_{2-\sqrt{4-x^2-y^2}}^{2+\sqrt{4-x^2-y^2}}
+\left(x^2+y^2+z^2\right)^{3/2} dz\,dy\,dx.
+\end{equation*}
+</div>
+<div class="para" id="example-spherical-convert-2-3">
+<em class="emphasis">Solution.</em> (Read the solid off the limits: the <span class="process-math">\(z\)</span>-limits are the two halves of a sphere; which one, and where is its center? It is shown in <a href="section-triple-integrals-spherical.html#fig-shifted-sphere-tikz" class="xref" data-knowl="./knowl/xref/fig-shifted-sphere-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7.9">Figure 2.7.9</a>. Convert its equation to spherical coordinates as in <a href="section-triple-integrals-spherical.html#example-spherical-shifted-sphere" class="xref" data-knowl="./knowl/xref/example-spherical-shifted-sphere.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.7.2: Example I">Example 2.7.2</a>, and describe the solid by the ranges of <span class="process-math">\(\theta\text{,}\)</span> <span class="process-math">\(\phi\)</span> and <span class="process-math">\(\rho\text{;}\)</span> the integrand is a power of <span class="process-math">\(\rho\text{.}\)</span> Then apply <a href="section-triple-integrals-spherical.html#eq-triple-spherical" class="xref" data-knowl="./knowl/xref/eq-triple-spherical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.3">(2.7.3)</a>; the <span class="process-math">\(\phi\)</span>-integral is a substitution.)<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-convert-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-spherical-convert-2-4-1.svg" role="img" class="contained" alt="Blank box in four rows, for identifying the solid and its spherical equation, for the limits and the integrand, for the spherical iterated integral, and for its evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.7.8: Example IV"><a href="#example-spherical-convert" title="Copy heading and permalink for Example 2.7.8: Example IV" aria-label="Copy heading and permalink for Example 2.7.8: Example IV">🔗</a></div></article></details><figure class="figure figure-like" id="fig-shifted-sphere-tikz"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="generated/latex-image/fig-shifted-sphere-tikz-2.svg" role="img" class="contained" alt="A sphere resting on the origin, centered on the vertical axis.Three coordinate axes in space with a sphere of radius two centered on the z axis at height two, so it touches the origin from above. A dashed vertical diameter runs from the origin to the north pole at height four."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The sphere <span class="process-math">\(x^2 + y^2 + (z-2)^2 = 4\)</span> of <a href="section-triple-integrals-spherical.html#example-spherical-convert" class="xref" data-knowl="./knowl/xref/example-spherical-convert.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.7.8: Example IV">Example 2.7.8</a>. It sits on the <span class="process-math">\(xy\)</span>-plane, touching the origin.<div class="autopermalink" data-description="Figure 2.7.9"><a href="#fig-shifted-sphere-tikz" title="Copy heading and permalink for Figure 2.7.9" aria-label="Copy heading and permalink for Figure 2.7.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.7.4: Converting a Triple Integral to Spherical Coordinates"><a href="#sec-spherical-shifted-example" title="Copy heading and permalink for Subsection 2.7.4: Converting a Triple Integral to Spherical Coordinates" aria-label="Copy heading and permalink for Subsection 2.7.4: Converting a Triple Integral to Spherical Coordinates">🔗</a></div></section><section class="subsection" id="sec-spherical-rewrite"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span>
+</h3>
+<details id="example-spherical-rewrite" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example V.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-spherical-rewrite-2-1">Re-write (do not evaluate) the following integral in <em class="emphasis">spherical</em> and <em class="emphasis">cylindrical</em> coordinates:<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-rewrite-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-halfdisk-prefigure.html ./knowl/xref/fig-cone-plane-tikz.html ./knowl/xref/eq-triple-cylindrical.html ./knowl/xref/eq-triple-spherical.html" id="example-spherical-rewrite-2-2">
+\begin{equation*}
+\int_{-1}^{1}\!\!\int_{-\sqrt{1-x^2}}^{0}
+\!\!\int_{\sqrt{x^2+y^2}}^{1}
+\left(x^2+y^2\right) dz\,dy\,dx.
+\end{equation*}
+</div>
+<div class="para" id="example-spherical-rewrite-2-3">
+<em class="emphasis">Solution.</em> (Read the <span class="process-math">\(xy\)</span>-projection off the outer two limits, shown in <a href="section-triple-integrals-spherical.html#fig-halfdisk-prefigure" class="internal" title="Figure 2.7.11">Figure 2.7.11</a>, and describe it in polar coordinates. The <span class="process-math">\(z\)</span>-limits run from a cone up to a plane; the solid is shown in <a href="section-triple-integrals-spherical.html#fig-cone-plane-tikz" class="xref" data-knowl="./knowl/xref/fig-cone-plane-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7.12">Figure 2.7.12</a>. For the cylindrical form, convert the cone and the integrand and use <a href="section-triple-integrals-cylindrical.html#eq-triple-cylindrical" class="xref" data-knowl="./knowl/xref/eq-triple-cylindrical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.3">(2.6.3)</a>. For the spherical form, the cone is a fixed <span class="process-math">\(\phi\text{,}\)</span> and the plane <span class="process-math">\(z = 1\)</span> becomes an upper limit on <span class="process-math">\(\rho\)</span> that depends on <span class="process-math">\(\phi\text{;}\)</span> convert the integrand and use <a href="section-triple-integrals-spherical.html#eq-triple-spherical" class="xref" data-knowl="./knowl/xref/eq-triple-spherical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.7.3">(2.7.3)</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-spherical-rewrite-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-spherical-rewrite-2-4-1.svg" role="img" class="contained" alt="Blank box in three rows, for the projection and the bounding surfaces in the new coordinates, for the cylindrical form of the integral, and for the spherical form."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.7.10: Example V"><a href="#example-spherical-rewrite" title="Copy heading and permalink for Example 2.7.10: Example V" aria-label="Copy heading and permalink for Example 2.7.10: Example V">🔗</a></div></article></details><figure class="figure figure-like" id="fig-halfdisk-prefigure"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-halfdisk-diagcess.svg" data-cml="generated/prefigure/prefigure-halfdisk-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The <span class="process-math">\(xy\)</span>-projection of the solid in <a href="section-triple-integrals-spherical.html#example-spherical-rewrite" class="xref" data-knowl="./knowl/xref/example-spherical-rewrite.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.7.10: Example V">Example 2.7.10</a>: the lower half of the unit disk.<div class="autopermalink" data-description="Figure 2.7.11"><a href="#fig-halfdisk-prefigure" title="Copy heading and permalink for Figure 2.7.11" aria-label="Copy heading and permalink for Figure 2.7.11">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-cone-plane-tikz"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-cone-plane-tikz-2.svg" role="img" class="contained" alt="A half cone over the negative y half plane, capped by a flat half disk.Three coordinate axes in space with a half cone opening upward from the origin at forty five degrees, over the half of the plane with y negative, capped above by the flat half disk in the plane z equals one. The straight edge of the cap lies over the x axis."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of <a href="section-triple-integrals-spherical.html#example-spherical-rewrite" class="xref" data-knowl="./knowl/xref/example-spherical-rewrite.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.7.10: Example V">Example 2.7.10</a>: over the lower half disk, between the cone <span class="process-math">\(z = \sqrt{x^2+y^2}\)</span> and the plane <span class="process-math">\(z = 1\text{.}\)</span><div class="autopermalink" data-description="Figure 2.7.12"><a href="#fig-cone-plane-tikz" title="Copy heading and permalink for Figure 2.7.12" aria-label="Copy heading and permalink for Figure 2.7.12">🔗</a></div></figcaption></figure><details id="exercise-spherical-volume" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.7.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="exercise-spherical-volume-1-1">Calculate the volume of the region inside <span class="process-math">\(\rho = 2\cos\phi\)</span> and below <span class="process-math">\(z = \sqrt{x^2+y^2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exercise-spherical-volume-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/exercise-spherical-volume-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the spherical description of the region and one for the volume integral and its evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.7.13"><a href="#exercise-spherical-volume" title="Copy heading and permalink for Checkpoint 2.7.13" aria-label="Copy heading and permalink for Checkpoint 2.7.13">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 2.7.5: Re-Writing an Integral in Spherical and Cylindrical Coordinates"><a href="#sec-spherical-rewrite" title="Copy heading and permalink for Subsection 2.7.5: Re-Writing an Integral in Spherical and Cylindrical Coordinates" aria-label="Copy heading and permalink for Subsection 2.7.5: Re-Writing an Integral in Spherical and Cylindrical Coordinates">🔗</a></div></section><div class="autopermalink" data-description="Section 2.7: Triple Integrals in Spherical Coordinates"><a href="#section-triple-integrals-spherical" title="Copy heading and permalink for Section 2.7: Triple Integrals in Spherical Coordinates" aria-label="Copy heading and permalink for Section 2.7: Triple Integrals in Spherical Coordinates">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="section-triple-integrals-cylindrical.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-mass-center-of-mass.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

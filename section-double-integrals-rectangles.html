@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Double and Iterated Integrals Over Rectangles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-multiple-integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-multiple-integrals.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-double-integrals-general-regions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-double-integrals-rectangles"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Double and Iterated Integrals Over Rectangles</span>
+</h2>
+<div class="para" id="section-double-integrals-rectangles-2">Before we begin discussing the actual topic of today’s lecture, we will briefly remind ourselves of the concept of area under a function and its relation with definite integrals.<div class="autopermalink" data-description="Paragraph"><a href="#section-double-integrals-rectangles-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="sec-area-under-curve-reminder"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span>
+</h3>
+<div class="para" id="sec-area-under-curve-reminder-2">As shown in <a href="section-double-integrals-rectangles.html#fig-riemann-1d-prefigure" class="internal" title="Figure 2.1.1">Figure 2.1.1</a>, to calculate the area under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\text{,}\)</span> we divide the interval <span class="process-math">\((a,b)\)</span> into <span class="process-math">\(n\)</span> subintervals and then let the number of subintervals (which is the same as the number of rectangles) approach infinity. Write the area as such a limit, and then as the definite integral it defines.<div class="autopermalink" data-description="Paragraph"><a href="#sec-area-under-curve-reminder-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-area-under-curve-reminder-3-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the area as a limit of a sum of rectangle areas and one for the definite integral as the same limit."></div></div></div></div>
+<figure class="figure figure-like" id="fig-riemann-1d-prefigure"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-riemann-1d-diagcess.svg" data-cml="generated/prefigure/prefigure-riemann-1d-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The area under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\text{,}\)</span> approximated by <span class="process-math">\(n = 8\)</span> rectangles of width <span class="process-math">\(\Delta x\text{.}\)</span> The height of the <span class="process-math">\(i\)</span>-th rectangle is <span class="process-math">\(f(x_i^*)\text{,}\)</span> where <span class="process-math">\(x_i^*\)</span> is a sample point in the <span class="process-math">\(i\)</span>-th subinterval. As <span class="process-math">\(n \to \infty\text{,}\)</span> the total area of the rectangles approaches the area under the curve.<div class="autopermalink" data-description="Figure 2.1.1"><a href="#fig-riemann-1d-prefigure" title="Copy heading and permalink for Figure 2.1.1" aria-label="Copy heading and permalink for Figure 2.1.1">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.1.1: Reminder: Area Under y = f(x) from x = a to x = b"><a href="#sec-area-under-curve-reminder" title="Copy heading and permalink for Subsection 2.1.1: Reminder: Area Under y = f(x) from x = a to x = b" aria-label="Copy heading and permalink for Subsection 2.1.1: Reminder: Area Under y = f(x) from x = a to x = b">🔗</a></div></section><section class="subsection" id="sec-double-integrals-rectangles"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Double Integrals Over Rectangles</span>
+</h3>
+<div class="para" id="sec-double-integrals-rectangles-2">As we will see, double integrals can be interpreted geometrically as the volume under a surface <span class="process-math">\(z = f(x,y)\text{.}\)</span> As an example, consider the surface <span class="process-math">\(z = x^2 + y + 5\)</span> over the region<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-rectangles-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-volume-solid-geogebra.html ./knowl/xref/sec-area-under-curve-reminder.html ./knowl/xref/fig-volume-four-boxes-geogebra.html ./knowl/xref/fig-riemann-boxes-video.html ./knowl/xref/fig-volume-one-box-geogebra.html ./knowl/xref/example-iterated-rectangle.html" id="sec-double-integrals-rectangles-3">
+\begin{equation*}
+R : \{(x,y) : 0 \le x \le 2,\ 0 \le y \le 2\},
+\end{equation*}
+</div>
+<div class="para" id="sec-double-integrals-rectangles-4">drawn in <a href="section-double-integrals-rectangles.html#fig-volume-solid-geogebra" class="xref" data-knowl="./knowl/xref/fig-volume-solid-geogebra.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.2">Figure 2.1.2</a>. The solid we are after stands on top of <span class="process-math">\(R\)</span> and stops at the surface: its floor is the shaded square <span class="process-math">\(R\)</span> in the <span class="process-math">\(xy\)</span>-plane, its ceiling is the piece of the surface lying directly above <span class="process-math">\(R\text{,}\)</span> outlined in dashed black, and the dashed vertical segments above the four corners of <span class="process-math">\(R\)</span> are its vertical edges. Computing the volume of that solid—the volume on top of the region of integration and below the surface—is the goal of this section. Its ceiling is curved, so no formula from solid geometry gives the answer, and we fall back on the idea of <a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal" title="Subsection 2.1.1: Reminder: Area Under y = f(x) from x = a to x = b">Subsection 2.1.1</a>: estimate the volume with pieces whose volume we do know, then refine.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-rectangles-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-volume-solid-geogebra"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-volume-solid-geogebra-2" style="width:600px; height:450px; display: block; " src="fig-volume-solid-geogebra-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-volume-solid-geogebra-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-volume-solid-geogebra-2-2-1">Drag the background to rotate the picture and scroll to zoom. Rotating is worth doing here: from the opening angle the far half of the dashed outline lies behind the surface.<div class="autopermalink" data-description="Paragraph"><a href="#fig-volume-solid-geogebra-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-volume-solid-geogebra-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The volume this section sets out to compute: the solid above the region of integration <span class="process-math">\(R = [0,2]\times[0,2]\)</span> and below the surface <span class="process-math">\(z = x^2 + y + 5\text{.}\)</span> The shaded square is <span class="process-math">\(R\text{,}\)</span> the dashed black curve is the outline of the top of the solid on the surface, and the dashed vertical segments are the edges of the solid above the four corners of <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Figure 2.1.2"><a href="#fig-volume-solid-geogebra" title="Copy heading and permalink for Figure 2.1.2" aria-label="Copy heading and permalink for Figure 2.1.2">🔗</a></div></figcaption></figure><div class="para" id="sec-double-integrals-rectangles-6">To estimate that volume, use the point <span class="process-math">\((1,1)\)</span> in the middle of <span class="process-math">\(R\)</span> to find the height of a single cuboid standing on <span class="process-math">\(R\text{,}\)</span> and compute this (very bad) estimate of the desired volume.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-rectangles-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-double-integrals-rectangles-7-1.svg" role="img" class="contained" alt="Blank box with one row, for the one-box estimate of the volume."></div></div></div></div>
+<figure class="figure figure-like" id="fig-volume-one-box-geogebra"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-volume-one-box-geogebra-2" style="width:600px; height:450px; display: block; " src="fig-volume-one-box-geogebra-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-volume-one-box-geogebra-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-volume-one-box-geogebra-2-2-1">Drag the background to rotate the picture and scroll to zoom. The base of the box is all of <span class="process-math">\(R\text{,}\)</span> and its height is the value of <span class="process-math">\(f\)</span> at the center of <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#fig-volume-one-box-geogebra-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-volume-one-box-geogebra-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A first, very rough estimate of the volume under <span class="process-math">\(z = x^2 + y + 5\)</span> over the square <span class="process-math">\(R = [0,2]\times[0,2]\text{:}\)</span> a single cuboid whose height is sampled at the center of the square. Turn the picture around: seen from any direction, part of the box sticks out above the surface and part of the volume under the surface is left uncovered.<div class="autopermalink" data-description="Figure 2.1.3"><a href="#fig-volume-one-box-geogebra" title="Copy heading and permalink for Figure 2.1.3" aria-label="Copy heading and permalink for Figure 2.1.3">🔗</a></div></figcaption></figure><div class="para" id="sec-double-integrals-rectangles-9">We can improve the estimate by splitting the region into more squares. Split <span class="process-math">\(R\)</span> into four squares, sample <span class="process-math">\(f\)</span> at the center of each, and add up the four cuboids, as shown in <a href="section-double-integrals-rectangles.html#fig-volume-four-boxes-geogebra" class="xref" data-knowl="./knowl/xref/fig-volume-four-boxes-geogebra.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.4">Figure 2.1.4</a>. Similar to finding the area under <span class="process-math">\(f(x)\text{,}\)</span> if we let the number of splittings go to infinity, our estimation becomes exact, i.e., we find the exact desired volume. The refinement process is animated in <a href="section-double-integrals-rectangles.html#fig-riemann-boxes-video" class="xref" data-knowl="./knowl/xref/fig-riemann-boxes-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.6">Figure 2.1.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-rectangles-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-double-integrals-rectangles-10-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the four sampled heights and one for the four-box estimate of the volume."></div></div></div></div>
+<figure class="figure figure-like" id="fig-volume-four-boxes-geogebra"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-volume-four-boxes-geogebra-2" style="width:600px; height:450px; display: block; " src="fig-volume-four-boxes-geogebra-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-volume-four-boxes-geogebra-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-volume-four-boxes-geogebra-2-2-1">Drag the background to rotate the picture and scroll to zoom. Each box stands on one of the four squares, and its height is the value of <span class="process-math">\(f\)</span> at the center of that square.<div class="autopermalink" data-description="Paragraph"><a href="#fig-volume-four-boxes-geogebra-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-volume-four-boxes-geogebra-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Splitting <span class="process-math">\(R\)</span> into four squares improves the estimate. Each cuboid uses the value of <span class="process-math">\(f\)</span> at the center of its square. Turn the picture around: each box now has to match the surface over a quarter of <span class="process-math">\(R\)</span> instead of over all of it, as the single box of <a href="section-double-integrals-rectangles.html#fig-volume-one-box-geogebra" class="xref" data-knowl="./knowl/xref/fig-volume-one-box-geogebra.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.3">Figure 2.1.3</a> does.<div class="autopermalink" data-description="Figure 2.1.4"><a href="#fig-volume-four-boxes-geogebra" title="Copy heading and permalink for Figure 2.1.4" aria-label="Copy heading and permalink for Figure 2.1.4">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-double-integral-geogebra"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-double-integral-geogebra-2" style="width:600px; height:450px; display: block; " src="fig-double-integral-geogebra-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-double-integral-geogebra-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-double-integral-geogebra-2-2-1">Use the two sliders to set the number of divisions in the <span class="process-math">\(x\)</span>– and <span class="process-math">\(y\)</span>-directions. Each box of the grid contributes its base area times the height of the surface above it, and the sum of those volumes is the estimate of the double integral. Increase the number of divisions and watch the estimate settle down. Drag the background to rotate the picture and scroll to zoom.<div class="autopermalink" data-description="Paragraph"><a href="#fig-double-integral-geogebra-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-double-integral-geogebra-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A Riemann sum for a double integral, to explore: the region of integration, the surface <span class="process-math">\(z=f(x,y)\text{,}\)</span> and the grid of boxes built over it. Refining the grid drives the sum toward <span class="process-math">\(\iint_R f(x,y)\,dA\text{.}\)</span><div class="autopermalink" data-description="Figure 2.1.5"><a href="#fig-double-integral-geogebra" title="Copy heading and permalink for Figure 2.1.5" aria-label="Copy heading and permalink for Figure 2.1.5">🔗</a></div></figcaption></figure><div class="para" id="sec-double-integrals-rectangles-13">Write the approximation of the volume in Riemann-sum notation, using <span class="process-math">\(n\)</span> divisions in <span class="process-math">\(x\)</span> and <span class="process-math">\(m\)</span> in <span class="process-math">\(y\text{,}\)</span> and then the exact volume as a limit. (Each box contributes its base area <span class="process-math">\(\Delta A_{ij} = \Delta x_i\,\Delta y_j\)</span> times the height of the surface at a sample point.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-rectangles-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-double-integrals-rectangles-14-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the double Riemann sum approximating the volume and one for its limit."></div></div></div></div>
+<article class="assemblage assemblage-like" id="assemblage-double-integral-def"><h4 class="heading"><span class="title">The Double Integral Over a Rectangle.</span></h4>
+<div class="para" id="assemblage-double-integral-def-2">The result of the above limit is defined as <dfn class="terminology">the double integral over a rectangular region</dfn> and is denoted as<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-double-integral-def-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: The Double Integral Over a Rectangle"><a href="#assemblage-double-integral-def" title="Copy heading and permalink for Assemblage: The Double Integral Over a Rectangle" aria-label="Copy heading and permalink for Assemblage: The Double Integral Over a Rectangle">🔗</a></div></article><div class="para" id="sec-double-integrals-rectangles-16">For instance, in the example above, write the volume as a double integral, with its limits.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-rectangles-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-double-integrals-rectangles-17-1.svg" role="img" class="contained" alt="Blank box with one row, for the volume of the example written as a double integral with limits."></div></div></div></div>
+<div class="para" id="sec-double-integrals-rectangles-18">Next, we will study how to calculate such integrals.<div class="autopermalink" data-description="Paragraph"><a href="#sec-double-integrals-rectangles-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-riemann-boxes-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-riemann-boxes" class="video" controls="" poster="external/play-button.png"><source src="external/videos/riemann_boxes_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Animation of the Riemann-sum definition of the double integral. The region <span class="process-math">\(R = [0,2]\times[0,2]\)</span> is split into <span class="process-math">\(1\text{,}\)</span> then <span class="process-math">\(4\text{,}\)</span> then <span class="process-math">\(16\text{,}\)</span> then <span class="process-math">\(64\)</span> squares, and a cuboid is built over each square with height sampled at its center. The displayed estimate approaches the exact volume, which you will compute in <a href="section-double-integrals-rectangles.html#example-iterated-rectangle" class="xref" data-knowl="./knowl/xref/example-iterated-rectangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.7: Example I">Example 2.1.7</a>.<div class="autopermalink" data-description="Figure 2.1.6"><a href="#fig-riemann-boxes-video" title="Copy heading and permalink for Figure 2.1.6" aria-label="Copy heading and permalink for Figure 2.1.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.1.2: Double Integrals Over Rectangles"><a href="#sec-double-integrals-rectangles" title="Copy heading and permalink for Subsection 2.1.2: Double Integrals Over Rectangles" aria-label="Copy heading and permalink for Subsection 2.1.2: Double Integrals Over Rectangles">🔗</a></div></section><section class="subsection" id="sec-iterated-integrals"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Calculating Double Integrals as Iterated Integrals</span>
+</h3>
+<details id="example-iterated-rectangle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example I.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-iterated-rectangle-2-1">Calculate the double integral <span class="process-math">\(\displaystyle\int_0^2\!\!\int_0^2 \left(x^2 + y + 5\right)\,dx\,dy\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-iterated-rectangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-iterated-rectangle-2-2">
+<em class="emphasis">Solution.</em> (Integrate with respect to <span class="process-math">\(x\)</span> first, treating <span class="process-math">\(y\)</span> as a constant and using FTC II; the result is a function of <span class="process-math">\(y\text{.}\)</span> Then integrate that with respect to <span class="process-math">\(y\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#example-iterated-rectangle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-iterated-rectangle-2-3-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the inner integral with respect to x and one for the outer integral with respect to y."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.1.7: Example I"><a href="#example-iterated-rectangle" title="Copy heading and permalink for Example 2.1.7: Example I" aria-label="Copy heading and permalink for Example 2.1.7: Example I">🔗</a></div></article></details><div class="para" id="sec-iterated-integrals-3">In calculating double integrals, the following theorem can be very useful.<div class="autopermalink" data-description="Paragraph"><a href="#sec-iterated-integrals-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-fubini"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fubini’s Theorem (First Form).</span>
+</h4>
+<div class="para" id="thm-fubini-2-1">If <span class="process-math">\(f(x,y)\)</span> is continuous throughout the rectangular region <span class="process-math">\(R: a \le x \le b,\ c \le y \le d\text{,}\)</span> then<div class="autopermalink" data-description="Paragraph"><a href="#thm-fubini-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-fubini-rectangle">
+\begin{equation}
+\iint_R f(x,y)\,dA
+= \int_c^d\!\!\int_a^b f(x,y)\,dx\,dy
+= \int_a^b\!\!\int_c^d f(x,y)\,dy\,dx.\tag{2.1.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Theorem 2.1.8: Fubini’s Theorem (First Form)"><a href="#thm-fubini" title="Copy heading and permalink for Theorem 2.1.8: Fubini’s Theorem (First Form)" aria-label="Copy heading and permalink for Theorem 2.1.8: Fubini’s Theorem (First Form)">🔗</a></div></article><div class="para" id="sec-iterated-integrals-5">Therefore, if the integrand satisfies the conditions of <a href="section-double-integrals-rectangles.html#thm-fubini" class="xref" data-knowl="./knowl/xref/thm-fubini.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.8: Fubini’s Theorem (First Form)">Theorem 2.1.8</a>, we can change the order of integration as in <a href="section-double-integrals-rectangles.html#eq-fubini-rectangle" class="xref" data-knowl="./knowl/xref/eq-fubini-rectangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.2">(2.1.2)</a>. Check this on the previous example: integrate over <span class="process-math">\(y\)</span> first, then over <span class="process-math">\(x\text{,}\)</span> and compare with the result of <a href="section-double-integrals-rectangles.html#example-iterated-rectangle" class="xref" data-knowl="./knowl/xref/example-iterated-rectangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.7: Example I">Example 2.1.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-iterated-integrals-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-iterated-integrals-6-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the inner integral with respect to y and one for the outer integral with respect to x."></div></div></div></div>
+<div class="autopermalink" data-description="Subsection 2.1.3: Calculating Double Integrals as Iterated Integrals"><a href="#sec-iterated-integrals" title="Copy heading and permalink for Subsection 2.1.3: Calculating Double Integrals as Iterated Integrals" aria-label="Copy heading and permalink for Subsection 2.1.3: Calculating Double Integrals as Iterated Integrals">🔗</a></div></section><section class="subsection" id="sec-iterated-integral-substitution"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span>
+</h3>
+<details id="example-iterated-substitution" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example II.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-iterated-substitution-2-1">Calculate the double integral <span class="process-math">\(\displaystyle\int_0^2\!\!\int_0^1 \frac{x}{1+xy}\,dx\,dy\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-iterated-substitution-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-iterated-substitution-2-2">
+<em class="emphasis">Solution.</em> (By <a href="section-double-integrals-rectangles.html#thm-fubini" class="xref" data-knowl="./knowl/xref/thm-fubini.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 2.1.8: Fubini’s Theorem (First Form)">Theorem 2.1.8</a> you may integrate over <span class="process-math">\(y\)</span> first, with <span class="process-math">\(x\)</span> held constant; the substitution <span class="process-math">\(u = 1 + xy\)</span> does it. The result is a function of <span class="process-math">\(x\)</span> involving a logarithm, which needs integration by parts, <span class="process-math">\(\int u\,dv = uv - \int v\,du\text{;}\)</span> in the leftover integral, write the numerator as <span class="process-math">\((1 + 2x) - 1\text{.}\)</span> The surface is shown in <a href="section-double-integrals-rectangles.html#fig-substitution-surface-tikz" class="xref" data-knowl="./knowl/xref/fig-substitution-surface-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.10">Figure 2.1.10</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-iterated-substitution-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-iterated-substitution-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the inner integral by substitution, for the antiderivative of the logarithm by parts, and for the value of the double integral."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.1.9: Example II"><a href="#example-iterated-substitution" title="Copy heading and permalink for Example 2.1.9: Example II" aria-label="Copy heading and permalink for Example 2.1.9: Example II">🔗</a></div></article></details><figure class="figure figure-like" id="fig-substitution-surface-tikz"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fig-substitution-surface-tikz-2.svg" role="img" class="contained" alt="A curved surface over a rectangle in the plane, highest along one edge.Three coordinate axes in space with a curved surface over the rectangle zero to one in x and zero to two in y. The surface rises from height zero along the y z plane to height one at the corner x equals one, y equals zero, and slopes downward as y increases. The base rectangle in the x y plane is shaded."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The surface <span class="process-math">\(z = \dfrac{x}{1+xy}\)</span> over the rectangle <span class="process-math">\(0 \le x \le 1\text{,}\)</span> <span class="process-math">\(0 \le y \le 2\text{.}\)</span> The double integral of <a href="section-double-integrals-rectangles.html#example-iterated-substitution" class="xref" data-knowl="./knowl/xref/example-iterated-substitution.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.1.9: Example II">Example 2.1.9</a> is the volume between this surface and the shaded base rectangle.<div class="autopermalink" data-description="Figure 2.1.10"><a href="#fig-substitution-surface-tikz" title="Copy heading and permalink for Figure 2.1.10" aria-label="Copy heading and permalink for Figure 2.1.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.1.4: An Iterated Integral Requiring Substitution and Integration by Parts"><a href="#sec-iterated-integral-substitution" title="Copy heading and permalink for Subsection 2.1.4: An Iterated Integral Requiring Substitution and Integration by Parts" aria-label="Copy heading and permalink for Subsection 2.1.4: An Iterated Integral Requiring Substitution and Integration by Parts">🔗</a></div></section><section class="subsection" id="subsec-double-integral-questions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Concept Check</span>
+</h3>
+<div class="para" id="subsec-double-integral-questions-2">The questions below are about <em class="emphasis">setting up</em> double integrals, not about evaluating them. Throughout, <span class="process-math">\(R\)</span> is the square<div class="autopermalink" data-description="Paragraph"><a href="#subsec-double-integral-questions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-volume-solid-geogebra.html ./knowl/xref/fig-ws-sphere-over-square.html ./knowl/xref/fig-volume-solid-geogebra.html ./knowl/xref/eq-concept-check-square.html ./knowl/xref/fig-ws-plane-x.html ./knowl/xref/fig-ws-plane-y-minus-x.html ./knowl/xref/fig-ws-plane-y-minus-x.html ./knowl/xref/fig-ws-plane-x.html ./knowl/xref/q-di-signs.html ./knowl/xref/fig-ws-plane-y-minus-x.html ./knowl/xref/q-di-signs.html" id="eq-concept-check-square">
+\begin{equation}
+R = \left\{(x,y) \in \R^2 : -\tfrac12 \le x \le \tfrac12,\
+-\tfrac12 \le y \le \tfrac12\right\} .\tag{2.1.3}
+\end{equation}
+</div>
+<div class="para" id="subsec-double-integral-questions-4">Each figure can be rotated: drag the background to turn it, and scroll to zoom. In the first three figures the light blue segments at the corners of <span class="process-math">\(R\)</span> join the region of integration to the surface above it, the way the dashed drops do in <a href="section-double-integrals-rectangles.html#fig-volume-solid-geogebra" class="xref" data-knowl="./knowl/xref/fig-volume-solid-geogebra.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.2">Figure 2.1.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-double-integral-questions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="q-di-sphere-over-square" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A volume under a sphere.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-di-sphere-over-square-2-1">Write down a double integral for computing the volume inside the sphere <span class="process-math">\(x^2+y^2+z^2=1\)</span> and above the region <span class="process-math">\(R\text{.}\)</span> See <a href="section-double-integrals-rectangles.html#fig-ws-sphere-over-square" class="xref" data-knowl="./knowl/xref/fig-ws-sphere-over-square.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.12">Figure 2.1.12</a>.<div class="autopermalink" data-description="Paragraph"><a href="#q-di-sphere-over-square-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-di-sphere-over-square-2-2">(Which half of the sphere is the ceiling, and is its formula defined on all of <span class="process-math">\(R\text{?}\)</span> The solid is the one of <a href="section-double-integrals-rectangles.html#fig-volume-solid-geogebra" class="xref" data-knowl="./knowl/xref/fig-volume-solid-geogebra.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.2">Figure 2.1.2</a> with a different ceiling.)<div class="autopermalink" data-description="Paragraph"><a href="#q-di-sphere-over-square-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-di-sphere-over-square-2-3-1.svg" role="img" class="contained" alt="Blank box with one row, for the double integral with limits giving the volume under the sphere."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.11: A volume under a sphere"><a href="#q-di-sphere-over-square" title="Copy heading and permalink for Checkpoint 2.1.11: A volume under a sphere" aria-label="Copy heading and permalink for Checkpoint 2.1.11: A volume under a sphere">🔗</a></div></article></details><figure class="figure figure-like" id="fig-ws-sphere-over-square"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/ugutsgps/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-ws-sphere-over-square-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-ws-sphere-over-square-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-ws-sphere-over-square-2-1-1">Drag the background to rotate the picture and scroll to zoom. The shaded square in the <span class="process-math">\(xy\)</span>-plane is the region of integration <span class="process-math">\(R\text{;}\)</span> the mesh above it is the piece of the sphere whose volume the integral adds up.<div class="autopermalink" data-description="Paragraph"><a href="#fig-ws-sphere-over-square-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-ws-sphere-over-square-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Figure (1): the part of the sphere <span class="process-math">\(x^2+y^2+z^2=1\)</span> lying above the square <span class="process-math">\(R\text{.}\)</span> The four light blue segments join the corners of <span class="process-math">\(R\)</span> to the sphere above them.<div class="autopermalink" data-description="Figure 2.1.12"><a href="#fig-ws-sphere-over-square" title="Copy heading and permalink for Figure 2.1.12" aria-label="Copy heading and permalink for Figure 2.1.12">🔗</a></div></figcaption></figure><details id="q-di-signs" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Signs, without computing.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-di-signs-2-1">Assume that <span class="process-math">\(R\)</span> is the square of <a href="section-double-integrals-rectangles.html#eq-concept-check-square" class="xref" data-knowl="./knowl/xref/eq-concept-check-square.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.3">(2.1.3)</a> and choose all the correct statements below. Remember to justify your answers. Note that <a href="section-double-integrals-rectangles.html#fig-ws-plane-x" class="xref" data-knowl="./knowl/xref/fig-ws-plane-x.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.14">Figure 2.1.14</a> and <a href="section-double-integrals-rectangles.html#fig-ws-plane-y-minus-x" class="xref" data-knowl="./knowl/xref/fig-ws-plane-y-minus-x.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.15">Figure 2.1.15</a> are helpful in answering this question.<div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="upper-alpha ol-marker-1" id="q-di-signs-2-2">
+<li id="q-di-signs-2-2-1">
+<div class="para" id="q-di-signs-2-2-1-1">
+<span class="process-math">\(\displaystyle \displaystyle\iint_R x\,dA \gt 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.1.13.A"><a href="#q-di-signs-2-2-1" title="Copy heading and permalink for Item 2.1.13.A" aria-label="Copy heading and permalink for Item 2.1.13.A">🔗</a></div>
+</li>
+<li id="q-di-signs-2-2-2">
+<div class="para" id="q-di-signs-2-2-2-1">
+<span class="process-math">\(\displaystyle \displaystyle\iint_R x\,dA = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.1.13.B"><a href="#q-di-signs-2-2-2" title="Copy heading and permalink for Item 2.1.13.B" aria-label="Copy heading and permalink for Item 2.1.13.B">🔗</a></div>
+</li>
+<li id="q-di-signs-2-2-3">
+<div class="para" id="q-di-signs-2-2-3-1">
+<span class="process-math">\(\displaystyle \displaystyle\iint_R x\,dA \lt 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.1.13.C"><a href="#q-di-signs-2-2-3" title="Copy heading and permalink for Item 2.1.13.C" aria-label="Copy heading and permalink for Item 2.1.13.C">🔗</a></div>
+</li>
+<li id="q-di-signs-2-2-4">
+<div class="para" id="q-di-signs-2-2-4-1">
+<span class="process-math">\(\displaystyle \displaystyle\iint_R (y-x)\,dA = 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.1.13.D"><a href="#q-di-signs-2-2-4" title="Copy heading and permalink for Item 2.1.13.D" aria-label="Copy heading and permalink for Item 2.1.13.D">🔗</a></div>
+</li>
+<li id="q-di-signs-2-2-5">
+<div class="para" id="q-di-signs-2-2-5-1">
+<span class="process-math">\(\displaystyle \displaystyle\iint_R (y-x)\,dA \lt 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.1.13.E"><a href="#q-di-signs-2-2-5" title="Copy heading and permalink for Item 2.1.13.E" aria-label="Copy heading and permalink for Item 2.1.13.E">🔗</a></div>
+</li>
+<li id="q-di-signs-2-2-6">
+<div class="para" id="q-di-signs-2-2-6-1">
+<span class="process-math">\(\displaystyle \displaystyle\iint_R (y-x)\,dA \gt 0\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.1.13.F"><a href="#q-di-signs-2-2-6" title="Copy heading and permalink for Item 2.1.13.F" aria-label="Copy heading and permalink for Item 2.1.13.F">🔗</a></div>
+</li>
+</ol> <div class="para" id="q-di-signs-2-3">(Circle the correct statements and justify each. Where does the plane <span class="process-math">\(z = x\)</span> lie above the <span class="process-math">\(xy\)</span>-plane over <span class="process-math">\(R\text{,}\)</span> and where below? What does the symmetry of <span class="process-math">\(R\)</span> about the line <span class="process-math">\(x = 0\)</span> do to the two signed volumes? Then treat <span class="process-math">\(y - x\)</span> the same way, using <a href="section-double-integrals-rectangles.html#fig-ws-plane-y-minus-x" class="xref" data-knowl="./knowl/xref/fig-ws-plane-y-minus-x.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.15">Figure 2.1.15</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#q-di-signs-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-di-signs-2-4-1.svg" role="img" class="contained" alt="Blank box in two rows, for the sign of the integral of x over the square with its justification, and for the sign of the integral of y minus x with its justification."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.13: Signs, without computing"><a href="#q-di-signs" title="Copy heading and permalink for Checkpoint 2.1.13: Signs, without computing" aria-label="Copy heading and permalink for Checkpoint 2.1.13: Signs, without computing">🔗</a></div></article></details><figure class="figure figure-like" id="fig-ws-plane-x"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-ws-plane-x-2" style="width:600px; height:600px; display: block; " src="fig-ws-plane-x-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-ws-plane-x-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-ws-plane-x-2-2-1">Drag the background to rotate the picture and scroll to zoom. Turn it until you are looking along the <span class="process-math">\(y\)</span>-axis: the part of the plane above <span class="process-math">\(R\)</span> and the part below it are then mirror images.<div class="autopermalink" data-description="Paragraph"><a href="#fig-ws-plane-x-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-ws-plane-x-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Figure (2): the plane <span class="process-math">\(z=x\)</span> over the square <span class="process-math">\(R\text{,}\)</span> together with <span class="process-math">\(R\)</span> itself in the <span class="process-math">\(xy\)</span>-plane. Half of the plane lies above <span class="process-math">\(R\)</span> and half below.<div class="autopermalink" data-description="Figure 2.1.14"><a href="#fig-ws-plane-x" title="Copy heading and permalink for Figure 2.1.14" aria-label="Copy heading and permalink for Figure 2.1.14">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-ws-plane-y-minus-x"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-ws-plane-y-minus-x-2" style="width:600px; height:600px; display: block; " src="fig-ws-plane-y-minus-x-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-ws-plane-y-minus-x-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-ws-plane-y-minus-x-2-2-1">Drag the background to rotate the picture and scroll to zoom. The two light blue segments rise to the corners <span class="process-math">\((-\tfrac12,\tfrac12)\)</span> and <span class="process-math">\((\tfrac12,-\tfrac12)\text{,}\)</span> where <span class="process-math">\(z=y-x\)</span> is <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\text{;}\)</span> at the other two corners the plane meets the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#fig-ws-plane-y-minus-x-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-ws-plane-y-minus-x-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Figure (3): the plane <span class="process-math">\(z=y-x\)</span> over the square <span class="process-math">\(R\text{.}\)</span> It meets the <span class="process-math">\(xy\)</span>-plane along the diagonal <span class="process-math">\(y=x\)</span> of <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Figure 2.1.15"><a href="#fig-ws-plane-y-minus-x" title="Copy heading and permalink for Figure 2.1.15" aria-label="Copy heading and permalink for Figure 2.1.15">🔗</a></div></figcaption></figure><details id="q-di-volume-plane-x" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The volume cut off by <span class="process-math">\(z=x\)</span>.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-di-volume-plane-x-2-1">Write a double integral for computing the volume of the region bounded by the blue plane and the orange plane as graphed in <a href="section-double-integrals-rectangles.html#fig-ws-plane-x" class="xref" data-knowl="./knowl/xref/fig-ws-plane-x.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.14">Figure 2.1.14</a>.<div class="autopermalink" data-description="Paragraph"><a href="#q-di-volume-plane-x-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-di-volume-plane-x-2-2">(Volume is unsigned, so the integrand is the <em class="emphasis">distance</em> between the two planes, not the signed height. How does this differ from <a href="section-double-integrals-rectangles.html#q-di-signs" class="xref" data-knowl="./knowl/xref/q-di-signs.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 2.1.13: Signs, without computing">Checkpoint 2.1.13</a>?)<div class="autopermalink" data-description="Paragraph"><a href="#q-di-volume-plane-x-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-di-volume-plane-x-2-3-1.svg" role="img" class="contained" alt="Blank box with one row, for the double integral giving the volume between the plane z equals x and the square."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.16: The volume cut off by z=x"><a href="#q-di-volume-plane-x" title="Copy heading and permalink for Checkpoint 2.1.16: The volume cut off by z=x" aria-label="Copy heading and permalink for Checkpoint 2.1.16: The volume cut off by z=x">🔗</a></div></article></details><details id="q-di-volume-plane-y-minus-x" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.1.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The volume cut off by <span class="process-math">\(z=y-x\)</span>.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-di-volume-plane-y-minus-x-2-1">Write a double integral for computing the volume of the region bounded by the blue plane and the orange plane as graphed in <a href="section-double-integrals-rectangles.html#fig-ws-plane-y-minus-x" class="xref" data-knowl="./knowl/xref/fig-ws-plane-y-minus-x.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1.15">Figure 2.1.15</a>.<div class="autopermalink" data-description="Paragraph"><a href="#q-di-volume-plane-y-minus-x-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-di-volume-plane-y-minus-x-2-2">(As before, the integrand is the distance between the two planes. The diagonal <span class="process-math">\(y = x\)</span> splits <span class="process-math">\(R\)</span> into two halves; what does the symmetry noted in <a href="section-double-integrals-rectangles.html#q-di-signs" class="xref" data-knowl="./knowl/xref/q-di-signs.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 2.1.13: Signs, without computing">Checkpoint 2.1.13</a> let you do with the absolute value?)<div class="autopermalink" data-description="Paragraph"><a href="#q-di-volume-plane-y-minus-x-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-di-volume-plane-y-minus-x-2-3-1.svg" role="img" class="contained" alt="Blank box with one row, for the double integral giving the volume between the plane z equals y minus x and the square."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.1.17: The volume cut off by z=y-x"><a href="#q-di-volume-plane-y-minus-x" title="Copy heading and permalink for Checkpoint 2.1.17: The volume cut off by z=y-x" aria-label="Copy heading and permalink for Checkpoint 2.1.17: The volume cut off by z=y-x">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 2.1.5: Concept Check"><a href="#subsec-double-integral-questions" title="Copy heading and permalink for Subsection 2.1.5: Concept Check" aria-label="Copy heading and permalink for Subsection 2.1.5: Concept Check">🔗</a></div></section><div class="autopermalink" data-description="Section 2.1: Double and Iterated Integrals Over Rectangles"><a href="#section-double-integrals-rectangles" title="Copy heading and permalink for Section 2.1: Double and Iterated Integrals Over Rectangles" aria-label="Copy heading and permalink for Section 2.1: Double and Iterated Integrals Over Rectangles">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-multiple-integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-double-integrals-general-regions.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

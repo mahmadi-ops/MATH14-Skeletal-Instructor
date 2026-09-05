@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-r1p-annulus-figure" width="346" height="346" viewBox="0 0 346 346">
+  <defs>
+    <clipPath id="prefigure-r1p-annulus-clipPath-0">
+      <rect x="8.0" y="8.0" width="330.0" height="330.0"/>
+    </clipPath>
+    <clipPath id="prefigure-r1p-annulus-clipPath-1">
+      <rect x="8.0" y="8.0" width="330.0" height="330.0"/>
+    </clipPath>
+    <marker id="prefigure-r1p-annulus-arrow-head-end-1_None_24_60-h555555" markerWidth="4.5" markerHeight="4.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="3.3" refY="2.0">
+      <path d="M 4.5 2.0L 0.0 4.0L 0.9 2.5L 0.9 1.5L 0.0 0.0Z" fill="#555555" stroke="none"/>
+    </marker>
+    <marker id="prefigure-r1p-annulus-arrow-head-end-1_None_24_60-h555555-outline" markerWidth="8.5" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="5.3" refY="4.0">
+      <path d="M 7.3 5.8 L 2.8 7.8 A 2 2 0 0 1 0.0 6.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 7.3 2.2 A 2 2 0 0 1 7.3 5.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-r1p-annulus-arrow-head-end-3_None_24_60-hCC0079" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#CC0079" stroke="none"/>
+    </marker>
+    <marker id="prefigure-r1p-annulus-arrow-head-end-3_None_24_60-hCC0079-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="ax" stroke="#555555" stroke-width="1">
+    <line id="prefigure-r1p-annulus-line-0" x1="8.0" y1="173.0" x2="338.0" y2="173.0" stroke="#555555" stroke-width="1" marker-end="url(#prefigure-r1p-annulus-arrow-head-end-1_None_24_60-h555555)"/>
+    <line id="prefigure-r1p-annulus-line-1" x1="69.3" y1="338.0" x2="69.3" y2="8.0" stroke="#555555" stroke-width="1" marker-end="url(#prefigure-r1p-annulus-arrow-head-end-1_None_24_60-h555555)"/>
+  </g>
+  <g id="prefigure-r1p-annulus-label-0" transform="translate(332.0,167.0) translate(-10.4,-8.2)">
+    <g id="prefigure-r1p-annulus-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-r1p-annulus-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-r1p-annulus-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-r1p-annulus-label-1" transform="translate(75.3,14.0) translate(0.0,-0.0)">
+    <g id="prefigure-r1p-annulus-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-r1p-annulus-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-r1p-annulus-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <path id="prefigure-r1p-annulus-inner" d="M 136.0 239.7 L 137.0 238.6 L 138.0 237.5 L 139.0 236.5 L 140.0 235.4 L 141.0 234.2 L 141.9 233.1 L 142.9 232.0 L 143.8 230.8 L 144.7 229.6 L 145.6 228.4 L 146.4 227.2 L 147.3 226.0 L 148.1 224.8 L 148.9 223.5 L 149.7 222.3 L 150.4 221.0 L 151.2 219.7 L 151.9 218.4 L 152.6 217.1 L 153.3 215.8 L 154.0 214.5 L 154.6 213.1 L 155.2 211.8 L 155.8 210.4 L 156.4 209.1 L 157.0 207.7 L 157.5 206.3 L 158.0 204.9 L 158.5 203.5 L 159.0 202.1 L 159.4 200.7 L 159.8 199.3 L 160.2 197.9 L 160.6 196.4 L 161.0 195.0 L 161.3 193.6 L 161.6 192.1 L 161.9 190.7 L 162.2 189.2 L 162.4 187.7 L 162.6 186.3 L 162.8 184.8 L 163.0 183.3 L 163.2 181.9 L 163.3 180.4 L 163.4 178.9 L 163.5 177.4 L 163.5 176.0 L 163.6 174.5 L 163.6 173.0 L 163.6 171.5 L 163.5 170.0 L 163.5 168.6 L 163.4 167.1 L 163.3 165.6 L 163.2 164.1 L 163.0 162.7 L 162.8 161.2 L 162.6 159.7 L 162.4 158.3 L 162.2 156.8 L 161.9 155.3 L 161.6 153.9 L 161.3 152.4 L 161.0 151.0 L 160.6 149.6 L 160.2 148.1 L 159.8 146.7 L 159.4 145.3 L 159.0 143.9 L 158.5 142.5 L 158.0 141.1 L 157.5 139.7 L 157.0 138.3 L 156.4 136.9 L 155.8 135.6 L 155.2 134.2 L 154.6 132.9 L 154.0 131.5 L 153.3 130.2 L 152.6 128.9 L 151.9 127.6 L 151.2 126.3 L 150.4 125.0 L 149.7 123.7 L 148.9 122.5 L 148.1 121.2 L 147.3 120.0 L 146.4 118.8 L 145.6 117.6 L 144.7 116.4 L 143.8 115.2 L 142.9 114.0 L 141.9 112.9 L 141.0 111.8 L 140.0 110.6 L 139.0 109.5 L 138.0 108.5 L 137.0 107.4 L 136.0 106.3" stroke="#CC0079" stroke-width="3" fill="none" clip-path="url(#prefigure-r1p-annulus-clipPath-1)"/>
+  <path id="prefigure-r1p-annulus-outer" d="M 202.6 306.3 L 204.7 304.2 L 206.7 302.1 L 208.8 299.9 L 210.7 297.7 L 212.7 295.5 L 214.6 293.2 L 216.5 290.9 L 218.3 288.6 L 220.1 286.2 L 221.8 283.8 L 223.6 281.4 L 225.2 279.0 L 226.9 276.5 L 228.5 274.0 L 230.1 271.5 L 231.6 269.0 L 233.1 266.4 L 234.5 263.8 L 235.9 261.2 L 237.3 258.6 L 238.6 256.0 L 239.9 253.3 L 241.2 250.6 L 242.3 247.9 L 243.5 245.2 L 244.6 242.4 L 245.7 239.7 L 246.7 236.9 L 247.7 234.1 L 248.6 231.3 L 249.5 228.4 L 250.4 225.6 L 251.2 222.8 L 251.9 219.9 L 252.6 217.0 L 253.3 214.1 L 253.9 211.2 L 254.5 208.3 L 255.0 205.4 L 255.5 202.5 L 256.0 199.6 L 256.4 196.6 L 256.7 193.7 L 257.0 190.7 L 257.3 187.8 L 257.5 184.8 L 257.6 181.9 L 257.8 178.9 L 257.8 176.0 L 257.9 173.0 L 257.8 170.0 L 257.8 167.1 L 257.6 164.1 L 257.5 161.2 L 257.3 158.2 L 257.0 155.3 L 256.7 152.3 L 256.4 149.4 L 256.0 146.4 L 255.5 143.5 L 255.0 140.6 L 254.5 137.7 L 253.9 134.8 L 253.3 131.9 L 252.6 129.0 L 251.9 126.1 L 251.2 123.2 L 250.4 120.4 L 249.5 117.6 L 248.6 114.7 L 247.7 111.9 L 246.7 109.1 L 245.7 106.3 L 244.6 103.6 L 243.5 100.8 L 242.3 98.1 L 241.2 95.4 L 239.9 92.7 L 238.6 90.0 L 237.3 87.4 L 235.9 84.8 L 234.5 82.2 L 233.1 79.6 L 231.6 77.0 L 230.1 74.5 L 228.5 72.0 L 226.9 69.5 L 225.2 67.0 L 223.6 64.6 L 221.8 62.2 L 220.1 59.8 L 218.3 57.4 L 216.5 55.1 L 214.6 52.8 L 212.7 50.5 L 210.7 48.3 L 208.8 46.1 L 206.7 43.9 L 204.7 41.8 L 202.6 39.7" stroke="#CC0079" stroke-width="3" fill="none" clip-path="url(#prefigure-r1p-annulus-clipPath-1)"/>
+  <line id="prefigure-r1p-annulus-lower" x1="136.0" y1="239.7" x2="202.6" y2="306.3" stroke="#CC0079" stroke-width="3" fill="none"/>
+  <line id="prefigure-r1p-annulus-upper" x1="202.6" y1="39.7" x2="136.0" y2="106.3" stroke="#CC0079" stroke-width="3" fill="none"/>
+  <path id="prefigure-r1p-annulus-a-lower" stroke="#CC0079" stroke-width="3" fill="none" d="M 164.0 267.7 L 186.6 290.3" marker-end="url(#prefigure-r1p-annulus-arrow-head-end-3_None_24_60-hCC0079)"/>
+  <path id="prefigure-r1p-annulus-a-upper" stroke="#CC0079" stroke-width="3" fill="none" d="M 174.6 67.7 L 152.0 90.3" marker-end="url(#prefigure-r1p-annulus-arrow-head-end-3_None_24_60-hCC0079)"/>
+  <g id="prefigure-r1p-annulus-lab" transform="translate(210.7,144.7) translate(-6.9,-6.6)">
+    <g id="prefigure-r1p-annulus-g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="13.752px" height="13.160px" role="img" focusable="false" viewBox="0 -705 760 727" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-r1p-annulus-MJX-4-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper C">
+              <use data-c="1D436" xlink:href="#prefigure-r1p-annulus-MJX-4-TEX-I-1D436"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

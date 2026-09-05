@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The big picture — MATH 14 Vector Calculus</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+html, body { margin: 0; padding: 0; background: #16130f; }
+#stage { position: relative; width: 1920px; height: 1080px; background: #16130f; color: #f3f2f2; font-family: "Lora", Georgia, serif; overflow: hidden; transform-origin: 0 0; }
+#wrap { overflow: hidden; }
+#connectors { position: absolute; inset: 0; pointer-events: none; }
+#connectors path { transition: stroke 0.15s, stroke-width 0.15s, opacity 0.15s; }
+#connectors.focus path { opacity: 0.15; }
+#connectors.focus path.hi { opacity: 1; stroke-width: 2.5; }
+#connectors path.hi.plain { stroke: rgba(243,242,242,0.85); }
+#connectors path.hi.gold { stroke: #cf9f55; }
+.node { position: absolute; box-sizing: border-box; background: #16130f; border: 1px solid rgba(243,242,242,0.38); border-radius: 4px; padding: 12px 18px; text-decoration: none; color: #f3f2f2; display: block; transition: border-color 0.15s, opacity 0.15s; }
+.node.gold { border-color: rgba(182,130,53,0.85); }
+a.node:hover, .node.hi { border-color: #cf9f55; }
+#stage.focus .node { opacity: 0.35; }
+#stage.focus .node.hi, #stage.focus .node:hover { opacity: 1; }
+.node .t { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 23px; line-height: 1.15; }
+.node .hub { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; text-align: center; line-height: 1.1; }
+.node .m { margin-top: 6px; }
+.node .meta { color: rgba(243,242,242,0.55); }
+.node .kick { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(243,242,242,0.55); font-family: "Lora", Georgia, serif; }
+.title { position: absolute; left: 60px; top: 44px; }
+.title .h { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1; }
+.title .k { margin-top: 8px; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #b68235; }
+.rule { width: 70px; height: 1px; background: #b68235; margin: 12px auto 0; }
+#legend { position: absolute; left: 60px; top: 158px; width: 224px; font-size: 13.5px; color: rgba(243,242,242,0.75); line-height: 1.45; }
+#legend .row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+#legend svg { flex: none; }
+#legend .hint { margin-top: 10px; font-style: italic; color: rgba(243,242,242,0.55); }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+  <svg id="connectors" width="1920" height="1080">
+    <defs>
+      <marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="rgba(243,242,242,0.45)"/>
+      </marker>
+      <marker id="arr-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="rgba(182,130,53,0.85)"/>
+      </marker>
+    </defs>
+  </svg>
+  <div class="title"><div class="h">The big picture</div><div class="k">MATH 14 &middot; Vector Calculus</div></div>
+  <div id="legend">
+    <div class="row">
+      <svg width="44" height="10"><line x1="0" y1="5" x2="36" y2="5" stroke="rgba(243,242,242,0.35)" stroke-width="1.5"/><path d="M36,1 L44,5 L36,9 z" fill="rgba(243,242,242,0.45)"/></svg>
+      <span>builds on the topic behind it</span>
+    </div>
+    <div class="row">
+      <svg width="44" height="10"><line x1="0" y1="5" x2="36" y2="5" stroke="rgba(182,130,53,0.75)" stroke-width="1.5"/><path d="M36,1 L44,5 L36,9 z" fill="rgba(182,130,53,0.85)"/></svg>
+      <span>a theorem or substitution bridges the two integrals</span>
+    </div>
+    <div class="hint">Hover over a topic to light up its connections; click it to open that part of the book.</div>
+  </div>
+</div></div>
+<script>
+// Every node links to the page of the book where the topic lives.  The hrefs
+// are relative to external/ (where this file is deployed), so ../foo.html is
+// foo.html at the root of the built site; target '_parent' escapes the iframe.
+const NODES = [
+  { id:'hub-line', x:56, y:470, w:230, hub:'Line integrals', hubSize:36, gold:true, rule:true, href:'../ch-curves-and-fields.html' },
+  { id:'param-curve', x:56, y:660, w:250, t:'Parametrizing the curve', tSize:21,
+    m:[["\\mathbf r(t)=x(t)\\,\\mathbf i+y(t)\\,\\mathbf j+z(t)\\,\\mathbf k,\\ \\ a\\le t\\le b",13.5],["\\mathbf v(t)=\\tfrac{d\\mathbf r}{dt}",13.5]], href:'../sec-parametrization.html' },
+  { id:'arclength', x:330, y:74, w:390, t:'Arc length',
+    m:[["L=\\int_C ds=\\int_a^b \\lVert \\mathbf v(t)\\rVert\\,dt",17]], href:'../sec-arc-length.html' },
+  { id:'scalar', x:330, y:226, w:440, t:'Line integral of a scalar \\(f(x,y,z)\\)', tTex:'f(x,y,z)',
+    m:[["\\int_C f\\,ds=\\int_a^b f(\\mathbf r(t))\\,\\lVert \\mathbf v(t)\\rVert\\,dt",17]], href:'../sec-line-integrals.html' },
+  { id:'wall', x:310, y:402, w:330, t:'Area of a wall', tSize:21,
+    m:[["A=\\int_C f(x,y)\\,ds",15]], meta:'base C, height f(x, y)', href:'../sec-line-integrals.html' },
+  { id:'wire', x:330, y:542, w:340, t:'Mass of a wire', tSize:21,
+    m:[["M=\\int_C \\delta\\,ds",15]], meta:'shaped as C, density δ(x, y, z)', href:'../sec-line-integrals.html' },
+  { id:'work', x:320, y:692, w:460, t:'Circulation · work · flow',
+    m:[["\\begin{aligned}\\int_C \\mathbf F\\cdot\\mathbf T\\,ds&=\\int_C \\mathbf F\\cdot d\\mathbf r=\\int_a^b \\mathbf F(\\mathbf r(t))\\cdot \\mathbf v(t)\\,dt\\\\[2pt]&=\\int_C M\\,dx+N\\,dy+P\\,dz\\end{aligned}",16]], href:'../sec-vector-fields.html' },
+  { id:'param', x:56, y:906, w:310, t:'Parametrizing surfaces', tSize:21,
+    m:[["\\mathbf r(u,v)=x\\,\\mathbf i+y\\,\\mathbf j+z\\,\\mathbf k",15.5]], href:'../section-surface-integrals.html#sec-parametric-surfaces' },
+  { id:'surf', x:410, y:928, w:440, t:'Surface integrals of vector functions',
+    m:[["\\iint_S \\mathbf F\\cdot\\mathbf n\\,d\\sigma=\\iint_R \\mathbf F\\cdot(\\mathbf r_u\\times\\mathbf r_v)\\,du\\,dv",16]], href:'../section-surface-integrals.html' },
+  { id:'ftc', x:880, y:74, w:440, gold:true, t:'Fundamental Theorem of line integrals',
+    m:[["\\mathbf F=\\nabla f\\ \\Longrightarrow\\ \\int_C \\mathbf F\\cdot d\\mathbf r=f(B)-f(A)",17]], href:'../section-conservative-fields.html#sec-ftli' },
+  { id:'green-circ', x:880, y:256, w:460, gold:true, t:"Green's theorem — circulation form",
+    m:[["\\oint_C \\mathbf F\\cdot d\\mathbf r=\\iint_R\\Bigl(\\tfrac{\\partial N}{\\partial x}-\\tfrac{\\partial M}{\\partial y}\\Bigr)\\,dA",17],
+       ["\\tfrac{\\partial N}{\\partial x}-\\tfrac{\\partial M}{\\partial y}=(\\nabla\\times\\mathbf F)\\cdot\\mathbf k=(\\operatorname{curl}\\mathbf F)\\cdot\\mathbf k",15.5,"— the circulation density"]], href:'../section-greens-theorem.html' },
+  { id:'stokes', x:880, y:446, w:440, gold:true, t:"Stokes' theorem",
+    m:[["\\oint_C \\mathbf F\\cdot d\\mathbf r=\\iint_S (\\nabla\\times\\mathbf F)\\cdot\\mathbf n\\,d\\sigma",17]], href:'../section-stokes-theorem.html' },
+  { id:'green-flux', x:880, y:626, w:460, gold:true, t:"Green's theorem — flux form",
+    m:[["\\oint_C \\mathbf F\\cdot\\mathbf n\\,ds=\\oint_C M\\,dy-N\\,dx=\\iint_R\\Bigl(\\tfrac{\\partial M}{\\partial x}+\\tfrac{\\partial N}{\\partial y}\\Bigr)\\,dA",15.5],
+       ["\\tfrac{\\partial M}{\\partial x}+\\tfrac{\\partial N}{\\partial y}=\\nabla\\cdot\\mathbf F=\\operatorname{div}\\mathbf F",15.5,"— the flux density"]], href:'../section-greens-theorem.html' },
+  { id:'divergence', x:880, y:822, w:440, gold:true, t:'Divergence theorem',
+    m:[["\\oiint_S \\mathbf F\\cdot\\mathbf n\\,d\\sigma=\\iiint_D \\nabla\\cdot\\mathbf F\\,dV",17]], href:'../section-divergence-theorem.html' },
+  { id:'dbl', x:1400, y:178, w:150, hub:'Double integrals', hubSize:27, gold:true, href:'../ch-multiple-integrals.html' },
+  { id:'dbl-cart', x:1560, y:64, w:330, kick:'Cartesian', m:[["\\iint_R f(x,y)\\,dx\\,dy",16]], href:'../section-double-integrals-rectangles.html' },
+  { id:'dbl-polar', x:1560, y:194, w:330, kick:'Polar', m:[["\\iint_R f(r\\cos\\theta,\\,r\\sin\\theta)\\,r\\,dr\\,d\\theta",16]], href:'../section-double-integrals-polar-form.html' },
+  { id:'dbl-sub', x:1560, y:330, w:330, kick:'Substitution',
+    m:[["\\iint f(x(u,v),y(u,v))\\,\\bigl\\lvert\\tfrac{\\partial(x,y)}{\\partial(u,v)}\\bigr\\rvert\\,du\\,dv",15]], href:'../section-jacobian-substitution.html' },
+  { id:'tri', x:1400, y:700, w:150, hub:'Triple integrals', hubSize:27, gold:true, href:'../ch-multiple-integrals.html' },
+  { id:'tri-cart', x:1560, y:520, w:330, kick:'Cartesian', m:[["\\iiint_D f(x,y,z)\\,dx\\,dy\\,dz",16]], href:'../section-triple-integrals-rectangular.html' },
+  { id:'tri-cyl', x:1560, y:650, w:330, kick:'Cylindrical', m:[["\\iiint_{C} f(r\\cos\\theta,\\,r\\sin\\theta,\\,z)\\,r\\,dr\\,d\\theta\\,dz",15.5]], href:'../section-triple-integrals-cylindrical.html' },
+  { id:'tri-sph', x:1560, y:784, w:330, kick:'Spherical',
+    m:[["\\iiint_{S} f(\\rho\\sin\\varphi\\cos\\theta,\\,\\rho\\sin\\varphi\\sin\\theta,\\,\\rho\\cos\\varphi)",14],["\\times\\;\\rho^{2}\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta",14]], href:'../section-triple-integrals-spherical.html' },
+  { id:'tri-sub', x:1560, y:936, w:330, kick:'Substitution',
+    m:[["\\iiint_{W} f\\bigl(x(u,v,w),\\,y(u,v,w),\\,z(u,v,w)\\bigr)",14],["\\times\\;\\bigl\\lvert\\tfrac{\\partial(x,y,z)}{\\partial(u,v,w)}\\bigr\\rvert\\,du\\,dv\\,dw",14]], href:'../section-jacobian-substitution.html#sec-substitution-3d' },
+];
+// Third entry marks the gold bridges: a theorem (or a coordinate substitution)
+// trading an integral over a boundary for an integral over what it bounds.
+const EDGES = [
+  ['param-curve','hub-line'], ['hub-line','arclength'], ['hub-line','scalar'], ['hub-line','work'],
+  ['hub-line','ftc','gold'],
+  ['scalar','wall'], ['scalar','wire'],
+  ['work','green-circ','gold'], ['work','stokes','gold'], ['hub-line','green-flux','gold'],
+  ['green-circ','dbl','gold'], ['green-flux','dbl','gold'],
+  ['stokes','surf','gold'], ['surf','divergence','gold'], ['divergence','tri','gold'],
+  ['param','surf'],
+  ['dbl','dbl-cart'], ['dbl','dbl-polar'], ['dbl','dbl-sub'],
+  ['tri','tri-cart'], ['tri','tri-cyl'], ['tri','tri-sph'], ['tri','tri-sub']
+];
+const stage = document.getElementById('stage');
+function tex(el, s, size) {
+  const d = document.createElement('div');
+  d.className = 'm'; d.style.fontSize = size + 'px';
+  el.appendChild(d);
+  katex.render(s, d, { throwOnError: false, displayMode: false });
+  return d;
+}
+for (const n of NODES) {
+  const el = document.createElement(n.href ? 'a' : 'div');
+  el.className = 'node' + (n.gold ? ' gold' : '');
+  if (n.href) { el.href = n.href; el.target = '_parent'; }
+  el.dataset.node = n.id;
+  el.style.left = n.x + 'px'; el.style.top = n.y + 'px'; el.style.width = n.w + 'px';
+  if (n.hub) {
+    const h = document.createElement('div'); h.className = 'hub'; h.style.fontSize = n.hubSize + 'px'; h.textContent = n.hub; el.appendChild(h);
+    if (n.rule) { const r = document.createElement('div'); r.className = 'rule'; el.appendChild(r); }
+  }
+  if (n.kick) { const k = document.createElement('div'); k.className = 'kick'; k.textContent = n.kick; el.appendChild(k); }
+  if (n.t) {
+    const t = document.createElement('div'); t.className = 't'; if (n.tSize) t.style.fontSize = n.tSize + 'px';
+    if (n.tTex) { t.textContent = n.t.replace(/\\\(.*\\\)/, '') + ' '; const s = document.createElement('span'); t.appendChild(s); katex.render(n.tTex, s, { throwOnError: false }); }
+    else t.textContent = n.t;
+    el.appendChild(t);
+  }
+  if (n.m) for (const [s, size, note] of n.m) {
+    const d = tex(el, s, size);
+    if (note) { const sp = document.createElement('span'); sp.className = 'meta'; sp.style.cssText = 'font-size:14px;font-style:italic;margin-left:8px'; sp.textContent = note; d.appendChild(sp); }
+  }
+  if (n.meta) { const md = document.createElement('div'); md.className = 'm meta'; md.style.fontSize = '14px'; md.textContent = n.meta; el.appendChild(md); }
+  stage.appendChild(el);
+}
+// connectors: an arrow points from a topic to what is built from it
+const svg = document.getElementById('connectors');
+const touching = {};   // node id -> its incident edge paths and neighbour ids
+for (const [a, b, kind] of EDGES) {
+  const rectOf = id => { const el = stage.querySelector('[data-node="' + id + '"]'); return { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight }; };
+  const A = rectOf(a), B = rectOf(b);
+  const acx = A.x + A.w / 2, acy = A.y + A.h / 2, bcx = B.x + B.w / 2, bcy = B.y + B.h / 2;
+  let d;
+  if (Math.abs(bcx - acx) > Math.abs(bcy - acy)) {
+    const p1 = bcx > acx ? [A.x + A.w, acy] : [A.x, acy];
+    const p2 = bcx > acx ? [B.x, bcy] : [B.x + B.w, bcy];
+    const k = (p2[0] - p1[0]) * 0.45;
+    d = `M${p1[0]},${p1[1]} C${p1[0] + k},${p1[1]} ${p2[0] - k},${p2[1]} ${p2[0]},${p2[1]}`;
+  } else {
+    const p1 = bcy > acy ? [acx, A.y + A.h] : [acx, A.y];
+    const p2 = bcy > acy ? [bcx, B.y] : [bcx, B.y + B.h];
+    const k = (p2[1] - p1[1]) * 0.45;
+    d = `M${p1[0]},${p1[1]} C${p1[0]},${p1[1] + k} ${p2[0]},${p2[1] - k} ${p2[0]},${p2[1]}`;
+  }
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  p.setAttribute('d', d); p.setAttribute('fill', 'none');
+  p.setAttribute('class', kind === 'gold' ? 'gold' : 'plain');
+  p.setAttribute('stroke', kind === 'gold' ? 'rgba(182,130,53,0.75)' : 'rgba(243,242,242,0.35)');
+  p.setAttribute('stroke-width', '1.5');
+  p.setAttribute('marker-end', kind === 'gold' ? 'url(#arr-gold)' : 'url(#arr-plain)');
+  svg.appendChild(p);
+  for (const id of [a, b]) {
+    (touching[id] = touching[id] || { paths: [], nodes: [] });
+    touching[id].paths.push(p);
+    touching[id].nodes.push(id === a ? b : a);
+  }
+}
+// hovering a topic lights up its connections and neighbours
+for (const n of NODES) {
+  const el = stage.querySelector('[data-node="' + n.id + '"]');
+  const inc = touching[n.id];
+  if (!inc) continue;
+  el.addEventListener('mouseenter', () => {
+    svg.classList.add('focus'); stage.classList.add('focus');
+    for (const p of inc.paths) p.classList.add('hi');
+    for (const id of inc.nodes) stage.querySelector('[data-node="' + id + '"]').classList.add('hi');
+  });
+  el.addEventListener('mouseleave', () => {
+    svg.classList.remove('focus'); stage.classList.remove('focus');
+    for (const p of inc.paths) p.classList.remove('hi');
+    for (const id of inc.nodes) stage.querySelector('[data-node="' + id + '"]').classList.remove('hi');
+  });
+}
+// scale to fit embedding width
+function fit() {
+  const w = document.documentElement.clientWidth;
+  const s = w / 1920;
+  stage.style.transform = 'scale(' + s + ')';
+  document.getElementById('wrap').style.height = (1080 * s) + 'px';
+}
+fit(); window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

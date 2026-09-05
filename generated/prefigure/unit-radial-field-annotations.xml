@@ -1,0 +1,79 @@
+<diagram>
+  <annotations>
+    <annotation id="unit-radial-field-figure" speech2="The normalized field: at every point of a                                 grid an arrow points straight away from the                                 origin, and now every arrow has the same                                 length">
+      <grouped>unit-radial-field-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>unit-radial-field-grid-axes</active>
+        <active>unit-radial-field-grid</active>
+        <active>unit-radial-field-axes</active>
+        <active>unit-radial-field-field</active>
+        <active>unit-radial-field-origin</active>
+      </children>
+      <components>
+        <active>unit-radial-field-grid-axes</active>
+        <active>unit-radial-field-grid</active>
+        <active>unit-radial-field-axes</active>
+        <active>unit-radial-field-field</active>
+        <active>unit-radial-field-origin</active>
+      </components>
+    </annotation>
+    <annotation id="unit-radial-field-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>unit-radial-field-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>unit-radial-field-grid</active>
+        <active>unit-radial-field-axes</active>
+      </children>
+      <components>
+        <active>unit-radial-field-grid</active>
+        <active>unit-radial-field-axes</active>
+      </components>
+      <parents>
+        <grouped>unit-radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-radial-field-grid" speech2="The coordinate grid">
+      <active>unit-radial-field-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>unit-radial-field-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-radial-field-axes" speech2="The coordinate axes">
+      <active>unit-radial-field-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>unit-radial-field-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-radial-field-grid" speech2="The coordinate grid">
+      <active>unit-radial-field-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>unit-radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-radial-field-axes" speech2="The coordinate axes">
+      <active>unit-radial-field-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>unit-radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-radial-field-field" speech2="The grid of unit field vectors, all of the                                   same length, each pointing radially                                   outward">
+      <active>unit-radial-field-field</active>
+      <position>4</position>
+      <parents>
+        <grouped>unit-radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-radial-field-origin" speech2="The origin, where the field is undefined">
+      <active>unit-radial-field-origin</active>
+      <position>5</position>
+      <parents>
+        <grouped>unit-radial-field-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

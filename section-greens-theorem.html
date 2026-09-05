@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Green’s Theorem in the Plane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-integral-theorems.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-theorems.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-stokes-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-greens-theorem"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Green’s Theorem in the Plane</span>
+</h2>
+<section class="introduction" id="section-greens-theorem-2"><div class="para" id="section-greens-theorem-2-1">Before we learn about Green’s theorem, we will need to learn about two operations on vector fields: <dfn class="terminology">curl</dfn> and <dfn class="terminology">divergence</dfn>. We begin by studying divergence.<div class="autopermalink" data-description="Paragraph"><a href="#section-greens-theorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="sec-divergence"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Divergence</span>
+</h3>
+<div class="para" id="sec-divergence-2">Consider a vector field <span class="process-math">\(\mathbf{F}(x,y) = M(x,y)\,\mathbf{i} + N(x,y)\,\mathbf{j}\)</span> to be the velocity field of a fluid. How can we find the net flow rate of the gas through the boundaries of a rectangle shown in <a href="section-greens-theorem.html#fig-div-flux" class="internal" title="Figure 3.1.1">Figure 3.1.1</a>?<div class="autopermalink" data-description="Paragraph"><a href="#sec-divergence-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-div-flux"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-div-flux-diagcess.svg" data-cml="generated/prefigure/prefigure-div-flux-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The flux of the field <span class="process-math">\(\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}\)</span> through the four sides of a small rectangle with corner <span class="process-math">\((x,y)\text{,}\)</span> width <span class="process-math">\(\Delta x\text{,}\)</span> and height <span class="process-math">\(\Delta y\text{.}\)</span> Each side’s outward component of <span class="process-math">\(\mathbf{F}\)</span> is drawn in its own color, and the legend gives the dot product it represents.<div class="autopermalink" data-description="Figure 3.1.1"><a href="#fig-div-flux" title="Copy heading and permalink for Figure 3.1.1" aria-label="Copy heading and permalink for Figure 3.1.1">🔗</a></div></figcaption></figure><div class="para" id="sec-divergence-4">Evaluate the flux through each side, assuming the field is nearly constant along each side: on each side take the outward component of <span class="process-math">\(\mathbf{F}\)</span> times the length of the side, with <span class="process-math">\(\mathbf{F}\)</span> evaluated at the side’s corner shown in the figure. Then add the four contributions, pair the parallel sides, and use the linear approximations <span class="process-math">\(M(x+\Delta x, y) - M(x,y) \approx \frac{\partial M}{\partial x}\,\Delta x\)</span> and <span class="process-math">\(N(x, y+\Delta y) - N(x,y) \approx \frac{\partial N}{\partial y}\,\Delta y\)</span> to write the net flow rate.<div class="autopermalink" data-description="Paragraph"><a href="#sec-divergence-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-divergence-5-1.svg" role="img" class="contained" alt="Blank box in three rows, for the flux through each of the four sides, for the sums over the two pairs of parallel sides, and for the net flow rate out of the rectangle."></div></div></div></div>
+<div class="para" id="sec-divergence-6">Note that this is an approximation, since we are assuming the velocity field has a constant value along each side of the rectangle. The <dfn class="terminology">flux density</dfn> can be calculated as follows:<div class="autopermalink" data-description="Paragraph"><a href="#sec-divergence-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-div-flux.html ./knowl/xref/eq-flux-density.html ./knowl/xref/fig-div-video.html ./knowl/xref/eq-div-def.html ./knowl/xref/fig-div-fields.html" id="eq-flux-density">
+\begin{equation}
+\text{Flux density}
+= \frac{\text{net flux through the rectangle}}
+{\text{area of the rectangle}}
+= \frac{\left( \frac{\partial M}{\partial x}
++ \frac{\partial N}{\partial y} \right) \Delta x \Delta y}
+{\Delta x \Delta y}
+= \frac{\partial M}{\partial x} + \frac{\partial N}{\partial y}.\tag{3.1.1}
+\end{equation}
+</div>
+<div class="para" id="sec-divergence-8">Note that, in the limit that <span class="process-math">\(\Delta x\)</span> and <span class="process-math">\(\Delta y\)</span> approach <span class="process-math">\(0\text{,}\)</span> <a href="section-greens-theorem.html#eq-flux-density" class="xref" data-knowl="./knowl/xref/eq-flux-density.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.1">(3.1.1)</a> represents to what extent a gas is expanding or compressing at each point. This quantity is known as the <dfn class="terminology">divergence</dfn>, and it is denoted by <span class="process-math">\(\operatorname{div} \mathbf{F}\text{.}\)</span> Watch the construction in <a href="section-greens-theorem.html#fig-div-video" class="xref" data-knowl="./knowl/xref/fig-div-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.1.3">Figure 3.1.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-divergence-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-divergence"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="def-divergence-1-1">The divergence of the vector field <span class="process-math">\(\mathbf{F}(x,y) = M(x,y)\,\mathbf{i} + N(x,y)\,\mathbf{j}\)</span> is defined as<div class="autopermalink" data-description="Paragraph"><a href="#def-divergence-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-div-def">
+\begin{equation}
+\operatorname{div} \mathbf{F} = \nabla \cdot \mathbf{F}
+= \frac{\partial M}{\partial x} + \frac{\partial N}{\partial y},\tag{3.1.2}
+\end{equation}
+</div>
+<div class="para" id="def-divergence-1-3">where <span class="process-math">\(\nabla = \dfrac{\partial}{\partial x}\,\mathbf{i}
++ \dfrac{\partial}{\partial y}\,\mathbf{j}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-divergence-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 3.1.2"><a href="#def-divergence" title="Copy heading and permalink for Definition 3.1.2" aria-label="Copy heading and permalink for Definition 3.1.2">🔗</a></div></article><figure class="figure figure-like" id="fig-div-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-divergence" class="video" controls="" poster="external/play-button.png"><source src="external/videos/divergence_flux_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The net flux of <span class="process-math">\(\mathbf{F}\)</span> out of a small rectangle, divided by its area, converges to the divergence <span class="process-math">\(\partial M/\partial x + \partial N/\partial y\)</span> as the rectangle shrinks.<div class="autopermalink" data-description="Figure 3.1.3"><a href="#fig-div-video" title="Copy heading and permalink for Figure 3.1.3" aria-label="Copy heading and permalink for Figure 3.1.3">🔗</a></div></figcaption></figure><details id="example-divergence-fields" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing and Interpreting Divergence.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-divergence-fields-2-1">The vector fields below represent the velocity field of a gas. Calculate the divergence in each case and explain what it means physically.<div class="autopermalink" data-description="Paragraph"><a href="#example-divergence-fields-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="example-divergence-fields-2-2">
+<ol class="upper-alpha ol-marker-1" id="example-divergence-fields-2-2-1">
+<li id="example-divergence-fields-2-2-1-1">
+<div class="para" id="example-divergence-fields-2-2-1-1-1">
+<span class="process-math">\(\displaystyle \mathbf{F}(x,y) = 2x\,\mathbf{i} + 2y\,\mathbf{j}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-divergence-fields-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item A"><a href="#example-divergence-fields-2-2-1-1" title="Copy heading and permalink for Item A" aria-label="Copy heading and permalink for Item A">🔗</a></div>
+</li>
+<li id="example-divergence-fields-2-2-1-2">
+<div class="para" id="example-divergence-fields-2-2-1-2-1">
+<span class="process-math">\(\displaystyle \mathbf{F}(x,y) = \dfrac{-y}{x^2+y^2}\,\mathbf{i}
++ \dfrac{x}{x^2+y^2}\,\mathbf{j}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-divergence-fields-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item B"><a href="#example-divergence-fields-2-2-1-2" title="Copy heading and permalink for Item B" aria-label="Copy heading and permalink for Item B">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-divergence-fields-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-divergence-fields-2-3">
+<em class="emphasis">Solution.</em> (Apply <a href="section-greens-theorem.html#eq-div-def" class="xref" data-knowl="./knowl/xref/eq-div-def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.2">(3.1.2)</a> to each field, and say what the sign of the result means for the gas at every point. The two fields are drawn in <a href="section-greens-theorem.html#fig-div-fields" class="internal" title="Figure 3.1.5">Figure 3.1.5</a>; does the picture agree?)<div class="autopermalink" data-description="Paragraph"><a href="#example-divergence-fields-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-divergence-fields-2-4-1.svg" role="img" class="contained" alt="Blank box in two labelled rows, one for the divergence of each field with its physical meaning."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.1.4: Computing and Interpreting Divergence"><a href="#example-divergence-fields" title="Copy heading and permalink for Example 3.1.4: Computing and Interpreting Divergence" aria-label="Copy heading and permalink for Example 3.1.4: Computing and Interpreting Divergence">🔗</a></div></article></details><figure class="figure figure-like" id="fig-div-fields"><div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;grid-template-columns:47.9166666666667% 47.9166666666667%;column-gap:4%;">
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-div-field-A-diagcess.svg" data-cml="generated/prefigure/prefigure-div-field-A-annotations.xml"></div></div></div>
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-div-field-B-diagcess.svg" data-cml="generated/prefigure/prefigure-div-field-B-annotations.xml"></div></div></div>
+</div></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Left: the field <span class="process-math">\(2x\,\mathbf{i} + 2y\,\mathbf{j}\text{,}\)</span> which flows away from the origin. Right: the field <span class="process-math">\(\dfrac{-y\,\mathbf{i} +
+x\,\mathbf{j}}{x^2+y^2}\text{,}\)</span> which circulates around the origin. Compare with the divergences you computed.<div class="autopermalink" data-description="Figure 3.1.5"><a href="#fig-div-fields" title="Copy heading and permalink for Figure 3.1.5" aria-label="Copy heading and permalink for Figure 3.1.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 3.1.1: Divergence"><a href="#sec-divergence" title="Copy heading and permalink for Subsection 3.1.1: Divergence" aria-label="Copy heading and permalink for Subsection 3.1.1: Divergence">🔗</a></div></section><section class="subsection" id="sec-curl"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curl</span>
+</h3>
+<div class="para" id="sec-curl-2">Again, let us consider a vector field <span class="process-math">\(\mathbf{F}(x,y) = M(x,y)\,\mathbf{i} + N(x,y)\,\mathbf{j}\)</span> to be the velocity field of a fluid. This time we are interested in answering this question: how can we figure out the <dfn class="terminology">circulation density</dfn> of the fluid at any point on the <span class="process-math">\(xy\)</span>-plane?<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-curl-3">To answer this question, we compute the flow rates of the vector field <span class="process-math">\(\mathbf{F}\)</span> <em class="emphasis">along</em> the sides of the rectangle (counterclockwise), as in <a href="section-greens-theorem.html#fig-curl-circulation" class="internal" title="Figure 3.1.6">Figure 3.1.6</a>, and then we take the limit as <span class="process-math">\(\Delta x, \Delta y \to 0\)</span> to find the circulation density at a point in the <span class="process-math">\(xy\)</span>-plane.<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-curl-circulation"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-curl-circulation-diagcess.svg" data-cml="generated/prefigure/prefigure-curl-circulation-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The counterclockwise circulation of <span class="process-math">\(\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}\)</span> around the rectangle: along each side we take the component of <span class="process-math">\(\mathbf{F}\)</span> in the direction of travel. Each side’s component is drawn in its own color, and the legend gives the dot product it represents.<div class="autopermalink" data-description="Figure 3.1.6"><a href="#fig-curl-circulation" title="Copy heading and permalink for Figure 3.1.6" aria-label="Copy heading and permalink for Figure 3.1.6">🔗</a></div></figcaption></figure><div class="para" id="sec-curl-5">Compute the flow rate along each edge, taking the component of <span class="process-math">\(\mathbf{F}\)</span> in the direction of travel (counterclockwise) times the length of the edge, with <span class="process-math">\(\mathbf{F}\)</span> evaluated at the corner shown in the figure. Sum the flows along the two pairs of parallel edges, using the same linear approximations as for the divergence, and divide by the area of the rectangle to get the circulation density.<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-curl-6-1.svg" role="img" class="contained" alt="Blank box in three rows, for the flow along each of the four edges, for the sums over the two pairs of parallel edges, and for the circulation density."></div></div></div></div>
+<div class="para" id="sec-curl-7">This quantity is denoted by <span class="process-math">\(\operatorname{curl} \mathbf{F} \cdot \mathbf{k}\)</span> and is known as the <dfn class="terminology"><span class="process-math">\(k\)</span>-component of curl</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-curl-k"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="def-curl-k-1-1">The <span class="process-math">\(k\)</span>-component of the curl of the vector field <span class="process-math">\(\mathbf{F}(x,y) = M(x,y)\,\mathbf{i} + N(x,y)\,\mathbf{j}\)</span> is<div class="autopermalink" data-description="Paragraph"><a href="#def-curl-k-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-curl-def">
+\begin{equation}
+\operatorname{curl} \mathbf{F} \cdot \mathbf{k}
+= \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}.\tag{3.1.3}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Definition 3.1.7"><a href="#def-curl-k" title="Copy heading and permalink for Definition 3.1.7" aria-label="Copy heading and permalink for Definition 3.1.7">🔗</a></div></article><div class="para" id="sec-curl-9">To find out the circulation density at a point in the <span class="process-math">\(xy\)</span>-plane, you can imagine a <dfn class="terminology">paddle wheel</dfn> whose axis goes through the point of interest. Then the <span class="process-math">\(k\)</span>-component of curl is positive if the fluid flow causes the paddle wheel to rotate counterclockwise, and it is negative if it turns clockwise. The animation in <a href="section-greens-theorem.html#fig-curl-video" class="xref" data-knowl="./knowl/xref/fig-curl-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.1.8">Figure 3.1.8</a> shows both behaviors.<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-curl-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-curl" class="video" controls="" poster="external/play-button.png"><source src="external/videos/curl_circulation_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The counterclockwise circulation of <span class="process-math">\(\mathbf{F}\)</span> around a small rectangle, divided by its area, converges to the <span class="process-math">\(k\)</span>-component of curl. A paddle wheel placed in the fluid spins counterclockwise where the curl is positive.<div class="autopermalink" data-description="Figure 3.1.8"><a href="#fig-curl-video" title="Copy heading and permalink for Figure 3.1.8" aria-label="Copy heading and permalink for Figure 3.1.8">🔗</a></div></figcaption></figure><details id="example-curl-fields" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing and Interpreting Curl.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-curl-fields-2-1">The vector fields below represent the velocity field of a fluid. Calculate the curl in each case and explain what it means physically.<div class="autopermalink" data-description="Paragraph"><a href="#example-curl-fields-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="example-curl-fields-2-2">
+<ol class="upper-alpha ol-marker-1" id="example-curl-fields-2-2-1">
+<li id="example-curl-fields-2-2-1-1">
+<div class="para" id="example-curl-fields-2-2-1-1-1">
+<span class="process-math">\(\displaystyle \mathbf{F}(x,y) = 2x\,\mathbf{i} + 2y\,\mathbf{j}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-curl-fields-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item A"><a href="#example-curl-fields-2-2-1-1" title="Copy heading and permalink for Item A" aria-label="Copy heading and permalink for Item A">🔗</a></div>
+</li>
+<li id="example-curl-fields-2-2-1-2">
+<div class="para" id="example-curl-fields-2-2-1-2-1">
+<span class="process-math">\(\displaystyle \mathbf{F}(x,y) = -2y\,\mathbf{i} + 2x\,\mathbf{j}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-curl-fields-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item B"><a href="#example-curl-fields-2-2-1-2" title="Copy heading and permalink for Item B" aria-label="Copy heading and permalink for Item B">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-curl-fields-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-curl-fields-2-3">
+<em class="emphasis">Solution.</em> (Identify <span class="process-math">\(M\)</span> and <span class="process-math">\(N\text{,}\)</span> apply <a href="section-greens-theorem.html#eq-curl-def" class="xref" data-knowl="./knowl/xref/eq-curl-def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.3">(3.1.3)</a>, and say what a paddle wheel placed in the fluid would do. The two fields are drawn in <a href="section-greens-theorem.html#fig-curl-fields" class="internal" title="Figure 3.1.10">Figure 3.1.10</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-curl-fields-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-curl-fields-2-4-1.svg" role="img" class="contained" alt="Blank box in two labelled rows, one for the k component of the curl of each field with its physical meaning."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.1.9: Computing and Interpreting Curl"><a href="#example-curl-fields" title="Copy heading and permalink for Example 3.1.9: Computing and Interpreting Curl" aria-label="Copy heading and permalink for Example 3.1.9: Computing and Interpreting Curl">🔗</a></div></article></details><figure class="figure figure-like" id="fig-curl-fields"><div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;grid-template-columns:47.9166666666667% 47.9166666666667%;column-gap:4%;">
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-curl-field-A-diagcess.svg" data-cml="generated/prefigure/prefigure-curl-field-A-annotations.xml"></div></div></div>
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-curl-field-B-diagcess.svg" data-cml="generated/prefigure/prefigure-curl-field-B-annotations.xml"></div></div></div>
+</div></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Left: the radial field <span class="process-math">\(2x\,\mathbf{i} + 2y\,\mathbf{j}\text{.}\)</span> Right: the rotational field <span class="process-math">\(-2y\,\mathbf{i} + 2x\,\mathbf{j}\text{.}\)</span> Compare with the curls you computed: would a paddle wheel spin in each?<div class="autopermalink" data-description="Figure 3.1.10"><a href="#fig-curl-fields" title="Copy heading and permalink for Figure 3.1.10" aria-label="Copy heading and permalink for Figure 3.1.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 3.1.2: Curl"><a href="#sec-curl" title="Copy heading and permalink for Subsection 3.1.2: Curl" aria-label="Copy heading and permalink for Subsection 3.1.2: Curl">🔗</a></div></section><section class="subsection" id="sec-greens-theorem-forms"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Two Forms of Green’s Theorem</span>
+</h3>
+<div class="para" id="sec-greens-theorem-forms-2">Next we state Green’s theorem in 2D<details class="ptx-footnote" aria-live="polite" id="sec-greens-theorem-forms-2-1"><summary class="ptx-footnote__number" title="Footnote 3.1.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec-greens-theorem-forms-2-1">Note that we only cover Green’s theorem in 2D; however, you should know that this theorem can be generalized to 3D, and in that case it is known as Stokes’ theorem, which is <a href="section-stokes-theorem.html" class="internal" title="Section 3.2: Stokes’ Theorem">Section 3.2</a>.</div></details>, in two forms. The first form relates the outward flux across a simple<details class="ptx-footnote" aria-live="polite" id="sec-greens-theorem-forms-2-2"><summary class="ptx-footnote__number" title="Footnote 3.1.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec-greens-theorem-forms-2-2">A curve in the <span class="process-math">\(xy\)</span>-plane is <dfn class="terminology">simple</dfn> if it does not cross itself.</div></details> closed curve <span class="process-math">\(C\)</span> and the double integral of the divergence over the region <span class="process-math">\(R\)</span> bounded by the curve <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-greens-theorem-forms-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-green-normal"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Green’s Theorem (Flux-Divergence or Normal Form).</span>
+</h4>
+<div class="para" id="thm-green-normal-2-1">Let <span class="process-math">\(C\)</span> be a piecewise smooth, simple closed curve enclosing a region <span class="process-math">\(R\)</span> in the plane. Let <span class="process-math">\(\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}\)</span> be a vector field with <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> having continuous first partial derivatives in an open region containing <span class="process-math">\(R\text{.}\)</span> Then the outward flux of <span class="process-math">\(\mathbf{F}\)</span> across <span class="process-math">\(C\)</span> equals the double integral of <span class="process-math">\(\operatorname{div} \mathbf{F}\)</span> over the region <span class="process-math">\(R\)</span> enclosed by <span class="process-math">\(C\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-green-normal-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-green-normal">
+\begin{equation}
+\underbrace{\oint_C \mathbf{F} \cdot \mathbf{n}\, ds
+= \oint_C M\, dy - N\, dx}_{\text{outward flux through the boundary}}
+= \underbrace{\iint_R \left( \frac{\partial M}{\partial x}
++ \frac{\partial N}{\partial y} \right) dx\, dy}_{\text{double integral
+of divergence over } R}.\tag{3.1.4}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Theorem 3.1.11: Green’s Theorem (Flux-Divergence or Normal Form)"><a href="#thm-green-normal" title="Copy heading and permalink for Theorem 3.1.11: Green’s Theorem (Flux-Divergence or Normal Form)" aria-label="Copy heading and permalink for Theorem 3.1.11: Green’s Theorem (Flux-Divergence or Normal Form)">🔗</a></div></article><div class="para" id="sec-greens-theorem-forms-4">The second form of Green’s theorem connects the counterclockwise circulation of a vector field around a simple closed curve <span class="process-math">\(C\)</span> and the double integral of the <span class="process-math">\(\mathbf{k}\)</span>-component of the curl of the field over the region <span class="process-math">\(R\)</span> enclosed by the curve.<div class="autopermalink" data-description="Paragraph"><a href="#sec-greens-theorem-forms-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-green-tangential"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Green’s Theorem (Circulation-Curl or Tangential Form).</span>
+</h4>
+<div class="para" id="thm-green-tangential-2-1">Let <span class="process-math">\(C\)</span> be a piecewise smooth, simple closed curve enclosing a region <span class="process-math">\(R\)</span> in the plane. Let <span class="process-math">\(\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}\)</span> be a vector field with <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> having continuous first partial derivatives in an open region containing <span class="process-math">\(R\text{.}\)</span> Then the counterclockwise circulation of <span class="process-math">\(\mathbf{F}\)</span> around <span class="process-math">\(C\)</span> equals the double integral of <span class="process-math">\((\operatorname{curl} \mathbf{F}) \cdot \mathbf{k}\)</span> over <span class="process-math">\(R\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-green-tangential-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-green-tangential">
+\begin{equation}
+\underbrace{\oint_C \mathbf{F} \cdot \mathbf{T}\, ds
+= \oint_C M\, dx + N\, dy}_{\text{counterclockwise circulation}}
+= \underbrace{\iint_R \left( \frac{\partial N}{\partial x}
+- \frac{\partial M}{\partial y} \right) dx\, dy}_{\text{double integral
+of curl} \,\cdot\, \mathbf{k} \text{ over } R}.\tag{3.1.5}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Theorem 3.1.12: Green’s Theorem (Circulation-Curl or Tangential Form)"><a href="#thm-green-tangential" title="Copy heading and permalink for Theorem 3.1.12: Green’s Theorem (Circulation-Curl or Tangential Form)" aria-label="Copy heading and permalink for Theorem 3.1.12: Green’s Theorem (Circulation-Curl or Tangential Form)">🔗</a></div></article><details id="proof-green-tangential" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="proof-green-tangential-1">
+<div class="para">(Both sides of <a href="section-greens-theorem.html#eq-green-tangential" class="xref" data-knowl="./knowl/xref/eq-green-tangential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.5">(3.1.5)</a> split into a piece carrying <span class="process-math">\(M\)</span> and a piece carrying <span class="process-math">\(N\text{,}\)</span> so it is enough to prove the two statements</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-green-tangential.html ./knowl/xref/sec-general-regions-case1.html ./knowl/xref/fig-green-proof-prefigure.html ./knowl/xref/sec-general-regions-case2.html ./knowl/xref/fig-green-proof-video.html ./knowl/xref/thm-green-normal.html" id="proof-green-tangential-1-4">
+\begin{align}
+\oint_C M\,dx \amp = -\iint_R \frac{\partial M}{\partial y}\,dA ,\tag{3.1.6}\\
+\oint_C N\,dy \amp = \iint_R \frac{\partial N}{\partial x}\,dA ,\notag
+\end{align}
+</div>
+<div class="para">and add them. <em class="emphasis">Step 1</em>: for a region of the kind in <a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal" title="Subsection 2.2.1: Case I: Regions of the Form R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}">Subsection 2.2.1</a>, shown in <a href="section-greens-theorem.html#fig-green-proof-prefigure" class="internal" title="Figure 3.1.13">Figure 3.1.13</a>, say why the vertical sides contribute nothing to <span class="process-math">\(\oint_C M\,dx\text{,}\)</span> write the bottom and top contributions as integrals in <span class="process-math">\(x\)</span> (mind the direction of travel along the top), and compare with the double integral done in the <span class="process-math">\(y\)</span>-direction first, where the Fundamental Theorem of Calculus evaluates the inner integral. <em class="emphasis">Step 2</em>: read <span class="process-math">\(R\)</span> the other way, as in <a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal" title="Subsection 2.2.2: Case II: Regions of the Form R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}">Subsection 2.2.2</a>, and repeat for <span class="process-math">\(N\text{;}\)</span> say why no minus sign appears this time. <em class="emphasis">Step 3</em>: say what to do with a region that cannot be described both ways, and why the cuts cancel; <a href="section-greens-theorem.html#fig-green-proof-video" class="xref" data-knowl="./knowl/xref/fig-green-proof-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.1.14">Figure 3.1.14</a> shows the idea. Finally, explain how <a href="section-greens-theorem.html#thm-green-normal" class="xref" data-knowl="./knowl/xref/thm-green-normal.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.1.11: Green’s Theorem (Flux-Divergence or Normal Form)">Theorem 3.1.11</a> follows by applying the tangential form to the field <span class="process-math">\(\langle -N, M\rangle\text{.}\)</span>)</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#proof-green-tangential-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/proof-green-tangential-2-1.svg" role="img" class="contained" alt="Blank box in four rows, for the M statement on a region cut by vertical lines, for the N statement, for the extension to general regions, and for deriving the normal form from the tangential form."></div></div></div></div>
+<div class="autopermalink" data-description="Proof 3.1.12.1"><a href="#proof-green-tangential" title="Copy heading and permalink for Proof 3.1.12.1" aria-label="Copy heading and permalink for Proof 3.1.12.1">🔗</a></div></article></details><figure class="figure figure-like" id="fig-green-proof-prefigure"><div class="image-box" style="width: 72%; margin-left: 14%; margin-right: 14%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-green-proof-diagcess.svg" data-cml="generated/prefigure/prefigure-green-proof-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Step 1 of the proof of <a href="section-greens-theorem.html#thm-green-tangential" class="xref" data-knowl="./knowl/xref/thm-green-tangential.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.1.12: Green’s Theorem (Circulation-Curl or Tangential Form)">Theorem 3.1.12</a>: a region <span class="process-math">\(R\)</span> cut by vertical lines, with <span class="process-math">\(f_2(x) \le y \le f_1(x)\)</span> for <span class="process-math">\(a \le x \le b\text{.}\)</span> Counterclockwise, the bottom curve is travelled left to right and the top curve right to left; on the two vertical sides <span class="process-math">\(dx = 0\text{,}\)</span> so they contribute nothing to <span class="process-math">\(\oint_C M\,dx\text{.}\)</span><div class="autopermalink" data-description="Figure 3.1.13"><a href="#fig-green-proof-prefigure" title="Copy heading and permalink for Figure 3.1.13" aria-label="Copy heading and permalink for Figure 3.1.13">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-green-proof-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-green-proof-idea" class="video" controls="" poster="external/play-button.png"><source src="external/videos/green_proof_idea_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The idea of the proof, without the algebra: the <span class="process-math">\(\mathbf{k}\)</span>-component of the curl is circulation per unit area, so chop <span class="process-math">\(R\)</span> into little cells and add the circulation around each one. Every interior edge is travelled twice, once in each direction, so the inside cancels in pairs and only the circulation around <span class="process-math">\(C\)</span> is left.<div class="autopermalink" data-description="Figure 3.1.14"><a href="#fig-green-proof-video" title="Copy heading and permalink for Figure 3.1.14" aria-label="Copy heading and permalink for Figure 3.1.14">🔗</a></div></figcaption></figure><details id="example-green-circle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Verifying Both Forms on the Unit Circle.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-green-circle-2-1">Assume that the vector field <span class="process-math">\(\mathbf{F}(x,y) = (x - y)\,\mathbf{i} + x\,\mathbf{j}\)</span> and the closed curve <span class="process-math">\(C\)</span> is the unit circle centered at the origin. Convince yourself of the two forms of Green’s theorem by applying them to this example.<div class="autopermalink" data-description="Paragraph"><a href="#example-green-circle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-green-circle-2-2">
+<em class="emphasis">Solution.</em> (Parametrize the circle, write <span class="process-math">\(M\text{,}\)</span> <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(dx\)</span> and <span class="process-math">\(dy\)</span> in terms of <span class="process-math">\(t\text{,}\)</span> and compute the four partial derivatives. For the normal form <a href="section-greens-theorem.html#eq-green-normal" class="xref" data-knowl="./knowl/xref/eq-green-normal.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.4">(3.1.4)</a>, evaluate the line integral <span class="process-math">\(\oint_C M\,dy - N\,dx\)</span> and the double integral of the divergence separately and compare; for the tangential form <a href="section-greens-theorem.html#eq-green-tangential" class="xref" data-knowl="./knowl/xref/eq-green-tangential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.5">(3.1.5)</a>, do the same with <span class="process-math">\(\oint_C M\,dx + N\,dy\)</span> and the curl. Both double integrals reduce to the area of the disk. The field is shown in <a href="section-greens-theorem.html#fig-green-circle" class="internal" title="Figure 3.1.17">Figure 3.1.17</a>; compare with <a href="section-greens-theorem.html#fig-green-circle-video" class="xref" data-knowl="./knowl/xref/fig-green-circle-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.1.16">Figure 3.1.16</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-green-circle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-green-circle-2-3-1.svg" role="img" class="contained" alt="Blank box in four rows, for the parametrization with M, N, dx and dy, for the four partial derivatives, for the two sides of the normal form, and for the two sides of the tangential form."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.1.15: Verifying Both Forms on the Unit Circle"><a href="#example-green-circle" title="Copy heading and permalink for Example 3.1.15: Verifying Both Forms on the Unit Circle" aria-label="Copy heading and permalink for Example 3.1.15: Verifying Both Forms on the Unit Circle">🔗</a></div></article></details><figure class="figure figure-like" id="fig-green-circle-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-green-circle" class="video" controls="" poster="external/play-button.png"><source src="external/videos/green_unit_circle_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Both forms of Green’s theorem for <span class="process-math">\(\mathbf{F} = (x-y)\,\mathbf{i} + x\,\mathbf{j}\)</span> on the unit circle, computed side by side. Use it to check your values of the outward flux and the counterclockwise circulation.<div class="autopermalink" data-description="Figure 3.1.16"><a href="#fig-green-circle-video" title="Copy heading and permalink for Figure 3.1.16" aria-label="Copy heading and permalink for Figure 3.1.16">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-green-circle"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-green-circle-diagcess.svg" data-cml="generated/prefigure/prefigure-green-circle-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The vector field <span class="process-math">\(\mathbf{F}(x,y) = (x-y)\,\mathbf{i} +
+x\,\mathbf{j}\)</span> and the unit circle <span class="process-math">\(C\text{.}\)</span> The field has a positive (counterclockwise) circulation around <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Figure 3.1.17"><a href="#fig-green-circle" title="Copy heading and permalink for Figure 3.1.17" aria-label="Copy heading and permalink for Figure 3.1.17">🔗</a></div></figcaption></figure><details id="example-green-diamond" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Line Integral via Green’s Theorem and Substitution.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-green-diamond-2-1">Evaluate the line integral<div class="autopermalink" data-description="Paragraph"><a href="#example-green-diamond-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-green-diamond.html ./knowl/xref/eq-green-tangential.html ./knowl/xref/fig-green-diamond.html ./knowl/xref/fig-green-diamond-video.html" id="example-green-diamond-2-2">
+\begin{equation*}
+\oint_C \frac{dx}{x+y} - \frac{dy}{x+y},
+\end{equation*}
+</div>
+<div class="para" id="example-green-diamond-2-3">where <span class="process-math">\(C\)</span> is the boundary of the square with vertices <span class="process-math">\((1,0)\text{,}\)</span> <span class="process-math">\((2,1)\text{,}\)</span> <span class="process-math">\((1,2)\text{,}\)</span> and <span class="process-math">\((0,1)\text{,}\)</span> shown in <a href="section-greens-theorem.html#fig-green-diamond" class="internal" title="Figure 3.1.20">Figure 3.1.20</a>. Make suitable substitutions in your integral to make the limits of integration numbers as opposed to functions.<div class="autopermalink" data-description="Paragraph"><a href="#example-green-diamond-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-green-diamond-2-4">
+<em class="emphasis">Solution.</em> (Identify <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> and compute <span class="process-math">\(\partial N/\partial x - \partial M/\partial y\text{.}\)</span> Use the tangential form <a href="section-greens-theorem.html#eq-green-tangential" class="xref" data-knowl="./knowl/xref/eq-green-tangential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.5">(3.1.5)</a> to turn the line integral into a double integral over the square <span class="process-math">\(R\text{.}\)</span> Write the equations of the four sides of the square; they suggest the substitution <span class="process-math">\(u\text{,}\)</span> <span class="process-math">\(v\)</span> that turns <span class="process-math">\(R\)</span> into a rectangle with constant limits, as in <a href="section-greens-theorem.html#fig-green-diamond" class="internal" title="Figure 3.1.20">Figure 3.1.20</a>. Solve for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> compute the Jacobian, and evaluate. Compare with <a href="section-greens-theorem.html#fig-green-diamond-video" class="xref" data-knowl="./knowl/xref/fig-green-diamond-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.1.19">Figure 3.1.19</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-green-diamond-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-green-diamond-2-5-1.svg" role="img" class="contained" alt="Blank box in five rows, for M, N and the curl, for the double integral given by Green’s theorem, for the substitution suggested by the sides, for the inverse and the Jacobian, and for the evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.1.18: A Line Integral via Green’s Theorem and Substitution"><a href="#example-green-diamond" title="Copy heading and permalink for Example 3.1.18: A Line Integral via Green’s Theorem and Substitution" aria-label="Copy heading and permalink for Example 3.1.18: A Line Integral via Green’s Theorem and Substitution">🔗</a></div></article></details><figure class="figure figure-like" id="fig-green-diamond-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-green-diamond" class="video" controls="" poster="external/play-button.png"><source src="external/videos/green_diamond_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Green’s theorem turns the line integral around the tilted square into a double integral, and a substitution straightens the square into a rectangle with constant limits. Compare with your substitution.<div class="autopermalink" data-description="Figure 3.1.19"><a href="#fig-green-diamond-video" title="Copy heading and permalink for Figure 3.1.19" aria-label="Copy heading and permalink for Figure 3.1.19">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-green-diamond"><div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;grid-template-columns:50% 45.8333333333333%;column-gap:4%;">
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-green-diamond-diagcess.svg" data-cml="generated/prefigure/prefigure-green-diamond-annotations.xml"></div></div></div>
+<div class="sbspanel sbspanel--middle middle" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-green-diamond-R-diagcess.svg" data-cml="generated/prefigure/prefigure-green-diamond-R-annotations.xml"></div></div></div>
+</div></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The square <span class="process-math">\(C\)</span> with vertices <span class="process-math">\((1,0)\text{,}\)</span> <span class="process-math">\((2,1)\text{,}\)</span> <span class="process-math">\((1,2)\text{,}\)</span> <span class="process-math">\((0,1)\)</span> (left) and the corresponding rectangle in the <span class="process-math">\(uv\)</span>-plane (right).<div class="autopermalink" data-description="Figure 3.1.20"><a href="#fig-green-diamond" title="Copy heading and permalink for Figure 3.1.20" aria-label="Copy heading and permalink for Figure 3.1.20">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 3.1.3: The Two Forms of Green’s Theorem"><a href="#sec-greens-theorem-forms" title="Copy heading and permalink for Subsection 3.1.3: The Two Forms of Green’s Theorem" aria-label="Copy heading and permalink for Subsection 3.1.3: The Two Forms of Green’s Theorem">🔗</a></div></section><section class="subsection" id="sec-component-test-alternative"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">An Alternative Form of the Component Test for Conservative Fields</span>
+</h3>
+<div class="para" id="sec-component-test-alternative-2">Recall the component test for conservative fields:<div class="autopermalink" data-description="Paragraph"><a href="#sec-component-test-alternative-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="reminder-component-test"><h4 class="heading"><span class="title">Reminder: Component Test for Conservative Fields.</span></h4>
+<div class="para" id="reminder-component-test-2">Let <span class="process-math">\(\mathbf{F} = M(x,y,z)\,\mathbf{i} + N(x,y,z)\,\mathbf{j}
++ P(x,y,z)\,\mathbf{k}\)</span> be a field on a connected and simply connected domain whose component functions have continuous first partial derivatives. Then <span class="process-math">\(\mathbf{F}\)</span> is conservative if and only if<div class="autopermalink" data-description="Paragraph"><a href="#reminder-component-test-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Reminder: Component Test for Conservative Fields"><a href="#reminder-component-test" title="Copy heading and permalink for Assemblage: Reminder: Component Test for Conservative Fields" aria-label="Copy heading and permalink for Assemblage: Reminder: Component Test for Conservative Fields">🔗</a></div></article><div class="para" id="sec-component-test-alternative-4">The three equalities of <a href="section-greens-theorem.html#eq-component-test-3d" class="xref" data-knowl="./knowl/xref/eq-component-test-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.7">(3.1.7)</a> are equivalent to <span class="process-math">\(\nabla \times \mathbf{F} = \mathbf{0}\text{,}\)</span> since<div class="autopermalink" data-description="Paragraph"><a href="#sec-component-test-alternative-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-component-test-3d.html ./knowl/xref/eq-component-test-3d.html ./knowl/xref/eq-curl-cross-product.html ./knowl/xref/eq-green-tangential.html ./knowl/xref/fig-conservative-video.html" id="eq-curl-cross-product">
+\begin{equation}
+\nabla \times \mathbf{F} =
+\begin{vmatrix}
+\mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\
+\dfrac{\partial}{\partial x} \amp \dfrac{\partial}{\partial y} \amp
+\dfrac{\partial}{\partial z} \\
+M \amp N \amp P
+\end{vmatrix}
+= \left( \frac{\partial P}{\partial y} - \frac{\partial N}{\partial z}
+\right) \mathbf{i}
++ \left( \frac{\partial M}{\partial z} - \frac{\partial P}{\partial x}
+\right) \mathbf{j}
++ \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}
+\right) \mathbf{k}.\tag{3.1.8}
+\end{equation}
+</div>
+<div class="para" id="sec-component-test-alternative-6">So to check whether a vector field is conservative or not, we can check whether its curl is zero or not.<div class="autopermalink" data-description="Paragraph"><a href="#sec-component-test-alternative-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-conservative-green" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conservative Fields and Green’s Theorem.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-conservative-green-2-1">Consider the line integral <span class="process-math">\(\displaystyle \oint_C 4x^3 y\, dx + x^4\, dy\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-conservative-green-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="example-conservative-green-2-2">
+<ol class="upper-alpha ol-marker-1" id="example-conservative-green-2-2-1">
+<li id="example-conservative-green-2-2-1-1">
+<div class="para" id="example-conservative-green-2-2-1-1-1">As you know, the vector form of a line integral is <span class="process-math">\(\displaystyle \oint_C \mathbf{F} \cdot d\mathbf{r}\text{.}\)</span> Write down the vector field <span class="process-math">\(\mathbf{F}\)</span> for the above line integral.<div class="autopermalink" data-description="Paragraph"><a href="#example-conservative-green-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item A"><a href="#example-conservative-green-2-2-1-1" title="Copy heading and permalink for Item A" aria-label="Copy heading and permalink for Item A">🔗</a></div>
+</li>
+<li id="example-conservative-green-2-2-1-2">
+<div class="para" id="example-conservative-green-2-2-1-2-1">Is this vector field a conservative field? Use the component test, <a href="section-greens-theorem.html#eq-component-test-3d" class="xref" data-knowl="./knowl/xref/eq-component-test-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.7">(3.1.7)</a>, to answer.<div class="autopermalink" data-description="Paragraph"><a href="#example-conservative-green-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item B"><a href="#example-conservative-green-2-2-1-2" title="Copy heading and permalink for Item B" aria-label="Copy heading and permalink for Item B">🔗</a></div>
+</li>
+<li id="example-conservative-green-2-2-1-3">
+<div class="para" id="example-conservative-green-2-2-1-3-1">Using Green’s theorem, confirm your answer to part B.<div class="autopermalink" data-description="Paragraph"><a href="#example-conservative-green-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item C"><a href="#example-conservative-green-2-2-1-3" title="Copy heading and permalink for Item C" aria-label="Copy heading and permalink for Item C">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-conservative-green-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-conservative-green-2-3">
+<em class="emphasis">Solution.</em> (In <em class="alert">A</em>, read <span class="process-math">\(M\)</span> and <span class="process-math">\(N\)</span> off the differential form. In <em class="alert">B</em>, treat <span class="process-math">\(\mathbf{F}\)</span> as a field in space with <span class="process-math">\(P = 0\)</span> and compute the curl by <a href="section-greens-theorem.html#eq-curl-cross-product" class="xref" data-knowl="./knowl/xref/eq-curl-cross-product.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.8">(3.1.8)</a>. In <em class="alert">C</em>, apply the tangential form <a href="section-greens-theorem.html#eq-green-tangential" class="xref" data-knowl="./knowl/xref/eq-green-tangential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.5">(3.1.5)</a> to any simple closed curve, and say what the result confirms. Compare with <a href="section-greens-theorem.html#fig-conservative-video" class="xref" data-knowl="./knowl/xref/fig-conservative-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.1.22">Figure 3.1.22</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-conservative-green-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-conservative-green-2-4-1.svg" role="img" class="contained" alt="Blank box in three labelled rows, for the vector field, for its curl and the conclusion of the component test, and for the circulation by Green’s theorem."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.1.21: Conservative Fields and Green’s Theorem"><a href="#example-conservative-green" title="Copy heading and permalink for Example 3.1.21: Conservative Fields and Green’s Theorem" aria-label="Copy heading and permalink for Example 3.1.21: Conservative Fields and Green’s Theorem">🔗</a></div></article></details><figure class="figure figure-like" id="fig-conservative-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-conservative" class="video" controls="" poster="external/play-button.png"><source src="external/videos/conservative_zero_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The conservative field <span class="process-math">\(4x^3 y\,\mathbf{i} + x^4\,\mathbf{j} =
+\nabla(x^4 y)\)</span> has zero curl, so by Green’s theorem its circulation around every closed curve is zero.<div class="autopermalink" data-description="Figure 3.1.22"><a href="#fig-conservative-video" title="Copy heading and permalink for Figure 3.1.22" aria-label="Copy heading and permalink for Figure 3.1.22">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 3.1.4: An Alternative Form of the Component Test for Conservative Fields"><a href="#sec-component-test-alternative" title="Copy heading and permalink for Subsection 3.1.4: An Alternative Form of the Component Test for Conservative Fields" aria-label="Copy heading and permalink for Subsection 3.1.4: An Alternative Form of the Component Test for Conservative Fields">🔗</a></div></section><div class="autopermalink" data-description="Section 3.1: Green’s Theorem in the Plane"><a href="#section-greens-theorem" title="Copy heading and permalink for Section 3.1: Green’s Theorem in the Plane" aria-label="Copy heading and permalink for Section 3.1: Green’s Theorem in the Plane">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-integral-theorems.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-stokes-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-polar-point-figure" speech2="Cartesian x and y axes with a point P in the first quadrant labeled both P of x and y and P of r and theta. A blue segment of length r runs from the origin O to P, a small reddish purple arc marks the directed angle theta at the origin, and a dashed orange vertical segment of length y equals r sine theta drops from P to the point x equals r cosine theta on the x axis.">
+      <grouped>prefigure-polar-point-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-polar-point-pp-ray</active>
+        <active>prefigure-polar-point-pp-arc</active>
+        <active>prefigure-polar-point-pp-yleg</active>
+        <active>prefigure-polar-point-pp-xfoot</active>
+        <active>prefigure-polar-point-pp-P</active>
+      </children>
+      <components>
+        <active>prefigure-polar-point-pp-ray</active>
+        <active>prefigure-polar-point-pp-arc</active>
+        <active>prefigure-polar-point-pp-yleg</active>
+        <active>prefigure-polar-point-pp-xfoot</active>
+        <active>prefigure-polar-point-pp-P</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-polar-point-pp-ray" speech2="The segment of directed length r from the origin O to the point P.">
+      <active>prefigure-polar-point-pp-ray</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-polar-point-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-point-pp-arc" speech2="The directed angle theta, measured counterclockwise from the positive x axis.">
+      <active>prefigure-polar-point-pp-arc</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-polar-point-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-point-pp-yleg" speech2="The dashed vertical leg of length y equals r sine theta.">
+      <active>prefigure-polar-point-pp-yleg</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-polar-point-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-point-pp-xfoot" speech2="The foot of the vertical leg, at x equals r cosine theta on the x axis.">
+      <active>prefigure-polar-point-pp-xfoot</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-polar-point-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-point-pp-P" speech2="The point P, with Cartesian coordinates x comma y and polar coordinates r comma theta.">
+      <active>prefigure-polar-point-pp-P</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-polar-point-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

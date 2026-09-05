@@ -1,0 +1,73 @@
+<diagram>
+  <annotations>
+    <annotation id="unit-circle-param-figure" speech2="The unit circle x squared plus y squared                                 equals one">
+      <grouped>unit-circle-param-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>unit-circle-param-grid-axes</active>
+        <active>unit-circle-param-grid</active>
+        <active>unit-circle-param-axes</active>
+        <active>unit-circle-param-curve</active>
+      </children>
+      <components>
+        <active>unit-circle-param-grid-axes</active>
+        <active>unit-circle-param-grid</active>
+        <active>unit-circle-param-axes</active>
+        <active>unit-circle-param-curve</active>
+      </components>
+    </annotation>
+    <annotation id="unit-circle-param-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>unit-circle-param-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>unit-circle-param-grid</active>
+        <active>unit-circle-param-axes</active>
+      </children>
+      <components>
+        <active>unit-circle-param-grid</active>
+        <active>unit-circle-param-axes</active>
+      </components>
+      <parents>
+        <grouped>unit-circle-param-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-circle-param-grid" speech2="The coordinate grid">
+      <active>unit-circle-param-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>unit-circle-param-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-circle-param-axes" speech2="The coordinate axes">
+      <active>unit-circle-param-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>unit-circle-param-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-circle-param-grid" speech2="The coordinate grid">
+      <active>unit-circle-param-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>unit-circle-param-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-circle-param-axes" speech2="The coordinate axes">
+      <active>unit-circle-param-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>unit-circle-param-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="unit-circle-param-curve" speech2="The unit circle" sonify="yes">
+      <active>unit-circle-param-curve</active>
+      <position>4</position>
+      <parents>
+        <grouped>unit-circle-param-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>unit-circle-param-curve</ACTIVE>
+      </sonification>
+    </annotation>
+  </annotations>
+</diagram>

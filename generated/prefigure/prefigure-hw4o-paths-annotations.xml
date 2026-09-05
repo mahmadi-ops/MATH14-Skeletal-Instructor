@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-hw4o-paths-figure" speech2="A grid of light blue field vectors, all pointing up and to the right at the same angle, with lengths that grow as x increases. A magenta square is drawn with corners A at the lower left, D at the lower right, C at the upper right and B at the upper left, so the path A D C runs along the bottom and up the right side, while A B C runs up the left side and along the top.">
+      <grouped>prefigure-hw4o-paths-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-hw4o-paths-hp-cols</active>
+        <active>prefigure-hw4o-paths-hp-square</active>
+        <active>prefigure-hw4o-paths-hp-A</active>
+        <active>prefigure-hw4o-paths-hp-D</active>
+        <active>prefigure-hw4o-paths-hp-C</active>
+        <active>prefigure-hw4o-paths-hp-B</active>
+      </children>
+      <components>
+        <active>prefigure-hw4o-paths-hp-cols</active>
+        <active>prefigure-hw4o-paths-hp-square</active>
+        <active>prefigure-hw4o-paths-hp-A</active>
+        <active>prefigure-hw4o-paths-hp-D</active>
+        <active>prefigure-hw4o-paths-hp-C</active>
+        <active>prefigure-hw4o-paths-hp-B</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-hw4o-paths-hp-cols" speech2="The field vectors, all parallel and pointing up and to the right, growing longer toward the right of the picture.">
+      <active>prefigure-hw4o-paths-hp-cols</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-hw4o-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-paths-hp-square" speech2="The square whose corners are A, B, C and D; the two paths of the problem run along its sides.">
+      <active>prefigure-hw4o-paths-hp-square</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-hw4o-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-paths-hp-A" speech2="The corner A, at the lower left.">
+      <active>prefigure-hw4o-paths-hp-A</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-hw4o-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-paths-hp-D" speech2="The corner D, at the lower right; the path A D C passes through it.">
+      <active>prefigure-hw4o-paths-hp-D</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-hw4o-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-paths-hp-C" speech2="The corner C, at the upper right.">
+      <active>prefigure-hw4o-paths-hp-C</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-hw4o-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-paths-hp-B" speech2="The corner B, at the upper left; the path A B C passes through it.">
+      <active>prefigure-hw4o-paths-hp-B</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-hw4o-paths-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

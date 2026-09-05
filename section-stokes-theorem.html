@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Stokes’ Theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="section-greens-theorem.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-integral-theorems.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-divergence-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-stokes-theorem"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stokes’ Theorem</span>
+</h2>
+<section class="introduction" id="section-stokes-theorem-2"><div class="para" id="section-stokes-theorem-2-1">The circulation-curl form of Green’s theorem, <a href="section-greens-theorem.html#thm-green-tangential" class="xref" data-knowl="./knowl/xref/thm-green-tangential.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.1.12: Green’s Theorem (Circulation-Curl or Tangential Form)">Theorem 3.1.12</a>, traded a circulation around a closed curve in the plane for a double integral of <span class="process-math">\((\operatorname{curl} \mathbf{F}) \cdot \mathbf{k}\)</span> over the region the curve encloses. Nothing in that statement really needs the region to be flat. If we bend the region up out of the plane into a surface <span class="process-math">\(S\)</span> in space, keeping <span class="process-math">\(C\)</span> as its boundary, the same exchange still works: the circulation of <span class="process-math">\(\mathbf{F}\)</span> around <span class="process-math">\(C\)</span> equals the flux of the curl of <span class="process-math">\(\mathbf{F}\)</span> through <span class="process-math">\(S\text{.}\)</span> That is <dfn class="terminology">Stokes’ theorem</dfn>, the promise made in the footnote of <a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal" title="Subsection 3.1.3: The Two Forms of Green’s Theorem">Subsection 3.1.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#section-stokes-theorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="section-stokes-theorem-2-2">It completes the family. <a href="section-divergence-theorem.html" class="internal" title="Section 3.3: The Divergence Theorem">Section 3.3</a> turned a flux integral over a <em class="emphasis">closed</em> surface into a triple integral of the divergence; Stokes’ theorem turns a line integral around the <em class="emphasis">boundary</em> of an open surface into a surface integral of the curl. Both say the same kind of thing: what happens on the boundary of a piece is the accumulation, over the piece, of a derivative of the field.<div class="autopermalink" data-description="Paragraph"><a href="#section-stokes-theorem-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="sec-curl-3d"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Curl in Three Dimensions</span>
+</h3>
+<div class="para" id="sec-curl-3d-2">In <a href="section-greens-theorem.html#sec-curl" class="internal" title="Subsection 3.1.2: Curl">Subsection 3.1.2</a> we only needed the component of the curl along <span class="process-math">\(\mathbf{k}\text{,}\)</span> because in the plane a paddle wheel can only spin about an axis perpendicular to the page. In space the axis can point anywhere, so the curl is a vector: it points along the axis the paddle wheel spins about, and its length is the circulation density about that axis.<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-3d-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-curl-3d"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="def-curl-3d-1-1">The <dfn class="terminology">curl</dfn> of the vector field <span class="process-math">\(\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j} + P\,\mathbf{k}\text{,}\)</span> whose components have continuous first partial derivatives, is<div class="autopermalink" data-description="Paragraph"><a href="#def-curl-3d-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="def-curl-3d-1-2">
+\begin{align}
+\operatorname{curl} \mathbf{F} = \nabla \times \mathbf{F}
+\amp = \begin{vmatrix}
+\mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\
+\dfrac{\partial}{\partial x} \amp \dfrac{\partial}{\partial y}
+\amp \dfrac{\partial}{\partial z} \\
+M \amp N \amp P
+\end{vmatrix}\tag{3.2.1}\\
+\amp = \left( \frac{\partial P}{\partial y}
+- \frac{\partial N}{\partial z} \right)\mathbf{i}
++ \left( \frac{\partial M}{\partial z}
+- \frac{\partial P}{\partial x} \right)\mathbf{j}\notag\\
+\amp \qquad + \left( \frac{\partial N}{\partial x}
+- \frac{\partial M}{\partial y} \right)\mathbf{k}.\notag
+\end{align}
+</div>
+<div class="autopermalink" data-description="Definition 3.2.1"><a href="#def-curl-3d" title="Copy heading and permalink for Definition 3.2.1" aria-label="Copy heading and permalink for Definition 3.2.1">🔗</a></div></article><div class="para" id="sec-curl-3d-4">The <span class="process-math">\(\mathbf{k}\)</span>-component of <a href="section-stokes-theorem.html#def-curl-3d-1-2" class="xref" data-knowl="./knowl/xref/eq-curl-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.1">(3.2.1)</a> is exactly the quantity <span class="process-math">\(\dfrac{\partial N}{\partial x} - \dfrac{\partial M}{\partial y}\)</span> of <a href="section-greens-theorem.html#eq-curl-def" class="xref" data-knowl="./knowl/xref/eq-curl-def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.3">(3.1.3)</a>, so the two-dimensional curl of <a href="section-greens-theorem.html#sec-curl" class="internal" title="Subsection 3.1.2: Curl">Subsection 3.1.2</a> was one component of this vector all along.<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-3d-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-curl-3d" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing a Curl.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-curl-3d-2-1">Find <span class="process-math">\(\nabla \times \mathbf{F}\)</span> for <span class="process-math">\(\mathbf{F} = xz\,\mathbf{i} + xyz\,\mathbf{j} - y^2\,\mathbf{k}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-curl-3d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-curl-3d-2-2">
+<em class="emphasis">Solution.</em> (Identify <span class="process-math">\(M\text{,}\)</span> <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(P\)</span> and take the three components of <a href="section-stokes-theorem.html#def-curl-3d-1-2" class="xref" data-knowl="./knowl/xref/eq-curl-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.1">(3.2.1)</a> in turn. Then evaluate your curl at <span class="process-math">\(P(1,1,1)\)</span> and compare with <a href="section-stokes-theorem.html#fig-curl-paddle-tikz" class="xref" data-knowl="./knowl/xref/fig-curl-paddle-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.3">Figure 3.2.3</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-curl-3d-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-curl-3d-2-3-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the three components of the curl and one for the curl and its value at the point P."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.2: Computing a Curl"><a href="#example-curl-3d" title="Copy heading and permalink for Example 3.2.2: Computing a Curl" aria-label="Copy heading and permalink for Example 3.2.2: Computing a Curl">🔗</a></div></article></details><figure class="figure figure-like" id="fig-curl-paddle-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-curl-paddle.svg" role="img" class="contained" alt="A vector at a point in space with a small paddle wheel turning about it."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-curl-paddle-description"><div class="para" id="image-curl-paddle-2-1">At the point P equals one, one, one, a green arrow points in the direction of the curl, up and back toward the negative x direction. A small vermillion circle with four blades sits in the plane perpendicular to that arrow, with an arrowhead showing which way it turns.<div class="autopermalink" data-description="Paragraph"><a href="#image-curl-paddle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The curl of <a href="section-stokes-theorem.html#example-curl-3d" class="xref" data-knowl="./knowl/xref/example-curl-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.2: Computing a Curl">Example 3.2.2</a> at the point <span class="process-math">\(P(1,1,1)\text{.}\)</span> The curl is the axis of the paddle wheel: put the wheel in the plane perpendicular to it and the field turns the wheel the way the arrow shows. Compare the arrow with the vector you computed.<div class="autopermalink" data-description="Figure 3.2.3"><a href="#fig-curl-paddle-tikz" title="Copy heading and permalink for Figure 3.2.3" aria-label="Copy heading and permalink for Figure 3.2.3">🔗</a></div></figcaption></figure><div class="para" id="sec-curl-3d-7">Two facts about the curl are worth recording, both of which we have already met in disguise. First, a field is conservative exactly when its curl vanishes: if <span class="process-math">\(\mathbf{F} = \nabla f\)</span> then <span class="process-math">\(\nabla \times \mathbf{F} = \mathbf{0}\text{,}\)</span> which is the component test <a href="section-greens-theorem.html#eq-component-test-3d" class="xref" data-knowl="./knowl/xref/eq-component-test-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.7">(3.1.7)</a> for the conservative fields of <a href="section-conservative-fields.html" class="internal" title="Section 1.5: Path Independence, Conservative Fields, and Potential Functions">Section 1.5</a>. Second, <span class="process-math">\(\nabla \cdot (\nabla \times \mathbf{F}) = 0\text{:}\)</span> a curl field has no divergence, so by <a href="section-divergence-theorem.html#thm-divergence" class="xref" data-knowl="./knowl/xref/thm-divergence.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.3.5: Gauss’s Divergence Theorem">Theorem 3.3.5</a> its flux through any closed surface is zero. We will use that second fact at the end of this section.<div class="autopermalink" data-description="Paragraph"><a href="#sec-curl-3d-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 3.2.1: Curl in Three Dimensions"><a href="#sec-curl-3d" title="Copy heading and permalink for Subsection 3.2.1: Curl in Three Dimensions" aria-label="Copy heading and permalink for Subsection 3.2.1: Curl in Three Dimensions">🔗</a></div></section><section class="subsection" id="sec-stokes-theorem"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stokes’ Theorem</span>
+</h3>
+<div class="para" id="sec-stokes-theorem-2">Stokes’ theorem needs the orientation of the surface and the direction of travel along its boundary to agree. The rule is the <dfn class="terminology">right-hand rule</dfn>: if the thumb of your right hand points along the unit normal <span class="process-math">\(\hat{\mathbf{n}}\text{,}\)</span> your fingers curl in the positive direction along the boundary curve <span class="process-math">\(C\text{.}\)</span> Equivalently, walking along <span class="process-math">\(C\)</span> with your head pointing in the direction of <span class="process-math">\(\hat{\mathbf{n}}\text{,}\)</span> the surface is on your left. This is the orientation drawn in <a href="section-stokes-theorem.html#fig-stokes-orientation-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-orientation-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.6">Figure 3.2.6</a>; reversing <span class="process-math">\(\hat{\mathbf{n}}\)</span> reverses the direction on <span class="process-math">\(C\)</span> and changes the sign of both sides of the theorem.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-stokes"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stokes’ Theorem.</span>
+</h4>
+<div class="para" id="thm-stokes-2-1">Let <span class="process-math">\(S\)</span> be a piecewise smooth oriented surface with unit normal field <span class="process-math">\(\hat{\mathbf{n}}\text{,}\)</span> whose boundary is a piecewise smooth simple closed curve <span class="process-math">\(C\)</span> traversed in the direction given by the right-hand rule. Let <span class="process-math">\(\mathbf{F}\)</span> be a vector field whose components have continuous first partial derivatives on an open region containing <span class="process-math">\(S\text{.}\)</span> Then the circulation of <span class="process-math">\(\mathbf{F}\)</span> around <span class="process-math">\(C\)</span> equals the flux of <span class="process-math">\(\nabla \times \mathbf{F}\)</span> through <span class="process-math">\(S\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-stokes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-stokes">
+\begin{equation}
+\underbrace{\oint_C \mathbf{F} \cdot d\mathbf{r}}_{\text{circulation
+around the boundary } C}
+= \underbrace{\iint_S (\nabla \times \mathbf{F}) \cdot
+\hat{\mathbf{n}}\, d\sigma}_{\text{flux of the curl through } S}.\tag{3.2.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Theorem 3.2.4: Stokes’ Theorem"><a href="#thm-stokes" title="Copy heading and permalink for Theorem 3.2.4: Stokes’ Theorem" aria-label="Copy heading and permalink for Theorem 3.2.4: Stokes’ Theorem">🔗</a></div></article><article class="remark remark-like" id="remark-stokes-green"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para" id="remark-stokes-green-1">Green’s theorem is the flat case. If <span class="process-math">\(S\)</span> is a region <span class="process-math">\(R\)</span> of the <span class="process-math">\(xy\)</span>-plane with <span class="process-math">\(\hat{\mathbf{n}} = \mathbf{k}\text{,}\)</span> then <span class="process-math">\(d\sigma = dx\,dy\)</span> and <span class="process-math">\((\nabla \times \mathbf{F}) \cdot \mathbf{k}\)</span> is the <span class="process-math">\(\mathbf{k}\)</span>-component of the curl, so <a href="section-stokes-theorem.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.2">(3.2.2)</a> becomes <a href="section-greens-theorem.html#eq-green-tangential" class="xref" data-knowl="./knowl/xref/eq-green-tangential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.5">(3.1.5)</a> word for word.<div class="autopermalink" data-description="Paragraph"><a href="#remark-stokes-green-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 3.2.5"><a href="#remark-stokes-green" title="Copy heading and permalink for Remark 3.2.5" aria-label="Copy heading and permalink for Remark 3.2.5">🔗</a></div></article><figure class="figure figure-like" id="fig-stokes-orientation-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-orientation.svg" role="img" class="contained" alt="A curved cap of a surface in space with its boundary circle, arrows along the boundary, and a normal vector standing on the cap."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-orientation-description"><div class="para" id="image-stokes-orientation-2-1">A translucent blue cap, like a piece of a sphere, sits above the horizontal plane. Its boundary is a closed curve drawn in vermillion with arrowheads showing the direction of travel, counterclockwise seen from above. A green arrow labeled n hat rises from the middle of the cap at a point off the axis, perpendicular to the cap there. With the right thumb along that normal, the fingers curl the way the boundary arrows point.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-orientation-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The orientation in <a href="section-stokes-theorem.html#thm-stokes" class="xref" data-knowl="./knowl/xref/thm-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.2.4: Stokes’ Theorem">Theorem 3.2.4</a>. The unit normal <span class="process-math">\(\hat{\mathbf{n}}\)</span> and the direction of travel along the boundary <span class="process-math">\(C\)</span> are related by the right-hand rule: with the thumb along <span class="process-math">\(\hat{\mathbf{n}}\text{,}\)</span> the fingers curl the way <span class="process-math">\(C\)</span> is traversed.<div class="autopermalink" data-description="Figure 3.2.6"><a href="#fig-stokes-orientation-tikz" title="Copy heading and permalink for Figure 3.2.6" aria-label="Copy heading and permalink for Figure 3.2.6">🔗</a></div></figcaption></figure><div class="para" id="sec-stokes-theorem-6">Why is the theorem true? The animation in <a href="section-stokes-theorem.html#fig-stokes-proof-idea-video" class="xref" data-knowl="./knowl/xref/fig-stokes-proof-idea-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.7">Figure 3.2.7</a> tells the story without any algebra. Chop <span class="process-math">\(S\)</span> into tiny, nearly flat patches; on each one, <span class="process-math">\((\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}}\)</span> is the circulation of <span class="process-math">\(\mathbf{F}\)</span> per unit area, so the patch contributes <span class="process-math">\((\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}}\,\Delta\sigma\)</span> of circulation. Add up the patches: every interior edge is shared by two of them and travelled in opposite directions, so the interior cancels completely and only the boundary <span class="process-math">\(C\)</span> survives. Shrinking the patches turns the sum into the flux integral, and <a href="section-stokes-theorem.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.2">(3.2.2)</a> falls out.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-theorem-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-stokes-proof-idea-video"><div class="video-box" style="width: 85%;padding-top: 47.8125%; margin-left: 7.5%; margin-right: 7.5%;"><video id="video-stokes-proof-idea" class="video" controls="" poster="external/play-button.png"><source src="external/videos/stokes_proof_idea_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The ideas behind the proof of Stokes’ theorem, for <span class="process-math">\(\mathbf{F} = \langle M,N,P \rangle\text{:}\)</span> <span class="process-math">\((\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}}\)</span> is circulation per unit area, the surface is chopped into tiny, nearly flat patches, every interior edge is travelled twice in opposite directions and cancels, and only the boundary <span class="process-math">\(C\)</span> survives. A flat surface recovers Green’s theorem, as in <a href="section-stokes-theorem.html#remark-stokes-green" class="xref" data-knowl="./knowl/xref/remark-stokes-green.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 3.2.5">Remark 3.2.5</a>.<div class="autopermalink" data-description="Figure 3.2.7"><a href="#fig-stokes-proof-idea-video" title="Copy heading and permalink for Figure 3.2.7" aria-label="Copy heading and permalink for Figure 3.2.7">🔗</a></div></figcaption></figure><div class="para" id="sec-stokes-theorem-8">The theorem is most useful when one of the two sides is much easier than the other. Reading it from left to right replaces an awkward line integral by a flux integral, as in <a href="section-stokes-theorem.html#example-stokes-cylinder" class="xref" data-knowl="./knowl/xref/example-stokes-cylinder.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.10: A Circulation That Is Easier as a Flux">Example 3.2.10</a>; reading it from right to left replaces an awkward surface integral by a line integral around the boundary, as in <a href="section-stokes-theorem.html#example-stokes-paraboloid" class="xref" data-knowl="./knowl/xref/example-stokes-paraboloid.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.20: Trading a Paraboloid for a Disk">Example 3.2.20</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-theorem-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-stokes-hemisphere" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Both Sides of Stokes’ Theorem.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-stokes-hemisphere-2-1">Verify <a href="section-stokes-theorem.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.2">(3.2.2)</a> for the field <span class="process-math">\(\mathbf{F} = -y\,\mathbf{i} + x\,\mathbf{j}\)</span> and the upper hemisphere <span class="process-math">\(S\)</span> of <span class="process-math">\(x^2 + y^2 + z^2 = 1\text{,}\)</span> oriented by its upward unit normal.<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-hemisphere-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-stokes-hemisphere-2-2">
+<em class="emphasis">Solution.</em> (The boundary of <span class="process-math">\(S\)</span> is the unit circle in the <span class="process-math">\(xy\)</span>-plane; use the right-hand rule to decide its direction, parametrize it, and compute the circulation. For the other side, compute <span class="process-math">\(\nabla\times\mathbf F\)</span> by <a href="section-stokes-theorem.html#def-curl-3d-1-2" class="xref" data-knowl="./knowl/xref/eq-curl-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.1">(3.2.1)</a>; on the hemisphere the outward unit normal is <a href="section-surface-integrals.html#assemblage-sphere-normal-2-3" class="xref" data-knowl="./knowl/xref/eq-sphere-unit-normal.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.10.4">(2.10.4)</a> and, by <a href="section-surface-integrals.html#assemblage-sphere-normal-2-2" class="xref" data-knowl="./knowl/xref/eq-sphere-cross.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.10.3">(2.10.3)</a>, <span class="process-math">\(d\sigma = \sin\phi\,d\phi\,d\theta\text{.}\)</span> Integrate over the upper hemisphere and compare. The surface is shown in <a href="section-stokes-theorem.html#fig-stokes-hemisphere-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-hemisphere-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.9">Figure 3.2.9</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-hemisphere-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-stokes-hemisphere-2-3-1.svg" role="img" class="contained" alt="Blank box in four rows, for the parametrized boundary and the integrand, for the circulation, for the curl and the normal, and for the flux of the curl."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.8: Both Sides of Stokes’ Theorem"><a href="#example-stokes-hemisphere" title="Copy heading and permalink for Example 3.2.8: Both Sides of Stokes’ Theorem" aria-label="Copy heading and permalink for Example 3.2.8: Both Sides of Stokes’ Theorem">🔗</a></div></article></details><figure class="figure figure-like" id="fig-stokes-hemisphere-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-hemisphere.svg" role="img" class="contained" alt="A hemisphere with an upward normal, its boundary circle, and a field tangent to that circle."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-hemisphere-description"><div class="para" id="image-stokes-hemisphere-2-1">A translucent blue hemisphere sits on the horizontal plane. Its rim is the unit circle, drawn in vermillion with arrowheads pointing counterclockwise seen from above, and shorter vermillion arrows along the circle show the field running tangent to it. A green arrow rises from the top of the hemisphere.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-hemisphere-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The surface and boundary of <a href="section-stokes-theorem.html#example-stokes-hemisphere" class="xref" data-knowl="./knowl/xref/example-stokes-hemisphere.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.8: Both Sides of Stokes’ Theorem">Example 3.2.8</a>: the upper hemisphere <span class="process-math">\(S\)</span> of <span class="process-math">\(x^2+y^2+z^2=1\)</span> with its upward normal, and the unit circle <span class="process-math">\(C\)</span> in the <span class="process-math">\(xy\)</span>-plane, counterclockwise seen from above. The field <span class="process-math">\(\mathbf{F} = -y\,\mathbf{i} + x\,\mathbf{j}\)</span> runs tangent to <span class="process-math">\(C\)</span> all the way round, which is why the circulation is as large as it can be.<div class="autopermalink" data-description="Figure 3.2.9"><a href="#fig-stokes-hemisphere-tikz" title="Copy heading and permalink for Figure 3.2.9" aria-label="Copy heading and permalink for Figure 3.2.9">🔗</a></div></figcaption></figure><details id="example-stokes-cylinder" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Circulation That Is Easier as a Flux.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-stokes-cylinder-2-1">Evaluate <span class="process-math">\(\oint_C \mathbf{F} \cdot d\mathbf{r}\)</span> for <span class="process-math">\(\mathbf{F} = -y^2\,\mathbf{i} + x\,\mathbf{j} + z^2\,\mathbf{k}\text{,}\)</span> where <span class="process-math">\(C\)</span> is the curve in which the plane <span class="process-math">\(y + z = 2\)</span> cuts the cylinder <span class="process-math">\(x^2 + y^2 = 1\text{,}\)</span> traversed counterclockwise when seen from above. The curve is drawn in <a href="section-stokes-theorem.html#fig-stokes-cylinder-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-cylinder-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.11">Figure 3.2.11</a>.<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-cylinder-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-stokes-cylinder-2-2">
+<em class="emphasis">Solution.</em> (Parametrizing <span class="process-math">\(C\)</span> directly is possible but unpleasant. Instead take <span class="process-math">\(S\)</span> to be the flat region that <span class="process-math">\(C\)</span> bounds in the plane, the graph of <span class="process-math">\(z = 2 - y\)</span> over the unit disk <span class="process-math">\(R\text{,}\)</span> shown in <a href="section-stokes-theorem.html#fig-stokes-cylinder-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-cylinder-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.11">Figure 3.2.11</a>. For a graph <span class="process-math">\(z = g(x,y)\)</span> with an upward normal, <a href="section-surface-integrals.html#eq-flux-param" class="xref" data-knowl="./knowl/xref/eq-flux-param.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.10.6">(2.10.6)</a> gives <span class="process-math">\(\hat{\mathbf n}\,d\sigma = \langle -g_x, -g_y, 1\rangle\,dx\,dy\text{;}\)</span> check that upward is what the right-hand rule pairs with a counterclockwise <span class="process-math">\(C\text{.}\)</span> Compute the curl, dot, and integrate over the disk; one term vanishes by symmetry.)<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-cylinder-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-stokes-cylinder-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the surface and its normal, for the curl and the integrand, and for the double integral over the disk."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.10: A Circulation That Is Easier as a Flux"><a href="#example-stokes-cylinder" title="Copy heading and permalink for Example 3.2.10: A Circulation That Is Easier as a Flux" aria-label="Copy heading and permalink for Example 3.2.10: A Circulation That Is Easier as a Flux">🔗</a></div></article></details><figure class="figure figure-like" id="fig-stokes-cylinder-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-cylinder.svg" role="img" class="contained" alt="A vertical cylinder cut by a slanted plane, with the ellipse of intersection and its shadow on the horizontal plane."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-cylinder-description"><div class="para" id="image-stokes-cylinder-2-1">A translucent vertical cylinder of radius one stands on the horizontal plane. A slanted plane cuts it in an ellipse drawn in vermillion, with arrowheads showing counterclockwise travel seen from above. The elliptical region inside the curve is shaded blue, and directly below it the unit disk in the x y plane is shaded gray as its shadow.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-cylinder-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The curve <span class="process-math">\(C\)</span> of <a href="section-stokes-theorem.html#example-stokes-cylinder" class="xref" data-knowl="./knowl/xref/example-stokes-cylinder.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.10: A Circulation That Is Easier as a Flux">Example 3.2.10</a>: the plane <span class="process-math">\(y + z = 2\)</span> cuts the cylinder <span class="process-math">\(x^2 + y^2 = 1\)</span> in an ellipse. The shaded elliptical region is the surface <span class="process-math">\(S\)</span> used in the solution, and its shadow is the unit disk <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.11"><a href="#fig-stokes-cylinder-tikz" title="Copy heading and permalink for Figure 3.2.11" aria-label="Copy heading and permalink for Figure 3.2.11">🔗</a></div></figcaption></figure><div class="para" id="sec-stokes-theorem-13">The next example shows the theorem at its most merciless: one term of the field cannot be integrated in closed form at all, and Stokes’ theorem simply erases it.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-theorem-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-stokes-flat-disk" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Term That Cannot Be Integrated.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="example-stokes-flat-disk-2-1">
+<div class="para">Evaluate <span class="process-math">\(\oint_C \mathbf{F} \cdot d\mathbf{r}\)</span> for</div>
+<div class="displaymath process-math" id="example-stokes-flat-disk-2-1-2">
+\begin{equation*}
+\mathbf{F} = \left[\cos\left(x^{100}\right) + 3y\right]\mathbf{i}
++ 4z\,\mathbf{j} + 2y\,\mathbf{k},
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(C\)</span> is the circle <span class="process-math">\(x^2 + y^2 = 9\text{,}\)</span> <span class="process-math">\(z = 2\text{,}\)</span> traversed counterclockwise when seen from above.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-flat-disk-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-stokes-flat-disk-2-2">
+<em class="emphasis">Solution.</em> (The term <span class="process-math">\(\cos(x^{100})\)</span> makes a direct evaluation hopeless, but Stokes’ theorem only ever sees the field through its curl: compute it by <a href="section-stokes-theorem.html#def-curl-3d-1-2" class="xref" data-knowl="./knowl/xref/eq-curl-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.1">(3.2.1)</a> and watch the monster disappear. Take the cheapest surface with boundary <span class="process-math">\(C\text{,}\)</span> the flat disk of <a href="section-stokes-theorem.html#fig-stokes-flat-disk-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-flat-disk-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.13">Figure 3.2.13</a>; which unit normal does the right-hand rule pair with the counterclockwise orientation? The integrand is then a constant.)<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-flat-disk-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-stokes-flat-disk-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the curl, for the flat surface with its normal and the integrand, and for the circulation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.12: A Term That Cannot Be Integrated"><a href="#example-stokes-flat-disk" title="Copy heading and permalink for Example 3.2.12: A Term That Cannot Be Integrated" aria-label="Copy heading and permalink for Example 3.2.12: A Term That Cannot Be Integrated">🔗</a></div></article></details><figure class="figure figure-like" id="fig-stokes-flat-disk-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-flat-disk.svg" role="img" class="contained" alt="A flat disk floating at height two, with its boundary circle and an upward normal."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-flat-disk-description"><div class="para" id="image-stokes-flat-disk-2-1">A translucent blue disk of radius three lies in the horizontal plane at height two above the origin. Its boundary circle is drawn in vermillion with arrowheads pointing counterclockwise seen from above, and a green arrow labelled n hat equals k rises from the centre of the disk.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-flat-disk-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The cheapest surface for <a href="section-stokes-theorem.html#example-stokes-flat-disk" class="xref" data-knowl="./knowl/xref/example-stokes-flat-disk.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.12: A Term That Cannot Be Integrated">Example 3.2.12</a>: the flat disk <span class="process-math">\(S\)</span> of radius <span class="process-math">\(3\)</span> in the plane <span class="process-math">\(z=2\text{,}\)</span> whose boundary is the given circle <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.13"><a href="#fig-stokes-flat-disk-tikz" title="Copy heading and permalink for Figure 3.2.13" aria-label="Copy heading and permalink for Figure 3.2.13">🔗</a></div></figcaption></figure><div class="para" id="sec-stokes-theorem-16">The same trick works when the curve is tilted—the flat surface it bounds just tilts with it.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-theorem-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-stokes-tilted-circle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Tilted Circle.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="example-stokes-tilted-circle-2-1">
+<div class="para">Evaluate <span class="process-math">\(\oint_C \mathbf{F} \cdot d\mathbf{r}\)</span> for</div>
+<div class="displaymath process-math" id="example-stokes-tilted-circle-2-1-2">
+\begin{equation*}
+\mathbf{F} = \ln\left(1 + x^8\right)\mathbf{i} - z\,\mathbf{j}
++ y\,\mathbf{k},
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(C\)</span> is the intersection of the sphere <span class="process-math">\(x^2 + y^2 + z^2 = 9\)</span> with the plane <span class="process-math">\(z = x\text{,}\)</span> traversed counterclockwise when seen from above.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-tilted-circle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-stokes-tilted-circle-2-2">
+<em class="emphasis">Solution.</em> (Where is the centre of the sphere relative to the plane, and so what kind of circle is <span class="process-math">\(C\text{,}\)</span> with what radius? The <span class="process-math">\(\ln(1+x^8)\)</span> again rules out a direct attack and again dies under the curl. Take <span class="process-math">\(S\)</span> to be the flat disk that <span class="process-math">\(C\)</span> bounds in the plane <span class="process-math">\(z = x\text{,}\)</span> shown in <a href="section-stokes-theorem.html#fig-stokes-tilted-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-tilted-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.15">Figure 3.2.15</a>; a normal to the plane is the gradient of <span class="process-math">\(z - x\text{,}\)</span> and the right-hand rule picks the upward one. The integrand is constant, so the flux is that constant times the area of the disk. As a check, redo it with the graph protocol <span class="process-math">\(\hat{\mathbf n}\,d\sigma = \langle -f_x, -f_y, 1\rangle\,dx\,dy\)</span> over the shadow of <span class="process-math">\(S\text{,}\)</span> which is an ellipse.)<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-tilted-circle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-stokes-tilted-circle-2-3-1.svg" role="img" class="contained" alt="Blank box in four rows, for the description of the curve and the curl, for the unit normal and the integrand, for the circulation, and for the check by the graph protocol."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.14: A Tilted Circle"><a href="#example-stokes-tilted-circle" title="Copy heading and permalink for Example 3.2.14: A Tilted Circle" aria-label="Copy heading and permalink for Example 3.2.14: A Tilted Circle">🔗</a></div></article></details><figure class="figure figure-like" id="fig-stokes-tilted-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-tilted.svg" role="img" class="contained" alt="A sphere cut by a slanted plane through its centre, with the great circle and the tilted disk it bounds."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-tilted-description"><div class="para" id="image-stokes-tilted-2-1">A faint grey sphere of radius three is cut through its centre by a slanted plane. The circle of intersection is drawn in vermillion with arrowheads showing counterclockwise travel seen from above, the flat disk inside it is shaded blue, and a green arrow perpendicular to that disk points up and toward the negative x direction.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-tilted-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The curve of <a href="section-stokes-theorem.html#example-stokes-tilted-circle" class="xref" data-knowl="./knowl/xref/example-stokes-tilted-circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.14: A Tilted Circle">Example 3.2.14</a>: the plane <span class="process-math">\(z=x\)</span> cuts the sphere <span class="process-math">\(x^2+y^2+z^2=9\)</span> in the circle <span class="process-math">\(C\text{,}\)</span> and the surface <span class="process-math">\(S\)</span> is the flat disk that <span class="process-math">\(C\)</span> bounds in that plane, tilted at <span class="process-math">\(45^\circ\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.15"><a href="#fig-stokes-tilted-tikz" title="Copy heading and permalink for Figure 3.2.15" aria-label="Copy heading and permalink for Figure 3.2.15">🔗</a></div></figcaption></figure><div class="para" id="sec-stokes-theorem-19">When the boundary is made of straight segments, both sides of <a href="section-stokes-theorem.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.2">(3.2.2)</a> are computable, and the comparison is instructive: the direct route costs three parametrizations, the Stokes route one double integral.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-theorem-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-stokes-triangle" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Around a Triangle, Twice.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="example-stokes-triangle-2-1">
+<div class="para">Evaluate <span class="process-math">\(\oint_C \mathbf{F} \cdot d\mathbf{r}\)</span> for</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-stokes-triangle-tikz.html" id="example-stokes-triangle-2-1-2">
+\begin{equation*}
+\mathbf{F} = (y - z)\,\mathbf{i} + (x + z)\,\mathbf{j}
++ \left(x^2 + y\right)\mathbf{k},
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(C\)</span> goes from <span class="process-math">\((2,0,0)\)</span> to <span class="process-math">\((0,2,0)\)</span> to <span class="process-math">\((0,0,4)\)</span> and back to <span class="process-math">\((2,0,0)\)</span> along straight line segments, as in <a href="section-stokes-theorem.html#fig-stokes-triangle-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-triangle-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.17">Figure 3.2.17</a>. Do the computation twice: directly, and by Stokes’ theorem.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-stokes-triangle-2-2">
+<em class="emphasis">Solution.</em> (<em class="emphasis">Directly</em>: parametrize each of the three segments on <span class="process-math">\(0 \le t \le 1\text{,}\)</span> compute <span class="process-math">\(\mathbf F(\mathbf r(t))\cdot\mathbf r'(t)\text{,}\)</span> integrate, and add. <em class="emphasis">By Stokes’ theorem</em>: compute the curl by <a href="section-stokes-theorem.html#def-curl-3d-1-2" class="xref" data-knowl="./knowl/xref/eq-curl-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.1">(3.2.1)</a>; the triangle lies in the plane through the three vertices, which is the graph of some <span class="process-math">\(z = 4 - 2x - 2y\)</span> over a shadow triangle <span class="process-math">\(R\)</span> in the <span class="process-math">\(xy\)</span>-plane. Decide which normal the given traversal pairs with, write <span class="process-math">\(\hat{\mathbf n}\,d\sigma\)</span> for the graph, dot with the curl, and integrate over <span class="process-math">\(R\text{.}\)</span> Compare the two answers; see <a href="section-stokes-theorem.html#fig-stokes-triangle-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-triangle-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.17">Figure 3.2.17</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-triangle-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-stokes-triangle-2-3-1.svg" role="img" class="contained" alt="Blank box in six rows: three for the direct computation along the three segments with the total, and three for the curl with the plane and shadow, the normal and integrand, and the double integral."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.16: Around a Triangle, Twice"><a href="#example-stokes-triangle" title="Copy heading and permalink for Example 3.2.16: Around a Triangle, Twice" aria-label="Copy heading and permalink for Example 3.2.16: Around a Triangle, Twice">🔗</a></div></article></details><figure class="figure figure-like" id="fig-stokes-triangle-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-triangle.svg" role="img" class="contained" alt="A triangle in space with vertices on the three positive coordinate axes, its edges carrying arrowheads that circle counterclockwise seen from above."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-triangle-description"><div class="para" id="image-stokes-triangle-2-1">Coordinate axes in three dimensions. A blue triangular plate has its corners on the positive x axis at 2, the positive y axis at 2, and the positive z axis at 4. Vermillion arrows run along its edges from the x axis corner to the y axis corner, then up to the z axis corner, then back down to the x axis corner, a circuit that is counterclockwise when seen from above.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-triangle-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The oriented triangle of <a href="section-stokes-theorem.html#example-stokes-triangle" class="xref" data-knowl="./knowl/xref/example-stokes-triangle.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.16: Around a Triangle, Twice">Example 3.2.16</a>: from <span class="process-math">\((2,0,0)\)</span> to <span class="process-math">\((0,2,0)\)</span> to <span class="process-math">\((0,0,4)\)</span> and back, bounding a piece of the plane <span class="process-math">\(\frac{x}{2} + \frac{y}{2} + \frac{z}{4} = 1\text{.}\)</span> The traversal is counterclockwise seen from above, pairing with the upward normal by the right-hand rule.<div class="autopermalink" data-description="Figure 3.2.17"><a href="#fig-stokes-triangle-tikz" title="Copy heading and permalink for Figure 3.2.17" aria-label="Copy heading and permalink for Figure 3.2.17">🔗</a></div></figcaption></figure><div class="para" id="sec-stokes-theorem-22">Finally, before reaching for Stokes’ theorem at all, it pays to glance at the curl: if it vanishes, no surface is needed.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-theorem-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-stokes-conservative" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Curve Nobody Can Parametrize.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="example-stokes-conservative-2-1">
+<div class="para">Evaluate <span class="process-math">\(\oint_C \mathbf{F} \cdot d\mathbf{r}\)</span> for</div>
+<div class="displaymath process-math" id="example-stokes-conservative-2-1-2">
+\begin{equation*}
+\mathbf{F} = \left(e^x + y + z\right)\mathbf{i}
++ (x + z)\,\mathbf{j} + (x + y)\,\mathbf{k},
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(C\)</span> is the intersection of the ellipsoid <span class="process-math">\(x^2 + \frac{y^2}{4} + \frac{z^2}{9} = 1\)</span> with the paraboloid <span class="process-math">\(z = 2x^2 + y^2\text{,}\)</span> traversed counterclockwise when seen from above.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-conservative-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-stokes-conservative-2-2">
+<em class="emphasis">Solution.</em> (Parametrizing this loop, or any surface it bounds, would be miserable. Compute the curl by <a href="section-stokes-theorem.html#def-curl-3d-1-2" class="xref" data-knowl="./knowl/xref/eq-curl-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.1">(3.2.1)</a> first. What does the component test <a href="section-greens-theorem.html#eq-component-test-3d" class="xref" data-knowl="./knowl/xref/eq-component-test-3d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.1.7">(3.1.7)</a> then say about <span class="process-math">\(\mathbf F\text{,}\)</span> and what does Stokes’ theorem give for the circulation, whichever surface the loop bounds? Can you name a potential function?)<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-conservative-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-stokes-conservative-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the curl, for the conclusion about the field with a potential function, and for the circulation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.18: The Curve Nobody Can Parametrize"><a href="#example-stokes-conservative" title="Copy heading and permalink for Example 3.2.18: The Curve Nobody Can Parametrize" aria-label="Copy heading and permalink for Example 3.2.18: The Curve Nobody Can Parametrize">🔗</a></div></article></details><figure class="figure figure-like" id="fig-stokes-warped-loop-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-warped-loop.svg" role="img" class="contained" alt="A warped closed curve where a paraboloid meets an ellipsoid."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-warped-loop-description"><div class="para" id="image-stokes-warped-loop-2-1">A translucent blue paraboloid opening upward passes through a faint grey ellipsoid. They meet along a closed loop, drawn in vermillion with arrowheads showing counterclockwise travel seen from above. The loop is not flat: it rises and falls as it goes round.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-warped-loop-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The curve of <a href="section-stokes-theorem.html#example-stokes-conservative" class="xref" data-knowl="./knowl/xref/example-stokes-conservative.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.18: The Curve Nobody Can Parametrize">Example 3.2.18</a>: the paraboloid <span class="process-math">\(z = 2x^2+y^2\)</span> meets the ellipsoid <span class="process-math">\(x^2+\frac{y^2}{4}+\frac{z^2}{9}=1\)</span> in a warped loop <span class="process-math">\(C\text{.}\)</span> Does anything about its shape matter?<div class="autopermalink" data-description="Figure 3.2.19"><a href="#fig-stokes-warped-loop-tikz" title="Copy heading and permalink for Figure 3.2.19" aria-label="Copy heading and permalink for Figure 3.2.19">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 3.2.2: Stokes’ Theorem"><a href="#sec-stokes-theorem" title="Copy heading and permalink for Subsection 3.2.2: Stokes’ Theorem" aria-label="Copy heading and permalink for Subsection 3.2.2: Stokes’ Theorem">🔗</a></div></section><section class="subsection" id="sec-stokes-surface-independence"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Only the Boundary Matters</span>
+</h3>
+<div class="para" id="sec-stokes-surface-independence-2">The right-hand side of <a href="section-stokes-theorem.html#eq-stokes" class="xref" data-knowl="./knowl/xref/eq-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.2">(3.2.2)</a> mentions <span class="process-math">\(S\text{,}\)</span> but the left-hand side does not. So if two oriented surfaces <span class="process-math">\(S_1\)</span> and <span class="process-math">\(S_2\)</span> share the same boundary curve <span class="process-math">\(C\text{,}\)</span> with orientations that give the same direction on <span class="process-math">\(C\text{,}\)</span> both flux integrals equal the same circulation:<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-surface-independence-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-stokes.html ./knowl/xref/section-conservative-fields.html ./knowl/xref/eq-stokes-independence.html ./knowl/xref/fig-stokes-paraboloid-tikz.html ./knowl/xref/example-stokes-paraboloid.html ./knowl/xref/eq-stokes-independence.html" id="eq-stokes-independence">
+\begin{equation}
+\iint_{S_1} (\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}}\, d\sigma
+= \oint_C \mathbf{F} \cdot d\mathbf{r}
+= \iint_{S_2} (\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}}\,
+d\sigma .\tag{3.2.3}
+\end{equation}
+</div>
+<div class="para" id="sec-stokes-surface-independence-4">This is the surface analogue of the path independence of <a href="section-conservative-fields.html" class="internal" title="Section 1.5: Path Independence, Conservative Fields, and Potential Functions">Section 1.5</a>, and it has the same practical use: when a surface is unpleasant, trade it for any other surface with the same boundary. It also explains the identity <span class="process-math">\(\nabla \cdot (\nabla \times \mathbf{F}) = 0\)</span> noted earlier. Gluing <span class="process-math">\(S_1\)</span> and <span class="process-math">\(S_2\)</span> along <span class="process-math">\(C\)</span> makes a closed surface; the two flux integrals appear with opposite signs once both normals point outward, so the total flux of <span class="process-math">\(\nabla \times \mathbf{F}\)</span> through any closed surface is zero.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-surface-independence-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-stokes-paraboloid" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.20</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Trading a Paraboloid for a Disk.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-stokes-paraboloid-2-1">Evaluate <span class="process-math">\(\displaystyle\iint_S (\nabla \times \mathbf{F}) \cdot
+\hat{\mathbf{n}}\, d\sigma\)</span> for <span class="process-math">\(\mathbf{F} = y\,\mathbf{i} + z\,\mathbf{j} + x\,\mathbf{k}\text{,}\)</span> where <span class="process-math">\(S\)</span> is the part of the paraboloid <span class="process-math">\(z = 4 - x^2 - y^2\)</span> above the <span class="process-math">\(xy\)</span>-plane, oriented upward.<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-paraboloid-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-stokes-paraboloid-2-2">
+<em class="emphasis">Solution.</em> (Find the boundary of <span class="process-math">\(S\)</span> and the direction the upward orientation gives it. By <a href="section-stokes-theorem.html#eq-stokes-independence" class="xref" data-knowl="./knowl/xref/eq-stokes-independence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.3">(3.2.3)</a> you may replace the paraboloid by any surface with the same boundary and compatible orientation: the flat disk of <a href="section-stokes-theorem.html#fig-stokes-paraboloid-tikz" class="xref" data-knowl="./knowl/xref/fig-stokes-paraboloid-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.21">Figure 3.2.21</a> is the easy one. Compute the curl, dot with the disk’s normal, and integrate. As a check, parametrize the boundary circle and compute the circulation directly.)<div class="autopermalink" data-description="Paragraph"><a href="#example-stokes-paraboloid-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-stokes-paraboloid-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the boundary and the replacement surface, for the curl and the flux through the disk, and for the direct check of the circulation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 3.2.20: Trading a Paraboloid for a Disk"><a href="#example-stokes-paraboloid" title="Copy heading and permalink for Example 3.2.20: Trading a Paraboloid for a Disk" aria-label="Copy heading and permalink for Example 3.2.20: Trading a Paraboloid for a Disk">🔗</a></div></article></details><figure class="figure figure-like" id="fig-stokes-paraboloid-tikz"><div class="image-box" style="width: 62%; margin-left: 19%; margin-right: 19%;">
+<img src="generated/latex-image/image-stokes-paraboloid.svg" role="img" class="contained" alt="A paraboloid and a flat disk sharing the same boundary circle."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-stokes-paraboloid-description"><div class="para" id="image-stokes-paraboloid-2-1">A translucent blue paraboloid opens downward from height four to the horizontal plane, where its rim is a circle of radius two drawn in vermillion with arrowheads pointing counterclockwise seen from above. The flat green disk bounded by that same circle lies in the plane. An upward arrow rises from the top of the paraboloid and another from the disk.<div class="autopermalink" data-description="Paragraph"><a href="#image-stokes-paraboloid-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The two surfaces of <a href="section-stokes-theorem.html#example-stokes-paraboloid" class="xref" data-knowl="./knowl/xref/example-stokes-paraboloid.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 3.2.20: Trading a Paraboloid for a Disk">Example 3.2.20</a>: the paraboloid <span class="process-math">\(S\)</span> and the flat disk <span class="process-math">\(S_2\text{,}\)</span> which share the boundary circle <span class="process-math">\(C\)</span> and carry orientations that give the same direction on it. By <a href="section-stokes-theorem.html#eq-stokes-independence" class="xref" data-knowl="./knowl/xref/eq-stokes-independence.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 3.2.3">(3.2.3)</a> the flux of the curl through them is the same, and the disk is the easy one.<div class="autopermalink" data-description="Figure 3.2.21"><a href="#fig-stokes-paraboloid-tikz" title="Copy heading and permalink for Figure 3.2.21" aria-label="Copy heading and permalink for Figure 3.2.21">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 3.2.3: Only the Boundary Matters"><a href="#sec-stokes-surface-independence" title="Copy heading and permalink for Subsection 3.2.3: Only the Boundary Matters" aria-label="Copy heading and permalink for Subsection 3.2.3: Only the Boundary Matters">🔗</a></div></section><section class="subsection" id="sec-stokes-conceptual"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Conceptual Stokes’ Theorem Problem</span>
+</h3>
+<div class="para" id="sec-stokes-conceptual-2">The following problem uses no computation at all. It tests whether you can see what Stokes’ theorem is really saying about circulation, curl, and—as the extension questions bring out—the role played by the domain of the vector field.<div class="autopermalink" data-description="Paragraph"><a href="#sec-stokes-conceptual-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-stokes-conceptual" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.22</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Equal Curls, Equal Circulations.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="ex-stokes-conceptual-2-1">Let <span class="process-math">\(\mathbf{F}\)</span> and <span class="process-math">\(\mathbf{G}\)</span> be continuously differentiable vector fields defined on all of <span class="process-math">\(\R^3\text{.}\)</span> Suppose that<div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-stokes.html ./knowl/xref/thm-stokes.html ./knowl/xref/section-conservative-fields.html" id="ex-stokes-conceptual-2-2">
+\begin{equation*}
+\nabla \times \mathbf{F} = \nabla \times \mathbf{G}
+\end{equation*}
+</div>
+<div class="para" id="ex-stokes-conceptual-2-3">everywhere in <span class="process-math">\(\R^3\text{.}\)</span> Without computing any line integrals, determine whether the statement<div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/thm-stokes.html ./knowl/xref/thm-stokes.html ./knowl/xref/section-conservative-fields.html" id="ex-stokes-conceptual-2-4">
+\begin{equation*}
+\oint_C \mathbf{F} \cdot d\mathbf{r}
+= \oint_C \mathbf{G} \cdot d\mathbf{r}
+\end{equation*}
+</div>
+<div class="para" id="ex-stokes-conceptual-2-5">is true for every smooth simple closed curve <span class="process-math">\(C\)</span> in <span class="process-math">\(\R^3\text{.}\)</span> If the statement is true, prove it using Stokes’ theorem, <a href="section-stokes-theorem.html#thm-stokes" class="xref" data-knowl="./knowl/xref/thm-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.2.4: Stokes’ Theorem">Theorem 3.2.4</a>. If it is false, provide a counterexample.<div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex-stokes-conceptual-2-6">(Consider <span class="process-math">\(\mathbf H = \mathbf F - \mathbf G\text{.}\)</span> Check, component by component, that the curl distributes over subtraction, so that <span class="process-math">\(\nabla\times\mathbf H\)</span> is known. Then take any oriented surface <span class="process-math">\(S\)</span> bounded by <span class="process-math">\(C\)</span> — why does such a surface lie in the domain of the fields? — and apply <a href="section-stokes-theorem.html#thm-stokes" class="xref" data-knowl="./knowl/xref/thm-stokes.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 3.2.4: Stokes’ Theorem">Theorem 3.2.4</a> to <span class="process-math">\(\mathbf H\text{.}\)</span> Finish with the linearity of the line integral. Say where the hypothesis that the domain is all of <span class="process-math">\(\R^3\)</span> was used, and give a second argument through conservative fields and the loop property of <a href="section-conservative-fields.html" class="internal" title="Section 1.5: Path Independence, Conservative Fields, and Potential Functions">Section 1.5</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/ex-stokes-conceptual-2-7-1.svg" role="img" class="contained" alt="Blank box in five rows, for the verdict and the curl of the difference, for the application of Stokes’ theorem, for the linearity step, for the role of the domain, and for the alternative argument through conservative fields."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 3.2.22: Equal Curls, Equal Circulations"><a href="#ex-stokes-conceptual" title="Copy heading and permalink for Checkpoint 3.2.22: Equal Curls, Equal Circulations" aria-label="Copy heading and permalink for Checkpoint 3.2.22: Equal Curls, Equal Circulations">🔗</a></div></article></details><details id="ex-stokes-conceptual-extensions" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Extension Questions.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="ex-stokes-conceptual-extensions-2-1">
+<ol class="lower-alpha ol-marker-2" id="ex-stokes-conceptual-extensions-2-1-1">
+<li id="ex-stokes-conceptual-extensions-2-1-1-1">
+<div class="para" id="ex-stokes-conceptual-extensions-2-1-1-1-1">Does the conclusion remain valid if the common domain is an arbitrary open subset of <span class="process-math">\(\R^3\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-extensions-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.2.23.a"><a href="#ex-stokes-conceptual-extensions-2-1-1-1" title="Copy heading and permalink for Item 3.2.23.a" aria-label="Copy heading and permalink for Item 3.2.23.a">🔗</a></div>
+</li>
+<li id="ex-stokes-conceptual-extensions-2-1-1-2">
+<div class="para" id="ex-stokes-conceptual-extensions-2-1-1-2-1">Which hypothesis of Stokes’ theorem is essential in the proof?<div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-extensions-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.2.23.b"><a href="#ex-stokes-conceptual-extensions-2-1-1-2" title="Copy heading and permalink for Item 3.2.23.b" aria-label="Copy heading and permalink for Item 3.2.23.b">🔗</a></div>
+</li>
+<li id="ex-stokes-conceptual-extensions-2-1-1-3">
+<div class="para" id="ex-stokes-conceptual-extensions-2-1-1-3-1">How is the result related to conservative vector fields and the Fundamental Theorem for line integrals of <a href="section-conservative-fields.html#sec-ftli" class="internal" title="Subsection 1.5.3: Line Integrals in Conservative Fields">Line Integrals in Conservative Fields</a>?<div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-extensions-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3.2.23.c"><a href="#ex-stokes-conceptual-extensions-2-1-1-3" title="Copy heading and permalink for Item 3.2.23.c" aria-label="Copy heading and permalink for Item 3.2.23.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-stokes-conceptual-extensions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/ex-stokes-conceptual-extensions-2-2-1.svg" role="img" class="contained" alt="Blank box in three labelled rows, one for each extension question."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 3.2.23: Extension Questions"><a href="#ex-stokes-conceptual-extensions" title="Copy heading and permalink for Checkpoint 3.2.23: Extension Questions" aria-label="Copy heading and permalink for Checkpoint 3.2.23: Extension Questions">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 3.2.4: A Conceptual Stokes’ Theorem Problem"><a href="#sec-stokes-conceptual" title="Copy heading and permalink for Subsection 3.2.4: A Conceptual Stokes’ Theorem Problem" aria-label="Copy heading and permalink for Subsection 3.2.4: A Conceptual Stokes’ Theorem Problem">🔗</a></div></section><div class="autopermalink" data-description="Section 3.2: Stokes’ Theorem"><a href="#section-stokes-theorem" title="Copy heading and permalink for Section 3.2: Stokes’ Theorem" aria-label="Copy heading and permalink for Section 3.2: Stokes’ Theorem">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="section-greens-theorem.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-divergence-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

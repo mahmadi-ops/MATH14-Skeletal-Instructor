@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Triple Integrals in Cylindrical Coordinates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="section-triple-integrals-rectangular.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-multiple-integrals.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-triple-integrals-spherical.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-triple-integrals-cylindrical"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triple Integrals in Cylindrical Coordinates</span>
+</h2>
+<div class="para" id="section-triple-integrals-cylindrical-2">Previously, we learned how to calculate triple integrals in rectangular coordinates. Today, we will learn triple integrals in cylindrical coordinates, which can be used to evaluate volumes of solids or to integrate a function over a region in space. We will see that when there is symmetry about an axis, it is more convenient to use cylindrical coordinates to calculate a triple integral.<div class="autopermalink" data-description="Paragraph"><a href="#section-triple-integrals-cylindrical-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="sec-cylindrical-coordinates"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cylindrical Coordinates</span>
+</h3>
+<div class="para" id="sec-cylindrical-coordinates-2">Cylindrical coordinates <span class="process-math">\((r,\theta,z)\)</span> are the combination of polar coordinates <span class="process-math">\((r,\theta)\)</span> in the <span class="process-math">\(xy\)</span>-plane and the <span class="process-math">\(z\)</span>-coordinate of Cartesian coordinates; see <a href="section-triple-integrals-cylindrical.html#fig-cylindrical-point-tikz" class="xref" data-knowl="./knowl/xref/fig-cylindrical-point-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.1">Figure 2.6.1</a>. Thus, adding <span class="process-math">\(z\)</span> to <a href="section-polar-coordinates.html#eq-polar-cartesian" class="xref" data-knowl="./knowl/xref/eq-polar-cartesian.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a>, the relations between Cartesian and cylindrical coordinates are<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-coordinates-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cylindrical-point-tikz.html ./knowl/xref/eq-polar-cartesian.html ./knowl/xref/eq-polar-area-element.html ./knowl/xref/eq-triple-iterated.html" id="eq-cyl-to-rect">
+\begin{equation}
+x = r\cos\theta, \qquad y = r\sin\theta, \qquad z = z,\tag{2.6.1}
+\end{equation}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cylindrical-point-tikz.html ./knowl/xref/eq-polar-cartesian.html ./knowl/xref/eq-polar-area-element.html ./knowl/xref/eq-triple-iterated.html" id="sec-cylindrical-coordinates-4">
+\begin{equation*}
+r^2 = x^2 + y^2, \qquad \tan\theta = \frac{y}{x}, \qquad z = z.
+\end{equation*}
+</div>
+<figure class="figure figure-like" id="fig-cylindrical-point-tikz"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/fig-cylindrical-point-tikz-2.svg" role="img" class="contained" alt="A point in space located by a radius in the plane, an angle, and a height.Three coordinate axes in space. A point P is shown above the x y plane. A segment of length r runs from the origin to the projection of P in the x y plane, making an angle theta with the positive x axis, and a vertical segment of length z connects the projection to P."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point <span class="process-math">\(P(r,\theta,z)\)</span> in cylindrical coordinates: <span class="process-math">\((r,\theta)\)</span> are the polar coordinates of its projection <span class="process-math">\((r,\theta,0)\)</span> into the <span class="process-math">\(xy\)</span>-plane, and <span class="process-math">\(z\)</span> is its usual height.<div class="autopermalink" data-description="Figure 2.6.1"><a href="#fig-cylindrical-point-tikz" title="Copy heading and permalink for Figure 2.6.1" aria-label="Copy heading and permalink for Figure 2.6.1">🔗</a></div></figcaption></figure><div class="para" id="sec-cylindrical-coordinates-6">Before calculating triple integrals in cylindrical coordinates, we need to figure out the volume element <span class="process-math">\(dV\)</span> in this new set of coordinates. Remember from <a href="section-double-integrals-polar-form.html#assemblage-polar-double-integral-2-2" class="xref" data-knowl="./knowl/xref/eq-polar-area-element.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a> that the area element <span class="process-math">\(dA\)</span> in polar coordinates is <span class="process-math">\(r\,dr\,d\theta\text{.}\)</span> Stack it through a height <span class="process-math">\(dz\text{,}\)</span> and write down the cylindrical volume element. (The applet below builds the element one edge at a time; check your answer against the three edge lengths.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-coordinates-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-cylindrical-coordinates-7-1.svg" role="img" class="contained" alt="Blank box with one row, for the cylindrical volume element."></div></div></div></div>
+<article class="assemblage assemblage-like" id="assemblage-dv-cylindrical"><h4 class="heading"><span class="title">The Cylindrical Volume Element.</span></h4>
+<div class="para logical" id="assemblage-dv-cylindrical-2">
+<div class="displaymath process-math" id="eq-dv-cylindrical">
+\begin{equation}
+dV = r\,dr\,d\theta\,dz.\tag{2.6.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-dv-cylindrical-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: The Cylindrical Volume Element"><a href="#assemblage-dv-cylindrical" title="Copy heading and permalink for Assemblage: The Cylindrical Volume Element" aria-label="Copy heading and permalink for Assemblage: The Cylindrical Volume Element">🔗</a></div></article><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/qjpb9re8/scaleContainerClass/interactive-iframe-container/width/600/height/490/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/false/ld/false/sdz/false/ctl/false" id="sec-cylindrical-coordinates-9" style="width:480px; height:392px; display: block; "></iframe></div>
+<div class="instructions"><details id="sec-cylindrical-coordinates-9-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="sec-cylindrical-coordinates-9-1-1">Use the three sliders to build the volume element one edge at a time. The <span class="process-math">\(dr\)</span> slider sets the radial thickness of the block, the <span class="process-math">\(d\theta\)</span> slider opens its angular width, and the <span class="process-math">\(dz\)</span> slider raises its height. Start with all three small, then increase them in turn. The edges controlled by <span class="process-math">\(dr\)</span> and <span class="process-math">\(dz\)</span> are straight segments of exactly those lengths, but the edge swept out by <span class="process-math">\(d\theta\)</span> is a circular arc of length <span class="process-math">\(r\,d\theta\)</span>—it grows in proportion to the block’s distance <span class="process-math">\(r\)</span> from the <span class="process-math">\(z\)</span>-axis. Slide <span class="process-math">\(d\theta\)</span> alone and watch that curved edge lengthen while the radial and vertical edges stay fixed.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-coordinates-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="sec-cylindrical-coordinates-9-1-2">Up close the block is essentially a rectangular box. What are its three edge lengths, and what does multiplying them give?<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-coordinates-9-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#sec-cylindrical-coordinates-9-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<div class="para" id="sec-cylindrical-coordinates-10">Now suppose our goal is to integrate over a region <span class="process-math">\(E\)</span> described as<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-coordinates-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cylindrical-point-tikz.html ./knowl/xref/eq-polar-cartesian.html ./knowl/xref/eq-polar-area-element.html ./knowl/xref/eq-triple-iterated.html" id="sec-cylindrical-coordinates-11">
+\begin{equation*}
+E = \left\{(x,y,z)\ \middle|\ (x,y)\in D,\
+u_1(x,y) \le z \le u_2(x,y)\right\},
+\end{equation*}
+</div>
+<div class="para" id="sec-cylindrical-coordinates-12">where the region <span class="process-math">\(D\)</span> is known in polar coordinates:<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-coordinates-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cylindrical-point-tikz.html ./knowl/xref/eq-polar-cartesian.html ./knowl/xref/eq-polar-area-element.html ./knowl/xref/eq-triple-iterated.html" id="sec-cylindrical-coordinates-13">
+\begin{equation*}
+D = \left\{(r,\theta)\ \middle|\ \alpha\le\theta\le\beta,\
+h_1(\theta) \le r \le h_2(\theta)\right\}.
+\end{equation*}
+</div>
+<div class="para" id="sec-cylindrical-coordinates-14">Then the iterated integral <a href="section-triple-integrals-rectangular.html#eq-triple-iterated" class="xref" data-knowl="./knowl/xref/eq-triple-iterated.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.3">(2.5.3)</a>, written as <span class="process-math">\(\iiint_E f\,dV
+= \iint_D\big[\int_{u_1}^{u_2} f\,dz\big]dA\text{,}\)</span> can be converted to cylindrical coordinates:<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-coordinates-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cylindrical-point-tikz.html ./knowl/xref/eq-polar-cartesian.html ./knowl/xref/eq-polar-area-element.html ./knowl/xref/eq-triple-iterated.html" id="eq-triple-cylindrical">
+\begin{equation}
+\iiint_E f(x,y,z)\,dV
+= \int_{\alpha}^{\beta}\!\!\int_{h_1(\theta)}^{h_2(\theta)}
+\!\!\int_{u_1(r\cos\theta,\,r\sin\theta)}^{u_2(r\cos\theta,\,r\sin\theta)}
+f(r\cos\theta,\ r\sin\theta,\ z)\ r\,dz\,dr\,d\theta.\tag{2.6.3}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Subsection 2.6.1: Cylindrical Coordinates"><a href="#sec-cylindrical-coordinates" title="Copy heading and permalink for Subsection 2.6.1: Cylindrical Coordinates" aria-label="Copy heading and permalink for Subsection 2.6.1: Cylindrical Coordinates">🔗</a></div></section><section class="subsection" id="sec-cylindrical-mass-example"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Mass of a Solid With Axial Symmetry</span>
+</h3>
+<details id="example-cylindrical-mass" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example I.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-cylindrical-mass-2-1">A solid <span class="process-math">\(E\)</span> lies within the cylinder <span class="process-math">\(x^2 + y^2 = 1\text{,}\)</span> below the plane <span class="process-math">\(z = 4\text{,}\)</span> and above the paraboloid <span class="process-math">\(z = 1 - x^2 - y^2\text{.}\)</span> Given that the density of the solid at any point is proportional to its distance from the axis of the cylinder, find the mass of the solid.<div class="autopermalink" data-description="Paragraph"><a href="#example-cylindrical-mass-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-cylindrical-mass-2-2">
+<em class="emphasis">Solution.</em> (Begin by plotting the region, shown in <a href="section-triple-integrals-cylindrical.html#fig-cylindrical-solid-tikz" class="xref" data-knowl="./knowl/xref/fig-cylindrical-solid-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.3">Figure 2.6.3</a>. Write the cylinder and the paraboloid in cylindrical coordinates, and describe <span class="process-math">\(E\)</span> with <span class="process-math">\(z\)</span> running from the paraboloid up to the plane. Turn the description of the density into a formula — distance from the axis is a familiar quantity in these coordinates. Then compute the mass by <a href="section-triple-integrals-rectangular.html#eq-mass-triple" class="xref" data-knowl="./knowl/xref/eq-mass-triple.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.5.1">(2.5.1)</a> and <a href="section-triple-integrals-cylindrical.html#eq-triple-cylindrical" class="xref" data-knowl="./knowl/xref/eq-triple-cylindrical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.3">(2.6.3)</a>, and compare with <a href="section-triple-integrals-cylindrical.html#fig-cylindrical-video" class="xref" data-knowl="./knowl/xref/fig-cylindrical-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.4">Figure 2.6.4</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-cylindrical-mass-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-cylindrical-mass-2-3-1.svg" role="img" class="contained" alt="Blank box in four rows, for the cylindrical equations of the bounding surfaces, for the description of the solid, for the density in cylindrical coordinates, and for the mass integral and its evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.6.2: Example I"><a href="#example-cylindrical-mass" title="Copy heading and permalink for Example 2.6.2: Example I" aria-label="Copy heading and permalink for Example 2.6.2: Example I">🔗</a></div></article></details><figure class="figure figure-like" id="fig-cylindrical-solid-tikz"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-cylindrical-solid-tikz-2.svg" role="img" class="contained" alt="A vertical cylinder with a flat top and a dome-shaped paraboloid floor.Three coordinate axes in space with a vertical circular cylinder of radius one about the z axis, capped by the plane z equals four on top. Inside the bottom of the cylinder, the paraboloid z equals one minus r squared forms a dome shaped floor that touches the point zero zero one on the z axis and meets the cylinder wall at the x y plane."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of <a href="section-triple-integrals-cylindrical.html#example-cylindrical-mass" class="xref" data-knowl="./knowl/xref/example-cylindrical-mass.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.6.2: Example I">Example 2.6.2</a>: inside the cylinder <span class="process-math">\(x^2+y^2 = 1\text{,}\)</span> above the paraboloid <span class="process-math">\(z = 1 - x^2 - y^2\text{,}\)</span> and below the plane <span class="process-math">\(z = 4\text{.}\)</span><div class="autopermalink" data-description="Figure 2.6.3"><a href="#fig-cylindrical-solid-tikz" title="Copy heading and permalink for Figure 2.6.3" aria-label="Copy heading and permalink for Figure 2.6.3">🔗</a></div></figcaption></figure><div class="para" id="sec-cylindrical-mass-example-4">The way a column of the solid runs from the paraboloid floor up to the plane <span class="process-math">\(z = 4\text{,}\)</span> and how it sweeps around the axis, is animated in <a href="section-triple-integrals-cylindrical.html#fig-cylindrical-video" class="xref" data-knowl="./knowl/xref/fig-cylindrical-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6.4">Figure 2.6.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-cylindrical-mass-example-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cylindrical-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-cylindrical-column" class="video" controls="" poster="external/play-button.png"><source src="external/videos/cylindrical_column_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Animation of the cylindrical setup for <a href="section-triple-integrals-cylindrical.html#example-cylindrical-mass" class="xref" data-knowl="./knowl/xref/example-cylindrical-mass.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.6.2: Example I">Example 2.6.2</a>. A column at <span class="process-math">\((r,\theta)\)</span> runs from the paraboloid floor up to the plane <span class="process-math">\(z = 4\text{,}\)</span> and sweeps through the solid as <span class="process-math">\(\theta\)</span> goes around the axis, illustrating <span class="process-math">\(dV = r\,dz\,dr\,d\theta\text{.}\)</span><div class="autopermalink" data-description="Figure 2.6.4"><a href="#fig-cylindrical-video" title="Copy heading and permalink for Figure 2.6.4" aria-label="Copy heading and permalink for Figure 2.6.4">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.6.2: The Mass of a Solid With Axial Symmetry"><a href="#sec-cylindrical-mass-example" title="Copy heading and permalink for Subsection 2.6.2: The Mass of a Solid With Axial Symmetry" aria-label="Copy heading and permalink for Subsection 2.6.2: The Mass of a Solid With Axial Symmetry">🔗</a></div></section><section class="subsection" id="subsec-cylindrical-questions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Concept Check</span>
+</h3>
+<div class="para" id="subsec-cylindrical-questions-2">Each part below describes a solid by the surfaces that bound it. Set up a triple integral in cylindrical coordinates that gives its volume: the work is all in the limits, and <a href="section-triple-integrals-cylindrical.html#eq-dv-cylindrical" class="xref" data-knowl="./knowl/xref/eq-dv-cylindrical.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.6.2">(2.6.2)</a> supplies the rest. Try each part from the description alone—the solution shows the solid, so you can check whether the picture in your head was the right one.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-cylindrical-questions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="q-cylindrical-volumes" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Eight volumes in cylindrical coordinates.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="introduction" id="q-cylindrical-volumes-2"><div class="para" id="q-cylindrical-volumes-2-1">Set up triple integrals, in cylindrical coordinates, which give the volume of each of the following regions.<div class="autopermalink" data-description="Paragraph"><a href="#q-cylindrical-volumes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
+<article class="task exercise-like" id="task-cyl-a"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="task-cyl-a-1-1">The volume of the region bounded above by the paraboloid <span class="process-math">\(z = 5-x^2-y^2\text{,}\)</span> below by the plane <span class="process-math">\(z=0\text{,}\)</span> and on the side by the cylinder <span class="process-math">\(x^2+y^2=4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-a-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-a-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-a-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-a-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-a-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-a"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/p4fvbdxf/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-a-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-a-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-a-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-a-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-a-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (a).<div class="autopermalink" data-description="Figure 2.6.6"><a href="#fig-cyl-a" title="Copy heading and permalink for Figure 2.6.6" aria-label="Copy heading and permalink for Figure 2.6.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.a.1"><a href="#task-cyl-a-2" title="Copy heading and permalink for Solution 2.6.5.a.1" aria-label="Copy heading and permalink for Solution 2.6.5.a.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.a"><a href="#task-cyl-a" title="Copy heading and permalink for Task 2.6.5.a" aria-label="Copy heading and permalink for Task 2.6.5.a">🔗</a></div></article><article class="task exercise-like" id="task-cyl-b"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="task-cyl-b-1-1">The volume of the region bounded below by the paraboloid <span class="process-math">\(z = \frac14\left(x^2+y^2\right)\)</span> and above by the plane <span class="process-math">\(z=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-b-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-b-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-b-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-b-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-b-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-b"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/djjefngs/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-b-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-b-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-b-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-b-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-b-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (b).<div class="autopermalink" data-description="Figure 2.6.7"><a href="#fig-cyl-b" title="Copy heading and permalink for Figure 2.6.7" aria-label="Copy heading and permalink for Figure 2.6.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.b.1"><a href="#task-cyl-b-2" title="Copy heading and permalink for Solution 2.6.5.b.1" aria-label="Copy heading and permalink for Solution 2.6.5.b.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.b"><a href="#task-cyl-b" title="Copy heading and permalink for Task 2.6.5.b" aria-label="Copy heading and permalink for Task 2.6.5.b">🔗</a></div></article><article class="task exercise-like" id="task-cyl-c"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="task-cyl-c-1-1">The volume of the region bounded above by the paraboloid <span class="process-math">\(z = \frac14\left(x^2+y^2\right)\text{,}\)</span> below by the plane <span class="process-math">\(z=0\text{,}\)</span> and on the side by the cylinder <span class="process-math">\(x^2+y^2=4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-c-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-c-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-c-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-c-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-c-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-c"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/v4vbftuh/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-c-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-c-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-c-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-c-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-c-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (c).<div class="autopermalink" data-description="Figure 2.6.8"><a href="#fig-cyl-c" title="Copy heading and permalink for Figure 2.6.8" aria-label="Copy heading and permalink for Figure 2.6.8">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.c.1"><a href="#task-cyl-c-2" title="Copy heading and permalink for Solution 2.6.5.c.1" aria-label="Copy heading and permalink for Solution 2.6.5.c.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.c"><a href="#task-cyl-c" title="Copy heading and permalink for Task 2.6.5.c" aria-label="Copy heading and permalink for Task 2.6.5.c">🔗</a></div></article><article class="task exercise-like" id="task-cyl-d"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="task-cyl-d-1-1">The volume of the region bounded below by the lower half of the sphere <span class="process-math">\(x^2+y^2+(z-1)^2=4\)</span> and above by the plane <span class="process-math">\(z=1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-d-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-d-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-d-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-d-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-d"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/xunfqxxr/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-d-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-d-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-d-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-d-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-d-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (d).<div class="autopermalink" data-description="Figure 2.6.9"><a href="#fig-cyl-d" title="Copy heading and permalink for Figure 2.6.9" aria-label="Copy heading and permalink for Figure 2.6.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.d.1"><a href="#task-cyl-d-2" title="Copy heading and permalink for Solution 2.6.5.d.1" aria-label="Copy heading and permalink for Solution 2.6.5.d.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.d"><a href="#task-cyl-d" title="Copy heading and permalink for Task 2.6.5.d" aria-label="Copy heading and permalink for Task 2.6.5.d">🔗</a></div></article><article class="task exercise-like" id="task-cyl-e"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="task-cyl-e-1-1">The volume of the region bounded by the cone <span class="process-math">\(z^2 = \frac14\left(x^2+y^2\right)\)</span> and the planes <span class="process-math">\(z=1\)</span> and <span class="process-math">\(z=-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-e-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-e-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-e-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-e-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-e-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-e"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/p45dyezj/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-e-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-e-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-e-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-e-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-e-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (e).<div class="autopermalink" data-description="Figure 2.6.10"><a href="#fig-cyl-e" title="Copy heading and permalink for Figure 2.6.10" aria-label="Copy heading and permalink for Figure 2.6.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.e.1"><a href="#task-cyl-e-2" title="Copy heading and permalink for Solution 2.6.5.e.1" aria-label="Copy heading and permalink for Solution 2.6.5.e.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.e"><a href="#task-cyl-e" title="Copy heading and permalink for Task 2.6.5.e" aria-label="Copy heading and permalink for Task 2.6.5.e">🔗</a></div></article><article class="task exercise-like" id="task-cyl-f"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para" id="task-cyl-f-1-1">The volume of the region bounded by the hyperboloid of one sheet <span class="process-math">\(x^2+y^2-z^2=4\)</span> and the planes <span class="process-math">\(z=3\)</span> and <span class="process-math">\(z=-3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-f-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-f-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-f-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-f-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-f-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-f"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/zpr8xcup/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-f-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-f-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-f-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-f-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-f-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (f).<div class="autopermalink" data-description="Figure 2.6.11"><a href="#fig-cyl-f" title="Copy heading and permalink for Figure 2.6.11" aria-label="Copy heading and permalink for Figure 2.6.11">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.f.1"><a href="#task-cyl-f-2" title="Copy heading and permalink for Solution 2.6.5.f.1" aria-label="Copy heading and permalink for Solution 2.6.5.f.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.f"><a href="#task-cyl-f" title="Copy heading and permalink for Task 2.6.5.f" aria-label="Copy heading and permalink for Task 2.6.5.f">🔗</a></div></article><article class="task exercise-like" id="task-cyl-g"><h5 class="heading"><span class="codenumber">(g)</span></h5>
+<div class="para" id="task-cyl-g-1-1">The volume of the region bounded by the cone <span class="process-math">\(z^2 = \frac14\left(x^2+y^2\right)\)</span> and the planes <span class="process-math">\(z=2\)</span> and <span class="process-math">\(z=-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-g-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-g-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-g-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-g-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-g-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-g"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/ckvwwrqq/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-g-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-g-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-g-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-g-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-g-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (g).<div class="autopermalink" data-description="Figure 2.6.12"><a href="#fig-cyl-g" title="Copy heading and permalink for Figure 2.6.12" aria-label="Copy heading and permalink for Figure 2.6.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.g.1"><a href="#task-cyl-g-2" title="Copy heading and permalink for Solution 2.6.5.g.1" aria-label="Copy heading and permalink for Solution 2.6.5.g.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.g"><a href="#task-cyl-g" title="Copy heading and permalink for Task 2.6.5.g" aria-label="Copy heading and permalink for Task 2.6.5.g">🔗</a></div></article><article class="task exercise-like" id="task-cyl-h"><h5 class="heading"><span class="codenumber">(h)</span></h5>
+<div class="para" id="task-cyl-h-1-1">The volume of the region bounded above by the cone <span class="process-math">\(z = 5-\sqrt{x^2+y^2}\text{,}\)</span> below by the plane <span class="process-math">\(z=0\text{,}\)</span> and on the side by the cylinder <span class="process-math">\(x^2+y^2=4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-h-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/task-cyl-h-1-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits."></div></div></div></div>
+<div class="solutions"><details id="task-cyl-h-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="task-cyl-h-2-1">The solid is shown below. Compare it with the picture you formed from the description before setting up the integral.<div class="autopermalink" data-description="Paragraph"><a href="#task-cyl-h-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-cyl-h"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/ubfxfene/scaleContainerClass/interactive-iframe-container/width/500/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-cyl-h-2" style="width:500px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-cyl-h-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h6 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h6></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-cyl-h-2-1-1">Drag the background to rotate the solid and compare it with the picture you formed from the description. Shift-drag or pinch to zoom, and use the reset icon in the corner to return to the original view.<div class="autopermalink" data-description="Paragraph"><a href="#fig-cyl-h-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-cyl-h-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.6.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of part (h).<div class="autopermalink" data-description="Figure 2.6.13"><a href="#fig-cyl-h" title="Copy heading and permalink for Figure 2.6.13" aria-label="Copy heading and permalink for Figure 2.6.13">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Solution 2.6.5.h.1"><a href="#task-cyl-h-2" title="Copy heading and permalink for Solution 2.6.5.h.1" aria-label="Copy heading and permalink for Solution 2.6.5.h.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Task 2.6.5.h"><a href="#task-cyl-h" title="Copy heading and permalink for Task 2.6.5.h" aria-label="Copy heading and permalink for Task 2.6.5.h">🔗</a></div></article><div class="autopermalink" data-description="Checkpoint 2.6.5: Eight volumes in cylindrical coordinates"><a href="#q-cylindrical-volumes" title="Copy heading and permalink for Checkpoint 2.6.5: Eight volumes in cylindrical coordinates" aria-label="Copy heading and permalink for Checkpoint 2.6.5: Eight volumes in cylindrical coordinates">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 2.6.3: Concept Check"><a href="#subsec-cylindrical-questions" title="Copy heading and permalink for Subsection 2.6.3: Concept Check" aria-label="Copy heading and permalink for Subsection 2.6.3: Concept Check">🔗</a></div></section><div class="autopermalink" data-description="Section 2.6: Triple Integrals in Cylindrical Coordinates"><a href="#section-triple-integrals-cylindrical" title="Copy heading and permalink for Section 2.6: Triple Integrals in Cylindrical Coordinates" aria-label="Copy heading and permalink for Section 2.6: Triple Integrals in Cylindrical Coordinates">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="section-triple-integrals-rectangular.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-triple-integrals-spherical.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

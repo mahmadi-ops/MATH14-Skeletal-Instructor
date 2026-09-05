@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-curved-D-figure" speech2="Four curves in the first quadrant: the hyperbolas x squared minus y squared equals negative 3 and positive 3, in pink, and the hyperbolas x y equals 1 and x y equals 4, in blue. They bound a curved four-sided region D, shaded tan.">
+      <grouped>prefigure-curved-D-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-curved-D-cd-region</active>
+        <active>prefigure-curved-D-cd-hyp-neg</active>
+        <active>prefigure-curved-D-cd-hyp-pos</active>
+        <active>prefigure-curved-D-cd-prod-1</active>
+        <active>prefigure-curved-D-cd-prod-4</active>
+      </children>
+      <components>
+        <active>prefigure-curved-D-cd-region</active>
+        <active>prefigure-curved-D-cd-hyp-neg</active>
+        <active>prefigure-curved-D-cd-hyp-pos</active>
+        <active>prefigure-curved-D-cd-prod-1</active>
+        <active>prefigure-curved-D-cd-prod-4</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-curved-D-cd-region" speech2="The curved region D bounded by the four hyperbolas.">
+      <active>prefigure-curved-D-cd-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-curved-D-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-curved-D-cd-hyp-neg" speech2="The hyperbola x squared minus y squared equals negative 3, which becomes u equals negative 3.">
+      <active>prefigure-curved-D-cd-hyp-neg</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-curved-D-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-curved-D-cd-hyp-pos" speech2="The hyperbola x squared minus y squared equals 3, which becomes u equals 3.">
+      <active>prefigure-curved-D-cd-hyp-pos</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-curved-D-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-curved-D-cd-prod-1" speech2="The hyperbola x y equals 1, which becomes v equals 1.">
+      <active>prefigure-curved-D-cd-prod-1</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-curved-D-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-curved-D-cd-prod-4" speech2="The hyperbola x y equals 4, which becomes v equals 4.">
+      <active>prefigure-curved-D-cd-prod-4</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-curved-D-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

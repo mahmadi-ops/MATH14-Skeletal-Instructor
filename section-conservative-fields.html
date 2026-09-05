@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Path Independence, Conservative Fields, and Potential Functions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-vector-fields.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-curves-and-fields.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-multiple-integrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-conservative-fields"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Path Independence, Conservative Fields, and Potential Functions</span>
+</h2>
+<div class="para" id="section-conservative-fields-2">Before we begin discussing the actual topic of today’s lecture, we will need to study a particular type of a vector field known as a <em class="emphasis">gradient field</em>.<div class="autopermalink" data-description="Paragraph"><a href="#section-conservative-fields-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="sec-gradient-fields"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Brief Reminder (Gradient Fields)</span>
+</h3>
+<article class="definition definition-like" id="def-gradient-field"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gradient Field.</span>
+</h4>
+<div class="para" id="def-gradient-field-2-1">The <dfn class="terminology">gradient field</dfn> of a differentiable function <span class="process-math">\(f(x,y,z)\)</span> is the field of gradient vectors<div class="autopermalink" data-description="Paragraph"><a href="#def-gradient-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-gradient-field">
+\begin{equation}
+\nabla f = \frac{\partial f}{\partial x}\mathbf i
++ \frac{\partial f}{\partial y}\mathbf j
++ \frac{\partial f}{\partial z}\mathbf k.\tag{1.5.1}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Definition 1.5.1: Gradient Field"><a href="#def-gradient-field" title="Copy heading and permalink for Definition 1.5.1: Gradient Field" aria-label="Copy heading and permalink for Definition 1.5.1: Gradient Field">🔗</a></div></article><div class="para" id="sec-gradient-fields-3">At each point <span class="process-math">\((x,y,z)\text{,}\)</span> the gradient field gives a vector pointing in the direction of greatest increase of <span class="process-math">\(f\text{.}\)</span> Let us emphasize that even though the function <span class="process-math">\(f\)</span> is a scalar-valued function, its gradient is a vector-valued one by definition. As an example, see <a href="section-conservative-fields.html#fig-gradient-field-tikz" class="xref" data-knowl="./knowl/xref/fig-gradient-field-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.2">Figure 1.5.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gradient-fields-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-gradient-field-tikz"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fig-gradient-field-tikz-2.svg" role="img" class="contained" alt="A paraboloid above the plane, with gradient arrows below it pointing radially outward.An upward-opening paraboloid, the graph of z equals x squared plus y squared, drawn as a translucent blue surface. In the x y plane below it, blue arrows of the gradient field point radially outward from the origin, growing longer at points farther from the origin."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The surface <span class="process-math">\(z = f(x,y) = x^2 + y^2\)</span> together with its gradient field <span class="process-math">\(\nabla f = 2x\,\mathbf i + 2y\,\mathbf j\text{,}\)</span> drawn in the <span class="process-math">\(xy\)</span>-plane. The gradient vectors point radially away from the origin, the direction of steepest ascent, and grow longer as we move away from the origin.<div class="autopermalink" data-description="Figure 1.5.2"><a href="#fig-gradient-field-tikz" title="Copy heading and permalink for Figure 1.5.2" aria-label="Copy heading and permalink for Figure 1.5.2">🔗</a></div></figcaption></figure><div class="para" id="sec-gradient-fields-5">In <a href="section-conservative-fields.html#fig-gradient-field-tikz" class="xref" data-knowl="./knowl/xref/fig-gradient-field-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.2">Figure 1.5.2</a>, you see the scalar-valued function <span class="process-math">\(z = f(x,y) = x^2 + y^2\text{,}\)</span> which is a function on <span class="process-math">\(\R^2\text{.}\)</span> Compute its gradient according to <a href="section-conservative-fields.html#eq-gradient-field" class="xref" data-knowl="./knowl/xref/eq-gradient-field.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5.1">(1.5.1)</a>, and compare with the arrows in the figure.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gradient-fields-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-gradient-fields-6-1.svg" role="img" class="contained" alt="Blank box with one row, for the gradient of x squared plus y squared."></div></div></div></div>
+<div class="para" id="sec-gradient-fields-7">The gradient field is visualized in the <span class="process-math">\(xy\)</span>-plane and the value of the function <span class="process-math">\(f(x,y) = x^2 + y^2\)</span> at each point <span class="process-math">\((x,y)\)</span> is plotted on the <span class="process-math">\(z\)</span>-axis. Intuitively, the gradient of a function <span class="process-math">\(f(x,y)\)</span> at a point <span class="process-math">\((x_0,y_0)\)</span> is a vector pointing in the direction of the steepest slope.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gradient-fields-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 1.5.1: A Brief Reminder (Gradient Fields)"><a href="#sec-gradient-fields" title="Copy heading and permalink for Subsection 1.5.1: A Brief Reminder (Gradient Fields)" aria-label="Copy heading and permalink for Subsection 1.5.1: A Brief Reminder (Gradient Fields)">🔗</a></div></section><section class="subsection" id="sec-conservative-definitions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Path Independence and Some Basic Definitions</span>
+</h3>
+<div class="para" id="sec-conservative-definitions-2">Previously, in <a href="sec-vector-fields.html#ex-work-path-dependence" class="internal" title="Example 1.4.13: The same endpoints, two paths, two answers">Example 1.4.13</a>, we saw that the line integral of a vector field depends on the path in general. Then, the natural question to ask is:<div class="autopermalink" data-description="Paragraph"><a href="#sec-conservative-definitions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="sec-conservative-definitions-3">
+<div class="para" id="sec-conservative-definitions-3-1">
+<em class="emphasis">What are the conditions under which the line integral of a vector field <span class="process-math">\(\mathbf F\)</span> from point <span class="process-math">\(A\)</span> to point <span class="process-math">\(B\)</span> is independent of the curve <span class="process-math">\(C\)</span> taken to go from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{?}\)</span></em><div class="autopermalink" data-description="Paragraph"><a href="#sec-conservative-definitions-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#sec-conservative-definitions-3" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="sec-conservative-definitions-4">Answering this question requires a few new ideas, so we introduce them first.<div class="autopermalink" data-description="Paragraph"><a href="#sec-conservative-definitions-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="remark remark-like" id="remark-smooth-curve"><h4 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reminder.</span>
+</h4>
+<div class="para" id="remark-smooth-curve-2">A <dfn class="terminology">smooth curve</dfn> has no sharp corners or cusps; when the tangent vector turns, it does so continuously.<div class="autopermalink" data-description="Paragraph"><a href="#remark-smooth-curve-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.5.3: Reminder"><a href="#remark-smooth-curve" title="Copy heading and permalink for Remark 1.5.3: Reminder" aria-label="Copy heading and permalink for Remark 1.5.3: Reminder">🔗</a></div></article><article class="definition definition-like" id="def-conservative-concepts"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Open, Connected, and Simply Connected Regions; Conservative Fields.</span>
+</h4>
+<div class="para logical" id="def-conservative-concepts-2-1">
+<ul class="disc" id="def-conservative-concepts-2-1-1">
+<li id="def-conservative-concepts-2-1-1-1">
+<div class="para" id="def-conservative-concepts-2-1-1-1-1">A region <span class="process-math">\(D\)</span> is <dfn class="terminology">open</dfn> if for every point <span class="process-math">\(P\)</span> in <span class="process-math">\(D\)</span> there is a disk with center <span class="process-math">\(P\)</span> that lies entirely in <span class="process-math">\(D\text{,}\)</span> which means that <span class="process-math">\(D\)</span> doesn’t contain any of its boundary points.<div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-concepts-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-conservative-concepts-2-1-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-conservative-concepts-2-1-1-2">
+<div class="para" id="def-conservative-concepts-2-1-1-2-1">Consider an open region <span class="process-math">\(D\)</span> in space and a vector field <span class="process-math">\(\mathbf F\text{.}\)</span> If the result of the line integral <span class="process-math">\(\int_C \mathbf F\cdot d\mathbf r\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> is the same for all possible paths inside <span class="process-math">\(D\text{,}\)</span> then the line integral <span class="process-math">\(\int_C \mathbf F\cdot d\mathbf r\)</span> is said to be <dfn class="terminology">path-independent</dfn> inside <span class="process-math">\(D\)</span> and the field <span class="process-math">\(\mathbf F\)</span> is said to be <dfn class="terminology">conservative</dfn> on <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-concepts-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-conservative-concepts-2-1-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-conservative-concepts-2-1-1-3">
+<div class="para" id="def-conservative-concepts-2-1-1-3-1">If a vector field <span class="process-math">\(\mathbf F\)</span> can be written as <span class="process-math">\(\mathbf F = \nabla f\text{,}\)</span> where <span class="process-math">\(f\)</span> is a scalar-valued function, then <span class="process-math">\(f\)</span> is a <dfn class="terminology">potential function</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-concepts-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-conservative-concepts-2-1-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-conservative-concepts-2-1-1-4">
+<div class="para" id="def-conservative-concepts-2-1-1-4-1">
+<dfn class="terminology">Piecewise smooth</dfn> curves are curves that are made up of finitely many smooth pieces.<div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-concepts-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-conservative-concepts-2-1-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-conservative-concepts-2-1-1-5">
+<div class="para" id="def-conservative-concepts-2-1-1-5-1">An open region <span class="process-math">\(D\)</span> is said to be <dfn class="terminology">connected</dfn> if any two points in <span class="process-math">\(D\)</span> can be joined by a smooth curve that lies in the region.<div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-concepts-2-1-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-conservative-concepts-2-1-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-conservative-concepts-2-1-1-6">
+<div class="para" id="def-conservative-concepts-2-1-1-6-1">
+<span class="process-math">\(D\)</span> is <dfn class="terminology">simply connected</dfn>, which means that every loop in <span class="process-math">\(D\)</span> can be contracted to a point in <span class="process-math">\(D\)</span> without ever leaving <span class="process-math">\(D\text{.}\)</span> (See <a href="section-conservative-fields.html#fig-simply-connected-prefigure" class="internal" title="Figure 1.5.5">Figure 1.5.5</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-concepts-2-1-1-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#def-conservative-concepts-2-1-1-6" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#def-conservative-concepts-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Definition 1.5.4: Open, Connected, and Simply Connected Regions; Conservative Fields"><a href="#def-conservative-concepts" title="Copy heading and permalink for Definition 1.5.4: Open, Connected, and Simply Connected Regions; Conservative Fields" aria-label="Copy heading and permalink for Definition 1.5.4: Open, Connected, and Simply Connected Regions; Conservative Fields">🔗</a></div></article><figure class="figure figure-like" id="fig-simply-connected-prefigure"><div class="sidebyside"><div class="sbsrow" style="margin-left:1%;margin-right:1%;grid-template-columns:48.9795918367347% 48.9795918367347%;column-gap:2%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-simply-connected-diagcess.svg" data-cml="generated/prefigure/prefigure-simply-connected-annotations.xml"></div></div></div>
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-not-simply-connected-diagcess.svg" data-cml="generated/prefigure/prefigure-not-simply-connected-annotations.xml"></div></div></div>
+</div></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>On the left, a simply connected region: every loop can be contracted to a point without leaving the region. On the right, a region that is not simply connected: the loop <span class="process-math">\(C_1\)</span> encircles a hole and cannot be contracted to a point while staying inside the region.<div class="autopermalink" data-description="Figure 1.5.5"><a href="#fig-simply-connected-prefigure" title="Copy heading and permalink for Figure 1.5.5" aria-label="Copy heading and permalink for Figure 1.5.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 1.5.2: Path Independence and Some Basic Definitions"><a href="#sec-conservative-definitions" title="Copy heading and permalink for Subsection 1.5.2: Path Independence and Some Basic Definitions" aria-label="Copy heading and permalink for Subsection 1.5.2: Path Independence and Some Basic Definitions">🔗</a></div></section><section class="subsection" id="sec-ftli"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Line Integrals in Conservative Fields</span>
+</h3>
+<div class="para" id="sec-ftli-2">Next, we will study the line integrals of conservative fields, in the sense of <a href="section-conservative-fields.html#def-conservative-concepts" class="xref" data-knowl="./knowl/xref/def-conservative-concepts.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.5.4: Open, Connected, and Simply Connected Regions; Conservative Fields">Definition 1.5.4</a>. As you will recognize, if you think of the gradient of a vector field as its derivative, then the fundamental theorem of line integrals makes a similar statement for vector-valued functions as the one made for definite integrals of scalar-valued functions, i.e., the one that you know as FTC II.<details class="ptx-footnote" aria-live="polite" id="sec-ftli-2-2"><summary class="ptx-footnote__number" title="Footnote 1.5.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec-ftli-2-2">The Fundamental Theorem of Calculus, Part II: if <span class="process-math">\(f\)</span> is continuous on <span class="process-math">\([a,b]\)</span> and <span class="process-math">\(F\)</span> is any antiderivative of <span class="process-math">\(f\)</span> on that interval, then <span class="process-math">\(\int_a^b f(x)\,dx = F(b) - F(a)\text{.}\)</span> It evaluates a definite integral from the values of an antiderivative at the two endpoints, and <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a> does the same for a line integral, using the values of a potential function at the two endpoints of the curve.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#sec-ftli-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-ftli"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fundamental Theorem of Line Integrals.</span>
+</h4>
+<div class="para" id="thm-ftli-2-1">Let <span class="process-math">\(C\)</span> be a smooth curve joining the point <span class="process-math">\(A\)</span> to the point <span class="process-math">\(B\)</span> in the plane or in space and parametrized by <span class="process-math">\(\mathbf r(t)\text{.}\)</span> Let <span class="process-math">\(f\)</span> be a differentiable function with a continuous gradient vector <span class="process-math">\(\mathbf F = \nabla f\)</span> on a domain <span class="process-math">\(D\)</span> containing <span class="process-math">\(C\text{.}\)</span> Then<div class="autopermalink" data-description="Paragraph"><a href="#thm-ftli-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="eq-ftli">
+\begin{equation}
+\int_C \mathbf F\cdot d\mathbf r = f(B) - f(A).\tag{1.5.2}
+\end{equation}
+</div>
+<div class="autopermalink" data-description="Theorem 1.5.6: Fundamental Theorem of Line Integrals"><a href="#thm-ftli" title="Copy heading and permalink for Theorem 1.5.6: Fundamental Theorem of Line Integrals" aria-label="Copy heading and permalink for Theorem 1.5.6: Fundamental Theorem of Line Integrals">🔗</a></div></article><details id="thm-ftli-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="thm-ftli-3-1">(Parametrize <span class="process-math">\(C\)</span> by <span class="process-math">\(\mathbf r(t) = x(t)\mathbf i + y(t)\mathbf j + z(t)\mathbf k\text{,}\)</span> <span class="process-math">\(a \le t \le b\text{,}\)</span> and write the line integral in the parametrized form <a href="sec-vector-fields.html#assemblage-work-integral-2-12" class="xref" data-knowl="./knowl/xref/eq-work-parametrized.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.8">(1.4.8)</a> with <span class="process-math">\(\mathbf F = \nabla f\text{.}\)</span> Expand the dot product of the gradient with <span class="process-math">\(d\mathbf r/dt\text{;}\)</span> the chain rule turns the integrand into a single derivative with respect to <span class="process-math">\(t\text{,}\)</span> and the Fundamental Theorem of Calculus finishes the job.)<div class="autopermalink" data-description="Paragraph"><a href="#thm-ftli-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/thm-ftli-3-2-1.svg" role="img" class="contained" alt="Blank box in three rows, for expanding the dot product of the gradient with the velocity, for recognizing the integrand as a derivative with respect to t by the chain rule, and for evaluating the integral."></div></div></div></div>
+<div class="autopermalink" data-description="Proof 1.5.6.1"><a href="#thm-ftli-3" title="Copy heading and permalink for Proof 1.5.6.1" aria-label="Copy heading and permalink for Proof 1.5.6.1">🔗</a></div></article></details><div class="para" id="sec-ftli-4">In <a href="section-conservative-fields.html#fig-ftli-region-tikz" class="xref" data-knowl="./knowl/xref/fig-ftli-region-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.7">Figure 1.5.7</a>, the region <span class="process-math">\(D\)</span> is drawn as a translucent solid and the curve <span class="process-math">\(C\)</span> is in red. According to the fundamental theorem, the line integral of a conservative vector field <span class="process-math">\(\mathbf F\)</span> can be easily calculated by calculating the values of its corresponding potential function <span class="process-math">\(f\)</span> (<a href="section-conservative-fields.html#def-conservative-concepts" class="xref" data-knowl="./knowl/xref/def-conservative-concepts.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.5.4: Open, Connected, and Simply Connected Regions; Conservative Fields">Definition 1.5.4</a>) at the beginning (point <span class="process-math">\(A\)</span>) and end (point <span class="process-math">\(B\)</span>) of the curve <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-ftli-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ftli-region-tikz"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig-ftli-region-tikz-2.svg" role="img" class="contained" alt="A curve winding from point A to point B inside a dotted region in space.Three coordinate axes in space with a translucent blue solid marking an open region D. Inside the solid, a red curve C winds from the point A with coordinates x 1 comma y 1 comma z 1 to the point B with coordinates x 2 comma y 2 comma z 2, with an arrowhead at the middle of the curve showing the direction of travel from A to B."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A smooth curve <span class="process-math">\(C\)</span> joining <span class="process-math">\(A(x_1,y_1,z_1)\)</span> to <span class="process-math">\(B(x_2,y_2,z_2)\)</span> inside an open region <span class="process-math">\(D\)</span> in space, drawn as a translucent solid containing <span class="process-math">\(C\text{.}\)</span> For a conservative field <span class="process-math">\(\mathbf F = \nabla f\text{,}\)</span> the line integral along <span class="process-math">\(C\)</span> equals <span class="process-math">\(f(B) - f(A)\text{,}\)</span> no matter how <span class="process-math">\(C\)</span> winds from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{.}\)</span><div class="autopermalink" data-description="Figure 1.5.7"><a href="#fig-ftli-region-tikz" title="Copy heading and permalink for Figure 1.5.7" aria-label="Copy heading and permalink for Figure 1.5.7">🔗</a></div></figcaption></figure><div class="para" id="sec-ftli-6">The central idea of the theorem—that only the endpoints matter—is animated in <a href="section-conservative-fields.html#fig-ftli-video" class="xref" data-knowl="./knowl/xref/fig-ftli-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.8">Figure 1.5.8</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-ftli-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-ftli-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-ftli-path-independence" class="video" controls="" poster="external/play-button.png"><source src="external/videos/ftli_path_independence_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Animation of the fundamental theorem of line integrals for the field <span class="process-math">\(\mathbf F = \nabla f\)</span> with <span class="process-math">\(f(x,y,z) = 1/\sqrt{x^2+y^2+z^2}\text{.}\)</span> Two different curves join <span class="process-math">\((1,0,0)\)</span> to <span class="process-math">\((1,0,2\pi)\text{:}\)</span> the helix <span class="process-math">\(C_1\)</span> and the straight segment <span class="process-math">\(C_2\text{.}\)</span> The accumulated value of each line integral is tracked as the paths are traced, and both integrals arrive at the same value <span class="process-math">\(f(B) - f(A)\text{.}\)</span><div class="autopermalink" data-description="Figure 1.5.8"><a href="#fig-ftli-video" title="Copy heading and permalink for Figure 1.5.8" aria-label="Copy heading and permalink for Figure 1.5.8">🔗</a></div></figcaption></figure><div class="para" id="sec-ftli-8">In the next example, we will see how we can use <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-ftli-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="example-ftli-helix" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example I.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-ftli-helix-2-1">Consider the scalar-valued function <span class="process-math">\(f(x,y,z) = \dfrac{1}{\sqrt{x^2 + y^2 + z^2}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-ftli-helix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="example-ftli-helix-2-2">
+<ol class="upper-alpha ol-marker-1" id="example-ftli-helix-2-2-1">
+<li id="example-ftli-helix-2-2-1-1">
+<div class="para" id="example-ftli-helix-2-2-1-1-1">Calculate the gradient vector field <span class="process-math">\(\mathbf F(x,y,z) = \nabla f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-ftli-helix-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item A"><a href="#example-ftli-helix-2-2-1-1" title="Copy heading and permalink for Item A" aria-label="Copy heading and permalink for Item A">🔗</a></div>
+</li>
+<li id="example-ftli-helix-2-2-1-2">
+<div class="para" id="example-ftli-helix-2-2-1-2-1">Evaluate the line integral of the vector field <span class="process-math">\(\mathbf F(x,y,z) = \nabla f\)</span> over the curve <span class="process-math">\(C_1\)</span> parametrized as <span class="process-math">\(\mathbf r(t) = \cos(t)\mathbf i + \sin(t)\mathbf j + t\mathbf k\)</span> from <span class="process-math">\((1,0,0)\)</span> to <span class="process-math">\((1,0,2\pi)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-ftli-helix-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item B"><a href="#example-ftli-helix-2-2-1-2" title="Copy heading and permalink for Item B" aria-label="Copy heading and permalink for Item B">🔗</a></div>
+</li>
+<li id="example-ftli-helix-2-2-1-3">
+<div class="para" id="example-ftli-helix-2-2-1-3-1">What is the result of <span class="process-math">\(\int_{C_2} \mathbf F\cdot d\mathbf r\)</span> from <span class="process-math">\((1,0,0)\)</span> to <span class="process-math">\((1,0,2\pi)\)</span> where <span class="process-math">\(C_2\)</span> is the line connecting the two points?<div class="autopermalink" data-description="Paragraph"><a href="#example-ftli-helix-2-2-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item C"><a href="#example-ftli-helix-2-2-1-3" title="Copy heading and permalink for Item C" aria-label="Copy heading and permalink for Item C">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-ftli-helix-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-ftli-helix-2-3">
+<em class="emphasis">Solution.</em> (In <em class="alert">A</em>, write <span class="process-math">\(f = \left(x^2+y^2+z^2\right)^{-1/2}\)</span> and take the three partial derivatives; you should recognize the field. In <em class="alert">B</em>, one way would be to parametrize, exactly as in <a href="sec-vector-fields.html#ex-helix-gravity" class="xref" data-knowl="./knowl/xref/ex-helix-gravity.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.4.10: Work done by an inverse-square field along a helix">Example 1.4.10</a>; instead use <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a>, which needs only the values of <span class="process-math">\(f\)</span> at the two endpoints. In <em class="alert">C</em>, say what <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a> tells you about <span class="process-math">\(C_2\)</span> without computing anything, and why. The two curves are shown in <a href="section-conservative-fields.html#fig-helix-segment-tikz" class="xref" data-knowl="./knowl/xref/fig-helix-segment-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.10">Figure 1.5.10</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#example-ftli-helix-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-ftli-helix-2-4-1.svg" role="img" class="contained" alt="Blank box in three labelled rows, for the gradient field, for the line integral along the helix by the fundamental theorem, and for the line integral along the segment with its justification."></div></div></div></div>
+<div class="autopermalink" data-description="Example 1.5.9: Example I"><a href="#example-ftli-helix" title="Copy heading and permalink for Example 1.5.9: Example I" aria-label="Copy heading and permalink for Example 1.5.9: Example I">🔗</a></div></article></details><figure class="figure figure-like" id="fig-helix-segment-tikz"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="generated/latex-image/fig-helix-segment-tikz-2.svg" role="img" class="contained" alt="A helix and a vertical segment joining the same two points in space.Three coordinate axes in space showing a blue helix that winds once around the z axis, climbing from the point one comma zero comma zero up to the point one comma zero comma two pi, and a vertical vermillion segment joining the same two points directly. Both endpoints are marked and labeled."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The two paths of <a href="section-conservative-fields.html#example-ftli-helix" class="xref" data-knowl="./knowl/xref/example-ftli-helix.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.5.9: Example I">Example 1.5.9</a> joining <span class="process-math">\((1,0,0)\)</span> to <span class="process-math">\((1,0,2\pi)\text{:}\)</span> the helix <span class="process-math">\(C_1\text{,}\)</span> parametrized by <span class="process-math">\(\mathbf r(t) = \cos(t)\mathbf i + \sin(t)\mathbf j + t\mathbf k\text{,}\)</span> and the straight segment <span class="process-math">\(C_2\text{.}\)</span><div class="autopermalink" data-description="Figure 1.5.10"><a href="#fig-helix-segment-tikz" title="Copy heading and permalink for Figure 1.5.10" aria-label="Copy heading and permalink for Figure 1.5.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 1.5.3: Line Integrals in Conservative Fields"><a href="#sec-ftli" title="Copy heading and permalink for Subsection 1.5.3: Line Integrals in Conservative Fields" aria-label="Copy heading and permalink for Subsection 1.5.3: Line Integrals in Conservative Fields">🔗</a></div></section><section class="subsection" id="sec-potential-function"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding a Potential Function</span>
+</h3>
+<details id="example-potential-2d" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example II.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-potential-2d-2-1">Consider the vector field <span class="process-math">\(\mathbf F = (2xy + 3)\mathbf i + (x^2 - 4y)\mathbf j\)</span> in the plane.<div class="autopermalink" data-description="Paragraph"><a href="#example-potential-2d-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="example-potential-2d-2-2">
+<ol class="upper-alpha ol-marker-1" id="example-potential-2d-2-2-1">
+<li id="example-potential-2d-2-2-1-1">
+<div class="para" id="example-potential-2d-2-2-1-1-1">Find a function <span class="process-math">\(f\)</span> such that <span class="process-math">\(\mathbf F = \nabla f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-potential-2d-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item A"><a href="#example-potential-2d-2-2-1-1" title="Copy heading and permalink for Item A" aria-label="Copy heading and permalink for Item A">🔗</a></div>
+</li>
+<li id="example-potential-2d-2-2-1-2">
+<div class="para" id="example-potential-2d-2-2-1-2-1">Use the solution of part (A) to calculate the line integral of <span class="process-math">\(\mathbf F\)</span> along any curve from <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((1,2)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-potential-2d-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item B"><a href="#example-potential-2d-2-2-1-2" title="Copy heading and permalink for Item B" aria-label="Copy heading and permalink for Item B">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-potential-2d-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-potential-2d-2-3">
+<em class="emphasis">Solution.</em> (In <em class="alert">A</em>, match the two components of <span class="process-math">\(\mathbf F\)</span> with <span class="process-math">\(\partial f/\partial x\)</span> and <span class="process-math">\(\partial f/\partial y\text{,}\)</span> one at a time. Step I: integrate the first with respect to <span class="process-math">\(x\text{,}\)</span> remembering that the “constant” of integration may depend on <span class="process-math">\(y\text{.}\)</span> Step II: differentiate what you have with respect to <span class="process-math">\(y\text{,}\)</span> compare with the second component, and solve for that function of <span class="process-math">\(y\text{.}\)</span> In <em class="alert">B</em>, say why <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a> applies to <em class="emphasis">any</em> curve from <span class="process-math">\((0,0)\)</span> to <span class="process-math">\((1,2)\text{,}\)</span> then evaluate. What happens to the arbitrary constant?)<div class="autopermalink" data-description="Paragraph"><a href="#example-potential-2d-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-potential-2d-2-4-1.svg" role="img" class="contained" alt="Blank box in four rows, for integrating the first component with respect to x, for matching the second component to determine the function of y, for the potential function, and for the line integral by the fundamental theorem."></div></div></div></div>
+<div class="autopermalink" data-description="Example 1.5.11: Example II"><a href="#example-potential-2d" title="Copy heading and permalink for Example 1.5.11: Example II" aria-label="Copy heading and permalink for Example 1.5.11: Example II">🔗</a></div></article></details><details id="example-potential-function" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example III.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-potential-function-2-1">Consider the vector field <span class="process-math">\(\mathbf F = yz\,\mathbf i + xz\,\mathbf j + (xy + 2z)\mathbf k\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-potential-function-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="example-potential-function-2-2">
+<ol class="upper-alpha ol-marker-1" id="example-potential-function-2-2-1">
+<li id="example-potential-function-2-2-1-1">
+<div class="para" id="example-potential-function-2-2-1-1-1">Find a function <span class="process-math">\(f\)</span> such that <span class="process-math">\(\mathbf F = \nabla f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-potential-function-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item A"><a href="#example-potential-function-2-2-1-1" title="Copy heading and permalink for Item A" aria-label="Copy heading and permalink for Item A">🔗</a></div>
+</li>
+<li id="example-potential-function-2-2-1-2">
+<div class="para" id="example-potential-function-2-2-1-2-1">Use the solution of part (A) to calculate the line integral from <span class="process-math">\((1,0,-2)\)</span> to <span class="process-math">\((4,6,3)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-potential-function-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item B"><a href="#example-potential-function-2-2-1-2" title="Copy heading and permalink for Item B" aria-label="Copy heading and permalink for Item B">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#example-potential-function-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-potential-function-2-3">
+<em class="emphasis">Solution.</em> (In <em class="alert">A</em>, match the three components one at a time. Step I: integrate the first with respect to <span class="process-math">\(x\text{;}\)</span> the constant of integration may now depend on <span class="process-math">\(y\)</span> and <span class="process-math">\(z\text{.}\)</span> Step II: differentiate with respect to <span class="process-math">\(y\)</span> and compare with the second component; what does that say about the dependence on <span class="process-math">\(y\text{?}\)</span> Step III: differentiate with respect to <span class="process-math">\(z\text{,}\)</span> compare with the third component, and solve. In <em class="alert">B</em>, apply <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a> with <span class="process-math">\(A(1,0,-2)\)</span> and <span class="process-math">\(B(4,6,3)\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#example-potential-function-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-potential-function-2-4-1.svg" role="img" class="contained" alt="Blank box in five rows, for the three steps that match the components of the field to the partial derivatives of f, for the resulting potential function, and for the line integral by the fundamental theorem."></div></div></div></div>
+<div class="autopermalink" data-description="Example 1.5.12: Example III"><a href="#example-potential-function" title="Copy heading and permalink for Example 1.5.12: Example III" aria-label="Copy heading and permalink for Example 1.5.12: Example III">🔗</a></div></article></details><details id="example-gravity-ftli" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example IV.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-gravity-ftli-2-1">In <a href="sec-vector-fields.html#ex-helix-gravity" class="xref" data-knowl="./knowl/xref/ex-helix-gravity.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.4.10: Work done by an inverse-square field along a helix">Example 1.4.10</a> we computed the work done by the inverse-square field<div class="autopermalink" data-description="Paragraph"><a href="#example-gravity-ftli-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-helix-gravity.html ./knowl/xref/thm-ftli.html ./knowl/xref/example-potential-function.html ./knowl/xref/ex-helix-gravity.html" id="example-gravity-ftli-2-2">
+\begin{equation*}
+\mathbf F = \frac{\langle -x,\,-y,\,-z\rangle}
+{\left(x^2+y^2+z^2\right)^{3/2}}
+= -\frac{\mathbf r}{\lVert\mathbf r\rVert^{3}}
+\end{equation*}
+</div>
+<div class="para" id="example-gravity-ftli-2-3">along the helix <span class="process-math">\(\mathbf r(t) = \langle \cos t,\ \sin t,\ t\rangle\)</span> from <span class="process-math">\((1,0,0)\)</span> to <span class="process-math">\((1,0,2\pi)\text{,}\)</span> by parametrizing the curve. Do it again with <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#example-gravity-ftli-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-gravity-ftli-2-4">
+<em class="emphasis">Solution.</em> (First say why looking for a potential function is legitimate here: where is the field defined, and does the helix avoid that point? Rather than run the three steps of <a href="section-conservative-fields.html#example-potential-function" class="xref" data-knowl="./knowl/xref/example-potential-function.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.5.12: Example III">Example 1.5.12</a>, notice that <span class="process-math">\(\mathbf F\)</span> depends only on the distance <span class="process-math">\(\rho = \lVert\mathbf r\rVert = \sqrt{x^2+y^2+z^2}\text{,}\)</span> and that <span class="process-math">\(\partial\rho/\partial x = x/\rho\text{,}\)</span> and likewise for <span class="process-math">\(y\)</span> and <span class="process-math">\(z\text{.}\)</span> Guess <span class="process-math">\(f = 1/\rho\)</span> and check <span class="process-math">\(\nabla f\)</span> with the chain rule. Then the work needs nothing but <span class="process-math">\(\rho\)</span> at the two endpoints. Compare with <a href="sec-vector-fields.html#ex-helix-gravity" class="xref" data-knowl="./knowl/xref/ex-helix-gravity.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.4.10: Work done by an inverse-square field along a helix">Example 1.4.10</a>, and say what this calculation never used.)<div class="autopermalink" data-description="Paragraph"><a href="#example-gravity-ftli-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-gravity-ftli-2-5-1.svg" role="img" class="contained" alt="Blank box in four rows, for the justification that a potential exists, for the gradient of one over rho, for the work from the endpoint values, and for the remark about path independence."></div></div></div></div>
+<div class="autopermalink" data-description="Example 1.5.13: Example IV"><a href="#example-gravity-ftli" title="Copy heading and permalink for Example 1.5.13: Example IV" aria-label="Copy heading and permalink for Example 1.5.13: Example IV">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.5.4: Finding a Potential Function"><a href="#sec-potential-function" title="Copy heading and permalink for Subsection 1.5.4: Finding a Potential Function" aria-label="Copy heading and permalink for Subsection 1.5.4: Finding a Potential Function">🔗</a></div></section><section class="subsection" id="sec-conservative-gradient"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conservative Fields are Gradient Fields</span>
+</h3>
+<article class="theorem theorem-like" id="thm-conservative-gradient"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Conservative Fields are Gradient Fields.</span>
+</h4>
+<div class="para" id="thm-conservative-gradient-2-1">Let <span class="process-math">\(\mathbf F = M\mathbf i + N\mathbf j + P\mathbf k\)</span> be a vector field whose components are continuous throughout an open connected region <span class="process-math">\(D\)</span> in space (<a href="section-conservative-fields.html#def-conservative-concepts" class="xref" data-knowl="./knowl/xref/def-conservative-concepts.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.5.4: Open, Connected, and Simply Connected Regions; Conservative Fields">Definition 1.5.4</a>). Then <span class="process-math">\(\mathbf F\)</span> is conservative if and only if <span class="process-math">\(\mathbf F\)</span> is a gradient field <span class="process-math">\(\nabla f\)</span> for a differentiable function <span class="process-math">\(f\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-conservative-gradient-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.5.14: Conservative Fields are Gradient Fields"><a href="#thm-conservative-gradient" title="Copy heading and permalink for Theorem 1.5.14: Conservative Fields are Gradient Fields" aria-label="Copy heading and permalink for Theorem 1.5.14: Conservative Fields are Gradient Fields">🔗</a></div></article><details id="thm-conservative-gradient-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="thm-conservative-gradient-3-1">(<em class="alert">Gradient implies conservative</em>: assume <span class="process-math">\(\mathbf F = \nabla f\)</span> and apply <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a> to any piecewise smooth curve from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{;}\)</span> what does the answer depend on? <em class="alert">Conservative implies gradient</em>: fix a point <span class="process-math">\(A_0\)</span> of <span class="process-math">\(D\)</span> and <em class="emphasis">define</em> <span class="process-math">\(f(x,y,z)\)</span> as the line integral of <span class="process-math">\(\mathbf F\)</span> from <span class="process-math">\(A_0\)</span> to <span class="process-math">\((x,y,z)\)</span> along any curve in <span class="process-math">\(D\text{;}\)</span> say why connectedness and path independence make this definition meaningful. To show <span class="process-math">\(\partial f/\partial x = M\text{,}\)</span> compare <span class="process-math">\(f(x+h,y,z)\)</span> with <span class="process-math">\(f(x,y,z)\)</span> by travelling along the straight segment <span class="process-math">\(L_h\)</span> from <span class="process-math">\((x,y,z)\)</span> to <span class="process-math">\((x+h,y,z)\text{,}\)</span> which lies in <span class="process-math">\(D\)</span> because <span class="process-math">\(D\)</span> is open; parametrize <span class="process-math">\(L_h\text{,}\)</span> so that the difference quotient becomes an average of <span class="process-math">\(M\)</span> over the segment, and let <span class="process-math">\(h \to 0\)</span> using the continuity of <span class="process-math">\(M\text{.}\)</span> The other two partials are the same argument.)<div class="autopermalink" data-description="Paragraph"><a href="#thm-conservative-gradient-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/thm-conservative-gradient-3-2-1.svg" role="img" class="contained" alt="Blank box in five rows, for the easy direction of the proof, for the definition of the potential function as a line integral, for the difference of its values along a short segment, for the difference quotient and its limit, and for the remaining partial derivatives."></div></div></div></div>
+<div class="autopermalink" data-description="Proof 1.5.14.1"><a href="#thm-conservative-gradient-3" title="Copy heading and permalink for Proof 1.5.14.1" aria-label="Copy heading and permalink for Proof 1.5.14.1">🔗</a></div></article></details><div class="para" id="sec-conservative-gradient-3">Path independence means that all of the paths in <a href="section-conservative-fields.html#fig-path-independence-prefigure" class="internal" title="Figure 1.5.15">Figure 1.5.15</a> give the same value of the line integral: if <span class="process-math">\(\mathbf F\)</span> is conservative, then<div class="autopermalink" data-description="Paragraph"><a href="#sec-conservative-gradient-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-conservative-concepts.html ./knowl/xref/thm-ftli.html ./knowl/xref/fig-path-independence-prefigure.html" id="eq-three-paths">
+\begin{equation}
+\int_{C_1} \mathbf F\cdot d\mathbf r
+= \int_{C_2} \mathbf F\cdot d\mathbf r
+= \int_{C_3} \mathbf F\cdot d\mathbf r
+= f(B) - f(A).\tag{1.5.3}
+\end{equation}
+</div>
+<figure class="figure figure-like" id="fig-path-independence-prefigure"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-path-independence-diagcess.svg" data-cml="generated/prefigure/prefigure-path-independence-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Three different paths <span class="process-math">\(C_1\text{,}\)</span> <span class="process-math">\(C_2\text{,}\)</span> and <span class="process-math">\(C_3\)</span> joining <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{.}\)</span> For a conservative field, all three line integrals have the same value <span class="process-math">\(f(B) - f(A)\text{.}\)</span><div class="autopermalink" data-description="Figure 1.5.15"><a href="#fig-path-independence-prefigure" title="Copy heading and permalink for Figure 1.5.15" aria-label="Copy heading and permalink for Figure 1.5.15">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 1.5.5: Conservative Fields are Gradient Fields"><a href="#sec-conservative-gradient" title="Copy heading and permalink for Subsection 1.5.5: Conservative Fields are Gradient Fields" aria-label="Copy heading and permalink for Subsection 1.5.5: Conservative Fields are Gradient Fields">🔗</a></div></section><section class="subsection" id="sec-loop-property"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Loop Property of Conservative Fields</span>
+</h3>
+<article class="theorem theorem-like" id="thm-loop-property"><h4 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Loop Property of Conservative Fields.</span>
+</h4>
+<div class="para" id="thm-loop-property-2-1">The following statements are equivalent.<div class="autopermalink" data-description="Paragraph"><a href="#thm-loop-property-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="thm-loop-property-2-2">
+<ol class="decimal" id="thm-loop-property-2-2-1">
+<li id="thm-loop-property-2-2-1-1">
+<div class="para" id="thm-loop-property-2-2-1-1-1">
+<span class="process-math">\(\oint_C \mathbf F\cdot d\mathbf r = 0\)</span> around every loop (that is, closed curve <span class="process-math">\(C\)</span>) in <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-loop-property-2-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#thm-loop-property-2-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="thm-loop-property-2-2-1-2">
+<div class="para" id="thm-loop-property-2-2-1-2-1">The field <span class="process-math">\(\mathbf F\)</span> is conservative on <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-loop-property-2-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#thm-loop-property-2-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#thm-loop-property-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 1.5.16: Loop Property of Conservative Fields"><a href="#thm-loop-property" title="Copy heading and permalink for Theorem 1.5.16: Loop Property of Conservative Fields" aria-label="Copy heading and permalink for Theorem 1.5.16: Loop Property of Conservative Fields">🔗</a></div></article><details id="thm-loop-property-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="thm-loop-property-3-1">(<em class="alert">(2) implies (1)</em>: split any loop as <span class="process-math">\(C = C_1 \cup C_2\text{,}\)</span> with <span class="process-math">\(C_1\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> and <span class="process-math">\(C_2\)</span> from <span class="process-math">\(B\)</span> back to <span class="process-math">\(A\text{,}\)</span> as in <a href="section-conservative-fields.html#fig-loop-split-prefigure" class="internal" title="Figure 1.5.17">Figure 1.5.17</a>. Reversing <span class="process-math">\(C_2\)</span> gives a second path <span class="process-math">\(-C_2\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{;}\)</span> what does path independence say about <span class="process-math">\(\int_{C_1}\)</span> and <span class="process-math">\(\int_{-C_2}\text{,}\)</span> and how is <span class="process-math">\(\int_{-C_2}\)</span> related to <span class="process-math">\(\int_{C_2}\text{?}\)</span> Add up. <em class="alert">(1) implies (2)</em>: take any two paths <span class="process-math">\(C_1\text{,}\)</span> <span class="process-math">\(C_2\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{,}\)</span> build a loop out of them, and apply the assumption to it.)<div class="autopermalink" data-description="Paragraph"><a href="#thm-loop-property-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/thm-loop-property-3-2-1.svg" role="img" class="contained" alt="Blank box in two rows, one for each direction of the proof of the loop property."></div></div></div></div>
+<div class="autopermalink" data-description="Proof 1.5.16.1"><a href="#thm-loop-property-3" title="Copy heading and permalink for Proof 1.5.16.1" aria-label="Copy heading and permalink for Proof 1.5.16.1">🔗</a></div></article></details><figure class="figure figure-like" id="fig-loop-split-prefigure"><div class="sidebyside"><div class="sbsrow" style="margin-left:1%;margin-right:1%;grid-template-columns:48.9795918367347% 48.9795918367347%;column-gap:2%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-loop-split-diagcess.svg" data-cml="generated/prefigure/prefigure-loop-split-annotations.xml"></div></div></div>
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-loop-reversed-diagcess.svg" data-cml="generated/prefigure/prefigure-loop-reversed-annotations.xml"></div></div></div>
+</div></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>On the left, a loop <span class="process-math">\(C\)</span> is split into two pieces: <span class="process-math">\(C_1\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> and <span class="process-math">\(C_2\)</span> from <span class="process-math">\(B\)</span> back to <span class="process-math">\(A\text{,}\)</span> so <span class="process-math">\(C = C_1 \cup C_2\text{.}\)</span> On the right, the orientation of <span class="process-math">\(C_2\)</span> is reversed to produce <span class="process-math">\(-C_2\text{;}\)</span> now <span class="process-math">\(C_1\)</span> and <span class="process-math">\(-C_2\)</span> both connect <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{,}\)</span> and path independence forces the two integrals to agree.<div class="autopermalink" data-description="Figure 1.5.17"><a href="#fig-loop-split-prefigure" title="Copy heading and permalink for Figure 1.5.17" aria-label="Copy heading and permalink for Figure 1.5.17">🔗</a></div></figcaption></figure><div class="para" id="sec-loop-property-4">We can now collect everything this section has proved. The content of <a href="section-conservative-fields.html#thm-conservative-gradient" class="xref" data-knowl="./knowl/xref/thm-conservative-gradient.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.14: Conservative Fields are Gradient Fields">Theorem 1.5.14</a>, combined with <a href="section-conservative-fields.html#thm-ftli" class="xref" data-knowl="./knowl/xref/thm-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.6: Fundamental Theorem of Line Integrals">Theorem 1.5.6</a>, the loop property in <a href="section-conservative-fields.html#thm-loop-property" class="xref" data-knowl="./knowl/xref/thm-loop-property.html" data-reveal-label="Reveal" data-close-label="Close" title="Theorem 1.5.16: Loop Property of Conservative Fields">Theorem 1.5.16</a>, and the definition of path independence in <a href="section-conservative-fields.html#def-conservative-concepts" class="xref" data-knowl="./knowl/xref/def-conservative-concepts.html" data-reveal-label="Reveal" data-close-label="Close" title="Definition 1.5.4: Open, Connected, and Simply Connected Regions; Conservative Fields">Definition 1.5.4</a>, can be organized into the following square of equivalent statements. Throughout, <span class="process-math">\(\mathbf F\)</span> is a continuous field with continuous partial derivatives on an open, connected, simply connected region <span class="process-math">\(D\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-loop-property-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-equivalence-square-prefigure"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-equivalence-square-diagcess.svg" data-cml="generated/prefigure/prefigure-equivalence-square-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The four statements are equivalent. Each double arrow joins the middle of one box to the middle of the next, and may be read in either direction.<div class="autopermalink" data-description="Figure 1.5.18"><a href="#fig-equivalence-square-prefigure" title="Copy heading and permalink for Figure 1.5.18" aria-label="Copy heading and permalink for Figure 1.5.18">🔗</a></div></figcaption></figure><div class="para" id="sec-loop-property-6">Read across the top: a conservative field is exactly a gradient field, and the potential function <span class="process-math">\(f\)</span> is what makes that concrete. Read across the bottom: path independence and the loop property are two ways of saying the same thing, and the Fundamental Theorem turns either one into a number, <span class="process-math">\(f(B) - f(A)\text{.}\)</span> Read down either side: each statement on the top implies, and is implied by, the one beneath it. In practice the four are used in whichever direction is convenient—find a potential function to evaluate a line integral, or observe that a field is a gradient field to conclude at once that its integral around every loop vanishes.<div class="autopermalink" data-description="Paragraph"><a href="#sec-loop-property-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 1.5.6: The Loop Property of Conservative Fields"><a href="#sec-loop-property" title="Copy heading and permalink for Subsection 1.5.6: The Loop Property of Conservative Fields" aria-label="Copy heading and permalink for Subsection 1.5.6: The Loop Property of Conservative Fields">🔗</a></div></section><section class="subsection" id="sec-conservative-concept-check"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Concept Check</span>
+</h3>
+<div class="para" id="sec-conservative-concept-check-2">The three questions below all use the applets that go with them. In each one, drag the slider to send the point along the curve and watch the field vector and the tangent vector move with it; the sign of their dot product is what the integral is accumulating. Every applet can be rotated by dragging the background and zoomed by scrolling.<div class="autopermalink" data-description="Paragraph"><a href="#sec-conservative-concept-check-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="q-vf-helix-work" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.19</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work Along the Helix, Two Ways.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-vf-helix-work-2-1">For the field and path of <a href="section-conservative-fields.html#fig-vf-helix-work" class="xref" data-knowl="./knowl/xref/fig-vf-helix-work.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.20">Figure 1.5.20</a>:<div class="autopermalink" data-description="Paragraph"><a href="#q-vf-helix-work-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="decimal" id="q-vf-helix-work-2-2">
+<li id="q-vf-helix-work-2-2-1">
+<div class="para" id="q-vf-helix-work-2-2-1-1">Use the parametrized path to compute the work done by the force field from point <span class="process-math">\(A\)</span> to point <span class="process-math">\(B\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-vf-helix-work-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.5.19.1"><a href="#q-vf-helix-work-2-2-1" title="Copy heading and permalink for Item 1.5.19.1" aria-label="Copy heading and permalink for Item 1.5.19.1">🔗</a></div>
+</li>
+<li id="q-vf-helix-work-2-2-2">
+<div class="para" id="q-vf-helix-work-2-2-2-1">Is it possible to use the fundamental theorem of line integrals <a href="section-conservative-fields.html#eq-ftli" class="xref" data-knowl="./knowl/xref/eq-ftli.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.5.2">(1.5.2)</a> to compute that work? If so, use it to verify your answer to the previous part. Justify your answer fully.<div class="autopermalink" data-description="Paragraph"><a href="#q-vf-helix-work-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.5.19.2"><a href="#q-vf-helix-work-2-2-2" title="Copy heading and permalink for Item 1.5.19.2" aria-label="Copy heading and permalink for Item 1.5.19.2">🔗</a></div>
+</li>
+</ol> <div class="para" id="q-vf-helix-work-2-3">(Read the parametrization and the field off <a href="section-conservative-fields.html#fig-vf-helix-work" class="xref" data-knowl="./knowl/xref/fig-vf-helix-work.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.20">Figure 1.5.20</a>, and find the parameter values of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> For part 1, write <span class="process-math">\(\mathbf F(\mathbf r(t))\)</span> and <span class="process-math">\(\mathbf v(t)\text{,}\)</span> dot them, and integrate. For part 2, decide whether <span class="process-math">\(\mathbf F\)</span> is conservative — where is it defined, and can you find a potential function? — and if so evaluate <span class="process-math">\(f(B) - f(A)\text{.}\)</span> Then explain, from the picture, why the two answers agree.)<div class="autopermalink" data-description="Paragraph"><a href="#q-vf-helix-work-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-vf-helix-work-2-4-1.svg" role="img" class="contained" alt="Blank box in four rows, for the parameter values of the endpoints, for the direct computation of the work, for the fundamental-theorem computation with its justification, and for the geometric explanation."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.5.19: Work Along the Helix, Two Ways"><a href="#q-vf-helix-work" title="Copy heading and permalink for Checkpoint 1.5.19: Work Along the Helix, Two Ways" aria-label="Copy heading and permalink for Checkpoint 1.5.19: Work Along the Helix, Two Ways">🔗</a></div></article></details><figure class="figure figure-like" id="fig-vf-helix-work"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/arjpdtkt/scaleContainerClass/interactive-iframe-container/width/600/height/500/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-vf-helix-work-2" style="width:600px; height:500px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-vf-helix-work-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-vf-helix-work-2-1-1">Drag the slider <span class="process-math">\(t\)</span> to move the point from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\)</span> along the helix. At each position the applet draws the force <span class="process-math">\(\mathbf{F}=\left\langle -x,y,0\right\rangle\)</span> acting there and the velocity <span class="process-math">\(\mathbf{v}=d\mathbf{r}/dt\text{.}\)</span> Watch the angle between them: it is acute on some stretches and obtuse on others, so the work is being added on some parts of the trip and taken back on others.<div class="autopermalink" data-description="Paragraph"><a href="#fig-vf-helix-work-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-vf-helix-work-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point climbing the helix <span class="process-math">\(\mathbf{r}(t)=\left\langle \cos t,\ \sin t,\ t/2\right\rangle\)</span> from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{,}\)</span> through the force field <span class="process-math">\(\mathbf{F}=\left\langle -x,\ y,\ 0\right\rangle\text{.}\)</span> The two arrows are <span class="process-math">\(\mathbf{F}\)</span> at the moving point and the velocity <span class="process-math">\(\mathbf{v}\text{.}\)</span><div class="autopermalink" data-description="Figure 1.5.20"><a href="#fig-vf-helix-work" title="Copy heading and permalink for Figure 1.5.20" aria-label="Copy heading and permalink for Figure 1.5.20">🔗</a></div></figcaption></figure><details id="q-vf-segment" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.21</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Line Integral Along a Segment.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-vf-segment-2-1">Compute the line integral of the vector field along the line segment shown in <a href="section-conservative-fields.html#fig-vf-segment" class="xref" data-knowl="./knowl/xref/fig-vf-segment.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.22">Figure 1.5.22</a>.<div class="autopermalink" data-description="Paragraph"><a href="#q-vf-segment-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-vf-segment-2-2">(Read the field and the endpoints off <a href="section-conservative-fields.html#fig-vf-segment" class="xref" data-knowl="./knowl/xref/fig-vf-segment.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.22">Figure 1.5.22</a>. Before parametrizing anything, test whether the field is conservative, and look for a potential function by inspection. If you find one, the segment never needs to be parametrized.)<div class="autopermalink" data-description="Paragraph"><a href="#q-vf-segment-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-vf-segment-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for testing whether the field is conservative, for a potential function and its check, and for the line integral from the endpoint values."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.5.21: A Line Integral Along a Segment"><a href="#q-vf-segment" title="Copy heading and permalink for Checkpoint 1.5.21: A Line Integral Along a Segment" aria-label="Copy heading and permalink for Checkpoint 1.5.21: A Line Integral Along a Segment">🔗</a></div></article></details><figure class="figure figure-like" id="fig-vf-segment"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-vf-segment-2" style="width:600px; height:500px; display: block; " src="fig-vf-segment-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-vf-segment-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-vf-segment-2-2-1">Drag the slider to move the point along the segment from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{.}\)</span> The applet draws the field vector <span class="process-math">\(\mathbf{F}\)</span> and the unit tangent <span class="process-math">\(\hat{\mathbf{T}}\)</span> at that point, so what the integral accumulates is the length of the projection of <span class="process-math">\(\mathbf{F}\)</span> onto <span class="process-math">\(\hat{\mathbf{T}}\text{.}\)</span> Rotate the view to see how the segment sits relative to the field.<div class="autopermalink" data-description="Paragraph"><a href="#fig-vf-segment-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-vf-segment-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The straight segment from <span class="process-math">\(A=(0,1,-1)\)</span> to <span class="process-math">\(B=(1,2\sqrt2,2)\)</span> in the field <span class="process-math">\(\mathbf{F}=\tfrac13\left\langle z,\ z,\ x+y\right\rangle\text{,}\)</span> with <span class="process-math">\(\mathbf{F}\)</span> and the unit tangent <span class="process-math">\(\hat{\mathbf{T}}\)</span> drawn at the moving point.<div class="autopermalink" data-description="Figure 1.5.22"><a href="#fig-vf-segment" title="Copy heading and permalink for Figure 1.5.22" aria-label="Copy heading and permalink for Figure 1.5.22">🔗</a></div></figcaption></figure><details id="q-vf-curve" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.23</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Same Endpoints, a Wilder Path.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-vf-curve-2-1">Compute the line integral of the vector field from point <span class="process-math">\(A\)</span> to point <span class="process-math">\(B\)</span> as shown in <a href="section-conservative-fields.html#fig-vf-curve" class="xref" data-knowl="./knowl/xref/fig-vf-curve.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.24">Figure 1.5.24</a>, where the curve is parametrized as<div class="autopermalink" data-description="Paragraph"><a href="#q-vf-curve-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-vf-curve.html ./knowl/xref/fig-vf-segment.html ./knowl/xref/q-vf-segment.html" id="q-vf-curve-2-2">
+\begin{equation*}
+\mathbf{r}(t)=\left\langle \frac{\ln(t)}{\ln(2)},\ t^{3/2},\
+t\cos(\pi t)\right\rangle .
+\end{equation*}
+</div>
+<div class="para" id="q-vf-curve-2-3">(First check the endpoints: evaluate <span class="process-math">\(\mathbf r(1)\)</span> and <span class="process-math">\(\mathbf r(2)\)</span> and compare with <a href="section-conservative-fields.html#fig-vf-segment" class="xref" data-knowl="./knowl/xref/fig-vf-segment.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.22">Figure 1.5.22</a>. Then decide whether you need to differentiate <span class="process-math">\(t\cos(\pi t)\)</span> at all, and say why. Compare your answer with <a href="section-conservative-fields.html#q-vf-segment" class="xref" data-knowl="./knowl/xref/q-vf-segment.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 1.5.21: A Line Integral Along a Segment">Checkpoint 1.5.21</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#q-vf-curve-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-vf-curve-2-4-1.svg" role="img" class="contained" alt="Blank box in two rows, for the two endpoints of the curve and for the value of the line integral with its justification."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.5.23: The Same Endpoints, a Wilder Path"><a href="#q-vf-curve" title="Copy heading and permalink for Checkpoint 1.5.23: The Same Endpoints, a Wilder Path" aria-label="Copy heading and permalink for Checkpoint 1.5.23: The Same Endpoints, a Wilder Path">🔗</a></div></article></details><figure class="figure figure-like" id="fig-vf-curve"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="fig-vf-curve-2" style="width:600px; height:500px; display: block; " src="fig-vf-curve-2-if.html"></iframe></div>
+<div class="instructions"><details id="fig-vf-curve-2-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-vf-curve-2-2-1">Drag the slider to move the point along the curve from <span class="process-math">\(A\)</span> to <span class="process-math">\(B\text{,}\)</span> watching <span class="process-math">\(\mathbf{F}\)</span> and the unit tangent <span class="process-math">\(\hat{\mathbf{T}}\)</span> as before. Compare the shape of this path with the segment of <a href="section-conservative-fields.html#fig-vf-segment" class="xref" data-knowl="./knowl/xref/fig-vf-segment.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.22">Figure 1.5.22</a>: the two share their endpoints and nothing else.<div class="autopermalink" data-description="Paragraph"><a href="#fig-vf-curve-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-vf-curve-2-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.24<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The same field <span class="process-math">\(\mathbf{F}=\tfrac13\left\langle z,\ z,\ x+y\right\rangle\)</span> and the same endpoints as in <a href="section-conservative-fields.html#fig-vf-segment" class="xref" data-knowl="./knowl/xref/fig-vf-segment.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.5.22">Figure 1.5.22</a>, but now joined by the curve <span class="process-math">\(\mathbf{r}(t)=\left\langle \frac{\ln t}{\ln 2},\ t^{3/2},\
+t\cos(\pi t)\right\rangle\text{.}\)</span><div class="autopermalink" data-description="Figure 1.5.24"><a href="#fig-vf-curve" title="Copy heading and permalink for Figure 1.5.24" aria-label="Copy heading and permalink for Figure 1.5.24">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 1.5.7: Concept Check"><a href="#sec-conservative-concept-check" title="Copy heading and permalink for Subsection 1.5.7: Concept Check" aria-label="Copy heading and permalink for Subsection 1.5.7: Concept Check">🔗</a></div></section><div class="autopermalink" data-description="Section 1.5: Path Independence, Conservative Fields, and Potential Functions"><a href="#section-conservative-fields" title="Copy heading and permalink for Section 1.5: Path Independence, Conservative Fields, and Potential Functions" aria-label="Copy heading and permalink for Section 1.5: Path Independence, Conservative Fields, and Potential Functions">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-vector-fields.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-multiple-integrals.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

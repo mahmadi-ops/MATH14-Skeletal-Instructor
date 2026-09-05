@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-area-symmetry-figure" speech2="The same region as before, decomposed for the symmetry argument. The unit square with corners at negative one comma negative one and zero comma zero is shaded tan and labeled area 1. Two congruent pink pieces, both labeled A, sit between the blue cubic curve and the y axis: one inside the square below the x axis, one to the right of the y axis above it. Rotating the picture one hundred eighty degrees about the origin maps one piece onto the other. A green strip labeled one third lies between the vermillion parabola and the y axis.">
+      <grouped>prefigure-area-symmetry-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-area-symmetry-as-square</active>
+        <active>prefigure-area-symmetry-as-lobeA</active>
+        <active>prefigure-area-symmetry-as-lobeB</active>
+        <active>prefigure-area-symmetry-as-strip</active>
+      </children>
+      <components>
+        <active>prefigure-area-symmetry-as-square</active>
+        <active>prefigure-area-symmetry-as-lobeA</active>
+        <active>prefigure-area-symmetry-as-lobeB</active>
+        <active>prefigure-area-symmetry-as-strip</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-area-symmetry-as-square" speech2="The unit square, of area one.">
+      <active>prefigure-area-symmetry-as-square</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-area-symmetry-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-area-symmetry-as-lobeA" speech2="The piece A that the cubic curve cuts out of the square.">
+      <active>prefigure-area-symmetry-as-lobeA</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-area-symmetry-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-area-symmetry-as-lobeB" speech2="The congruent piece A that the cubic curve adds to the right of the y axis. It has the same area as the removed piece, by the one hundred eighty degree rotation symmetry of the odd curve.">
+      <active>prefigure-area-symmetry-as-lobeB</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-area-symmetry-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-area-symmetry-as-strip" speech2="The strip between the parabola and the y axis, of area one third.">
+      <active>prefigure-area-symmetry-as-strip</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-area-symmetry-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

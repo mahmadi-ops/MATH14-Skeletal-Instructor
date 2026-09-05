@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-r3p-parallelogram-figure" speech2="A parallelogram with vertices at the origin, at x nought comma zero, at two x nought comma y nought, and at x nought comma y nought. Arrows on the edges show the boundary traversed clockwise: up the left edge from the origin, rightward across the top, down the right edge, and leftward along the bottom back to the origin.">
+      <grouped>prefigure-r3p-parallelogram-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-r3p-parallelogram-pg-par</active>
+        <active>prefigure-r3p-parallelogram-pg-e1</active>
+        <active>prefigure-r3p-parallelogram-pg-e2</active>
+        <active>prefigure-r3p-parallelogram-pg-e3</active>
+        <active>prefigure-r3p-parallelogram-pg-e4</active>
+      </children>
+      <components>
+        <active>prefigure-r3p-parallelogram-pg-par</active>
+        <active>prefigure-r3p-parallelogram-pg-e1</active>
+        <active>prefigure-r3p-parallelogram-pg-e2</active>
+        <active>prefigure-r3p-parallelogram-pg-e3</active>
+        <active>prefigure-r3p-parallelogram-pg-e4</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-r3p-parallelogram-pg-par" speech2="The parallelogram with vertices at the origin, x nought comma zero, two x nought comma y nought, and x nought comma y nought.">
+      <active>prefigure-r3p-parallelogram-pg-par</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-r3p-parallelogram-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-r3p-parallelogram-pg-e1" speech2="An arrow on the left edge pointing up and to the right, from the origin toward x nought comma y nought.">
+      <active>prefigure-r3p-parallelogram-pg-e1</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-r3p-parallelogram-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-r3p-parallelogram-pg-e2" speech2="An arrow on the top edge pointing to the right.">
+      <active>prefigure-r3p-parallelogram-pg-e2</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-r3p-parallelogram-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-r3p-parallelogram-pg-e3" speech2="An arrow on the right edge pointing down and to the left, toward x nought comma zero.">
+      <active>prefigure-r3p-parallelogram-pg-e3</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-r3p-parallelogram-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-r3p-parallelogram-pg-e4" speech2="An arrow on the bottom edge pointing to the left, back toward the origin. Altogether the circulation is clockwise.">
+      <active>prefigure-r3p-parallelogram-pg-e4</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-r3p-parallelogram-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

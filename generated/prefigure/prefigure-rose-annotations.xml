@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-rose-figure" speech2="A four leaved rose curve centered at the origin, drawn in light blue. The right hand loop, along the positive x axis, is outlined in vermillion and shaded tan, and is labeled D. Two dashed rays at angles plus and minus pi over four bound the loop.">
+      <grouped>prefigure-rose-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rose-ro-curve</active>
+        <active>prefigure-rose-ro-D</active>
+        <active>prefigure-rose-ro-ray1</active>
+        <active>prefigure-rose-ro-ray2</active>
+      </children>
+      <components>
+        <active>prefigure-rose-ro-curve</active>
+        <active>prefigure-rose-ro-D</active>
+        <active>prefigure-rose-ro-ray1</active>
+        <active>prefigure-rose-ro-ray2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-rose-ro-curve" speech2="The four leaved rose r equals cosine of two theta.">
+      <active>prefigure-rose-ro-curve</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-rose-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rose-ro-D" speech2="The region D: one loop of the rose, swept as theta runs from minus pi over four to pi over four.">
+      <active>prefigure-rose-ro-D</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rose-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rose-ro-ray1" speech2="The dashed ray theta equals pi over four, where r equals zero.">
+      <active>prefigure-rose-ro-ray1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-rose-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rose-ro-ray2" speech2="The dashed ray theta equals minus pi over four, where r equals zero.">
+      <active>prefigure-rose-ro-ray2</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-rose-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

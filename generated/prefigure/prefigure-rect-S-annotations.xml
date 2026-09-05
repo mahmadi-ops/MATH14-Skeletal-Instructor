@@ -1,0 +1,52 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-rect-S-figure" speech2="The rectangle S, shaded orange, with corners at the origin and 3 comma 2 in the u v plane. Its area is 6 times the area of the unit square R.">
+      <grouped>prefigure-rect-S-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rect-S-grid-axes</active>
+        <active>prefigure-rect-S-rs-rect</active>
+      </children>
+      <components>
+        <active>prefigure-rect-S-grid-axes</active>
+        <active>prefigure-rect-S-rs-rect</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-rect-S-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>prefigure-rect-S-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rect-S-grid</active>
+        <active>prefigure-rect-S-axes</active>
+      </children>
+      <components>
+        <active>prefigure-rect-S-grid</active>
+        <active>prefigure-rect-S-axes</active>
+      </components>
+      <parents>
+        <grouped>prefigure-rect-S-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rect-S-grid" speech2="The coordinate grid">
+      <active>prefigure-rect-S-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-rect-S-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rect-S-axes" speech2="The coordinate axes">
+      <active>prefigure-rect-S-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rect-S-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rect-S-rs-rect" speech2="The rectangle S from 0 to 3 in u and 0 to 2 in v. The transformation shrinks it onto the unit square.">
+      <active>prefigure-rect-S-rs-rect</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rect-S-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

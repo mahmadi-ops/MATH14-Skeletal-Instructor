@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-arcsin-region-figure" speech2="A circle centered at the origin of radius the square root of one plus pi squared over four. The upper left half of the circle is drawn as a solid blue arc and the lower right half as a dashed grey arc. A red S-shaped curve, the graph of y equals inverse sine of x, runs from the point negative one, negative pi over two, through the origin, up to the point one, pi over two; those two points are the ends of the blue arc and are opposite ends of a diameter. The region between the red curve and the blue arc is shaded and labelled D. Its area is half the area of the disk.">
+      <grouped>prefigure-arcsin-region-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-arcsin-region-ar-region</active>
+        <active>prefigure-arcsin-region-ar-curve</active>
+        <active>prefigure-arcsin-region-ar-arc</active>
+        <active>prefigure-arcsin-region-ar-dashed</active>
+        <active>prefigure-arcsin-region-ar-top</active>
+        <active>prefigure-arcsin-region-ar-bottom</active>
+      </children>
+      <components>
+        <active>prefigure-arcsin-region-ar-region</active>
+        <active>prefigure-arcsin-region-ar-curve</active>
+        <active>prefigure-arcsin-region-ar-arc</active>
+        <active>prefigure-arcsin-region-ar-dashed</active>
+        <active>prefigure-arcsin-region-ar-top</active>
+        <active>prefigure-arcsin-region-ar-bottom</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-arcsin-region-ar-region" speech2="The shaded region D, bounded on the right by the red curve and on the left and top by the blue arc.">
+      <active>prefigure-arcsin-region-ar-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-arcsin-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-arcsin-region-ar-curve" speech2="The red curve y equals inverse sine of x, running from negative one, negative pi over two through the origin to one, pi over two.">
+      <active>prefigure-arcsin-region-ar-curve</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-arcsin-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-arcsin-region-ar-arc" speech2="The blue arc, half of the circle of radius the square root of one plus pi squared over four, running counterclockwise from one, pi over two to negative one, negative pi over two.">
+      <active>prefigure-arcsin-region-ar-arc</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-arcsin-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-arcsin-region-ar-dashed" speech2="The dashed grey arc completing the circle.">
+      <active>prefigure-arcsin-region-ar-dashed</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-arcsin-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-arcsin-region-ar-top" speech2="The upper meeting point of the two curves, at one, pi over two.">
+      <active>prefigure-arcsin-region-ar-top</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-arcsin-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-arcsin-region-ar-bottom" speech2="The lower meeting point of the two curves, at negative one, negative pi over two.">
+      <active>prefigure-arcsin-region-ar-bottom</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-arcsin-region-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

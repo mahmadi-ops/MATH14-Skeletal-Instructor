@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Double Integrals in Polar Form</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="section-polar-coordinates.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-multiple-integrals.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-triple-integrals-rectangular.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="section-double-integrals-polar-form"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Double Integrals in Polar Form</span>
+</h2>
+<div class="para" id="section-double-integrals-polar-form-2">In the previous session, we talked about a new coordinate system known as polar coordinates. Today, we will use polar coordinates to calculate double integrals. As you will see, this set of coordinates can sometimes simplify our calculations. In Cartesian coordinates, double integrals are of the form <a href="section-double-integrals-rectangles.html#eq-double-integral-def" class="xref" data-knowl="./knowl/xref/eq-double-integral-def.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1.1">(2.1.1)</a>,<div class="autopermalink" data-description="Paragraph"><a href="#section-double-integrals-polar-form-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-double-integral-def.html ./knowl/xref/fig-polar-rectangles-prefigure.html ./knowl/xref/fig-polar-element-video.html ./knowl/xref/fig-half-annulus-prefigure.html ./knowl/xref/eq-polar-cartesian.html ./knowl/xref/example-polar-annulus.html ./knowl/xref/fig-rose-prefigure.html ./knowl/xref/fig-rose-prefigure.html ./knowl/xref/eq-area-double-integral.html ./knowl/xref/fig-shifted-disk-prefigure.html ./knowl/xref/fig-polar-volume-tikz.html ./knowl/xref/example-polar-volume.html ./knowl/xref/example-polar-volume.html ./knowl/xref/eq-polar-cartesian.html ./knowl/xref/eq-polar-area-element.html ./knowl/xref/eq-polar-double-integral.html ./knowl/xref/fig-polar-two-areas.html ./knowl/xref/fig-polar-rose-circle.html ./knowl/xref/fig-polar-rose-circle.html ./knowl/xref/fig-ws-cylinder-sphere.html ./knowl/xref/q-di-cylinder-sphere.html ./knowl/xref/fig-polar-cardioids.html ./knowl/xref/fig-polar-cardioids.html" id="section-double-integrals-polar-form-3">
+\begin{equation*}
+\iint_R f(x,y)\,dx\,dy = \iint_R f(x,y)\,dA.
+\end{equation*}
+</div>
+<section class="subsection" id="sec-polar-double-integral"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">How Does a Double Integral Look in Polar Coordinates?</span>
+</h3>
+<div class="para" id="sec-polar-double-integral-2">To answer this question, assume that our region of integration is<div class="autopermalink" data-description="Paragraph"><a href="#sec-polar-double-integral-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-polar-rectangles-prefigure.html ./knowl/xref/fig-polar-element-video.html" id="sec-polar-double-integral-3">
+\begin{equation*}
+R = \{(r,\theta) : a \le r \le b,\ \alpha \le \theta \le \beta\},
+\end{equation*}
+</div>
+<div class="para" id="sec-polar-double-integral-4">which is shown on the left in <a href="section-double-integrals-polar-form.html#fig-polar-rectangles-prefigure" class="internal" title="Figure 2.4.1">Figure 2.4.1</a>. We divide this region into <em class="emphasis">polar rectangles</em> as shown on the right. Then, we calculate the area <span class="process-math">\(\Delta A_i\)</span> of a typical polar rectangle<div class="autopermalink" data-description="Paragraph"><a href="#sec-polar-double-integral-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-polar-rectangles-prefigure.html ./knowl/xref/fig-polar-element-video.html" id="sec-polar-double-integral-5">
+\begin{equation*}
+R_{ij} = \{(r,\theta) : r_{i-1} \le r \le r_i,\
+\theta_{j-1} \le \theta \le \theta_j\},
+\end{equation*}
+</div>
+<div class="para" id="sec-polar-double-integral-6">Compute this area. (The area of a sector of a circle with radius <span class="process-math">\(r\)</span> and central angle <span class="process-math">\(\theta\)</span> is <span class="process-math">\(\tfrac12 r^2\theta\text{;}\)</span> the polar rectangle is the difference of two sectors. Factor the difference of squares and write the result in terms of <span class="process-math">\(\Delta r = r_i - r_{i-1}\text{,}\)</span> <span class="process-math">\(\Delta\theta\text{,}\)</span> and the average radius <span class="process-math">\(r_i^* = \tfrac12(r_i + r_{i-1})\text{.}\)</span> Then write the Riemann sum for <span class="process-math">\(\iint_R f\,dA\)</span> with these cells and pass to the limit.)<div class="autopermalink" data-description="Paragraph"><a href="#sec-polar-double-integral-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/sec-polar-double-integral-7-1.svg" role="img" class="contained" alt="Blank box in three rows, for the area of a polar rectangle, for the Riemann sum over polar rectangles, and for the resulting polar form of the double integral."></div></div></div></div>
+<article class="assemblage assemblage-like" id="assemblage-polar-double-integral"><h4 class="heading"><span class="title">Double Integrals in Polar Coordinates.</span></h4>
+<div class="para logical" id="assemblage-polar-double-integral-2">
+<div class="para">The area of a polar rectangle with average radius <span class="process-math">\(r_i^*\)</span> is</div>
+<div class="displaymath process-math" id="assemblage-polar-double-integral-2-2">
+\begin{gather}
+\Delta A_i = r_i^*\,\Delta r\,\Delta\theta,\tag{2.4.1}
+\end{gather}
+</div>
+<div class="para">so that <span class="process-math">\(dA = r\,dr\,d\theta\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="assemblage-polar-double-integral-2-4">
+\begin{gather}
+\iint_R f(x,y)\,dA = \iint_R f(r\cos\theta,\ r\sin\theta)\,r\,dr\,d\theta.\tag{2.4.2}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-polar-double-integral-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Double Integrals in Polar Coordinates"><a href="#assemblage-polar-double-integral" title="Copy heading and permalink for Assemblage: Double Integrals in Polar Coordinates" aria-label="Copy heading and permalink for Assemblage: Double Integrals in Polar Coordinates">🔗</a></div></article><figure class="figure figure-like" id="fig-polar-rectangles-prefigure"><div class="sidebyside"><div class="sbsrow" style="margin-left:1%;margin-right:1%;grid-template-columns:48.9795918367347% 48.9795918367347%;column-gap:2%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-polar-region-diagcess.svg" data-cml="generated/prefigure/prefigure-polar-region-annotations.xml"></div></div></div>
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><div class="ChemAccess-element" data-src="generated/prefigure/prefigure-polar-grid-diagcess.svg" data-cml="generated/prefigure/prefigure-polar-grid-annotations.xml"></div></div></div>
+</div></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>On the left, the region <span class="process-math">\(R = \{(r,\theta): a \le r \le b,\ \alpha\le\theta\le\beta\}\text{.}\)</span> On the right, <span class="process-math">\(R\)</span> divided into polar rectangles; the highlighted polar rectangle <span class="process-math">\(R_{ij}\)</span> has area <span class="process-math">\(\Delta A_i = r_i^*\,\Delta r\,\Delta\theta\text{,}\)</span> where <span class="process-math">\((r_i^*, \theta_j^*)\)</span> is its center.<div class="autopermalink" data-description="Figure 2.4.1"><a href="#fig-polar-rectangles-prefigure" title="Copy heading and permalink for Figure 2.4.1" aria-label="Copy heading and permalink for Figure 2.4.1">🔗</a></div></figcaption></figure><div class="para" id="sec-polar-double-integral-10">The subdivision of <span class="process-math">\(R\)</span> into polar rectangles, and how the area of a polar rectangle behaves as the grid is refined, is animated in <a href="section-double-integrals-polar-form.html#fig-polar-element-video" class="xref" data-knowl="./knowl/xref/fig-polar-element-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.2">Figure 2.4.2</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-polar-double-integral-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-polar-element-video"><div class="video-box" style="width: 70%;padding-top: 39.375%; margin-left: 15%; margin-right: 15%;"><video id="video-polar-element" class="video" controls="" poster="external/play-button.png"><source src="external/videos/polar_area_element_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Animation of the polar area element. The region <span class="process-math">\(R = \{(r,\theta): 1 \le r \le 2,\ 0\le\theta\le\tfrac{\pi}{2}\}\)</span> is divided into finer and finer polar rectangles; a highlighted cell has area exactly <span class="process-math">\(r^*\,\Delta r\,\Delta\theta\text{,}\)</span> and the sum <span class="process-math">\(\sum r^*\,\Delta r\,\Delta\theta\)</span> equals the area <span class="process-math">\(\tfrac{3\pi}{4}\)</span> of <span class="process-math">\(R\)</span> at every stage.<div class="autopermalink" data-description="Figure 2.4.2"><a href="#fig-polar-element-video" title="Copy heading and permalink for Figure 2.4.2" aria-label="Copy heading and permalink for Figure 2.4.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.4.1: How Does a Double Integral Look in Polar Coordinates?"><a href="#sec-polar-double-integral" title="Copy heading and permalink for Subsection 2.4.1: How Does a Double Integral Look in Polar Coordinates?" aria-label="Copy heading and permalink for Subsection 2.4.1: How Does a Double Integral Look in Polar Coordinates?">🔗</a></div></section><section class="subsection" id="sec-polar-annulus-example"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Integrating Over a Half Annulus</span>
+</h3>
+<details id="example-polar-annulus" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example I.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-polar-annulus-2-1">Evaluate <span class="process-math">\(\displaystyle\iint_R (3x + 4y^2)\,dA\text{,}\)</span> where <span class="process-math">\(R\)</span> is the region in the upper half plane bounded by the circles <span class="process-math">\(x^2 + y^2 = 1\)</span> and <span class="process-math">\(x^2 + y^2 = 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-polar-annulus-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-polar-annulus-2-2">
+<em class="emphasis">Solution.</em> (Sketch the region, shown in <a href="section-double-integrals-polar-form.html#fig-half-annulus-prefigure" class="internal" title="Figure 2.4.4">Figure 2.4.4</a>, and describe it in polar coordinates. Convert the integrand with <a href="section-polar-coordinates.html#eq-polar-cartesian" class="xref" data-knowl="./knowl/xref/eq-polar-cartesian.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a>, remember the factor <span class="process-math">\(r\)</span> in <span class="process-math">\(dA\text{,}\)</span> integrate in <span class="process-math">\(r\)</span> first, and use the half-angle identity for <span class="process-math">\(\sin^2\theta\)</span> in the outer integral.)<div class="autopermalink" data-description="Paragraph"><a href="#example-polar-annulus-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-polar-annulus-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the polar description of the region, for the polar iterated integral, and for its evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.4.3: Example I"><a href="#example-polar-annulus" title="Copy heading and permalink for Example 2.4.3: Example I" aria-label="Copy heading and permalink for Example 2.4.3: Example I">🔗</a></div></article></details><figure class="figure figure-like" id="fig-half-annulus-prefigure"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-half-annulus-diagcess.svg" data-cml="generated/prefigure/prefigure-half-annulus-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The region of <a href="section-double-integrals-polar-form.html#example-polar-annulus" class="xref" data-knowl="./knowl/xref/example-polar-annulus.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.4.3: Example I">Example 2.4.3</a>: the upper half of the annulus between the circles <span class="process-math">\(x^2+y^2 = 1\)</span> and <span class="process-math">\(x^2+y^2 = 4\text{.}\)</span><div class="autopermalink" data-description="Figure 2.4.4"><a href="#fig-half-annulus-prefigure" title="Copy heading and permalink for Figure 2.4.4" aria-label="Copy heading and permalink for Figure 2.4.4">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.4.2: Integrating Over a Half Annulus"><a href="#sec-polar-annulus-example" title="Copy heading and permalink for Subsection 2.4.2: Integrating Over a Half Annulus" aria-label="Copy heading and permalink for Subsection 2.4.2: Integrating Over a Half Annulus">🔗</a></div></section><section class="subsection" id="sec-polar-rose-example"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Area Enclosed by One Loop of a Rose</span>
+</h3>
+<details id="example-polar-rose" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example II.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-polar-rose-2-1">Use a double integral to find the area enclosed by one loop of the four-leaved rose <span class="process-math">\(r = \cos(2\theta)\text{,}\)</span> graphed in <a href="section-double-integrals-polar-form.html#fig-rose-prefigure" class="internal" title="Figure 2.4.6">Figure 2.4.6</a>.<div class="autopermalink" data-description="Paragraph"><a href="#example-polar-rose-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-polar-rose-2-2">
+<em class="emphasis">Solution.</em> (Describe the colored loop <span class="process-math">\(D\)</span> of <a href="section-double-integrals-polar-form.html#fig-rose-prefigure" class="internal" title="Figure 2.4.6">Figure 2.4.6</a> in polar coordinates: which angles sweep it, and for each such angle, from where to where does <span class="process-math">\(r\)</span> run? Then the area is <a href="section-double-integrals-general-regions.html#eq-area-double-integral" class="xref" data-knowl="./knowl/xref/eq-area-double-integral.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2.1">(2.2.1)</a> in polar form; the half-angle identity handles <span class="process-math">\(\cos^2 2\theta\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#example-polar-rose-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-polar-rose-2-3-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the polar description of the loop and one for the area integral and its evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.4.5: Example II"><a href="#example-polar-rose" title="Copy heading and permalink for Example 2.4.5: Example II" aria-label="Copy heading and permalink for Example 2.4.5: Example II">🔗</a></div></article></details><figure class="figure figure-like" id="fig-rose-prefigure"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-rose-diagcess.svg" data-cml="generated/prefigure/prefigure-rose-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The four-leaved rose <span class="process-math">\(r = \cos(2\theta)\text{,}\)</span> with one loop <span class="process-math">\(D\)</span> shaded. Which angles sweep it out?<div class="autopermalink" data-description="Figure 2.4.6"><a href="#fig-rose-prefigure" title="Copy heading and permalink for Figure 2.4.6" aria-label="Copy heading and permalink for Figure 2.4.6">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.4.3: Area Enclosed by One Loop of a Rose"><a href="#sec-polar-rose-example" title="Copy heading and permalink for Subsection 2.4.3: Area Enclosed by One Loop of a Rose" aria-label="Copy heading and permalink for Subsection 2.4.3: Area Enclosed by One Loop of a Rose">🔗</a></div></section><section class="subsection" id="sec-polar-volume-example"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Volume Computed in Polar Coordinates</span>
+</h3>
+<details id="example-polar-volume" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example III.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-polar-volume-2-1">Find the volume of the solid that lies under the paraboloid <span class="process-math">\(z = x^2 + y^2\text{,}\)</span> above the <span class="process-math">\(xy\)</span>-plane, and inside the cylinder <span class="process-math">\(x^2 + y^2 = 2x\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-polar-volume-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-polar-volume-2-2">
+<em class="emphasis">Solution.</em> (Complete the square to see what the cylinder’s cross-section is; the base disk is shown in <a href="section-double-integrals-polar-form.html#fig-shifted-disk-prefigure" class="internal" title="Figure 2.4.8">Figure 2.4.8</a> and the solid in <a href="section-double-integrals-polar-form.html#fig-polar-volume-tikz" class="xref" data-knowl="./knowl/xref/fig-polar-volume-tikz.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.9">Figure 2.4.9</a>. Convert <span class="process-math">\(x^2+y^2 = 2x\)</span> to polar form and solve for <span class="process-math">\(r\text{;}\)</span> that gives the upper limit of <span class="process-math">\(r\text{,}\)</span> and the disk is swept by <span class="process-math">\(-\pi/2 \le \theta \le \pi/2\text{.}\)</span> Integrate the height of the paraboloid over the disk. The outer integral involves <span class="process-math">\(\cos^4\theta\text{:}\)</span> use the half-angle identity twice, and use symmetry to halve the interval.)<div class="autopermalink" data-description="Paragraph"><a href="#example-polar-volume-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-polar-volume-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the polar form of the cylinder and the description of the base disk, for the polar volume integral, and for its evaluation."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.4.7: Example III"><a href="#example-polar-volume" title="Copy heading and permalink for Example 2.4.7: Example III" aria-label="Copy heading and permalink for Example 2.4.7: Example III">🔗</a></div></article></details><figure class="figure figure-like" id="fig-shifted-disk-prefigure"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-shifted-disk-diagcess.svg" data-cml="generated/prefigure/prefigure-shifted-disk-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The base of the solid in <a href="section-double-integrals-polar-form.html#example-polar-volume" class="xref" data-knowl="./knowl/xref/example-polar-volume.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.4.7: Example III">Example 2.4.7</a>: the disk inside the cylinder <span class="process-math">\(x^2 + y^2 = 2x\text{.}\)</span><div class="autopermalink" data-description="Figure 2.4.8"><a href="#fig-shifted-disk-prefigure" title="Copy heading and permalink for Figure 2.4.8" aria-label="Copy heading and permalink for Figure 2.4.8">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-polar-volume-tikz"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig-polar-volume-tikz-2.svg" role="img" class="contained" alt="A paraboloid rising inside an off-center vertical cylinder above the plane.Three coordinate axes in space with a vertical circular cylinder of radius one centered on the line x equals one, y equals zero. Inside the cylinder, the paraboloid z equals x squared plus y squared rises from the origin; the solid between the x y plane and the paraboloid, inside the cylinder, is the region whose volume is computed. Dashed lines mark the base circle."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solid of <a href="section-double-integrals-polar-form.html#example-polar-volume" class="xref" data-knowl="./knowl/xref/example-polar-volume.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.4.7: Example III">Example 2.4.7</a>: the region under the paraboloid <span class="process-math">\(z = x^2 + y^2\text{,}\)</span> above the <span class="process-math">\(xy\)</span>-plane, and inside the cylinder <span class="process-math">\(x^2 + y^2 = 2x\text{.}\)</span><div class="autopermalink" data-description="Figure 2.4.9"><a href="#fig-polar-volume-tikz" title="Copy heading and permalink for Figure 2.4.9" aria-label="Copy heading and permalink for Figure 2.4.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.4.4: A Volume Computed in Polar Coordinates"><a href="#sec-polar-volume-example" title="Copy heading and permalink for Subsection 2.4.4: A Volume Computed in Polar Coordinates" aria-label="Copy heading and permalink for Subsection 2.4.4: A Volume Computed in Polar Coordinates">🔗</a></div></section><section class="subsection" id="sec-polar-gaussian-example"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">An Integral That Needs Polar Coordinates</span>
+</h3>
+<details id="example-polar-gaussian" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example IV.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-polar-gaussian-2-1">Calculate the double integral <span class="process-math">\(\displaystyle\iint_R e^{x^2+y^2}\,dx\,dy\text{,}\)</span> where <span class="process-math">\(R\)</span> is the unit disk centered at the origin.<div class="autopermalink" data-description="Paragraph"><a href="#example-polar-gaussian-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-polar-gaussian-2-2">
+<em class="emphasis">Hint:</em> Notice that you cannot solve this integral using Cartesian coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#example-polar-gaussian-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="example-polar-gaussian-2-3">
+<em class="emphasis">Solution.</em> (Describe the unit disk in polar coordinates and convert the integrand. The extra factor of <span class="process-math">\(r\)</span> in <span class="process-math">\(dA\)</span> is exactly what makes the inner integral computable: which substitution?)<div class="autopermalink" data-description="Paragraph"><a href="#example-polar-gaussian-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/example-polar-gaussian-2-4-1.svg" role="img" class="contained" alt="Blank box for converting the integral to polar form and evaluating it."></div></div></div></div>
+<div class="autopermalink" data-description="Example 2.4.10: Example IV"><a href="#example-polar-gaussian" title="Copy heading and permalink for Example 2.4.10: Example IV" aria-label="Copy heading and permalink for Example 2.4.10: Example IV">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 2.4.5: An Integral That Needs Polar Coordinates"><a href="#sec-polar-gaussian-example" title="Copy heading and permalink for Subsection 2.4.5: An Integral That Needs Polar Coordinates" aria-label="Copy heading and permalink for Subsection 2.4.5: An Integral That Needs Polar Coordinates">🔗</a></div></section><section class="subsection" id="subsec-polar-questions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Concept Check</span>
+</h3>
+<div class="para" id="subsec-polar-questions-2">Each question below asks for a <em class="emphasis">setup</em> in polar coordinates. Recall from <a href="section-polar-coordinates.html#eq-polar-cartesian" class="xref" data-knowl="./knowl/xref/eq-polar-cartesian.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3.1">(2.3.1)</a> that <span class="process-math">\(x = r\cos\theta\text{,}\)</span> <span class="process-math">\(y = r\sin\theta\text{,}\)</span> and from <a href="section-double-integrals-polar-form.html#assemblage-polar-double-integral-2-2" class="xref" data-knowl="./knowl/xref/eq-polar-area-element.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.1">(2.4.1)</a> that <span class="process-math">\(dA = r\,dr\,d\theta\text{,}\)</span> so that the double integral takes the polar form <a href="section-double-integrals-polar-form.html#assemblage-polar-double-integral-2-4" class="xref" data-knowl="./knowl/xref/eq-polar-double-integral.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.4.2">(2.4.2)</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-polar-questions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-polar-questions-3">The work is almost entirely in the limits: which values of <span class="process-math">\(\theta\)</span> sweep the region, and for each such <span class="process-math">\(\theta\text{,}\)</span> between which two values of <span class="process-math">\(r\)</span> does the ray at that angle enter and leave the region. Two of the figures below carry a slider for <span class="process-math">\(\theta\)</span> so you can watch the ray move.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-polar-questions-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="q-polar-three-areas" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Three areas.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-polar-three-areas-2-1">Set up <dfn class="terminology">three</dfn> (not more than three) integrals that correspond to the following areas graphed in <a href="section-double-integrals-polar-form.html#fig-polar-two-areas" class="internal" title="Figure 2.4.12">Figure 2.4.12</a>:<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-three-areas-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="decimal" id="q-polar-three-areas-2-2">
+<li id="q-polar-three-areas-2-2-1">
+<div class="para" id="q-polar-three-areas-2-2-1-1">the red-colored area,<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-three-areas-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.4.11.1"><a href="#q-polar-three-areas-2-2-1" title="Copy heading and permalink for Item 2.4.11.1" aria-label="Copy heading and permalink for Item 2.4.11.1">🔗</a></div>
+</li>
+<li id="q-polar-three-areas-2-2-2">
+<div class="para" id="q-polar-three-areas-2-2-2-1">the blue-colored area,<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-three-areas-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.4.11.2"><a href="#q-polar-three-areas-2-2-2" title="Copy heading and permalink for Item 2.4.11.2" aria-label="Copy heading and permalink for Item 2.4.11.2">🔗</a></div>
+</li>
+<li id="q-polar-three-areas-2-2-3">
+<div class="para" id="q-polar-three-areas-2-2-3-1">the sum of the areas in (1) and (2).<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-three-areas-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2.4.11.3"><a href="#q-polar-three-areas-2-2-3" title="Copy heading and permalink for Item 2.4.11.3" aria-label="Copy heading and permalink for Item 2.4.11.3">🔗</a></div>
+</li>
+</ol> <div class="para" id="q-polar-three-areas-2-3">(Which angles sweep both regions? Write the vertical line <span class="process-math">\(x = 1\)</span> and the two arcs in polar form; along a ray, where does each region begin and end? The third integral should need no line at all: what region is the union, and what does that give you to check the first two against?)<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-three-areas-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-polar-three-areas-2-4-1.svg" role="img" class="contained" alt="Blank box in four rows, for the polar forms of the boundary curves and for the three area integrals."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.4.11: Three areas"><a href="#q-polar-three-areas" title="Copy heading and permalink for Checkpoint 2.4.11: Three areas" aria-label="Copy heading and permalink for Checkpoint 2.4.11: Three areas">🔗</a></div></article></details><figure class="figure figure-like" id="fig-polar-two-areas"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-polar-two-areas-diagcess.svg" data-cml="generated/prefigure/prefigure-polar-two-areas-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Figure (1): two regions between the circles <span class="process-math">\(r=1\)</span> and <span class="process-math">\(r=2\text{,}\)</span> cut apart by the vertical line <span class="process-math">\(x=1\)</span> and swept by the angles <span class="process-math">\(0 \le \theta \le \pi/3\text{.}\)</span> The line <span class="process-math">\(y=\sqrt3\,x\)</span> is the ray <span class="process-math">\(\theta = \pi/3\text{,}\)</span> and it meets <span class="process-math">\(x=1\)</span> exactly on the outer circle.<div class="autopermalink" data-description="Figure 2.4.12"><a href="#fig-polar-two-areas" title="Copy heading and permalink for Figure 2.4.12" aria-label="Copy heading and permalink for Figure 2.4.12">🔗</a></div></figcaption></figure><details id="q-polar-rose-mass" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mass of a piece of a rose.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-polar-rose-mass-2-1">Region <span class="process-math">\(R\)</span> is the region <dfn class="terminology">inside</dfn> <span class="process-math">\(r=\cos(3\theta)\)</span> and <dfn class="terminology">inside</dfn> <span class="process-math">\(r=\frac12\text{.}\)</span> See <a href="section-double-integrals-polar-form.html#fig-polar-rose-circle" class="xref" data-knowl="./knowl/xref/fig-polar-rose-circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.14">Figure 2.4.14</a>. Set up a double integral for computing the mass of a planar object that occupies region <span class="process-math">\(R\)</span> and whose density is given by <span class="process-math">\(\rho(x,y)=\dfrac{1}{\sqrt{x^2+y^2}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-polar-rose-mass-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-polar-rose-mass-2-2">
+<em class="emphasis">Hint</em>: note that as <span class="process-math">\(\theta\)</span> varies, you may need to modify the limits of <span class="process-math">\(r\)</span> accordingly.<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-rose-mass-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-polar-rose-mass-2-3">(Write the density and <span class="process-math">\(dA\)</span> in polar form first; something cancels. Then the limits: take the petal around <span class="process-math">\(\theta = 0\text{,}\)</span> which is traced for <span class="process-math">\(-\pi/6 \le \theta \le \pi/6\text{,}\)</span> and slide the ray in <a href="section-double-integrals-polar-form.html#fig-polar-rose-circle" class="xref" data-knowl="./knowl/xref/fig-polar-rose-circle.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.14">Figure 2.4.14</a>. Near <span class="process-math">\(\theta = 0\)</span> which curve does the ray leave <span class="process-math">\(R\)</span> at, and near the edges of the petal which one? Find the changeover angle, write the integral for one petal, and use the congruence of the three petals.)<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-rose-mass-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-polar-rose-mass-2-4-1.svg" role="img" class="contained" alt="Blank box in four rows, for the density times the area element in polar form, for the two ranges of theta with their upper limits of r, for the mass of one petal, and for the total mass."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.4.13: Mass of a piece of a rose"><a href="#q-polar-rose-mass" title="Copy heading and permalink for Checkpoint 2.4.13: Mass of a piece of a rose" aria-label="Copy heading and permalink for Checkpoint 2.4.13: Mass of a piece of a rose">🔗</a></div></article></details><figure class="figure figure-like" id="fig-polar-rose-circle"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="int-polar-rose" style="width:600px; height:660px; display: block; " src="int-polar-rose-if.html"></iframe></div>
+<div class="instructions"><details id="int-polar-rose-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="int-polar-rose-2-1">Drag the slider to change <span class="process-math">\(\theta\text{,}\)</span> which moves in steps of <span class="process-math">\(\pi/24\text{.}\)</span> The readout under the picture gives <span class="process-math">\(\cos(3\theta)\)</span> for the current ray, and the upper limit of <span class="process-math">\(r\)</span> for the region inside both curves: it is <span class="process-math">\(\frac12\)</span> while the ray is near the middle of a petal, and <span class="process-math">\(\cos(3\theta)\)</span> near the edges of a petal.<div class="autopermalink" data-description="Paragraph"><a href="#int-polar-rose-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#int-polar-rose-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Figure (2): the rose <span class="process-math">\(r=\cos(3\theta)\)</span> and the circle <span class="process-math">\(r=\frac12\text{.}\)</span> Drag the slider to turn the ray of angle <span class="process-math">\(\theta\text{;}\)</span> the dots mark where that ray crosses each curve, which is what fixes the limits of <span class="process-math">\(r\text{.}\)</span><div class="autopermalink" data-description="Figure 2.4.14"><a href="#fig-polar-rose-circle" title="Copy heading and permalink for Figure 2.4.14" aria-label="Copy heading and permalink for Figure 2.4.14">🔗</a></div></figcaption></figure><details id="q-polar-cylinder-sphere" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The ball and the cylinder again, in polar.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-polar-cylinder-sphere-2-1">Set up a double integral (in polar coordinates) for computing the volume of the region bounded by the cylinder <span class="process-math">\(x^2+(y-1)^2=1\)</span> and the sphere <span class="process-math">\(x^2+y^2+z^2=1\text{.}\)</span> See <a href="section-double-integrals-general-regions.html#fig-ws-cylinder-sphere" class="xref" data-knowl="./knowl/xref/fig-ws-cylinder-sphere.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.2.14">Figure 2.2.14</a>.<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-cylinder-sphere-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-polar-cylinder-sphere-2-2">(This is <a href="section-double-integrals-general-regions.html#q-di-cylinder-sphere" class="xref" data-knowl="./knowl/xref/q-di-cylinder-sphere.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 2.2.13: A ball cut by a cylinder">Checkpoint 2.2.13</a> again. The height over a point of the region is unchanged; write it in terms of <span class="process-math">\(r\text{.}\)</span> Put both boundary circles in polar form and find the angles where they cross. For which <span class="process-math">\(\theta\)</span> is the sphere the binding constraint, and for which the cylinder? Use the symmetry about the <span class="process-math">\(y\)</span>-axis, and compare the region of integration with the one you described in Cartesian coordinates.)<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-cylinder-sphere-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-polar-cylinder-sphere-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the height and the polar forms of the two circles with their crossing angles, for the two ranges of theta with their upper limits, and for the volume as polar integrals."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.4.15: The ball and the cylinder again, in polar"><a href="#q-polar-cylinder-sphere" title="Copy heading and permalink for Checkpoint 2.4.15: The ball and the cylinder again, in polar" aria-label="Copy heading and permalink for Checkpoint 2.4.15: The ball and the cylinder again, in polar">🔗</a></div></article></details><details id="q-polar-cardioid-overlap" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The overlap of two cardioids.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-polar-cardioid-overlap-2-1">Set up integral(s) for computing the area of the <dfn class="terminology">overlap</dfn> of the two curves <span class="process-math">\(r(\theta)=1+\cos\theta\)</span> and <span class="process-math">\(r(\theta)=1+\sin\theta\text{.}\)</span> See <a href="section-double-integrals-polar-form.html#fig-polar-cardioids" class="xref" data-knowl="./knowl/xref/fig-polar-cardioids.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.17">Figure 2.4.17</a>.<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-cardioid-overlap-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-polar-cardioid-overlap-2-2">(A point lies in the overlap when its <span class="process-math">\(r\)</span> is at most <em class="emphasis">both</em> radii, so along each ray the region runs from <span class="process-math">\(r = 0\)</span> out to the smaller of the two. Where do the cardioids cross, and which radius is the smaller one on each side of the crossing? Slide the ray in <a href="section-double-integrals-polar-form.html#fig-polar-cardioids" class="xref" data-knowl="./knowl/xref/fig-polar-cardioids.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4.17">Figure 2.4.17</a> to see. Set up one integral for each range of <span class="process-math">\(\theta\text{,}\)</span> and say what symmetry relates the two.)<div class="autopermalink" data-description="Paragraph"><a href="#q-polar-cardioid-overlap-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-polar-cardioid-overlap-2-3-1.svg" role="img" class="contained" alt="Blank box in three rows, for the crossing angles and which radius is smaller where, for the area as a sum of polar integrals, and for the symmetry between the two pieces."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 2.4.16: The overlap of two cardioids"><a href="#q-polar-cardioid-overlap" title="Copy heading and permalink for Checkpoint 2.4.16: The overlap of two cardioids" aria-label="Copy heading and permalink for Checkpoint 2.4.16: The overlap of two cardioids">🔗</a></div></article></details><figure class="figure figure-like" id="fig-polar-cardioids"><div class="interactive-iframe-container"><iframe allowfullscreen="" allow="fullscreen" id="int-polar-cardioids" style="width:600px; height:660px; display: block; " src="int-polar-cardioids-if.html"></iframe></div>
+<div class="instructions"><details id="int-polar-cardioids-2" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="int-polar-cardioids-2-1">Drag the slider to change <span class="process-math">\(\theta\text{,}\)</span> which moves in steps of <span class="process-math">\(\pi/24\text{.}\)</span> The readout gives both radii for the current ray and the smaller of the two, which is the upper limit of <span class="process-math">\(r\)</span> for the overlap. Watch it swap from one curve to the other as the ray passes <span class="process-math">\(\theta = \frac{\pi}{4}\)</span> and <span class="process-math">\(\theta = \frac{5\pi}{4}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#int-polar-cardioids-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#int-polar-cardioids-2" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Figure (4): the cardioids <span class="process-math">\(r=1+\cos\theta\)</span> and <span class="process-math">\(r=1+\sin\theta\text{.}\)</span> Drag the slider to turn the ray of angle <span class="process-math">\(\theta\text{;}\)</span> the overlap is what the ray reaches before it leaves the first of the two curves.<div class="autopermalink" data-description="Figure 2.4.17"><a href="#fig-polar-cardioids" title="Copy heading and permalink for Figure 2.4.17" aria-label="Copy heading and permalink for Figure 2.4.17">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 2.4.6: Concept Check"><a href="#subsec-polar-questions" title="Copy heading and permalink for Subsection 2.4.6: Concept Check" aria-label="Copy heading and permalink for Subsection 2.4.6: Concept Check">🔗</a></div></section><div class="autopermalink" data-description="Section 2.4: Double Integrals in Polar Form"><a href="#section-double-integrals-polar-form" title="Copy heading and permalink for Section 2.4: Double Integrals in Polar Form" aria-label="Copy heading and permalink for Section 2.4: Double Integrals in Polar Form">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="section-polar-coordinates.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-triple-integrals-rectangular.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

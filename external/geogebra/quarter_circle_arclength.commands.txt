@@ -1,0 +1,25 @@
+# GeoGebra Classic — Quarter-circle arc length (2D)
+# Paste these lines one per row into the GeoGebra input bar (Algebra view),
+# then File > Share to publish and obtain a material ID.
+
+t = Slider(0, pi/2, 0.01)
+SetValue(t, 0.9)
+arc = Curve(cos(s), sin(s), s, 0, pi/2)
+SetColor(arc, 160, 160, 160)
+traced = Curve(cos(s), sin(s), s, 0, t)
+SetColor(traced, 0, 102, 204)
+SetLineThickness(traced, 6)
+P = (cos(t), sin(t))
+SetColor(P, 204, 0, 0)
+SetPointSize(P, 5)
+rvec = Vector((0, 0), P)
+SetColor(rvec, 255, 153, 0)
+vvec = Vector(P, P + (-sin(t), cos(t)))
+SetColor(vvec, 0, 153, 0)
+A = (1, 0)
+B = (0, 1)
+s = t
+txtLen = Text("Arc length  s(t) = " + Round(s, 3), (-1.15, 1.45))
+speed = Text("|v(t)| = 1", (-1.15, 1.15))
+
+# Tip: right-click t and choose "Animation On" to sweep the quarter circle.

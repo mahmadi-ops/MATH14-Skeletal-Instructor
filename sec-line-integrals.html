@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Line Integrals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-arc-length.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-curves-and-fields.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="sec-vector-fields.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-line-integrals"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Line Integrals</span>
+</h2>
+<section class="introduction" id="sec-line-integrals-2"><div class="para" id="sec-line-integrals-2-1">In this section we study line integrals of scalar functions. We develop the idea through a concrete problem: finding the mass of a curved wire when we know its density—its mass per unit length—at every point. The strategy is the one behind every integral: <em class="emphasis">chop the wire into tiny pieces, multiply the density of each piece by its length, and add up the results</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-line-integrals-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="subsec-scalar-line-integrals"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Line Integrals of Scalar Functions</span>
+</h3>
+<div class="para" id="subsec-scalar-line-integrals-2">Suppose we would like to compute the mass of a wire that does not have a trivial shape (such as a straight line). If the wire were straight and its density constant, the mass would simply be density times length. For a curved wire whose density <span class="process-math">\(\rho(x,y,z)\)</span> varies from point to point, neither shortcut is available—but we can approximate mass of small portions of the wire by treating each as if it were straight and had constant density.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-scalar-line-integrals-3">
+<div class="para">Assume the wire is represented by a curve <span class="process-math">\(C\)</span> in space, parametrized by <span class="process-math">\(t\in[a,b]\text{,}\)</span> as in <a href="sec-line-integrals.html#fig-wire-partition" class="xref" data-knowl="./knowl/xref/fig-wire-partition.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.1">Figure 1.3.1</a>. Divide the wire into <span class="process-math">\(n\)</span> small portions, and denote the length of the <span class="process-math">\(k\)</span>th portion by <span class="process-math">\(\Delta s_k\text{.}\)</span> Pick a sample point <span class="process-math">\((x_k,y_k,z_k)\)</span> on this portion. If the portion is short, the density is nearly constant along it, so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-wire-partition.html" id="subsec-scalar-line-integrals-3-8">
+\begin{gather}
+\text{mass of the } k\text{th portion}
+\approx \rule{6cm}{0.4pt}\tag{1.3.1}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-scalar-line-integrals-4">
+<div class="para">and summing <a href="sec-line-integrals.html#subsec-scalar-line-integrals-3-8" class="xref" data-knowl="./knowl/xref/eq-mass-portion.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.1">(1.3.1)</a> over all portions,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-mass-portion.html" id="subsec-scalar-line-integrals-4-2">
+\begin{gather}
+\text{mass of the wire}
+\approx \rule{6cm}{0.4pt}\tag{1.3.2}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-wire-partition"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/image-wire-partition.svg" role="img" class="contained" alt="A helical wire cut into eight portions by dots, with the inscribed polygon of red chords, one portion highlighted in black, and a position vector reaching from the origin to a sample point on it."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-wire-partition-description"><div class="para" id="image-wire-partition-2-1">A helical wire rising counterclockwise around the vertical axis from its lower end, marked t equals a, to its upper end, marked t equals b. Eight dots cut the wire into seven portions, and a straight red chord joins the ends of each portion, so the chords form a polygon inscribed in the wire that visibly cuts inside every bend. One portion on the near side is drawn in thick black and labeled with its length, delta s sub k; a dot inside it is the sample point, and a dashed green arrow runs to that dot from the origin, labeled r of t sub k equals the vector with components x sub k, y sub k, z sub k.<div class="autopermalink" data-description="Paragraph"><a href="#image-wire-partition-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A wire represented by a curve <span class="process-math">\(C\)</span> in space, parametrized by <span class="process-math">\(t\in[a,b]\)</span> and cut into <span class="process-math">\(n=7\)</span> portions by the partition points (black dots). The <span class="process-math">\(k\)</span>th portion (black) has length <span class="process-math">\(\Delta s_k\)</span> and contains the sample point <span class="process-math">\((x_k,y_k,z_k)\text{,}\)</span> located by the position vector <span class="process-math">\(\mathbf{r}(t_k)\text{.}\)</span> The red chords form the inscribed polygon that approximates <span class="process-math">\(C\text{;}\)</span> here its total length falls about <span class="process-math">\(3\%\)</span> short of the length of <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Figure 1.3.1"><a href="#fig-wire-partition" title="Copy heading and permalink for Figure 1.3.1" aria-label="Copy heading and permalink for Figure 1.3.1">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-scalar-line-integrals-6">
+<div class="para">The estimate <a href="sec-line-integrals.html#subsec-scalar-line-integrals-4-2" class="xref" data-knowl="./knowl/xref/eq-mass-sum.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.2">(1.3.2)</a> is only an approximation, because the density is not actually constant over each portion. How can we make the calculation exact? We take the limit in which every portion becomes infinitely small, that is, <span class="process-math">\(\Delta s_k\to 0\text{,}\)</span> or equivalently <span class="process-math">\(n\to\infty\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-mass-sum.html" id="subsec-scalar-line-integrals-6-4">
+\begin{gather}
+\text{mass of the wire}
+= \rule{6cm}{0.4pt}\tag{1.3.3}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-scalar-line-integrals-7">
+<div class="para">The limit in <a href="sec-line-integrals.html#subsec-scalar-line-integrals-6-4" class="xref" data-knowl="./knowl/xref/eq-mass-limit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.3">(1.3.3)</a> is denoted by the integral</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-mass-limit.html" id="subsec-scalar-line-integrals-7-2">
+\begin{gather}
+\text{mass of the wire} = \rule{6cm}{0.4pt}\tag{1.3.4}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-scalar-line-integrals-8">which is read as “the line integral of <span class="process-math">\(\rho\)</span> over the curve <span class="process-math">\(C\text{.}\)</span>” The process is animated in <a href="sec-line-integrals.html#fig-wire-partition-video" class="xref" data-knowl="./knowl/xref/fig-wire-partition-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.2">Figure 1.3.2</a>: as the partition refines, the sums settle down to the value of the integral.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-wire-partition-video"><div class="video-box" style="width: 80%;padding-top: 45%; margin-left: 10%; margin-right: 10%;"><video id="video-wire-partition" class="video" controls="" poster="external/play-button.png"><source src="external/videos/wire_partition_refine_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The construction above, on the wire <span class="process-math">\(C\)</span> of <a href="sec-line-integrals.html#fig-wire-partition" class="xref" data-knowl="./knowl/xref/fig-wire-partition.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.1">Figure 1.3.1</a>: the wire is cut into <span class="process-math">\(n\)</span> portions, and the <span class="process-math">\(k\)</span>th of them, of length <span class="process-math">\(\Delta s_k\text{,}\)</span> carries a sample point <span class="process-math">\((x_k,y_k,z_k)\text{,}\)</span> so its mass is about <span class="process-math">\(\rho(x_k,y_k,z_k)\,\Delta s_k\text{.}\)</span> As <span class="process-math">\(n\)</span> grows the portions shrink, and the sum <span class="process-math">\(\sum_k \rho(x_k,y_k,z_k)\,\Delta s_k\)</span> settles down to the line integral <span class="process-math">\(\int_C \rho\,ds\text{.}\)</span><div class="autopermalink" data-description="Figure 1.3.2"><a href="#fig-wire-partition-video" title="Copy heading and permalink for Figure 1.3.2" aria-label="Copy heading and permalink for Figure 1.3.2">🔗</a></div></figcaption></figure><div class="para" id="subsec-scalar-line-integrals-10">Our final task is to write the line element <span class="process-math">\(ds\)</span> in terms of <span class="process-math">\(dt\text{,}\)</span> so the integral becomes an ordinary integral we can evaluate.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/subsec-scalar-line-integrals-11-1.svg" role="img" class="contained" alt="Blank box in four rows, for the line element in terms of dx, dy and dz, for the substitution into the mass integral with dt factored out, an unlabelled one, and for the resulting formula for the mass."></div></div></div></div>
+<article class="assemblage assemblage-like" id="assemblage-line-integral-results"><h4 class="heading"><span class="title">Results.</span></h4>
+<div class="para logical" id="assemblage-line-integral-results-2">
+<div class="para">For a wire <span class="process-math">\(C\)</span> parametrized by <span class="process-math">\(\mathbf{r}(t) = \left\langle x(t), y(t), z(t)\right\rangle\text{,}\)</span> <span class="process-math">\(a \le t \le b\text{,}\)</span> with velocity <span class="process-math">\(\mathbf{v}(t) = d\mathbf{r}/dt\text{,}\)</span> the line element is</div>
+<div class="displaymath process-math" id="assemblage-line-integral-results-2-5">
+\begin{gather}
+ds = \left\lVert\mathbf{v}(t)\right\rVert\,dt,\tag{1.3.5}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-line-integral-results-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="assemblage-line-integral-results-3">
+<div class="para">so the mass of the wire is</div>
+<div class="displaymath process-math" id="assemblage-line-integral-results-3-1">
+\begin{gather}
+\text{mass of the wire}
+= \int_a^b \rho\left(x(t),y(t),z(t)\right)
+\left\lVert\mathbf{v}(t)\right\rVert\,dt.\tag{1.3.6}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-line-integral-results-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="assemblage-line-integral-results-4">
+<div class="para">There is nothing special about density here. In general, a <dfn class="terminology">scalar line integral</dfn> has the form</div>
+<div class="displaymath process-math" id="assemblage-line-integral-results-4-2">
+\begin{gather}
+\int_C f\left(x(t),y(t),z(t)\right)\,ds
+= \int_a^b f\left(x(t),y(t),z(t)\right)
+\left\lVert\mathbf{v}(t)\right\rVert\,dt,\tag{1.3.7}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-line-integral-results-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: Results"><a href="#assemblage-line-integral-results" title="Copy heading and permalink for Assemblage: Results" aria-label="Copy heading and permalink for Assemblage: Results">🔗</a></div></article><div class="para" id="subsec-scalar-line-integrals-13">where <span class="process-math">\(f\)</span> is a scalar-valued function and the curve <span class="process-math">\(C\)</span> specifies the region of integration. Once the curve is parametrized in terms of <span class="process-math">\(t\text{,}\)</span> the region of integration translates to <span class="process-math">\(a\le t\le b\text{.}\)</span> In words: <em class="emphasis">to compute a line integral, trade the geometric element <span class="process-math">\(ds\)</span> for the parameter element <span class="process-math">\(\lVert\mathbf{v}(t)\rVert\,dt\)</span></em>. Two sanity checks connect this to what we already know. Taking <span class="process-math">\(f=1\)</span> in <a href="sec-line-integrals.html#assemblage-line-integral-results-4-2" class="xref" data-knowl="./knowl/xref/eq-scalar-line-integral.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.7">(1.3.7)</a> recovers the arc length <span class="process-math">\(\int_C ds=\int_a^b \lVert\mathbf{v}(t)\rVert\,dt\)</span> of <a href="sec-arc-length.html#eq-arc-length-2d" class="xref" data-knowl="./knowl/xref/eq-arc-length-2d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.2.1">(1.2.1)</a>—total length is the “mass” of a wire of density one. And <span class="process-math">\(\lVert\mathbf{v}(t)\rVert\)</span> is exactly the speed from that section, so the factor converts time spent into distance covered.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-scalar-line-integrals-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 1.3.1: Line Integrals of Scalar Functions"><a href="#subsec-scalar-line-integrals" title="Copy heading and permalink for Subsection 1.3.1: Line Integrals of Scalar Functions" aria-label="Copy heading and permalink for Subsection 1.3.1: Line Integrals of Scalar Functions">🔗</a></div></section><details id="ex-helix-wire" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mass and length of a helical wire.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="ex-helix-wire-2-1">
+<div class="para">Consider a wire of length <span class="process-math">\(l\)</span> and mass <span class="process-math">\(m\text{.}\)</span> The wire is helix-shaped, with its bottom end located at <span class="process-math">\((1,0,0)\)</span> and parametric equation</div>
+<div class="displaymath process-math" id="ex-helix-wire-2-1-4">
+\begin{gather}
+\mathbf{r}(t)=\langle \cos t,\ \sin t,\ t\rangle,\qquad t\ge 0.\tag{1.3.8}
+\end{gather}
+</div>
+<div class="para">Its density (mass per unit length) is <span class="process-math">\(\rho(x,y,z)=4x^2y^2\)</span> kg/m. Assuming that <span class="process-math">\(m=\dfrac{\pi}{2\sqrt{2}}\)</span> kg, calculate the length <span class="process-math">\(l\)</span> of the wire.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-wire-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex-helix-wire-2-2">
+<em class="emphasis">Solution.</em> (The wire is the piece <span class="process-math">\(0 \le t \le b\)</span> of the helix, where the upper limit <span class="process-math">\(b\)</span> marks where the wire ends and is unknown. Plan: use the given mass in <a href="sec-line-integrals.html#assemblage-line-integral-results-3-1" class="xref" data-knowl="./knowl/xref/eq-mass-speed.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.6">(1.3.6)</a> to find <span class="process-math">\(b\text{,}\)</span> then the length is the arc length up to <span class="process-math">\(b\text{.}\)</span> Differentiate <a href="sec-line-integrals.html#ex-helix-wire-2-1-4" class="xref" data-knowl="./knowl/xref/eq-helix-param.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.8">(1.3.8)</a> for the speed; write the density along the curve in terms of <span class="process-math">\(t\)</span> — the double-angle identity <span class="process-math">\(2\sin t\cos t = \sin(2t)\)</span> and then the half-angle identity <span class="process-math">\(\sin^2 u = \tfrac12\left(1 - \cos(2u)\right)\)</span> make the integral elementary. Solve the resulting equation for <span class="process-math">\(b\text{,}\)</span> and say why the solution is the only one. Then compare with <a href="sec-line-integrals.html#fig-helix-wire" class="xref" data-knowl="./knowl/xref/fig-helix-wire.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.4">Figure 1.3.4</a> and <a href="sec-line-integrals.html#fig-helix-wire-video" class="xref" data-knowl="./knowl/xref/fig-helix-wire-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.5">Figure 1.3.5</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-wire-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/ex-helix-wire-2-3-1.svg" role="img" class="contained" alt="Blank box in five rows, for the velocity and speed, for the density along the curve, for the mass integral up to the unknown upper limit, for solving for that limit, and for the length of the wire."></div></div></div></div> <figure class="figure figure-like" id="fig-helix-wire"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/image-helix-wire.svg" role="img" class="contained" alt="A quarter turn of a helix rising from the point (1,0,0) to the point (0,1,pi over 2), with its shadow on the floor."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-helix-wire-description"><div class="para" id="image-helix-wire-2-1">A three-dimensional coordinate box with x and y running from minus 1.2 to 1.2 and z from 0 to 1.8. A thick blue curve, one quarter turn of a helix, starts at a red point on the floor labelled (1, 0, 0), t equals 0, and climbs steadily as it curves, ending at a red point labelled (0, 1, pi over 2), t equals pi over 2, about 1.57 units above the floor. A dashed gray quarter circle on the floor of the box shows the curve’s shadow.<div class="autopermalink" data-description="Paragraph"><a href="#image-helix-wire-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The helical wire <span class="process-math">\(\mathbf{r}(t)=\langle\cos t,\sin t,t\rangle\)</span> for <span class="process-math">\(0\le t\le \pi/2\text{,}\)</span> from its bottom end <span class="process-math">\((1,0,0)\)</span> to its top end <span class="process-math">\((0,1,\pi/2)\text{.}\)</span> The dashed gray curve is its shadow on the plane <span class="process-math">\(z=0\text{.}\)</span><div class="autopermalink" data-description="Figure 1.3.4"><a href="#fig-helix-wire" title="Copy heading and permalink for Figure 1.3.4" aria-label="Copy heading and permalink for Figure 1.3.4">🔗</a></div></figcaption></figure> <figure class="figure figure-like" id="fig-helix-wire-video"><div class="video-box" style="width: 85%;padding-top: 47.8125%; margin-left: 7.5%; margin-right: 7.5%;"><video id="video-helix-wire" class="video" controls="" poster="external/play-button.png"><source src="external/videos/helix_wire_mass_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point traverses the helical wire while the accumulated mass <span class="process-math">\(\int_0^t \rho\,\lVert\mathbf{v}\rVert\,d\tau\)</span> grows. Use it to check the mass, the value of <span class="process-math">\(b\text{,}\)</span> and the length you found.<div class="autopermalink" data-description="Figure 1.3.5"><a href="#fig-helix-wire-video" title="Copy heading and permalink for Figure 1.3.5" aria-label="Copy heading and permalink for Figure 1.3.5">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.3.3: Mass and length of a helical wire"><a href="#ex-helix-wire" title="Copy heading and permalink for Example 1.3.3: Mass and length of a helical wire" aria-label="Copy heading and permalink for Example 1.3.3: Mass and length of a helical wire">🔗</a></div></article></details><details id="ex-spiral-wire" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A wire whose density is read off the picture.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="ex-spiral-wire-2-1">
+<div class="para">A wire of length <span class="process-math">\(40\)</span> meters is parametrized as</div>
+<div class="displaymath process-math" id="ex-spiral-wire-2-1-2">
+\begin{gather}
+\mathbf{r}(t) = \left\langle t\cos(t),\ t\sin(t),\
+\frac{2\sqrt{2}}{3}\,t^{3/2} \right\rangle ,\tag{1.3.9}
+\end{gather}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-spiral-wire-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para logical" id="ex-spiral-wire-2-2">
+<div class="para">where <span class="process-math">\(x(t)\text{,}\)</span> <span class="process-math">\(y(t)\)</span> and <span class="process-math">\(z(t)\)</span> are in meters and <span class="process-math">\(t\)</span> is in seconds. Assume that the mass density at a point <span class="process-math">\(P\)</span> of the wire is</div>
+<div class="displaymath process-math" id="ex-spiral-wire-2-2-6">
+\begin{equation*}
+\rho = \frac{1}{d+1} \quad \text{kg/m} ,
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-spiral-wire-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex-spiral-wire-2-3">where <span class="process-math">\(d\)</span> is the distance from <span class="process-math">\(P\)</span> to the <span class="process-math">\(z\)</span>-axis.<div class="autopermalink" data-description="Paragraph"><a href="#ex-spiral-wire-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex-spiral-wire-2-4">The wire is graphed in <a href="sec-line-integrals.html#fig-spiral-wire" class="xref" data-knowl="./knowl/xref/fig-spiral-wire.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.3.7">Figure 1.3.7</a>. Note that there is a piece of information that has to be extracted from the graph. Calculate the mass of the wire.<div class="autopermalink" data-description="Paragraph"><a href="#ex-spiral-wire-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex-spiral-wire-2-5">
+<em class="emphasis">Solution.</em> (Equation <a href="sec-line-integrals.html#ex-spiral-wire-2-1-2" class="xref" data-knowl="./knowl/xref/eq-spiral-wire.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.9">(1.3.9)</a> is a formula for every <span class="process-math">\(t\text{,}\)</span> but a wire is a finite piece of that curve: read off the graph where the wire starts, and say which <span class="process-math">\(t\)</span> that is. The other end, <span class="process-math">\(t = b\text{,}\)</span> is what the given length will pin down. Differentiate for the speed and simplify it all the way, as for the paraglider of <a href="sec-arc-length.html#ex-paraglider" class="xref" data-knowl="./knowl/xref/ex-paraglider.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.2.7: Distance travelled by a paraglider">Example 1.2.7</a>. Set the arc length up to <span class="process-math">\(b\)</span> equal to <span class="process-math">\(40\)</span> and solve. Express <span class="process-math">\(d\text{,}\)</span> and so <span class="process-math">\(\rho\text{,}\)</span> in terms of <span class="process-math">\(t\text{.}\)</span> Then compute the mass with <a href="sec-line-integrals.html#assemblage-line-integral-results-3-1" class="xref" data-knowl="./knowl/xref/eq-mass-speed.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.6">(1.3.6)</a>; something cancels, and it is worth saying in words what that cancellation means for the wire.)<div class="autopermalink" data-description="Paragraph"><a href="#ex-spiral-wire-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/ex-spiral-wire-2-6-1.svg" role="img" class="contained" alt="Blank box in six rows, for the starting parameter value read off the graph, for the velocity and speed, for the equation that fixes the upper limit, for the density in terms of t, for the mass integral, and for the meaning of the cancellation."></div></div></div></div> <figure class="figure figure-like" id="fig-spiral-wire"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/image-spiral-wire.svg" role="img" class="contained" alt="A wire spiralling outward and upward from the origin, with its shadow on the ground."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-spiral-wire-description"><div class="para" id="image-spiral-wire-2-1">A three-dimensional coordinate box with x and y running from minus 8.5 to 8.5 and z from 0 to 22. A thick blue curve starts at a red point at the origin, marked t equals 0, and spirals outward and upward, making a little more than one full turn around the vertical axis while climbing, its radius growing steadily, until it ends high above the floor. A dashed gray spiral on the floor of the box shows the curve’s shadow.<div class="autopermalink" data-description="Paragraph"><a href="#image-spiral-wire-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The wire <a href="sec-line-integrals.html#ex-spiral-wire-2-1-2" class="xref" data-knowl="./knowl/xref/eq-spiral-wire.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.9">(1.3.9)</a>, spiralling outward and upward from the origin. The dashed gray curve is its shadow on the plane <span class="process-math">\(z=0\text{.}\)</span> The graph is what tells us the wire starts at <span class="process-math">\(t=0\text{.}\)</span><div class="autopermalink" data-description="Figure 1.3.7"><a href="#fig-spiral-wire" title="Copy heading and permalink for Figure 1.3.7" aria-label="Copy heading and permalink for Figure 1.3.7">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.3.6: A wire whose density is read off the picture"><a href="#ex-spiral-wire" title="Copy heading and permalink for Example 1.3.6: A wire whose density is read off the picture" aria-label="Copy heading and permalink for Example 1.3.6: A wire whose density is read off the picture">🔗</a></div></article></details><section class="subsection" id="subsec-line-integral-questions"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Concept Check</span>
+</h3>
+<div class="para logical" id="subsec-line-integral-questions-2">
+<div class="para">This last part of the section is not about computing anything new. It is about <em class="emphasis">reviewing</em> the concepts we have just built. Everything below refers to the two applications developed so far using line integrals, in particular the length <span class="process-math">\(L\)</span> of a wire and its mass <span class="process-math">\(M\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-line-integral-questions-2-4">
+\begin{align}
+L \amp = \int_C ds
+= \int_{t=a}^{t=b}\left\lVert\mathbf{v}(t)\right\rVert\,dt ,\tag{1.3.10}\\
+M \amp = \int_C \rho\left(x,y,z\right) ds\notag\\
+\amp = \int_{t=a}^{t=b} \rho\left(x(t),y(t),z(t)\right)
+\left\lVert\mathbf{v}(t)\right\rVert\,dt ,\tag{1.3.11}
+\end{align}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-line-integral-questions-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-line-integral-questions-3">where <a href="sec-line-integrals.html#subsec-line-integral-questions-2-4" class="xref" data-knowl="./knowl/xref/eq-question-mass.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.11">(1.3.11)</a> is <a href="sec-line-integrals.html#assemblage-line-integral-results-3-1" class="xref" data-knowl="./knowl/xref/eq-mass-speed.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.6">(1.3.6)</a> again and <a href="sec-line-integrals.html#subsec-line-integral-questions-2-4" class="xref" data-knowl="./knowl/xref/eq-question-length.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.10">(1.3.10)</a> is the case <span class="process-math">\(\rho = 1\)</span>—the arc length <a href="sec-arc-length.html#eq-arc-length-2d" class="xref" data-knowl="./knowl/xref/eq-arc-length-2d.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.2.1">(1.2.1)</a> once more. Assume throughout that the thickness of the wire can be ignored.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-line-integral-questions-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="q-line-integral-symbols" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reading the two formulas.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-line-integral-symbols-2-1">In <a href="sec-line-integrals.html#subsec-line-integral-questions-2-4" class="xref" data-knowl="./knowl/xref/eq-question-length.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.10">(1.3.10)</a> and <a href="sec-line-integrals.html#subsec-line-integral-questions-2-4" class="xref" data-knowl="./knowl/xref/eq-question-mass.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.11">(1.3.11)</a>, what do <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(C\text{,}\)</span> <span class="process-math">\(dt\text{,}\)</span> <span class="process-math">\(\mathbf{v}\)</span> and <span class="process-math">\(\rho(x,y,z)\)</span> represent?<div class="autopermalink" data-description="Paragraph"><a href="#q-line-integral-symbols-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-line-integral-symbols-2-2-1.svg" role="img" class="contained" alt="Blank box with four labelled rows, for the meaning of a, b and t, of C and dt, of the velocity vector, and of the density."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.8: Reading the two formulas"><a href="#q-line-integral-symbols" title="Copy heading and permalink for Checkpoint 1.3.8: Reading the two formulas" aria-label="Copy heading and permalink for Checkpoint 1.3.8: Reading the two formulas">🔗</a></div></article></details><details id="q-ds-dr" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The two line elements.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-ds-dr-2-1">Take two nearby points of the wire, the ones reached at the parameter values <span class="process-math">\(t_{k-1}\)</span> and <span class="process-math">\(t_k\text{.}\)</span> Write <span class="process-math">\(\Delta \mathbf{r}
+= \mathbf{r}(t_k) - \mathbf{r}(t_{k-1})\)</span> for the displacement from the first to the second, and <span class="process-math">\(\Delta s_k\)</span> for the length of the piece of wire joining them. Intuitively speaking, what do <span class="process-math">\(ds\)</span> and <span class="process-math">\(d\mathbf{r}\)</span> represent, and what happens to <span class="process-math">\(\Delta s_k\)</span> and <span class="process-math">\(\Delta \mathbf{r}\)</span> in the limit that produces them?<div class="autopermalink" data-description="Paragraph"><a href="#q-ds-dr-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig-ds-dr"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/ds-dr-diagcess.svg" data-cml="generated/prefigure/ds-dr-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-ds-dr-description"><div class="para" id="image-ds-dr-2-1">A smooth curve rises across the first quadrant. Two points on it, reached at the parameter values t sub k minus one and t sub k, are joined to the origin by two thin position vectors, labeled r of t sub k minus one and r of t sub k. A green arrow runs straight from the first point to the second and is labeled delta r, the difference of the two position vectors. The piece of curve between the same two points is drawn thickly in orange and labeled delta s sub k. The straight arrow cuts across inside the bend of the curve, so it is visibly shorter than the arc.<div class="autopermalink" data-description="Paragraph"><a href="#image-ds-dr-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two nearby points of a curve <span class="process-math">\(C\text{,}\)</span> at the parameter values <span class="process-math">\(t_{k-1}\)</span> and <span class="process-math">\(t_k\text{.}\)</span> The straight arrow is the displacement <span class="process-math">\(\Delta \mathbf{r}
+= \mathbf{r}(t_k) - \mathbf{r}(t_{k-1})\text{;}\)</span> the thick piece of curve joining the same two points has length <span class="process-math">\(\Delta s_k\text{.}\)</span> The chord is straight and the arc is not, so the two differ—but less and less as the points come together.<div class="autopermalink" data-description="Figure 1.3.10"><a href="#fig-ds-dr" title="Copy heading and permalink for Figure 1.3.10" aria-label="Copy heading and permalink for Figure 1.3.10">🔗</a></div></figcaption></figure> <div class="para" id="q-ds-dr-2-3">(Say which of the two is a number and which a vector, and what each one records about the step. Then take the limit in <a href="sec-line-integrals.html#fig-ds-dr" class="internal" title="Figure 1.3.10">Figure 1.3.10</a>: divide <span class="process-math">\(\Delta\mathbf{r}\)</span> by <span class="process-math">\(\Delta t_k\)</span> and let the points come together; do the same for the arc, using the fact that the ratio of arc to chord tends to <span class="process-math">\(1\text{.}\)</span> Which substitution from earlier in the section is this?)<div class="autopermalink" data-description="Paragraph"><a href="#q-ds-dr-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-ds-dr-2-4-1.svg" role="img" class="contained" alt="Blank box in three rows, for the meaning of the vector and scalar line elements, for the limit of the displacement divided by the time step, and for the limit of the arc length of the step."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.9: The two line elements"><a href="#q-ds-dr" title="Copy heading and permalink for Checkpoint 1.3.9: The two line elements" aria-label="Copy heading and permalink for Checkpoint 1.3.9: The two line elements">🔗</a></div></article></details><details id="q-units" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Units.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-units-2-1">If we use meters and kilograms as the units of length and mass respectively, then what will the units of <span class="process-math">\(\rho(x,y,z)\)</span> and <span class="process-math">\(ds\)</span> be?<div class="autopermalink" data-description="Paragraph"><a href="#q-units-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-units-2-2-1.svg" role="img" class="contained" alt="Blank box with one row, for the units of the density, of the line element, and of their product."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.11: Units"><a href="#q-units" title="Copy heading and permalink for Checkpoint 1.3.11: Units" aria-label="Copy heading and permalink for Checkpoint 1.3.11: Units">🔗</a></div></article></details><details id="q-integrand" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">What is being integrated?</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-integrand-2-1">In the above applications of line integrals of scalar functions <span class="process-math">\(\int_C f(x,y,z)\,ds\text{,}\)</span> what is the scalar function that is being integrated (the integrand) along the wire?<div class="autopermalink" data-description="Paragraph"><a href="#q-integrand-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-integrand-2-2-1.svg" role="img" class="contained" alt="Blank box with one row, for the integrand of the mass integral and the integrand of the length integral."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.12: What is being integrated?"><a href="#q-integrand" title="Copy heading and permalink for Checkpoint 1.3.12: What is being integrated?" aria-label="Copy heading and permalink for Checkpoint 1.3.12: What is being integrated?">🔗</a></div></article></details><figure class="figure figure-like" id="fig-square-circle-wires"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/square-circle-wires-diagcess.svg" data-cml="generated/prefigure/square-circle-wires-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-square-circle-wires-description"><div class="para" id="image-square-circle-wires-2-1">A coordinate grid showing two closed curves. The first is a circle of radius two centered at the origin, passing through the marked point two comma zero. The second is a square inscribed in that circle, with horizontal and vertical sides and with its four vertices, at plus or minus root two in each coordinate, lying on the circle. The square’s sides therefore cut across the inside of the circle.<div class="autopermalink" data-description="Paragraph"><a href="#image-square-circle-wires-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two wires: the circle of radius <span class="process-math">\(2\)</span> centered at the origin, and the square inscribed in it, whose vertices <span class="process-math">\(\left(\pm\sqrt{2},\pm\sqrt{2}\right)\)</span> lie on the circle.<div class="autopermalink" data-description="Figure 1.3.13"><a href="#fig-square-circle-wires" title="Copy heading and permalink for Figure 1.3.13" aria-label="Copy heading and permalink for Figure 1.3.13">🔗</a></div></figcaption></figure><details id="q-circular-wire-mass" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.14</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A mass with no parametrization.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-circular-wire-mass-2-1">Assume that the density of the circular wire in <a href="sec-line-integrals.html#fig-square-circle-wires" class="internal" title="Figure 1.3.13">Figure 1.3.13</a> is given by <span class="process-math">\(\rho(x,y) = \dfrac{1}{x^2+y^2+1}\text{.}\)</span> <em class="emphasis">Without parametrizing</em>, find its mass.<div class="autopermalink" data-description="Paragraph"><a href="#q-circular-wire-mass-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="q-circular-wire-mass-2-2">(What is <span class="process-math">\(x^2+y^2\)</span> <em class="emphasis">along the curve</em>? Then the integrand is a constant, and what is left is the length <a href="sec-line-integrals.html#subsec-line-integral-questions-2-4" class="xref" data-knowl="./knowl/xref/eq-question-length.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.3.10">(1.3.10)</a> of the wire.)<div class="autopermalink" data-description="Paragraph"><a href="#q-circular-wire-mass-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-circular-wire-mass-2-3-1.svg" role="img" class="contained" alt="Blank box in two rows, for the value of the density along the circle and for the mass as that constant times the length."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.14: A mass with no parametrization"><a href="#q-circular-wire-mass" title="Copy heading and permalink for Checkpoint 1.3.14: A mass with no parametrization" aria-label="Copy heading and permalink for Checkpoint 1.3.14: A mass with no parametrization">🔗</a></div></article></details><details id="q-radius-independence" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Does the radius matter?</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-radius-independence-2-1">Assume that the mass density of a circular wire of radius <span class="process-math">\(R\)</span> centered at the origin is given by <span class="process-math">\(\rho(x,y) = \dfrac{1}{\sqrt{x^2+y^2}}\text{.}\)</span> Which statement is correct?<div class="autopermalink" data-description="Paragraph"><a href="#q-radius-independence-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="upper-alpha ol-marker-1" id="q-radius-independence-2-2">
+<li id="q-radius-independence-2-2-1">
+<div class="para" id="q-radius-independence-2-2-1-1">The mass of the wire is independent of its radius <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#q-radius-independence-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.15.A"><a href="#q-radius-independence-2-2-1" title="Copy heading and permalink for Item 1.3.15.A" aria-label="Copy heading and permalink for Item 1.3.15.A">🔗</a></div>
+</li>
+<li id="q-radius-independence-2-2-2">
+<div class="para" id="q-radius-independence-2-2-2-1">The mass of the wire increases as <span class="process-math">\(R\)</span> increases.<div class="autopermalink" data-description="Paragraph"><a href="#q-radius-independence-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.15.B"><a href="#q-radius-independence-2-2-2" title="Copy heading and permalink for Item 1.3.15.B" aria-label="Copy heading and permalink for Item 1.3.15.B">🔗</a></div>
+</li>
+<li id="q-radius-independence-2-2-3">
+<div class="para" id="q-radius-independence-2-2-3-1">The mass of the wire decreases as <span class="process-math">\(R\)</span> decreases.<div class="autopermalink" data-description="Paragraph"><a href="#q-radius-independence-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.15.C"><a href="#q-radius-independence-2-2-3" title="Copy heading and permalink for Item 1.3.15.C" aria-label="Copy heading and permalink for Item 1.3.15.C">🔗</a></div>
+</li>
+</ol> <div class="para" id="q-radius-independence-2-3">(Circle your choice and justify it: what is <span class="process-math">\(\rho\)</span> on the circle of radius <span class="process-math">\(R\text{,}\)</span> and what does that make <span class="process-math">\(M\text{?}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#q-radius-independence-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-radius-independence-2-4-1.svg" role="img" class="contained" alt="Blank box with one row, for the density on the circle of radius R and the resulting mass."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.15: Does the radius matter?"><a href="#q-radius-independence" title="Copy heading and permalink for Checkpoint 1.3.15: Does the radius matter?" aria-label="Copy heading and permalink for Checkpoint 1.3.15: Does the radius matter?">🔗</a></div></article></details><details id="q-square-vs-circle-mass" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Which wire is heavier?</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-square-vs-circle-mass-2-1">Assume that the density of the square-shaped wire and of the circular wire graphed in <a href="sec-line-integrals.html#fig-square-circle-wires" class="internal" title="Figure 1.3.13">Figure 1.3.13</a> is given by <span class="process-math">\(\rho(x,y) = x^2+y^2\text{.}\)</span> Then, without parametrizing the curves, choose the correct option below. Which statement is correct?<div class="autopermalink" data-description="Paragraph"><a href="#q-square-vs-circle-mass-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="upper-alpha ol-marker-1" id="q-square-vs-circle-mass-2-2">
+<li id="q-square-vs-circle-mass-2-2-1">
+<div class="para" id="q-square-vs-circle-mass-2-2-1-1">The circular wire is heavier.<div class="autopermalink" data-description="Paragraph"><a href="#q-square-vs-circle-mass-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.16.A"><a href="#q-square-vs-circle-mass-2-2-1" title="Copy heading and permalink for Item 1.3.16.A" aria-label="Copy heading and permalink for Item 1.3.16.A">🔗</a></div>
+</li>
+<li id="q-square-vs-circle-mass-2-2-2">
+<div class="para" id="q-square-vs-circle-mass-2-2-2-1">The square-shaped wire is heavier.<div class="autopermalink" data-description="Paragraph"><a href="#q-square-vs-circle-mass-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.16.B"><a href="#q-square-vs-circle-mass-2-2-2" title="Copy heading and permalink for Item 1.3.16.B" aria-label="Copy heading and permalink for Item 1.3.16.B">🔗</a></div>
+</li>
+<li id="q-square-vs-circle-mass-2-2-3">
+<div class="para" id="q-square-vs-circle-mass-2-2-3-1">The two wires have the same mass.<div class="autopermalink" data-description="Paragraph"><a href="#q-square-vs-circle-mass-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.16.C"><a href="#q-square-vs-circle-mass-2-2-3" title="Copy heading and permalink for Item 1.3.16.C" aria-label="Copy heading and permalink for Item 1.3.16.C">🔗</a></div>
+</li>
+</ol> <div class="para" id="q-square-vs-circle-mass-2-3">(Circle your choice and justify it. On the circle, <span class="process-math">\(x^2+y^2\)</span> is constant, so its mass is that constant times its circumference. For the square you do not need the exact mass: the square is inscribed in the circle, so bound <span class="process-math">\(x^2+y^2\)</span> on the square from above and multiply by its perimeter. Is the bound strict?)<div class="autopermalink" data-description="Paragraph"><a href="#q-square-vs-circle-mass-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-square-vs-circle-mass-2-4-1.svg" role="img" class="contained" alt="Blank box in three rows, for the mass of the circular wire, for the upper bound on the mass of the square wire, and for the conclusion."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.16: Which wire is heavier?"><a href="#q-square-vs-circle-mass" title="Copy heading and permalink for Checkpoint 1.3.16: Which wire is heavier?" aria-label="Copy heading and permalink for Checkpoint 1.3.16: Which wire is heavier?">🔗</a></div></article></details><details id="q-charge-symmetry" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A charged wire.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-charge-symmetry-2-1">Assume that the charge density of the square-shaped wire and of the circular wire graphed in <a href="sec-line-integrals.html#fig-square-circle-wires" class="internal" title="Figure 1.3.13">Figure 1.3.13</a> is given by <span class="process-math">\(\rho(x,y) = \left|x\right| - \left|y\right|\text{.}\)</span> Then, without parametrizing the curves, choose the correct option(s) below. Select all that apply.<div class="autopermalink" data-description="Paragraph"><a href="#q-charge-symmetry-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="upper-alpha ol-marker-1" id="q-charge-symmetry-2-2">
+<li id="q-charge-symmetry-2-2-1">
+<div class="para" id="q-charge-symmetry-2-2-1-1">The circular wire is negatively charged.<div class="autopermalink" data-description="Paragraph"><a href="#q-charge-symmetry-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.17.A"><a href="#q-charge-symmetry-2-2-1" title="Copy heading and permalink for Item 1.3.17.A" aria-label="Copy heading and permalink for Item 1.3.17.A">🔗</a></div>
+</li>
+<li id="q-charge-symmetry-2-2-2">
+<div class="para" id="q-charge-symmetry-2-2-2-1">The square-shaped wire is positively charged.<div class="autopermalink" data-description="Paragraph"><a href="#q-charge-symmetry-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.17.B"><a href="#q-charge-symmetry-2-2-2" title="Copy heading and permalink for Item 1.3.17.B" aria-label="Copy heading and permalink for Item 1.3.17.B">🔗</a></div>
+</li>
+<li id="q-charge-symmetry-2-2-3">
+<div class="para" id="q-charge-symmetry-2-2-3-1">In both cases (square and circular wires) the amount of positive charge is equal to the amount of negative charge.<div class="autopermalink" data-description="Paragraph"><a href="#q-charge-symmetry-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1.3.17.C"><a href="#q-charge-symmetry-2-2-3" title="Copy heading and permalink for Item 1.3.17.C" aria-label="Copy heading and permalink for Item 1.3.17.C">🔗</a></div>
+</li>
+</ol> <div class="para" id="q-charge-symmetry-2-3">(Draw the quarter of each wire lying in the first quadrant, where <span class="process-math">\(\rho = x - y\text{,}\)</span> together with the line <span class="process-math">\(y = x\text{,}\)</span> and mark where the density is positive and where it is negative. Now reflect in that line, that is, interchange <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{:}\)</span> what does the reflection do to each shape, to lengths, and to <span class="process-math">\(\rho\text{?}\)</span> Conclude what the charge on that quarter is, and then on the whole wire.)<div class="autopermalink" data-description="Paragraph"><a href="#q-charge-symmetry-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;grid-template-columns:47.9166666666667% 47.9166666666667%;column-gap:4%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-charge-symmetry-2-4-1.svg" role="img" class="contained" alt="Empty first-quadrant grid running from zero to two and a half in each direction, for drawing the quarter of the circular wire, the quarter of the square wire, and the line y equals x."></div></div>
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-charge-symmetry-2-4-2.svg" role="img" class="contained" alt="Blank box in three rows, for the sign of the density on either side of the line y equals x, for the effect of the reflection on the density, and for the conclusion."></div></div>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.17: A charged wire"><a href="#q-charge-symmetry" title="Copy heading and permalink for Checkpoint 1.3.17: A charged wire" aria-label="Copy heading and permalink for Checkpoint 1.3.17: A charged wire">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.3.2: Concept Check"><a href="#subsec-line-integral-questions" title="Copy heading and permalink for Subsection 1.3.2: Concept Check" aria-label="Copy heading and permalink for Subsection 1.3.2: Concept Check">🔗</a></div></section><div class="autopermalink" data-description="Section 1.3: Line Integrals"><a href="#sec-line-integrals" title="Copy heading and permalink for Section 1.3: Line Integrals" aria-label="Copy heading and permalink for Section 1.3: Line Integrals">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-arc-length.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-vector-fields.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>

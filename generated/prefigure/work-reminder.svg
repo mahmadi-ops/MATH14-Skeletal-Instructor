@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="work-reminder-figure" width="570" height="310" viewBox="0 0 570 310">
+  <defs>
+    <clipPath id="work-reminder-clipPath-0">
+      <rect x="5.0" y="5.0" width="560.0" height="300.0"/>
+    </clipPath>
+    <clipPath id="work-reminder-clipPath-1">
+      <rect x="5.0" y="5.0" width="560.0" height="300.0"/>
+    </clipPath>
+    <marker id="work-reminder-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="work-reminder-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="work-reminder-arrow-head-end-3_6_24_60-red" markerWidth="20.2" markerHeight="18.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="16.5" refY="9.0">
+      <path d="M 20.2 9.0L 0.0 18.0L 4.3 10.5L 4.3 7.5L 0.0 0.0Z" fill="red" stroke="none"/>
+    </marker>
+    <marker id="work-reminder-arrow-head-end-3_6_24_60-red-outline" markerWidth="24.2" markerHeight="22.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="18.5" refY="11.0">
+      <path d="M 23.0 12.8 L 2.8 21.8 A 2 2 0 0 1 0.0 20.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 23.0 9.2 A 2 2 0 0 1 23.0 12.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="work-reminder-arrow-head-end-3_6_24_60-blue" markerWidth="20.2" markerHeight="18.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="16.5" refY="9.0">
+      <path d="M 20.2 9.0L 0.0 18.0L 4.3 10.5L 4.3 7.5L 0.0 0.0Z" fill="blue" stroke="none"/>
+    </marker>
+    <marker id="work-reminder-arrow-head-end-3_6_24_60-blue-outline" markerWidth="24.2" markerHeight="22.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="18.5" refY="11.0">
+      <path d="M 23.0 12.8 L 2.8 21.8 A 2 2 0 0 1 0.0 20.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 23.0 9.2 A 2 2 0 0 1 23.0 12.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="work-reminder-arrow-head-end-3_None_24_60-h009E73" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+    </marker>
+    <marker id="work-reminder-arrow-head-end-3_None_24_60-h009E73-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="work-reminder-ground">
+    <line id="work-reminder-line-0" x1="27.4" y1="178.1" x2="535.1" y2="178.1" stroke="black" stroke-width="2" fill="none" marker-end="url(#work-reminder-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="work-reminder-boxes">
+    <path id="work-reminder-path-0" d="M 87.1 178.1 L 124.5 178.1 L 124.5 133.3 L 87.1 133.3 Z" stroke="black" stroke-width="2" fill="#d9d9d9"/>
+    <path id="work-reminder-path-1" d="M 430.6 178.1 L 467.9 178.1 L 467.9 133.3 L 430.6 133.3 Z" stroke="#b3b3b3" stroke-width="2" fill="#f2f2f2"/>
+  </g>
+  <g id="work-reminder-force">
+    <path id="work-reminder-path-2" stroke="red" stroke-width="3" fill="none" d="M 105.8 133.3 L 192.2 30.3" marker-end="url(#work-reminder-arrow-head-end-3_6_24_60-red)"/>
+    <g id="work-reminder-label-0" transform="translate(201.6,27.2) translate(0.0,-6.2)">
+      <g id="work-reminder-g-0">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:red" width="13.104px" height="12.304px" role="img" focusable="false" viewBox="0 -680 724 680" x="0.0" y="0.0">
+          <defs>
+            <path id="work-reminder-MJX-2-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F">
+                  <use data-c="1D405" xlink:href="#work-reminder-MJX-2-TEX-B-1D405"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <path id="work-reminder-path-3" d="M 152.1 133.3 L 152.1 132.9 L 152.1 132.5 L 152.1 132.1 L 152.1 131.7 L 152.0 131.2 L 152.0 130.8 L 152.0 130.4 L 152.0 130.0 L 152.0 129.6 L 151.9 129.2 L 151.9 128.8 L 151.8 128.4 L 151.8 128.0 L 151.7 127.6 L 151.7 127.2 L 151.6 126.8 L 151.6 126.4 L 151.5 126.0 L 151.5 125.6 L 151.4 125.2 L 151.3 124.8 L 151.2 124.4 L 151.2 124.0 L 151.1 123.6 L 151.0 123.2 L 150.9 122.9 L 150.8 122.5 L 150.7 122.1 L 150.6 121.7 L 150.5 121.3 L 150.4 120.9 L 150.3 120.5 L 150.2 120.1 L 150.1 119.7 L 150.0 119.3 L 149.8 119.0 L 149.7 118.6 L 149.6 118.2 L 149.4 117.8 L 149.3 117.4 L 149.2 117.1 L 149.0 116.7 L 148.9 116.3 L 148.7 115.9 L 148.6 115.6 L 148.4 115.2 L 148.3 114.8 L 148.1 114.4 L 147.9 114.1 L 147.8 113.7 L 147.6 113.3 L 147.4 113.0 L 147.2 112.6 L 147.0 112.2 L 146.9 111.9 L 146.7 111.5 L 146.5 111.2 L 146.3 110.8 L 146.1 110.5 L 145.9 110.1 L 145.7 109.8 L 145.5 109.4 L 145.3 109.1 L 145.1 108.7 L 144.8 108.4 L 144.6 108.1 L 144.4 107.7 L 144.2 107.4 L 144.0 107.0 L 143.7 106.7 L 143.5 106.4 L 143.3 106.1 L 143.0 105.7 L 142.8 105.4 L 142.5 105.1 L 142.3 104.8 L 142.0 104.4 L 141.8 104.1 L 141.5 103.8 L 141.3 103.5 L 141.0 103.2 L 140.7 102.9 L 140.5 102.6 L 140.2 102.3 L 139.9 102.0 L 139.7 101.7 L 139.4 101.4 L 139.1 101.1 L 138.8 100.8 L 138.5 100.5 L 138.2 100.2 L 138.0 100.0 L 137.7 99.7 L 137.4 99.4 L 137.1 99.1 L 136.8 98.9 L 136.5 98.6 L 136.2 98.3 L 135.9 98.1" stroke="black" stroke-width="1" fill="none"/>
+    <g id="work-reminder-label-1" transform="translate(182.7,101.9) translate(-5.8,-4.1)">
+      <g id="work-reminder-g-1">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="11.584px" height="8.200px" role="img" focusable="false" viewBox="0 -442 640 453" x="0.0" y="0.0">
+          <defs>
+            <path id="work-reminder-MJX-3-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="alpha">
+                <use data-c="1D6FC" xlink:href="#work-reminder-MJX-3-TEX-I-1D6FC"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="work-reminder-component">
+    <path id="work-reminder-path-4" stroke="blue" stroke-width="3" fill="none" d="M 105.8 133.3 L 192.2 133.3" marker-end="url(#work-reminder-arrow-head-end-3_6_24_60-blue)"/>
+    <g id="work-reminder-label-2" transform="translate(203.1,155.7) translate(0.0,-9.0)">
+      <g id="work-reminder-g-2">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px; color:blue" width="92.896px" height="18.096px" role="img" focusable="false" viewBox="0 -750 5132.7 1000" x="0.0" y="0.0">
+          <defs>
+            <path id="work-reminder-MJX-4-TEX-N-2225" d="M133 736Q138 750 153 750Q164 750 170 739Q172 735 172 250T170 -239Q164 -250 152 -250Q144 -250 138 -244L137 -243Q133 -241 133 -179T132 250Q132 731 133 736ZM329 739Q334 750 346 750Q353 750 361 744L362 743Q366 741 366 679T367 250T367 -178T362 -243L361 -244Q355 -250 347 -250Q335 -250 329 -239Q327 -235 327 250T329 739Z"/>
+            <path id="work-reminder-MJX-4-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+            <path id="work-reminder-MJX-4-TEX-N-2062" d=""/>
+            <path id="work-reminder-MJX-4-TEX-N-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"/>
+            <path id="work-reminder-MJX-4-TEX-N-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"/>
+            <path id="work-reminder-MJX-4-TEX-N-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"/>
+            <path id="work-reminder-MJX-4-TEX-N-2061" d=""/>
+            <path id="work-reminder-MJX-4-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+            <path id="work-reminder-MJX-4-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"/>
+            <path id="work-reminder-MJX-4-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+            <path id="work-reminder-MJX-4-TEX-B-1D422" d="M72 610Q72 649 98 672T159 695Q193 693 217 670T241 610Q241 572 217 549T157 525Q120 525 96 548T72 610ZM46 442L136 446L226 450H232V62H294V0H286Q271 3 171 3Q67 3 49 0H40V62H109V209Q109 358 108 362Q103 380 55 380H43V442H46Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:unit" data-semantic-id="16" data-semantic-children="3,13,10" data-semantic-content="14,15" data-semantic-speech="StartMetric bold upper F EndMetric cosine left parenthesis alpha right parenthesis bold i">
+              <g data-mml-node="TeXAtom" data-semantic-type="fenced" data-semantic-role="metric" data-semantic-id="3" data-semantic-children="1" data-semantic-content="0,2" data-semantic-parent="16" data-semantic-attributes="texclass:INNER" data-semantic-speech="StartMetric bold upper F EndMetric" data-mjx-texclass="INNER">
+                <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="metric" data-semantic-id="0" data-semantic-parent="3" data-semantic-attributes="texclass:OPEN" data-semantic-operator="fenced" data-semantic-speech="double vertical bar">
+                  <use data-c="2225" xlink:href="#work-reminder-MJX-4-TEX-N-2225"/>
+                </g>
+                <g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(500,0)">
+                  <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="3" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F">
+                    <use data-c="1D405" xlink:href="#work-reminder-MJX-4-TEX-B-1D405"/>
+                  </g>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="metric" data-semantic-id="2" data-semantic-parent="3" data-semantic-attributes="texclass:CLOSE" data-semantic-operator="fenced" data-semantic-speech="double vertical bar" transform="translate(1224,0)">
+                  <use data-c="2225" xlink:href="#work-reminder-MJX-4-TEX-N-2225"/>
+                </g>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="14" data-semantic-parent="16" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(1724,0)">
+                <use data-c="2062" xlink:href="#work-reminder-MJX-4-TEX-N-2062"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="prefix function" data-semantic-annotation="clearspeak:simple" data-semantic-id="13" data-semantic-children="4,11" data-semantic-content="12,4" data-semantic-parent="16" data-semantic-speech="cosine left parenthesis alpha right parenthesis" transform="translate(1890.7,0)">
+                <g data-mml-node="mi" data-semantic-type="function" data-semantic-role="prefix function" data-semantic-font="normal" data-semantic-id="4" data-semantic-parent="13" data-semantic-operator="appl" data-semantic-speech="cosine">
+                  <use data-c="63" xlink:href="#work-reminder-MJX-4-TEX-N-63"/>
+                  <use data-c="6F" xlink:href="#work-reminder-MJX-4-TEX-N-6F" transform="translate(444,0)"/>
+                  <use data-c="73" xlink:href="#work-reminder-MJX-4-TEX-N-73" transform="translate(944,0)"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="12" data-semantic-parent="13" data-semantic-attributes="texclass:NONE" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(1338,0)">
+                  <use data-c="2061" xlink:href="#work-reminder-MJX-4-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="11" data-semantic-children="7" data-semantic-content="6,8" data-semantic-parent="13" data-semantic-speech="left parenthesis alpha right parenthesis" transform="translate(1338,0)">
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="6" data-semantic-parent="11" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                    <use data-c="28" xlink:href="#work-reminder-MJX-4-TEX-N-28"/>
+                  </g>
+                  <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="7" data-semantic-parent="11" data-semantic-speech="alpha" transform="translate(389,0)">
+                    <use data-c="1D6FC" xlink:href="#work-reminder-MJX-4-TEX-I-1D6FC"/>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="8" data-semantic-parent="11" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(1029,0)">
+                    <use data-c="29" xlink:href="#work-reminder-MJX-4-TEX-N-29"/>
+                  </g>
+                </g>
+              </g>
+              <g data-mml-node="mstyle" transform="translate(4646.7,0)">
+                <g data-mml-node="mspace"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="15" data-semantic-parent="16" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(4813.7,0)">
+                <use data-c="2062" xlink:href="#work-reminder-MJX-4-TEX-N-2062"/>
+              </g>
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(4813.7,0)">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="10" data-semantic-parent="16" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold i">
+                  <use data-c="1D422" xlink:href="#work-reminder-MJX-4-TEX-B-1D422"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="work-reminder-displacement">
+    <circle id="work-reminder-circle-0" cx="105.8" cy="155.7" r="3.5" stroke="black" stroke-width="2" fill="black"/>
+    <circle id="work-reminder-circle-1" cx="449.3" cy="155.7" r="3.5" stroke="#8c8c8c" stroke-width="2" fill="#8c8c8c"/>
+    <line id="work-reminder-line-1" x1="105.8" y1="155.7" x2="105.8" y2="241.5" stroke="#8c8c8c" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+    <line id="work-reminder-line-2" x1="449.3" y1="155.7" x2="449.3" y2="241.5" stroke="#8c8c8c" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+    <line id="work-reminder-line-3" x1="105.8" y1="228.8" x2="449.3" y2="228.8" stroke="#009E73" stroke-width="3" stroke-dasharray="7 4" fill="none" marker-end="url(#work-reminder-arrow-head-end-3_None_24_60-h009E73)" marker-start="url(#work-reminder-arrow-head-end-3_None_24_60-h009E73)"/>
+    <g id="work-reminder-label-3" transform="translate(277.5,267.7) translate(-9.2,-6.6)">
+      <g id="work-reminder-g-3">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#009E73" width="18.392px" height="13.176px" role="img" focusable="false" viewBox="0 -717 1016 728" x="0.0" y="0.0">
+          <defs>
+            <path id="work-reminder-MJX-5-TEX-I-1D6FF" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"/>
+            <path id="work-reminder-MJX-5-TEX-N-2062" d=""/>
+            <path id="work-reminder-MJX-5-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="3" data-semantic-children="0,1" data-semantic-content="2" data-semantic-speech="delta x">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="delta">
+                <use data-c="1D6FF" xlink:href="#work-reminder-MJX-5-TEX-I-1D6FF"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="2" data-semantic-parent="3" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(444,0)">
+                <use data-c="2062" xlink:href="#work-reminder-MJX-5-TEX-N-2062"/>
+              </g>
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="3" data-semantic-speech="x" transform="translate(444,0)">
+                <use data-c="1D465" xlink:href="#work-reminder-MJX-5-TEX-I-1D465"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+</svg>

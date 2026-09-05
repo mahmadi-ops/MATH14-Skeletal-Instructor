@@ -1,0 +1,21 @@
+# GeoGebra Classic (3D view) — Paraglider distance travelled (3D)
+# Open a 3D Graphics view, paste these into the input bar one per row,
+# then File > Share to publish and obtain a material ID.
+
+t = Slider(0, 9, 0.01)
+SetValue(t, 4.5)
+path = Curve(u cos(u), u sin(u), 9 sqrt(8) - sqrt(8)/3 u^(3/2), u, 0, 9)
+SetColor(path, 0, 102, 204)
+SetLineThickness(path, 5)
+P = (t cos(t), t sin(t), 9 sqrt(8) - sqrt(8)/3 t^(3/2))
+SetColor(P, 255, 102, 0)
+SetPointSize(P, 6)
+A = (0, 0, 9 sqrt(8))
+SetColor(A, 204, 0, 0)
+B = (9 cos(9), 9 sin(9), 0)
+SetColor(B, 204, 0, 0)
+s = t^2 / 2 + t
+speed = Text("|v(t)| = t + 1", (-9, 9, 27))
+dist = Text("Distance travelled  s(t) = " + Round(s, 3), (-9, 9, 24))
+
+# Tip: right-click t and choose "Animation On" to fly the paraglider down.

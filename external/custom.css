@@ -1,0 +1,164 @@
+/* ------------------------------------------------------------------ *
+ * Floating Socratic AI tutor (assignment pages) — see custom.js.       *
+ * ------------------------------------------------------------------ */
+#m14-tutor-fab {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 3000;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    padding: 16px 28px;
+    font: 700 19px/1 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.3px;
+    background: #205f80;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+#m14-tutor-fab:hover { background: #2b7aa3; transform: scale(1.04); }
+
+/* One-time attention pulse on a student's first visit — see custom.js. */
+@keyframes m14-tutor-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4); }
+    50% { transform: scale(1.14); box-shadow: 0 6px 30px rgba(32, 95, 128, 0.75); }
+}
+#m14-tutor-fab.m14-pulse { animation: m14-tutor-pulse 0.9s ease-in-out 2; }
+@media (prefers-reduced-motion: reduce) {
+    #m14-tutor-fab.m14-pulse { animation: none; }
+}
+@media (max-width: 600px) {
+    #m14-tutor-fab { padding: 13px 20px; font-size: 16px; }
+}
+
+#m14-tutor-panel {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 3000;
+    width: 390px;
+    max-width: calc(100vw - 24px);
+    height: min(72vh, 580px);
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #b9b9b9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
+}
+#m14-tutor-panel.m14-open { display: flex; }
+
+#m14-tutor-bar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #205f80;
+    color: #fff;
+    font: 600 13.5px/1.2 "Open Sans", "Helvetica Neue", Arial, sans-serif;
+}
+#m14-tutor-min {
+    border: none;
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    border-radius: 5px;
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+#m14-tutor-min:hover { background: rgba(255, 255, 255, 0.32); }
+
+#m14-tutor-frame {
+    flex: 1 1 auto;
+    width: 100%;
+    border: none;
+}
+
+@media (max-width: 600px) {
+    #m14-tutor-panel {
+        right: 8px;
+        bottom: 8px;
+        height: 68vh;
+    }
+}
+@media print {
+    #m14-tutor-fab, #m14-tutor-panel { display: none !important; }
+}
+
+/* --- "PDF" button in the navigation bar ------------------------------
+ *
+ * custom.js inserts an <a class="pdf-button button"> into the navbar, just
+ * before the Prev/Up/Next group. Its neighbours are all flat grey segments,
+ * so the PDF button is filled with the book's own accent instead: these notes
+ * are meant to be completed by hand, and the PDF is the copy students
+ * actually work on, so it should be the thing the eye lands on.
+ *
+ * Colours come from the theme's variables rather than literals, so the button
+ * follows whatever theme the reader has chosen.
+ */
+.ptx-navbar .pdf-button {
+  background-color: var(--primary-color);
+  color: var(--primary-color-white-97);
+  border-color: var(--primary-color);
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  /* Inset from the segmented bar so it reads as its own pill. */
+  margin: 0 8px;
+  padding: 0 14px;
+  min-height: 26px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+}
+
+.ptx-navbar .pdf-button:hover:not(.disabled) {
+  background-color: var(--primary-color-black-20);
+  border-color: var(--primary-color-black-20);
+  color: var(--primary-color-white-97);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 38%);
+  transform: translateY(-1px);
+}
+
+.ptx-navbar .pdf-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
+}
+
+/* Keyboard users get a visible ring that is not the accent colour itself. */
+.ptx-navbar .pdf-button:focus-visible {
+  outline: 3px solid var(--primary-color-white-97);
+  outline-offset: -6px;
+}
+
+/* Motion is decoration here; drop it when the reader has asked for less. */
+@media (prefers-reduced-motion: no-preference) {
+  .ptx-navbar .pdf-button {
+    transition: background-color 120ms ease, box-shadow 120ms ease,
+      transform 120ms ease;
+  }
+}
+
+/* Windows high-contrast mode drops background colours; keep a real border so
+ * the button does not dissolve into the bar. */
+@media (forced-colors: active) {
+  .ptx-navbar .pdf-button {
+    border: 2px solid ButtonText;
+  }
+}
+
+/* The theme sizes .icon for the Material Symbols font; our icon is an inline
+ * SVG, so size it directly and let it take the button's text colour. */
+.ptx-navbar .pdf-button .icon {
+  display: flex;
+  align-items: center;
+  font-size: 0;
+}
+
+.ptx-navbar .pdf-button .icon svg {
+  width: 18px;
+  height: 18px;
+}

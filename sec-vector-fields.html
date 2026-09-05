@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vector Fields and Line Integrals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="external/unnumbered-chapter.css">
+<link rel="stylesheet" type="text/css" href="external/custom.css">
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math"
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="MATH 14–Skeletal Notes">
+<meta property="book:author" content="Mehdi Ahmadi">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/diagcess/diagcess.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math14.html"><span class="title">MATH 14–Skeletal Notes</span></a></h1>
+<p class="byline">Mehdi Ahmadi</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="sec-line-integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-curves-and-fields.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-conservative-fields.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\deriv}[2]{\displaystyle \frac{d#1}{d#2}}
+\newcommand{\real}{\Bbb R}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-skeletal.html" class="internal"><span class="title">How to Use These Notes</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="intro.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="subsec-brain-map.html" class="internal"><span class="title">The big picture</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-curves-and-fields.html" class="internal"><span class="codenumber">1</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-parametrization.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Parametrization of Curves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametric-equations" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Parametric Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-parametrizing-examples" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Some Examples of Parametrizing Curves</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-intersection-collision" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Intersection Points versus Collision Points</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-parametrization.html#subsec-curves-in-space" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Curves in Space and Vector Functions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-arc-length.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Arc Length of a Curve</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-2d" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Arc Length in 2D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-arc-length-3d" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Arc Length in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-arc-length.html#subsec-cone-plane-activity" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Activity: Where a Plane Slices a Cone</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-line-integrals.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Line Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-scalar-line-integrals" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Line Integrals of Scalar Functions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-line-integrals.html#subsec-line-integral-questions" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="sec-vector-fields.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Vector Fields and Line Integrals</span></a></div>
+<ul class="structural toc-item-list active">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-vector-fields" class="internal"><span class="codenumber">1.4.1</span> <span class="title">Vector Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-reminder" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Work (Reminder)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-force-field" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Work of a Force Field</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-vector-fields.html#subsec-work-exploration" class="internal"><span class="codenumber">1.4.4</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-conservative-fields.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Path Independence, Conservative Fields, and Potential Functions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-gradient-fields" class="internal"><span class="codenumber">1.5.1</span> <span class="title">A Brief Reminder (Gradient Fields)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-definitions" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Path Independence and Some Basic Definitions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-ftli" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Line Integrals in Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-potential-function" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Finding a Potential Function</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-gradient" class="internal"><span class="codenumber">1.5.5</span> <span class="title">Conservative Fields are Gradient Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-loop-property" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Loop Property of Conservative Fields</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-conservative-fields.html#sec-conservative-concept-check" class="internal"><span class="codenumber">1.5.7</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-multiple-integrals.html" class="internal"><span class="codenumber">2</span> <span class="title">Multiple Integrals</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-rectangles.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Double and Iterated Integrals Over Rectangles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-area-under-curve-reminder" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Reminder: Area Under <span class="process-math">\(y = f(x)\)</span> from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-double-integrals-rectangles" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Double Integrals Over Rectangles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integrals" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Calculating Double Integrals as Iterated Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#sec-iterated-integral-substitution" class="internal"><span class="codenumber">2.1.4</span> <span class="title">An Iterated Integral Requiring Substitution and Integration by Parts</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-rectangles.html#subsec-double-integral-questions" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-general-regions.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Double Integrals Over General Regions and Area by Double Integration</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case1" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Case I: Regions of the Form <span class="process-math">\(R = \{(x,y) : a \le x \le b,\ f_2(x) \le y \le f_1(x)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-general-regions-case2" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Case II: Regions of the Form <span class="process-math">\(R = \{(x,y) : c \le y \le d,\ g_1(y) \le x \le g_2(y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-tetrahedron-volume" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Volume of a Tetrahedron</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#sec-area-by-double-integration" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Area by Double Integration</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-general-regions.html#subsec-general-regions-questions" class="internal"><span class="codenumber">2.2.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-polar-coordinates.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Polar Coordinates and Graphing Polar Equations</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-definition" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The Polar Coordinate System</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-cartesian-relation" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Relation Between Polar and Cartesian Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-nonuniqueness" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Non-Uniqueness of Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-to-cartesian-example" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Replacing Polar Equations by Cartesian Equations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-polar-coordinates.html#sec-polar-symmetries" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Symmetries</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-double-integrals-polar-form.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Double Integrals in Polar Form</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-double-integral" class="internal"><span class="codenumber">2.4.1</span> <span class="title">How Does a Double Integral Look in Polar Coordinates?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-annulus-example" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Integrating Over a Half Annulus</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-rose-example" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Area Enclosed by One Loop of a Rose</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-volume-example" class="internal"><span class="codenumber">2.4.4</span> <span class="title">A Volume Computed in Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#sec-polar-gaussian-example" class="internal"><span class="codenumber">2.4.5</span> <span class="title">An Integral That Needs Polar Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-double-integrals-polar-form.html#subsec-polar-questions" class="internal"><span class="codenumber">2.4.6</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-rectangular.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Triple Integrals in Rectangular Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-integral-meaning" class="internal"><span class="codenumber">2.5.1</span> <span class="title">What Does a Triple Integral Mean?</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case1" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Case I: <span class="process-math">\(E = \{(x,y,z) : a \le x \le b,\)</span> <span class="process-math">\(g_1(x) \le y \le g_2(x),\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-case2" class="internal"><span class="codenumber">2.5.3</span> <span class="title">Case II: <span class="process-math">\(E = \{(x,y,z) : h_1(y) \le x \le h_2(y),\)</span> <span class="process-math">\(c \le y \le d,\)</span> <span class="process-math">\(u_1(x,y) \le z \le u_2(x,y)\}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#sec-triple-mass" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Mass With Variable Density</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-rectangular.html#subsec-triple-questions" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Triple Integrals in Cylindrical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-coordinates" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Cylindrical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#sec-cylindrical-mass-example" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The Mass of a Solid With Axial Symmetry</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-cylindrical.html#subsec-cylindrical-questions" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Concept Check</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-triple-integrals-spherical.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Triple Integrals in Spherical Coordinates</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-coordinates" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-integration" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Integration in Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-icecream" class="internal"><span class="codenumber">2.7.3</span> <span class="title">The Ice Cream Cone</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-shifted-example" class="internal"><span class="codenumber">2.7.4</span> <span class="title">Converting a Triple Integral to Spherical Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-triple-integrals-spherical.html#sec-spherical-rewrite" class="internal"><span class="codenumber">2.7.5</span> <span class="title">Re-Writing an Integral in Spherical and Cylindrical Coordinates</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-mass-center-of-mass.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Applications: Mass and Center of Mass</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-mass-3d-object" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Finding the Center of Mass of a 3D Object</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-mass-center-of-mass.html#sec-centroid" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Centroids</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-jacobian-substitution.html" class="internal"><span class="codenumber">2.9</span> <span class="title">Substitution in Multiple Integrals and the Jacobian Determinant</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-determinant" class="internal"><span class="codenumber">2.9.1</span> <span class="title">The Jacobian Determinant</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-examples" class="internal"><span class="codenumber">2.9.2</span> <span class="title">Choosing a Transformation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-substitution-3d" class="internal"><span class="codenumber">2.9.3</span> <span class="title">Substitution in Triple Integrals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-jacobian-substitution.html#sec-jacobian-activity" class="internal"><span class="codenumber">2.9.4</span> <span class="title">Activity: Watching a Substitution Transform a Region</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-surface-integrals.html" class="internal"><span class="codenumber">2.10</span> <span class="title">Surface Integrals: Flux Through a Surface</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-flux-flat" class="internal"><span class="codenumber">2.10.1</span> <span class="title">Flux Through a Flat Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-parametric-surfaces" class="internal"><span class="codenumber">2.10.2</span> <span class="title">Parametric Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-normal" class="internal"><span class="codenumber">2.10.3</span> <span class="title">The Normal Vector to a Surface</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-oriented-surfaces" class="internal"><span class="codenumber">2.10.4</span> <span class="title">Oriented Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-surface-integrals.html#sec-surface-integral-def" class="internal"><span class="codenumber">2.10.5</span> <span class="title">The Surface Integral of a Vector Field</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-integral-theorems.html" class="internal"><span class="codenumber">3</span> <span class="title">The Big Theorems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-greens-theorem.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Green’s Theorem in the Plane</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-divergence" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Divergence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-curl" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Curl</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-greens-theorem-forms" class="internal"><span class="codenumber">3.1.3</span> <span class="title">The Two Forms of Green’s Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-greens-theorem.html#sec-component-test-alternative" class="internal"><span class="codenumber">3.1.4</span> <span class="title">An Alternative Form of the Component Test for Conservative Fields</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-stokes-theorem.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Stokes’ Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-curl-3d" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Curl in Three Dimensions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-theorem" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Stokes’ Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-surface-independence" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Only the Boundary Matters</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-stokes-theorem.html#sec-stokes-conceptual" class="internal"><span class="codenumber">3.2.4</span> <span class="title">A Conceptual Stokes’ Theorem Problem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-divergence-theorem.html" class="internal"><span class="codenumber">3.3</span> <span class="title">The Divergence Theorem</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-divergence-3d" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Divergence in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-divergence-theorem.html#sec-gauss-theorem" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Gauss’s Divergence Theorem</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-problems.html" class="internal"><span class="codenumber">4</span> <span class="title">Assignments and Review Problems</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw1-online.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Assignment 1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw1-online.html#exercises-hw1-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw2-online.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Assignment 2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw2-online.html#exercises-hw2-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw3-online.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Assignment 3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw3-online.html#exercises-hw3-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review1-practice.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Review Problems #1</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review1-practice.html#exercises-review1-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw4-online.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Assignment 4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw4-online.html#exercises-hw4-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw5-online.html" class="internal"><span class="codenumber">4.6</span> <span class="title">Assignment 5</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw5-online.html#exercises-hw5-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw6-online.html" class="internal"><span class="codenumber">4.7</span> <span class="title">Assignment 6</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw6-online.html#exercises-hw6-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review2-practice.html" class="internal"><span class="codenumber">4.8</span> <span class="title">Review Problems #2</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review2-practice.html#exercises-review2-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw7-online.html" class="internal"><span class="codenumber">4.9</span> <span class="title">Assignment 7</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw7-online.html#exercises-hw7-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw8-online.html" class="internal"><span class="codenumber">4.10</span> <span class="title">Assignment 8</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw8-online.html#exercises-hw8-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw9-online.html" class="internal"><span class="codenumber">4.11</span> <span class="title">Assignment 9</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw9-online.html#exercises-hw9-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review3-practice.html" class="internal"><span class="codenumber">4.12</span> <span class="title">Review Problems #3</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review3-practice.html#exercises-review3-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-hw10-online.html" class="internal"><span class="codenumber">4.13</span> <span class="title">Assignment 10</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-hw10-online.html#exercises-hw10-online" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-exercises-review4-practice.html" class="internal"><span class="codenumber">4.14</span> <span class="title">Review Problems #4</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-exercises-review4-practice.html#exercises-review4-practice" class="internal"><span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-vector-fields"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector Fields and Line Integrals</span>
+</h2>
+<section class="introduction" id="sec-vector-fields-2"><div class="para" id="sec-vector-fields-2-1">In this section we meet two ideas. A <em class="emphasis">vector field</em> attaches a vector—a magnitude and a direction—to every point of the plane or of space; think of the velocity of the air at each point of a room, or the gravitational pull at each point around a planet. The <em class="emphasis">line integral of a vector field</em> then answers a natural question: as an object moves along a curve through the field, how much does the field push it along its way? The physical name for this accumulated push is <em class="emphasis">work</em>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-vector-fields-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><section class="subsection" id="subsec-vector-fields"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Vector Fields</span>
+</h3>
+<div class="para logical" id="subsec-vector-fields-2">
+<div class="para">What is a vector field? We will study the definition through an example. Assume that we have a function <span class="process-math">\(\mathbf{F}(x,y)\)</span> on <span class="process-math">\(\R^2\text{:}\)</span> the function <span class="process-math">\(\mathbf{F}\)</span> takes two real numbers <span class="process-math">\((x,y)\)</span> as its input and outputs a vector in <span class="process-math">\(\R^2\text{.}\)</span> As an example, consider the following vector field:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-radial-field.html" id="subsec-vector-fields-2-6">
+\begin{gather}
+\mathbf{F}(x,y)=\left\langle x,\ y\right\rangle.\tag{1.4.1}
+\end{gather}
+</div>
+<div class="para">To visualize this vector field, imagine that at each point <span class="process-math">\((x,y)\)</span> there is a vector <span class="process-math">\(\left\langle x,\ y\right\rangle\)</span> attached. Physically, this vector could correspond to the velocity of an atom located at the point <span class="process-math">\((x,y)\text{.}\)</span> See <a href="sec-vector-fields.html#fig-radial-field" class="internal" title="Figure 1.4.1">Figure 1.4.1</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-vector-fields-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-radial-field"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/radial-field-diagcess.svg" data-cml="generated/prefigure/radial-field-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-radial-field-description"><div class="para" id="image-radial-field-2-1">The plane with x and y from minus 5 to 5. At each point of a regular grid a blue arrow points radially outward, directly away from the origin. Arrows near the origin are short; arrows near the edge of the picture are long. A red dot marks the origin, where the field is the zero vector.<div class="autopermalink" data-description="Paragraph"><a href="#image-radial-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The vector field <span class="process-math">\(\mathbf{F}(x,y)=\left\langle x,\ y\right\rangle\text{.}\)</span> Every arrow points directly away from the origin, and the arrows get longer as the distance from the origin grows.<div class="autopermalink" data-description="Figure 1.4.1"><a href="#fig-radial-field" title="Copy heading and permalink for Figure 1.4.1" aria-label="Copy heading and permalink for Figure 1.4.1">🔗</a></div></figcaption></figure><div class="para" id="subsec-vector-fields-4">What is the length of the vector in <a href="sec-vector-fields.html#subsec-vector-fields-2-6" class="xref" data-knowl="./knowl/xref/eq-radial-field.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.1">(1.4.1)</a>? Compute it, and use it to explain why the blue arrows in <a href="sec-vector-fields.html#fig-radial-field" class="internal" title="Figure 1.4.1">Figure 1.4.1</a> grow in length as we move away from the origin along a straight line. Then modify the vector field so that the length of the vectors is one at every point. (Dividing a vector by its own length produces a unit vector.)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-vector-fields-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/subsec-vector-fields-5-1.svg" role="img" class="contained" alt="Blank box in two rows, one for the length of the radial field’s vectors and the reason the arrows grow, and one for the normalized field."></div></div></div></div>
+<div class="para" id="subsec-vector-fields-6">Visualized, the normalized field looks like <a href="sec-vector-fields.html#fig-unit-radial-field" class="internal" title="Figure 1.4.2">Figure 1.4.2</a>: the directions are unchanged, but now all arrows have the same length.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-vector-fields-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-unit-radial-field"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/unit-radial-field-diagcess.svg" data-cml="generated/prefigure/unit-radial-field-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-unit-radial-field-description"><div class="para" id="image-unit-radial-field-2-1">The plane with x and y from minus 5 to 5. At each point of a regular grid a blue arrow points radially outward, directly away from the origin, and every arrow has exactly the same length. A red dot marks the origin, where the field is undefined.<div class="autopermalink" data-description="Paragraph"><a href="#image-unit-radial-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The normalized field <span class="process-math">\(\mathbf{F}(x,y)=\dfrac{\left\langle x,\ y\right\rangle}{\sqrt{x^2+y^2}}\text{:}\)</span> same directions as <a href="sec-vector-fields.html#fig-radial-field" class="internal" title="Figure 1.4.1">Figure 1.4.1</a>, but every arrow has length one.<div class="autopermalink" data-description="Figure 1.4.2"><a href="#fig-unit-radial-field" title="Copy heading and permalink for Figure 1.4.2" aria-label="Copy heading and permalink for Figure 1.4.2">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-vector-fields-8">
+<div class="para">Our next example is a vector field which is a function on <span class="process-math">\(\R^3\text{.}\)</span> Consider the following vector field:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-gravity-field.html ./knowl/xref/ex-helix-gravity.html" id="subsec-vector-fields-8-2">
+\begin{align}
+\mathbf{F}(x,y,z) \amp
+= \frac{\left\langle -x,\ -y,\ -z\right\rangle}
+{\left(x^2+y^2+z^2\right)^{3/2}}\notag\\
+\amp = -\frac{\mathbf{r}}{\left\lVert\mathbf{r}\right\rVert^3},
+\qquad
+\mathbf{r}=\left\langle x,\ y,\ z\right\rangle.\tag{1.4.2}
+\end{align}
+</div>
+<div class="para">This field has the same dependence on <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> as the gravitational force exerted by a massive body located at the origin.<details class="ptx-footnote" aria-live="polite" id="subsec-vector-fields-8-6"><summary class="ptx-footnote__number" title="Footnote 1.4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="subsec-vector-fields-8-6">The gravitational force exerted by a mass <span class="process-math">\(m_1\)</span> at the origin on a mass <span class="process-math">\(m_2\)</span> at the point <span class="process-math">\(\mathbf{r}\)</span> is the <dfn class="terminology">gravitational force field</dfn> <span class="process-math">\(\mathbf{F}_{\text{grav}}
+= -\dfrac{Gm_1m_2}{\left\lVert\mathbf{r}\right\rVert^3}\,
+\mathbf{r}\text{,}\)</span> where <span class="process-math">\(G\)</span> is the gravitational constant and the minus sign makes the force point back toward the origin. The field <span class="process-math">\(\mathbf{F}=-\mathbf{r}/\left\lVert\mathbf{r}\right\rVert^3\)</span> studied here is that force with the constant <span class="process-math">\(Gm_1m_2\)</span> stripped off, so the two differ only by a positive factor and point the same way at every point.</div></details> Every arrow points <em class="emphasis">toward</em> the origin. Compute <span class="process-math">\(\left\lVert\mathbf{F}\right\rVert\)</span> in terms of <span class="process-math">\(\left\lVert\mathbf{r}\right\rVert\)</span> to see how the pull weakens with distance. See <a href="sec-vector-fields.html#fig-gravity-field" class="xref" data-knowl="./knowl/xref/fig-gravity-field.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.3">Figure 1.4.3</a>. We will meet this field again in <a href="sec-vector-fields.html#ex-helix-gravity" class="xref" data-knowl="./knowl/xref/ex-helix-gravity.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 1.4.10: Work done by an inverse-square field along a helix">Example 1.4.10</a>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-vector-fields-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/subsec-vector-fields-9-1.svg" role="img" class="contained" alt="Blank box with one row, for the magnitude of the inverse-square field in terms of the distance from the origin and the law it obeys."></div></div></div></div>
+<figure class="figure figure-like" id="fig-gravity-field"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/image-gravity-field.svg" role="img" class="contained" alt="A three-dimensional grid of arrows all pointing toward the origin, longer near the origin."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-gravity-field-description"><div class="para" id="image-gravity-field-2-1">A three-dimensional box with x, y, and z from minus 0.7 to 0.7. At each point of a coarse three-dimensional grid a blue arrow points directly toward the center of the box, where a red dot marks the origin. Arrows close to the origin are long; arrows at the corners of the box are short.<div class="autopermalink" data-description="Paragraph"><a href="#image-gravity-field-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The field <span class="process-math">\(\mathbf{F}=-\mathbf{r}/\left\lVert\mathbf{r}\right\rVert^3\text{,}\)</span> which depends on <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> exactly as the gravitational force does. All arrows point toward the origin and shrink with the square of the distance.<div class="autopermalink" data-description="Figure 1.4.3"><a href="#fig-gravity-field" title="Copy heading and permalink for Figure 1.4.3" aria-label="Copy heading and permalink for Figure 1.4.3">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 1.4.1: Vector Fields"><a href="#subsec-vector-fields" title="Copy heading and permalink for Subsection 1.4.1: Vector Fields" aria-label="Copy heading and permalink for Subsection 1.4.1: Vector Fields">🔗</a></div></section><section class="subsection" id="subsec-work-reminder"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work (Reminder)</span>
+</h3>
+<div class="para" id="subsec-work-reminder-2">Our goal is to study the line integral of a vector field over a curve <span class="process-math">\(C\text{,}\)</span> and we will do so using an example from physics: calculating the amount of work done by a force <span class="process-math">\(\mathbf{F}\text{,}\)</span> which in general can be a function of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\text{.}\)</span> Before we present the example, let us remind ourselves of the definition of work. Consider a box being pulled by a constant force <span class="process-math">\(\mathbf{F}\text{,}\)</span> as shown in <a href="sec-vector-fields.html#fig-work-reminder" class="internal" title="Figure 1.4.4">Figure 1.4.4</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-work-reminder-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-work-reminder"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/work-reminder-diagcess.svg" data-cml="generated/prefigure/work-reminder-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-work-reminder-description"><div class="para" id="image-work-reminder-2-1">A horizontal line represents the ground, with a small box sitting on it at the left. A red arrow labelled F points up and to the right from the top of the box, making an angle alpha with the horizontal; a small arc marks the angle. A shorter blue horizontal arrow labelled the magnitude of F times cosine alpha, times i, shows the horizontal component of the force. A faint second box to the right marks the final position. The centre of each box is marked with a dot, and a dashed vertical line drops from each centre to a dashed double-headed arrow drawn below the ground line and labelled delta x, so the displacement is measured from one centre of mass to the other.<div class="autopermalink" data-description="Paragraph"><a href="#image-work-reminder-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A box pulled by a constant force <span class="process-math">\(\mathbf{F}\)</span> applied at an angle <span class="process-math">\(\alpha\text{.}\)</span> The displacement <span class="process-math">\(\delta x\)</span> is measured below the ground line, from the centre of mass of the box in its initial position to its centre of mass in the final position (the faint box). Only the component <span class="process-math">\(\left\lVert\mathbf{F}\right\rVert\cos(\alpha)\,\mathbf{i}\)</span> along the motion does work.<div class="autopermalink" data-description="Figure 1.4.4"><a href="#fig-work-reminder" title="Copy heading and permalink for Figure 1.4.4" aria-label="Copy heading and permalink for Figure 1.4.4">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-work-reminder-4">
+<div class="para">The amount of work done by the force is equal to the magnitude of the force in the direction of motion, <span class="process-math">\(\left\lVert\mathbf{F}\right\rVert\cos(\alpha)\text{,}\)</span> multiplied by the amount of displacement <span class="process-math">\(\delta x\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="subsec-work-reminder-4-3">
+\begin{gather}
+\text{Work}
+=\left\lVert\mathbf{F}\right\rVert\cos(\alpha)\times\delta x
+=\mathbf{F}\cdot\left(\delta x\,\mathbf{i}\right).\tag{1.4.3}
+\end{gather}
+</div>
+<div class="para">The last equality holds because the motion is in the <span class="process-math">\(+x\)</span>-direction, which lets us rewrite <span class="process-math">\(\left\lVert\mathbf{F}\right\rVert\cos(\alpha)\times\delta x\)</span> as the dot product <span class="process-math">\(\mathbf{F}\cdot(\delta x\,\mathbf{i})\text{.}\)</span> This dot-product form is the one that generalizes: <em class="emphasis">work is the dot product of the force with the displacement</em>.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-work-reminder-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 1.4.2: Work (Reminder)"><a href="#subsec-work-reminder" title="Copy heading and permalink for Subsection 1.4.2: Work (Reminder)" aria-label="Copy heading and permalink for Subsection 1.4.2: Work (Reminder)">🔗</a></div></section><section class="subsection" id="subsec-work-force-field"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work of a Force Field</span>
+</h3>
+<div class="para" id="subsec-work-force-field-2">Let us now consider the situation where a force <span class="process-math">\(\mathbf{F}(x,y)\)</span> is acting on an object and causing it to move along a curved trajectory from an initial point to a final point. Neither the force nor the direction of motion is constant anymore, so we cannot apply <a href="sec-vector-fields.html#subsec-work-reminder-4-3" class="xref" data-knowl="./knowl/xref/eq-work-constant.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.3">(1.4.3)</a> directly. Instead, we reuse the strategy of <a href="sec-line-integrals.html" class="internal" title="Section 1.3: Line Integrals">Section 1.3</a>: calculate the work on small subarcs of the trajectory, where force and direction are nearly constant, and then sum up. <a href="sec-vector-fields.html#fig-work-subarc" class="internal" title="Figure 1.4.5">Figure 1.4.5</a> shows one such subarc.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-work-force-field-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-work-subarc"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/work-subarc-diagcess.svg" data-cml="generated/prefigure/work-subarc-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-work-subarc-description"><div class="para" id="image-work-subarc-2-1">A black curve rises from a red point near the origin, bending upward to a red endpoint at the upper right. A short piece of the curve, labelled Delta s sub k, is drawn thicker in blue. At a black point on this piece, a red arrow labelled F of (x sub k, y sub k) points steeply up and to the right, and a shorter green arrow labelled T sub k points along the curve in the direction of motion.<div class="autopermalink" data-description="Paragraph"><a href="#image-work-subarc-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>On the <span class="process-math">\(k\)</span>th subarc, of length <span class="process-math">\(\Delta s_k\text{,}\)</span> the direction of motion is the unit tangent vector <span class="process-math">\(\mathbf{T}_k\)</span> (green) and the force is approximately <span class="process-math">\(\mathbf{F}(x_k,y_k)\)</span> (red). Only the tangential component of the force does work.<div class="autopermalink" data-description="Figure 1.4.5"><a href="#fig-work-subarc" title="Copy heading and permalink for Figure 1.4.5" aria-label="Copy heading and permalink for Figure 1.4.5">🔗</a></div></figcaption></figure><div class="para" id="subsec-work-force-field-4">Build the work integral from the subarcs. (On the <span class="process-math">\(k\)</span>th subarc the displacement has length <span class="process-math">\(\Delta s_k\)</span> and direction <span class="process-math">\(\mathbf{T}_k\text{,}\)</span> so the dot-product form of <a href="sec-vector-fields.html#subsec-work-reminder-4-3" class="xref" data-knowl="./knowl/xref/eq-work-constant.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.3">(1.4.3)</a> gives the work done along it. Sum over the subarcs and let <span class="process-math">\(n \to \infty\text{.}\)</span> Then use <span class="process-math">\(\mathbf{T} = \mathbf{v}/\lVert\mathbf{v}\rVert
+= \frac{d\mathbf{r}/dt}{ds/dt}\)</span> to rewrite <span class="process-math">\(\mathbf{T}\,ds\text{,}\)</span> which gives the compact form of the integral, and finally write everything in terms of a parametrization <span class="process-math">\(\mathbf{r}(t)\text{,}\)</span> <span class="process-math">\(a \le t \le b\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-work-force-field-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/subsec-work-force-field-5-1.svg" role="img" class="contained" alt="Blank box in five rows, for the work along one subarc, for the sum over subarcs, for the limit as a line integral, for rewriting T ds, and for the parametrized form of the integral."></div></div></div></div>
+<article class="assemblage assemblage-like" id="assemblage-work-integral"><h4 class="heading"><span class="title">The Line Integral of a Vector Field.</span></h4>
+<div class="para logical" id="assemblage-work-integral-2">
+<div class="para">The work done by <span class="process-math">\(\mathbf{F}\)</span> along <span class="process-math">\(C\)</span> is approximated by</div>
+<div class="displaymath process-math" id="assemblage-work-integral-2-3">
+\begin{gather}
+W\approx\sum_{k=1}^{n}
+\mathbf{F}(x_k,y_k)\cdot\mathbf{T}_k\,\Delta s_k,\tag{1.4.4}
+\end{gather}
+</div>
+<div class="para">and exactly by</div>
+<div class="displaymath process-math" id="assemblage-work-integral-2-4">
+\begin{gather}
+W = \int_C \mathbf{F}\cdot\mathbf{T}\,ds,\tag{1.4.5}
+\end{gather}
+</div>
+<div class="para">where <span class="process-math">\(\mathbf{T}\)</span> is the unit tangent vector of the curve. Since</div>
+<div class="displaymath process-math" id="assemblage-work-integral-2-6">
+\begin{gather}
+\mathbf{T}=\frac{\mathbf{v}}{\left\lVert\mathbf{v}\right\rVert}
+=\frac{\frac{d\mathbf{r}}{dt}}{\frac{ds}{dt}}
+=\frac{d\mathbf{r}}{ds},\tag{1.4.6}
+\end{gather}
+</div>
+<div class="para">the combination <span class="process-math">\(\mathbf{T}\,ds\)</span> is simply <span class="process-math">\(d\mathbf{r}\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="assemblage-work-integral-2-9">
+\begin{gather}
+W=\int_C \mathbf{F}\cdot\mathbf{T}\,ds
+=\int_C \mathbf{F}\cdot d\mathbf{r}.\tag{1.4.7}
+\end{gather}
+</div>
+<div class="para">In practice, once the curve is parametrized by <span class="process-math">\(\mathbf{r}(t)\)</span> for <span class="process-math">\(a\le t\le b\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="assemblage-work-integral-2-12">
+\begin{gather}
+\int_C \mathbf{F}\cdot d\mathbf{r}
+=\int_a^b \mathbf{F}\bigl(\mathbf{r}(t)\bigr)
+\cdot\mathbf{v}(t)\,dt :\tag{1.4.8}
+\end{gather}
+</div>
+<div class="para">evaluate the field along the curve, dot it with the velocity, and integrate over time.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#assemblage-work-integral-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Assemblage: The Line Integral of a Vector Field"><a href="#assemblage-work-integral" title="Copy heading and permalink for Assemblage: The Line Integral of a Vector Field" aria-label="Copy heading and permalink for Assemblage: The Line Integral of a Vector Field">🔗</a></div></article><div class="para" id="subsec-work-force-field-7">The applet below carries every ingredient of <a href="sec-vector-fields.html#assemblage-work-integral-2-12" class="xref" data-knowl="./knowl/xref/eq-work-parametrized.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.8">(1.4.8)</a> at once: a curve <span class="process-math">\(C\)</span> parametrized by <span class="process-math">\(\mathbf{r}(t)\text{,}\)</span> the velocity <span class="process-math">\(\mathbf{v}(t)=d\mathbf{r}/dt\)</span> tangent to it, and a force field <span class="process-math">\(\mathbf{F}\)</span> evaluated at the moving point. Work out what the integrand <span class="process-math">\(\mathbf{F}\cdot\mathbf{v}\)</span> is doing before you compute anything.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-work-force-field-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-work-geogebra"><div class="interactive-iframe-container"><iframe src="https://www.geogebra.org/material/iframe/id/e2m6kghr/scaleContainerClass/interactive-iframe-container/width/599/height/488/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/false/stbh/false/ai/false/asb/false/sri/true/rc/false/ld/false/sdz/true/ctl/false" id="fig-work-geogebra-2" style="width:600px; height:489px; display: block; "></iframe></div>
+<div class="instructions"><details id="fig-work-geogebra-2-1" class="solution-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Instructions<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4></summary><div class="solution-like knowl__content">
+<div class="para" id="fig-work-geogebra-2-1-1">The slider <span class="process-math">\(n\)</span> cuts the curve into <span class="process-math">\(n\)</span> pieces and joins the division points by straight chords—the partition behind <a href="sec-vector-fields.html#assemblage-work-integral-2-3" class="xref" data-knowl="./knowl/xref/eq-work-sum.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.4">(1.4.4)</a>. Increase <span class="process-math">\(n\)</span> and watch the chain of chords settle onto <span class="process-math">\(C\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#fig-work-geogebra-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="fig-work-geogebra-2-1-2">Drag the slider <span class="process-math">\(t\)</span> to move the point along the curve <span class="process-math">\(C\text{,}\)</span> and watch the two arrows attached to it: <span class="process-math">\(\mathbf{F}\text{,}\)</span> the force the field exerts there, and <span class="process-math">\(\mathbf{v}\text{,}\)</span> the velocity, which is tangent to <span class="process-math">\(C\)</span> and points in the direction of travel. Rotate the picture by dragging the background if you want to see the configuration from another angle.<div class="autopermalink" data-description="Paragraph"><a href="#fig-work-geogebra-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="fig-work-geogebra-2-1-3">At each position, ask yourself whether the angle between <span class="process-math">\(\mathbf{F}\)</span> and <span class="process-math">\(\mathbf{v}\)</span> is acute, obtuse, or right—that is, whether <span class="process-math">\(\mathbf{F}\cdot\mathbf{v}\)</span> is positive, negative, or zero—and whether the answer changes as the point climbs.<div class="autopermalink" data-description="Paragraph"><a href="#fig-work-geogebra-2-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Instructions"><a href="#fig-work-geogebra-2-1" title="Copy heading and permalink for Instructions" aria-label="Copy heading and permalink for Instructions">🔗</a></div>
+</div></details></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A point climbs the curve <span class="process-math">\(C\)</span> while the force field <span class="process-math">\(\mathbf{F}\)</span> and the velocity <span class="process-math">\(\mathbf{v}\)</span> are drawn at its current position. The work is the accumulated <span class="process-math">\(\mathbf{F}\cdot\mathbf{v}\text{,}\)</span> so the angle between the two arrows is what decides its sign.<div class="autopermalink" data-description="Figure 1.4.6"><a href="#fig-work-geogebra" title="Copy heading and permalink for Figure 1.4.6" aria-label="Copy heading and permalink for Figure 1.4.6">🔗</a></div></figcaption></figure><div class="para" id="subsec-work-force-field-9">Work was our motivation, but any vector field <span class="process-math">\(\mathbf{F}\)</span> can be integrated over a curve <span class="process-math">\(C\)</span> in this fashion; the number it produces is also called the <dfn class="terminology">circulation</dfn> of <span class="process-math">\(\mathbf{F}\)</span> along <span class="process-math">\(C\text{,}\)</span> a name that becomes the usual one when <span class="process-math">\(C\)</span> is a closed curve. <a href="sec-vector-fields.html#fig-work-video" class="xref" data-knowl="./knowl/xref/fig-work-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.7">Figure 1.4.7</a> shows the accumulation of <span class="process-math">\(\mathbf{F}\cdot\mathbf{T}\,ds\)</span> along a trajectory.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-work-force-field-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-work-video"><div class="video-box" style="width: 80%;padding-top: 45%; margin-left: 10%; margin-right: 10%;"><video id="video-work-line-integral" class="video" controls="" poster="external/play-button.png"><source src="external/videos/work_line_integral_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>As the object moves through the field <span class="process-math">\(\mathbf{F}=\left\langle x,\ y\right\rangle\)</span> along the trajectory, the work <span class="process-math">\(W=\int_C\mathbf{F}\cdot d\mathbf{r}\)</span> accumulates moment by moment from the tangential component of the force.<div class="autopermalink" data-description="Figure 1.4.7"><a href="#fig-work-video" title="Copy heading and permalink for Figure 1.4.7" aria-label="Copy heading and permalink for Figure 1.4.7">🔗</a></div></figcaption></figure><div class="para logical" id="subsec-work-force-field-11">
+<div class="para">There is a third, frequently used way to write the same integral. Assume the vector field has components <span class="process-math">\(\mathbf{F}(x,y,z)=\left\langle M(x,y,z),\ N(x,y,z),\
+P(x,y,z)\right\rangle\text{.}\)</span> Since <span class="process-math">\(d\mathbf{r}=\left\langle dx,\ dy,\ dz\right\rangle\text{,}\)</span> expanding the dot product gives the <dfn class="terminology">differential form</dfn> of the line integral:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-work-Tds.html" id="subsec-work-force-field-11-4">
+\begin{gather}
+\int_C \mathbf{F}\cdot d\mathbf{r}
+=\int_C M\,dx+N\,dy+P\,dz.\tag{1.4.9}
+\end{gather}
+</div>
+<div class="para">All three notations—<a href="sec-vector-fields.html#assemblage-work-integral-2-4" class="xref" data-knowl="./knowl/xref/eq-work-Tds.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.5">(1.4.5)</a>, <span class="process-math">\(\int_C\mathbf{F}\cdot d\mathbf{r}\text{,}\)</span> and <span class="process-math">\(\int_C M\,dx+N\,dy+P\,dz\)</span>—mean exactly the same thing.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-work-force-field-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 1.4.3: Work of a Force Field"><a href="#subsec-work-force-field" title="Copy heading and permalink for Subsection 1.4.3: Work of a Force Field" aria-label="Copy heading and permalink for Subsection 1.4.3: Work of a Force Field">🔗</a></div></section><details id="ex-twisted-cubic-work" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work along a twisted cubic.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="ex-twisted-cubic-work-2-1">
+<div class="para">Calculate the work done by the force</div>
+<div class="displaymath process-math" id="ex-twisted-cubic-work-2-1-1">
+\begin{equation*}
+\mathbf{F}(x,y,z)=\left\langle y-x^2,\ z-y^2,\ x-z^2\right\rangle
+\end{equation*}
+</div>
+<div class="para">over the curve <span class="process-math">\(C\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-twisted-cubic-work-2-1-3">
+\begin{equation*}
+\mathbf{r}(t)=\left\langle t,\ t^2,\ t^3\right\rangle
+\end{equation*}
+</div>
+<div class="para">from <span class="process-math">\((0,0,0)\)</span> to <span class="process-math">\((1,1,1)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-twisted-cubic-work-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex-twisted-cubic-work-2-2">
+<em class="emphasis">Solution.</em> (Use <a href="sec-vector-fields.html#assemblage-work-integral-2-12" class="xref" data-knowl="./knowl/xref/eq-work-parametrized.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.8">(1.4.8)</a>. Read the parameter interval off the two endpoints, write the force along the curve by substituting <span class="process-math">\(x = t\text{,}\)</span> <span class="process-math">\(y = t^2\text{,}\)</span> <span class="process-math">\(z = t^3\)</span> — one component vanishes identically — and differentiate for <span class="process-math">\(\mathbf{v}(t)\text{.}\)</span> Dot, expand, and integrate term by term. The curve is shown in <a href="sec-vector-fields.html#fig-twisted-cubic" class="xref" data-knowl="./knowl/xref/fig-twisted-cubic.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.9">Figure 1.4.9</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#ex-twisted-cubic-work-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/ex-twisted-cubic-work-2-3-1.svg" role="img" class="contained" alt="Blank box in four rows, for the parameter interval, for the force along the curve, for the velocity vector, and for the work integral."></div></div></div></div> <figure class="figure figure-like" id="fig-twisted-cubic"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/image-twisted-cubic.svg" role="img" class="contained" alt="A curve in space rising from the origin to the point (1,1,1), with its shadow on the floor."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-twisted-cubic-description"><div class="para" id="image-twisted-cubic-2-1">A three-dimensional box with x, y, and z from 0 to 1.1. A thick blue curve starts at a red point at the origin, labelled (0,0,0), hugs the floor at first, then sweeps upward ever more steeply to a red point labelled (1,1,1) at the far upper corner. A dashed gray parabola on the floor shows the curve’s shadow.<div class="autopermalink" data-description="Paragraph"><a href="#image-twisted-cubic-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The twisted cubic <span class="process-math">\(\mathbf{r}(t)=\left\langle t,\ t^2,\ t^3\right\rangle\text{,}\)</span> <span class="process-math">\(0\le t\le 1\text{,}\)</span> from the origin to <span class="process-math">\((1,1,1)\text{.}\)</span> The dashed gray curve is its shadow on the plane <span class="process-math">\(z=0\text{.}\)</span><div class="autopermalink" data-description="Figure 1.4.9"><a href="#fig-twisted-cubic" title="Copy heading and permalink for Figure 1.4.9" aria-label="Copy heading and permalink for Figure 1.4.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.4.8: Work along a twisted cubic"><a href="#ex-twisted-cubic-work" title="Copy heading and permalink for Example 1.4.8: Work along a twisted cubic" aria-label="Copy heading and permalink for Example 1.4.8: Work along a twisted cubic">🔗</a></div></article></details><details id="ex-helix-gravity" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work done by an inverse-square field along a helix.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="ex-helix-gravity-2-1">
+<div class="para">Calculate the line integral</div>
+<div class="displaymath process-math" id="ex-helix-gravity-2-1-1">
+\begin{align*}
+\int_C \amp \frac{-x}{\left(x^2+y^2+z^2\right)^{3/2}}\,dx\\
+\amp +\frac{-y}{\left(x^2+y^2+z^2\right)^{3/2}}\,dy\\
+\amp +\frac{-z}{\left(x^2+y^2+z^2\right)^{3/2}}\,dz
+\end{align*}
+</div>
+<div class="para">over the curve <span class="process-math">\(\mathbf{r}(t)=\langle\cos t,\ \sin t,\ t\rangle\)</span> from <span class="process-math">\((1,0,0)\)</span> to <span class="process-math">\((1,0,2\pi)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-gravity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="ex-helix-gravity-2-2">
+<em class="emphasis">Solution.</em> (This integral is in the differential form <a href="sec-vector-fields.html#subsec-work-force-field-11-4" class="xref" data-knowl="./knowl/xref/eq-work-differential.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.9">(1.4.9)</a>: identify <span class="process-math">\(\mathbf{F} = \langle M, N, P\rangle\)</span> and recognize it as the inverse-square field <a href="sec-vector-fields.html#subsec-vector-fields-8-2" class="xref" data-knowl="./knowl/xref/eq-gravity-field.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.2">(1.4.2)</a> of <a href="sec-vector-fields.html#fig-gravity-field" class="xref" data-knowl="./knowl/xref/fig-gravity-field.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.3">Figure 1.4.3</a>. Read off the parameter interval from the endpoints. Along the helix, simplify <span class="process-math">\(x^2+y^2+z^2\)</span> first, then write <span class="process-math">\(\mathbf{F}(\mathbf{r}(t))\)</span> and <span class="process-math">\(\mathbf{v}(t)\text{;}\)</span> the dot product collapses. Integrate with the substitution <span class="process-math">\(u = 1 + t^2\text{.}\)</span> Say what the sign of the answer means physically, and check it against <a href="sec-vector-fields.html#fig-helix-gravity" class="xref" data-knowl="./knowl/xref/fig-helix-gravity.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.11">Figure 1.4.11</a> and <a href="sec-vector-fields.html#fig-helix-gravity-video" class="xref" data-knowl="./knowl/xref/fig-helix-gravity-video.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.4.12">Figure 1.4.12</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#ex-helix-gravity-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/ex-helix-gravity-2-3-1.svg" role="img" class="contained" alt="Blank box in five rows, for identifying the field and the parameter interval, for the field along the helix, for the velocity and the dot product, for the integral evaluated by substitution, and for the physical meaning of the sign."></div></div></div></div> <figure class="figure figure-like" id="fig-helix-gravity"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/image-helix-gravity.svg" role="img" class="contained" alt="One full turn of a helix rising from (1,0,0) to (1,0,2 pi), with arrows along it pointing toward the origin."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-helix-gravity-description"><div class="para" id="image-helix-gravity-2-1">A three-dimensional box with x and y from minus 1.4 to 1.4 and z from 0 to 7. A thick blue helix makes one full counterclockwise turn of radius one, starting at a red point labelled (1,0,0), t equals 0, on the floor and ending at a red point labelled (1,0,2 pi), t equals 2 pi, directly above it. A dashed gray unit circle on the floor is the helix’s shadow. Three orange arrows attached to points of the helix, labelled F, point inward and downward, toward the origin. At the same three points three green arrows, labelled v, point along the helix in the direction of travel, upward and around; each green arrow makes an obtuse angle with the orange one beside it.<div class="autopermalink" data-description="Paragraph"><a href="#image-helix-gravity-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The helix <span class="process-math">\(\mathbf{r}(t)=\langle\cos t,\sin t,t\rangle\text{,}\)</span> <span class="process-math">\(0\le t\le 2\pi\text{,}\)</span> climbing through the field <span class="process-math">\(\mathbf{F}=-\mathbf{r}/\left\lVert\mathbf{r}\right\rVert^3\)</span> (orange arrows, direction only). At the same three points the velocity <span class="process-math">\(\mathbf{v}\)</span> is drawn in green: at every one of them the field leans away from the direction of travel, which is why the work comes out negative.<div class="autopermalink" data-description="Figure 1.4.11"><a href="#fig-helix-gravity" title="Copy heading and permalink for Figure 1.4.11" aria-label="Copy heading and permalink for Figure 1.4.11">🔗</a></div></figcaption></figure> <figure class="figure figure-like" id="fig-helix-gravity-video"><div class="video-box" style="width: 85%;padding-top: 47.8125%; margin-left: 7.5%; margin-right: 7.5%;"><video id="video-helix-gravity" class="video" controls="" poster="external/play-button.png"><source src="external/videos/helix_gravity_work_1080p.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A particle climbs the helix through the field while the work <span class="process-math">\(W(t)\)</span> accumulates. Watch its sign, and check the value it reaches at the top against your answer.<div class="autopermalink" data-description="Figure 1.4.12"><a href="#fig-helix-gravity-video" title="Copy heading and permalink for Figure 1.4.12" aria-label="Copy heading and permalink for Figure 1.4.12">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Example 1.4.10: Work done by an inverse-square field along a helix"><a href="#ex-helix-gravity" title="Copy heading and permalink for Example 1.4.10: Work done by an inverse-square field along a helix" aria-label="Copy heading and permalink for Example 1.4.10: Work done by an inverse-square field along a helix">🔗</a></div></article></details><details id="ex-work-path-dependence" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The same endpoints, two paths, two answers.</span>
+</h3></summary><article class="example example-like knowl__content"><div class="para logical" id="ex-work-path-dependence-2-1">
+<div class="para">Calculate the work done by the force</div>
+<div class="displaymath process-math" id="ex-work-path-dependence-2-1-1">
+\begin{equation*}
+\mathbf{F}(x,y)=\left\langle y,\ 2x\right\rangle
+\end{equation*}
+</div>
+<div class="para">in moving a particle from <span class="process-math">\(O(0,0)\)</span> to <span class="process-math">\(P(1,1)\)</span> along each of the following two paths:</div>
+<ul class="disc" id="ex-work-path-dependence-2-1-4">
+<li id="ex-work-path-dependence-2-1-4-1">
+<div class="para" id="ex-work-path-dependence-2-1-4-1-1">
+<span class="process-math">\(C_1\text{,}\)</span> the straight segment from <span class="process-math">\(O\)</span> to <span class="process-math">\(P\text{,}\)</span> parametrized by <span class="process-math">\(\mathbf{r}_1(t)=\left\langle t,\ t\right\rangle\text{,}\)</span> <span class="process-math">\(0\le t\le 1\text{;}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-work-path-dependence-2-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-work-path-dependence-2-1-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ex-work-path-dependence-2-1-4-2">
+<div class="para" id="ex-work-path-dependence-2-1-4-2-1">
+<span class="process-math">\(C_2\text{,}\)</span> the arc of the parabola <span class="process-math">\(y=x^2\)</span> from <span class="process-math">\(O\)</span> to <span class="process-math">\(P\text{,}\)</span> parametrized by <span class="process-math">\(\mathbf{r}_2(t)=\left\langle t,\ t^2\right\rangle\text{,}\)</span> <span class="process-math">\(0\le t\le 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-work-path-dependence-2-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ex-work-path-dependence-2-1-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-path-dependence-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig-path-dependence-paths"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/path-dependence-paths-diagcess.svg" data-cml="generated/prefigure/path-dependence-paths-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-path-dependence-paths-description"><div class="para" id="image-path-dependence-paths-2-1">The first quadrant, with x and y running from zero to a little past one, carrying a grid of blue field arrows. Along the x axis they point straight up and along the y axis they point straight right, turning and lengthening in between. Two curves join the origin O to the point P at one comma one: a green straight segment labelled C 1 along the line y equals x, and a vermillion arc labelled C 2 following the parabola y equals x squared, which bows below the segment. Each curve carries an arrowhead pointing from O toward P.<div class="autopermalink" data-description="Paragraph"><a href="#image-path-dependence-paths-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The two paths of <a href="sec-vector-fields.html#ex-work-path-dependence" class="internal" title="Example 1.4.13: The same endpoints, two paths, two answers">Example 1.4.13</a> drawn in the field <span class="process-math">\(\mathbf{F}=\left\langle y,\ 2x\right\rangle\text{:}\)</span> the segment <span class="process-math">\(C_1\)</span> along <span class="process-math">\(y=x\)</span> and the arc <span class="process-math">\(C_2\)</span> along <span class="process-math">\(y=x^2\text{,}\)</span> both running from <span class="process-math">\(O(0,0)\)</span> to <span class="process-math">\(P(1,1)\text{.}\)</span><div class="autopermalink" data-description="Figure 1.4.14"><a href="#fig-path-dependence-paths" title="Copy heading and permalink for Figure 1.4.14" aria-label="Copy heading and permalink for Figure 1.4.14">🔗</a></div></figcaption></figure> <div class="para" id="ex-work-path-dependence-2-3">
+<em class="emphasis">Solution.</em> (Both curves start at <span class="process-math">\(O\)</span> and end at <span class="process-math">\(P\text{,}\)</span> as in <a href="sec-vector-fields.html#fig-path-dependence-paths" class="internal" title="Figure 1.4.14">Figure 1.4.14</a>, so any difference between the two answers can come only from the paths themselves. Apply <a href="sec-vector-fields.html#assemblage-work-integral-2-12" class="xref" data-knowl="./knowl/xref/eq-work-parametrized.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.8">(1.4.8)</a> to each: write <span class="process-math">\(\mathbf{F}\)</span> along the path and the velocity, dot, and integrate. Compare <span class="process-math">\(W_1\)</span> and <span class="process-math">\(W_2\text{,}\)</span> and say what the comparison tells you about whether the endpoints alone determine the work. Which fields are the exception is the question taken up in <a href="section-conservative-fields.html" class="internal" title="Section 1.5: Path Independence, Conservative Fields, and Potential Functions">Section 1.5</a>.)<div class="autopermalink" data-description="Paragraph"><a href="#ex-work-path-dependence-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/ex-work-path-dependence-2-4-1.svg" role="img" class="contained" alt="Blank box in three rows, for the work along the segment, for the work along the parabola, and for the conclusion about path dependence."></div></div></div></div>
+<div class="autopermalink" data-description="Example 1.4.13: The same endpoints, two paths, two answers"><a href="#ex-work-path-dependence" title="Copy heading and permalink for Example 1.4.13: The same endpoints, two paths, two answers" aria-label="Copy heading and permalink for Example 1.4.13: The same endpoints, two paths, two answers">🔗</a></div></article></details><section class="subsection" id="subsec-work-exploration"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Concept Check</span>
+</h3>
+<details id="q-work-sign-two-paths" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Positive, negative, or zero?</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="q-work-sign-two-paths-2-1">In <a href="sec-vector-fields.html#fig-two-paths-curves" class="internal" title="Figure 1.4.16">Figure 1.4.16</a>, determine whether the work done by the force field along the two paths <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> is positive, negative, or zero.<div class="autopermalink" data-description="Paragraph"><a href="#q-work-sign-two-paths-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig-two-paths-curves"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/two-paths-curves-diagcess.svg" data-cml="generated/prefigure/two-paths-curves-annotations.xml"></div>
+<details><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="image-two-paths-curves-description"><div class="para" id="image-two-paths-curves-2-1">The plane with x and y from minus 5 to 5, filled with blue arrows that point straight away from the origin and grow longer with the distance from it. A green ellipse crosses the x axis at plus and minus three and the y axis at plus and minus one; its arrowhead, just above the origin, points in the negative x direction, so the ellipse is traversed counterclockwise. A black circle of radius two is centred at the origin; its arrowhead, in the upper right, points down and to the right, so the circle is traversed clockwise. A red dot marks the origin, where the field is the zero vector.<div class="autopermalink" data-description="Paragraph"><a href="#image-two-paths-curves-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Two closed paths in the radial field <a href="sec-vector-fields.html#subsec-vector-fields-2-6" class="xref" data-knowl="./knowl/xref/eq-radial-field.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.1">(1.4.1)</a>: the ellipse <span class="process-math">\(C_1\)</span> and the circle <span class="process-math">\(C_2\text{.}\)</span> Notice the orientation of each curve.<div class="autopermalink" data-description="Figure 1.4.16"><a href="#fig-two-paths-curves" title="Copy heading and permalink for Figure 1.4.16" aria-label="Copy heading and permalink for Figure 1.4.16">🔗</a></div></figcaption></figure> <div class="para" id="q-work-sign-two-paths-2-3">(The field is the radial field <a href="sec-vector-fields.html#subsec-vector-fields-2-6" class="xref" data-knowl="./knowl/xref/eq-radial-field.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.1">(1.4.1)</a>, which aims straight away from the origin at every point. For the circle, ask what angle <span class="process-math">\(\mathbf{F}\)</span> makes with the direction of travel <span class="process-math">\(\mathbf{T}\)</span> at every point, and what that does to the integrand of <a href="sec-vector-fields.html#assemblage-work-integral-2-4" class="xref" data-knowl="./knowl/xref/eq-work-Tds.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 1.4.5">(1.4.5)</a>. For the ellipse the integrand does not vanish: mark the stretches where the curve moves away from the origin and those where it moves back, decide the sign of <span class="process-math">\(\mathbf{F}\cdot\mathbf{T}\)</span> on each, and think about what a full circuit adds up to. Does reversing the orientation change either answer?)<div class="autopermalink" data-description="Paragraph"><a href="#q-work-sign-two-paths-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/q-work-sign-two-paths-2-4-1.svg" role="img" class="contained" alt="Blank box in three rows, for the sign of the work around the circle, for the sign on the outward and inward stretches of the ellipse and over a full circuit, and for the effect of reversing the orientation."></div></div></div></div>
+<div class="autopermalink" data-description="Checkpoint 1.4.15: Positive, negative, or zero?"><a href="#q-work-sign-two-paths" title="Copy heading and permalink for Checkpoint 1.4.15: Positive, negative, or zero?" aria-label="Copy heading and permalink for Checkpoint 1.4.15: Positive, negative, or zero?">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.4.4: Concept Check"><a href="#subsec-work-exploration" title="Copy heading and permalink for Subsection 1.4.4: Concept Check" aria-label="Copy heading and permalink for Subsection 1.4.4: Concept Check">🔗</a></div></section><div class="autopermalink" data-description="Section 1.4: Vector Fields and Line Integrals"><a href="#sec-vector-fields" title="Copy heading and permalink for Section 1.4: Vector Fields and Line Integrals" aria-label="Copy heading and permalink for Section 1.4: Vector Fields and Line Integrals">🔗</a></div></section></div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="sec-line-integrals.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-conservative-fields.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+<script>diagcess.Base.init()</script><script src="external/math-input-palette.js"></script><script src="external/custom.js"></script>
+</body>
+</html>
