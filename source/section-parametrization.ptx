@@ -936,6 +936,28 @@
             </latex-image>
           </image>
         </figure>
+
+        <p>
+          The same helix, animated. Press <q>Play</q> to watch the point
+          climb the curve, with its shadow running around the unit circle
+          below and the position vector <m>\mathbf{r}(t)</m> following it;
+          or drag the slider to place the point yourself.
+        </p>
+
+        <interactive xml:id="interactive-helix-manim" iframe="helix-manim.html"
+                     width="100%" aspect="1:1">
+          <instructions>
+            <p>
+              Drag <m>t</m> from <m>0</m> to <m>\pi</m>, or use the
+              <q>Jump to</q> buttons. The card reads off the point
+              <m>(\cos 2t, \sin 2t, t)</m>, and the readout at the lower
+              left keeps track of the height <m>z = t</m> and of how far
+              around the circle the shadow has gone. Drag the figure to
+              look from anywhere, <q>Spin</q> turns it on its own, and
+              <q>Full screen</q> fills the screen with it.
+            </p>
+          </instructions>
+        </interactive>
       </statement>
     </example>
 
