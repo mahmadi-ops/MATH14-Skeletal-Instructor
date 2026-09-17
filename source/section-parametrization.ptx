@@ -20,7 +20,10 @@
 <!--                                                                       -->
 <!-- Plane curves are drawn with PreFigure (annotated for screen readers); -->
 <!-- space curves with TikZ/pgfplots, which needs the tikz + pgfplots      -->
-<!-- preamble already present in main.ptx.                                 -->
+<!-- preamble already present in main.ptx.  The helix figure is followed   -->
+<!-- by an animated version, assets/helix-manim.html (three.js, in the     -->
+<!-- manim style of the MATH 13 book's animated figures); the print build  -->
+<!-- shows its preview image from generated-assets/preview with a QR code. -->
 
 <section xml:id="sec-parametrization">
   <title>Parametrization of Curves</title>
