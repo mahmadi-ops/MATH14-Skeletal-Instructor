@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-cardioid-y-figure" viewBox="0 0 380 341">
+  <defs>
+    <clipPath id="prefigure-cardioid-y-clipPath-0">
+      <rect x="10.0" y="10.0" width="360.0" height="321.0"/>
+    </clipPath>
+    <clipPath id="prefigure-cardioid-y-clipPath-1">
+      <rect x="10.0" y="10.0" width="360.0" height="321.0"/>
+    </clipPath>
+    <marker id="prefigure-cardioid-y-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cardioid-y-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <path id="prefigure-cardioid-y-cy-ring1" d="M 217.7 163.5 L 217.6 161.3 L 217.4 159.1 L 217.1 157.0 L 216.6 154.8 L 216.0 152.7 L 215.3 150.7 L 214.4 148.7 L 213.4 146.7 L 212.3 144.8 L 211.1 143.0 L 209.7 141.3 L 208.3 139.6 L 206.8 138.1 L 205.1 136.6 L 203.4 135.3 L 201.6 134.1 L 199.8 132.9 L 197.8 132.0 L 195.8 131.1 L 193.8 130.3 L 191.7 129.7 L 189.6 129.2 L 187.4 128.9 L 185.3 128.7 L 183.1 128.6 L 180.9 128.7 L 178.7 128.9 L 176.6 129.2 L 174.5 129.7 L 172.4 130.3 L 170.3 131.1 L 168.3 132.0 L 166.4 132.9 L 164.5 134.1 L 162.7 135.3 L 161.0 136.6 L 159.4 138.1 L 157.8 139.6 L 156.4 141.3 L 155.1 143.0 L 153.9 144.8 L 152.7 146.7 L 151.8 148.7 L 150.9 150.7 L 150.2 152.7 L 149.5 154.8 L 149.1 157.0 L 148.7 159.1 L 148.5 161.3 L 148.5 163.5 L 148.5 165.7 L 148.7 167.9 L 149.1 170.1 L 149.5 172.2 L 150.2 174.3 L 150.9 176.4 L 151.8 178.4 L 152.7 180.3 L 153.9 182.2 L 155.1 184.0 L 156.4 185.8 L 157.8 187.4 L 159.4 189.0 L 161.0 190.4 L 162.7 191.7 L 164.5 193.0 L 166.4 194.1 L 168.3 195.1 L 170.3 196.0 L 172.4 196.7 L 174.5 197.3 L 176.6 197.8 L 178.7 198.1 L 180.9 198.3 L 183.1 198.4 L 185.3 198.3 L 187.4 198.1 L 189.6 197.8 L 191.7 197.3 L 193.8 196.7 L 195.8 196.0 L 197.8 195.1 L 199.8 194.1 L 201.6 193.0 L 203.4 191.7 L 205.1 190.4 L 206.8 189.0 L 208.3 187.4 L 209.7 185.8 L 211.1 184.0 L 212.3 182.2 L 213.4 180.3 L 214.4 178.4 L 215.3 176.4 L 216.0 174.3 L 216.6 172.2 L 217.1 170.1 L 217.4 167.9 L 217.6 165.7 L 217.7 163.5" stroke="#dddddd" stroke-width="1" fill="none" clip-path="url(#prefigure-cardioid-y-clipPath-1)"/>
+  <path id="prefigure-cardioid-y-cy-ring2" d="M 252.3 163.5 L 252.2 159.1 L 251.8 154.8 L 251.1 150.4 L 250.1 146.2 L 248.9 142.0 L 247.4 137.8 L 245.7 133.8 L 243.7 129.9 L 241.5 126.1 L 239.1 122.5 L 236.4 119.0 L 233.5 115.8 L 230.5 112.7 L 227.2 109.8 L 223.8 107.1 L 220.2 104.6 L 216.4 102.4 L 212.6 100.4 L 208.6 98.6 L 204.5 97.2 L 200.3 95.9 L 196.0 95.0 L 191.8 94.3 L 187.4 93.9 L 183.1 93.7 L 178.7 93.9 L 174.4 94.3 L 170.1 95.0 L 165.9 95.9 L 161.7 97.2 L 157.6 98.6 L 153.6 100.4 L 149.7 102.4 L 146.0 104.6 L 142.4 107.1 L 138.9 109.8 L 135.7 112.7 L 132.6 115.8 L 129.7 119.0 L 127.1 122.5 L 124.6 126.1 L 122.4 129.9 L 120.4 133.8 L 118.7 137.8 L 117.2 142.0 L 116.0 146.2 L 115.1 150.4 L 114.4 154.8 L 114.0 159.1 L 113.8 163.5 L 114.0 167.9 L 114.4 172.3 L 115.1 176.6 L 116.0 180.9 L 117.2 185.1 L 118.7 189.2 L 120.4 193.2 L 122.4 197.1 L 124.6 200.9 L 127.1 204.5 L 129.7 208.0 L 132.6 211.3 L 135.7 214.4 L 138.9 217.3 L 142.4 220.0 L 146.0 222.4 L 149.7 224.7 L 153.6 226.7 L 157.6 228.4 L 161.7 229.9 L 165.9 231.1 L 170.1 232.1 L 174.4 232.8 L 178.7 233.2 L 183.1 233.3 L 187.4 233.2 L 191.8 232.8 L 196.0 232.1 L 200.3 231.1 L 204.5 229.9 L 208.6 228.4 L 212.6 226.7 L 216.4 224.7 L 220.2 222.4 L 223.8 220.0 L 227.2 217.3 L 230.5 214.4 L 233.5 211.3 L 236.4 208.0 L 239.1 204.5 L 241.5 200.9 L 243.7 197.1 L 245.7 193.2 L 247.4 189.2 L 248.9 185.1 L 250.1 180.9 L 251.1 176.6 L 251.8 172.3 L 252.2 167.9 L 252.3 163.5" stroke="#dddddd" stroke-width="1" fill="none" clip-path="url(#prefigure-cardioid-y-clipPath-1)"/>
+  <path id="prefigure-cardioid-y-cy-ring3" d="M 286.9 163.5 L 286.7 156.9 L 286.1 150.4 L 285.1 143.9 L 283.7 137.5 L 281.8 131.2 L 279.6 125.0 L 277.0 119.0 L 274.1 113.1 L 270.8 107.4 L 267.1 102.0 L 263.1 96.8 L 258.8 91.9 L 254.2 87.2 L 249.3 82.9 L 244.1 78.8 L 238.7 75.1 L 233.1 71.8 L 227.3 68.8 L 221.3 66.2 L 215.2 64.0 L 208.9 62.1 L 202.5 60.7 L 196.1 59.7 L 189.6 59.1 L 183.1 58.8 L 176.6 59.1 L 170.1 59.7 L 163.6 60.7 L 157.3 62.1 L 151.0 64.0 L 144.8 66.2 L 138.9 68.8 L 133.0 71.8 L 127.4 75.1 L 122.0 78.8 L 116.9 82.9 L 112.0 87.2 L 107.4 91.9 L 103.1 96.8 L 99.1 102.0 L 95.4 107.4 L 92.1 113.1 L 89.1 119.0 L 86.5 125.0 L 84.3 131.2 L 82.5 137.5 L 81.1 143.9 L 80.0 150.4 L 79.4 156.9 L 79.2 163.5 L 79.4 170.1 L 80.0 176.6 L 81.1 183.1 L 82.5 189.6 L 84.3 195.9 L 86.5 202.1 L 89.1 208.1 L 92.1 213.9 L 95.4 219.6 L 99.1 225.0 L 103.1 230.2 L 107.4 235.2 L 112.0 239.8 L 116.9 244.2 L 122.0 248.2 L 127.4 251.9 L 133.0 255.2 L 138.9 258.2 L 144.8 260.8 L 151.0 263.1 L 157.3 264.9 L 163.6 266.3 L 170.1 267.4 L 176.6 268.0 L 183.1 268.2 L 189.6 268.0 L 196.1 267.4 L 202.5 266.3 L 208.9 264.9 L 215.2 263.1 L 221.3 260.8 L 227.3 258.2 L 233.1 255.2 L 238.7 251.9 L 244.1 248.2 L 249.3 244.2 L 254.2 239.8 L 258.8 235.2 L 263.1 230.2 L 267.1 225.0 L 270.8 219.6 L 274.1 213.9 L 277.0 208.1 L 279.6 202.1 L 281.8 195.9 L 283.7 189.6 L 285.1 183.1 L 286.1 176.6 L 286.7 170.1 L 286.9 163.5" stroke="#dddddd" stroke-width="1" fill="none" clip-path="url(#prefigure-cardioid-y-clipPath-1)"/>
+  <path id="prefigure-cardioid-y-cy-ring4" d="M 321.5 163.5 L 321.3 154.8 L 320.4 146.0 L 319.1 137.4 L 317.2 128.8 L 314.8 120.4 L 311.8 112.1 L 308.4 104.1 L 304.4 96.3 L 300.0 88.7 L 295.1 81.5 L 289.8 74.6 L 284.0 68.0 L 277.9 61.8 L 271.3 56.0 L 264.5 50.6 L 257.3 45.7 L 249.8 41.2 L 242.0 37.2 L 234.0 33.8 L 225.9 30.8 L 217.5 28.3 L 209.0 26.4 L 200.4 25.1 L 191.8 24.2 L 183.1 24.0 L 174.4 24.2 L 165.7 25.1 L 157.1 26.4 L 148.6 28.3 L 140.3 30.8 L 132.1 33.8 L 124.1 37.2 L 116.4 41.2 L 108.9 45.7 L 101.7 50.6 L 94.8 56.0 L 88.3 61.8 L 82.1 68.0 L 76.4 74.6 L 71.1 81.5 L 66.2 88.7 L 61.7 96.3 L 57.8 104.1 L 54.3 112.1 L 51.4 120.4 L 49.0 128.8 L 47.1 137.4 L 45.7 146.0 L 44.9 154.8 L 44.6 163.5 L 44.9 172.3 L 45.7 181.0 L 47.1 189.7 L 49.0 198.2 L 51.4 206.6 L 54.3 214.9 L 57.8 222.9 L 61.7 230.8 L 66.2 238.3 L 71.1 245.6 L 76.4 252.5 L 82.1 259.1 L 88.3 265.3 L 94.8 271.1 L 101.7 276.4 L 108.9 281.4 L 116.4 285.8 L 124.1 289.8 L 132.1 293.3 L 140.3 296.3 L 148.6 298.7 L 157.1 300.6 L 165.7 302.0 L 174.4 302.8 L 183.1 303.1 L 191.8 302.8 L 200.4 302.0 L 209.0 300.6 L 217.5 298.7 L 225.9 296.3 L 234.0 293.3 L 242.0 289.8 L 249.8 285.8 L 257.3 281.4 L 264.5 276.4 L 271.3 271.1 L 277.9 265.3 L 284.0 259.1 L 289.8 252.5 L 295.1 245.6 L 300.0 238.3 L 304.4 230.8 L 308.4 222.9 L 311.8 214.9 L 314.8 206.6 L 317.2 198.2 L 319.1 189.7 L 320.4 181.0 L 321.3 172.3 L 321.5 163.5" stroke="#dddddd" stroke-width="1" fill="none" clip-path="url(#prefigure-cardioid-y-clipPath-1)"/>
+  <line id="prefigure-cardioid-y-cy-diag1" x1="75.8" y1="271.7" x2="290.4" y2="55.4" stroke="#dddddd" stroke-width="1" fill="none"/>
+  <line id="prefigure-cardioid-y-cy-diag2" x1="75.8" y1="55.4" x2="290.4" y2="271.7" stroke="#dddddd" stroke-width="1" fill="none"/>
+  <g id="cy-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-cardioid-y-line-0" x1="10.0" y1="163.5" x2="370.0" y2="163.5" stroke="black" stroke-width="2" marker-end="url(#prefigure-cardioid-y-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-cardioid-y-line-1" x1="183.1" y1="331.0" x2="183.1" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-cardioid-y-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-cardioid-y-label-0" transform="translate(364.0,157.5) translate(-10.4,-8.2)">
+    <g id="prefigure-cardioid-y-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cardioid-y-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-cardioid-y-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cardioid-y-label-1" transform="translate(189.1,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-cardioid-y-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cardioid-y-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-cardioid-y-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <path id="prefigure-cardioid-y-cy-curve" d="M 252.3 163.5 L 247.8 159.4 L 243.2 155.9 L 238.3 152.9 L 233.5 150.5 L 228.6 148.6 L 223.8 147.3 L 219.0 146.5 L 214.5 146.1 L 210.2 146.2 L 206.2 146.6 L 202.4 147.4 L 199.0 148.5 L 195.9 149.7 L 193.2 151.2 L 190.8 152.7 L 188.9 154.3 L 187.2 156.0 L 185.9 157.5 L 184.9 159.0 L 184.1 160.3 L 183.6 161.4 L 183.3 162.3 L 183.1 163.0 L 183.1 163.4 L 183.1 163.5 L 183.1 163.4 L 183.0 163.0 L 182.8 162.3 L 182.5 161.4 L 182.0 160.3 L 181.3 159.0 L 180.3 157.5 L 179.0 156.0 L 177.3 154.3 L 175.3 152.7 L 172.9 151.2 L 170.2 149.7 L 167.2 148.5 L 163.7 147.4 L 160.0 146.6 L 155.9 146.2 L 151.6 146.1 L 147.1 146.5 L 142.4 147.3 L 137.6 148.6 L 132.7 150.5 L 127.8 152.9 L 123.0 155.9 L 118.3 159.4 L 113.8 163.5 L 109.6 168.2 L 105.8 173.4 L 102.3 179.0 L 99.3 185.2 L 96.9 191.7 L 95.0 198.7 L 93.8 205.9 L 93.2 213.3 L 93.3 220.9 L 94.1 228.6 L 95.7 236.4 L 98.1 244.0 L 101.1 251.5 L 104.9 258.7 L 109.5 265.7 L 114.7 272.2 L 120.5 278.3 L 126.9 283.8 L 133.9 288.7 L 141.3 293.0 L 149.2 296.6 L 157.4 299.4 L 165.8 301.4 L 174.4 302.7 L 183.1 303.1 L 191.8 302.7 L 200.4 301.4 L 208.8 299.4 L 217.0 296.6 L 224.8 293.0 L 232.3 288.7 L 239.2 283.8 L 245.7 278.3 L 251.5 272.2 L 256.7 265.7 L 261.2 258.7 L 265.0 251.5 L 268.1 244.0 L 270.4 236.4 L 272.0 228.6 L 272.9 220.9 L 273.0 213.3 L 272.4 205.9 L 271.1 198.7 L 269.3 191.7 L 266.8 185.2 L 263.8 179.0 L 260.4 173.4 L 256.5 168.2 L 252.3 163.5" stroke="#0072B2" stroke-width="3" fill="none" clip-path="url(#prefigure-cardioid-y-clipPath-1)"/>
+  <g id="prefigure-cardioid-y-cy-eq" transform="translate(20.9,69.3) translate(0.0,-9.0)">
+    <g id="prefigure-cardioid-y-g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px; color:#0072B2" width="108.272px" height="18.096px" role="img" focusable="false" viewBox="0 -750 5982 1000" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-2061" d=""/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+          <path id="prefigure-cardioid-y-MJX-4-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="13" data-semantic-children="0,12" data-semantic-content="1" data-semantic-speech="r equals 1 minus sine left parenthesis theta right parenthesis">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="13" data-semantic-speech="r">
+              <use data-c="1D45F" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-I-1D45F"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="13" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(728.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mrow" data-semantic-type="infixop" data-semantic-role="subtraction" data-semantic-id="12" data-semantic-children="2,11" data-semantic-content="3" data-semantic-parent="13" data-semantic-speech="1 minus sine left parenthesis theta right parenthesis" transform="translate(1784.6,0)">
+              <g data-mml-node="mn" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="12" data-semantic-speech="1">
+                <use data-c="31" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-31"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="subtraction" data-semantic-id="3" data-semantic-parent="12" data-semantic-operator="infixop,−" data-semantic-speech="minus" transform="translate(722.2,0)">
+                <use data-c="2212" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-2212"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="prefix function" data-semantic-annotation="clearspeak:simple" data-semantic-id="11" data-semantic-children="4,9" data-semantic-content="10,4" data-semantic-parent="12" data-semantic-speech="sine left parenthesis theta right parenthesis" transform="translate(1722.4,0)">
+                <g data-mml-node="mi" data-semantic-type="function" data-semantic-role="prefix function" data-semantic-font="normal" data-semantic-id="4" data-semantic-parent="11" data-semantic-operator="appl" data-semantic-speech="sine">
+                  <use data-c="73" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-73"/>
+                  <use data-c="69" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-69" transform="translate(394,0)"/>
+                  <use data-c="6E" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-6E" transform="translate(672,0)"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="10" data-semantic-parent="11" data-semantic-attributes="texclass:NONE" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(1228,0)">
+                  <use data-c="2061" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="9" data-semantic-children="7" data-semantic-content="6,8" data-semantic-parent="11" data-semantic-speech="left parenthesis theta right parenthesis" transform="translate(1228,0)">
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="6" data-semantic-parent="9" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                    <use data-c="28" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-28"/>
+                  </g>
+                  <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="7" data-semantic-parent="9" data-semantic-speech="theta" transform="translate(389,0)">
+                    <use data-c="1D703" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-I-1D703"/>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="8" data-semantic-parent="9" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(858,0)">
+                    <use data-c="29" xlink:href="#prefigure-cardioid-y-MJX-4-TEX-N-29"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cardioid-y-cy-r1" transform="translate(217.7,155.3) translate(-7.2,-21.9)">
+    <g id="prefigure-cardioid-y-g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.248px" width="14.360px" height="21.896px" role="img" focusable="false" viewBox="0 -864.9 793.6 1209.9" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cardioid-y-MJX-5-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+          <path id="prefigure-cardioid-y-MJX-5-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mstyle">
+              <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="vulgar" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="one half">
+                <g data-mml-node="mn" transform="translate(220,394) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="1" data-semantic-prefix="Numerator">
+                  <use data-c="31" xlink:href="#prefigure-cardioid-y-MJX-5-TEX-N-31"/>
+                </g>
+                <g data-mml-node="mn" transform="translate(220,-345) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="2" data-semantic-prefix="Denominator">
+                  <use data-c="32" xlink:href="#prefigure-cardioid-y-MJX-5-TEX-N-32"/>
+                </g>
+                <rect width="553.6" height="60" x="120" y="220"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cardioid-y-cy-r2" transform="translate(253.7,155.3) translate(-4.5,-12.1)">
+    <g id="prefigure-cardioid-y-g-4">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="9.048px" height="12.056px" role="img" focusable="false" viewBox="0 -666 500 666" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cardioid-y-MJX-6-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mn" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="1">
+              <use data-c="31" xlink:href="#prefigure-cardioid-y-MJX-6-TEX-N-31"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cardioid-y-cy-r4" transform="translate(322.9,155.3) translate(-4.5,-12.1)">
+    <g id="prefigure-cardioid-y-g-5">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="9.048px" height="12.056px" role="img" focusable="false" viewBox="0 -666 500 666" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cardioid-y-MJX-7-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mn" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="2">
+              <use data-c="32" xlink:href="#prefigure-cardioid-y-MJX-7-TEX-N-32"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

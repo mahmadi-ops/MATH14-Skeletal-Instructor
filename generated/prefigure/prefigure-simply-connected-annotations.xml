@@ -1,0 +1,21 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-simply-connected-figure" speech2="A blob shaped region in the x y plane with no holes, filled in tan with a light blue boundary. The region is labeled simply connected.">
+      <grouped>prefigure-simply-connected-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-simply-connected-sc-region</active>
+      </children>
+      <components>
+        <active>prefigure-simply-connected-sc-region</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-simply-connected-sc-region" speech2="A blob shaped region with no holes. Any loop drawn inside this region can be contracted to a point without leaving the region.">
+      <active>prefigure-simply-connected-sc-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-simply-connected-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

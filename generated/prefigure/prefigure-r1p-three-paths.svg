@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-r1p-three-paths-figure" width="356" height="356" viewBox="0 0 356 356">
+  <defs>
+    <clipPath id="prefigure-r1p-three-paths-clipPath-0">
+      <rect x="8.0" y="8.0" width="340.0" height="340.0"/>
+    </clipPath>
+    <clipPath id="prefigure-r1p-three-paths-clipPath-1">
+      <rect x="8.0" y="8.0" width="340.0" height="340.0"/>
+    </clipPath>
+    <marker id="prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#2f6fb5" stroke="none"/>
+    </marker>
+    <marker id="prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-r1p-three-paths-arrow-head-end-3_None_24_60-hc00000" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#c00000" stroke="none"/>
+    </marker>
+    <marker id="prefigure-r1p-three-paths-arrow-head-end-3_None_24_60-hc00000-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <path id="prefigure-r1p-three-paths-v1" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 308.5 L 74.4 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q1" cx="47.5" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v2" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 268.9 L 74.4 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q2" cx="47.5" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v3" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 229.4 L 74.4 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q3" cx="47.5" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v4" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 189.9 L 74.4 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q4" cx="47.5" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v5" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 150.3 L 74.4 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q5" cx="47.5" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v6" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 110.8 L 74.4 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q6" cx="47.5" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v7" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 71.3 L 74.4 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q7" cx="47.5" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v8" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 47.5 31.7 L 74.4 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q8" cx="47.5" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v9" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 308.5 L 114.0 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q9" cx="87.1" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v10" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 268.9 L 114.0 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q10" cx="87.1" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v11" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 229.4 L 114.0 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q11" cx="87.1" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v12" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 189.9 L 114.0 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q12" cx="87.1" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v13" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 150.3 L 114.0 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q13" cx="87.1" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v14" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 110.8 L 114.0 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q14" cx="87.1" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v15" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 71.3 L 114.0 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q15" cx="87.1" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v16" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 87.1 31.7 L 114.0 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q16" cx="87.1" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v17" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 308.5 L 153.5 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q17" cx="126.6" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v18" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 268.9 L 153.5 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q18" cx="126.6" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v19" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 229.4 L 153.5 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q19" cx="126.6" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v20" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 189.9 L 153.5 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q20" cx="126.6" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v21" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 150.3 L 153.5 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q21" cx="126.6" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v22" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 110.8 L 153.5 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q22" cx="126.6" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v23" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 71.3 L 153.5 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q23" cx="126.6" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v24" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 126.6 31.7 L 153.5 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q24" cx="126.6" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v25" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 308.5 L 193.0 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q25" cx="166.1" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v26" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 268.9 L 193.0 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q26" cx="166.1" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v27" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 229.4 L 193.0 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q27" cx="166.1" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v28" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 189.9 L 193.0 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q28" cx="166.1" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v29" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 150.3 L 193.0 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q29" cx="166.1" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v30" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 110.8 L 193.0 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q30" cx="166.1" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v31" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 71.3 L 193.0 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q31" cx="166.1" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v32" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 166.1 31.7 L 193.0 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q32" cx="166.1" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v33" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 308.5 L 232.6 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q33" cx="205.7" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v34" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 268.9 L 232.6 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q34" cx="205.7" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v35" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 229.4 L 232.6 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q35" cx="205.7" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v36" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 189.9 L 232.6 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q36" cx="205.7" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v37" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 150.3 L 232.6 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q37" cx="205.7" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v38" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 110.8 L 232.6 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q38" cx="205.7" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v39" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 71.3 L 232.6 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q39" cx="205.7" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v40" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 205.7 31.7 L 232.6 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q40" cx="205.7" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v41" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 308.5 L 272.1 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q41" cx="245.2" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v42" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 268.9 L 272.1 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q42" cx="245.2" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v43" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 229.4 L 272.1 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q43" cx="245.2" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v44" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 189.9 L 272.1 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q44" cx="245.2" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v45" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 150.3 L 272.1 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q45" cx="245.2" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v46" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 110.8 L 272.1 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q46" cx="245.2" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v47" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 71.3 L 272.1 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q47" cx="245.2" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v48" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 245.2 31.7 L 272.1 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q48" cx="245.2" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v49" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 308.5 L 311.6 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q49" cx="284.7" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v50" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 268.9 L 311.6 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q50" cx="284.7" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v51" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 229.4 L 311.6 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q51" cx="284.7" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v52" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 189.9 L 311.6 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q52" cx="284.7" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v53" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 150.3 L 311.6 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q53" cx="284.7" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v54" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 110.8 L 311.6 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q54" cx="284.7" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v55" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 71.3 L 311.6 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q55" cx="284.7" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v56" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 284.7 31.7 L 311.6 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q56" cx="284.7" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v57" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 308.5 L 351.2 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q57" cx="324.3" cy="308.5" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v58" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 268.9 L 351.2 268.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q58" cx="324.3" cy="268.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v59" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 229.4 L 351.2 229.4" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q59" cx="324.3" cy="229.4" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v60" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 189.9 L 351.2 189.9" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q60" cx="324.3" cy="189.9" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v61" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 150.3 L 351.2 150.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q61" cx="324.3" cy="150.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v62" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 110.8 L 351.2 110.8" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q62" cx="324.3" cy="110.8" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v63" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 71.3 L 351.2 71.3" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q63" cx="324.3" cy="71.3" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <path id="prefigure-r1p-three-paths-v64" stroke="#2f6fb5" stroke-width="2" fill="none" d="M 324.3 31.7 L 351.2 31.7" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-2_None_24_60-h2f6fb5)"/>
+  <circle id="prefigure-r1p-three-paths-q64" cx="324.3" cy="31.7" r="3" stroke="#2f6fb5" stroke-width="2" fill="#2f6fb5"/>
+  <line id="prefigure-r1p-three-paths-p1" x1="47.5" y1="308.5" x2="166.1" y2="308.5" stroke="#c00000" stroke-width="3" fill="none"/>
+  <circle id="prefigure-r1p-three-paths-s1" cx="47.5" cy="308.5" r="5" stroke="#c00000" stroke-width="2" fill="#c00000"/>
+  <circle id="prefigure-r1p-three-paths-e1" cx="166.1" cy="308.5" r="5" stroke="#c00000" stroke-width="2" fill="#c00000"/>
+  <path id="prefigure-r1p-three-paths-d1" stroke="#c00000" stroke-width="3" fill="none" d="M 47.5 308.5 L 100.9 308.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-3_None_24_60-hc00000)"/>
+  <g id="prefigure-r1p-three-paths-l1" transform="translate(106.8,324.3) translate(-10.4,-7.7)">
+    <g id="prefigure-r1p-three-paths-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#c00000" width="20.840px" height="15.472px" role="img" focusable="false" viewBox="0 -705 1151.6 855" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-r1p-three-paths-MJX-2-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-r1p-three-paths-MJX-2-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="upper C 1">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="upper C" data-semantic-prefix="Base">
+                <use data-c="1D436" xlink:href="#prefigure-r1p-three-paths-MJX-2-TEX-I-1D436"/>
+              </g>
+              <g data-mml-node="mn" transform="translate(748,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="1" data-semantic-prefix="Subscript">
+                <use data-c="31" xlink:href="#prefigure-r1p-three-paths-MJX-2-TEX-N-31"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-r1p-three-paths-p2" x1="284.7" y1="71.3" x2="284.7" y2="189.9" stroke="#c00000" stroke-width="3" fill="none"/>
+  <circle id="prefigure-r1p-three-paths-s2" cx="284.7" cy="71.3" r="5" stroke="#c00000" stroke-width="2" fill="#c00000"/>
+  <circle id="prefigure-r1p-three-paths-e2" cx="284.7" cy="189.9" r="5" stroke="#c00000" stroke-width="2" fill="#c00000"/>
+  <path id="prefigure-r1p-three-paths-d2" stroke="#c00000" stroke-width="3" fill="none" d="M 284.7 71.3 L 284.7 124.6" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-3_None_24_60-hc00000)"/>
+  <g id="prefigure-r1p-three-paths-l2" transform="translate(299.0,130.6) translate(-10.4,-7.7)">
+    <g id="prefigure-r1p-three-paths-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#c00000" width="20.840px" height="15.472px" role="img" focusable="false" viewBox="0 -705 1151.6 855" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-r1p-three-paths-MJX-3-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-r1p-three-paths-MJX-3-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="upper C 2">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="upper C" data-semantic-prefix="Base">
+                <use data-c="1D436" xlink:href="#prefigure-r1p-three-paths-MJX-3-TEX-I-1D436"/>
+              </g>
+              <g data-mml-node="mn" transform="translate(748,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="2" data-semantic-prefix="Subscript">
+                <use data-c="32" xlink:href="#prefigure-r1p-three-paths-MJX-3-TEX-N-32"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-r1p-three-paths-p3" x1="47.5" y1="189.9" x2="106.8" y2="71.3" stroke="#c00000" stroke-width="3" fill="none"/>
+  <circle id="prefigure-r1p-three-paths-s3" cx="47.5" cy="189.9" r="5" stroke="#c00000" stroke-width="2" fill="#c00000"/>
+  <circle id="prefigure-r1p-three-paths-e3" cx="106.8" cy="71.3" r="5" stroke="#c00000" stroke-width="2" fill="#c00000"/>
+  <path id="prefigure-r1p-three-paths-d3" stroke="#c00000" stroke-width="3" fill="none" d="M 47.5 189.9 L 74.3 136.5" marker-end="url(#prefigure-r1p-three-paths-arrow-head-end-3_None_24_60-hc00000)"/>
+  <g id="prefigure-r1p-three-paths-l3" transform="translate(64.9,114.7) translate(-10.4,-7.9)">
+    <g id="prefigure-r1p-three-paths-g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.000px; color:#c00000" width="20.840px" height="15.760px" role="img" focusable="false" viewBox="0 -705 1151.6 870.6" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-r1p-three-paths-MJX-4-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-r1p-three-paths-MJX-4-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="upper C 3">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="upper C" data-semantic-prefix="Base">
+                <use data-c="1D436" xlink:href="#prefigure-r1p-three-paths-MJX-4-TEX-I-1D436"/>
+              </g>
+              <g data-mml-node="mn" transform="translate(748,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="3" data-semantic-prefix="Subscript">
+                <use data-c="33" xlink:href="#prefigure-r1p-three-paths-MJX-4-TEX-N-33"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

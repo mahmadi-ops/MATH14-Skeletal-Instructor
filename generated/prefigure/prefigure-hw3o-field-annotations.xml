@@ -1,0 +1,39 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-hw3o-field-figure" speech2="A grid of green field vectors over the first quadrant, together with a blue circle. Near the x axis the field vectors point almost straight down and are short. Higher up they tilt to the right and grow longer, so the field is strongest across the top of the circle. The circle is traversed counterclockwise, and its right side carries an arrowhead pointing upward.">
+      <grouped>prefigure-hw3o-field-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-hw3o-field-hf-C</active>
+        <active>prefigure-hw3o-field-hf-Cdir</active>
+        <active>prefigure-hw3o-field-hf-cols</active>
+      </children>
+      <components>
+        <active>prefigure-hw3o-field-hf-C</active>
+        <active>prefigure-hw3o-field-hf-Cdir</active>
+        <active>prefigure-hw3o-field-hf-cols</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-hw3o-field-hf-C" speech2="The closed curve C, a circle, traversed in the direction of the arrowhead on its right side, counterclockwise.">
+      <active>prefigure-hw3o-field-hf-C</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-hw3o-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw3o-field-hf-Cdir" speech2="The arrowhead giving the direction of travel along C, pointing upward on the right side of the circle.">
+      <active>prefigure-hw3o-field-hf-Cdir</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-hw3o-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw3o-field-hf-cols" speech2="The field vectors. They are short and nearly vertical near the x axis and grow longer and more tilted as y increases.">
+      <active>prefigure-hw3o-field-hf-cols</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-hw3o-field-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

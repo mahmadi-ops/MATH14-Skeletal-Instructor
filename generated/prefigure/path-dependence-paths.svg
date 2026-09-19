@@ -1,0 +1,300 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="path-dependence-paths-figure" width="410" height="410" viewBox="0 0 410 410">
+  <defs>
+    <clipPath id="path-dependence-paths-clipPath-0">
+      <rect x="5.0" y="5.0" width="400.0" height="400.0"/>
+    </clipPath>
+    <clipPath id="path-dependence-paths-clipPath-1">
+      <rect x="5.0" y="5.0" width="400.0" height="400.0"/>
+    </clipPath>
+    <marker id="path-dependence-paths-arrow-head-end-2_None_24_60-blue" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="blue" stroke="none"/>
+    </marker>
+    <marker id="path-dependence-paths-arrow-head-end-2_None_24_60-blue-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="path-dependence-paths-arrow-head-end-3_None_24_60-h009E73" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+    </marker>
+    <marker id="path-dependence-paths-arrow-head-end-3_None_24_60-h009E73-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="path-dependence-paths-arrow-head-end-3_None_24_60-hD55E00" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#D55E00" stroke="none"/>
+    </marker>
+    <marker id="path-dependence-paths-arrow-head-end-3_None_24_60-hD55E00-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="path-dependence-paths-grid-axes">
+    <g id="path-dependence-paths-grid" stroke="#ccc" stroke-width="1">
+      <line x1="12.4" y1="405.0" x2="12.4" y2="5.0"/>
+      <line x1="73.7" y1="405.0" x2="73.7" y2="5.0"/>
+      <line x1="135.1" y1="405.0" x2="135.1" y2="5.0"/>
+      <line x1="196.4" y1="405.0" x2="196.4" y2="5.0"/>
+      <line x1="257.8" y1="405.0" x2="257.8" y2="5.0"/>
+      <line x1="319.1" y1="405.0" x2="319.1" y2="5.0"/>
+      <line x1="380.5" y1="405.0" x2="380.5" y2="5.0"/>
+      <line x1="5.0" y1="397.6" x2="405.0" y2="397.6"/>
+      <line x1="5.0" y1="336.3" x2="405.0" y2="336.3"/>
+      <line x1="5.0" y1="274.9" x2="405.0" y2="274.9"/>
+      <line x1="5.0" y1="213.6" x2="405.0" y2="213.6"/>
+      <line x1="5.0" y1="152.2" x2="405.0" y2="152.2"/>
+      <line x1="5.0" y1="90.9" x2="405.0" y2="90.9"/>
+      <line x1="5.0" y1="29.5" x2="405.0" y2="29.5"/>
+    </g>
+    <g id="path-dependence-paths-axes" stroke="black" stroke-width="2">
+      <line id="path-dependence-paths-line-14" x1="5.0" y1="336.3" x2="405.0" y2="336.3" stroke="black" stroke-width="2"/>
+      <g>
+        <line id="path-dependence-paths-line-15" x1="196.4" y1="339.3" x2="196.4" y2="333.3"/>
+        <line id="path-dependence-paths-line-16" x1="319.1" y1="339.3" x2="319.1" y2="333.3"/>
+      </g>
+      <line id="path-dependence-paths-line-17" x1="73.7" y1="405.0" x2="73.7" y2="5.0" stroke="black" stroke-width="2"/>
+      <g>
+        <line id="path-dependence-paths-line-18" x1="70.7" y1="213.6" x2="76.7" y2="213.6"/>
+        <line id="path-dependence-paths-line-19" x1="70.7" y1="90.9" x2="76.7" y2="90.9"/>
+      </g>
+    </g>
+    <g id="path-dependence-paths-label-0" transform="translate(401.0,332.3) translate(-10.4,-8.2)">
+      <g id="path-dependence-paths-g-7">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+                <use data-c="1D465" xlink:href="#path-dependence-paths-MJX-2-TEX-I-1D465"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <g id="path-dependence-paths-label-1" transform="translate(77.7,9.0) translate(0.0,-0.0)">
+      <g id="path-dependence-paths-g-8">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+                <use data-c="1D466" xlink:href="#path-dependence-paths-MJX-3-TEX-I-1D466"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <g id="path-dependence-paths-label-2" transform="translate(196.4,347.3) translate(-11.6,-0.0)">
+      <g id="path-dependence-paths-g-9">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="23.128px" height="12.456px" role="img" focusable="false" viewBox="0 -666 1278 688" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-4-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+            <path id="path-dependence-paths-MJX-4-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"/>
+            <path id="path-dependence-paths-MJX-4-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="unknown" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="0" data-semantic-speech="0.5">
+                <use data-c="30" xlink:href="#path-dependence-paths-MJX-4-TEX-N-30"/>
+                <use data-c="2E" xlink:href="#path-dependence-paths-MJX-4-TEX-N-2E" transform="translate(500,0)"/>
+                <use data-c="35" xlink:href="#path-dependence-paths-MJX-4-TEX-N-35" transform="translate(778,0)"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <g id="path-dependence-paths-label-3" transform="translate(319.1,347.3) translate(-4.5,-0.0)">
+      <g id="path-dependence-paths-g-10">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="9.048px" height="12.056px" role="img" focusable="false" viewBox="0 -666 500 666" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-5-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="0" data-semantic-speech="1">
+                <use data-c="31" xlink:href="#path-dependence-paths-MJX-5-TEX-N-31"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <g id="path-dependence-paths-label-4" transform="translate(62.7,213.6) translate(-23.1,-6.2)">
+      <g id="path-dependence-paths-g-11">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="23.128px" height="12.456px" role="img" focusable="false" viewBox="0 -666 1278 688" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-6-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+            <path id="path-dependence-paths-MJX-6-TEX-N-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"/>
+            <path id="path-dependence-paths-MJX-6-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="unknown" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="0" data-semantic-speech="0.5">
+                <use data-c="30" xlink:href="#path-dependence-paths-MJX-6-TEX-N-30"/>
+                <use data-c="2E" xlink:href="#path-dependence-paths-MJX-6-TEX-N-2E" transform="translate(500,0)"/>
+                <use data-c="35" xlink:href="#path-dependence-paths-MJX-6-TEX-N-35" transform="translate(778,0)"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <g id="path-dependence-paths-label-5" transform="translate(62.7,90.9) translate(-9.0,-6.0)">
+      <g id="path-dependence-paths-g-12">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="9.048px" height="12.056px" role="img" focusable="false" viewBox="0 -666 500 666" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-7-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="0" data-semantic-speech="1">
+                <use data-c="31" xlink:href="#path-dependence-paths-MJX-7-TEX-N-31"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="path-dependence-paths-field">
+    <g id="path-dependence-paths-g-0">
+      <g id="path-dependence-paths-g-1-i_0">
+        <path id="path-dependence-paths-path-0-i_0-j_0" stroke="blue" stroke-width="2" fill="none" d="M 73.7 336.3 L 73.7 336.3" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-1-i_0-j_1" stroke="blue" stroke-width="2" fill="none" d="M 73.7 287.2 L 79.1 287.2" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-2-i_0-j_2" stroke="blue" stroke-width="2" fill="none" d="M 73.7 238.1 L 84.5 238.1" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-3-i_0-j_3" stroke="blue" stroke-width="2" fill="none" d="M 73.7 189.0 L 89.9 189.0" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-4-i_0-j_4" stroke="blue" stroke-width="2" fill="none" d="M 73.7 140.0 L 95.3 140.0" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-5-i_0-j_5" stroke="blue" stroke-width="2" fill="none" d="M 73.7 90.9 L 100.7 90.9" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+      </g>
+      <g id="path-dependence-paths-g-2-i_1">
+        <path id="path-dependence-paths-path-6-i_1-j_0" stroke="blue" stroke-width="2" fill="none" d="M 122.8 336.3 L 122.8 325.5" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-7-i_1-j_1" stroke="blue" stroke-width="2" fill="none" d="M 122.8 287.2 L 128.2 276.4" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-8-i_1-j_2" stroke="blue" stroke-width="2" fill="none" d="M 122.8 238.1 L 133.6 227.3" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-9-i_1-j_3" stroke="blue" stroke-width="2" fill="none" d="M 122.8 189.0 L 139.0 178.3" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-10-i_1-j_4" stroke="blue" stroke-width="2" fill="none" d="M 122.8 140.0 L 144.4 129.2" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-11-i_1-j_5" stroke="blue" stroke-width="2" fill="none" d="M 122.8 90.9 L 149.8 80.1" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+      </g>
+      <g id="path-dependence-paths-g-3-i_2">
+        <path id="path-dependence-paths-path-12-i_2-j_0" stroke="blue" stroke-width="2" fill="none" d="M 171.9 336.3 L 171.9 314.7" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-13-i_2-j_1" stroke="blue" stroke-width="2" fill="none" d="M 171.9 287.2 L 177.3 265.6" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-14-i_2-j_2" stroke="blue" stroke-width="2" fill="none" d="M 171.9 238.1 L 182.7 216.5" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-15-i_2-j_3" stroke="blue" stroke-width="2" fill="none" d="M 171.9 189.0 L 188.1 167.5" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-16-i_2-j_4" stroke="blue" stroke-width="2" fill="none" d="M 171.9 140.0 L 193.5 118.4" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-17-i_2-j_5" stroke="blue" stroke-width="2" fill="none" d="M 171.9 90.9 L 198.9 69.3" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+      </g>
+      <g id="path-dependence-paths-g-4-i_3">
+        <path id="path-dependence-paths-path-18-i_3-j_0" stroke="blue" stroke-width="2" fill="none" d="M 221.0 336.3 L 221.0 303.9" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-19-i_3-j_1" stroke="blue" stroke-width="2" fill="none" d="M 221.0 287.2 L 226.3 254.8" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-20-i_3-j_2" stroke="blue" stroke-width="2" fill="none" d="M 221.0 238.1 L 231.7 205.7" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-21-i_3-j_3" stroke="blue" stroke-width="2" fill="none" d="M 221.0 189.0 L 237.1 156.7" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-22-i_3-j_4" stroke="blue" stroke-width="2" fill="none" d="M 221.0 140.0 L 242.5 107.6" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-23-i_3-j_5" stroke="blue" stroke-width="2" fill="none" d="M 221.0 90.9 L 247.9 58.5" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+      </g>
+      <g id="path-dependence-paths-g-5-i_4">
+        <path id="path-dependence-paths-path-24-i_4-j_0" stroke="blue" stroke-width="2" fill="none" d="M 270.0 336.3 L 270.0 293.1" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-25-i_4-j_1" stroke="blue" stroke-width="2" fill="none" d="M 270.0 287.2 L 275.4 244.0" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-26-i_4-j_2" stroke="blue" stroke-width="2" fill="none" d="M 270.0 238.1 L 280.8 194.9" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-27-i_4-j_3" stroke="blue" stroke-width="2" fill="none" d="M 270.0 189.0 L 286.2 145.9" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-28-i_4-j_4" stroke="blue" stroke-width="2" fill="none" d="M 270.0 140.0 L 291.6 96.8" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-29-i_4-j_5" stroke="blue" stroke-width="2" fill="none" d="M 270.0 90.9 L 297.0 47.7" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+      </g>
+      <g id="path-dependence-paths-g-6-i_5">
+        <path id="path-dependence-paths-path-30-i_5-j_0" stroke="blue" stroke-width="2" fill="none" d="M 319.1 336.3 L 319.1 282.3" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-31-i_5-j_1" stroke="blue" stroke-width="2" fill="none" d="M 319.1 287.2 L 324.5 233.2" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-32-i_5-j_2" stroke="blue" stroke-width="2" fill="none" d="M 319.1 238.1 L 329.9 184.1" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-33-i_5-j_3" stroke="blue" stroke-width="2" fill="none" d="M 319.1 189.0 L 335.3 135.1" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-34-i_5-j_4" stroke="blue" stroke-width="2" fill="none" d="M 319.1 140.0 L 340.7 86.0" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+        <path id="path-dependence-paths-path-35-i_5-j_5" stroke="blue" stroke-width="2" fill="none" d="M 319.1 90.9 L 346.1 36.9" marker-end="url(#path-dependence-paths-arrow-head-end-2_None_24_60-blue)"/>
+      </g>
+    </g>
+  </g>
+  <g id="path-dependence-paths-c1">
+    <path id="path-dependence-paths-path-36" d="M 73.7 336.3 L 76.2 333.8 L 78.6 331.4 L 81.1 328.9 L 83.5 326.5 L 86.0 324.0 L 88.4 321.6 L 90.9 319.1 L 93.3 316.7 L 95.8 314.2 L 98.3 311.7 L 100.7 309.3 L 103.2 306.8 L 105.6 304.4 L 108.1 301.9 L 110.5 299.5 L 113.0 297.0 L 115.4 294.6 L 117.9 292.1 L 120.3 289.7 L 122.8 287.2 L 125.2 284.8 L 127.7 282.3 L 130.2 279.8 L 132.6 277.4 L 135.1 274.9 L 137.5 272.5 L 140.0 270.0 L 142.4 267.6 L 144.9 265.1 L 147.3 262.7 L 149.8 260.2 L 152.2 257.8 L 154.7 255.3 L 157.1 252.9 L 159.6 250.4 L 162.1 247.9 L 164.5 245.5 L 167.0 243.0 L 169.4 240.6 L 171.9 238.1 L 174.3 235.7 L 176.8 233.2 L 179.2 230.8 L 181.7 228.3 L 184.1 225.9 L 186.6 223.4 L 189.0 221.0 L 191.5 218.5 L 194.0 216.0 L 196.4 213.6 L 198.9 211.1 L 201.3 208.7 L 203.8 206.2 L 206.2 203.8 L 208.7 201.3 L 211.1 198.9 L 213.6 196.4 L 216.0 194.0 L 218.5 191.5 L 221.0 189.0 L 223.4 186.6 L 225.9 184.1 L 228.3 181.7 L 230.8 179.2 L 233.2 176.8 L 235.7 174.3 L 238.1 171.9 L 240.6 169.4 L 243.0 167.0 L 245.5 164.5 L 247.9 162.1 L 250.4 159.6 L 252.9 157.1 L 255.3 154.7 L 257.8 152.2 L 260.2 149.8 L 262.7 147.3 L 265.1 144.9 L 267.6 142.4 L 270.0 140.0 L 272.5 137.5 L 274.9 135.1 L 277.4 132.6 L 279.8 130.2 L 282.3 127.7 L 284.8 125.2 L 287.2 122.8 L 289.7 120.3 L 292.1 117.9 L 294.6 115.4 L 297.0 113.0 L 299.5 110.5 L 301.9 108.1 L 304.4 105.6 L 306.8 103.2 L 309.3 100.7 L 311.7 98.3 L 314.2 95.8 L 316.7 93.3 L 319.1 90.9 M 196.4 213.6 L 198.9 211.1 L 201.3 208.7 L 203.8 206.2 L 206.2 203.8 L 208.7 201.3" stroke="#009E73" stroke-width="3" fill="none" clip-path="url(#path-dependence-paths-clipPath-1)" marker-end="url(#path-dependence-paths-arrow-head-end-3_None_24_60-h009E73)"/>
+    <g id="path-dependence-paths-label-6" transform="translate(180.1,197.3) translate(-20.8,-15.5)">
+      <g id="path-dependence-paths-g-13">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#009E73" width="20.840px" height="15.472px" role="img" focusable="false" viewBox="0 -705 1151.6 855" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-8-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+            <path id="path-dependence-paths-MJX-8-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="upper C 1">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="upper C" data-semantic-prefix="Base">
+                  <use data-c="1D436" xlink:href="#path-dependence-paths-MJX-8-TEX-I-1D436"/>
+                </g>
+                <g data-mml-node="mn" transform="translate(748,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="1" data-semantic-prefix="Subscript">
+                  <use data-c="31" xlink:href="#path-dependence-paths-MJX-8-TEX-N-31"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="path-dependence-paths-c2">
+    <path id="path-dependence-paths-path-37" d="M 73.7 336.3 L 76.2 336.3 L 78.6 336.2 L 81.1 336.1 L 83.5 335.9 L 86.0 335.7 L 88.4 335.4 L 90.9 335.1 L 93.3 334.7 L 95.8 334.3 L 98.3 333.8 L 100.7 333.3 L 103.2 332.8 L 105.6 332.1 L 108.1 331.5 L 110.5 330.8 L 113.0 330.0 L 115.4 329.2 L 117.9 328.3 L 120.3 327.4 L 122.8 326.5 L 125.2 325.5 L 127.7 324.4 L 130.2 323.3 L 132.6 322.2 L 135.1 321.0 L 137.5 319.7 L 140.0 318.4 L 142.4 317.0 L 144.9 315.7 L 147.3 314.2 L 149.8 312.7 L 152.2 311.2 L 154.7 309.6 L 157.1 307.9 L 159.6 306.2 L 162.1 304.5 L 164.5 302.7 L 167.0 300.9 L 169.4 299.0 L 171.9 297.0 L 174.3 295.0 L 176.8 293.0 L 179.2 290.9 L 181.7 288.8 L 184.1 286.6 L 186.6 284.4 L 189.0 282.1 L 191.5 279.7 L 194.0 277.4 L 196.4 274.9 L 198.9 272.5 L 201.3 269.9 L 203.8 267.4 L 206.2 264.7 L 208.7 262.1 L 211.1 259.3 L 213.6 256.6 L 216.0 253.7 L 218.5 250.9 L 221.0 247.9 L 223.4 245.0 L 225.9 242.0 L 228.3 238.9 L 230.8 235.8 L 233.2 232.6 L 235.7 229.4 L 238.1 226.1 L 240.6 222.8 L 243.0 219.5 L 245.5 216.0 L 247.9 212.6 L 250.4 209.1 L 252.9 205.5 L 255.3 201.9 L 257.8 198.3 L 260.2 194.5 L 262.7 190.8 L 265.1 187.0 L 267.6 183.1 L 270.0 179.2 L 272.5 175.3 L 274.9 171.3 L 277.4 167.2 L 279.8 163.1 L 282.3 159.0 L 284.8 154.8 L 287.2 150.5 L 289.7 146.3 L 292.1 141.9 L 294.6 137.5 L 297.0 133.1 L 299.5 128.6 L 301.9 124.0 L 304.4 119.5 L 306.8 114.8 L 309.3 110.1 L 311.7 105.4 L 314.2 100.6 L 316.7 95.8 L 319.1 90.9 M 221.0 247.9 L 223.4 245.0 L 225.9 242.0 L 228.3 238.9 L 230.8 235.8 L 233.2 232.6" stroke="#D55E00" stroke-width="3" fill="none" clip-path="url(#path-dependence-paths-clipPath-1)" marker-end="url(#path-dependence-paths-arrow-head-end-3_None_24_60-hD55E00)"/>
+    <g id="path-dependence-paths-label-7" transform="translate(269.1,217.6) translate(0.0,-0.0)">
+      <g id="path-dependence-paths-g-14">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#D55E00" width="20.840px" height="15.472px" role="img" focusable="false" viewBox="0 -705 1151.6 855" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-9-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+            <path id="path-dependence-paths-MJX-9-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="upper C 2">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="upper C" data-semantic-prefix="Base">
+                  <use data-c="1D436" xlink:href="#path-dependence-paths-MJX-9-TEX-I-1D436"/>
+                </g>
+                <g data-mml-node="mn" transform="translate(748,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="2" data-semantic-prefix="Subscript">
+                  <use data-c="32" xlink:href="#path-dependence-paths-MJX-9-TEX-N-32"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="path-dependence-paths-endpoints">
+    <circle id="path-dependence-paths-circle-0" cx="73.7" cy="336.3" r="4.5" stroke="black" stroke-width="2" fill="black"/>
+    <g id="path-dependence-paths-label-8" transform="translate(69.7,340.3) translate(-13.8,-0.0)">
+      <g id="path-dependence-paths-g-15">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="13.808px" height="13.144px" role="img" focusable="false" viewBox="0 -704 763 726" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-10-TEX-I-1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper O">
+                <use data-c="1D442" xlink:href="#path-dependence-paths-MJX-10-TEX-I-1D442"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle id="path-dependence-paths-circle-1" cx="319.1" cy="90.9" r="4.5" stroke="black" stroke-width="2" fill="black"/>
+    <g id="path-dependence-paths-label-9" transform="translate(323.1,86.9) translate(0.0,-12.4)">
+      <g id="path-dependence-paths-g-16">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="13.592px" height="12.360px" role="img" focusable="false" viewBox="0 -683 751 683" x="0.0" y="0.0">
+          <defs>
+            <path id="path-dependence-paths-MJX-11-TEX-I-1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper P">
+                <use data-c="1D443" xlink:href="#path-dependence-paths-MJX-11-TEX-I-1D443"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+</svg>

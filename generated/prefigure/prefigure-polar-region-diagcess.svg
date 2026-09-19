@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-polar-region-figure" viewBox="0 0 320 306">
+  <defs>
+    <clipPath id="prefigure-polar-region-clipPath-0">
+      <rect x="10.0" y="10.0" width="300.0" height="286.0"/>
+    </clipPath>
+    <clipPath id="prefigure-polar-region-clipPath-1">
+      <rect x="10.0" y="10.0" width="300.0" height="286.0"/>
+    </clipPath>
+    <marker id="prefigure-polar-region-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-polar-region-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="pr-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-polar-region-line-0" x1="10.0" y1="263.7" x2="310.0" y2="263.7" stroke="black" stroke-width="2" marker-end="url(#prefigure-polar-region-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-polar-region-line-1" x1="46.9" y1="296.0" x2="46.9" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-polar-region-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-polar-region-label-0" transform="translate(304.0,257.7) translate(-10.4,-8.2)">
+    <g id="prefigure-polar-region-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-polar-region-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-region-label-1" transform="translate(52.9,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-polar-region-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-polar-region-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <path id="prefigure-polar-region-pr-region" d="M 146.6 244.5 L 264.4 221.7 L 262.3 211.6 L 259.6 201.6 L 256.5 191.7 L 252.9 182.0 L 248.8 172.5 L 244.3 163.1 L 239.4 154.0 L 234.0 145.2 L 228.3 136.6 L 222.1 128.3 L 215.7 120.2 L 208.7 112.5 L 201.4 105.1 L 193.9 98.0 L 186.0 91.4 L 177.8 85.0 L 169.2 79.1 L 160.6 73.6 L 151.5 68.5 L 142.3 63.9 L 132.8 59.6 L 123.2 55.9 L 113.4 52.4 L 103.4 49.6 L 72.8 165.5 L 77.4 166.9 L 81.9 168.4 L 86.3 170.2 L 90.6 172.1 L 94.8 174.2 L 99.0 176.6 L 103.0 179.1 L 106.9 181.8 L 110.7 184.7 L 114.3 187.8 L 117.8 191.0 L 121.1 194.4 L 124.2 197.9 L 127.2 201.6 L 130.1 205.4 L 132.7 209.4 L 135.1 213.4 L 137.4 217.6 L 139.4 221.9 L 141.3 226.3 L 142.9 230.7 L 144.4 235.2 L 145.6 239.8 L 146.6 244.5 Z" stroke="none" stroke-width="2" fill="#fbe3d0" clip-path="url(#prefigure-polar-region-clipPath-1)"/>
+  <path id="prefigure-polar-region-pr-outer" d="M 264.4 221.7 L 264.0 219.3 L 263.4 216.9 L 262.9 214.4 L 262.3 212.0 L 261.7 209.6 L 261.1 207.2 L 260.5 204.8 L 259.8 202.4 L 259.1 200.0 L 258.4 197.6 L 257.6 195.3 L 256.8 192.9 L 256.0 190.6 L 255.2 188.2 L 254.3 185.9 L 253.4 183.6 L 252.5 181.3 L 251.6 179.0 L 250.6 176.7 L 249.6 174.4 L 248.6 172.1 L 247.6 169.9 L 246.5 167.6 L 245.4 165.4 L 244.3 163.2 L 243.2 161.0 L 242.0 158.8 L 240.8 156.6 L 239.6 154.4 L 238.4 152.3 L 237.1 150.1 L 235.8 148.0 L 234.5 145.9 L 233.2 143.8 L 231.8 141.7 L 230.4 139.6 L 229.0 137.6 L 227.6 135.6 L 226.1 133.5 L 224.7 131.5 L 223.2 129.6 L 221.6 127.6 L 220.1 125.6 L 218.5 123.7 L 217.0 121.8 L 215.4 119.9 L 213.7 118.0 L 212.1 116.1 L 210.4 114.3 L 208.7 112.5 L 207.0 110.7 L 205.3 108.9 L 203.5 107.1 L 201.8 105.4 L 200.0 103.6 L 198.2 101.9 L 196.4 100.2 L 194.5 98.6 L 192.7 96.9 L 190.8 95.3 L 188.9 93.7 L 187.0 92.1 L 185.0 90.6 L 183.1 89.0 L 181.1 87.5 L 179.1 86.0 L 177.1 84.6 L 175.1 83.1 L 173.0 81.7 L 171.0 80.3 L 168.9 78.9 L 166.8 77.5 L 164.7 76.2 L 162.6 74.9 L 160.5 73.6 L 158.4 72.3 L 156.2 71.1 L 154.0 69.9 L 151.9 68.7 L 149.7 67.5 L 147.5 66.4 L 145.2 65.3 L 143.0 64.2 L 140.8 63.1 L 138.5 62.1 L 136.2 61.1 L 133.9 60.1 L 131.7 59.1 L 129.4 58.2 L 127.0 57.3 L 124.7 56.4 L 122.4 55.5 L 120.0 54.7 L 117.7 53.9 L 115.3 53.1 L 113.0 52.4 L 110.6 51.6 L 108.2 50.9 L 105.8 50.3 L 103.4 49.6" stroke="#0072B2" stroke-width="3" fill="none" clip-path="url(#prefigure-polar-region-clipPath-1)"/>
+  <path id="prefigure-polar-region-pr-inner" d="M 146.6 244.5 L 146.4 243.3 L 146.2 242.2 L 145.9 241.1 L 145.7 240.0 L 145.4 238.9 L 145.1 237.8 L 144.8 236.7 L 144.5 235.6 L 144.2 234.5 L 143.8 233.4 L 143.5 232.3 L 143.1 231.3 L 142.8 230.2 L 142.4 229.1 L 142.0 228.0 L 141.6 227.0 L 141.2 225.9 L 140.7 224.9 L 140.3 223.8 L 139.8 222.8 L 139.4 221.7 L 138.9 220.7 L 138.4 219.7 L 137.9 218.6 L 137.4 217.6 L 136.9 216.6 L 136.3 215.6 L 135.8 214.6 L 135.2 213.6 L 134.7 212.6 L 134.1 211.6 L 133.5 210.7 L 132.9 209.7 L 132.3 208.7 L 131.7 207.8 L 131.0 206.8 L 130.4 205.9 L 129.7 205.0 L 129.1 204.0 L 128.4 203.1 L 127.7 202.2 L 127.0 201.3 L 126.3 200.4 L 125.6 199.5 L 124.9 198.7 L 124.1 197.8 L 123.4 196.9 L 122.6 196.1 L 121.9 195.2 L 121.1 194.4 L 120.3 193.6 L 119.5 192.7 L 118.7 191.9 L 117.9 191.1 L 117.1 190.3 L 116.3 189.6 L 115.4 188.8 L 114.6 188.0 L 113.7 187.3 L 112.9 186.5 L 112.0 185.8 L 111.1 185.1 L 110.2 184.4 L 109.3 183.6 L 108.4 183.0 L 107.5 182.3 L 106.6 181.6 L 105.7 180.9 L 104.7 180.3 L 103.8 179.6 L 102.8 179.0 L 101.9 178.4 L 100.9 177.8 L 100.0 177.2 L 99.0 176.6 L 98.0 176.0 L 97.0 175.4 L 96.0 174.9 L 95.0 174.3 L 94.0 173.8 L 93.0 173.3 L 92.0 172.8 L 91.0 172.3 L 89.9 171.8 L 88.9 171.3 L 87.9 170.8 L 86.8 170.4 L 85.8 169.9 L 84.7 169.5 L 83.6 169.1 L 82.6 168.7 L 81.5 168.3 L 80.4 167.9 L 79.4 167.5 L 78.3 167.2 L 77.2 166.8 L 76.1 166.5 L 75.0 166.2 L 73.9 165.9 L 72.8 165.6" stroke="#0072B2" stroke-width="3" fill="none" clip-path="url(#prefigure-polar-region-clipPath-1)"/>
+  <line id="prefigure-polar-region-pr-lo" x1="146.6" y1="244.5" x2="264.4" y2="221.7" stroke="#0072B2" stroke-width="3" fill="none"/>
+  <line id="prefigure-polar-region-pr-hi" x1="72.8" y1="165.6" x2="103.3" y2="49.6" stroke="#0072B2" stroke-width="3" fill="none"/>
+  <line id="prefigure-polar-region-pr-lo-dash" x1="46.9" y1="263.7" x2="146.6" y2="244.5" stroke="black" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+  <line id="prefigure-polar-region-pr-hi-dash" x1="46.9" y1="263.7" x2="72.8" y2="165.6" stroke="black" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+  <g id="prefigure-polar-region-pr-R" transform="translate(153.1,166.8) translate(-6.9,-6.4)">
+    <g id="prefigure-polar-region-g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.384px" width="13.736px" height="12.744px" role="img" focusable="false" viewBox="0 -683 759 704" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-4-TEX-I-1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper R">
+              <use data-c="1D445" xlink:href="#prefigure-polar-region-MJX-4-TEX-I-1D445"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-region-pr-rb" transform="translate(221.7,116.7) translate(0.0,-14.0)">
+    <g id="prefigure-polar-region-g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -1.488px; color:#0072B2" width="40.064px" height="14.048px" role="img" focusable="false" viewBox="0 -694 2213.6 776" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-5-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-polar-region-MJX-5-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-polar-region-MJX-5-TEX-I-1D44F" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="3" data-semantic-children="0,2" data-semantic-content="1" data-semantic-speech="r equals b">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="r">
+              <use data-c="1D45F" xlink:href="#prefigure-polar-region-MJX-5-TEX-I-1D45F"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="3" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(728.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-polar-region-MJX-5-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="3" data-semantic-speech="b" transform="translate(1784.6,0)">
+              <use data-c="1D44F" xlink:href="#prefigure-polar-region-MJX-5-TEX-I-1D44F"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-region-pr-ra" transform="translate(108.2,219.7) translate(0.0,-0.0)">
+    <g id="prefigure-polar-region-g-4">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -1.488px; color:#0072B2" width="41.872px" height="12.040px" role="img" focusable="false" viewBox="0 -583 2313.6 665" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-6-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-polar-region-MJX-6-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-polar-region-MJX-6-TEX-I-1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="3" data-semantic-children="0,2" data-semantic-content="1" data-semantic-speech="r equals a">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="r">
+              <use data-c="1D45F" xlink:href="#prefigure-polar-region-MJX-6-TEX-I-1D45F"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="3" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(728.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-polar-region-MJX-6-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="3" data-semantic-speech="a" transform="translate(1784.6,0)">
+              <use data-c="1D44E" xlink:href="#prefigure-polar-region-MJX-6-TEX-I-1D44E"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-region-pr-beta" transform="translate(87.8,110.3) translate(0.0,-16.3)">
+    <g id="prefigure-polar-region-g-5">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.512px" width="42.872px" height="16.272px" role="img" focusable="false" viewBox="0 -705 2368.6 899" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-7-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+          <path id="prefigure-polar-region-MJX-7-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-polar-region-MJX-7-TEX-I-1D6FD" d="M29 -194Q23 -188 23 -186Q23 -183 102 134T186 465Q208 533 243 584T309 658Q365 705 429 705H431Q493 705 533 667T573 570Q573 465 469 396L482 383Q533 332 533 252Q533 139 448 65T257 -10Q227 -10 203 -2T165 17T143 40T131 59T126 65L62 -188Q60 -194 42 -194H29ZM353 431Q392 431 427 419L432 422Q436 426 439 429T449 439T461 453T472 471T484 495T493 524T501 560Q503 569 503 593Q503 611 502 616Q487 667 426 667Q384 667 347 643T286 582T247 514T224 455Q219 439 186 308T152 168Q151 163 151 147Q151 99 173 68Q204 26 260 26Q302 26 349 51T425 137Q441 171 449 214T457 279Q457 337 422 372Q380 358 347 358H337Q258 358 258 389Q258 396 261 403Q275 431 353 431Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="3" data-semantic-children="0,2" data-semantic-content="1" data-semantic-speech="theta equals beta">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="theta">
+              <use data-c="1D703" xlink:href="#prefigure-polar-region-MJX-7-TEX-I-1D703"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="3" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(746.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-polar-region-MJX-7-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="3" data-semantic-speech="beta" transform="translate(1802.6,0)">
+              <use data-c="1D6FD" xlink:href="#prefigure-polar-region-MJX-7-TEX-I-1D6FD"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-region-pr-alpha" transform="translate(200.5,247.4) translate(0.0,-0.0)">
+    <g id="prefigure-polar-region-g-6">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -1.488px" width="44.208px" height="14.248px" role="img" focusable="false" viewBox="0 -705 2442.6 787" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-8-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+          <path id="prefigure-polar-region-MJX-8-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-polar-region-MJX-8-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="3" data-semantic-children="0,2" data-semantic-content="1" data-semantic-speech="theta equals alpha">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="theta">
+              <use data-c="1D703" xlink:href="#prefigure-polar-region-MJX-8-TEX-I-1D703"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="3" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(746.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-polar-region-MJX-8-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="3" data-semantic-speech="alpha" transform="translate(1802.6,0)">
+              <use data-c="1D6FC" xlink:href="#prefigure-polar-region-MJX-8-TEX-I-1D6FC"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-region-pr-O" transform="translate(35.5,275.1) translate(-13.8,-0.0)">
+    <g id="prefigure-polar-region-g-7">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="13.808px" height="13.144px" role="img" focusable="false" viewBox="0 -704 763 726" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-region-MJX-9-TEX-I-1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper O">
+              <use data-c="1D442" xlink:href="#prefigure-polar-region-MJX-9-TEX-I-1D442"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

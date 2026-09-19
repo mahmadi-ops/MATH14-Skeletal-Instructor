@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-hw4o-shapes-figure" speech2="Four pictures on a two by two grid, each drawn to the same scale on its own pair of axes. Shape one, top left, is the triangle lying above the line y equals x and below the line y equals r. Shape two, top right, is the triangle lying below y equals x and to the left of the line x equals r. Shape three, bottom left, is the sector of the circle of radius r between the line y equals x and the positive y axis. Shape four, bottom right, is the sector of the same circle between the line y equals minus x and the negative x axis.">
+      <grouped>prefigure-hw4o-shapes-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-hw4o-shapes-s1</active>
+        <active>prefigure-hw4o-shapes-s2</active>
+        <active>prefigure-hw4o-shapes-s3</active>
+        <active>prefigure-hw4o-shapes-s4</active>
+      </children>
+      <components>
+        <active>prefigure-hw4o-shapes-s1</active>
+        <active>prefigure-hw4o-shapes-s2</active>
+        <active>prefigure-hw4o-shapes-s3</active>
+        <active>prefigure-hw4o-shapes-s4</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-hw4o-shapes-s1" speech2="Shape one, the triangle above the line y equals x, where the absolute value of y is at least the absolute value of x.">
+      <active>prefigure-hw4o-shapes-s1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-hw4o-shapes-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-shapes-s2" speech2="Shape two, the triangle below the line y equals x, where the absolute value of x is at least the absolute value of y.">
+      <active>prefigure-hw4o-shapes-s2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-hw4o-shapes-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-shapes-s3" speech2="Shape three, the circular sector between the line y equals x and the y axis, where the absolute value of y is at least the absolute value of x.">
+      <active>prefigure-hw4o-shapes-s3</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-hw4o-shapes-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw4o-shapes-s4" speech2="Shape four, the circular sector between the line y equals minus x and the negative x axis, where the absolute value of x is at least the absolute value of y.">
+      <active>prefigure-hw4o-shapes-s4</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-hw4o-shapes-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,21 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-p2c-circle-figure" speech2="The unit circle centered at the origin, the graph of the polar equation r equals one.">
+      <grouped>prefigure-p2c-circle-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-p2c-circle-cc-circle</active>
+      </children>
+      <components>
+        <active>prefigure-p2c-circle-cc-circle</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-p2c-circle-cc-circle" speech2="The circle of radius one centered at the origin.">
+      <active>prefigure-p2c-circle-cc-circle</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-p2c-circle-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

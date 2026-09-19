@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-hw2o-square-figure" speech2="The unit square in the x y plane, with corners at the origin, one comma zero, one comma one, and zero comma one. Its sides are drawn in blue, and arrowheads on the four sides show the curve traversed counterclockwise starting along the bottom side.">
+      <grouped>prefigure-hw2o-square-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-hw2o-square-hs-square</active>
+        <active>prefigure-hw2o-square-hs-a1</active>
+        <active>prefigure-hw2o-square-hs-a2</active>
+        <active>prefigure-hw2o-square-hs-a3</active>
+        <active>prefigure-hw2o-square-hs-a4</active>
+      </children>
+      <components>
+        <active>prefigure-hw2o-square-hs-square</active>
+        <active>prefigure-hw2o-square-hs-a1</active>
+        <active>prefigure-hw2o-square-hs-a2</active>
+        <active>prefigure-hw2o-square-hs-a3</active>
+        <active>prefigure-hw2o-square-hs-a4</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-hw2o-square-hs-square" speech2="The square path C, the boundary of the unit square.">
+      <active>prefigure-hw2o-square-hs-square</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-hw2o-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw2o-square-hs-a1" speech2="An arrow on the bottom side pointing in the direction of increasing x.">
+      <active>prefigure-hw2o-square-hs-a1</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-hw2o-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw2o-square-hs-a2" speech2="An arrow on the right side pointing upward.">
+      <active>prefigure-hw2o-square-hs-a2</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-hw2o-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw2o-square-hs-a3" speech2="An arrow on the top side pointing in the direction of decreasing x.">
+      <active>prefigure-hw2o-square-hs-a3</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-hw2o-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw2o-square-hs-a4" speech2="An arrow on the left side pointing downward.">
+      <active>prefigure-hw2o-square-hs-a4</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-hw2o-square-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

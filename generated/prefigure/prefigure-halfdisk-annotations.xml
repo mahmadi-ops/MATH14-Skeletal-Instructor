@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-halfdisk-figure" speech2="The lower half of the unit disk, below the x axis, shaded light red. Its curved boundary y equals negative square root of one minus x squared is drawn in vermillion.">
+      <grouped>prefigure-halfdisk-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-halfdisk-hd-region</active>
+        <active>prefigure-halfdisk-hd-arc</active>
+      </children>
+      <components>
+        <active>prefigure-halfdisk-hd-region</active>
+        <active>prefigure-halfdisk-hd-arc</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-halfdisk-hd-region" speech2="The projection: the lower half of the unit disk, where theta runs from pi to two pi.">
+      <active>prefigure-halfdisk-hd-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-halfdisk-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-halfdisk-hd-arc" speech2="The lower half of the unit circle.">
+      <active>prefigure-halfdisk-hd-arc</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-halfdisk-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

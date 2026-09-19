@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-not-simply-connected-figure" speech2="A blob shaped region in the x y plane containing two white holes. A vermillion loop labeled C 1 encircles the left hole, so it cannot be contracted to a point without leaving the region.">
+      <grouped>prefigure-not-simply-connected-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-not-simply-connected-nsc-region</active>
+        <active>prefigure-not-simply-connected-nsc-hole1</active>
+        <active>prefigure-not-simply-connected-nsc-hole2</active>
+        <active>prefigure-not-simply-connected-nsc-loop</active>
+      </children>
+      <components>
+        <active>prefigure-not-simply-connected-nsc-region</active>
+        <active>prefigure-not-simply-connected-nsc-hole1</active>
+        <active>prefigure-not-simply-connected-nsc-hole2</active>
+        <active>prefigure-not-simply-connected-nsc-loop</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-not-simply-connected-nsc-region" speech2="A blob shaped region filled in tan with a light blue boundary.">
+      <active>prefigure-not-simply-connected-nsc-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-not-simply-connected-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-not-simply-connected-nsc-hole1" speech2="A hole in the region: a white disk that does not belong to the region.">
+      <active>prefigure-not-simply-connected-nsc-hole1</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-not-simply-connected-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-not-simply-connected-nsc-hole2" speech2="A second hole in the region.">
+      <active>prefigure-not-simply-connected-nsc-hole2</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-not-simply-connected-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-not-simply-connected-nsc-loop" speech2="A vermillion loop labeled C 1 that encircles the left hole. Contracting this loop to a point would force it to cross the hole and leave the region, so the region is not simply connected.">
+      <active>prefigure-not-simply-connected-nsc-loop</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-not-simply-connected-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
