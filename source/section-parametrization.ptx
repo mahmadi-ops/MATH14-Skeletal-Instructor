@@ -37,7 +37,7 @@
       </li>
       <li>
         <p>
-          Sketch a parametric curve from a table of values, and indicate the
+          Sketch a parametric curve from its parametric equations, and indicate the
           direction of increasing <m>t</m> in which the curve is traced.
         </p>
       </li>
@@ -528,27 +528,91 @@
       An intersection point is a statement about the two <em>paths</em>: they
       cross, like two roads on a map. A collision point is a statement about
       the two <em>motions</em>: the cars are at the crossroads at the same
-      instant. Every collision point is automatically an intersection point,
-      but, as the next two examples show, an intersection point need not be a
-      collision point.
+      instant.
     </p>
 
-    <p>
-      In the next two examples the two paths are always the same: the
-      parabola <m>y = x^2</m> and the line <m>y = x+2</m>, which meet at the
-      two points
+    <exercise xml:id="check-collision-vs-intersection">
+      <title>True or False</title>
+      <statement>
+        <p>
+          Decide whether each statement is true or false.
+        </p>
+        <ol marker="(a)">
+          <li>
+            <p>
+              Every collision point of two particles is an intersection
+              point of their paths.
+            </p>
+          </li>
+          <li>
+            <p>
+              Every intersection point of two paths is a collision point of
+              the particles that travel along them.
+            </p>
+          </li>
+        </ol>
 
-    <men xml:id="eq-parabola-line-intersections">
-      (-1,1) \qquad \text{and} \qquad (2,4).
-    </men>
-    </p>
+        <sidebyside width="97%">
+          <image>
+            <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
+\draw[gray!35] (0,2.5) -- (15,2.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {(a) true or false, and why:};
+\node[anchor=north west, font=\small\itshape] at (0.35,2.2) {(b) true or false, and why:};
+\end{tikzpicture}
+            </latex-image>
+            <shortdescription>Blank box in two rows, one for each statement, for the verdict and the reason.</shortdescription>
+          </image>
+        </sidebyside>
+      </statement>
+    </exercise>
 
-    <p>
-      Only the schedule of the second particle will change.
-    </p>
+    <exercise xml:id="check-intersection-collision-equations">
+      <title>True or False</title>
+      <statement>
+        <p>
+          In practice the distinction dictates how we set up the equations.
+          Decide whether each statement is true or false.
+        </p>
+        <ol marker="(a)">
+          <li>
+            <p>
+              To find the <term>intersection points</term> of the curves
+              <m>\mathbf{r}_1(t) = \left\langle f_1(t), g_1(t)\right\rangle</m>
+              and
+              <m>\mathbf{r}_2(t) = \left\langle f_2(t), g_2(t)\right\rangle</m>,
+              give the two curves different parameter names and solve
+              <m>f_1(t) = f_2(s)</m>, <m>g_1(t) = g_2(s)</m> for the pair
+              <m>(t,s)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              To find the <term>collision points</term> of the two
+              particles, eliminate the parameters and intersect the two
+              Cartesian curves.
+            </p>
+          </li>
+        </ol>
+
+        <sidebyside width="97%">
+          <image>
+            <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
+\draw[gray!35] (0,2.5) -- (15,2.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {(a) true or false, and why:};
+\node[anchor=north west, font=\small\itshape] at (0.35,2.2) {(b) true or false, and why:};
+\end{tikzpicture}
+            </latex-image>
+            <shortdescription>Blank box in two rows, one for each statement, for the verdict and the reason.</shortdescription>
+          </image>
+        </sidebyside>
+      </statement>
+    </exercise>
 
     <example xml:id="ex-paths-cross-no-collision">
-      <title>The paths cross, but the particles never meet</title>
       <statement>
         <p>
           Two particles move in the plane with position vectors
@@ -578,12 +642,12 @@
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
 \draw[gray!35] (0,9) -- (15,9);
 \draw[gray!35] (0,4.5) -- (15,4.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {the two paths:};
+\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {the two paths and where they meet:};
 \node[anchor=north west, font=\small\itshape] at (0.35,8.7) {collision equations:};
 \node[anchor=north west, font=\small\itshape] at (0.35,4.2) {when each particle reaches each crossing:};
 \end{tikzpicture}
             </latex-image>
-            <shortdescription>Blank box in three rows, for the two paths after eliminating the parameter, for the collision equations, and for the times at which each particle reaches each crossing.</shortdescription>
+            <shortdescription>Blank box in three rows, for the two paths after eliminating the parameter and the points where they meet, for the collision equations, and for the times at which each particle reaches each crossing.</shortdescription>
           </image>
         </sidebyside>
       </statement>
@@ -672,7 +736,6 @@
         </figure>
 
     <example xml:id="ex-same-paths-collision">
-      <title>The same paths, a different schedule<mdash/>now they collide</title>
       <statement>
         <p>
           Keep the first particle, but re-schedule the second one:
@@ -769,8 +832,8 @@
     <p>
       Here <m>t</m> is the time parameter, which varies from some initial
       time <m>t_i</m> to some final time <m>t_f</m>, that is,
-      <m>t \in [t_i, t_f]</m>. Nothing has changed except the bookkeeping:
-      where a plane curve needed the two equations
+      <m>t \in [t_i, t_f]</m>. Nothing has changed, except that where a
+      plane curve needed the two equations
       <xref ref="eq-parametric-equations"/>, a space curve needs three.
     </p>
 
@@ -823,7 +886,7 @@
     <p>
       The two descriptions carry exactly the same information, but the vector
       form is the more useful one: it lets us differentiate and integrate a
-      whole motion at once, and <m>\mathbf{r}'(t)</m> will turn out to be the
+      whole motion at once, and its derivative will turn out to be the
       velocity of the moving object. The same device works in the plane,
       where <m>\mathbf{r}(t) = \left\langle f(t), g(t)\right\rangle</m>; the
       position vectors <m>\mathbf{r}_1</m> and <m>\mathbf{r}_2</m> of
