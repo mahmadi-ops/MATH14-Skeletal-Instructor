@@ -132,9 +132,10 @@
   button:disabled { opacity: .45; cursor: default; }
   button.active { color: #06070a; font-weight: 600; }
   button i { font-family: var(--serif); }
-  #btnStart.active, #btnHalf.active, #btnEnd.active {
+  #btnStart.active, #btnPi.active, #btn2Pi.active, #btnEnd.active {
     background: var(--yellow); border-color: var(--yellow);
   }
+  #btnTop.active   { background: var(--green); border-color: var(--green); color: #06070a; font-weight: 600; }
   #btnTour.running { background: var(--blue); border-color: var(--blue); color: #06070a; font-weight: 600; }
   #btnSpin.active  { background: var(--blue); border-color: var(--blue); color: #06070a; font-weight: 600; }
   #btnFull.active  { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
@@ -194,14 +195,14 @@
 <div id="app">
   <div id="stage">
     <div id="eqcard" class="overlay">
-      <div class="math" style="color:#9cdceb"><b><i>r</i></b>(<i>t</i>) = &#10216;cos&#8202;2<i>t</i>, sin&#8202;2<i>t</i>, <i>t</i>&#10217;, &nbsp;0 &le; <i>t</i> &le; &pi;</div>
+      <div class="math" style="color:#9cdceb"><b><i>r</i></b>(<i>t</i>) = &#10216;cos&#8202;2<i>t</i>, sin&#8202;2<i>t</i>, <i>t</i>&#10217;, &nbsp;0 &le; <i>t</i> &le; 3&pi;</div>
       <div class="math"><i>t</i> = <span id="eqT">0.00</span></div>
       <div id="pointLine">(1.00, 0.00, 0.00)</div>
-      <div id="pointCond">the shadow (cos&#8202;2<i>t</i>, sin&#8202;2<i>t</i>) runs around the unit circle while <i>z</i> = <i>t</i> climbs</div>
+      <div id="pointCond">the shadow (cos&#8202;2<i>t</i>, sin&#8202;2<i>t</i>) runs around the unit circle while <i>z</i> = <i>t</i> climbs; the example stops at <i>t</i> = &pi;, after one turn</div>
     </div>
 
     <div id="meter" class="overlay">
-      height <b id="zVal">0.00</b> &nbsp;&middot;&nbsp; <span class="sh">shadow</span> <b id="turnVal">0.00</b> of a turn
+      height <b id="zVal">0.00</b> &nbsp;&middot;&nbsp; <span class="sh">shadow</span> <b id="turnVal">0.00</b> turns
       <div id="bar"><div id="barKnob" style="left:0px"></div></div>
     </div>
 
@@ -212,17 +213,19 @@
     <div class="row">
       <span class="lbl">Jump to:</span>
       <button id="btnStart"><i>t</i> = 0</button>
-      <button id="btnHalf"><i>t</i> = &pi;/2</button>
-      <button id="btnEnd"><i>t</i> = &pi;</button>
+      <button id="btnPi"><i>t</i> = &pi;</button>
+      <button id="btn2Pi"><i>t</i> = 2&pi;</button>
+      <button id="btnEnd"><i>t</i> = 3&pi;</button>
       <span style="flex:1"></span>
       <button id="btnTour">&#9654;&nbsp;Play</button>
+      <button id="btnTop" title="Look straight down the z-axis: the helix projects onto the unit circle">&#8615;&nbsp;Top view</button>
       <button id="btnSpin">Spin</button>
       <button id="btnFull" title="Show the figure full screen">&#x26F6;&nbsp;Full screen</button>
     </div>
     <div class="row sliderRow">
       <span class="name"><i>t</i> = <span id="tVal">0.00</span></span>
-      <input type="range" id="tSlider" min="0" max="3.14159" step="0.005" value="0"
-             aria-label="the parameter t, from 0 to pi">
+      <input type="range" id="tSlider" min="0" max="9.42478" step="0.005" value="0"
+             aria-label="the parameter t, from 0 to 3 pi">
     </div>
   </div>
 </div>
@@ -237,7 +240,9 @@
       GOLD_C = 0xf0ac5f, PURPLE_A = 0xcaa3e8, GREY = 0x8a8f9c, INK = 0xece6e2;
 
   // ---------- the curve ----------
-  var TMAX = Math.PI;
+  // The example's helix stops at t = pi, one full turn; the figure lets t run
+  // on to 3pi so the next two turns can be watched stacking up above it.
+  var TEX = Math.PI, TMAX = 3 * Math.PI, SAMPLES = 720;
   function r(t) { return new THREE.Vector3(Math.cos(2 * t), Math.sin(2 * t), t); }
 
   // ---------- renderer / scene ----------
@@ -251,6 +256,14 @@
 
   var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 200);
   camera.up.set(0, 0, 1);                 // z is up, the usual maths convention
+
+  // The top view looks straight down the z-axis through an orthographic camera,
+  // so that every turn of the helix lands exactly on the unit circle: with
+  // perspective the higher turns, being nearer the eye, would come out larger.
+  var ortho = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, TMAX + 60);
+  var topView = false;
+  var TOP_EXT = 2.7;    // half-width of the xy-plane to show: axis tips, labels and all
+  var padPx = 0, canvasH = 1;   // set by resize(): the overlays' vertical offset, the canvas height
 
   // CENTER and CLOUD are measured off the finished scene in fitScene() below.
   // CLOUD is a sample of everything actually drawn, so the framing can be exact
@@ -304,6 +317,18 @@
     camera.lookAt(look.x, look.y, look.z);
   }
 
+  function placeTop() {
+    var halfH = TOP_EXT / band, halfW = halfH * aspect;
+    if (halfW < TOP_EXT) { halfW = TOP_EXT; halfH = halfW / aspect; }
+    var shift = padPx * 2 * halfH / canvasH;   // centre the picture in the clear band
+    ortho.left = -halfW; ortho.right = halfW;
+    ortho.top = halfH + shift; ortho.bottom = -halfH + shift;
+    ortho.position.set(0, 0, TMAX + 30);
+    ortho.up.set(0, 1, 0);                    // x to the right, y up: the xy-plane as drawn
+    ortho.lookAt(0, 0, 0);
+    ortho.updateProjectionMatrix();
+  }
+
   scene.add(new THREE.AmbientLight(0xffffff, 0.62));
   var key = new THREE.DirectionalLight(0xffffff, 0.62); key.position.set(5, 3, 6);
   var fill = new THREE.DirectionalLight(0x9fd8ff, 0.30); fill.position.set(-4, -5, 2);
@@ -348,6 +373,7 @@
   }
 
   // ---------- axes, with manim-ish arrow tips ----------
+  var Z_PARTS = [];
   (function buildAxes() {
     var mat = new THREE.LineBasicMaterial({ color: GREY, transparent: true, opacity: 0.55 });
     var tipMat = new THREE.MeshBasicMaterial({ color: GREY, transparent: true, opacity: 0.75 });
@@ -367,6 +393,9 @@
       var lab = makeLabel(d.t, "#9aa0ad", 0.42);
       lab.position.copy(d.v.clone().multiplyScalar(d.hi + 0.3));
       scene.add(lab);
+      // seen from straight above, the z-axis is a point at the origin, and its
+      // tip and label would only sit on top of the start of the curve
+      if (d.t === "z") Z_PARTS.push(tip, lab);
     });
   })();
 
@@ -427,29 +456,43 @@
   // ---------- the whole helix, faint: the road ahead ----------
   var HELIX = [];
   (function buildGhost() {
-    for (var i = 0; i <= 240; i++) HELIX.push(r((TMAX * i) / 240));
+    for (var i = 0; i <= SAMPLES; i++) HELIX.push(r((TMAX * i) / SAMPLES));
     scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(HELIX),
       new THREE.LineBasicMaterial({ color: BLUE_C, transparent: true, opacity: 0.22 })));
   })();
 
   // ---------- start and end of the motion ----------
+  var END_LABELS = [], TOP_LABEL = null;
   (function buildEnds() {
     var redMat = new THREE.MeshBasicMaterial({ color: RED_C });
     var s = new THREE.Mesh(new THREE.SphereGeometry(0.06, 18, 18), redMat);
     s.position.set(1, 0, 0); scene.add(s);
-    var e = new THREE.Mesh(new THREE.SphereGeometry(0.06, 18, 18), redMat);
-    e.position.set(1, 0, TMAX); scene.add(e);
     // The labels name the parameter values only (the card reads off the
     // coordinates as the point gets there), and each is anchored at one edge
     // beside its dot so that it keeps clear of the point, the x-axis and its
     // label from every viewing angle: the start label hangs below and to the
-    // right of the start, the end label reads off to the right of the end.
+    // right of the start, the others read off to the right of their dots.
+    // Every turn ends directly above the start, at t = pi, 2pi and 3pi; the
+    // first of these is the end of the example's own curve.
     var ls = makeLabel("t = 0", "#fc6255", 0.36);
     ls.center.set(0, 1);
     ls.position.set(1.04, -0.04, -0.08); scene.add(ls);
-    var le = makeLabel("t = π", "#fc6255", 0.36);
-    le.center.set(0, 0.5);
-    le.position.set(1.06, -0.06, TMAX + 0.16); scene.add(le);
+    END_LABELS.push(ls);
+    [["t = π", TEX], ["t = 2π", 2 * TEX], ["t = 3π", TMAX]].forEach(function (m) {
+      var e = new THREE.Mesh(new THREE.SphereGeometry(0.06, 18, 18), redMat);
+      e.position.set(1, 0, m[1]); scene.add(e);
+      var le = makeLabel(m[0], "#fc6255", 0.36);
+      le.center.set(0, 0.5);
+      le.position.set(1.06, -0.06, m[1] + 0.16); scene.add(le);
+      END_LABELS.push(le);
+    });
+    // Seen from straight above all four sit on the same point, so the top view
+    // shows this one label in their place.
+    TOP_LABEL = makeLabel("t = 0, π, 2π, 3π", "#fc6255", 0.36);
+    TOP_LABEL.center.set(0, 1);
+    TOP_LABEL.position.set(1.06, -0.08, TMAX);
+    TOP_LABEL.visible = false;
+    scene.add(TOP_LABEL);
   })();
 
   // ---------- everything that moves with t ----------
@@ -486,7 +529,7 @@
     var P = r(tVal);
 
     // the part of the helix traced so far, as a bright tube
-    var n = Math.max(2, Math.round(240 * tVal / TMAX) + 1);
+    var n = Math.max(2, Math.round(SAMPLES * tVal / TMAX) + 1);
     var pts = [];
     for (var i = 0; i < n; i++) pts.push(r((tVal * i) / (n - 1)));
     if (tVal > 1e-3) tube(pts, BLUE_C, 0.028, movGroup);
@@ -544,19 +587,20 @@
     elTurn.textContent = fmt(turns);
     // the bar narrows on a phone, so measure it rather than assume its width
     var barW = elKnob.parentNode.clientWidth || 168;
-    elKnob.style.left = (Math.min(1, turns) * barW - 1.5) + "px";
+    elKnob.style.left = (Math.min(1, turns / 3) * barW - 1.5) + "px";
     elTVal.textContent = fmt(tVal);
     tSlider.value = String(tVal);
 
     document.getElementById("btnStart").classList.toggle("active", tVal < 0.01);
-    document.getElementById("btnHalf").classList.toggle("active", Math.abs(tVal - TMAX / 2) < 0.01);
+    document.getElementById("btnPi").classList.toggle("active", Math.abs(tVal - TEX) < 0.01);
+    document.getElementById("btn2Pi").classList.toggle("active", Math.abs(tVal - 2 * TEX) < 0.01);
     document.getElementById("btnEnd").classList.toggle("active", tVal > TMAX - 0.01);
   }
 
   // ---------- render loop ----------
   var spinning = false, rafId = null, lastT = 0;
 
-  function render() { renderer.render(scene, camera); }
+  function render() { renderer.render(scene, topView ? ortho : camera); }
 
   function frame(now) {
     rafId = requestAnimationFrame(frame);
@@ -617,19 +661,27 @@
       t: 1.9, run: 2.0, hold: 1.4 },
     { say: "The tip of r(t) rides along the curve; the curve is the set of all those tips.",
       t: 2.5, run: 1.6, hold: 1.4 },
-    { say: "At t = π the shadow has gone around exactly once (2t = 2π), and the point is at (1, 0, π), directly above the start.",
-      t: TMAX, run: 1.6, hold: 2.2 },
-    { say: "Your turn: drag t, and drag the figure to look from anywhere.",
-      t: 1.2, run: 1.6, hold: 0.9 }
+    { say: "At t = π the shadow has gone around exactly once (2t = 2π), and the point is at (1, 0, π), directly above the start. This is the curve of the example.",
+      t: TEX, run: 1.6, hold: 2.4 },
+    { say: "Nothing stops t there: every further π adds one more turn and π more height, and the point keeps spiralling up.",
+      t: 2 * TEX, run: 2.4, hold: 1.4 },
+    { say: "At t = 3π the shadow has gone around three times, and the point is at (1, 0, 3π).",
+      t: TMAX, run: 2.0, hold: 1.8 },
+    { say: "Seen from straight above, every turn lands on the same circle: the whole helix projects onto x² + y² = 1.",
+      t: TMAX, run: 0.3, hold: 3.2, view: "top" },
+    { say: "Your turn: drag t, drag the figure to look from anywhere, or press Top view to look straight down the z-axis.",
+      t: 1.2, run: 1.6, hold: 0.9, view: "orbit" }
   ];
 
-  var tour = { running: false, i: 0, timer: null };
+  var tour = { running: false, i: 0, timer: null, top: false };
   var btnTour = document.getElementById("btnTour");
 
   function tourStep() {
     if (!tour.running) return;
     if (tour.i >= STORY.length) { stopTour(); return; }
     var beat = STORY[tour.i++];
+    if (beat.view === "top") { tour.top = true; setTopView(true); }
+    else if (beat.view === "orbit" && tour.top) { tour.top = false; setTopView(false); }
     say(beat.say);
     animateTo(beat.t, beat.run, function () {
       if (!tour.running) return;
@@ -648,6 +700,7 @@
     tour.running = false;
     if (tour.timer) { window.clearTimeout(tour.timer); tour.timer = null; }
     tween = null;
+    if (tour.top) { tour.top = false; setTopView(false); }
     btnTour.innerHTML = "&#9654;&nbsp;Play";
     btnTour.classList.remove("running");
     setSlidersEnabled(true);
@@ -667,6 +720,7 @@
   function startDrag(x, y) { dragging = true; lastX = x; lastY = y; }
   function moveDrag(x, y) {
     if (!dragging) return;
+    if (topView) leaveTopView();   // dragging the picture takes it out of the top view
     theta -= (x - lastX) * 0.008;
     phi = Math.min(Math.PI - 0.05, Math.max(0.05, phi - (y - lastY) * 0.008));
     lastX = x; lastY = y;
@@ -692,7 +746,8 @@
     animateTo(t, 0.9);
   }
   document.getElementById("btnStart").addEventListener("click", function () { jumpTo(0); });
-  document.getElementById("btnHalf").addEventListener("click", function () { jumpTo(TMAX / 2); });
+  document.getElementById("btnPi").addEventListener("click", function () { jumpTo(TEX); });
+  document.getElementById("btn2Pi").addEventListener("click", function () { jumpTo(2 * TEX); });
   document.getElementById("btnEnd").addEventListener("click", function () { jumpTo(TMAX); });
 
   tSlider.addEventListener("input", function () {
@@ -706,7 +761,39 @@
   btnSpin.addEventListener("click", function () {
     spinning = !spinning;
     btnSpin.classList.toggle("active", spinning);
-    if (spinning) ensureLoop();
+    if (spinning) { if (topView) leaveTopView(); ensureLoop(); }
+  });
+
+  // ---------- top view: straight down the z-axis, the xy-projection ----------
+  // A cut rather than a camera move, the way manim would switch scenes: the
+  // orbiting view is put away and the orthographic camera takes over. Pressing
+  // the button again, or dragging the picture, brings the old viewpoint back.
+  var btnTop = document.getElementById("btnTop");
+  var topHint = null;
+  function setTopView(on) {
+    if (on === topView) return;
+    topView = on;
+    btnTop.classList.toggle("active", on);
+    Z_PARTS.forEach(function (o) { o.visible = !on; });
+    END_LABELS.forEach(function (o) { o.visible = !on; });
+    TOP_LABEL.visible = on;
+    if (on) {
+      if (spinning) { spinning = false; btnSpin.classList.remove("active"); }
+      placeTop();
+    } else {
+      if (topHint) { window.clearTimeout(topHint); topHint = null; say(""); }
+      placeCamera();
+    }
+    render();
+  }
+  function leaveTopView() { setTopView(false); }
+  btnTop.addEventListener("click", function () {
+    if (tour.running) stopTour();
+    setTopView(!topView);
+    if (topView) {
+      say("Straight down the z-axis: every turn lands on the unit circle x² + y² = 1.");
+      topHint = window.setTimeout(function () { say(""); topHint = null; }, 3600);
+    }
   });
 
   // ---------- full screen ----------
@@ -751,6 +838,7 @@
   function fitScene() {
     var pts = [], box = new THREE.Box3();
     scene.traverse(function (o) {
+      if (o.visible === false) return;
       if (o.isSprite) {                          // a sprite is a billboard rectangle
         var kx = 0.5 * o.scale.x, kz = 0.5 * o.scale.y;
         [[kx, kz], [-kx, -kz]].forEach(function (dd) {
@@ -806,9 +894,11 @@
 
     // slide the picture into the middle of that band
     var tanHalf = Math.tan(camera.fov * Math.PI / 360);
-    aimShift = 0.5 * (topPad - botPad) * (2 * radius * tanHalf) / ch;
+    padPx = 0.5 * (topPad - botPad); canvasH = ch;
+    aimShift = padPx * (2 * radius * tanHalf) / ch;
 
     placeCamera();
+    if (topView) placeTop();
     render();
   }
   window.addEventListener("resize", resize);

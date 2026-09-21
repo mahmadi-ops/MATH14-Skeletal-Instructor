@@ -1001,23 +1001,28 @@
         </figure>
 
         <p>
-          The same helix, animated. Press <q>Play</q> to watch the point
-          climb the curve, with its shadow running around the unit circle
-          below and the position vector <m>\mathbf{r}(t)</m> following it;
-          or drag the slider to place the point yourself.
+          The same helix, animated, and continued past <m>t = \pi</m> to
+          three full turns. Press <q>Play</q> to watch the point climb the
+          curve, with its shadow running around the unit circle below and
+          the position vector <m>\mathbf{r}(t)</m> following it; or drag
+          the slider to place the point yourself.
         </p>
 
         <interactive xml:id="interactive-helix-manim" iframe="helix-manim.html"
-                     width="100%" aspect="1:1">
+                     width="100%" aspect="4:5">
           <instructions>
             <p>
-              Drag <m>t</m> from <m>0</m> to <m>\pi</m>, or use the
-              <q>Jump to</q> buttons. The card reads off the point
+              Drag <m>t</m> from <m>0</m> to <m>3\pi</m>, or use the
+              <q>Jump to</q> buttons; the curve of the example is the first
+              turn, up to <m>t = \pi</m>. The card reads off the point
               <m>(\cos 2t, \sin 2t, t)</m>, and the readout at the lower
-              left keeps track of the height <m>z = t</m> and of how far
-              around the circle the shadow has gone. Drag the figure to
-              look from anywhere, <q>Spin</q> turns it on its own, and
-              <q>Full screen</q> fills the screen with it.
+              left keeps track of the height <m>z = t</m> and of how many
+              times the shadow has gone around the circle. Drag the figure
+              to look from anywhere, <q>Spin</q> turns it on its own, and
+              <q>Top view</q> looks straight down the <m>z</m>-axis, where
+              the whole helix collapses onto its projection, the unit circle
+              in the <m>xy</m>-plane. <q>Full screen</q> fills the screen
+              with it.
             </p>
           </instructions>
         </interactive>
