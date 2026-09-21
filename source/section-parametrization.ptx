@@ -1002,14 +1002,23 @@
 
         <p>
           The same helix, animated, and continued past <m>t = \pi</m> to
-          three full turns. Press <q>Play</q> to watch the point climb the
-          curve, with its shadow running around the unit circle below and
-          the position vector <m>\mathbf{r}(t)</m> following it; or drag
-          the slider to place the point yourself.
+          three full turns, is <xref ref="fig-helix-manim"/>. Press
+          <q>Play</q> to watch the point climb the curve, with its shadow
+          running around the unit circle below and the position vector
+          <m>\mathbf{r}(t)</m> following it; or drag the slider to place
+          the point yourself.
         </p>
 
-        <interactive xml:id="interactive-helix-manim" iframe="helix-manim.html"
-                     width="100%" aspect="4:5">
+        <figure xml:id="fig-helix-manim">
+          <caption>
+            The helix <m>\mathbf{r}(t) = \left\langle \cos 2t,\ \sin 2t,\ t\right\rangle</m>,
+            animated, for <m>0 \le t \le 3\pi</m>: the curve of the example
+            is the first turn, up to <m>t = \pi</m>. <q>Top view</q> looks
+            straight down the <m>z</m>-axis, where the whole helix collapses
+            onto its projection, the unit circle in the <m>xy</m>-plane.
+          </caption>
+          <interactive xml:id="interactive-helix-manim" iframe="helix-manim.html"
+                       width="100%" aspect="4:5">
           <instructions>
             <p>
               Drag <m>t</m> from <m>0</m> to <m>3\pi</m>, or use the
@@ -1025,7 +1034,8 @@
               with it.
             </p>
           </instructions>
-        </interactive>
+          </interactive>
+        </figure>
       </statement>
     </example>
 
