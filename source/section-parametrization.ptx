@@ -17,6 +17,8 @@
 <!-- table, the segment, the ellipse, the shifted circle, the collision    -->
 <!-- picture) become empty grids to draw on, and the table of points has   -->
 <!-- its x and y columns left blank.                                       -->
+<!-- The closing subsection on tangent lines keeps its GeoGebra applet,    -->
+<!-- which is the check on the example rather than its answer.            -->
 <!--                                                                       -->
 <!-- Plane curves are drawn with PreFigure (annotated for screen readers); -->
 <!-- space curves with TikZ/pgfplots, which needs the tikz + pgfplots      -->
@@ -60,6 +62,13 @@
           Write a space curve as a vector function
           <m>\mathbf{r}(t)</m>, and parametrize the curve in which two
           surfaces meet.
+        </p>
+      </li>
+      <li>
+        <p>
+          Differentiate a vector function to get the tangent vector of a
+          space curve, and write the equation of the tangent line at a
+          point of the curve.
         </p>
       </li>
     </ul>
@@ -1245,6 +1254,203 @@
             </latex-image>
           </image>
         </figure>
+      </statement>
+    </example>
+  </subsection>
+
+  <!-- ================================================================= -->
+  <!-- Tangent lines, from the handwritten notes of 01.08.2025 ("Tangent  -->
+  <!-- lines for Parametric curves in R^3").  The applet is the published -->
+  <!-- material rqrxy7j9, 650 x 570: the helix of the example, the two    -->
+  <!-- position vectors, the difference vector, the difference quotient   -->
+  <!-- and the tangent line at t_0 = pi/4, with a slider for h.  Kept:    -->
+  <!-- the setup, the applet (a check, not an answer), the definition of  -->
+  <!-- the tangent vector and the rule for differentiating a vector       -->
+  <!-- function.  Hollowed: why the limit of the difference quotient is   -->
+  <!-- tangent, the derivation of the tangent line (restated in an        -->
+  <!-- assemblage so eq-tangent-line survives), and the example solution. -->
+  <subsection xml:id="subsec-tangent-line-space-curve">
+    <title>Tangent Lines to Curves in Space</title>
+
+    <p>
+      Now that a curve in space is a vector function <m>\mathbf{r}(t)</m>,
+      we can ask the same question we asked about graphs in single-variable
+      calculus: what is the tangent line at a point of the curve? The
+      applet in <xref ref="fig-tangent-vector-geogebra"/> shows how to find
+      its direction. Fix a time <m>t_0</m>, mark the point
+      <m>P</m> that the moving object occupies at that time, and let
+      <m>h</m> be a small change in time.
+    </p>
+
+    <figure xml:id="fig-tangent-vector-geogebra">
+      <caption>
+        The tangent vector as the limit of a difference quotient. The gray
+        curve is the helix
+        <m>\mathbf{r}(t) = \left\langle \cos(t), \sin(t), t
+        \right\rangle</m>, and the two blue arrows are the position vectors
+        <m>\mathbf{r}(t_0)</m> and <m>\mathbf{r}(t_0+h)</m>, with
+        <m>t_0 = \pi/4</m>. The pink arrow is their difference
+        <m>\mathbf{r}(t_0+h) - \mathbf{r}(t_0)</m>, the green arrow is the
+        difference quotient
+        <m>\bigl(\mathbf{r}(t_0+h) - \mathbf{r}(t_0)\bigr)/h</m>, and
+        the green line is the tangent line at <m>t_0</m>.
+      </caption>
+      <!-- the fullscreen button is added to every GeoGebra applet by the
+           template for interactive[@geogebra] in xsl/custom-html.xsl, which
+           also gives the iframe the allowfullscreen permission;
+           shift-drag-zoom lets the reader rotate the 3-D view by dragging -->
+      <interactive geogebra="rqrxy7j9"
+                   width="100%" aspect="650:570"
+                   material-width="650" material-height="570"
+                   shift-drag-zoom="yes">
+        <instructions>
+          <p>
+            Drag the slider <m>h</m> toward <m>0</m> and watch the green
+            arrow: as <m>h</m> shrinks, it turns until it lies along the
+            green tangent line. Rotate the picture by dragging the
+            background, and use the fullscreen button in the corner of the
+            applet for a larger view.
+          </p>
+        </instructions>
+      </interactive>
+    </figure>
+
+    <p>
+      The pink arrow <m>\mathbf{r}(t_0+h) - \mathbf{r}(t_0)</m> joins the
+      point of the curve at time <m>t_0</m> to the point of the curve at time
+      <m>t_0+h</m>: it is a <em>chord</em> of the curve. Dividing it by
+      <m>h</m> gives the green arrow
+
+    <md>
+      \frac{\mathbf{r}(t_0+h) - \mathbf{r}(t_0)}{h} .
+    </md>
+    </p>
+    <p>
+      (Explain what dividing by <m>h</m> does to the chord, including when
+      <m>h \lt 0</m>, and why the green arrow becomes tangent to the curve at
+      <m>P</m> as <m>h \to 0</m>; compare with
+      <xref ref="fig-tangent-vector-geogebra"/>.)
+    </p>
+
+    <sidebyside width="97%">
+      <image>
+        <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
+\draw[gray!35] (0,4) -- (15,4);
+\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {dividing the chord by $h$:};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {as $h \to 0$:};
+\end{tikzpicture}
+        </latex-image>
+        <shortdescription>Blank box in two rows, one for what dividing the chord by h does and one for what happens to the difference quotient as h tends to zero.</shortdescription>
+      </image>
+    </sidebyside>
+
+    <p>
+      The limit of the difference quotient is therefore a vector tangent to
+      the curve at <m>P</m>. We call it the <term>tangent vector</term>, or
+      the <term>velocity</term>, of the path:
+
+    <md>
+      <mrow xml:id="eq-tangent-vector" number="yes">
+        \mathbf{v}(t) = \frac{d\mathbf{r}}{dt}
+          = \lim_{h \to 0}
+            \frac{\mathbf{r}(t+h) - \mathbf{r}(t)}{h} .
+      </mrow>
+    </md>
+    </p>
+
+    <p>
+      The limit in <xref ref="eq-tangent-vector"/> is taken one coordinate
+      at a time, so if
+      <m>\mathbf{r}(t) = \left\langle x(t), y(t), z(t)\right\rangle</m>,
+      then
+      <m>\mathbf{v}(t) = \left\langle x'(t), y'(t), z'(t)\right\rangle</m>:
+      to differentiate a vector function, differentiate each of its
+      coordinates. The tangent vector at the time <m>t_0</m> is
+
+    <md>
+      \mathbf{v}(t_0) = \left.\frac{d\mathbf{r}}{dt}\right|_{t=t_0} .
+    </md>
+    </p>
+
+    <p>
+      The tangent line at <m>P</m> is the line through <m>P</m> in the
+      direction of <m>\mathbf{v}(t_0)</m>. (Write the position vector
+      <m>\mathbf{r}_0</m> of <m>P\bigl(x(t_0), y(t_0), z(t_0)\bigr)</m>, then
+      use the vector equation of a line from MATH 13. Use a new parameter
+      <m>s</m> for the line, and say why it must differ from <m>t</m>.)
+    </p>
+
+    <sidebyside width="97%">
+      <image>
+        <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
+\draw[gray!35] (0,7) -- (15,7);
+\draw[gray!35] (0,3.5) -- (15,3.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\mathbf{r}_0 =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {the tangent line:};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {why $s$ and not $t$:};
+\end{tikzpicture}
+        </latex-image>
+        <shortdescription>Blank box in three rows, for the position vector of the point P, for the vector equation of the tangent line, and for why the line needs its own parameter.</shortdescription>
+      </image>
+    </sidebyside>
+
+    <assemblage xml:id="assemblage-tangent-line">
+      <title>The tangent line</title>
+      <p>
+        The tangent line to the curve <m>\mathbf{r}(t)</m> at
+        <m>t = t_0</m>, with <m>\mathbf{r}_0 = \mathbf{r}(t_0)</m>, is
+
+      <md>
+        <mrow xml:id="eq-tangent-line" number="yes">
+          \mathbf{r}(s) = \mathbf{r}_0 + s\,\mathbf{v}(t_0) ,
+          \qquad s \in \R .
+        </mrow>
+      </md>
+      </p>
+    </assemblage>
+
+    <example xml:id="ex-tangent-line-helix">
+      <title>Tangent line to a helix</title>
+      <statement>
+        <p>
+          Find the tangent line to the path
+          <m>\mathbf{r}(t) = \left\langle \cos(t), \sin(t), t
+          \right\rangle</m> at the point
+          <m>\left( \dfrac{1}{\sqrt{2}}, \dfrac{1}{\sqrt{2}},
+          \dfrac{\pi}{4} \right)</m>.
+        </p>
+        <p>
+          <em>Solution.</em>
+          (First find the time <m>t_0</m> at which the path passes through the
+          point, and check all three coordinates. Then apply
+          <xref ref="eq-tangent-line"/>, and give the answer in both vector
+          and parametric form; compare with the green line in
+          <xref ref="fig-tangent-vector-geogebra"/>.)
+        </p>
+
+        <sidebyside width="97%">
+          <image>
+            <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,17);
+\draw[gray!35] (0,14) -- (15,14);
+\draw[gray!35] (0,11) -- (15,11);
+\draw[gray!35] (0,8) -- (15,8);
+\draw[gray!35] (0,4) -- (15,4);
+\node[anchor=north west, font=\small\itshape] at (0.35,16.7) {the time $t_0$:};
+\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {$\mathbf{v}(t) =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {$\mathbf{v}(t_0) =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {vector form, $\mathbf{r}(s) =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {parametric form:};
+\end{tikzpicture}
+            </latex-image>
+            <shortdescription>Blank box in five rows, for the time at which the path passes through the point, for the tangent vector, for its value at that time, for the tangent line in vector form, and for the tangent line in parametric form.</shortdescription>
+          </image>
+        </sidebyside>
       </statement>
     </example>
   </subsection>

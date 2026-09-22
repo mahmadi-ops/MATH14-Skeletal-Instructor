@@ -3,6 +3,8 @@
 <!--   * render <exercises> divisions (homework) without a number           -->
 <!--   * cross-references to figures holding an annotated PreFigure diagram -->
 <!--     are plain links, not knowls (see the comment below)                -->
+<!--   * every GeoGebra applet, local or by material id, gets a fullscreen -->
+<!--     button                                                            -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:pf="https://prefigure.org"
                 exclude-result-prefixes="pf"
@@ -176,6 +178,92 @@
     </iframe>
     <!-- possibly give a long description -->
     <xsl:apply-templates select="." mode="description"/>
+  </xsl:template>
+
+  <!-- A GeoGebra applet embedded by material id (interactive/@geogebra)   -->
+  <!-- is not a slate: the core writes a direct iframe to geogebra.org,   -->
+  <!-- so the GGBApplet shim above never sees it.  GeoGebra's iframe URL  -->
+  <!-- takes the fullscreen button as the segment sfsb/true, and the      -->
+  <!-- request its button makes is only honoured when the iframe carries  -->
+  <!-- the allowfullscreen permission.  This is the core template with    -->
+  <!-- that URL segment and those two attributes added; the attributes    -->
+  <!-- come first, before any applied template adds content.              -->
+  <xsl:template match="interactive[@geogebra]" mode="iframe-interactive">
+    <xsl:param name="default-aspect" select="'1:1'" />
+    <xsl:variable name="ggbToolBar">
+      <xsl:choose>
+        <xsl:when test="@toolbar='yes'">
+          <xsl:text>true</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>false</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="ggbAlgebraInput">
+      <xsl:choose>
+        <xsl:when test="@algebra-input='yes'">
+          <xsl:text>true</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>false</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="ggbResetIcon">
+      <xsl:choose>
+        <xsl:when test="@reset-icon='yes'">
+          <xsl:text>true</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>false</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="ggbShiftDragZoom">
+      <xsl:choose>
+        <xsl:when test="@shift-drag-zoom='yes'">
+          <xsl:text>true</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>false</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="ggbMaterialWidth">
+      <xsl:choose>
+        <xsl:when test="@material-width">
+          <xsl:value-of select="@material-width"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>800</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="aspect-ratio">
+      <xsl:apply-templates select="." mode="get-aspect-ratio">
+        <xsl:with-param name="default-aspect" select="$default-aspect" />
+      </xsl:apply-templates>
+    </xsl:variable>
+    <xsl:variable name="ggbMaterialHeight">
+      <xsl:choose>
+        <xsl:when test="@material-height">
+          <xsl:value-of select="@material-height"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="round($ggbMaterialWidth div $aspect-ratio)" />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <iframe src="https://www.geogebra.org/material/iframe/id/{@geogebra}/scaleContainerClass/interactive-iframe-container/width/{$ggbMaterialWidth}/height/{$ggbMaterialHeight}/allowUpscale/true/autoHeight/true/border/888888/smb/false/stb/{$ggbToolBar}/stbh/{$ggbToolBar}/ai/{$ggbAlgebraInput}/asb/false/sri/{$ggbResetIcon}/rc/false/ld/false/sdz/{$ggbShiftDragZoom}/ctl/false/sfsb/true">
+      <xsl:attribute name="allowfullscreen"/>
+      <xsl:attribute name="allow">
+        <xsl:text>fullscreen</xsl:text>
+      </xsl:attribute>
+      <xsl:apply-templates select="." mode="html-id-attribute"/>
+      <xsl:apply-templates select="." mode="iframe-dark-mode-attribute" />
+      <xsl:apply-templates select="." mode="interactive-sizing-style-attribute" />
+    </iframe>
   </xsl:template>
 
 </xsl:stylesheet>
