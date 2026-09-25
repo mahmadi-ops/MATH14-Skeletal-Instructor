@@ -1,0 +1,287 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-polar-point-figure" viewBox="0 0 380 241">
+  <defs>
+    <clipPath id="prefigure-polar-point-clipPath-0">
+      <rect x="10.0" y="10.0" width="360.0" height="221.0"/>
+    </clipPath>
+    <clipPath id="prefigure-polar-point-clipPath-1">
+      <rect x="10.0" y="10.0" width="360.0" height="221.0"/>
+    </clipPath>
+    <marker id="prefigure-polar-point-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-polar-point-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="pp-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-polar-point-line-0" x1="10.0" y1="197.0" x2="370.0" y2="197.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-polar-point-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-polar-point-line-1" x1="50.9" y1="231.0" x2="50.9" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-polar-point-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-polar-point-label-0" transform="translate(364.0,191.0) translate(-10.4,-8.2)">
+    <g id="prefigure-polar-point-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-point-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-polar-point-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-point-label-1" transform="translate(56.9,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-polar-point-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-point-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-polar-point-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-polar-point-pp-ray" x1="50.9" y1="197.0" x2="263.6" y2="69.5" stroke="#0072B2" stroke-width="3" fill="none"/>
+  <line id="prefigure-polar-point-pp-yleg" x1="263.6" y1="197.0" x2="263.6" y2="69.5" stroke="#E69F00" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+  <path id="prefigure-polar-point-pp-arc" d="M 95.9 197.0 L 95.9 196.8 L 95.9 196.5 L 95.9 196.3 L 95.9 196.0 L 95.9 195.8 L 95.9 195.5 L 95.9 195.3 L 95.9 195.0 L 95.9 194.8 L 95.8 194.6 L 95.8 194.3 L 95.8 194.1 L 95.8 193.8 L 95.8 193.6 L 95.8 193.3 L 95.8 193.1 L 95.7 192.8 L 95.7 192.6 L 95.7 192.4 L 95.7 192.1 L 95.6 191.9 L 95.6 191.6 L 95.6 191.4 L 95.6 191.1 L 95.5 190.9 L 95.5 190.7 L 95.5 190.4 L 95.4 190.2 L 95.4 189.9 L 95.4 189.7 L 95.3 189.5 L 95.3 189.2 L 95.2 189.0 L 95.2 188.7 L 95.2 188.5 L 95.1 188.2 L 95.1 188.0 L 95.0 187.8 L 95.0 187.5 L 94.9 187.3 L 94.9 187.1 L 94.8 186.8 L 94.8 186.6 L 94.7 186.3 L 94.7 186.1 L 94.6 185.9 L 94.6 185.6 L 94.5 185.4 L 94.4 185.2 L 94.4 184.9 L 94.3 184.7 L 94.3 184.4 L 94.2 184.2 L 94.1 184.0 L 94.1 183.7 L 94.0 183.5 L 93.9 183.3 L 93.9 183.0 L 93.8 182.8 L 93.7 182.6 L 93.6 182.3 L 93.6 182.1 L 93.5 181.9 L 93.4 181.6 L 93.3 181.4 L 93.3 181.2 L 93.2 181.0 L 93.1 180.7 L 93.0 180.5 L 92.9 180.3 L 92.8 180.0 L 92.8 179.8 L 92.7 179.6 L 92.6 179.4 L 92.5 179.1 L 92.4 178.9 L 92.3 178.7 L 92.2 178.5 L 92.1 178.2 L 92.0 178.0 L 91.9 177.8 L 91.8 177.6 L 91.7 177.3 L 91.6 177.1 L 91.5 176.9 L 91.4 176.7 L 91.3 176.5 L 91.2 176.2 L 91.1 176.0 L 91.0 175.8 L 90.9 175.6 L 90.8 175.4 L 90.7 175.1 L 90.6 174.9 L 90.5 174.7 L 90.4 174.5 L 90.2 174.3 L 90.1 174.1 L 90.0 173.9 L 89.9 173.6" stroke="#CC79A7" stroke-width="2" fill="none" clip-path="url(#prefigure-polar-point-clipPath-1)"/>
+  <g id="prefigure-polar-point-pp-O">
+    <g transform="translate(45.9,202.0) translate(-13.8,-0.0)">
+      <g id="prefigure-polar-point-g-2">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="13.808px" height="13.144px" role="img" focusable="false" viewBox="0 -704 763 726" x="0.0" y="0.0">
+          <defs>
+            <path id="prefigure-polar-point-MJX-4-TEX-I-1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper O">
+                <use data-c="1D442" xlink:href="#prefigure-polar-point-MJX-4-TEX-I-1D442"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle cx="50.9" cy="197.0" r="4" stroke="black" stroke-width="2" fill="black"/>
+  </g>
+  <g id="prefigure-polar-point-pp-P">
+    <g transform="translate(263.6,61.5) translate(-65.7,-18.1)">
+      <g id="prefigure-polar-point-g-3">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px" width="131.456px" height="18.096px" role="img" focusable="false" viewBox="0 -750 7262.9 1000" x="0.0" y="0.0">
+          <defs>
+            <path id="prefigure-polar-point-MJX-5-TEX-I-1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-N-2061" d=""/>
+            <path id="prefigure-polar-point-MJX-5-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+            <path id="prefigure-polar-point-MJX-5-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="21" data-semantic-children="20,18" data-semantic-content="6" data-semantic-speech="upper P left parenthesis x comma y right parenthesis equals upper P left parenthesis r comma theta right parenthesis">
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-id="20" data-semantic-children="0,14" data-semantic-content="19,0" data-semantic-parent="21" data-semantic-speech="upper P left parenthesis x comma y right parenthesis">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="20" data-semantic-operator="appl" data-semantic-speech="upper P">
+                  <use data-c="1D443" xlink:href="#prefigure-polar-point-MJX-5-TEX-I-1D443"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="19" data-semantic-parent="20" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(751,0)">
+                  <use data-c="2061" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="14" data-semantic-children="13" data-semantic-content="1,5" data-semantic-parent="20" data-semantic-speech="left parenthesis x comma y right parenthesis" transform="translate(751,0)">
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="1" data-semantic-parent="14" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                    <use data-c="28" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-28"/>
+                  </g>
+                  <g data-mml-node="mrow" data-semantic-type="punctuated" data-semantic-role="sequence" data-semantic-id="13" data-semantic-children="2,3,4" data-semantic-content="3" data-semantic-parent="14" data-semantic-speech="x comma y" transform="translate(389,0)">
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="13" data-semantic-speech="x">
+                      <use data-c="1D465" xlink:href="#prefigure-polar-point-MJX-5-TEX-I-1D465"/>
+                    </g>
+                    <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="comma" data-semantic-id="3" data-semantic-parent="13" data-semantic-operator="punctuated" data-semantic-speech="comma" transform="translate(572,0)">
+                      <use data-c="2C" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-2C"/>
+                    </g>
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="13" data-semantic-speech="y" transform="translate(1016.7,0)">
+                      <use data-c="1D466" xlink:href="#prefigure-polar-point-MJX-5-TEX-I-1D466"/>
+                    </g>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="5" data-semantic-parent="14" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(1895.7,0)">
+                    <use data-c="29" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-29"/>
+                  </g>
+                </g>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="6" data-semantic-parent="21" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(3313.4,0)">
+                <use data-c="3D" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-3D"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-id="18" data-semantic-children="7,16" data-semantic-content="17,7" data-semantic-parent="21" data-semantic-speech="upper P left parenthesis r comma theta right parenthesis" transform="translate(4369.2,0)">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="7" data-semantic-parent="18" data-semantic-operator="appl" data-semantic-speech="upper P">
+                  <use data-c="1D443" xlink:href="#prefigure-polar-point-MJX-5-TEX-I-1D443"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="17" data-semantic-parent="18" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(751,0)">
+                  <use data-c="2061" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="16" data-semantic-children="15" data-semantic-content="8,12" data-semantic-parent="18" data-semantic-speech="left parenthesis r comma theta right parenthesis" transform="translate(751,0)">
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="8" data-semantic-parent="16" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                    <use data-c="28" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-28"/>
+                  </g>
+                  <g data-mml-node="mrow" data-semantic-type="punctuated" data-semantic-role="sequence" data-semantic-id="15" data-semantic-children="9,10,11" data-semantic-content="10" data-semantic-parent="16" data-semantic-speech="r comma theta" transform="translate(389,0)">
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="9" data-semantic-parent="15" data-semantic-speech="r">
+                      <use data-c="1D45F" xlink:href="#prefigure-polar-point-MJX-5-TEX-I-1D45F"/>
+                    </g>
+                    <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="comma" data-semantic-id="10" data-semantic-parent="15" data-semantic-operator="punctuated" data-semantic-speech="comma" transform="translate(451,0)">
+                      <use data-c="2C" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-2C"/>
+                    </g>
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="11" data-semantic-parent="15" data-semantic-speech="theta" transform="translate(895.7,0)">
+                      <use data-c="1D703" xlink:href="#prefigure-polar-point-MJX-5-TEX-I-1D703"/>
+                    </g>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="12" data-semantic-parent="16" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(1753.7,0)">
+                    <use data-c="29" xlink:href="#prefigure-polar-point-MJX-5-TEX-N-29"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle cx="263.6" cy="69.5" r="4" stroke="black" stroke-width="2" fill="#0072B2"/>
+  </g>
+  <g id="prefigure-polar-point-pp-xfoot">
+    <g transform="translate(263.6,205.0) translate(-40.7,-0.0)">
+      <g id="prefigure-polar-point-g-4">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -1.488px" width="81.392px" height="14.248px" role="img" focusable="false" viewBox="0 -705 4496.9 787" x="0.0" y="0.0">
+          <defs>
+            <path id="prefigure-polar-point-MJX-6-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+            <path id="prefigure-polar-point-MJX-6-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+            <path id="prefigure-polar-point-MJX-6-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+            <path id="prefigure-polar-point-MJX-6-TEX-N-2062" d=""/>
+            <path id="prefigure-polar-point-MJX-6-TEX-N-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"/>
+            <path id="prefigure-polar-point-MJX-6-TEX-N-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"/>
+            <path id="prefigure-polar-point-MJX-6-TEX-N-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"/>
+            <path id="prefigure-polar-point-MJX-6-TEX-N-2061" d=""/>
+            <path id="prefigure-polar-point-MJX-6-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="10" data-semantic-children="0,9" data-semantic-content="1" data-semantic-speech="x equals r cosine theta">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="10" data-semantic-speech="x">
+                <use data-c="1D465" xlink:href="#prefigure-polar-point-MJX-6-TEX-I-1D465"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="10" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(849.8,0)">
+                <use data-c="3D" xlink:href="#prefigure-polar-point-MJX-6-TEX-N-3D"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:unit" data-semantic-id="9" data-semantic-children="2,7" data-semantic-content="8" data-semantic-parent="10" data-semantic-speech="r cosine theta" transform="translate(1905.6,0)">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="9" data-semantic-speech="r">
+                  <use data-c="1D45F" xlink:href="#prefigure-polar-point-MJX-6-TEX-I-1D45F"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="8" data-semantic-parent="9" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(451,0)">
+                  <use data-c="2062" xlink:href="#prefigure-polar-point-MJX-6-TEX-N-2062"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="prefix function" data-semantic-annotation="clearspeak:simple" data-semantic-id="7" data-semantic-children="3,5" data-semantic-content="6,3" data-semantic-parent="9" data-semantic-speech="cosine theta" transform="translate(617.7,0)">
+                  <g data-mml-node="mi" data-semantic-type="function" data-semantic-role="prefix function" data-semantic-font="normal" data-semantic-id="3" data-semantic-parent="7" data-semantic-operator="appl" data-semantic-speech="cosine">
+                    <use data-c="63" xlink:href="#prefigure-polar-point-MJX-6-TEX-N-63"/>
+                    <use data-c="6F" xlink:href="#prefigure-polar-point-MJX-6-TEX-N-6F" transform="translate(444,0)"/>
+                    <use data-c="73" xlink:href="#prefigure-polar-point-MJX-6-TEX-N-73" transform="translate(944,0)"/>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="6" data-semantic-parent="7" data-semantic-attributes="texclass:NONE" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(1338,0)">
+                    <use data-c="2061" xlink:href="#prefigure-polar-point-MJX-6-TEX-N-2061"/>
+                  </g>
+                  <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="5" data-semantic-parent="7" data-semantic-speech="theta" transform="translate(1504.7,0)">
+                    <use data-c="1D703" xlink:href="#prefigure-polar-point-MJX-6-TEX-I-1D703"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle cx="263.6" cy="197.0" r="4" stroke="black" stroke-width="2" fill="#E69F00"/>
+  </g>
+  <g id="prefigure-polar-point-pp-yleg-label" transform="translate(274.2,133.2) translate(0.0,-8.2)">
+    <g id="prefigure-polar-point-g-5">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px; color:#E69F00" width="77.920px" height="16.472px" role="img" focusable="false" viewBox="0 -705 4304.9 910" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-point-MJX-7-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-polar-point-MJX-7-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-polar-point-MJX-7-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-polar-point-MJX-7-TEX-N-2062" d=""/>
+          <path id="prefigure-polar-point-MJX-7-TEX-N-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"/>
+          <path id="prefigure-polar-point-MJX-7-TEX-N-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"/>
+          <path id="prefigure-polar-point-MJX-7-TEX-N-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"/>
+          <path id="prefigure-polar-point-MJX-7-TEX-N-2061" d=""/>
+          <path id="prefigure-polar-point-MJX-7-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="10" data-semantic-children="0,9" data-semantic-content="1" data-semantic-speech="y equals r sine theta">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="10" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-polar-point-MJX-7-TEX-I-1D466"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="10" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(767.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-polar-point-MJX-7-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mrow" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:unit" data-semantic-id="9" data-semantic-children="2,7" data-semantic-content="8" data-semantic-parent="10" data-semantic-speech="r sine theta" transform="translate(1823.6,0)">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="9" data-semantic-speech="r">
+                <use data-c="1D45F" xlink:href="#prefigure-polar-point-MJX-7-TEX-I-1D45F"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="8" data-semantic-parent="9" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(451,0)">
+                <use data-c="2062" xlink:href="#prefigure-polar-point-MJX-7-TEX-N-2062"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="prefix function" data-semantic-annotation="clearspeak:simple" data-semantic-id="7" data-semantic-children="3,5" data-semantic-content="6,3" data-semantic-parent="9" data-semantic-speech="sine theta" transform="translate(617.7,0)">
+                <g data-mml-node="mi" data-semantic-type="function" data-semantic-role="prefix function" data-semantic-font="normal" data-semantic-id="3" data-semantic-parent="7" data-semantic-operator="appl" data-semantic-speech="sine">
+                  <use data-c="73" xlink:href="#prefigure-polar-point-MJX-7-TEX-N-73"/>
+                  <use data-c="69" xlink:href="#prefigure-polar-point-MJX-7-TEX-N-69" transform="translate(394,0)"/>
+                  <use data-c="6E" xlink:href="#prefigure-polar-point-MJX-7-TEX-N-6E" transform="translate(672,0)"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="6" data-semantic-parent="7" data-semantic-attributes="texclass:NONE" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(1228,0)">
+                  <use data-c="2061" xlink:href="#prefigure-polar-point-MJX-7-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="5" data-semantic-parent="7" data-semantic-speech="theta" transform="translate(1394.7,0)">
+                  <use data-c="1D703" xlink:href="#prefigure-polar-point-MJX-7-TEX-I-1D703"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-point-pp-r" transform="translate(149.2,116.5) translate(-8.2,-8.2)">
+    <g id="prefigure-polar-point-g-6">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#0072B2" width="8.160px" height="8.200px" role="img" focusable="false" viewBox="0 -442 451 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-point-MJX-8-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="r">
+              <use data-c="1D45F" xlink:href="#prefigure-polar-point-MJX-8-TEX-I-1D45F"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-point-pp-theta" transform="translate(110.5,178.3) translate(0.0,-6.5)">
+    <g id="prefigure-polar-point-g-7">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.184px; color:#CC79A7" width="8.488px" height="12.944px" role="img" focusable="false" viewBox="0 -705 469 715" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-point-MJX-9-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="theta">
+              <use data-c="1D703" xlink:href="#prefigure-polar-point-MJX-9-TEX-I-1D703"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

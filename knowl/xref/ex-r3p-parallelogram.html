@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Work Around a Parallelogram.</span>
+</h4>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="rs-ex-r3p-parallelogram"><script type="application/json">{
+"problemHtml": "<div class=\"para\" id=\"ex-r3p-parallelogram-3-1\">Use Green’s Theorem to evaluate the work done by <span class=\"process-math\">\\(\\mathbf{F} = \\langle x^{[%= toTeX(n) %]},\\\n[%= toTeX(A) %]x \\rangle\\)<\/span> in moving an object around the boundary of the parallelogram in <a href=\"sec-exercises-review3-practice.html#fig-r3p-parallelogram\" class=\"internal\" title=\"Figure 4.12.1\">Figure 4.12.1<\/a> (<em class=\"alert\">note the orientation<\/em>), with <span class=\"process-math\">\\(x_0 = [%= toTeX(x0) %]\\)<\/span> and <span class=\"process-math\">\\(y_0 = [%= toTeX(y0) %]\\text{.}\\)<\/span> Assume that the object circulates only once around the boundary and that its motion begins at the origin and ends at the same point.<div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#ex-r3p-parallelogram-3-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div><div class=\"para\" id=\"ex-r3p-parallelogram-3-2\">With <span class=\"process-math\">\\(\\mathbf{F} = M\\,\\mathbf{i} + N\\,\\mathbf{j}\\text{,}\\)<\/span> first compute (a number): <span class=\"process-math\">\\(\\dfrac{\\partial N}{\\partial x}\n- \\dfrac{\\partial M}{\\partial y} =\\)<\/span> <input type=\"text\" id=\"ex-r3p-parallelogram-b1\" name=\"b1\" size=\"6\"\/><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#ex-r3p-parallelogram-3-2\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div><div class=\"para\" id=\"ex-r3p-parallelogram-3-3\">The area of the parallelogram is <input type=\"text\" id=\"ex-r3p-parallelogram-b2\" name=\"b2\" size=\"6\"\/>.<div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#ex-r3p-parallelogram-3-3\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div><div class=\"para\" id=\"ex-r3p-parallelogram-3-4\">Work <span class=\"process-math\">\\(=\\)<\/span> <input type=\"text\" id=\"ex-r3p-parallelogram-b3\" name=\"b3\" size=\"10\"\/><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#ex-r3p-parallelogram-3-4\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
+"solutionHtml": "",
+"dyn_imports": ["BTM"],
+"blankNames": {"b1": 0, "b2": 1, "b3": 2},
+"dyn_vars": "v._mobjs = new BTM({'rand': rand});\nvar RNG = v._mobjs.menv.rng;\nv.n = v._mobjs.addMathObject(\"n\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:2, max:6, by:1, nonzero:false}));\nv.A = v._mobjs.addMathObject(\"A\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:2, max:9, by:1, nonzero:false}));\nv.x0 = v._mobjs.addMathObject(\"x0\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:2, max:5, by:1, nonzero:false}));\nv.y0 = v._mobjs.addMathObject(\"y0\", \"number\", v._mobjs.generateRandom(\"discrete\", { min:2, max:5, by:1, nonzero:false}));\nv.curl = v._mobjs.addMathObject(\"curl\", \"number\", v._mobjs.parseExpression(\"A\", \"formula\"));\nv.area = v._mobjs.addMathObject(\"area\", \"number\", v._mobjs.parseExpression(\"x0*y0\", \"formula\"));\nv.work = v._mobjs.addMathObject(\"work\", \"number\", v._mobjs.parseExpression(\"-A*x0*y0\", \"formula\"));\nv.poswork = v._mobjs.addMathObject(\"poswork\", \"number\", v._mobjs.parseExpression(\"A*x0*y0\", \"formula\"));\nv.types = [function(val){ return val; }, function(val){ return val; }, function(val){ return val; }];\nv.afterContentRender = function() {\n};\n",
+"feedbackArray": [[{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(curl, ans);\n    return (testResults[0]);\n}()", "feedback": "<div class=\"para\" id=\"ex-r3p-parallelogram-4-1-1-2-1\">Correct.<\/div>"}, {"number": [-1000000000,1000000000], "feedback": "<div class=\"para\" id=\"ex-r3p-parallelogram-4-1-2-2-1\">Incorrect.<\/div>"}, {"feedback": "Incorrect."}], [{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(area, ans);\n    return (testResults[0]);\n}()", "feedback": "<div class=\"para\" id=\"ex-r3p-parallelogram-4-2-1-2-1\">Correct.<\/div>"}, {"number": [-1000000000,1000000000], "feedback": "<div class=\"para\" id=\"ex-r3p-parallelogram-4-2-2-2-1\">Incorrect.<\/div>"}, {"feedback": "Incorrect."}], [{"solution_code": "function() {\n    var testResults = new Array();\n    testResults[0] = _mobjs.compareExpressions(work, ans);\n    return (testResults[0]);\n}()", "feedback": "<div class=\"para\" id=\"ex-r3p-parallelogram-4-3-1-2-1\">Correct.<\/div>"}, {"solution_code": "function() { return (ans >= poswork.value({})-Math.max(0.01,1e-4*Math.abs(poswork.value({})))) && (ans <= poswork.value({})+Math.max(0.01,1e-4*Math.abs(poswork.value({})))); }()", "feedback": "<div class=\"para\" id=\"ex-r3p-parallelogram-4-3-2-2-1\">Incorrect.<\/div>"}, {"number": [-1000000000,1000000000], "feedback": "<div class=\"para\" id=\"ex-r3p-parallelogram-4-3-3-2-1\">Incorrect.<\/div>"}, {"feedback": "Incorrect."}]]
+}</script></div>
+</div></div>
+<div class="autopermalink" data-description="Exercise 14: Work Around a Parallelogram"><a href="#ex-r3p-parallelogram" title="Copy heading and permalink for Exercise 14: Work Around a Parallelogram" aria-label="Copy heading and permalink for Exercise 14: Work Around a Parallelogram">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-exercises-review3-practice.html#ex-r3p-parallelogram">in-context</a></span>
+</body>
+</html>

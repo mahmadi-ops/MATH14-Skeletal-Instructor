@@ -1,0 +1,78 @@
+<diagram>
+  <annotations>
+    <annotation id="arc-length-chords-figure" speech2="A curve C approximated by an inscribed polygon with nine sides. One side, the k-th chord, is highlighted together with its horizontal leg delta x sub k and its vertical leg delta y sub k">
+      <grouped>arc-length-chords-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>arc-length-chords-ax</active>
+        <active>arc-length-chords-curve-C</active>
+        <active>arc-length-chords-inscribed-polygon</active>
+        <active>arc-length-chords-chord</active>
+        <active>arc-length-chords-legs</active>
+        <active>arc-length-chords-nodes</active>
+        <active>arc-length-chords-dt-note</active>
+      </children>
+      <components>
+        <active>arc-length-chords-ax</active>
+        <active>arc-length-chords-curve-C</active>
+        <active>arc-length-chords-inscribed-polygon</active>
+        <active>arc-length-chords-chord</active>
+        <active>arc-length-chords-legs</active>
+        <active>arc-length-chords-nodes</active>
+        <active>arc-length-chords-dt-note</active>
+      </components>
+    </annotation>
+    <annotation id="arc-length-chords-ax" speech2="The coordinate axes">
+      <active>arc-length-chords-ax</active>
+      <position>1</position>
+      <parents>
+        <grouped>arc-length-chords-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="arc-length-chords-curve-C" speech2="The curve C whose length we want to measure, drawn here as a circle of radius three" sonify="yes">
+      <active>arc-length-chords-curve-C</active>
+      <position>2</position>
+      <parents>
+        <grouped>arc-length-chords-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>arc-length-chords-curve-C</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="arc-length-chords-inscribed-polygon" speech2="The inscribed polygon whose nine vertices are the points reached at the partition times t sub 0 through t sub n">
+      <active>arc-length-chords-inscribed-polygon</active>
+      <position>3</position>
+      <parents>
+        <grouped>arc-length-chords-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="arc-length-chords-chord" speech2="The k-th chord, of length delta s sub k, joining the point at time t sub k minus one to the point at time t sub k">
+      <active>arc-length-chords-chord</active>
+      <position>4</position>
+      <parents>
+        <grouped>arc-length-chords-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="arc-length-chords-legs" speech2="The legs of the right triangle under the k-th chord: a horizontal leg of length delta x sub k and a vertical leg of length delta y sub k, meeting at a right angle">
+      <active>arc-length-chords-legs</active>
+      <position>5</position>
+      <parents>
+        <grouped>arc-length-chords-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="arc-length-chords-nodes" speech2="The endpoints of the k-th chord, reached at times t sub k minus one and t sub k">
+      <active>arc-length-chords-nodes</active>
+      <position>6</position>
+      <parents>
+        <grouped>arc-length-chords-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="arc-length-chords-dt-note" speech2="A note recording the k-th time step, delta t sub k equals t sub k minus t sub k minus one">
+      <active>arc-length-chords-dt-note</active>
+      <position>7</position>
+      <parents>
+        <grouped>arc-length-chords-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

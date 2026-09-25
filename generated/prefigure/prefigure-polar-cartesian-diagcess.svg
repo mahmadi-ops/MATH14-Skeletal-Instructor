@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-polar-cartesian-figure" viewBox="0 0 380 347">
+  <defs>
+    <clipPath id="prefigure-polar-cartesian-clipPath-0">
+      <rect x="10.0" y="10.0" width="360.0" height="327.0"/>
+    </clipPath>
+    <clipPath id="prefigure-polar-cartesian-clipPath-1">
+      <rect x="10.0" y="10.0" width="360.0" height="327.0"/>
+    </clipPath>
+    <marker id="prefigure-polar-cartesian-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-polar-cartesian-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="pc-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-polar-cartesian-line-0" x1="10.0" y1="183.9" x2="370.0" y2="183.9" stroke="black" stroke-width="2" marker-end="url(#prefigure-polar-cartesian-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-polar-cartesian-line-1" x1="169.2" y1="337.0" x2="169.2" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-polar-cartesian-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-polar-cartesian-label-0" transform="translate(364.0,177.9) translate(-10.4,-8.2)">
+    <g id="prefigure-polar-cartesian-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-cartesian-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-polar-cartesian-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-cartesian-label-1" transform="translate(175.2,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-polar-cartesian-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-cartesian-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-polar-cartesian-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <path id="prefigure-polar-cartesian-pc-circle" d="M 286.9 183.9 L 286.7 176.5 L 286.0 169.1 L 284.8 161.8 L 283.2 154.5 L 281.2 147.4 L 278.7 140.4 L 275.7 133.6 L 272.4 127.0 L 268.6 120.6 L 264.4 114.4 L 259.9 108.5 L 255.0 103.0 L 249.8 97.7 L 244.3 92.8 L 238.4 88.2 L 232.3 84.1 L 225.9 80.3 L 219.3 76.9 L 212.6 74.0 L 205.6 71.4 L 198.5 69.4 L 191.3 67.8 L 184.0 66.6 L 176.6 65.9 L 169.2 65.7 L 161.8 65.9 L 154.5 66.6 L 147.2 67.8 L 140.0 69.4 L 132.9 71.4 L 125.9 74.0 L 119.1 76.9 L 112.5 80.3 L 106.2 84.1 L 100.1 88.2 L 94.2 92.8 L 88.7 97.7 L 83.4 103.0 L 78.5 108.5 L 74.0 114.4 L 69.9 120.6 L 66.1 127.0 L 62.7 133.6 L 59.8 140.4 L 57.3 147.4 L 55.2 154.5 L 53.6 161.8 L 52.5 169.1 L 51.8 176.5 L 51.5 183.9 L 51.8 191.4 L 52.5 198.8 L 53.6 206.1 L 55.2 213.4 L 57.3 220.5 L 59.8 227.5 L 62.7 234.3 L 66.1 240.9 L 69.9 247.3 L 74.0 253.5 L 78.5 259.3 L 83.4 264.9 L 88.7 270.2 L 94.2 275.1 L 100.1 279.6 L 106.2 283.8 L 112.5 287.6 L 119.1 291.0 L 125.9 293.9 L 132.9 296.4 L 140.0 298.5 L 147.2 300.1 L 154.5 301.3 L 161.8 302.0 L 169.2 302.2 L 176.6 302.0 L 184.0 301.3 L 191.3 300.1 L 198.5 298.5 L 205.6 296.4 L 212.6 293.9 L 219.3 291.0 L 225.9 287.6 L 232.3 283.8 L 238.4 279.6 L 244.3 275.1 L 249.8 270.2 L 255.0 264.9 L 259.9 259.3 L 264.4 253.5 L 268.6 247.3 L 272.4 240.9 L 275.7 234.3 L 278.7 227.5 L 281.2 220.5 L 283.2 213.4 L 284.8 206.1 L 286.0 198.8 L 286.7 191.4 L 286.9 183.9" stroke="#bbbbbb" stroke-width="1" fill="none" clip-path="url(#prefigure-polar-cartesian-clipPath-1)"/>
+  <line id="prefigure-polar-cartesian-pc-r" x1="169.2" y1="183.9" x2="269.6" y2="122.0" stroke="#CC79A7" stroke-width="3" fill="none"/>
+  <line id="prefigure-polar-cartesian-pc-x" x1="169.2" y1="183.9" x2="269.6" y2="183.9" stroke="#E69F00" stroke-width="3" fill="none"/>
+  <line id="prefigure-polar-cartesian-pc-y" x1="269.6" y1="183.9" x2="269.6" y2="122.0" stroke="#E69F00" stroke-width="3" fill="none"/>
+  <path id="prefigure-polar-cartesian-pc-arc" d="M 203.8 183.9 L 203.8 183.7 L 203.8 183.6 L 203.8 183.4 L 203.8 183.2 L 203.8 183.0 L 203.8 182.8 L 203.8 182.6 L 203.8 182.4 L 203.8 182.2 L 203.8 182.0 L 203.8 181.8 L 203.8 181.6 L 203.8 181.5 L 203.7 181.3 L 203.7 181.1 L 203.7 180.9 L 203.7 180.7 L 203.7 180.5 L 203.7 180.3 L 203.6 180.1 L 203.6 179.9 L 203.6 179.7 L 203.6 179.5 L 203.5 179.4 L 203.5 179.2 L 203.5 179.0 L 203.5 178.8 L 203.4 178.6 L 203.4 178.4 L 203.4 178.2 L 203.3 178.0 L 203.3 177.8 L 203.3 177.7 L 203.2 177.5 L 203.2 177.3 L 203.2 177.1 L 203.1 176.9 L 203.1 176.7 L 203.1 176.5 L 203.0 176.3 L 203.0 176.2 L 202.9 176.0 L 202.9 175.8 L 202.8 175.6 L 202.8 175.4 L 202.7 175.2 L 202.7 175.0 L 202.6 174.9 L 202.6 174.7 L 202.5 174.5 L 202.5 174.3 L 202.4 174.1 L 202.4 173.9 L 202.3 173.8 L 202.3 173.6 L 202.2 173.4 L 202.2 173.2 L 202.1 173.0 L 202.0 172.8 L 202.0 172.7 L 201.9 172.5 L 201.9 172.3 L 201.8 172.1 L 201.7 171.9 L 201.7 171.8 L 201.6 171.6 L 201.5 171.4 L 201.5 171.2 L 201.4 171.0 L 201.3 170.9 L 201.2 170.7 L 201.2 170.5 L 201.1 170.3 L 201.0 170.2 L 200.9 170.0 L 200.9 169.8 L 200.8 169.6 L 200.7 169.5 L 200.6 169.3 L 200.5 169.1 L 200.5 168.9 L 200.4 168.8 L 200.3 168.6 L 200.2 168.4 L 200.1 168.3 L 200.0 168.1 L 200.0 167.9 L 199.9 167.7 L 199.8 167.6 L 199.7 167.4 L 199.6 167.2 L 199.5 167.1 L 199.4 166.9 L 199.3 166.7 L 199.2 166.6 L 199.1 166.4 L 199.0 166.2 L 198.9 166.1 L 198.8 165.9 L 198.7 165.8" stroke="#CC79A7" stroke-width="2" fill="none" clip-path="url(#prefigure-polar-cartesian-clipPath-1)"/>
+  <g id="prefigure-polar-cartesian-pc-P">
+    <g transform="translate(269.6,114.0) translate(-65.7,-18.1)">
+      <g id="prefigure-polar-cartesian-g-2">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px" width="131.456px" height="18.096px" role="img" focusable="false" viewBox="0 -750 7262.9 1000" x="0.0" y="0.0">
+          <defs>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-I-1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-N-2061" d=""/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+            <path id="prefigure-polar-cartesian-MJX-4-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="21" data-semantic-children="20,18" data-semantic-content="6" data-semantic-speech="upper P left parenthesis x comma y right parenthesis equals upper P left parenthesis r comma theta right parenthesis">
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-id="20" data-semantic-children="0,14" data-semantic-content="19,0" data-semantic-parent="21" data-semantic-speech="upper P left parenthesis x comma y right parenthesis">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="20" data-semantic-operator="appl" data-semantic-speech="upper P">
+                  <use data-c="1D443" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-I-1D443"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="19" data-semantic-parent="20" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(751,0)">
+                  <use data-c="2061" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="14" data-semantic-children="13" data-semantic-content="1,5" data-semantic-parent="20" data-semantic-speech="left parenthesis x comma y right parenthesis" transform="translate(751,0)">
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="1" data-semantic-parent="14" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                    <use data-c="28" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-28"/>
+                  </g>
+                  <g data-mml-node="mrow" data-semantic-type="punctuated" data-semantic-role="sequence" data-semantic-id="13" data-semantic-children="2,3,4" data-semantic-content="3" data-semantic-parent="14" data-semantic-speech="x comma y" transform="translate(389,0)">
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="13" data-semantic-speech="x">
+                      <use data-c="1D465" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-I-1D465"/>
+                    </g>
+                    <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="comma" data-semantic-id="3" data-semantic-parent="13" data-semantic-operator="punctuated" data-semantic-speech="comma" transform="translate(572,0)">
+                      <use data-c="2C" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-2C"/>
+                    </g>
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="13" data-semantic-speech="y" transform="translate(1016.7,0)">
+                      <use data-c="1D466" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-I-1D466"/>
+                    </g>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="5" data-semantic-parent="14" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(1895.7,0)">
+                    <use data-c="29" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-29"/>
+                  </g>
+                </g>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="6" data-semantic-parent="21" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(3313.4,0)">
+                <use data-c="3D" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-3D"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-id="18" data-semantic-children="7,16" data-semantic-content="17,7" data-semantic-parent="21" data-semantic-speech="upper P left parenthesis r comma theta right parenthesis" transform="translate(4369.2,0)">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="7" data-semantic-parent="18" data-semantic-operator="appl" data-semantic-speech="upper P">
+                  <use data-c="1D443" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-I-1D443"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="17" data-semantic-parent="18" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(751,0)">
+                  <use data-c="2061" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="16" data-semantic-children="15" data-semantic-content="8,12" data-semantic-parent="18" data-semantic-speech="left parenthesis r comma theta right parenthesis" transform="translate(751,0)">
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="8" data-semantic-parent="16" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                    <use data-c="28" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-28"/>
+                  </g>
+                  <g data-mml-node="mrow" data-semantic-type="punctuated" data-semantic-role="sequence" data-semantic-id="15" data-semantic-children="9,10,11" data-semantic-content="10" data-semantic-parent="16" data-semantic-speech="r comma theta" transform="translate(389,0)">
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="9" data-semantic-parent="15" data-semantic-speech="r">
+                      <use data-c="1D45F" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-I-1D45F"/>
+                    </g>
+                    <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="comma" data-semantic-id="10" data-semantic-parent="15" data-semantic-operator="punctuated" data-semantic-speech="comma" transform="translate(451,0)">
+                      <use data-c="2C" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-2C"/>
+                    </g>
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="11" data-semantic-parent="15" data-semantic-speech="theta" transform="translate(895.7,0)">
+                      <use data-c="1D703" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-I-1D703"/>
+                    </g>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="12" data-semantic-parent="16" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(1753.7,0)">
+                    <use data-c="29" xlink:href="#prefigure-polar-cartesian-MJX-4-TEX-N-29"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle cx="269.6" cy="122.0" r="4" stroke="black" stroke-width="2" fill="#0072B2"/>
+  </g>
+  <g id="prefigure-polar-cartesian-pc-r-label" transform="translate(206.8,143.8) translate(-8.2,-8.2)">
+    <g id="prefigure-polar-cartesian-g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#CC79A7" width="8.160px" height="8.200px" role="img" focusable="false" viewBox="0 -442 451 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-cartesian-MJX-5-TEX-I-1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="r">
+              <use data-c="1D45F" xlink:href="#prefigure-polar-cartesian-MJX-5-TEX-I-1D45F"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-cartesian-pc-x-label" transform="translate(221.2,193.5) translate(-5.2,-0.0)">
+    <g id="prefigure-polar-cartesian-g-4">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#E69F00" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-cartesian-MJX-6-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-polar-cartesian-MJX-6-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-cartesian-pc-y-label" transform="translate(279.2,154.7) translate(0.0,-5.9)">
+    <g id="prefigure-polar-cartesian-g-5">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px; color:#E69F00" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-cartesian-MJX-7-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-polar-cartesian-MJX-7-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-polar-cartesian-pc-theta" transform="translate(216.2,172.8) translate(0.0,-6.5)">
+    <g id="prefigure-polar-cartesian-g-6">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.184px; color:#CC79A7" width="8.488px" height="12.944px" role="img" focusable="false" viewBox="0 -705 469 715" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-polar-cartesian-MJX-8-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="theta">
+              <use data-c="1D703" xlink:href="#prefigure-polar-cartesian-MJX-8-TEX-I-1D703"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>
