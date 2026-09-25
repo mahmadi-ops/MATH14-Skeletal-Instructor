@@ -20,7 +20,8 @@
 <!-- problem statement or the check on a box.  The first-quadrant          -->
 <!-- reflection picture that answered the charged-wire question is         -->
 <!-- replaced by a grid for the student to draw it on.  Captions that      -->
-<!-- stated a numerical answer have been trimmed.                          -->
+<!-- stated a numerical answer have been trimmed, and the helix's top-end  -->
+<!-- label (which gave b) and the spiral's t=0 label are removed.          -->
 <!--                                                                       -->
 <!-- Media wiring (relative to the PreTeXt source root):                   -->
 <!--   Manim videos : videos/*_1080p.mp4                                   -->
@@ -349,26 +350,24 @@
     </sidebyside>
       <figure xml:id="fig-helix-wire">
         <caption>
-          The helical wire <m>\mathbf{r}(t)=\langle\cos t,\sin t,t\rangle</m>
-          for <m>0\le t\le \pi/2</m>, from its bottom end <m>(1,0,0)</m> to
-          its top end <m>(0,1,\pi/2)</m>. The dashed gray curve is its
-          shadow on the plane <m>z=0</m>.
+          The helical wire <m>\mathbf{r}(t)=\langle\cos t,\sin t,t\rangle</m>,
+          from its bottom end <m>(1,0,0)</m> to its top end. The dashed gray
+          curve is its shadow on the plane <m>z=0</m>. Compare the top end
+          with the value of <m>b</m> you found.
         </caption>
         <image xml:id="image-helix-wire" width="70%">
           <shortdescription>
-            A quarter turn of a helix rising from the point (1,0,0) to the
-            point (0,1,pi over 2), with its shadow on the floor.
+            A piece of a helix rising from the point (1,0,0) to an unlabelled
+            top end, with its shadow on the floor.
           </shortdescription>
           <description>
             <p>
               A three-dimensional coordinate box with x and y running from
-              minus 1.2 to 1.2 and z from 0 to 1.8. A thick blue curve, one
-              quarter turn of a helix, starts at a red point on the floor
-              labelled (1, 0, 0), t equals 0, and climbs steadily as it
-              curves, ending at a red point labelled (0, 1, pi over 2), t
-              equals pi over 2, about 1.57 units above the floor. A dashed
-              gray quarter circle on the floor of the box shows the curve's
-              shadow.
+              minus 1.2 to 1.2 and z from 0 to 1.8. A thick blue helix
+              starts at a red point on the floor labelled (1, 0, 0), t
+              equals 0, and climbs steadily as it curves, ending at an
+              unlabelled red point. A dashed gray arc on the floor of the
+              box shows the curve's shadow.
             </p>
           </description>
           <latex-image>
@@ -389,7 +388,6 @@
               \addplot3[only marks, mark=*, red, mark size=1.6pt] coordinates
                   {(1,0,0) (0,1,1.5708)};
               \node[anchor=south west, xshift=5pt, yshift=2pt] at (axis cs:1,0,0) {\((1,0,0),\ t=0\)};
-              \node[above left=1pt] at (axis cs:0,1,1.5708) {\((0,1,\pi/2),\ t=\pi/2\)};
             \end{axis}
             \end{tikzpicture}
           </latex-image>
@@ -471,8 +469,7 @@
         <caption>
           The wire <xref ref="eq-spiral-wire"/>, spiralling outward and
           upward from the origin. The dashed gray curve is its shadow on the
-          plane <m>z=0</m>. The graph is what tells us the wire starts at
-          <m>t=0</m>.
+          plane <m>z=0</m>.
         </caption>
         <image xml:id="image-spiral-wire" width="70%">
           <shortdescription>
@@ -483,7 +480,7 @@
             <p>
               A three-dimensional coordinate box with x and y running from
               minus 8.5 to 8.5 and z from 0 to 22. A thick blue curve starts
-              at a red point at the origin, marked t equals 0, and spirals
+              at a red point at the origin and spirals
               outward and upward, making a little more than one full turn
               around the vertical axis while climbing, its radius growing
               steadily, until it ends high above the floor. A dashed gray
@@ -513,7 +510,6 @@
               % the starting point, which the graph is there to reveal
               \addplot3[only marks, mark=*, red, mark size=1.8pt]
                   coordinates {(0,0,0)};
-              \node[below right=1pt] at (axis cs:0,0,0) {\(t=0\)};
             \end{axis}
             \end{tikzpicture}
           </latex-image>
