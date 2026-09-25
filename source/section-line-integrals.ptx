@@ -7,8 +7,10 @@
 <!-- portions, the sum, the limit) is kept as prose, with the right-hand   -->
 <!-- side of each of its four displayed equations left blank to fill in;   -->
 <!-- the step that trades ds for dt, both worked examples, and every Concept -->
-<!-- Check answer are replaced by blank workspace boxes, each preceded by  -->
-<!-- a one-line instruction.  The results are restated in an assemblage so -->
+<!-- Check answer are replaced by blank workspace boxes; the two worked    -->
+<!-- examples get no instruction (only the labelled rows of the box), the  -->
+<!-- other boxes are each preceded by a one-line instruction.  The results -->
+<!-- are restated in an assemblage so                                      -->
 <!-- that later sections can still cite eq-mass-speed and                  -->
 <!-- eq-scalar-line-integral.  File name and xml:ids are unchanged.        -->
 <!--                                                                       -->
@@ -324,17 +326,6 @@
       </p>
     <p>
       <em>Solution.</em>
-      (The wire is the piece <m>0 \le t \le b</m> of the helix, where the
-      upper limit <m>b</m> marks where the wire ends and is unknown. Plan:
-      use the given mass in <xref ref="eq-mass-speed"/> to find <m>b</m>,
-      then the length is the arc length up to <m>b</m>. Differentiate
-      <xref ref="eq-helix-param"/> for the speed; write the density along
-      the curve in terms of <m>t</m> <mdash/> the double-angle identity
-      <m>2\sin t\cos t = \sin(2t)</m> and then the half-angle identity
-      <m>\sin^2 u = \tfrac12\left(1 - \cos(2u)\right)</m> make the integral
-      elementary. Solve the resulting equation for <m>b</m>, and say why
-      the solution is the only one. Then compare with
-      <xref ref="fig-helix-wire"/> and <xref ref="fig-helix-wire-video"/>.)
     </p>
 
     <sidebyside width="97%">
@@ -453,16 +444,6 @@
       </p>
       <p>
         <em>Solution.</em>
-        (Equation <xref ref="eq-spiral-wire"/> is a formula for every
-        <m>t</m>, but a wire is a finite piece of that curve: read off the
-        graph where the wire starts, and say which <m>t</m> that is. The
-        other end, <m>t = b</m>, is what the given length will pin down.
-        Differentiate for the speed and simplify it all the way, as for
-        the paraglider of <xref ref="ex-paraglider"/>. Set the arc length
-        up to <m>b</m> equal to <m>40</m> and solve. Express <m>d</m>, and
-        so <m>\rho</m>, in terms of <m>t</m>. Then compute the mass with
-        <xref ref="eq-mass-speed"/>; something cancels, and it is worth
-        saying in words what that cancellation means for the wire.)
       </p>
 
       <sidebyside width="97%">
