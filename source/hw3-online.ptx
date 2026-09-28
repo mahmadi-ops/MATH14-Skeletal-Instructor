@@ -25,6 +25,315 @@
 
   <exercises xml:id="exercises-hw3-online">
 
+  <exercise xml:id="ex-hw3o-inverse-square">
+    <title>An Inverse-Square Field</title>
+    <statement>
+      <p>
+        Sketch the vector field
+        <m>\displaystyle\mathbf{F}(x,y) = -\frac{\mathbf{r}}{\lVert \mathbf{r} \rVert^3}</m>
+        in the plane, where
+        <m>\mathbf{r} = \left\langle x, y \right\rangle</m>. Select all that apply.
+      </p>
+    </statement>
+    <choices multiple-correct="yes">
+      <choice correct="yes">
+        <statement>
+          <p>All the vectors point toward the origin.</p>
+        </statement>
+        <feedback>
+          <p>Correct.</p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>The vectors decrease in length as you move away from the origin.</p>
+        </statement>
+        <feedback>
+          <p>Correct.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>All the vectors point away from the origin.</p>
+        </statement>
+        <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The vectors increase in length as you move away from the origin.</p>
+        </statement>
+        <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The length of each vector is <m>1</m>.</p>
+        </statement>
+        <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+      </choice>
+    </choices>
+    <solution component="hw3-solutions">
+      <p>
+        Since <m>\mathbf{F} = -\frac{1}{\lVert \mathbf{r} \rVert^3}\,\mathbf{r}</m>
+        is a negative multiple of the position vector <m>\mathbf{r}</m>,
+        the arrow at each point <m>(x,y) \ne (0,0)</m> points from that
+        point toward the origin. Its length is
+      </p>
+      <me>
+        \lVert \mathbf{F} \rVert
+        = \frac{\lVert \mathbf{r} \rVert}{\lVert \mathbf{r} \rVert^3}
+        = \frac{1}{\lVert \mathbf{r} \rVert^2} ,
+      </me>
+      <p>
+        which decreases as you move away from the origin (and is not
+        <m>1</m>). So the true statements are: all the vectors point toward
+        the origin, and they decrease in length as you move away from it.
+        This is an inverse-square field, like gravity; it is not defined at
+        the origin.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw3o-segment-arc">
+    <title>A Segment and a Half Circle</title>
+    <statement>
+      <p>
+        Curves <m>C_1</m> and <m>C_2</m> are parametrized as follows:
+        <m>C_1</m> is <m>(x(t),y(t)) = (t,0)</m> for <m>-1 \le t \le 1</m>,
+        and <m>C_2</m> is <m>(x(t),y(t)) = (\cos t, \sin t)</m> for
+        <m>0 \le t \le \pi</m>. Sketch, on a separate sheet of paper,
+        the curves <m>C_1</m> and <m>C_2</m> with arrows showing their
+        orientation.
+      </p>
+      <p>
+        Next, suppose that
+        <m>\mathbf{F} = 3x\,\mathbf{i} + (4x + 2y)\,\mathbf{j}</m>.
+        Calculate <m>\displaystyle\int_C \mathbf{F} \cdot d\mathbf{r}</m>,
+        where <m>C</m> is the curve <m>C = C_1 \cup C_2</m>.
+      </p>
+      <p>
+        <m>\displaystyle\int_C \mathbf{F} \cdot d\mathbf{r} =</m> <var width="10"/>
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="6.283" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw3-solutions">
+      <p>
+        The figure below shows the curves: <m>C_1</m> runs along the
+        <m>x</m>-axis from <m>(-1,0)</m> to <m>(1,0)</m>, and <m>C_2</m>
+        runs along the upper half of the unit circle from <m>(1,0)</m>
+        back to <m>(-1,0)</m>.
+      </p>
+      <figure>
+        <caption>The curves <m>C_1</m> and <m>C_2</m> with their orientation.</caption>
+        <image width="55%">
+          <shortdescription>
+            A segment along the x axis from minus one to one, then the upper
+            half of the unit circle back to minus one.
+          </shortdescription>
+          <description>
+            <p>
+              The segment C one runs along the x axis from the point minus
+              one comma zero to the point one comma zero, with an arrow
+              pointing right. The curve C two is the upper half of the unit
+              circle from one comma zero back to minus one comma zero, with
+              an arrow at the top pointing left.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[scale=2.4, line join=round, line cap=round]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oiorange}{RGB}{213,94,0}
+  % axes
+  \draw[-{Stealth[length=7pt]}, black!70, line width=0.7pt]
+    (-1.5,0) -- (1.5,0) node[right] {$x$};
+  \draw[-{Stealth[length=7pt]}, black!70, line width=0.7pt]
+    (0,-0.35) -- (0,1.45) node[above] {$y$};
+  % C1: the segment from (-1,0) to (1,0)
+  \draw[oiblue, line width=2pt] (-1,0) -- (1,0);
+  \draw[oiblue, line width=2pt, -{Stealth[length=10pt, width=8pt]}]
+    (-0.62,0) -- (-0.38,0);
+  \node[oiblue, below] at (-0.5,-0.04) {$C_1$};
+  % C2: the upper half of the unit circle, from (1,0) to (-1,0)
+  \draw[oiorange, line width=2pt] (1,0) arc[start angle=0, end angle=180, radius=1];
+  \draw[oiorange, line width=2pt, -{Stealth[length=10pt, width=8pt]}]
+    ({cos(80)},{sin(80)}) arc[start angle=80, end angle=100, radius=1];
+  \node[oiorange, above right] at ({cos(45)},{sin(45)}) {$C_2$};
+  % end points
+  \fill (-1,0) circle (0.03) node[below left] {$(-1,0)$};
+  \fill (1,0) circle (0.03) node[below right] {$(1,0)$};
+\end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <p>
+        On <m>C_1</m> we have <m>y = 0</m> and <m>d\mathbf{r} = \mathbf{i}\,dx</m>,
+        so only the <m>\mathbf{i}</m>-component of <m>\mathbf{F}</m>
+        contributes:
+      </p>
+      <me>
+        \int_{C_1} \mathbf{F} \cdot d\mathbf{r}
+        = \int_{-1}^{1} 3x\,dx = \frac{3x^2}{2}\Big|_{-1}^{1} = 0 .
+      </me>
+      <p>
+        On <m>C_2</m>,
+        <m>\mathbf{r}'(t) = -\sin t\,\mathbf{i} + \cos t\,\mathbf{j}</m>, so
+      </p>
+      <md>
+        <mrow>
+          \amp \int_{C_2} \mathbf{F} \cdot d\mathbf{r}
+        </mrow>
+        <mrow>
+          \amp = \int_0^{\pi} \big(3\cos t\,\mathbf{i}
+            + (4\cos t + 2\sin t)\,\mathbf{j}\big)
+        </mrow>
+        <mrow>
+          \amp \quad \cdot \left(-\sin t\,\mathbf{i} + \cos t\,\mathbf{j}\right) dt
+        </mrow>
+        <mrow>
+          \amp = \int_0^{\pi} \left(-\cos t\sin t + 4\cos^2 t\right) dt
+        </mrow>
+        <mrow>
+          \amp = 2\pi .
+        </mrow>
+      </md>
+      <p>
+        Hence
+        <m>\int_C \mathbf{F} \cdot d\mathbf{r} = 0 + 2\pi = 2\pi \approx 6.283</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw3o-constant-field">
+    <title>A Constant Field Along a Segment</title>
+    <statement>
+      <p>
+        Sketch the vector field
+        <m>\mathbf{F}(x,y) = 3\,\mathbf{i} + 4\,\mathbf{j}</m> and
+        calculate the line integral of <m>\mathbf{F}</m> along the line
+        segment from <m>(-1,3)</m> to <m>(4,1)</m>.
+      </p>
+      <p>
+        The line integral equals <var width="10"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="7" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw3-solutions">
+      <p>
+        The field is constant: every arrow is the same vector
+        <m>\left\langle 3, 4 \right\rangle</m>, of length <m>5</m>,
+        pointing up and to the right. Parametrize the segment by
+        <m>\mathbf{r}(t) = \left\langle -1 + 5t,\ 3 - 2t \right\rangle</m>,
+        <m>0 \le t \le 1</m>, so
+        <m>\mathbf{r}'(t) = \left\langle 5, -2 \right\rangle</m> and
+      </p>
+      <md>
+        <mrow>
+          \int_C \mathbf{F} \cdot d\mathbf{r}
+          \amp = \int_0^1 (3 \cdot 5 + 4 \cdot (-2))\,dt
+        </mrow>
+        <mrow>
+          \amp = 7 .
+        </mrow>
+      </md>
+      <p>
+        For a constant field this is just <m>\mathbf{F}</m> dotted with
+        the displacement <m>\left\langle 5, -2 \right\rangle</m> from the
+        start of the segment to its end.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw3o-helix-twice">
+    <title>Twice Around a Helix</title>
+    <statement>
+      <p>
+        Find <m>\displaystyle\int_C \mathbf{F} \cdot d\mathbf{r}</m> for
+        <m>\mathbf{F} = 3y\,\mathbf{i} - 2x\,\mathbf{j} + z\,\mathbf{k}</m>
+        if <m>C</m> is the helix <m>x = \cos t</m>, <m>y = \sin t</m>,
+        <m>z = t</m>, for <m>0 \le t \le 4\pi</m>.
+      </p>
+      <p>
+        <m>\displaystyle\int_C \mathbf{F} \cdot d\mathbf{r} =</m> <var width="10"/>
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="47.541" tolerance="0.02">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw3-solutions">
+      <p>
+        Since <m>C</m> is given by
+        <m>\mathbf{r} = \cos t\,\mathbf{i} + \sin t\,\mathbf{j} + t\,\mathbf{k}</m>,
+        we have
+        <m>\mathbf{r}'(t) = -\sin t\,\mathbf{i} + \cos t\,\mathbf{j} + \mathbf{k}</m>.
+        Thus
+      </p>
+      <md>
+        <mrow>
+          \amp \int_C \mathbf{F} \cdot d\mathbf{r}
+        </mrow>
+        <mrow>
+          \amp \quad = \int_0^{4\pi} \left(3\sin t\,\mathbf{i}
+            - 2\cos t\,\mathbf{j} + t\,\mathbf{k}\right)
+        </mrow>
+        <mrow>
+          \amp \qquad\qquad \cdot \left(-\sin t\,\mathbf{i}
+            + \cos t\,\mathbf{j} + \mathbf{k}\right) dt
+        </mrow>
+        <mrow>
+          \amp \quad = \int_0^{4\pi} \left(-3\sin^2 t - 2\cos^2 t + t\right) dt
+        </mrow>
+        <mrow>
+          \amp \quad = -6\pi - 4\pi + 8\pi^2 = 8\pi^2 - 10\pi
+        </mrow>
+        <mrow>
+          \amp \quad \approx 47.541 .
+        </mrow>
+      </md>
+    </solution>
+  </exercise>
+
   <figure xml:id="fig-hw3o-field">
     <caption>
       The vector field <m>\mathbf{F}</m> and the curve <m>C</m> of
@@ -219,11 +528,17 @@
         \right\rangle</m>, so
         <m>\mathbf{F} \cdot \mathbf{v} = 1 + \frac{1}{2\pi}</m> and
       </p>
-      <me>
-        \int_C x\,dy - y\,dx + dz
-        = \int_0^{2\pi}\left(1 + \frac{1}{2\pi}\right) dt
-        = 2\pi + 1 \approx 7.283 .
-      </me>
+      <md>
+        <mrow>
+          \amp \int_C x\,dy - y\,dx + dz
+        </mrow>
+        <mrow>
+          \amp \quad = \int_0^{2\pi}\left(1 + \frac{1}{2\pi}\right) dt
+        </mrow>
+        <mrow>
+          \amp \quad = 2\pi + 1 \approx 7.283 .
+        </mrow>
+      </md>
     </solution>
   </exercise>
   </exercises>

@@ -11,6 +11,67 @@
 
   <exercises xml:id="exercises-hw3">
 
+  <exercise xml:id="ex-hw3-inverse-square">
+    <statement>
+      <p>
+        Sketch the vector field
+        <m>\displaystyle\mathbf{F}(x,y) = -\frac{\mathbf{r}}{\lVert \mathbf{r} \rVert^3}</m>
+        in the plane, where
+        <m>\mathbf{r} = \left\langle x, y \right\rangle</m>. Which of the following statements are true? Select all that apply.
+      </p>
+      <p>
+        <ol marker="(a)">
+          <li>All the vectors point toward the origin.</li>
+          <li>The vectors decrease in length as you move away from the origin.</li>
+          <li>All the vectors point away from the origin.</li>
+          <li>The vectors increase in length as you move away from the origin.</li>
+          <li>The length of each vector is <m>1</m>.</li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw3-segment-arc">
+    <statement>
+      <p>
+        Curves <m>C_1</m> and <m>C_2</m> are parametrized as follows:
+        <m>C_1</m> is <m>(x(t),y(t)) = (t,0)</m> for <m>-1 \le t \le 1</m>,
+        and <m>C_2</m> is <m>(x(t),y(t)) = (\cos t, \sin t)</m> for
+        <m>0 \le t \le \pi</m>. Sketch, on a separate sheet of paper,
+        the curves <m>C_1</m> and <m>C_2</m> with arrows showing their
+        orientation.
+      </p>
+      <p>
+        Next, suppose that
+        <m>\mathbf{F} = 3x\,\mathbf{i} + (4x + 2y)\,\mathbf{j}</m>.
+        Calculate <m>\displaystyle\int_C \mathbf{F} \cdot d\mathbf{r}</m>,
+        where <m>C</m> is the curve <m>C = C_1 \cup C_2</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw3-constant-field">
+    <statement>
+      <p>
+        Sketch the vector field
+        <m>\mathbf{F}(x,y) = 3\,\mathbf{i} + 4\,\mathbf{j}</m> and
+        calculate the line integral of <m>\mathbf{F}</m> along the line
+        segment from <m>(-1,3)</m> to <m>(4,1)</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw3-helix-twice">
+    <statement>
+      <p>
+        Find <m>\displaystyle\int_C \mathbf{F} \cdot d\mathbf{r}</m> for
+        <m>\mathbf{F} = 3y\,\mathbf{i} - 2x\,\mathbf{j} + z\,\mathbf{k}</m>
+        if <m>C</m> is the helix <m>x = \cos t</m>, <m>y = \sin t</m>,
+        <m>z = t</m>, for <m>0 \le t \le 4\pi</m>.
+      </p>
+    </statement>
+  </exercise>
+
   <exercise xml:id="ex-hw3-sign">
     <statement>
       <p>
