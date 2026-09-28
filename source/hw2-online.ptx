@@ -4,6 +4,13 @@
 <!-- pattern as hw1-online.ptx: a <var/> per blank in the statement, matched  -->
 <!-- in order by a <var> in <setup>, whose first <condition> is the correct   -->
 <!-- answer.  Every blank is graded on its own, so partial credit survives.   -->
+<!--                                                                         -->
+<!-- The three figures sit inside their problems' statements and carry no    -->
+<!-- xml:id, and the PreFigure diagram no @label.  For this kind of fill-in   -->
+<!-- PreTeXt always adds an automatic solution that copies the statement      -->
+<!-- (include-automatic="no" is not honored here), so any identifier inside   -->
+<!-- a statement would be authored twice and the build would fail.  The       -->
+<!-- statements say "shown below" instead of cross-referencing the figure.    -->
 <section xml:id="sec-exercises-hw2-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 2</title>
 
@@ -194,8 +201,7 @@
     <statement>
       <p>
         Evaluate <m>\displaystyle\int_C \frac{1}{x^2+y^2+1}\,ds</m>
-        over the boundary <m>C</m> of the unit square of
-        <xref ref="fig-hw2o-square"/>.
+        over the boundary <m>C</m> of the unit square, shown below.
       </p>
       <p>
         The side from <m>(0,0)</m> to <m>(1,0)</m> contributes
@@ -203,7 +209,7 @@
         contributes <var width="10"/>; and the whole integral equals
         <var width="10"/>.
       </p>
-      <figure xml:id="fig-hw2o-square">
+      <figure>
         <caption>
           The curve <m>C</m> of <xref ref="ex-hw2o-square-path"/>: the boundary
           of the unit square, traversed once as shown.
@@ -212,7 +218,7 @@
           <shortdescription>
           The unit square traversed counterclockwise, arrowheads on all four sides.
           </shortdescription>
-          <prefigure xmlns="https://prefigure.org" label="prefigure-hw2o-square">
+          <prefigure xmlns="https://prefigure.org">
             <diagram dimensions="(300,280)" margins="12">
               <coordinates bbox="(-0.55,-0.55,1.6,1.5)">
                 <axes at="hs-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
@@ -322,17 +328,17 @@
     <title>Area of a Curved Wall</title>
     <statement>
       <p>
-        Find the surface area of the wall of <xref ref="fig-hw2o-wall"/>,
+        Find the surface area of the wall shown below,
         whose height is <m>f(x,y) = x^2-y^2+3</m> over the unit circle.
       </p>
       <p>The surface area of the wall is <var width="10"/>.</p>
-      <figure xml:id="fig-hw2o-wall">
+      <figure>
         <caption>
           The wall of <xref ref="ex-hw2o-wall"/>: its base is the unit circle in
           the <m>xy</m>-plane and its height above a point of that circle is
           <m>f(x,y) = x^2 - y^2 + 3</m>.
         </caption>
-        <image xml:id="image-hw2o-wall" width="60%">
+        <image width="60%">
           <shortdescription>
             A curved wall standing on the unit circle, whose top edge rises and
             falls twice around the circle.
@@ -494,21 +500,21 @@
     <title>A Wall on a Quarter Ellipse</title>
     <statement>
       <p>
-        Find the surface area of the wall of <xref ref="fig-hw2o-ellipse-wall"/>. Its base
+        Find the surface area of the wall shown below. Its base
         is the curve <m>C</m>, the quarter of the ellipse
         <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> that begins at
         <m>(5,0)</m> and ends at <m>(0,7)</m>, and its height above a point
         of <m>C</m> is <m>f(x,y) = xy</m>.
       </p>
       <p>The surface area of the wall is <var width="10"/>.</p>
-      <figure xml:id="fig-hw2o-ellipse-wall">
+      <figure>
         <caption>
           The wall of <xref ref="ex-hw2o-ellipse-wall"/>: its base is the quarter of the
           ellipse <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> from
           <m>(5,0)</m> to <m>(0,7)</m>, and its height above a point of that
           curve is <m>f(x,y) = xy</m>.
         </caption>
-        <image xml:id="image-hw2o-ellipse-wall" width="60%">
+        <image width="60%">
           <shortdescription>
             A curved wall standing on a quarter ellipse in the first quadrant,
             zero high at both ends and tallest in the middle.
