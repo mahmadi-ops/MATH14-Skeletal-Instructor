@@ -6,10 +6,12 @@
 <!-- answer.  Every blank is graded on its own, so partial credit survives.   -->
 <!--                                                                         -->
 <!-- The three figures sit inside their problems' statements and carry no    -->
-<!-- xml:id, and the PreFigure diagram no @label.  For this kind of fill-in   -->
-<!-- PreTeXt always adds an automatic solution that copies the statement      -->
-<!-- (include-automatic="no" is not honored here), so any identifier inside   -->
-<!-- a statement would be authored twice and the build would fail.  The       -->
+<!-- xml:id.  For this kind of fill-in PreTeXt always adds an automatic       -->
+<!-- solution that copies the statement (include-automatic="no" is not        -->
+<!-- honored here), so any identifier inside a statement would be authored   -->
+<!-- twice and the build would fail.  For the same reason they are TikZ       -->
+<!-- (latex-image), not PreFigure: a PreFigure diagram needs a unique @label  -->
+<!-- to name its file, and without one asset generation fails.  The           -->
 <!-- statements say "shown below" instead of cross-referencing the figure.    -->
 <section xml:id="sec-exercises-hw2-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 2</title>
@@ -218,44 +220,41 @@
           <shortdescription>
           The unit square traversed counterclockwise, arrowheads on all four sides.
           </shortdescription>
-          <prefigure xmlns="https://prefigure.org">
-            <diagram dimensions="(300,280)" margins="12">
-              <coordinates bbox="(-0.55,-0.55,1.6,1.5)">
-                <axes at="hs-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-                <polygon at="hs-square" closed="yes" stroke="#0072B2" thickness="3"
-                    fill="none" points="((0,0),(1,0),(1,1),(0,1))"/>
-                <vector at="hs-a1" v="(0.16,0)" tail="(0.42,0)" stroke="#0072B2"
-                    thickness="3"/>
-                <vector at="hs-a2" v="(0,0.16)" tail="(1,0.42)" stroke="#0072B2"
-                    thickness="3"/>
-                <vector at="hs-a3" v="(-0.16,0)" tail="(0.58,1)" stroke="#0072B2"
-                    thickness="3"/>
-                <vector at="hs-a4" v="(0,-0.16)" tail="(0,0.58)" stroke="#0072B2"
-                    thickness="3"/>
-                <point at="hs-p00" p="(0,0)" fill="#0072B2" alignment="sw">
-                  <m>(0,0)</m>
-                </point>
-                <point at="hs-p10" p="(1,0)" fill="#0072B2" alignment="se">
-                  <m>(1,0)</m>
-                </point>
-                <point at="hs-p11" p="(1,1)" fill="#0072B2" alignment="ne">
-                  <m>(1,1)</m>
-                </point>
-                <point at="hs-p01" p="(0,1)" fill="#0072B2" alignment="nw">
-                  <m>(0,1)</m>
-                </point>
-              </coordinates>
-              <annotations>
-                <annotation ref="figure" text="The unit square in the x y plane, with corners at the origin, one comma zero, one comma one, and zero comma one. Its sides are drawn in blue, and arrowheads on the four sides show the curve traversed counterclockwise starting along the bottom side.">
-                  <annotation ref="hs-square" text="The square path C, the boundary of the unit square."/>
-                  <annotation ref="hs-a1" text="An arrow on the bottom side pointing in the direction of increasing x."/>
-                  <annotation ref="hs-a2" text="An arrow on the right side pointing upward."/>
-                  <annotation ref="hs-a3" text="An arrow on the top side pointing in the direction of decreasing x."/>
-                  <annotation ref="hs-a4" text="An arrow on the left side pointing downward."/>
-                </annotation>
-              </annotations>
-            </diagram>
-          </prefigure>
+          <description>
+            <p>
+              The unit square in the x y plane, with corners at the origin,
+              one comma zero, one comma one, and zero comma one. Its sides
+              are drawn in blue, and arrowheads on the four sides show the
+              curve traversed counterclockwise starting along the bottom side.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[scale=3.4, line join=round, line cap=round]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  % axes
+  \draw[-{Stealth[length=7pt]}, black!70, line width=0.7pt]
+    (-0.45,0) -- (1.55,0) node[right] {$x$};
+  \draw[-{Stealth[length=7pt]}, black!70, line width=0.7pt]
+    (0,-0.45) -- (0,1.45) node[above] {$y$};
+  % the curve C: the boundary of the unit square
+  \draw[oiblue, line width=2.2pt] (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+  % arrows on the four sides: traversed once, counterclockwise
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (0.40,0) -- (0.60,0);
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (1,0.40) -- (1,0.60);
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (0.60,1) -- (0.40,1);
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (0,0.60) -- (0,0.40);
+  % the corners
+  \foreach \p in {(0,0),(1,0),(1,1),(0,1)} \fill[oiblue] \p circle (0.028);
+  \node[below left]  at (0,0) {$(0,0)$};
+  \node[below right] at (1,0) {$(1,0)$};
+  \node[above right] at (1,1) {$(1,1)$};
+  \node[above left]  at (0,1) {$(0,1)$};
+\end{tikzpicture}]]>
+          </latex-image>
         </image>
       </figure>
     </statement>
