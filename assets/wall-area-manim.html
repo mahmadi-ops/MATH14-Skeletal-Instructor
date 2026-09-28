@@ -8,12 +8,12 @@
      subsection "A Geometric Interpretation" of Line Integrals: the graph of
      f(x, y) = 2 + x^2 y, the base of the wall (the upper half C of the unit
      circle, on the floor), the top of the wall (the curve on the graph directly
-     above C), and n slabs of constant heights f(x(t_k), y(t_k)) whose total area
-     approximates the area of the wall, 2 pi + 2/3.  The four step buttons build
-     the picture in that order, and a slider sets n.  Built on the same pattern
-     as tangent-line-manim.html (three.js, manim palette, the book's fonts, a
-     full screen button that falls back to a new tab where full screen is
-     refused). -->
+     above C), and n flat slabs standing on chords of C, of constant heights
+     f(x(t_k), y(t_k)), whose total area approximates the area of the wall,
+     2 pi + 2/3.  The four step buttons build the picture in that order, and
+     a slider sets n.  Built on the same pattern as tangent-line-manim.html
+     (three.js, manim palette, the book's fonts, a full screen button that
+     falls back to a new tab where full screen is refused). -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
@@ -222,7 +222,7 @@
         <span class="math"><span class="c-gold">&int;<sub><i>C</i></sub>&#8202;<i>f</i>(<i>x</i>, <i>y</i>)&#8202;<i>ds</i></span> = 2&pi; + &frac23; &asymp; <b>6.9499</b></span>
       </div>
       <canvas id="plot" role="img"
-              aria-label="The total area of the slabs for n from 1 to 64: it rises from 2 pi toward the area of the wall, 2 pi plus two thirds, about 6.9499. Click a point to pick that n."></canvas>
+              aria-label="The total area of the slabs for n from 1 to 64: it rises from 4, for one slab on the diameter, toward the area of the wall, 2 pi plus two thirds, about 6.9499. Click a point to pick that n."></canvas>
     </div>
 
     <div id="caption" class="overlay"></div>
@@ -234,14 +234,14 @@
       <button class="step" id="btnS1" title="Graph the surface z = f(x, y)"><b>1</b> Surface</button>
       <button class="step" id="btnS2" title="Draw the base of the wall, the curve C"><b>2</b> Base<span class="long"> of the wall</span></button>
       <button class="step" id="btnS3" title="Go up from C to the surface: the top of the wall"><b>3</b> Top<span class="long"> of the wall</span></button>
-      <button class="step" id="btnS4" title="Cut the wall into n slabs"><b>4</b> Slabs</button>
+      <button class="step" id="btnS4" title="Join points of C by chords and stand a flat slab on each"><b>4</b> Slabs</button>
     </div>
     <div class="row sliderRow">
       <span class="name" id="nName"><i>n</i> = 8<span class="long"> slabs</span></span>
       <input type="range" id="nSlider" min="1" max="64" step="1" value="8"
              aria-label="the number of slabs n, from 1 to 64">
       <button id="btnTour" aria-label="Play the guided tour" title="A guided tour: the wall built step by step, then more and more slabs">&#9654;<span class="long">&nbsp;Play</span></button>
-      <button id="btnLabel" aria-label="Label a slab" title="Label one slab: its height, its width and its area">Label<span class="long"> a slab</span></button>
+      <button id="btnLabel" aria-label="Label a slab" title="Label one slab: its chord, its height and its area">Label<span class="long"> a slab</span></button>
       <button id="btnSpin">Spin</button>
       <button id="btnFull" aria-label="Full screen" title="Show the figure full screen">&#x26F6;<span class="long">&nbsp;Full screen</span></button>
     </div>
@@ -266,8 +266,8 @@
   //   int_C f ds = int_0^pi (2 + cos^2 t sin t) dt = 2 pi + 2/3.
   // To show another wall: change f, the curve (onBase, TMAX), EXACT, the
   // surface's domain (RS, in step 1 below), and the text of the card, the
-  // meter and the tour captions to match. The slab sum assumes |r'(t)| = 1;
-  // for another curve, weight each height by the length of its piece.
+  // meter and the tour captions to match. The slabs use the lengths of the
+  // chords themselves, so their sum needs no change for another curve.
   function f(x, y) { return 2 + x * x * y; }
   var TMAX = Math.PI;
   function height(t) { return f(Math.cos(t), Math.sin(t)); }
@@ -276,20 +276,24 @@
   var EXACT = 2 * Math.PI + 2 / 3;
   var NMAX = 64;
 
-  // n pieces of C, each of length ds = pi/n; the kth slab takes the height at
-  // the left end of its piece, as in the book: t_k = (k - 1) ds.
-  function slabHeights(n) {
-    var h = [];
-    for (var k = 0; k < n; k++) h.push(height(k * TMAX / n));
-    return h;
+  // Mark n + 1 points on C, at t = k pi / n, and join neighbours by chords.
+  // Each chord, of length ds, stands in for the arc of C between its ends,
+  // and its slab is a flat panel standing on it, as tall as the wall at the
+  // chord's left end, as in the book: f(x(t_k), y(t_k)).
+  function slabsFor(n) {
+    var pts = [], h = [];
+    for (var k = 0; k <= n; k++) pts.push(onBase(k * TMAX / n));
+    for (k = 0; k < n; k++) h.push(height(k * TMAX / n));
+    return { pts: pts, h: h };
   }
-  function total(h) {
+  // the total area of the slabs: the sum of f(x(t_k), y(t_k)) ds
+  function total(sl) {
     var s = 0;
-    for (var k = 0; k < h.length; k++) s += h[k];
-    return s * TMAX / h.length;
+    for (var k = 0; k < sl.h.length; k++) s += sl.h[k] * sl.pts[k].distanceTo(sl.pts[k + 1]);
+    return s;
   }
   var SUMS = [NaN];
-  for (var i0 = 1; i0 <= NMAX; i0++) SUMS.push(total(slabHeights(i0)));
+  for (var i0 = 1; i0 <= NMAX; i0++) SUMS.push(total(slabsFor(i0)));
 
   function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
   // manim's smooth rate function
@@ -611,12 +615,12 @@
   })();
 
   // ---------- step 2: the base of the wall, C on the floor ----------
-  // the arrow and the name sit near the start of C, on the side nearest the
-  // viewer, and the name inside the circle, where the slabs cannot cover it
+  // the arrow sits near the start of C, on the side nearest the viewer; the
+  // name sits inside the circle near its far end, clear of the slab labels
   var T_ARROW = 0.16 * Math.PI;
   var baseGroup = group();
   var labC = makeLabel("C", "#ffe14d", 0.42);
-  labC.sprite.position.copy(onBase(T_ARROW + 0.06).multiplyScalar(0.8));
+  labC.sprite.position.copy(onBase(0.86 * Math.PI).multiplyScalar(0.8));
 
   // ---------- step 3: the top of the wall, and the wall ----------
   var topGroup = group();
@@ -665,6 +669,16 @@
     var tEnd = TMAX * b, m = Math.max(2, Math.ceil(120 * b)), pts = [];
     for (var i = 0; i <= m; i++) pts.push(onBase(tEnd * i / m, 0.004));
     tube(pts, YELLOW, 0.021, baseGroup);
+    // Once the slabs are up they hide the arcs of C behind their chords,
+    // so C is also drawn faintly through them, like a hidden line.
+    if (S.slabs > 0) {
+      var ghost = new THREE.Mesh(
+        new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false), 2 * m, 0.012, 8, false),
+        new THREE.MeshBasicMaterial({ color: YELLOW, transparent: true, depthTest: false,
+                                      depthWrite: false, opacity: 0.5 * clamp01(S.slabs) }));
+      ghost.renderOrder = 4;
+      baseGroup.add(ghost);
+    }
     dot(onBase(0, 0.004), YELLOW, 0.04, baseGroup);
     if (b < 1) {
       dot(onBase(tEnd, 0.004), 0xffffff, 0.045, baseGroup);
@@ -729,15 +743,30 @@
     }
   }
 
-  // the slab heights on show, and the one to label
-  function currentHeights() {
-    if (!split) return slabHeights(nCur);
-    var h0 = slabHeights(split.from), h1 = slabHeights(2 * split.from), h = [];
-    for (var k = 0; k < h1.length; k++) {
-      h.push(k % 2 === 0 ? h1[k] : h0[(k - 1) / 2] + (h1[k] - h0[(k - 1) / 2]) * split.p);
+  // The slabs on show. While n doubles, each old chord gains a middle point
+  // that rises from the chord onto C, and the slab on the right half grows
+  // or shrinks to the height of the wall at that point.
+  function currentSlabs() {
+    if (!split) return slabsFor(nCur);
+    var m = split.from, p = split.p, fine = slabsFor(2 * m), pts = [], h = [];
+    for (var j = 0; j <= 2 * m; j++) {
+      if (j % 2 === 0) { pts.push(fine.pts[j]); continue; }
+      var mid = fine.pts[j - 1].clone().add(fine.pts[j + 1]).multiplyScalar(0.5);
+      pts.push(mid.lerp(fine.pts[j], p));
     }
-    return h;
+    for (j = 0; j < 2 * m; j++) {
+      h.push(j % 2 === 0 ? fine.h[j] : fine.h[j - 1] + (fine.h[j] - fine.h[j - 1]) * p);
+    }
+    return { pts: pts, h: h };
   }
+  // a straight piece of tube, without the glow
+  function rod(a, b, color, rad, parent, opacity) {
+    if (a.distanceTo(b) < 1e-6) return;
+    var op = opacity === undefined ? 1 : opacity;
+    parent.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.LineCurve3(a, b), 1, rad, 8, false),
+      new THREE.MeshBasicMaterial({ color: color, transparent: op < 1, opacity: op })));
+  }
+  function lift(q, z) { return new THREE.Vector3(q.x, q.y, z); }
   // the slab that starts at t = 3 pi / 8 or just before it: near the back of
   // the wall, where it faces the viewer, but clear of the z-axis
   function labelledSlab(n) { return Math.floor(3 * n / 8); }
@@ -745,12 +774,11 @@
   var shownTotal = SUMS[8];
   function drawSlabs() {
     clearGroup(slabGroup);
-    var g = S.slabs, h = currentHeights(), n = h.length;
-    shownTotal = total(h);
+    var g = S.slabs, sl = currentSlabs(), h = sl.h, P = sl.pts, n = h.length;
+    shownTotal = total(sl);
     var labOp = S.lab * clamp01(g * 3 - 2);
     [labA, labDs, labH].forEach(function (l) { setOpacity(l, labOp); });
     if (g <= 0) return;
-    var ds = TMAX / n, gap = Math.min(0.006, 0.08 * ds), sub = Math.max(1, Math.ceil(96 / n));
     var LAG = 1.2, kh = labelledSlab(n);
     var cA = new THREE.Color(BLUE_C), cB = new THREE.Color(GREEN_C);
     var pos = [], nor = [], col = [];
@@ -759,24 +787,24 @@
       var gk = smooth(clamp01(g * (1 + LAG) - LAG * (n > 1 ? k / (n - 1) : 0)));
       if (gk <= 0) continue;
       var hk = h[k] * gk;
-      var t0 = k * ds + gap, t1 = (k + 1) * ds - gap;
+      // the slab is a flat rectangle standing on the chord from P_k to
+      // P_k+1, pulled in a sliver at each end so neighbours read apart
+      var A = P[k], B = P[k + 1], d = B.clone().sub(A), len = d.length();
+      var gap = Math.min(0.012, 0.05 * len) / len;
+      var A1 = A.clone().addScaledVector(d, gap), B1 = B.clone().addScaledVector(d, -gap);
+      var nx = d.y / len, ny = -d.x / len;          // away from the centre of C
       var c = cA.clone().lerp(cB, n > 1 ? k / (n - 1) : 0);
       if (k === kh && S.lab > 0) c.lerp(new THREE.Color(0xffffff), 0.25 * S.lab);
-      for (var i = 0; i < sub; i++) {
-        var ta = t0 + (t1 - t0) * i / sub, tb = t0 + (t1 - t0) * (i + 1) / sub;
-        [[ta, 0], [tb, 0], [tb, hk], [ta, 0], [tb, hk], [ta, hk]].forEach(function (q) {
-          pos.push(Math.cos(q[0]), Math.sin(q[0]), q[1]);
-          nor.push(Math.cos(q[0]), Math.sin(q[0]), 0);
-          col.push(c.r, c.g, c.b);
-        });
-      }
-      // the top edge of the slab, in ink, so the staircase reads against the
-      // red top of the wall
-      var top = [];
-      for (var j = 0; j <= sub; j++) top.push(onBase(t0 + (t1 - t0) * j / sub, hk));
-      tube(top, INK, 0.0065, slabGroup, 0.9);
+      [[A1, 0], [B1, 0], [B1, hk], [A1, 0], [B1, hk], [A1, hk]].forEach(function (q) {
+        pos.push(q[0].x, q[0].y, q[1]);
+        nor.push(nx, ny, 0);
+        col.push(c.r, c.g, c.b);
+      });
+      // the top edge of the slab, in ink, so the steps read against the red
+      // top of the wall
+      rod(lift(A1, hk), lift(B1, hk), INK, 0.0065, slabGroup, 0.9);
       // the height it was given: the wall's own height at the left end
-      if (n <= 24 && gk >= 1) dot(onBase(k * ds, h[k]), INK, 0.022, slabGroup);
+      if (n <= 24 && gk >= 1) dot(lift(A, h[k]), INK, 0.022, slabGroup);
     }
     var geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
@@ -784,19 +812,30 @@
     geo.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
     slabGroup.add(new THREE.Mesh(geo, slabMat));
 
-    // the labels on one slab: A_k on its face, ds along its top, and its
-    // height beside the edge where it was measured, the edge drawn bright
+    // the chords on the floor, the polygon that stands in for C, with the
+    // points marked on C while there are few enough to see
+    var segOp = clamp01(g * 2);
+    for (k = 0; k < n; k++) rod(lift(P[k], 0.012), lift(P[k + 1], 0.012), INK, 0.006, slabGroup, segOp);
+    if (n <= 32) P.forEach(function (q) { dot(lift(q, 0.012), INK, 0.018, slabGroup, segOp); });
+
+    // the labels on one slab: ds on the chord it stands on, A_k on its
+    // face, and its height beside the edge where it was measured, with that
+    // edge and the chord drawn bright
     if (labOp > 0) {
-      var tk = kh * ds, tm = tk + 0.5 * ds, hh = h[kh];
-      labA.sprite.position.copy(onBase(tm, 0.3 * hh)).multiplyScalar(0.92);
-      labA.sprite.position.z = 0.3 * hh;
-      labDs.sprite.position.copy(onBase(tm, hh + 0.2));
+      var Pk = P[kh], Pn = P[kh + 1], hh = h[kh];
+      var mid = Pk.clone().add(Pn).multiplyScalar(0.5);
+      labDs.sprite.position.copy(mid).multiplyScalar(0.8);
+      labDs.sprite.position.z = 0.1;
+      labA.sprite.position.copy(mid).multiplyScalar(0.9);
+      labA.sprite.position.z = 0.4 * hh;
       // near the start of C the label runs back over its own slab, so it
       // stays on the wall; elsewhere it reads off to the side of its edge
-      labH.sprite.center.set(tk < 0.25 * Math.PI ? 1 : 0, 0.5);
-      labH.sprite.position.copy(onBase(tk, 0.75 * hh)).multiplyScalar(0.92);
+      labH.sprite.center.set(Pk.y < 0.71 && Pk.x > 0 ? 1 : 0, 0.5);
+      labH.sprite.position.copy(Pk).multiplyScalar(0.92);
       labH.sprite.position.z = 0.75 * hh;
-      tube([onBase(tk, 0), onBase(tk, hh * clamp01(g * 3 - 2))], INK, 0.011, slabGroup, labOp);
+      var up = hh * clamp01(g * 3 - 2);
+      rod(lift(Pk, 0), lift(Pk, up), INK, 0.011, slabGroup, labOp);
+      rod(lift(Pk, 0.014), lift(Pn, 0.014), INK, 0.013, slabGroup, labOp);
     }
   }
 
@@ -812,8 +851,10 @@
   function paintReadouts() {
     var n = shownN();
     elName.innerHTML = "<i>n</i> = " + n + '<span class="long">' + (n === 1 ? " slab" : " slabs") + "</span>";
-    elDs.innerHTML = "<i>n</i> = " + n + ", &nbsp;&Delta;<i>s</i> = " + (n === 1 ? "&pi;" : "&pi;/" + n) +
-                     " &asymp; " + (Math.PI / n).toFixed(3);
+    // the chord, and the arc of C that it stands in for
+    var seg = onBase(0).distanceTo(onBase(TMAX / n));
+    elDs.innerHTML = "<i>n</i> = " + n + ", &nbsp;&Delta;<i>s</i> = " + seg.toFixed(3) +
+                     " &nbsp;(arc " + (n === 1 ? "&pi;" : "&pi;/" + n) + " &asymp; " + (TMAX / n).toFixed(3) + ")";
     elSum.textContent = shownTotal.toFixed(4);
     nSlider.value = String(n);
     PIECES.forEach(function (p) {
@@ -832,7 +873,7 @@
   // is spread across the plot rather than crammed into its first few points.
   var plot = document.getElementById("plot"), pctx = plot.getContext("2d");
   var PW = 176, PH = 66, PL = 7, PR = 9, PT = 8, PB = 15;
-  var Y0 = 6.18, Y1 = 7.04, hoverN = 0;
+  var Y0 = 3.75, Y1 = 7.15, hoverN = 0;
   var LOGMAX = Math.log(NMAX) / Math.LN2;
   function sizePlot() {
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1092,19 +1133,19 @@
       segs: function () { return stepSegs(3); }, hold: 1.6 },
     { say: "So the wall stands on <i>C</i>, and above the point (<i>x</i>, <i>y</i>) it is <i>f</i>(<i>x</i>, <i>y</i>) tall. What is its area?",
       segs: function () { return [[wait(0.1)]]; }, hold: 2.8 },
-    { say: "Cut <i>C</i> into <i>n</i> pieces of length Δ<i>s</i>, and over the <i>k</i>th piece stand a slab of constant height " + FK + ", the height of the wall at the left end of the piece.",
+    { say: "Mark points along <i>C</i> and join neighbours by chords. Each chord, of length Δ<i>s</i>, approximates the arc of <i>C</i> between its ends.",
       segs: function () {
-        return [[{ dur: 0.01, start: function () { nCur = 4; } }]].concat(stepSegs(4),
+        return [[{ dur: 0.01, start: function () { nCur = 2; } }]].concat(stepSegs(4),
           [[tw("lab", 1, 0.5)]]);
-      }, hold: 3.2 },
-    { say: "The <i>k</i>th slab has area <i>A<sub>k</sub></i> = " + FK + " Δ<i>s</i>, and together the slabs approximate the wall: <i>A</i> ≈ Σ " + FK + " Δ<i>s</i>.",
+      }, hold: 3.4 },
+    { say: "On the <i>k</i>th chord stands a flat slab of height " + FK + ", the height of the wall at the chord's left end. Its area is <i>A<sub>k</sub></i> = " + FK + " Δ<i>s</i>.",
       segs: function () { return [[wait(0.1)]]; }, hold: 3.6 },
-    { say: "More slabs, thinner slabs: their tops hug the top of the wall more and more closely...",
-      segs: function () { return [[tw("lab", 0, 0.4)], [doubling(1.3)], [wait(0.5)], [doubling(1.3)]]; }, hold: 1.2 },
+    { say: "Together the slabs approximate the wall: <i>A</i> ≈ Σ " + FK + " Δ<i>s</i>. With more points the chords hug <i>C</i>, and the slabs hug the wall...",
+      segs: function () { return [[tw("lab", 0, 0.4)], [doubling(1.3)], [wait(0.5)], [doubling(1.3)]]; }, hold: 1.4 },
     { say: "...and the total area of the slabs closes in on the area of the wall, 2π + 2/3 ≈ 6.9499.",
-      segs: function () { return [[doubling(1.2)], [wait(0.4)], [doubling(1.2)]]; }, hold: 2.4 },
-    { say: "In the limit, <i>A</i> = lim<sub><i>n</i>→∞</sub> Σ " + FK + " Δ<i>s</i> = ∫<sub><i>C</i></sub> <i>f</i>(<i>x</i>, <i>y</i>) <i>ds</i>: the line integral is the area of the wall.",
-      segs: function () { return [[wait(0.1)]]; }, hold: 3.2 },
+      segs: function () { return [[doubling(1.2)], [wait(0.4)], [doubling(1.2)], [wait(0.4)], [doubling(1.2)]]; }, hold: 2.4 },
+    { say: "In the limit the chords' lengths Δ<i>s</i> become <i>ds</i>: <i>A</i> = lim<sub><i>n</i>→∞</sub> Σ " + FK + " Δ<i>s</i> = ∫<sub><i>C</i></sub> <i>f</i>(<i>x</i>, <i>y</i>) <i>ds</i>, the line integral.",
+      segs: function () { return [[wait(0.1)]]; }, hold: 3.4 },
     { say: "Your turn: build the wall step by step with the buttons, drag <i>n</i>, or drag the figure to look from anywhere.",
       segs: function () {
         return [[{ dur: 0.01, start: function () { nCur = 8; } }]];
