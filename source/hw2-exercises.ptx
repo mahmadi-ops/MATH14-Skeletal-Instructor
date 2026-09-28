@@ -180,5 +180,83 @@
       </p>
     </statement>
   </exercise>
+
+  <exercise xml:id="ex-hw2-ellipse-wall">
+    <statement>
+      <p>
+        Find the surface area of the wall of <xref ref="fig-hw2-ellipse-wall"/>. Its base
+        is the curve <m>C</m>, the quarter of the ellipse
+        <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> that begins at
+        <m>(5,0)</m> and ends at <m>(0,7)</m>, and its height above a point
+        of <m>C</m> is <m>f(x,y) = xy</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <figure xml:id="fig-hw2-ellipse-wall">
+    <caption>
+      The wall of <xref ref="ex-hw2-ellipse-wall"/>: its base is the quarter of the
+      ellipse <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> from
+      <m>(5,0)</m> to <m>(0,7)</m>, and its height above a point of that
+      curve is <m>f(x,y) = xy</m>.
+    </caption>
+    <image xml:id="image-hw2-ellipse-wall" width="60%">
+      <shortdescription>
+        A curved wall standing on a quarter ellipse in the first quadrant,
+        zero high at both ends and tallest in the middle.
+      </shortdescription>
+      <description>
+        <p>
+          A translucent blue wall stands vertically on the quarter of an
+          ellipse in the first quadrant of the horizontal plane, running from
+          the point five comma zero on the x axis to the point zero comma
+          seven on the y axis. The top edge of the wall is the graph of
+          z equals x y over that curve: it starts at height zero on the x
+          axis, rises to a single hump in the middle, and falls back to
+          height zero on the y axis.
+        </p>
+      </description>
+      <latex-image>
+        <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oired}{RGB}{213,94,0}
+  \begin{axis}[
+      view={130}{22},
+      width=11cm,
+      axis lines=center,
+      axis line style={-latex, black!70, line width=0.7pt},
+      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+      label style={font=\large},
+      ticks=none,
+      xmin=0, xmax=6.5, ymin=0, ymax=8.5, zmin=0, zmax=21,
+      clip=false,
+    ]
+    % ---- the wall: height xy over the quarter ellipse ----
+    \addplot3[surf, shader=faceted, faceted color=oiblue!30,
+              colormap={wallxy}{color=(oiblue!14!white) color=(oiblue!42!white)},
+              opacity=0.65, fill opacity=0.65,
+              domain=0:90, samples=36, y domain=0:1, samples y=12,
+              z buffer=sort, forget plot]
+      ({5*cos(x)}, {7*sin(x)}, {y*35*cos(x)*sin(x)});
+    % ---- the base curve C ----
+    \addplot3[oired, line width=1.6pt, samples=80, samples y=0,
+              domain=0:90, forget plot]
+      ({5*cos(x)}, {7*sin(x)}, 0);
+    % ---- the top edge ----
+    \addplot3[oiblue, line width=1.6pt, samples=80, samples y=0,
+              domain=0:90, forget plot]
+      ({5*cos(x)}, {7*sin(x)}, {35*cos(x)*sin(x)});
+    % ---- labels ----
+    \node[anchor=north, font=\small] at (axis cs:5,0,-0.6) {$(5,0)$};
+    \node[anchor=north, font=\small] at (axis cs:0,7,-0.6) {$(0,7)$};
+    \node[oired, font=\large, anchor=north east]
+      at (axis cs:3.54,4.95,-0.3) {$C$};
+    \node[oiblue, font=\large, anchor=south west]
+      at (axis description cs:0.02,0.86) {$z = f(x,y) = xy$};
+  \end{axis}
+\end{tikzpicture}]]>
+      </latex-image>
+    </image>
+  </figure>
 </exercises>
 </section>
