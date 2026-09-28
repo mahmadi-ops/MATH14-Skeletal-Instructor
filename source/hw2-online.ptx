@@ -4,6 +4,15 @@
 <!-- pattern as hw1-online.ptx: a <var/> per blank in the statement, matched  -->
 <!-- in order by a <var> in <setup>, whose first <condition> is the correct   -->
 <!-- answer.  Every blank is graded on its own, so partial credit survives.   -->
+<!--                                                                         -->
+<!-- The three figures sit inside their problems' statements and carry no    -->
+<!-- xml:id.  For this kind of fill-in PreTeXt always adds an automatic       -->
+<!-- solution that copies the statement (include-automatic="no" is not        -->
+<!-- honored here), so any identifier inside a statement would be authored   -->
+<!-- twice and the build would fail.  For the same reason they are TikZ       -->
+<!-- (latex-image), not PreFigure: a PreFigure diagram needs a unique @label  -->
+<!-- to name its file, and without one asset generation fails.  The           -->
+<!-- statements say "shown below" instead of cross-referencing the figure.    -->
 <section xml:id="sec-exercises-hw2-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 2</title>
 
@@ -87,18 +96,26 @@
         the radius. Then <m>\lVert\mathbf{v}\rVert = R</m> and
         <m>(x-a)^2 + y^2 = R^2</m>, so the density along the wire is
       </p>
-      <me>
-        \rho = \frac{k\,(R\cos t)(R\sin t)}{R^2} = k\cos t\sin t
-        = \frac{k}{2}\sin(2t) ,
-      </me>
+      <md>
+        <mrow>
+          \rho \amp = \frac{k\,(R\cos t)(R\sin t)}{R^2}
+        </mrow>
+        <mrow>
+          \amp = k\cos t\sin t = \frac{k}{2}\sin(2t) ,
+        </mrow>
+      </md>
       <p>
         where <m>k</m> is the coefficient in the numerator. Hence
       </p>
-      <me>
-        M = \int_0^{\pi/2} \frac{k}{2}\sin(2t)\;R\,dt
-        = \frac{kR}{2}\Big[-\tfrac12\cos(2t)\Big]_0^{\pi/2}
-        = \frac{kR}{2} .
-      </me>
+      <md>
+        <mrow>
+          M \amp = \int_0^{\pi/2} \frac{k}{2}\sin(2t)\;R\,dt
+        </mrow>
+        <mrow>
+          \amp = \frac{kR}{2}\Big[-\tfrac12\cos(2t)\Big]_0^{\pi/2}
+          = \frac{kR}{2} .
+        </mrow>
+      </md>
       <p>
         The center <m>a</m> never enters: shifting the wire sideways moves
         the density with it.
@@ -158,79 +175,35 @@
     </setup>
     <solution component="hw2-solutions">
       <p>
-        Here <m>x-y+z-2 = t-(1-t)+1-2 = 2t-2</m> and
+        Along the segment <m>x-y+z-2</m> is
+        <m>t-(1-t)+1-2 = 2t-2</m>, and
         <m>\mathbf{v} = \left\langle 1,-1,0 \right\rangle</m>, so
         <m>\lVert \mathbf{v} \rVert = \sqrt2</m>, and <m>t</m> runs
         from <m>0</m> to <m>1</m>:
       </p>
       <md>
         <mrow>
-          \int_C (x-y+z-2)\,ds \amp = \sqrt2\int_0^1 (2t-2)\,dt
+          \amp \int_C (x-y+z-2)\,ds
         </mrow>
         <mrow>
-          \amp = \sqrt2\Big[(t-1)^2\Big]_0^1 = -\sqrt2 \approx -1.414 .
+          \amp \qquad = \sqrt2\int_0^1 (2t-2)\,dt
+        </mrow>
+        <mrow>
+          \amp \qquad = \sqrt2\Big[(t-1)^2\Big]_0^1
+        </mrow>
+        <mrow>
+          \amp \qquad = -\sqrt2 \approx -1.414 .
         </mrow>
       </md>
     </solution>
   </exercise>
-
-  <figure xml:id="fig-hw2o-square">
-    <caption>
-      The curve <m>C</m> of <xref ref="ex-hw2o-square-path"/>: the boundary
-      of the unit square, traversed once as shown.
-    </caption>
-    <image width="55%">
-      <shortdescription>
-      The unit square traversed counterclockwise, arrowheads on all four sides.
-      </shortdescription>
-      <prefigure xmlns="https://prefigure.org" label="prefigure-hw2o-square">
-        <diagram dimensions="(300,280)" margins="12">
-          <coordinates bbox="(-0.55,-0.55,1.6,1.5)">
-            <axes at="hs-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-            <polygon at="hs-square" closed="yes" stroke="#0072B2" thickness="3"
-                fill="none" points="((0,0),(1,0),(1,1),(0,1))"/>
-            <vector at="hs-a1" v="(0.16,0)" tail="(0.42,0)" stroke="#0072B2"
-                thickness="3"/>
-            <vector at="hs-a2" v="(0,0.16)" tail="(1,0.42)" stroke="#0072B2"
-                thickness="3"/>
-            <vector at="hs-a3" v="(-0.16,0)" tail="(0.58,1)" stroke="#0072B2"
-                thickness="3"/>
-            <vector at="hs-a4" v="(0,-0.16)" tail="(0,0.58)" stroke="#0072B2"
-                thickness="3"/>
-            <point at="hs-p00" p="(0,0)" fill="#0072B2" alignment="sw">
-              <m>(0,0)</m>
-            </point>
-            <point at="hs-p10" p="(1,0)" fill="#0072B2" alignment="se">
-              <m>(1,0)</m>
-            </point>
-            <point at="hs-p11" p="(1,1)" fill="#0072B2" alignment="ne">
-              <m>(1,1)</m>
-            </point>
-            <point at="hs-p01" p="(0,1)" fill="#0072B2" alignment="nw">
-              <m>(0,1)</m>
-            </point>
-          </coordinates>
-          <annotations>
-            <annotation ref="figure" text="The unit square in the x y plane, with corners at the origin, one comma zero, one comma one, and zero comma one. Its sides are drawn in blue, and arrowheads on the four sides show the curve traversed counterclockwise starting along the bottom side.">
-              <annotation ref="hs-square" text="The square path C, the boundary of the unit square."/>
-              <annotation ref="hs-a1" text="An arrow on the bottom side pointing in the direction of increasing x."/>
-              <annotation ref="hs-a2" text="An arrow on the right side pointing upward."/>
-              <annotation ref="hs-a3" text="An arrow on the top side pointing in the direction of decreasing x."/>
-              <annotation ref="hs-a4" text="An arrow on the left side pointing downward."/>
-            </annotation>
-          </annotations>
-        </diagram>
-      </prefigure>
-    </image>
-  </figure>
 
   <exercise xml:id="ex-hw2o-square-path">
     <title>Around the Unit Square</title>
     <statement>
       <p>
         Evaluate <m>\displaystyle\int_C \frac{1}{x^2+y^2+1}\,ds</m>
-        over the boundary <m>C</m> of the unit square of
-        <xref ref="fig-hw2o-square"/>.
+        over the boundary <m>C</m> of the unit square, shown below.
       </p>
       <p>
         The side from <m>(0,0)</m> to <m>(1,0)</m> contributes
@@ -238,6 +211,52 @@
         contributes <var width="10"/>; and the whole integral equals
         <var width="10"/>.
       </p>
+      <figure>
+        <caption>
+          The curve <m>C</m> of <xref ref="ex-hw2o-square-path"/>: the boundary
+          of the unit square, traversed once as shown.
+        </caption>
+        <image width="55%">
+          <shortdescription>
+          The unit square traversed counterclockwise, arrowheads on all four sides.
+          </shortdescription>
+          <description>
+            <p>
+              The unit square in the x y plane, with corners at the origin,
+              one comma zero, one comma one, and zero comma one. Its sides
+              are drawn in blue, and arrowheads on the four sides show the
+              curve traversed counterclockwise starting along the bottom side.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[scale=3.4, line join=round, line cap=round]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  % axes
+  \draw[-{Stealth[length=7pt]}, black!70, line width=0.7pt]
+    (-0.45,0) -- (1.55,0) node[right] {$x$};
+  \draw[-{Stealth[length=7pt]}, black!70, line width=0.7pt]
+    (0,-0.45) -- (0,1.45) node[above] {$y$};
+  % the curve C: the boundary of the unit square
+  \draw[oiblue, line width=2.2pt] (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+  % arrows on the four sides: traversed once, counterclockwise
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (0.40,0) -- (0.60,0);
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (1,0.40) -- (1,0.60);
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (0.60,1) -- (0.40,1);
+  \draw[oiblue, line width=2.2pt, -{Stealth[length=10pt, width=8pt]}]
+    (0,0.60) -- (0,0.40);
+  % the corners
+  \foreach \p in {(0,0),(1,0),(1,1),(0,1)} \fill[oiblue] \p circle (0.028);
+  \node[below left]  at (0,0) {$(0,0)$};
+  \node[below right] at (1,0) {$(1,0)$};
+  \node[above right] at (1,1) {$(1,1)$};
+  \node[above left]  at (0,1) {$(0,1)$};
+\end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
     </statement>
     <setup>
       <var>
@@ -287,11 +306,15 @@
         <m>\frac{1}{\sqrt2}\tan^{-1}\left(\frac{1}{\sqrt2}\right)
         \approx 0.615</m>. Adding,
       </p>
-      <me>
-        \int_C f\,ds = \frac{\pi}{2}
-        + \sqrt2 \tan^{-1}\left(\frac{1}{\sqrt2}\right)
-        \approx 2.441 .
-      </me>
+      <md>
+        <mrow>
+          \int_C f\,ds \amp = \frac{\pi}{2}
+          + \sqrt2 \tan^{-1}\left(\frac{1}{\sqrt2}\right)
+        </mrow>
+        <mrow>
+          \amp \approx 2.441 .
+        </mrow>
+      </md>
       <p>
         A line integral of a scalar function does not depend on the
         direction of travel, and opposite sides of the square give equal
@@ -300,28 +323,36 @@
     </solution>
   </exercise>
 
-  <figure xml:id="fig-hw2o-wall">
-    <caption>
-      The wall of <xref ref="ex-hw2o-wall"/>: its base is the unit circle in
-      the <m>xy</m>-plane and its height above a point of that circle is
-      <m>f(x,y) = x^2 - y^2 + 3</m>.
-    </caption>
-    <image xml:id="image-hw2o-wall" width="60%">
-      <shortdescription>
-        A curved wall standing on the unit circle, whose top edge rises and
-        falls twice around the circle.
-      </shortdescription>
-      <description>
-        <p>
-          A translucent blue wall stands vertically on the unit circle in
-          the horizontal plane. Its top edge is a closed curve that reaches
-          height four above the points where the circle meets the x axis
-          and dips to height two above the points where it meets the y
-          axis.
-        </p>
-      </description>
-      <latex-image>
-        <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  <exercise xml:id="ex-hw2o-wall">
+    <title>Area of a Curved Wall</title>
+    <statement>
+      <p>
+        Find the surface area of the wall shown below,
+        whose height is <m>f(x,y) = x^2-y^2+3</m> over the unit circle.
+      </p>
+      <p>The surface area of the wall is <var width="10"/>.</p>
+      <figure>
+        <caption>
+          The wall of <xref ref="ex-hw2o-wall"/>: its base is the unit circle in
+          the <m>xy</m>-plane and its height above a point of that circle is
+          <m>f(x,y) = x^2 - y^2 + 3</m>.
+        </caption>
+        <image width="60%">
+          <shortdescription>
+            A curved wall standing on the unit circle, whose top edge rises and
+            falls twice around the circle.
+          </shortdescription>
+          <description>
+            <p>
+              A translucent blue wall stands vertically on the unit circle in
+              the horizontal plane. Its top edge is a closed curve that reaches
+              height four above the points where the circle meets the x axis
+              and dips to height two above the points where it meets the y
+              axis.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
   \definecolor{oiblue}{RGB}{0,114,178}
   \begin{axis}[
       view={120}{18},
@@ -358,18 +389,9 @@
       at (axis description cs:0.02,0.86) {$z = x^2 - y^2 + 3$};
   \end{axis}
 \end{tikzpicture}]]>
-      </latex-image>
-    </image>
-  </figure>
-
-  <exercise xml:id="ex-hw2o-wall">
-    <title>Area of a Curved Wall</title>
-    <statement>
-      <p>
-        Find the surface area of the wall of <xref ref="fig-hw2o-wall"/>,
-        whose height is <m>f(x,y) = x^2-y^2+3</m> over the unit circle.
-      </p>
-      <p>The surface area of the wall is <var width="10"/>.</p>
+          </latex-image>
+        </image>
+      </figure>
     </statement>
     <setup>
       <var>
@@ -439,50 +461,76 @@
         Substituting <m>x = e^t</m>, <m>y = t^2</m>, <m>z = t</m> in
         <m>f</m> gives <m>f(\mathbf{c}(t)) = 2e^{2t} + 8t</m>. Hence
       </p>
-      <me>
-        \int_C f\,ds = \int_0^8 f(\mathbf{c}(t))\,
-        \lVert \mathbf{c}'(t) \rVert\,dt
-        = \int_0^8 \left(2e^{2t} + 8t\right)\sqrt{e^{2t} + 4t^2 + 1}\;dt .
-      </me>
+      <md>
+        <mrow>
+          \int_C f\,ds \amp = \int_0^8 f(\mathbf{c}(t))\,
+            \lVert \mathbf{c}'(t) \rVert\,dt
+        </mrow>
+        <mrow>
+          \amp = \int_0^8 \left(2e^{2t} + 8t\right)
+        </mrow>
+        <mrow>
+          \amp \qquad \times \sqrt{e^{2t} + 4t^2 + 1}\;dt .
+        </mrow>
+      </md>
       <p>
         With <m>u = e^{2t} + 4t^2 + 1</m>,
         <m>du = \left(2e^{2t} + 8t\right)dt</m>, the limits become
         <m>u = 2</m> and <m>u = e^{16} + 257</m>:
       </p>
-      <me>
-        \int_C f\,ds = \int_2^{e^{16}+257} u^{1/2}\,du
-        = \frac23 \Big[u^{3/2}\Big]_2^{e^{16}+257}
-        = \frac23\left( \left(e^{16}+257\right)^{3/2} - 2^{3/2} \right)
-        \approx 1.76602 \times 10^{10} .
-      </me>
+      <md>
+        <mrow>
+          \int_C f\,ds \amp = \int_2^{e^{16}+257} u^{1/2}\,du
+        </mrow>
+        <mrow>
+          \amp = \frac23 \Big[u^{3/2}\Big]_2^{e^{16}+257}
+        </mrow>
+        <mrow>
+          \amp = \frac23\left( \left(e^{16}+257\right)^{3/2} - 2^{3/2} \right)
+        </mrow>
+        <mrow>
+          \amp \approx 1.76602 \times 10^{10} .
+        </mrow>
+      </md>
     </solution>
   </exercise>
 
-  <figure xml:id="fig-hw2o-ellipse-wall">
-    <caption>
-      The wall of <xref ref="ex-hw2o-ellipse-wall"/>: its base is the quarter of the
-      ellipse <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> from
-      <m>(5,0)</m> to <m>(0,7)</m>, and its height above a point of that
-      curve is <m>f(x,y) = xy</m>.
-    </caption>
-    <image xml:id="image-hw2o-ellipse-wall" width="60%">
-      <shortdescription>
-        A curved wall standing on a quarter ellipse in the first quadrant,
-        zero high at both ends and tallest in the middle.
-      </shortdescription>
-      <description>
-        <p>
-          A translucent blue wall stands vertically on the quarter of an
-          ellipse in the first quadrant of the horizontal plane, running from
-          the point five comma zero on the x axis to the point zero comma
-          seven on the y axis. The top edge of the wall is the graph of
-          z equals x y over that curve: it starts at height zero on the x
-          axis, rises to a single hump in the middle, and falls back to
-          height zero on the y axis.
-        </p>
-      </description>
-      <latex-image>
-        <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  <exercise xml:id="ex-hw2o-ellipse-wall">
+    <title>A Wall on a Quarter Ellipse</title>
+    <statement>
+      <p>
+        Find the surface area of the wall shown below. Its base
+        is the curve <m>C</m>, the quarter of the ellipse
+        <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> that begins at
+        <m>(5,0)</m> and ends at <m>(0,7)</m>, and its height above a point
+        of <m>C</m> is <m>f(x,y) = xy</m>.
+      </p>
+      <p>The surface area of the wall is <var width="10"/>.</p>
+      <figure>
+        <caption>
+          The wall of <xref ref="ex-hw2o-ellipse-wall"/>: its base is the quarter of the
+          ellipse <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> from
+          <m>(5,0)</m> to <m>(0,7)</m>, and its height above a point of that
+          curve is <m>f(x,y) = xy</m>.
+        </caption>
+        <image width="60%">
+          <shortdescription>
+            A curved wall standing on a quarter ellipse in the first quadrant,
+            zero high at both ends and tallest in the middle.
+          </shortdescription>
+          <description>
+            <p>
+              A translucent blue wall stands vertically on the quarter of an
+              ellipse in the first quadrant of the horizontal plane, running from
+              the point five comma zero on the x axis to the point zero comma
+              seven on the y axis. The top edge of the wall is the graph of
+              z equals x y over that curve: it starts at height zero on the x
+              axis, rises to a single hump in the middle, and falls back to
+              height zero on the y axis.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
   \definecolor{oiblue}{RGB}{0,114,178}
   \definecolor{oired}{RGB}{213,94,0}
   \begin{axis}[
@@ -520,21 +568,9 @@
       at (axis description cs:0.02,0.86) {$z = f(x,y) = xy$};
   \end{axis}
 \end{tikzpicture}]]>
-      </latex-image>
-    </image>
-  </figure>
-
-  <exercise xml:id="ex-hw2o-ellipse-wall">
-    <title>A Wall on a Quarter Ellipse</title>
-    <statement>
-      <p>
-        Find the surface area of the wall of <xref ref="fig-hw2o-ellipse-wall"/>. Its base
-        is the curve <m>C</m>, the quarter of the ellipse
-        <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> that begins at
-        <m>(5,0)</m> and ends at <m>(0,7)</m>, and its height above a point
-        of <m>C</m> is <m>f(x,y) = xy</m>.
-      </p>
-      <p>The surface area of the wall is <var width="10"/>.</p>
+          </latex-image>
+        </image>
+      </figure>
     </statement>
     <setup>
       <var>
@@ -556,23 +592,37 @@
         <m>\mathbf{r}(t) = \left\langle 5\cos t,\ 7\sin t \right\rangle</m>,
         <m>0 \le t \le \pi/2</m>. Then
         <m>\mathbf{r}'(t) = \left\langle -5\sin t,\ 7\cos t \right\rangle</m>,
-        so <m>\lVert \mathbf{r}'(t) \rVert = \sqrt{25\sin^2 t + 49\cos^2 t}
-        = \sqrt{25 + 24\cos^2 t}</m>, and <m>f(\mathbf{r}(t)) = 35\cos t\sin t</m>.
+        so <m>\lVert \mathbf{r}'(t) \rVert = \sqrt{25\sin^2 t + 49\cos^2 t}</m>,
+        which is <m>\sqrt{25 + 24\cos^2 t}</m>, and
+        <m>f(\mathbf{r}(t)) = 35\cos t\sin t</m>.
         The area is
       </p>
-      <me>
-        \int_C xy\,ds = \int_0^{\pi/2} 35\cos t\sin t\,
-        \sqrt{25 + 24\cos^2 t}\;dt .
-      </me>
+      <md>
+        <mrow>
+          \int_C xy\,ds \amp = \int_0^{\pi/2} 35\cos t\sin t
+        </mrow>
+        <mrow>
+          \amp \qquad \times \sqrt{25 + 24\cos^2 t}\;dt .
+        </mrow>
+      </md>
       <p>
         With <m>u = 25 + 24\cos^2 t</m>, <m>du = -48\cos t\sin t\,dt</m>,
         and <m>u</m> runs from <m>49</m> down to <m>25</m>:
       </p>
-      <me>
-        \int_C xy\,ds = \frac{35}{48}\int_{25}^{49} u^{1/2}\,du
-        = \frac{35}{48}\cdot\frac23\left(49^{3/2} - 25^{3/2}\right)
-        = \frac{35 \cdot 218}{72} = \frac{3815}{36} \approx 105.972 .
-      </me>
+      <md>
+        <mrow>
+          \int_C xy\,ds \amp = \frac{35}{48}\int_{25}^{49} u^{1/2}\,du
+        </mrow>
+        <mrow>
+          \amp = \frac{35}{48}\cdot\frac23\left(49^{3/2} - 25^{3/2}\right)
+        </mrow>
+        <mrow>
+          \amp = \frac{35 \cdot 218}{72} = \frac{3815}{36}
+        </mrow>
+        <mrow>
+          \amp \approx 105.972 .
+        </mrow>
+      </md>
     </solution>
   </exercise>
 
@@ -614,11 +664,15 @@
         <mrow>
           \int_C f\,ds \amp = 64\int_{-1}^{0}
             \frac{\left(\frac14 t^4\right)^3}{t^7}\,\sqrt{1+t^6}\,dt
-            = \int_{-1}^{0} t^5\sqrt{1+t^6}\,dt
+        </mrow>
+        <mrow>
+          \amp = \int_{-1}^{0} t^5\sqrt{1+t^6}\,dt
         </mrow>
         <mrow>
           \amp = \frac16\int_{-1}^{0} 6t^5\sqrt{1+t^6}\,dt
-            = \frac16\cdot\frac23\left(1+t^6\right)^{3/2}\Big|_{-1}^{0}
+        </mrow>
+        <mrow>
+          \amp = \frac16\cdot\frac23\left(1+t^6\right)^{3/2}\Big|_{-1}^{0}
         </mrow>
         <mrow>
           \amp = \frac19\left(1 - 2\sqrt2\right) \approx -0.2032 .

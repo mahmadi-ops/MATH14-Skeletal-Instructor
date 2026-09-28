@@ -32,6 +32,9 @@
 <!-- Media wiring (relative to the PreTeXt source root):                   -->
 <!--   Manim videos : videos/*_1080p.mp4                                   -->
 <!--   TikZ figures : embedded inline inside <image><latex-image>          -->
+<!--   Animated figure : assets/wall-area-manim.html (three.js, in the     -->
+<!--     manim style of tangent-line-manim.html), just before the first    -->
+<!--     example of "A Geometric Interpretation"                           -->
 <!--   The TikZ figures need tikz + pgfplots in the <latex-image-preamble> -->
 <!--   of main.ptx.                                                        -->
 
@@ -531,10 +534,164 @@
     <title>A Geometric Interpretation</title>
 
     <p>
-      Here we work through an example of a line integral of a scalar
-      function along a path that is confined to a plane. This gives a
-      nice geometric interpretation of the line integral.
+      A line integral of a scalar function along a path that is confined
+      to a plane has a nice geometric interpretation. We describe it first,
+      and then work through two examples.
     </p>
+
+    <p>
+      Let <m>C</m> be a curve in the <m>xy</m>-plane and let
+      <m>f(x,y) \ge 0</m> on <m>C</m>. The line integral
+      <m>\int_C f(x,y)\,ds</m> is equal to the surface area of the wall
+      whose base is <m>C</m> and whose height above each point
+      <m>(x,y)</m> of <m>C</m> is given by the integrand <m>f(x,y)</m>.
+      To see this, approximate the area by dividing the wall into
+      <m>n</m> slabs, as in <xref ref="fig-wall-slabs"/>.
+    </p>
+
+    <figure xml:id="fig-wall-slabs">
+      <caption>
+        A wall standing on the upper half of the circle
+        <m>x^2+y^2=1</m>, with height <m>f(x,y) = 2 + x^2 y</m> (the wall
+        of <xref ref="ex-wall-half-circle"/>), cut into <m>n</m> slabs.
+        Neighbouring points of <m>C</m> are joined by chords, and the
+        <m>k</m>th chord, of length <m>\Delta s</m>, approximates the arc of
+        <m>C</m> between its ends. The <m>k</m>th slab stands on this chord
+        and is given the constant height <m>f\left(x(t_k),y(t_k)\right)</m>,
+        so its area, <m>f\left(x(t_k),y(t_k)\right)\Delta s</m>,
+        approximates the area <m>A_k</m> of the wall above that arc.
+      </caption>
+      <image xml:id="image-wall-slabs" width="70%">
+        <shortdescription>
+          A wall on the upper half of the unit circle, approximated by flat
+          slabs with dashed red edges, each standing on a solid red chord
+          of the half circle, labelled delta s; the slabs are labelled A one, A two, A three up to A n.
+        </shortdescription>
+        <description>
+          <p>
+            A wall standing on the upper half of the unit circle, its top
+            edge at height 2 plus x squared y, approximated by six flat slabs.
+            Seven points are marked in red on the half circle, from the point
+            one comma zero to the point minus one comma zero, and neighbouring
+            points are joined by solid red chords on the floor. Each chord, of
+            length delta s, runs slightly inside the half circle and stands in
+            for the arc of the circle between its ends. On each chord stands a
+            flat rectangular slab with dashed red edges, as tall as the wall at
+            the chord's first end. The slabs are labelled A one, A two, A
+            three, and, at the far end of the curve, A n, and three of the
+            chords are labelled delta s. Together the slabs approximate the
+            wall.
+          </p>
+        </description>
+        <latex-image>
+          <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oired}{RGB}{200,30,30}
+  \begin{axis}[
+      view={-35}{22}, width=11cm,
+      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+      xmin=-1.3, xmax=1.3, ymin=0, ymax=1.3, zmin=0, zmax=3,
+      grid=major, grid style={gray!20}, clip=false,
+      label style={font=\large}, tick label style={font=\small},
+    ]
+    \addplot3[oiblue!55, line width=1pt, domain=0:180, samples=90,
+              samples y=0] ({cos(x)}, {sin(x)}, 0);
+    \addplot3[oiblue, line width=1.6pt, domain=0:180, samples=120,
+              samples y=0] ({cos(x)}, {sin(x)}, {2+cos(x)^2*sin(x)});
+    % neighbouring points of C joined by chords: the kth chord, of length
+    % Delta s, approximates the arc of C between its ends, and the kth slab
+    % is a flat panel standing on that chord, of constant height
+    % f(x(t_k), y(t_k)), where t_k is the left end of the chord
+    \pgfplotsinvokeforeach{0,30,...,150}{
+      \draw[oired, dashed, line width=0.9pt]
+        (axis cs:{cos(#1)},{sin(#1)},0) --
+        (axis cs:{cos(#1)},{sin(#1)},{2+cos(#1)^2*sin(#1)}) --
+        (axis cs:{cos(#1+30)},{sin(#1+30)},{2+cos(#1)^2*sin(#1)}) --
+        (axis cs:{cos(#1+30)},{sin(#1+30)},0);
+      \draw[oired, line width=1.5pt]
+        (axis cs:{cos(#1)},{sin(#1)},0) -- (axis cs:{cos(#1+30)},{sin(#1+30)},0);
+      \fill[oired] (axis cs:{cos(#1)},{sin(#1)},0) circle (1.6pt);
+    }
+    \fill[oired] (axis cs:-1,0,0) circle (1.6pt);
+    \node[oiblue, font=\large] at (axis cs:{0.966*cos(15)},{0.966*sin(15)},1) {$A_1$};
+    \node[oiblue, font=\large] at (axis cs:{0.966*cos(45)},{0.966*sin(45)},1.1) {$A_2$};
+    \node[oiblue, font=\large] at (axis cs:{0.966*cos(75)},{0.966*sin(75)},1) {$A_3$};
+    \node[oiblue, font=\large] at (axis cs:{0.966*cos(165)},{0.966*sin(165)},0.55) {$A_n$};
+    \node[oired, font=\normalsize] at (axis cs:{0.74*cos(15)},{0.74*sin(15)},0) {$\Delta s$};
+    \node[oired, font=\normalsize] at (axis cs:{0.74*cos(45)},{0.74*sin(45)},0) {$\Delta s$};
+    \node[oired, font=\normalsize] at (axis cs:{0.74*cos(165)},{0.74*sin(165)},0) {$\Delta s$};
+    \draw[-latex, oiblue, line width=1.3pt]
+      (axis cs:{cos(104)},{sin(104)},0) -- (axis cs:{cos(112)},{sin(112)},0);
+    \node[oiblue, font=\large] at (axis cs:{1.2*cos(108)},{1.2*sin(108)},0) {$C$};
+    \node[oiblue, font=\large, anchor=south] at (axis description cs:0.5,1.0) {$z = f(x,y) = 2 + x^2 y$};
+  \end{axis}
+\end{tikzpicture}]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <sidebyside width="97%">
+      <image>
+        <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,7);
+\draw[gray!35] (0,4.8) -- (15,4.8);
+\draw[gray!35] (0,2.4) -- (15,2.4);
+\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {area of the $k$th slab: \quad $A_k \approx$};
+\node[anchor=north west, font=\small\itshape] at (0.35,4.5) {area of the wall, approximately: \quad $A \approx$};
+\node[anchor=north west, font=\small\itshape] at (0.35,2.1) {exact area: \quad $A =$};
+\end{tikzpicture}
+        </latex-image>
+        <shortdescription>Blank box in three rows, for the area of one slab, the approximate area of the wall, and its exact area as a limit.</shortdescription>
+      </image>
+    </sidebyside>
+
+    <p>
+      <xref ref="fig-wall-area-manim"/> builds the wall of
+      <xref ref="ex-wall-half-circle"/> one step at a time: the surface, then
+      the base of the wall, then its top, and then the slabs, standing on
+      chords of <m>C</m>. Drag <m>n</m> and watch the total area of the
+      slabs approach the area of the wall, or press <q>Play</q> for a guided
+      tour.
+    </p>
+
+    <figure xml:id="fig-wall-area-manim">
+      <caption>
+        The wall of <xref ref="ex-wall-half-circle"/>, animated: the
+        graph of <m>z = f(x,y) = 2 + x^2 y</m> (blue), the base of the
+        wall, the upper half <m>C</m> of the circle <m>x^2+y^2=1</m>
+        (yellow), the top of the wall, the curve on the graph directly
+        above <m>C</m> (red), and <m>n</m> flat slabs whose total area
+        approximates the area of the wall. Each slab stands on a chord
+        of length <m>\Delta s</m> joining two neighbouring points of
+        <m>C</m>, and has the height <m>f\left(x(t_k),y(t_k)\right)</m>
+        of the wall at the chord's left end.
+      </caption>
+      <interactive xml:id="interactive-wall-area-manim"
+                   iframe="wall-area-manim.html"
+                   width="100%" aspect="1:1">
+      <instructions>
+        <p>
+          The buttons <q>1 Surface</q>, <q>2 Base of the wall</q>,
+          <q>3 Top of the wall</q> and <q>4 Slabs</q> build the picture
+          in that order, and pressing a step again replays it. In step 3
+          a vertical segment from the floor up to the graph runs along
+          <m>C</m> and sweeps out the wall. In step 4 neighbouring points
+          of <m>C</m> are joined by chords and a flat slab stands on each;
+          the arcs of <m>C</m> show faintly through the slabs. Drag
+          <m>n</m> to change the number of slabs: the readout at the lower
+          left gives the chord length <m>\Delta s</m> beside the arc it
+          replaces, compares the total area of the slabs with the area of
+          the wall, and plots that total for every <m>n</m> from 1 to 64
+          (click a point to jump to that <m>n</m>). <q>Label a slab</q>
+          marks one slab's chord <m>\Delta s</m>, its height and its area
+          <m>A_k</m>. <q>Play</q> runs a guided tour, dragging the figure
+          turns it, <q>Spin</q> turns it on its own, and <q>Full
+          screen</q> fills the screen with it.
+        </p>
+      </instructions>
+      </interactive>
+    </figure>
 
     <example xml:id="ex-wall-half-circle">
       <title>The wall on a half circle</title>
@@ -618,110 +775,6 @@
         </sidebyside>
       </statement>
     </example>
-
-    <p>
-      The line integral in <xref ref="ex-wall-half-circle"/> is equal to
-      the surface area of the wall whose height is given by the
-      integrand, here <m>2 + x^2 y</m>, and whose base is the upper half
-      of the circle <m>x^2+y^2=1</m>, as shown in
-      <xref ref="fig-wall-half-circle"/>. To see this, approximate the
-      area by dividing the wall into <m>n</m> slabs, as in
-      <xref ref="fig-wall-slabs"/>.
-    </p>
-    <figure xml:id="fig-wall-slabs">
-      <caption>
-        The wall of <xref ref="fig-wall-half-circle"/> cut into <m>n</m>
-        slabs. Neighbouring points of <m>C</m> are joined by chords, and the
-        <m>k</m>th chord, of length <m>\Delta s</m>, approximates the arc of
-        <m>C</m> between its ends. The <m>k</m>th slab stands on this chord
-        and is given the constant height <m>f\left(x(t_k),y(t_k)\right)</m>,
-        so its area, <m>f\left(x(t_k),y(t_k)\right)\Delta s</m>,
-        approximates the area <m>A_k</m> of the wall above that arc.
-      </caption>
-      <image xml:id="image-wall-slabs" width="70%">
-        <shortdescription>
-          The same wall, approximated by flat slabs with dashed red edges,
-          each standing on a solid red chord of the half circle, labelled
-          delta s; the slabs are labelled A one, A two, A three up to A n.
-        </shortdescription>
-        <description>
-          <p>
-            The wall of the previous figure, approximated by six flat slabs.
-            Seven points are marked in red on the half circle, from the point
-            one comma zero to the point minus one comma zero, and neighbouring
-            points are joined by solid red chords on the floor. Each chord, of
-            length delta s, runs slightly inside the half circle and stands in
-            for the arc of the circle between its ends. On each chord stands a
-            flat rectangular slab with dashed red edges, as tall as the wall at
-            the chord's first end. The slabs are labelled A one, A two, A
-            three, and, at the far end of the curve, A n, and three of the
-            chords are labelled delta s. Together the slabs approximate the
-            wall.
-          </p>
-        </description>
-        <latex-image>
-          <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oired}{RGB}{200,30,30}
-  \begin{axis}[
-      view={-35}{22}, width=11cm,
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      xmin=-1.3, xmax=1.3, ymin=0, ymax=1.3, zmin=0, zmax=3,
-      grid=major, grid style={gray!20}, clip=false,
-      label style={font=\large}, tick label style={font=\small},
-    ]
-    \addplot3[oiblue!55, line width=1pt, domain=0:180, samples=90,
-              samples y=0] ({cos(x)}, {sin(x)}, 0);
-    \addplot3[oiblue, line width=1.6pt, domain=0:180, samples=120,
-              samples y=0] ({cos(x)}, {sin(x)}, {2+cos(x)^2*sin(x)});
-    % neighbouring points of C joined by chords: the kth chord, of length
-    % Delta s, approximates the arc of C between its ends, and the kth slab
-    % is a flat panel standing on that chord, of constant height
-    % f(x(t_k), y(t_k)), where t_k is the left end of the chord
-    \pgfplotsinvokeforeach{0,30,...,150}{
-      \draw[oired, dashed, line width=0.9pt]
-        (axis cs:{cos(#1)},{sin(#1)},0) --
-        (axis cs:{cos(#1)},{sin(#1)},{2+cos(#1)^2*sin(#1)}) --
-        (axis cs:{cos(#1+30)},{sin(#1+30)},{2+cos(#1)^2*sin(#1)}) --
-        (axis cs:{cos(#1+30)},{sin(#1+30)},0);
-      \draw[oired, line width=1.5pt]
-        (axis cs:{cos(#1)},{sin(#1)},0) -- (axis cs:{cos(#1+30)},{sin(#1+30)},0);
-      \fill[oired] (axis cs:{cos(#1)},{sin(#1)},0) circle (1.6pt);
-    }
-    \fill[oired] (axis cs:-1,0,0) circle (1.6pt);
-    \node[oiblue, font=\large] at (axis cs:{0.966*cos(15)},{0.966*sin(15)},1) {$A_1$};
-    \node[oiblue, font=\large] at (axis cs:{0.966*cos(45)},{0.966*sin(45)},1.1) {$A_2$};
-    \node[oiblue, font=\large] at (axis cs:{0.966*cos(75)},{0.966*sin(75)},1) {$A_3$};
-    \node[oiblue, font=\large] at (axis cs:{0.966*cos(165)},{0.966*sin(165)},0.55) {$A_n$};
-    \node[oired, font=\normalsize] at (axis cs:{0.74*cos(15)},{0.74*sin(15)},0) {$\Delta s$};
-    \node[oired, font=\normalsize] at (axis cs:{0.74*cos(45)},{0.74*sin(45)},0) {$\Delta s$};
-    \node[oired, font=\normalsize] at (axis cs:{0.74*cos(165)},{0.74*sin(165)},0) {$\Delta s$};
-    \draw[-latex, oiblue, line width=1.3pt]
-      (axis cs:{cos(104)},{sin(104)},0) -- (axis cs:{cos(112)},{sin(112)},0);
-    \node[oiblue, font=\large] at (axis cs:{1.2*cos(108)},{1.2*sin(108)},0) {$C$};
-    \node[oiblue, font=\large, anchor=south] at (axis description cs:0.5,1.0) {$z = f(x,y) = 2 + x^2 y$};
-  \end{axis}
-\end{tikzpicture}]]>
-        </latex-image>
-      </image>
-    </figure>
-
-    <sidebyside width="97%">
-      <image>
-        <latex-image>
-\begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,7);
-\draw[gray!35] (0,4.8) -- (15,4.8);
-\draw[gray!35] (0,2.4) -- (15,2.4);
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {area of the $k$th slab: \quad $A_k \approx$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.5) {area of the wall, approximately: \quad $A \approx$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.1) {exact area: \quad $A =$};
-\end{tikzpicture}
-        </latex-image>
-        <shortdescription>Blank box in three rows, for the area of one slab, the approximate area of the wall, and its exact area as a limit.</shortdescription>
-      </image>
-    </sidebyside>
-
 
     <example xml:id="ex-wall-yex">
       <title>Reading the wall off the picture</title>

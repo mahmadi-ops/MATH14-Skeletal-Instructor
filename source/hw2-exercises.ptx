@@ -46,58 +46,57 @@
         <m>\displaystyle\int_C \frac{1}{x^2 + y^2 + 1}\,ds</m> over the
         curve <m>C</m> of <xref ref="fig-hw2-square"/>.
       </p>
+      <figure xml:id="fig-hw2-square">
+        <caption>
+          The curve <m>C</m> of <xref ref="ex-hw2-square-path"/>: the boundary
+          of the unit square, traversed once as shown.
+        </caption>
+        <image width="55%">
+          <shortdescription>
+          The unit square traversed counterclockwise, arrowheads on all four sides.
+          </shortdescription>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw2-square">
+            <diagram dimensions="(300,280)" margins="12">
+              <coordinates bbox="(-0.55,-0.55,1.6,1.5)">
+                <axes at="hs-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+                <polygon at="hs-square" closed="yes" stroke="#0072B2" thickness="3"
+                    fill="none" points="((0,0),(1,0),(1,1),(0,1))"/>
+                <vector at="hs-a1" v="(0.16,0)" tail="(0.42,0)" stroke="#0072B2"
+                    thickness="3"/>
+                <vector at="hs-a2" v="(0,0.16)" tail="(1,0.42)" stroke="#0072B2"
+                    thickness="3"/>
+                <vector at="hs-a3" v="(-0.16,0)" tail="(0.58,1)" stroke="#0072B2"
+                    thickness="3"/>
+                <vector at="hs-a4" v="(0,-0.16)" tail="(0,0.58)" stroke="#0072B2"
+                    thickness="3"/>
+                <point at="hs-p00" p="(0,0)" fill="#0072B2" alignment="sw">
+                  <m>(0,0)</m>
+                </point>
+                <point at="hs-p10" p="(1,0)" fill="#0072B2" alignment="se">
+                  <m>(1,0)</m>
+                </point>
+                <point at="hs-p11" p="(1,1)" fill="#0072B2" alignment="ne">
+                  <m>(1,1)</m>
+                </point>
+                <point at="hs-p01" p="(0,1)" fill="#0072B2" alignment="nw">
+                  <m>(0,1)</m>
+                </point>
+              </coordinates>
+              <annotations>
+                <annotation ref="figure" text="The unit square in the x y plane, with corners at the origin, one comma zero, one comma one, and zero comma one. Its sides are drawn in blue, and arrowheads on the four sides show the curve traversed counterclockwise starting along the bottom side.">
+                  <annotation ref="hs-square" text="The square path C, the boundary of the unit square."/>
+                  <annotation ref="hs-a1" text="An arrow on the bottom side pointing in the direction of increasing x."/>
+                  <annotation ref="hs-a2" text="An arrow on the right side pointing upward."/>
+                  <annotation ref="hs-a3" text="An arrow on the top side pointing in the direction of decreasing x."/>
+                  <annotation ref="hs-a4" text="An arrow on the left side pointing downward."/>
+                </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
     </statement>
   </exercise>
-
-  <figure xml:id="fig-hw2-square">
-    <caption>
-      The curve <m>C</m> of <xref ref="ex-hw2-square-path"/>: the boundary
-      of the unit square, traversed once as shown.
-    </caption>
-    <image width="55%">
-      <shortdescription>
-      The unit square traversed counterclockwise, arrowheads on all four sides.
-      </shortdescription>
-      <prefigure xmlns="https://prefigure.org" label="prefigure-hw2-square">
-        <diagram dimensions="(300,280)" margins="12">
-          <coordinates bbox="(-0.55,-0.55,1.6,1.5)">
-            <axes at="hs-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-            <polygon at="hs-square" closed="yes" stroke="#0072B2" thickness="3"
-                fill="none" points="((0,0),(1,0),(1,1),(0,1))"/>
-            <vector at="hs-a1" v="(0.16,0)" tail="(0.42,0)" stroke="#0072B2"
-                thickness="3"/>
-            <vector at="hs-a2" v="(0,0.16)" tail="(1,0.42)" stroke="#0072B2"
-                thickness="3"/>
-            <vector at="hs-a3" v="(-0.16,0)" tail="(0.58,1)" stroke="#0072B2"
-                thickness="3"/>
-            <vector at="hs-a4" v="(0,-0.16)" tail="(0,0.58)" stroke="#0072B2"
-                thickness="3"/>
-            <point at="hs-p00" p="(0,0)" fill="#0072B2" alignment="sw">
-              <m>(0,0)</m>
-            </point>
-            <point at="hs-p10" p="(1,0)" fill="#0072B2" alignment="se">
-              <m>(1,0)</m>
-            </point>
-            <point at="hs-p11" p="(1,1)" fill="#0072B2" alignment="ne">
-              <m>(1,1)</m>
-            </point>
-            <point at="hs-p01" p="(0,1)" fill="#0072B2" alignment="nw">
-              <m>(0,1)</m>
-            </point>
-          </coordinates>
-          <annotations>
-            <annotation ref="figure" text="The unit square in the x y plane, with corners at the origin, one comma zero, one comma one, and zero comma one. Its sides are drawn in blue, and arrowheads on the four sides show the curve traversed counterclockwise starting along the bottom side.">
-              <annotation ref="hs-square" text="The square path C, the boundary of the unit square."/>
-              <annotation ref="hs-a1" text="An arrow on the bottom side pointing in the direction of increasing x."/>
-              <annotation ref="hs-a2" text="An arrow on the right side pointing upward."/>
-              <annotation ref="hs-a3" text="An arrow on the top side pointing in the direction of decreasing x."/>
-              <annotation ref="hs-a4" text="An arrow on the left side pointing downward."/>
-            </annotation>
-          </annotations>
-        </diagram>
-      </prefigure>
-    </image>
-  </figure>
 
   <exercise xml:id="ex-hw2-wall">
     <statement>
@@ -106,31 +105,28 @@
         <m>f(x,y) = x^2 - y^2 + 3</m> and whose base is the unit circle in
         the <m>xy</m>-plane. See <xref ref="fig-hw2-wall"/>.
       </p>
-    </statement>
-  </exercise>
-
-  <figure xml:id="fig-hw2-wall">
-    <caption>
-      The wall of <xref ref="ex-hw2-wall"/>: its base is the unit circle in
-      the <m>xy</m>-plane and its height above a point of that circle is
-      <m>f(x,y) = x^2 - y^2 + 3</m>.
-    </caption>
-    <image xml:id="image-hw2-wall" width="60%">
-      <shortdescription>
-        A curved wall standing on the unit circle, whose top edge rises and
-        falls twice around the circle.
-      </shortdescription>
-      <description>
-        <p>
-          A translucent blue wall stands vertically on the unit circle in
-          the horizontal plane. Its top edge is a closed curve that reaches
-          height four above the points where the circle meets the x axis
-          and dips to height two above the points where it meets the y
-          axis.
-        </p>
-      </description>
-      <latex-image>
-        <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+      <figure xml:id="fig-hw2-wall">
+        <caption>
+          The wall of <xref ref="ex-hw2-wall"/>: its base is the unit circle in
+          the <m>xy</m>-plane and its height above a point of that circle is
+          <m>f(x,y) = x^2 - y^2 + 3</m>.
+        </caption>
+        <image xml:id="image-hw2-wall" width="60%">
+          <shortdescription>
+            A curved wall standing on the unit circle, whose top edge rises and
+            falls twice around the circle.
+          </shortdescription>
+          <description>
+            <p>
+              A translucent blue wall stands vertically on the unit circle in
+              the horizontal plane. Its top edge is a closed curve that reaches
+              height four above the points where the circle meets the x axis
+              and dips to height two above the points where it meets the y
+              axis.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
   \definecolor{oiblue}{RGB}{0,114,178}
   \begin{axis}[
       view={120}{18},
@@ -167,9 +163,12 @@
       at (axis description cs:0.02,0.86) {$z = x^2 - y^2 + 3$};
   \end{axis}
 \end{tikzpicture}]]>
-      </latex-image>
-    </image>
-  </figure>
+          </latex-image>
+        </image>
+      </figure>
+    </statement>
+  </exercise>
+
   <exercise xml:id="ex-hw2-exp-curve">
     <statement>
       <p>
@@ -190,34 +189,31 @@
         <m>(5,0)</m> and ends at <m>(0,7)</m>, and its height above a point
         of <m>C</m> is <m>f(x,y) = xy</m>.
       </p>
-    </statement>
-  </exercise>
-
-  <figure xml:id="fig-hw2-ellipse-wall">
-    <caption>
-      The wall of <xref ref="ex-hw2-ellipse-wall"/>: its base is the quarter of the
-      ellipse <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> from
-      <m>(5,0)</m> to <m>(0,7)</m>, and its height above a point of that
-      curve is <m>f(x,y) = xy</m>.
-    </caption>
-    <image xml:id="image-hw2-ellipse-wall" width="60%">
-      <shortdescription>
-        A curved wall standing on a quarter ellipse in the first quadrant,
-        zero high at both ends and tallest in the middle.
-      </shortdescription>
-      <description>
-        <p>
-          A translucent blue wall stands vertically on the quarter of an
-          ellipse in the first quadrant of the horizontal plane, running from
-          the point five comma zero on the x axis to the point zero comma
-          seven on the y axis. The top edge of the wall is the graph of
-          z equals x y over that curve: it starts at height zero on the x
-          axis, rises to a single hump in the middle, and falls back to
-          height zero on the y axis.
-        </p>
-      </description>
-      <latex-image>
-        <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+      <figure xml:id="fig-hw2-ellipse-wall">
+        <caption>
+          The wall of <xref ref="ex-hw2-ellipse-wall"/>: its base is the quarter of the
+          ellipse <m>\frac{x^2}{5^2} + \frac{y^2}{7^2} = 1</m> from
+          <m>(5,0)</m> to <m>(0,7)</m>, and its height above a point of that
+          curve is <m>f(x,y) = xy</m>.
+        </caption>
+        <image xml:id="image-hw2-ellipse-wall" width="60%">
+          <shortdescription>
+            A curved wall standing on a quarter ellipse in the first quadrant,
+            zero high at both ends and tallest in the middle.
+          </shortdescription>
+          <description>
+            <p>
+              A translucent blue wall stands vertically on the quarter of an
+              ellipse in the first quadrant of the horizontal plane, running from
+              the point five comma zero on the x axis to the point zero comma
+              seven on the y axis. The top edge of the wall is the graph of
+              z equals x y over that curve: it starts at height zero on the x
+              axis, rises to a single hump in the middle, and falls back to
+              height zero on the y axis.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
   \definecolor{oiblue}{RGB}{0,114,178}
   \definecolor{oired}{RGB}{213,94,0}
   \begin{axis}[
@@ -255,9 +251,11 @@
       at (axis description cs:0.02,0.86) {$z = f(x,y) = xy$};
   \end{axis}
 \end{tikzpicture}]]>
-      </latex-image>
-    </image>
-  </figure>
+          </latex-image>
+        </image>
+      </figure>
+    </statement>
+  </exercise>
 
   <exercise xml:id="ex-hw2-power-curve">
     <statement>
