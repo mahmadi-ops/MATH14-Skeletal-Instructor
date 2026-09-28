@@ -399,5 +399,63 @@
       </me>
     </solution>
   </exercise>
+  <exercise xml:id="ex-hw2o-exp-curve">
+    <title>Along an Exponential Space Curve</title>
+    <statement>
+      <p>
+        Compute the line integral of the scalar function
+        <m>f(x,y,z) = 2x^2 + 8z</m> over the curve
+        <m>\mathbf{c}(t) = \left\langle e^t,\ t^2,\ t \right\rangle</m>,
+        <m>0 \le t \le 8</m>.
+      </p>
+      <p>
+        The answer is large, so you may type it in e-notation, with at least
+        four significant digits (for instance <c>1.234e10</c> for
+        <m>1.234 \times 10^{10}</m>).
+      </p>
+      <p>
+        <m>\displaystyle\int_C f(x,y,z)\,ds =</m> <var width="14"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="17660180863" tolerance="2000000">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw2-solutions">
+      <p>
+        The velocity is
+        <m>\mathbf{c}'(t) = \left\langle e^t,\ 2t,\ 1 \right\rangle</m>,
+        so <m>\lVert \mathbf{c}'(t) \rVert = \sqrt{e^{2t} + 4t^2 + 1}</m>.
+        Substituting <m>x = e^t</m>, <m>y = t^2</m>, <m>z = t</m> in
+        <m>f</m> gives <m>f(\mathbf{c}(t)) = 2e^{2t} + 8t</m>. Hence
+      </p>
+      <me>
+        \int_C f\,ds = \int_0^8 f(\mathbf{c}(t))\,
+        \lVert \mathbf{c}'(t) \rVert\,dt
+        = \int_0^8 \left(2e^{2t} + 8t\right)\sqrt{e^{2t} + 4t^2 + 1}\;dt .
+      </me>
+      <p>
+        With <m>u = e^{2t} + 4t^2 + 1</m>,
+        <m>du = \left(2e^{2t} + 8t\right)dt</m>, the limits become
+        <m>u = 2</m> and <m>u = e^{16} + 257</m>:
+      </p>
+      <me>
+        \int_C f\,ds = \int_2^{e^{16}+257} u^{1/2}\,du
+        = \frac23 \Big[u^{3/2}\Big]_2^{e^{16}+257}
+        = \frac23\left( \left(e^{16}+257\right)^{3/2} - 2^{3/2} \right)
+        \approx 1.76602 \times 10^{10} .
+      </me>
+    </solution>
+  </exercise>
   </exercises>
 </section>

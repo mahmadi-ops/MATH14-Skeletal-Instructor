@@ -170,5 +170,15 @@
       </latex-image>
     </image>
   </figure>
+  <exercise xml:id="ex-hw2-exp-curve">
+    <statement>
+      <p>
+        Compute the line integral of the scalar function
+        <m>f(x,y,z) = 2x^2 + 8z</m> over the curve
+        <m>\mathbf{c}(t) = \left\langle e^t,\ t^2,\ t \right\rangle</m>,
+        <m>0 \le t \le 8</m>.
+      </p>
+    </statement>
+  </exercise>
 </exercises>
 </section>
