@@ -403,4 +403,41 @@
       </latex-image>
     </image>
   </figure>
+
+  <problem xml:id="ex-hw2-power-curve">
+    <statement>
+      <p>
+        Calculate <m>\displaystyle\int_C f\,ds</m>, where
+        <m>f(x,y) = 64\,x^{-7}y^3</m> and the curve <m>C</m> is
+        <m>y = \frac14 x^4</m> for <m>-1 \le x \le 0</m>.
+      </p>
+    </statement>
+    <solution component="hw2-solutions">
+      <p>
+        Take <m>x</m> as the parameter: <m>x(t) = t</m>,
+        <m>y(t) = \frac14 t^4</m>, <m>-1 \le t \le 0</m>. Then
+        <m>\mathbf{r}(t) = \left\langle t,\ \frac14 t^4 \right\rangle</m>,
+        <m>\mathbf{v}(t) = \left\langle 1,\ t^3 \right\rangle</m>, so
+        <m>ds = \lVert\mathbf{v}(t)\rVert\,dt = \sqrt{1+t^6}\,dt</m>, and
+      </p>
+      <md>
+        <mrow>
+          \int_C f\,ds \amp = 64\int_{-1}^{0}
+            \frac{\left(\frac14 t^4\right)^3}{t^7}\,\sqrt{1+t^6}\,dt
+            = \int_{-1}^{0} t^5\sqrt{1+t^6}\,dt
+        </mrow>
+        <mrow>
+          \amp = \frac16\int_{-1}^{0} 6t^5\sqrt{1+t^6}\,dt
+            = \frac16\cdot\frac23\left(1+t^6\right)^{3/2}\Big|_{-1}^{0}
+        </mrow>
+        <mrow>
+          \amp = \frac19\left(1 - 2\sqrt2\right) \approx -0.2032 .
+        </mrow>
+      </md>
+      <p>
+        The value is negative because <m>f \lt 0</m> all along <m>C</m>
+        (there <m>x \lt 0</m> and <m>y \gt 0</m>).
+      </p>
+    </solution>
+  </problem>
 </section>

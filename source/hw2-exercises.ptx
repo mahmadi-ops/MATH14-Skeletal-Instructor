@@ -258,5 +258,15 @@
       </latex-image>
     </image>
   </figure>
+
+  <exercise xml:id="ex-hw2-power-curve">
+    <statement>
+      <p>
+        Calculate <m>\displaystyle\int_C f\,ds</m>, where
+        <m>f(x,y) = 64\,x^{-7}y^3</m> and the curve <m>C</m> is
+        <m>y = \frac14 x^4</m> for <m>-1 \le x \le 0</m>.
+      </p>
+    </statement>
+  </exercise>
 </exercises>
 </section>
