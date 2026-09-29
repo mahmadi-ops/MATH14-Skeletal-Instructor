@@ -21,6 +21,13 @@
 <!-- with its cancelling stretches) are dropped, since they were the       -->
 <!-- answer.  Captions that stated a numerical answer have been trimmed.   -->
 <!--                                                                       -->
+<!-- Two more Concept Checks (a force at a fixed angle to a half circle,   -->
+<!-- and a pendulum pulled aside) were added in Sep 2026 with their        -->
+<!-- statement figures and a blank workspace box each, and, at the         -->
+<!-- instructor's request, no hints.  Their two solution figures (the      -->
+<!-- force components on the half circle and the force balance on the     -->
+<!-- bob) are left out, since they are the answer.                         -->
+<!--                                                                       -->
 <!-- Media wiring (relative to the PreTeXt source root):                   -->
 <!--   Manim videos : videos/*_1080p.mp4                                   -->
 <!--   TikZ figures : embedded inline inside <image><latex-image>          -->
@@ -1316,6 +1323,375 @@ x y z u v w\\
           </image>
         </sidebyside>
       </statement>
+    </exercise>
+
+    <!-- ............................................................... -->
+    <!-- Concept Checks 2 and 3: statements and figures as in the        -->
+    <!-- completed notes; the answers and solutions (with their two      -->
+    <!-- figures) are replaced by blank workspace boxes, with no hints.  -->
+    <exercise xml:id="q-work-half-circle">
+      <title>A force at a fixed angle to the path</title>
+      <statement>
+        <p>
+          An object moves along a circle of radius <m>R</m> centred at
+          <m>O</m> and is acted upon by a force <m>\mathbf{F}</m> of
+          constant magnitude <m>F=\left\lVert\mathbf{F}\right\rVert</m>. At
+          every moment the force makes a <m>30^\circ</m> angle with the
+          unit tangent vector <m>\mathbf{T}</m>, as shown in
+          <xref ref="fig-half-circle-force"/>. Calculate the work done by
+          <m>\mathbf{F}</m> as the object moves along the half circle
+          <m>C</m> from <m>A</m> to <m>B</m>.
+        </p>
+
+        <figure xml:id="fig-half-circle-force">
+          <caption>
+            The object travels over the top of the circle from <m>A</m> to
+            <m>B</m>. At every point the force <m>\mathbf{F}</m> (red) makes
+            a <m>30^\circ</m> angle with the unit tangent vector
+            <m>\mathbf{T}</m> (green), the direction of travel.
+          </caption>
+          <image xml:id="image-half-circle-force" width="55%">
+            <shortdescription>
+              A half circle traversed from A over the top to B, with a force
+              arrow at thirty degrees to the tangent arrow at one point.
+            </shortdescription>
+            <description>
+              <p>
+                A circle of radius R centred at a point O. Its lower half is
+                dashed; its upper half, the path C, is drawn thick with an
+                arrowhead to the right of the top, so it is traversed
+                clockwise from the point A at the left end of the horizontal
+                diameter to the point B at the right end. A line segment from
+                O to the upper right part of the circle is labelled R. At a
+                point on the upper left of the path two arrows start: a green
+                arrow labelled T, tangent to the circle and pointing up and to
+                the right, and a longer red arrow labelled F that leans thirty
+                degrees further up, away from the centre. A small arc between
+                them is labelled thirty degrees.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="half-circle-force">
+              <diagram dimensions="(400,370)" margins="5">
+                <definition>h(t) = (-2*cos(t), 2*sin(t))</definition>
+                <definition>P = h(pi/4)</definition>
+                <definition>tv = 1.25*(cos(pi/4), sin(pi/4))</definition>
+                <definition>fv = 1.9*(cos(5*pi/12), sin(5*pi/12))</definition>
+                <coordinates bbox="(-3.4,-2.35,3.4,3.9)" aspect-ratio="1">
+                  <group at="circle">
+                    <circle center="(0,0)" radius="2" stroke="gray" thickness="2"
+                            dash="5 4"/>
+                  </group>
+
+                  <group at="path">
+                    <parametric-curve function="h" domain="(0,pi)" stroke="black"
+                                      thickness="3" arrows="1" arrow-location="2.05"/>
+                    <label anchor="h(2.2)" alignment="ne" offset="(4,4)">
+                      <m>C</m>
+                    </label>
+                  </group>
+
+                  <group at="center">
+                    <point p="(0,0)" size="3.5" stroke="black" fill="black"/>
+                    <label anchor="(0,0)" alignment="s" offset="(0,-6)">
+                      <m>O</m>
+                    </label>
+                    <line endpoints="((0,0), 2*(cos(pi/5), sin(pi/5)))" stroke="black"
+                          thickness="2"/>
+                    <label anchor="(cos(pi/5), sin(pi/5))" alignment="se" offset="(2,-2)">
+                      <m>R</m>
+                    </label>
+                  </group>
+
+                  <group at="endpoints">
+                    <point p="(-2,0)" size="4" stroke="black" fill="black"/>
+                    <label anchor="(-2,0)" alignment="w" offset="(-6,0)">
+                      <m>A</m>
+                    </label>
+                    <point p="(2,0)" size="4" stroke="black" fill="black"/>
+                    <label anchor="(2,0)" alignment="e" offset="(6,0)">
+                      <m>B</m>
+                    </label>
+                  </group>
+
+                  <group at="vectors">
+                    <vector v="fv" tail="P" stroke="red" thickness="3"/>
+                    <label anchor="P+fv" alignment="n" offset="(0,4)" color="red">
+                      <m>\mathbf{F}</m>
+                    </label>
+                    <vector v="tv" tail="P" stroke="#009E73" thickness="3"/>
+                    <label anchor="P+tv" alignment="e" offset="(4,0)" color="#009E73">
+                      <m>\mathbf{T}</m>
+                    </label>
+                    <arc center="P" radius="0.8" range="(45,75)" stroke="black"
+                         thickness="1"/>
+                    <label anchor="P+1.1*(cos(pi/3), sin(pi/3))" alignment="c">
+                      <m>30^\circ</m>
+                    </label>
+                    <point p="P" size="4" stroke="black" fill="black"/>
+                  </group>
+                </coordinates>
+
+                <annotations>
+                  <annotation ref="figure"
+                              text="An object travels over the top of a circle of radius
+                                    R from the point A to the point B, pushed by a force F
+                                    that always makes a thirty degree angle with the
+                                    direction of travel">
+                    <annotation ref="circle"
+                                text="The circle of radius R centred at O, drawn dashed"/>
+                    <annotation ref="path"
+                                text="The path C, the upper half of the circle, traversed
+                                      clockwise from A over the top to B"
+                                sonify="yes"/>
+                    <annotation ref="center"
+                                text="The centre O of the circle and a radius of length
+                                      R"/>
+                    <annotation ref="endpoints"
+                                text="The starting point A at the left end of the
+                                      horizontal diameter and the end point B at the
+                                      right end"/>
+                    <annotation ref="vectors"
+                                text="At a point on the upper left of the path, the unit
+                                      tangent vector T pointing up and to the right in
+                                      the direction of travel, and the force F, which
+                                      leans thirty degrees away from T toward the outside
+                                      of the circle"/>
+                  </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </figure>
+        <sidebyside width="97%">
+          <image>
+            <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
+\end{tikzpicture}
+            </latex-image>
+            <shortdescription>Blank workspace for the work done by the force along the half circle.</shortdescription>
+          </image>
+        </sidebyside>
+      </statement>
+    </exercise>
+
+    <!-- ............................................................... -->
+    <exercise xml:id="q-work-pendulum">
+      <title>Pulling a pendulum aside</title>
+      <introduction>
+        <p>
+          A simple pendulum consists of a small bob of mass <m>m</m>
+          hanging from a cord of length <m>\ell</m> whose mass is
+          negligible. A horizontal force
+          <m>\mathbf{F}=F\,\mathbf{i}</m> moves the bob so slowly that its
+          acceleration is essentially zero; its magnitude
+          <m>F=\left\lVert\mathbf{F}\right\rVert</m> must therefore change
+          with the angle <m>\theta</m> that the cord makes with the
+          vertical. Two other forces act on the bob: gravity,
+          <m>\mathbf{F}_{\mathrm{G}}=m\mathbf{g}</m>, and the force
+          <m>\mathbf{F}_{\mathrm{T}}</m> that the cord exerts on it. See
+          <xref ref="fig-pendulum-forces"/>.
+        </p>
+
+        <figure xml:id="fig-pendulum-forces">
+          <caption>
+            The bob moves along the arc <m>C</m> from its lowest point
+            <m>A</m> to the point <m>B</m> where the cord makes the angle
+            <m>\theta_0</m> with the vertical. Three forces act on it: the
+            horizontal pull <m>\mathbf{F}</m>, gravity
+            <m>\mathbf{F}_{\mathrm{G}}</m>, and the force
+            <m>\mathbf{F}_{\mathrm{T}}</m> of the cord.
+          </caption>
+          <image xml:id="image-pendulum-forces" width="55%">
+            <shortdescription>
+              A pendulum hanging from the ceiling, pulled aside along an arc,
+              with the three forces on the bob.
+            </shortdescription>
+            <description>
+              <p>
+                A cord of length ell hangs from a pivot on the ceiling and
+                makes the angle theta with a dashed vertical line through the
+                pivot. An x axis points right and a short y axis points up
+                from the lowest position A of the bob, directly below the
+                pivot. A dashed arc of the circle of radius ell about the
+                pivot passes through A; the part of it from A up and to the
+                right to a point B is drawn thick and labelled C, with an
+                arrowhead showing that the bob moves from A toward B. The bob
+                sits on C between A and B. Three red arrows start at the bob:
+                F pointing horizontally to the right, F G pointing straight
+                down, and F T pointing along the cord toward the pivot.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="pendulum-forces">
+              <diagram dimensions="(420,400)" margins="5">
+                <definition>L = 4</definition>
+                <definition>pivot = (0, L)</definition>
+                <definition>bob(t) = (L*sin(t), L - L*cos(t))</definition>
+                <definition>th = pi/6</definition>
+                <definition>th0 = 5*pi/18</definition>
+                <definition>P = bob(th)</definition>
+                <coordinates bbox="(-1.5,-1.25,4.6,4.55)" aspect-ratio="1">
+                  <group at="support">
+                    <rectangle lower-left="(-1.2,L)" dimensions="(4.6,0.35)"
+                               stroke="none" fill="#e6d3c3"/>
+                    <line endpoints="((-1.2,L), (3.4,L))" stroke="black" thickness="2"/>
+                    <line endpoints="(pivot, (0,1.1))" stroke="gray" thickness="1"
+                          dash="5 4"/>
+                    <point p="pivot" size="3.5" stroke="black" fill="black"/>
+                  </group>
+
+                  <group at="axes">
+                    <line endpoints="((-1.2,0), (4.3,0))" stroke="gray" thickness="2"
+                          arrows="1"/>
+                    <line endpoints="((0,-0.5), (0,1.1))" stroke="gray" thickness="2"
+                          arrows="1"/>
+                    <label anchor="(4.3,0)" alignment="se" offset="(0,-2)">
+                      <m>x</m>
+                    </label>
+                    <label anchor="(0,1.1)" alignment="w" offset="(-4,0)">
+                      <m>y</m>
+                    </label>
+                  </group>
+
+                  <group at="swing">
+                    <arc center="pivot" radius="L" range="(-108,-30)" stroke="gray"
+                         thickness="1" dash="5 4"/>
+                  </group>
+
+                  <group at="path">
+                    <parametric-curve function="bob" domain="(0,th0)" stroke="black"
+                                      thickness="3" arrows="1" arrow-location="0.3"/>
+                    <label anchor="bob(0.22)" alignment="nw" offset="(-2,4)">
+                      <m>C</m>
+                    </label>
+                    <point p="(0,0)" size="4" stroke="black" fill="black"/>
+                    <label anchor="(0,0)" alignment="sw" offset="(-3,-3)">
+                      <m>A</m>
+                    </label>
+                    <point p="bob(th0)" size="4" stroke="black" fill="black"/>
+                    <label anchor="bob(th0)" alignment="e" offset="(6,0)">
+                      <m>B</m>
+                    </label>
+                  </group>
+
+                  <group at="cord">
+                    <line endpoints="(pivot, P)" stroke="#7f6a55" thickness="3"/>
+                    <label anchor="(pivot+P)/2" alignment="ne" offset="(4,2)">
+                      <m>\ell</m>
+                    </label>
+                    <arc center="pivot" radius="0.9" range="(-90,-60)" stroke="black"
+                         thickness="1"/>
+                    <label anchor="pivot+1.2*(sin(th/2), -cos(th/2))" alignment="c">
+                      <m>\theta</m>
+                    </label>
+                  </group>
+
+                  <group at="forces">
+                    <vector v="(1.4*tan(th), 0)" tail="P" stroke="red" thickness="3"/>
+                    <label anchor="P+(1.4*tan(th), 0)" alignment="e" offset="(4,0)"
+                           color="red">
+                      <m>\mathbf{F}</m>
+                    </label>
+                    <vector v="(0, -1.4)" tail="P" stroke="red" thickness="3"/>
+                    <label anchor="P+(0,-1.4)" alignment="s" offset="(0,-4)" color="red">
+                      <m>\mathbf{F}_{\mathrm{G}}</m>
+                    </label>
+                    <vector v="(1.4/cos(th))*(-sin(th), cos(th))" tail="P" stroke="red"
+                            thickness="3"/>
+                    <label anchor="P+(1.4/cos(th))*(-sin(th), cos(th))" alignment="w"
+                           offset="(-4,0)" color="red">
+                      <m>\mathbf{F}_{\mathrm{T}}</m>
+                    </label>
+                  </group>
+
+                  <group at="bob">
+                    <point p="P" size="6" stroke="black" fill="#e69f00"/>
+                  </group>
+                </coordinates>
+
+                <annotations>
+                  <annotation ref="figure"
+                              text="A pendulum bob of mass m on a cord of length ell,
+                                    pulled aside by a horizontal force. The bob moves
+                                    along a circular arc from its lowest point A to the
+                                    point B where the cord makes the angle theta zero
+                                    with the vertical">
+                    <annotation ref="support"
+                                text="The ceiling, with the pivot of the cord and a dashed
+                                      vertical line hanging from it"/>
+                    <annotation ref="axes"
+                                text="The x axis pointing right and the y axis pointing
+                                      up, with the origin at the lowest position A of the
+                                      bob"/>
+                    <annotation ref="swing"
+                                text="A dashed arc of the circle of radius ell about the
+                                      pivot, on which the bob must stay"/>
+                    <annotation ref="path"
+                                text="The path C, the part of that arc from A, where theta
+                                      is zero, up to B, where theta is theta zero, with an
+                                      arrowhead showing the direction of motion"
+                                sonify="yes"/>
+                    <annotation ref="cord"
+                                text="The cord of length ell from the pivot to the bob,
+                                      making the angle theta with the vertical"/>
+                    <annotation ref="forces"
+                                text="The three forces on the bob: the horizontal force F
+                                      pointing right, the gravitational force F G pointing
+                                      straight down, and the force F T of the cord,
+                                      pointing along the cord toward the pivot"/>
+                    <annotation ref="bob" text="The bob, partway along the path"/>
+                  </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </figure>
+      </introduction>
+
+      <task xml:id="task-pendulum-force">
+        <statement>
+          <p>
+            Calculate the work done by <m>\mathbf{F}</m> in moving the
+            pendulum from <m>\theta=0</m> to <m>\theta=\theta_0</m>.
+          </p>
+          <sidebyside width="97%">
+            <image>
+              <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
+\end{tikzpicture}
+              </latex-image>
+              <shortdescription>Blank workspace for the work done by the horizontal force on the pendulum.</shortdescription>
+            </image>
+          </sidebyside>
+        </statement>
+      </task>
+
+      <task xml:id="task-pendulum-gravity-cord">
+        <statement>
+          <p>
+            Calculate the work done by the gravitational force
+            <m>\mathbf{F}_{\mathrm{G}}</m> and the work done by the force
+            <m>\mathbf{F}_{\mathrm{T}}</m> of the cord over the same motion.
+          </p>
+          <sidebyside width="97%">
+            <image>
+              <latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,11);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,10.75) {workspace};
+\end{tikzpicture}
+              </latex-image>
+              <shortdescription>Blank workspace for the work done by gravity and by the cord.</shortdescription>
+            </image>
+          </sidebyside>
+        </statement>
+      </task>
     </exercise>
   </subsection>
 
