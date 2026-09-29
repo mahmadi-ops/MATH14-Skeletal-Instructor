@@ -272,7 +272,7 @@
           </condition>
         </var>
       <var>
-        <condition number="0.615" tolerance="0.005">
+        <condition number="0.435" tolerance="0.005">
           <feedback>
           <p>Correct.</p>
         </feedback>
@@ -304,7 +304,7 @@
         <m>y</m>-axis gives the same. On each of the other two sides
         <m>f = 1/(t^2+2)</m>, giving
         <m>\frac{1}{\sqrt2}\tan^{-1}\left(\frac{1}{\sqrt2}\right)
-        \approx 0.615</m>. Adding,
+        \approx 0.435</m>. Adding,
       </p>
       <md>
         <mrow>
