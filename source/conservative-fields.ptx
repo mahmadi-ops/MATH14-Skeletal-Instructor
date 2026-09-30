@@ -9,10 +9,12 @@
 <!-- the gradient of the paraboloid, the four worked examples, and the     -->
 <!-- three Concept Check solutions are replaced by blank workspace boxes.  -->
 <!-- Each box carried a one-line instruction and row labels naming the     -->
-<!-- steps; the instructor had those hints removed from the four examples  -->
-<!-- and the three proofs (Sep 2026), which now show only the task         -->
-<!-- statement and a plain workspace.  The gradient box and the Concept    -->
-<!-- Checks keep theirs.  File name and xml:ids are unchanged.             -->
+<!-- steps; the instructor had those hints removed from the four examples, -->
+<!-- the three proofs and the three Concept Checks (Sep 2026), which now   -->
+<!-- show only the task statement and a plain workspace; only the gradient -->
+<!-- box of the opening reminder keeps its label.  The Concept Check       -->
+<!-- applets no longer say how the work adds up or that the two paths      -->
+<!-- share their endpoints.  File name and xml:ids are unchanged.          -->
 <!--                                                                       -->
 <!-- Figures: every diagram that illustrates a definition or a theorem     -->
 <!-- (the gradient field, simply connected regions, the region D with its  -->
@@ -1132,32 +1134,16 @@ answer to the previous part. Justify your answer fully.
 </p>
 </li>
 </ol>
-<p>
-(Read the parametrization and the field off
-<xref ref="fig-vf-helix-work"/>, and find the parameter values of
-<m>A</m> and <m>B</m>. For part 1, write <m>\mathbf F(\mathbf r(t))</m>
-and <m>\mathbf v(t)</m>, dot them, and integrate. For part 2, decide
-whether <m>\mathbf F</m> is conservative <mdash/> where is it defined,
-and can you find a potential function? <mdash/> and if so evaluate
-<m>f(B) - f(A)</m>. Then explain, from the picture, why the two answers
-agree.)
-</p>
-
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,12.5) -- (15,12.5);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {$A = \mathbf r(\;\;)$, $B = \mathbf r(\;\;)$};
-\node[anchor=north west, font=\small\itshape] at (0.35,12.2) {1. $\mathbf F(\mathbf r(t)) =$ \quad $\mathbf v(t) =$ \quad $\mathbf F\cdot\mathbf v =$ \quad $W =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {2. is $\mathbf F$ conservative? \quad potential $f =$ \quad $W = f(B) - f(A) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {why the two agree, from the picture:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the parameter values of the endpoints, for the direct computation of the work, for the fundamental-theorem computation with its justification, and for the geometric explanation.</shortdescription>
+<shortdescription>Blank workspace for the two parts of the question.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1180,9 +1166,7 @@ A point climbing the helix
 Drag the slider <m>t</m> to move the point from <m>A</m> to <m>B</m> along
 the helix. At each position the applet draws the force
 <m>\mathbf{F}=\left\langle -x,y,0\right\rangle</m> acting there and the
-velocity <m>\mathbf{v}=d\mathbf{r}/dt</m>. Watch the angle between them: it
-is acute on some stretches and obtuse on others, so the work is being added
-on some parts of the trip and taken back on others.
+velocity <m>\mathbf{v}=d\mathbf{r}/dt</m>.
 </p>
 </instructions>
 </interactive>
@@ -1195,26 +1179,16 @@ on some parts of the trip and taken back on others.
 Compute the line integral of the vector field along the line segment shown
 in <xref ref="fig-vf-segment"/>.
 </p>
-<p>
-(Read the field and the endpoints off <xref ref="fig-vf-segment"/>.
-Before parametrizing anything, test whether the field is conservative,
-and look for a potential function by inspection. If you find one, the
-segment never needs to be parametrized.)
-</p>
-
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {is $\mathbf F$ conservative?};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {potential: $f(x,y,z) =$ \qquad check $\nabla f =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\displaystyle\int_C \mathbf F\cdot d\mathbf r = f(B) - f(A) =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for testing whether the field is conservative, for a potential function and its check, and for the line integral from the endpoint values.</shortdescription>
+<shortdescription>Blank workspace for the line integral along the segment.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1260,24 +1234,16 @@ parametrized as
 \mathbf{r}(t)=\left\langle \frac{\ln(t)}{\ln(2)},\ t^{3/2},\
 t\cos(\pi t)\right\rangle .
 </md>
-<p>
-(First check the endpoints: evaluate <m>\mathbf r(1)</m> and
-<m>\mathbf r(2)</m> and compare with <xref ref="fig-vf-segment"/>. Then
-decide whether you need to differentiate <m>t\cos(\pi t)</m> at all, and
-say why. Compare your answer with <xref ref="q-vf-segment"/>.)
-</p>
-
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\draw[gray!35] (0,4.5) -- (15,4.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\mathbf r(1) =$ \qquad $\mathbf r(2) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.2) {$\displaystyle\int_C \mathbf F\cdot d\mathbf r =$ \qquad because};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, for the two endpoints of the curve and for the value of the line integral with its justification.</shortdescription>
+<shortdescription>Blank workspace for the line integral along the curve.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1285,11 +1251,11 @@ say why. Compare your answer with <xref ref="q-vf-segment"/>.)
 
 <figure xml:id="fig-vf-curve">
 <caption>
-The same field <m>\mathbf{F}=\tfrac13\left\langle z,\ z,\ x+y\right\rangle</m>
-and the same endpoints as in <xref ref="fig-vf-segment"/>, but now joined by
-the curve
+The curve
 <m>\mathbf{r}(t)=\left\langle \frac{\ln t}{\ln 2},\ t^{3/2},\
-t\cos(\pi t)\right\rangle</m>.
+t\cos(\pi t)\right\rangle</m> from <m>A=(0,1,-1)</m> to
+<m>B=(1,2\sqrt2,2)</m> in the field
+<m>\mathbf{F}=\tfrac13\left\langle z,\ z,\ x+y\right\rangle</m>.
 </caption>
 <!-- as above: a local copy sized 459 + 141 by 500 -->
 <interactive platform="geogebra" width="100%" aspect="600:500">
@@ -1299,9 +1265,7 @@ t\cos(\pi t)\right\rangle</m>.
 <p>
 Drag the slider to move the point along the curve from <m>A</m> to
 <m>B</m>, watching <m>\mathbf{F}</m> and the unit tangent
-<m>\hat{\mathbf{T}}</m> as before. Compare the shape of this path with the
-segment of <xref ref="fig-vf-segment"/>: the two share their endpoints and
-nothing else.
+<m>\hat{\mathbf{T}}</m> as before.
 </p>
 </instructions>
 </interactive>
