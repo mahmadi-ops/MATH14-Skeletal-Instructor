@@ -76,7 +76,8 @@
       <caption>
         The vector field <m>\mathbf{F}(x,y)=\left\langle x,\ y\right\rangle</m>.
         Every arrow points directly away from the origin, and the arrows get
-        longer as the distance from the origin grows.
+        longer as the distance from the origin grows. The arrows are drawn at
+        0.22 times their true length, so that they fit in the picture.
       </caption>
       <image xml:id="image-radial-field" width="60%">
         <shortdescription>
@@ -168,7 +169,8 @@
         The normalized field
         <m>\mathbf{F}(x,y)=\dfrac{\left\langle x,\ y\right\rangle}{\sqrt{x^2+y^2}}</m>:
         same directions as <xref ref="fig-radial-field"/>, but every arrow
-        has length one.
+        has length one. The arrows are drawn with length 0.55 rather than 1,
+        so that neighboring arrows do not overlap.
       </caption>
       <image xml:id="image-unit-radial-field" width="60%">
         <shortdescription>
