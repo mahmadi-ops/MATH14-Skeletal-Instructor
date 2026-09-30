@@ -7,9 +7,12 @@
 <!-- completed MATH 14 notes.  The definitions, the three theorem          -->
 <!-- statements, and the equivalence square are kept; the three proofs,    -->
 <!-- the gradient of the paraboloid, the four worked examples, and the     -->
-<!-- three Concept Check solutions are replaced by blank workspace boxes,  -->
-<!-- each preceded by a one-line instruction.  File name and xml:ids are   -->
-<!-- unchanged.                                                            -->
+<!-- three Concept Check solutions are replaced by blank workspace boxes.  -->
+<!-- Each box carried a one-line instruction and row labels naming the     -->
+<!-- steps; the instructor had those hints removed from the four examples  -->
+<!-- and the three proofs (Sep 2026), which now show only the task         -->
+<!-- statement and a plain workspace.  The gradient box and the Concept    -->
+<!-- Checks keep theirs.  File name and xml:ids are unchanged.             -->
 <!--                                                                       -->
 <!-- Figures: every diagram that illustrates a definition or a theorem     -->
 <!-- (the gradient field, simply connected regions, the region D with its  -->
@@ -356,30 +359,16 @@ continuous gradient vector <m>\mathbf F = \nabla f</m> on a domain
 </men>
 </statement>
 <proof>
-<p>
-(Parametrize <m>C</m> by
-<m>\mathbf r(t) = x(t)\mathbf i + y(t)\mathbf j + z(t)\mathbf k</m>,
-<m>a \le t \le b</m>, and write the line integral in the parametrized
-form <xref ref="eq-work-parametrized"/> with
-<m>\mathbf F = \nabla f</m>. Expand the dot product of the gradient
-with <m>d\mathbf r/dt</m>; the chain rule turns the integrand into a
-single derivative with respect to <m>t</m>, and the Fundamental Theorem
-of Calculus finishes the job.)
-</p>
-
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,8.5) -- (15,8.5);
-\draw[gray!35] (0,5) -- (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {$\displaystyle\int_C \mathbf F\cdot d\mathbf r = \int_a^b \nabla f \cdot \frac{d\mathbf r}{dt}\,dt =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.2) {the integrand is, by the chain rule,};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {so the integral equals};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for expanding the dot product of the gradient with the velocity, for recognizing the integrand as a derivative with respect to t by the chain rule, and for evaluating the integral.</shortdescription>
+<shortdescription>Blank workspace for the proof of the fundamental theorem of line integrals.</shortdescription>
 </image>
 </sidebyside>
 </proof>
@@ -543,14 +532,6 @@ connecting the two points?
 </p>
 <p>
 <em>Solution.</em>
-(In <alert>A</alert>, write <m>f = \left(x^2+y^2+z^2\right)^{-1/2}</m>
-and take the three partial derivatives; you should recognize the field.
-In <alert>B</alert>, one way would be to parametrize, exactly as in
-<xref ref="ex-helix-gravity"/>; instead use <xref ref="thm-ftli"/>,
-which needs only the values of <m>f</m> at the two endpoints. In
-<alert>C</alert>, say what <xref ref="thm-ftli"/> tells you about
-<m>C_2</m> without computing anything, and why. The two curves are shown
-in <xref ref="fig-helix-segment-tikz"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -558,14 +539,11 @@ in <xref ref="fig-helix-segment-tikz"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
-\draw[gray!35] (0,8.5) -- (15,8.5);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {A. $\mathbf F = \nabla f =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.2) {B. $\displaystyle\int_{C_1} \mathbf F\cdot d\mathbf r = f(1,0,2\pi) - f(1,0,0) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {C. $\displaystyle\int_{C_2} \mathbf F\cdot d\mathbf r =$ \quad because};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,13.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three labelled rows, for the gradient field, for the line integral along the helix by the fundamental theorem, and for the line integral along the segment with its justification.</shortdescription>
+<shortdescription>Blank workspace for the three parts of Example I.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -679,15 +657,6 @@ Use the solution of part (A) to calculate the line integral of
 </p>
 <p>
 <em>Solution.</em>
-(In <alert>A</alert>, match the two components of <m>\mathbf F</m> with
-<m>\partial f/\partial x</m> and <m>\partial f/\partial y</m>, one at a
-time. Step I: integrate the first with respect to <m>x</m>, remembering
-that the <q>constant</q> of integration may depend on <m>y</m>. Step II:
-differentiate what you have with respect to <m>y</m>, compare with the
-second component, and solve for that function of <m>y</m>. In
-<alert>B</alert>, say why <xref ref="thm-ftli"/> applies to
-<em>any</em> curve from <m>(0,0)</m> to <m>(1,2)</m>, then evaluate. What
-happens to the arbitrary constant?)
 </p>
 
 <sidebyside width="97%">
@@ -695,16 +664,11 @@ happens to the arbitrary constant?)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,11) -- (15,11);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {Step I: $\dfrac{\partial f}{\partial x} = 2xy+3$, so $f(x,y) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {Step II: $\dfrac{\partial f}{\partial y} = x^2 - 4y$, so};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {A. $f(x,y) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {B. $\displaystyle\int_C \mathbf F\cdot d\mathbf r = f(1,2) - f(0,0) =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for integrating the first component with respect to x, for matching the second component to determine the function of y, for the potential function, and for the line integral by the fundamental theorem.</shortdescription>
+<shortdescription>Blank workspace for the two parts of Example II.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -735,14 +699,6 @@ Use the solution of part (A) to calculate the line integral from
 </p>
 <p>
 <em>Solution.</em>
-(In <alert>A</alert>, match the three components one at a time. Step I:
-integrate the first with respect to <m>x</m>; the constant of
-integration may now depend on <m>y</m> and <m>z</m>. Step II:
-differentiate with respect to <m>y</m> and compare with the second
-component; what does that say about the dependence on <m>y</m>? Step
-III: differentiate with respect to <m>z</m>, compare with the third
-component, and solve. In <alert>B</alert>, apply
-<xref ref="thm-ftli"/> with <m>A(1,0,-2)</m> and <m>B(4,6,3)</m>.)
 </p>
 
 <sidebyside width="97%">
@@ -750,18 +706,11 @@ component, and solve. In <alert>B</alert>, apply
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,17);
-\draw[gray!35] (0,13.5) -- (15,13.5);
-\draw[gray!35] (0,10) -- (15,10);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,16.7) {Step I: $\dfrac{\partial f}{\partial x} = yz$, so $f(x,y,z) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,13.2) {Step II: $\dfrac{\partial f}{\partial y} = xz$, so};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {Step III: $\dfrac{\partial f}{\partial z} = xy + 2z$, so};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {A. $f(x,y,z) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {B. $\displaystyle\int_C \mathbf F\cdot d\mathbf r = f(4,6,3) - f(1,0,-2) =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,16.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in five rows, for the three steps that match the components of the field to the partial derivatives of f, for the resulting potential function, and for the line integral by the fundamental theorem.</shortdescription>
+<shortdescription>Blank workspace for the two parts of Example III.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -791,16 +740,6 @@ Do it again with <xref ref="thm-ftli"/>.
 </p>
 <p>
 <em>Solution.</em>
-(First say why looking for a potential function is legitimate here:
-where is the field defined, and does the helix avoid that point? Rather
-than run the three steps of <xref ref="example-potential-function"/>,
-notice that <m>\mathbf F</m> depends only on the distance
-<m>\rho = \lVert\mathbf r\rVert = \sqrt{x^2+y^2+z^2}</m>, and that
-<m>\partial\rho/\partial x = x/\rho</m>, and likewise for <m>y</m> and
-<m>z</m>. Guess <m>f = 1/\rho</m> and check <m>\nabla f</m> with the
-chain rule. Then the work needs nothing but <m>\rho</m> at the two
-endpoints. Compare with <xref ref="ex-helix-gravity"/>, and say what
-this calculation never used.)
 </p>
 
 <sidebyside width="97%">
@@ -808,16 +747,11 @@ this calculation never used.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
-\draw[gray!35] (0,11) -- (15,11);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {why a potential function may exist:};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {for $f = 1/\rho$: \quad $\nabla f =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$\rho$ at $A$ and at $B$; \quad $\displaystyle\int_C \mathbf F\cdot d\mathbf r = f(B) - f(A) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {what was never used, and what that means for other paths:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,13.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the justification that a potential exists, for the gradient of one over rho, for the work from the endpoint values, and for the remark about path independence.</shortdescription>
+<shortdescription>Blank workspace for computing the work of Example IV with the fundamental theorem.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -842,40 +776,16 @@ differentiable function <m>f</m>.
 </p>
 </statement>
 <proof>
-<p>
-(<alert>Gradient implies conservative</alert>: assume
-<m>\mathbf F = \nabla f</m> and apply <xref ref="thm-ftli"/> to any
-piecewise smooth curve from <m>A</m> to <m>B</m>; what does the answer
-depend on? <alert>Conservative implies gradient</alert>: fix a point
-<m>A_0</m> of <m>D</m> and <em>define</em> <m>f(x,y,z)</m> as the line
-integral of <m>\mathbf F</m> from <m>A_0</m> to <m>(x,y,z)</m> along any
-curve in <m>D</m>; say why connectedness and path independence make this
-definition meaningful. To show <m>\partial f/\partial x = M</m>, compare
-<m>f(x+h,y,z)</m> with <m>f(x,y,z)</m> by travelling along the straight
-segment <m>L_h</m> from <m>(x,y,z)</m> to <m>(x+h,y,z)</m>, which lies
-in <m>D</m> because <m>D</m> is open; parametrize <m>L_h</m>, so that
-the difference quotient becomes an average of <m>M</m> over the segment,
-and let <m>h \to 0</m> using the continuity of <m>M</m>. The other two
-partials are the same argument.)
-</p>
-
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,18);
-\draw[gray!35] (0,14.5) -- (15,14.5);
-\draw[gray!35] (0,11) -- (15,11);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,17.7) {gradient $\Rightarrow$ conservative:};
-\node[anchor=north west, font=\small\itshape] at (0.35,14.2) {conservative $\Rightarrow$ gradient: define $f(x,y,z) =$ \quad (why this makes sense)};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {$f(x+h,y,z) - f(x,y,z) = \displaystyle\int_{L_h} \mathbf F\cdot d\mathbf r =$ \quad (parametrize $L_h$)};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$\dfrac{f(x+h,y,z) - f(x,y,z)}{h} =$ \qquad $\xrightarrow{\,h\to 0\,}$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {the other two partials, and why $f$ is differentiable:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,17.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in five rows, for the easy direction of the proof, for the definition of the potential function as a line integral, for the difference of its values along a short segment, for the difference quotient and its limit, and for the remaining partial derivatives.</shortdescription>
+<shortdescription>Blank workspace for the proof that conservative fields are gradient fields.</shortdescription>
 </image>
 </sidebyside>
 </proof>
@@ -983,30 +893,16 @@ The field <m>\mathbf F</m> is conservative on <m>D</m>.
 </p>
 </statement>
 <proof>
-<p>
-(<alert>(2) implies (1)</alert>: split any loop as
-<m>C = C_1 \cup C_2</m>, with <m>C_1</m> from <m>A</m> to <m>B</m> and
-<m>C_2</m> from <m>B</m> back to <m>A</m>, as in
-<xref ref="fig-loop-split-prefigure"/>. Reversing <m>C_2</m> gives a
-second path <m>-C_2</m> from <m>A</m> to <m>B</m>; what does path
-independence say about <m>\int_{C_1}</m> and <m>\int_{-C_2}</m>, and
-how is <m>\int_{-C_2}</m> related to <m>\int_{C_2}</m>? Add up.
-<alert>(1) implies (2)</alert>: take any two paths <m>C_1</m>,
-<m>C_2</m> from <m>A</m> to <m>B</m>, build a loop out of them, and
-apply the assumption to it.)
-</p>
-
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,6) -- (15,6);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {(2) $\Rightarrow$ (1): \quad $\displaystyle\oint_C \mathbf F\cdot d\mathbf r = \int_{C_1} \mathbf F\cdot d\mathbf r + \int_{C_2} \mathbf F\cdot d\mathbf r =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {(1) $\Rightarrow$ (2): \quad the loop $C = C_1 \cup (-C_2)$ gives \quad $0 =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for each direction of the proof of the loop property.</shortdescription>
+<shortdescription>Blank workspace for the proof of the loop property.</shortdescription>
 </image>
 </sidebyside>
 </proof>
