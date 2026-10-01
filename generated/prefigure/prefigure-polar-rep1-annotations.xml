@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-polar-rep1-figure" speech2="The polar axis with a spiral arc winding counterclockwise through more than a full turn, ending at the ray in the third quadrant where the point one comma thirteen pi over four is marked at distance one from the origin.">
+      <grouped>prefigure-polar-rep1-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-polar-rep1-rp1-arc</active>
+        <active>prefigure-polar-rep1-rp1-P</active>
+      </children>
+      <components>
+        <active>prefigure-polar-rep1-rp1-arc</active>
+        <active>prefigure-polar-rep1-rp1-P</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-polar-rep1-rp1-arc" speech2="The angle thirteen pi over four, which winds around more than one full turn before reaching the third quadrant ray.">
+      <active>prefigure-polar-rep1-rp1-arc</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-polar-rep1-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-rep1-rp1-P" speech2="The point at distance one along the final ray.">
+      <active>prefigure-polar-rep1-rp1-P</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-polar-rep1-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="pendulum-forces-figure" width="430" height="410" viewBox="0 0 430 410">
+  <defs>
+    <clipPath id="pendulum-forces-clipPath-0">
+      <rect x="5.0" y="5.0" width="420.0" height="400.0"/>
+    </clipPath>
+    <clipPath id="pendulum-forces-clipPath-1">
+      <rect x="5.0" y="5.0" width="420.0" height="400.0"/>
+    </clipPath>
+    <marker id="pendulum-forces-arrow-head-end-2_None_24_60-h777" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#777" stroke="none"/>
+    </marker>
+    <marker id="pendulum-forces-arrow-head-end-2_None_24_60-h777-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="pendulum-forces-arrow-head-end-3_None_24_60-black" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="pendulum-forces-arrow-head-end-3_None_24_60-black-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="pendulum-forces-arrow-head-end-3_None_24_60-red" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="red" stroke="none"/>
+    </marker>
+    <marker id="pendulum-forces-arrow-head-end-3_None_24_60-red-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="pendulum-forces-support">
+    <path id="pendulum-forces-path-0" d="M 25.7 43.5 L 342.4 43.5 L 342.4 19.4 L 25.7 19.4 Z" stroke="none" stroke-width="2" fill="#e6d3c3"/>
+    <line id="pendulum-forces-line-0" x1="25.7" y1="43.5" x2="342.4" y2="43.5" stroke="black" stroke-width="2" fill="none"/>
+    <line id="pendulum-forces-line-1" x1="108.3" y1="43.5" x2="108.3" y2="243.2" stroke="#777" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+    <circle id="pendulum-forces-circle-0" cx="108.3" cy="43.5" r="3.5" stroke="black" stroke-width="2" fill="black"/>
+  </g>
+  <g id="pendulum-forces-axes">
+    <line id="pendulum-forces-line-2" x1="25.7" y1="318.9" x2="404.3" y2="318.9" stroke="#777" stroke-width="2" fill="none" marker-end="url(#pendulum-forces-arrow-head-end-2_None_24_60-h777)"/>
+    <line id="pendulum-forces-line-3" x1="108.3" y1="353.4" x2="108.3" y2="243.2" stroke="#777" stroke-width="2" fill="none" marker-end="url(#pendulum-forces-arrow-head-end-2_None_24_60-h777)"/>
+    <g id="pendulum-forces-label-0" transform="translate(408.3,324.9) translate(0.0,-0.0)">
+      <g id="pendulum-forces-g-0">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+                <use data-c="1D465" xlink:href="#pendulum-forces-MJX-2-TEX-I-1D465"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <g id="pendulum-forces-label-1" transform="translate(100.3,243.2) translate(-8.9,-5.9)">
+      <g id="pendulum-forces-g-1">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+                <use data-c="1D466" xlink:href="#pendulum-forces-MJX-3-TEX-I-1D466"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="pendulum-forces-swing">
+    <path id="pendulum-forces-path-1" d="M 23.2 305.5 L 26.7 306.6 L 30.3 307.7 L 33.9 308.7 L 37.6 309.7 L 41.2 310.6 L 44.8 311.5 L 48.5 312.4 L 52.1 313.2 L 55.8 313.9 L 59.5 314.6 L 63.2 315.2 L 66.9 315.8 L 70.6 316.3 L 74.3 316.8 L 78.1 317.3 L 81.8 317.7 L 85.5 318.0 L 89.3 318.3 L 93.0 318.5 L 96.7 318.7 L 100.5 318.8 L 104.2 318.9 L 108.0 318.9 L 111.7 318.9 L 115.5 318.8 L 119.2 318.7 L 123.0 318.5 L 126.7 318.3 L 130.5 318.0 L 134.2 317.7 L 137.9 317.3 L 141.7 316.9 L 145.4 316.4 L 149.1 315.9 L 152.8 315.3 L 156.5 314.7 L 160.2 314.0 L 163.8 313.3 L 167.5 312.5 L 171.2 311.7 L 174.8 310.8 L 178.4 309.8 L 182.1 308.9 L 185.7 307.8 L 189.3 306.8 L 192.8 305.6 L 196.4 304.5 L 199.9 303.2 L 203.5 302.0 L 207.0 300.6 L 210.5 299.3 L 213.9 297.9 L 217.4 296.4 L 220.8 294.9 L 224.2 293.3 L 227.6 291.7 L 231.0 290.1 L 234.3 288.4 L 237.7 286.7 L 241.0 284.9 L 244.2 283.0 L 247.5 281.2 L 250.7 279.2 L 253.9 277.3 L 257.1 275.3 L 260.2 273.2 L 263.3 271.1 L 266.4 269.0 L 269.5 266.8 L 272.5 264.6 L 275.5 262.4 L 278.4 260.1 L 281.4 257.7 L 284.3 255.4 L 287.1 252.9 L 290.0 250.5 L 292.8 248.0 L 295.5 245.5 L 298.3 242.9 L 301.0 240.3 L 303.6 237.7 L 306.3 235.0 L 308.8 232.3 L 311.4 229.5 L 313.9 226.7 L 316.4 223.9 L 318.8 221.1 L 321.2 218.2 L 323.6 215.3 L 325.9 212.3 L 328.2 209.3 L 330.4 206.3 L 332.6 203.3 L 334.8 200.2 L 336.9 197.1 L 338.9 194.0 L 341.0 190.9 L 343.0 187.7 L 344.9 184.5" stroke="#777" stroke-width="1" stroke-dasharray="5 4" fill="none"/>
+  </g>
+  <g id="pendulum-forces-path">
+    <path id="pendulum-forces-path-2" d="M 108.3 318.9 L 110.7 318.9 L 113.1 318.9 L 115.5 318.8 L 117.9 318.8 L 120.3 318.7 L 122.7 318.6 L 125.1 318.4 L 127.5 318.3 L 129.9 318.1 L 132.3 317.9 L 134.7 317.7 L 137.1 317.4 L 139.5 317.2 L 141.8 316.9 L 144.2 316.6 L 146.6 316.3 L 149.0 315.9 L 151.4 315.5 L 153.7 315.2 L 156.1 314.8 L 158.5 314.3 L 160.8 313.9 L 163.2 313.4 L 165.5 312.9 L 167.9 312.4 L 170.2 311.9 L 172.6 311.3 L 174.9 310.8 L 177.2 310.2 L 179.6 309.6 L 181.9 308.9 L 184.2 308.3 L 186.5 307.6 L 188.8 306.9 L 191.1 306.2 L 193.4 305.5 L 195.7 304.7 L 197.9 303.9 L 200.2 303.1 L 202.5 302.3 L 204.7 301.5 L 207.0 300.6 L 209.2 299.8 L 211.4 298.9 L 213.7 298.0 L 215.9 297.0 L 218.1 296.1 L 220.3 295.1 L 222.5 294.1 L 224.7 293.1 L 226.8 292.1 L 229.0 291.1 L 231.2 290.0 L 233.3 288.9 L 235.4 287.8 L 237.6 286.7 L 239.7 285.6 L 241.8 284.4 L 243.9 283.2 L 246.0 282.0 L 248.1 280.8 L 250.1 279.6 L 252.2 278.4 L 254.2 277.1 L 256.3 275.8 L 258.3 274.5 L 260.3 273.2 L 262.3 271.8 L 264.3 270.5 L 266.2 269.1 L 268.2 267.7 L 270.2 266.3 L 272.1 264.9 L 274.0 263.5 L 275.9 262.0 L 277.8 260.6 L 279.7 259.1 L 281.6 257.6 L 283.5 256.0 L 285.3 254.5 L 287.1 252.9 L 289.0 251.4 L 290.8 249.8 L 292.6 248.2 L 294.3 246.6 L 296.1 244.9 L 297.9 243.3 L 299.6 241.6 L 301.3 240.0 L 303.0 238.3 L 304.7 236.6 L 306.4 234.8 L 308.1 233.1 L 309.7 231.4 L 311.3 229.6 L 312.9 227.8 L 314.5 226.0 L 316.1 224.2 L 317.7 222.4 L 319.3 220.6 M 178.1 309.9 L 180.4 309.3 L 182.8 308.7 L 185.1 308.0 L 187.4 307.3 L 189.7 306.6" stroke="black" stroke-width="3" fill="none" clip-path="url(#pendulum-forces-clipPath-1)" marker-end="url(#pendulum-forces-arrow-head-end-3_None_24_60-black)"/>
+    <g id="pendulum-forces-label-2" transform="translate(162.4,304.3) translate(-13.8,-13.2)">
+      <g id="pendulum-forces-g-2">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="13.752px" height="13.160px" role="img" focusable="false" viewBox="0 -705 760 727" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-4-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper C">
+                <use data-c="1D436" xlink:href="#pendulum-forces-MJX-4-TEX-I-1D436"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle id="pendulum-forces-circle-1" cx="108.3" cy="318.9" r="4" stroke="black" stroke-width="2" fill="black"/>
+    <g id="pendulum-forces-label-3" transform="translate(101.3,325.9) translate(-13.6,-0.0)">
+      <g id="pendulum-forces-g-3">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="13.576px" height="12.960px" role="img" focusable="false" viewBox="0 -716 750 716" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-5-TEX-I-1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper A">
+                <use data-c="1D434" xlink:href="#pendulum-forces-MJX-5-TEX-I-1D434"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle id="pendulum-forces-circle-2" cx="319.3" cy="220.6" r="4" stroke="black" stroke-width="2" fill="black"/>
+    <g id="pendulum-forces-label-4" transform="translate(329.3,220.6) translate(0.0,-6.2)">
+      <g id="pendulum-forces-g-4">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="13.736px" height="12.360px" role="img" focusable="false" viewBox="0 -683 759 683" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-6-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper B">
+                <use data-c="1D435" xlink:href="#pendulum-forces-MJX-6-TEX-I-1D435"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="pendulum-forces-cord">
+    <line id="pendulum-forces-line-4" x1="108.3" y1="43.5" x2="246.0" y2="282.0" stroke="#7f6a55" stroke-width="3" fill="none"/>
+    <g id="pendulum-forces-label-5" transform="translate(185.1,156.8) translate(0.0,-13.1)">
+      <g id="pendulum-forces-g-5">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.360px" width="7.544px" height="13.120px" role="img" focusable="false" viewBox="0 -705 417 725" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-7-TEX-I-2113" d="M345 104T349 104T361 95T369 80T352 59Q268 -20 206 -20Q170 -20 146 3T113 53T99 104L94 129Q94 130 79 116T48 86T28 70Q22 70 15 79T7 94Q7 98 12 103T58 147L91 179V185Q91 186 91 191T92 200Q92 282 128 400T223 612T336 705Q397 705 397 636V627Q397 453 194 233Q185 223 180 218T174 211T171 208T165 201L163 186Q159 142 159 123Q159 17 208 17Q228 17 253 30T293 56T335 94Q345 104 349 104ZM360 634Q360 655 354 661T336 668Q328 668 322 666T302 645T272 592Q252 547 229 467T192 330L179 273Q179 272 186 280T204 300T221 322Q327 453 355 590Q360 612 360 634Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="script" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="script l">
+                <use data-c="2113" xlink:href="#pendulum-forces-MJX-7-TEX-I-2113"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <path id="pendulum-forces-path-3" d="M 108.3 105.5 L 108.6 105.5 L 108.9 105.5 L 109.3 105.5 L 109.6 105.5 L 109.9 105.5 L 110.2 105.5 L 110.5 105.5 L 110.9 105.4 L 111.2 105.4 L 111.5 105.4 L 111.8 105.4 L 112.2 105.4 L 112.5 105.3 L 112.8 105.3 L 113.1 105.3 L 113.5 105.3 L 113.8 105.2 L 114.1 105.2 L 114.4 105.2 L 114.8 105.2 L 115.1 105.1 L 115.4 105.1 L 115.7 105.0 L 116.0 105.0 L 116.4 105.0 L 116.7 104.9 L 117.0 104.9 L 117.3 104.8 L 117.7 104.8 L 118.0 104.7 L 118.3 104.7 L 118.6 104.6 L 118.9 104.6 L 119.3 104.5 L 119.6 104.5 L 119.9 104.4 L 120.2 104.3 L 120.5 104.3 L 120.8 104.2 L 121.2 104.1 L 121.5 104.1 L 121.8 104.0 L 122.1 103.9 L 122.4 103.9 L 122.7 103.8 L 123.1 103.7 L 123.4 103.6 L 123.7 103.5 L 124.0 103.5 L 124.3 103.4 L 124.6 103.3 L 124.9 103.2 L 125.3 103.1 L 125.6 103.0 L 125.9 102.9 L 126.2 102.8 L 126.5 102.8 L 126.8 102.7 L 127.1 102.6 L 127.4 102.5 L 127.7 102.4 L 128.0 102.3 L 128.4 102.2 L 128.7 102.0 L 129.0 101.9 L 129.3 101.8 L 129.6 101.7 L 129.9 101.6 L 130.2 101.5 L 130.5 101.4 L 130.8 101.3 L 131.1 101.1 L 131.4 101.0 L 131.7 100.9 L 132.0 100.8 L 132.3 100.6 L 132.6 100.5 L 132.9 100.4 L 133.2 100.3 L 133.5 100.1 L 133.8 100.0 L 134.1 99.9 L 134.4 99.7 L 134.7 99.6 L 135.0 99.5 L 135.2 99.3 L 135.5 99.2 L 135.8 99.0 L 136.1 98.9 L 136.4 98.7 L 136.7 98.6 L 137.0 98.4 L 137.3 98.3 L 137.6 98.1 L 137.8 98.0 L 138.1 97.8 L 138.4 97.7 L 138.7 97.5 L 139.0 97.4" stroke="black" stroke-width="1" fill="none"/>
+    <g id="pendulum-forces-label-6" transform="translate(129.7,123.3) translate(-4.2,-6.5)">
+      <g id="pendulum-forces-g-6">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.184px" width="8.488px" height="12.944px" role="img" focusable="false" viewBox="0 -705 469 715" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-8-TEX-I-1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="theta">
+                <use data-c="1D703" xlink:href="#pendulum-forces-MJX-8-TEX-I-1D703"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="pendulum-forces-forces">
+    <path id="pendulum-forces-path-4" stroke="red" stroke-width="3" fill="none" d="M 246.0 282.0 L 301.6 282.0" marker-end="url(#pendulum-forces-arrow-head-end-3_None_24_60-red)"/>
+    <g id="pendulum-forces-label-7" transform="translate(309.6,282.0) translate(0.0,-6.2)">
+      <g id="pendulum-forces-g-7">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:red" width="13.104px" height="12.304px" role="img" focusable="false" viewBox="0 -680 724 680" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-9-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F">
+                  <use data-c="1D405" xlink:href="#pendulum-forces-MJX-9-TEX-B-1D405"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <path id="pendulum-forces-path-5" stroke="red" stroke-width="3" fill="none" d="M 246.0 282.0 L 246.0 378.4" marker-end="url(#pendulum-forces-arrow-head-end-3_None_24_60-red)"/>
+    <g id="pendulum-forces-label-8" transform="translate(246.0,386.4) translate(-12.3,-0.0)">
+      <g id="pendulum-forces-g-8">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.000px; color:red" width="24.656px" height="15.304px" role="img" focusable="false" viewBox="0 -680 1362.1 845.6" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-10-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+            <path id="pendulum-forces-MJX-10-TEX-N-47" d="M56 342Q56 428 89 500T174 615T283 681T391 705Q394 705 400 705T408 704Q499 704 569 636L582 624L612 663Q639 700 643 704Q644 704 647 704T653 705H657Q660 705 666 699V419L660 413H626Q620 419 619 430Q610 512 571 572T476 651Q457 658 426 658Q401 658 376 654T316 633T254 592T205 519T177 411Q173 369 173 335Q173 259 192 201T238 111T302 58T370 31T431 24Q478 24 513 45T559 100Q562 110 562 160V212Q561 213 557 216T551 220T542 223T526 225T502 226T463 227H437V273H449L609 270Q715 270 727 273H735V227H721Q674 227 668 215Q666 211 666 108V6Q660 0 657 0Q653 0 639 10Q617 25 600 42L587 54Q571 27 524 3T406 -22Q317 -22 238 22T108 151T56 342Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="bold upper F Subscript normal upper G">
+                <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                  <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F" data-semantic-prefix="Base">
+                    <use data-c="1D405" xlink:href="#pendulum-forces-MJX-10-TEX-B-1D405"/>
+                  </g>
+                </g>
+                <g data-mml-node="TeXAtom" transform="translate(757,-150) scale(0.707)" data-mjx-texclass="ORD">
+                  <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="normal upper G" data-semantic-prefix="Subscript">
+                      <use data-c="47" xlink:href="#pendulum-forces-MJX-10-TEX-N-47"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <path id="pendulum-forces-path-6" stroke="red" stroke-width="3" fill="none" d="M 246.0 282.0 L 190.3 185.6" marker-end="url(#pendulum-forces-arrow-head-end-3_None_24_60-red)"/>
+    <g id="pendulum-forces-label-9" transform="translate(182.3,185.6) translate(-23.8,-7.5)">
+      <g id="pendulum-forces-g-9">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:red" width="23.848px" height="15.024px" role="img" focusable="false" viewBox="0 -680 1317.5 830" x="0.0" y="0.0">
+          <defs>
+            <path id="pendulum-forces-MJX-11-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+            <path id="pendulum-forces-MJX-11-TEX-N-54" d="M36 443Q37 448 46 558T55 671V677H666V671Q667 666 676 556T685 443V437H645V443Q645 445 642 478T631 544T610 593Q593 614 555 625Q534 630 478 630H451H443Q417 630 414 618Q413 616 413 339V63Q420 53 439 50T528 46H558V0H545L361 3Q186 1 177 0H164V46H194Q264 46 283 49T309 63V339V550Q309 620 304 625T271 630H244H224Q154 630 119 601Q101 585 93 554T81 486T76 443V437H36V443Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="bold upper F Subscript normal upper T">
+                <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                  <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F" data-semantic-prefix="Base">
+                    <use data-c="1D405" xlink:href="#pendulum-forces-MJX-11-TEX-B-1D405"/>
+                  </g>
+                </g>
+                <g data-mml-node="TeXAtom" transform="translate(757,-150) scale(0.707)" data-mjx-texclass="ORD">
+                  <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="normal upper T" data-semantic-prefix="Subscript">
+                      <use data-c="54" xlink:href="#pendulum-forces-MJX-11-TEX-N-54"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="pendulum-forces-bob">
+    <circle id="pendulum-forces-circle-3" cx="246.0" cy="282.0" r="6" stroke="black" stroke-width="2" fill="#e69f00"/>
+  </g>
+</svg>

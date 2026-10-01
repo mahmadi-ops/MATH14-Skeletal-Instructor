@@ -1,0 +1,39 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-green-circle-figure" speech2="The vector field x minus y comma x drawn as blue arrows swirling counterclockwise, with the unit circle C drawn in teal. Two pink tangent vectors T on the circle show the direction of travel; the field tends to point with them, giving a positive circulation.">
+      <grouped>prefigure-green-circle-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-green-circle-gc-field</active>
+        <active>prefigure-green-circle-gc-circle</active>
+        <active>prefigure-green-circle-gc-T1</active>
+      </children>
+      <components>
+        <active>prefigure-green-circle-gc-field</active>
+        <active>prefigure-green-circle-gc-circle</active>
+        <active>prefigure-green-circle-gc-T1</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-green-circle-gc-field" speech2="The vector field x minus y comma x, which swirls counterclockwise around the plane.">
+      <active>prefigure-green-circle-gc-field</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-green-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-circle-gc-circle" speech2="The unit circle C, traversed counterclockwise.">
+      <active>prefigure-green-circle-gc-circle</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-green-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-circle-gc-T1" speech2="A unit tangent vector T on the circle; the field has a positive component along it.">
+      <active>prefigure-green-circle-gc-T1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-green-circle-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

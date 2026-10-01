@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-p2c-hyperbola-figure" speech2="The hyperbola x y equals four with branches in the first and third quadrants.">
+      <grouped>prefigure-p2c-hyperbola-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-p2c-hyperbola-hh-b1</active>
+        <active>prefigure-p2c-hyperbola-hh-b2</active>
+      </children>
+      <components>
+        <active>prefigure-p2c-hyperbola-hh-b1</active>
+        <active>prefigure-p2c-hyperbola-hh-b2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-p2c-hyperbola-hh-b1" speech2="The branch in the first quadrant.">
+      <active>prefigure-p2c-hyperbola-hh-b1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-p2c-hyperbola-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-p2c-hyperbola-hh-b2" speech2="The branch in the third quadrant.">
+      <active>prefigure-p2c-hyperbola-hh-b2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-p2c-hyperbola-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

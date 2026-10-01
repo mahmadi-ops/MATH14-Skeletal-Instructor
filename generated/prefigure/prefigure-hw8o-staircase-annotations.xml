@@ -1,0 +1,39 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-hw8o-staircase-figure" speech2="A staircase path made of ten unit steps climbing from the origin to the point ten comma ten, each step going one unit to the right and then one unit up. From ten comma ten the path returns straight left along the line y equals ten to the point zero comma ten. Arrowheads show the direction of travel: rightward on the staircase and leftward on the top segment.">
+      <grouped>prefigure-hw8o-staircase-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-hw8o-staircase-hst-path</active>
+        <active>prefigure-hw8o-staircase-hst-a1</active>
+        <active>prefigure-hw8o-staircase-hst-a2</active>
+      </children>
+      <components>
+        <active>prefigure-hw8o-staircase-hst-path</active>
+        <active>prefigure-hw8o-staircase-hst-a1</active>
+        <active>prefigure-hw8o-staircase-hst-a2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-hw8o-staircase-hst-path" speech2="The staircase path from the origin to ten comma ten and then back along y equals ten to zero comma ten.">
+      <active>prefigure-hw8o-staircase-hst-path</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-hw8o-staircase-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw8o-staircase-hst-a1" speech2="An arrowhead on the staircase pointing to the right, the direction of travel.">
+      <active>prefigure-hw8o-staircase-hst-a1</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-hw8o-staircase-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw8o-staircase-hst-a2" speech2="An arrowhead on the top segment pointing to the left, the direction of travel back to zero comma ten.">
+      <active>prefigure-hw8o-staircase-hst-a2</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-hw8o-staircase-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

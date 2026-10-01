@@ -1,0 +1,103 @@
+<diagram>
+  <annotations>
+    <annotation id="two-paths-curves-figure" speech2="Two closed paths drawn in the radial field                                     F of x and y equals the vector x, y, whose                                     arrows all point straight away from the                                     origin and grow with the distance from it.                                     Each path carries one arrowhead showing                                     the direction in which it is traversed">
+      <grouped>two-paths-curves-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>two-paths-curves-grid-axes</active>
+        <active>two-paths-curves-grid</active>
+        <active>two-paths-curves-axes</active>
+        <active>two-paths-curves-field</active>
+        <active>two-paths-curves-c1</active>
+        <active>two-paths-curves-c2</active>
+        <active>two-paths-curves-origin</active>
+      </children>
+      <components>
+        <active>two-paths-curves-grid-axes</active>
+        <active>two-paths-curves-grid</active>
+        <active>two-paths-curves-axes</active>
+        <active>two-paths-curves-field</active>
+        <active>two-paths-curves-c1</active>
+        <active>two-paths-curves-c2</active>
+        <active>two-paths-curves-origin</active>
+      </components>
+    </annotation>
+    <annotation id="two-paths-curves-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>two-paths-curves-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>two-paths-curves-grid</active>
+        <active>two-paths-curves-axes</active>
+      </children>
+      <components>
+        <active>two-paths-curves-grid</active>
+        <active>two-paths-curves-axes</active>
+      </components>
+      <parents>
+        <grouped>two-paths-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="two-paths-curves-grid" speech2="The coordinate grid">
+      <active>two-paths-curves-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>two-paths-curves-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="two-paths-curves-axes" speech2="The coordinate axes">
+      <active>two-paths-curves-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>two-paths-curves-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="two-paths-curves-grid" speech2="The coordinate grid">
+      <active>two-paths-curves-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>two-paths-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="two-paths-curves-axes" speech2="The coordinate axes">
+      <active>two-paths-curves-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>two-paths-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="two-paths-curves-field" speech2="The grid of field vectors, each pointing                                       radially outward with length                                       proportional to the distance from the                                       origin">
+      <active>two-paths-curves-field</active>
+      <position>4</position>
+      <parents>
+        <grouped>two-paths-curves-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="two-paths-curves-c1" speech2="The path C 1, an ellipse crossing the x                                       axis at plus and minus three and the y                                       axis at plus and minus one. Its                                       arrowhead sits just above the origin and                                       points in the negative x direction, so C                                       1 is traversed counterclockwise" sonify="yes">
+      <active>two-paths-curves-c1</active>
+      <position>5</position>
+      <parents>
+        <grouped>two-paths-curves-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>two-paths-curves-c1</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="two-paths-curves-c2" speech2="The path C 2, a circle of radius two                                       centred at the origin. Its arrowhead                                       sits in the upper right and points down                                       and to the right, so C 2 is traversed                                       clockwise" sonify="yes">
+      <active>two-paths-curves-c2</active>
+      <position>6</position>
+      <parents>
+        <grouped>two-paths-curves-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>two-paths-curves-c2</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="two-paths-curves-origin" speech2="The origin, where the field is the zero                                       vector">
+      <active>two-paths-curves-origin</active>
+      <position>7</position>
+      <parents>
+        <grouped>two-paths-curves-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

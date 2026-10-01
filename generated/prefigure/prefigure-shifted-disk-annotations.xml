@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-shifted-disk-figure" speech2="A disk of radius one centered at the point one comma zero, shaded tan and labeled D. Its boundary circle, drawn in vermillion, passes through the origin and through the point two comma zero, and is the polar curve r equals two cosine theta.">
+      <grouped>prefigure-shifted-disk-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-shifted-disk-sd-disk</active>
+        <active>prefigure-shifted-disk-sd-circle</active>
+      </children>
+      <components>
+        <active>prefigure-shifted-disk-sd-disk</active>
+        <active>prefigure-shifted-disk-sd-circle</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-shifted-disk-sd-disk" speech2="The base disk D, of radius one centered at one comma zero.">
+      <active>prefigure-shifted-disk-sd-disk</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-shifted-disk-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-shifted-disk-sd-circle" speech2="The boundary circle x minus one squared plus y squared equals one, which in polar coordinates is r equals two cosine theta.">
+      <active>prefigure-shifted-disk-sd-circle</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-shifted-disk-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

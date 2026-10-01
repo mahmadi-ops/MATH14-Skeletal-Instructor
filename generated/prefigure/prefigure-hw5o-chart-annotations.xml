@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-hw5o-chart-figure" speech2="A blank polar grid: four concentric circles of radii one half, one, one and a half and two, crossed by twelve spokes spaced pi over six apart. The spokes are labelled with their angles from zero around to eleven pi over six, and the circles are labelled with their radii along the positive y direction.">
+      <grouped>prefigure-hw5o-chart-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-hw5o-chart-pc-c4</active>
+        <active>prefigure-hw5o-chart-pc-spokes</active>
+      </children>
+      <components>
+        <active>prefigure-hw5o-chart-pc-c4</active>
+        <active>prefigure-hw5o-chart-pc-spokes</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-hw5o-chart-pc-c4" speech2="The outermost circle, of radius two.">
+      <active>prefigure-hw5o-chart-pc-c4</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-hw5o-chart-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-hw5o-chart-pc-spokes" speech2="The twelve spokes of the chart, spaced pi over six apart.">
+      <active>prefigure-hw5o-chart-pc-spokes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-hw5o-chart-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

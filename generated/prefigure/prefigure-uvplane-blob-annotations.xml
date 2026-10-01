@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-uvplane-blob-figure" speech2="A blob-shaped region S, shaded orange, in the u v plane. A point labeled u 1 comma v 1 is marked inside the region.">
+      <grouped>prefigure-uvplane-blob-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-uvplane-blob-uv-blob</active>
+        <active>prefigure-uvplane-blob-uv-point</active>
+      </children>
+      <components>
+        <active>prefigure-uvplane-blob-uv-blob</active>
+        <active>prefigure-uvplane-blob-uv-point</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-uvplane-blob-uv-blob" speech2="The region S in the u v plane, the domain of the transformation T.">
+      <active>prefigure-uvplane-blob-uv-blob</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-uvplane-blob-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-uvplane-blob-uv-point" speech2="A sample point u 1 comma v 1 inside S.">
+      <active>prefigure-uvplane-blob-uv-point</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-uvplane-blob-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

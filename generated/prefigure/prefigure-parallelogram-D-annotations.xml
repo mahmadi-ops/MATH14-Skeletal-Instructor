@@ -1,0 +1,70 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-parallelogram-D-figure" speech2="Two parallel lines with slope negative one half, x plus 2 y equals 6 and x plus 2 y equals 10, drawn in pink. Between them, the horizontal lines y equals 1 and y equals 3 cut off a parallelogram D, shaded tan.">
+      <grouped>prefigure-parallelogram-D-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-parallelogram-D-grid-axes</active>
+        <active>prefigure-parallelogram-D-pd-region</active>
+        <active>prefigure-parallelogram-D-pd-line1</active>
+        <active>prefigure-parallelogram-D-pd-line2</active>
+      </children>
+      <components>
+        <active>prefigure-parallelogram-D-grid-axes</active>
+        <active>prefigure-parallelogram-D-pd-region</active>
+        <active>prefigure-parallelogram-D-pd-line1</active>
+        <active>prefigure-parallelogram-D-pd-line2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-parallelogram-D-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>prefigure-parallelogram-D-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-parallelogram-D-grid</active>
+        <active>prefigure-parallelogram-D-axes</active>
+      </children>
+      <components>
+        <active>prefigure-parallelogram-D-grid</active>
+        <active>prefigure-parallelogram-D-axes</active>
+      </components>
+      <parents>
+        <grouped>prefigure-parallelogram-D-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-parallelogram-D-grid" speech2="The coordinate grid">
+      <active>prefigure-parallelogram-D-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-parallelogram-D-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-parallelogram-D-axes" speech2="The coordinate axes">
+      <active>prefigure-parallelogram-D-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-parallelogram-D-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-parallelogram-D-pd-region" speech2="The parallelogram D, bounded by the two pink lines and the horizontal lines y equals 1 and y equals 3.">
+      <active>prefigure-parallelogram-D-pd-region</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-parallelogram-D-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-parallelogram-D-pd-line1" speech2="The line x plus 2 y equals 6, which becomes u equals 6 after the substitution.">
+      <active>prefigure-parallelogram-D-pd-line1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-parallelogram-D-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-parallelogram-D-pd-line2" speech2="The line x plus 2 y equals 10, which becomes u equals 10 after the substitution.">
+      <active>prefigure-parallelogram-D-pd-line2</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-parallelogram-D-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

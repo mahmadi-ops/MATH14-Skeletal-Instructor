@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-case2-region-figure" speech2="A region between two curves for y between zero point one and zero point five. The left boundary, drawn in vermillion, is g 1 of y equals y squared. The right boundary, drawn in blue, is g 2 of y equals the cube root of y. The region between them is shaded light green with three horizontal green strips, and dashed lines mark y equals zero point one and y equals zero point five.">
+      <grouped>prefigure-case2-region-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-case2-region-c2-g1</active>
+        <active>prefigure-case2-region-c2-g2</active>
+        <active>prefigure-case2-region-c2-region</active>
+        <active>prefigure-case2-region-c2-strip2</active>
+      </children>
+      <components>
+        <active>prefigure-case2-region-c2-g1</active>
+        <active>prefigure-case2-region-c2-g2</active>
+        <active>prefigure-case2-region-c2-region</active>
+        <active>prefigure-case2-region-c2-strip2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-case2-region-c2-g1" speech2="The left boundary g 1 of y equals y squared, drawn in vermillion.">
+      <active>prefigure-case2-region-c2-g1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-case2-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-case2-region-c2-g2" speech2="The right boundary g 2 of y equals y to the one third, drawn in blue.">
+      <active>prefigure-case2-region-c2-g2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-case2-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-case2-region-c2-region" speech2="The region R, shaded in light green.">
+      <active>prefigure-case2-region-c2-region</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-case2-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-case2-region-c2-strip2" speech2="A typical horizontal strip at a fixed y. The inner integral in x runs along this strip from the left curve to the right curve.">
+      <active>prefigure-case2-region-c2-strip2</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-case2-region-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
