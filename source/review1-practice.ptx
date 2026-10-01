@@ -25,8 +25,9 @@
   <introduction>
     <p>
       Sections: <xref ref="sec-parametrization" text="title"/>,
-      <xref ref="sec-arc-length" text="title"/>, and
-      <xref ref="sec-line-integrals" text="title"/>. Work each problem, then
+      <xref ref="sec-arc-length" text="title"/>,
+      <xref ref="sec-line-integrals" text="title"/>, and
+      <xref ref="sec-vector-fields" text="title"/>. Work each problem, then
       type your answers into the boxes and have them checked here.
     </p>
     <p>
@@ -627,21 +628,43 @@
     </evaluation>
     <solution include-automatic="no">
       <p component="review1-solutions">
-        The curve bounds the annular sector between <m>r=1</m> and
-        <m>r=2</m> from <m>-45^\circ</m> to <m>45^\circ</m>, traversed with
-        the region on the left, so it is positively oriented. Its area is
-        <m>\tfrac12\left(\tfrac{\pi}{2}\right)\left(2^2-1^2\right)
-        = \tfrac{3\pi}{4}</m>.
+        Read the path off the arrows: <m>C</m> runs out along the lower
+        straight edge from <m>r=1</m> to <m>r=2</m>, counterclockwise along
+        the outer arc of radius <m>2</m> from <m>-45^\circ</m> to
+        <m>45^\circ</m>, back in along the upper straight edge, and
+        clockwise along the inner arc of radius <m>1</m> to where it began.
+        Each integral is
+        <m>\oint_C \mathbf{F}\cdot d\mathbf{r} = \oint_C \mathbf{F}\cdot\mathbf{T}\,ds</m>,
+        so on each of the four pieces only the component of the field along
+        the direction of travel matters.
       </p>
       <p component="review1-solutions">
-        The first field is radial: perpendicular to both arcs, and parallel
-        to the two straight edges, which are travelled once outward and once
-        inward, so those contributions cancel and the integral is <m>0</m>.
+        The first field is radial. It is perpendicular to both arcs, so they
+        contribute nothing. It is parallel to the two straight edges, which
+        cover the same stretch <m>1 \le r \le 2</m> once outward and once
+        inward, so their contributions cancel, and the integral is
+        <m>0</m>. (It is also a gradient field,
+        <m>\mathbf{F} = \nabla\!\left(\tfrac12(x^2+y^2)\right)</m>, and
+        <m>C</m> is closed.)
       </p>
       <p component="review1-solutions">
-        For the second, <m>N_x - M_y = 2</m>, so Green's Theorem gives
-        <m>2\cdot\text{Area} = \tfrac{3\pi}{2}</m>, which is positive.
-        The third is its negative, <m>-\tfrac{3\pi}{2}</m>.
+        The second field is perpendicular to the position vector, since
+        <m>\langle -y, x\rangle\cdot\langle x, y\rangle = 0</m>. So it
+        contributes nothing on the two straight edges, and on a circle of
+        radius <m>r</m> centered at the origin it is tangent to the circle,
+        points counterclockwise, and has length <m>\sqrt{x^2+y^2} = r</m>.
+        On the outer arc, travelled counterclockwise,
+        <m>\mathbf{F}\cdot\mathbf{T} = 2</m>; on the inner arc, travelled
+        clockwise, <m>\mathbf{F}\cdot\mathbf{T} = -1</m>. Each arc is a
+        quarter of its circle, of length <m>\tfrac{\pi}{2}r</m>, so
+      </p>
+      <me component="review1-solutions">
+        \oint_C \mathbf{F}\cdot d\mathbf{r}
+        = 2\cdot\pi + (-1)\cdot\frac{\pi}{2} = \frac{3\pi}{2} \gt 0 .
+      </me>
+      <p component="review1-solutions">
+        The third field is the negative of the second, so its integral is
+        <m>-\tfrac{3\pi}{2} \lt 0</m>.
       </p>
     </solution>
   </exercise>
@@ -1135,29 +1158,38 @@
     </evaluation>
     <solution include-automatic="no">
       <p component="review1-solutions">
-        The curve bounds the annular sector between <m>r=1</m> and
-        <m>r=2</m> from <m>-45^\circ</m> to <m>45^\circ</m>, and the
-        arrows traverse it with the region on the left, so it is positively
-        oriented. Its area is
-        <m>\tfrac12\left(\tfrac{\pi}{2}\right)\left(2^2-1^2\right)
-        = \tfrac{3\pi}{4}</m>.
+        Read each field in two steps. The numerator says which way the
+        arrows point. The denominator sets their length: the vector
+        <m>\langle x, y\rangle</m> has length <m>r = \sqrt{x^2+y^2}</m>, so
+        dividing by <m>\sqrt{x^2+y^2}</m> makes every arrow the same length,
+        <m>1</m>, while dividing by <m>x^2+y^2</m> gives arrows of length
+        <m>1/r</m>, long near the origin and shrinking away from it.
       </p>
       <p component="review1-solutions">
-        The first field is radial, so it is everywhere perpendicular to the
-        two arcs and everywhere parallel to the two radial segments, which
-        are traversed once outward and once inward: the contributions cancel
-        and the integral is <m>0</m>. (It is a gradient field,
-        <m>\mathbf{F} = \nabla\!\left(\tfrac12(x^2+y^2)\right)</m>, and
-        <m>C</m> is closed.)
+        <m>\dfrac{x\,\mathbf{i} + y\,\mathbf{j}}{\sqrt{x^2+y^2}}</m> points
+        straight away from the origin, with all arrows the same length:
+        graph <m>C</m>.
       </p>
       <p component="review1-solutions">
-        For the second, <m>N_x - M_y = 1-(-1) = 2</m>, so by Green's Theorem
-        the circulation is <m>2\cdot\text{Area} = \tfrac{3\pi}{2} \gt 0</m>:
-        the field circles counterclockwise, the same way as <m>C</m>.
+        <m>\dfrac{-y\,\mathbf{i} + x\,\mathbf{j}}{\sqrt{x^2+y^2}}</m> is
+        perpendicular to <m>\langle x, y\rangle</m>, so its arrows run around
+        the origin, counterclockwise (at <m>(1,0)</m> it is
+        <m>\langle 0,1\rangle</m>, straight up), all the same length:
+        graph <m>D</m>.
       </p>
       <p component="review1-solutions">
-        The third is the negative of the second, so its circulation is
-        <m>-\tfrac{3\pi}{2} \lt 0</m>.
+        <m>\dfrac{-x\,\mathbf{i} + y\,\mathbf{j}}{\sqrt{x^2+y^2}}</m> is the
+        first field with its horizontal part reversed: every arrow points
+        horizontally toward the <m>y</m>-axis and vertically away from the
+        <m>x</m>-axis (at <m>(-1,-1)</m> it points down and to the right),
+        again all the same length: graph <m>A</m>.
+      </p>
+      <p component="review1-solutions">
+        <m>\dfrac{x\,\mathbf{i} + y\,\mathbf{j}}{x^2+y^2}</m> points away from
+        the origin, with arrows that shrink as they get farther from it:
+        graph <m>E</m>. Its negative,
+        <m>\dfrac{-x\,\mathbf{i} - y\,\mathbf{j}}{x^2+y^2}</m>, points toward
+        the origin with the same shrinking lengths: graph <m>B</m>.
       </p>
     </solution>
   </exercise>
