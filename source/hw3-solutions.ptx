@@ -13,7 +13,9 @@
   <title>Assignment 3</title>
 
     <p>
-    Section: <xref ref="sec-vector-fields" text="title"/>.
+    Sections: <xref ref="sec-vector-fields" text="title"/> and
+    Path Independence, Conservative Fields, and Potential Functions.
+    <!-- plain text until that section is posted: <xref ref="section-conservative-fields"/> -->
     </p>
 
   <p>

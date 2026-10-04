@@ -13,8 +13,7 @@
   <title>Assignment 4</title>
 
     <p>
-    Sections: <xref ref="section-conservative-fields" text="title"/>,
-    <xref ref="section-double-integrals-rectangles" text="title"/>, and
+    Sections: <xref ref="section-double-integrals-rectangles" text="title"/> and
     <xref ref="section-double-integrals-general-regions" text="title"/>.
     </p>
 

@@ -9,7 +9,10 @@
 
   <introduction>
     <p>
-      Section: <xref ref="sec-vector-fields" text="title"/>. Work each problem, then type your answers into the boxes and have them checked here.
+      Sections: <xref ref="sec-vector-fields" text="title"/> and
+      Path Independence, Conservative Fields, and Potential Functions.
+      <!-- plain text until that section is posted: <xref ref="section-conservative-fields"/> -->
+      Work each problem, then type your answers into the boxes and have them checked here.
     </p>
     <p>
       Press <q>Check Me</q> to submit; you may check as often as you like.
