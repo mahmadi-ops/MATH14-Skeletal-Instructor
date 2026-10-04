@@ -191,5 +191,82 @@
       </p>
     </statement>
   </exercise>
+
+  <exercise xml:id="ex-hw3-less-work">
+    <introduction>
+      <p>
+        The force field <m>\mathbf{F}</m> is shown by the arrows in
+        <xref ref="fig-hw3-paths"/>.
+      </p>
+    </introduction>
+    <task xml:id="task-hw3-less-work">
+      <statement>
+        <p>
+          Over which of the two paths, <m>ADC</m> or <m>ABC</m>, does
+          <m>\mathbf{F}</m> perform less work? Fully justify your answer.
+        </p>
+      </statement>
+    </task>
+    <task xml:id="task-hw3-conservative">
+      <statement>
+        <p>
+          Is <m>\mathbf{F}</m> a conservative field or not? Why?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <figure xml:id="fig-hw3-paths">
+    <caption>
+      The vector field <m>\mathbf{F}</m> and the two paths <m>ADC</m> and
+      <m>ABC</m> of <xref ref="ex-hw3-less-work"/>. Every field vector
+      points in the same direction; only their lengths change.
+    </caption>
+    <image width="70%">
+      <shortdescription>
+      A uniform slanted field with a square path from corner A to corner B.
+      </shortdescription>
+      <prefigure xmlns="https://prefigure.org" label="prefigure-hw3-paths">
+        <diagram dimensions="(360,320)" margins="10">
+          <definition>G(x,y) = (0.16*(1+x), 0.16*(1+x))</definition>
+          <coordinates bbox="(-0.3,-0.3,3.3,3.0)">
+            <axes at="hp-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+            <repeat at="hp-cols" parameter="i=0..6">
+              <repeat parameter="j=0..5">
+                <vector at="hp-v-((i))-((j))" v="G(0.45*i+0.12, 0.5*j+0.12)"
+                    tail="(0.45*i+0.12, 0.5*j+0.12)" stroke="#56B4E9"
+                    thickness="2"/>
+              </repeat>
+            </repeat>
+            <polygon at="hp-square" closed="yes" stroke="#CC0079" thickness="3"
+                fill="none" points="((0.8,0.7),(2.4,0.7),(2.4,2.3),(0.8,2.3))"/>
+            <point at="hp-A" p="(0.8,0.7)" fill="black" alignment="sw">
+              <m>A</m>
+            </point>
+            <point at="hp-D" p="(2.4,0.7)" fill="black" alignment="se">
+              <m>D</m>
+            </point>
+            <point at="hp-C" p="(2.4,2.3)" fill="black" alignment="ne">
+              <m>C</m>
+            </point>
+            <point at="hp-B" p="(0.8,2.3)" fill="black" alignment="nw">
+              <m>B</m>
+            </point>
+          </coordinates>
+          <annotations>
+            <annotation ref="figure" text="A grid of light blue field vectors, all pointing up and to the right at the same angle, with lengths that grow as x increases. A magenta square is drawn with corners A at the lower left, D at the lower right, C at the upper right and B at the upper left, so the path A D C runs along the bottom and up the right side, while A B C runs up the left side and along the top.">
+              <annotation ref="hp-cols" text="The field vectors, all parallel and pointing up and to the right, growing longer toward the right of the picture."/>
+              <annotation ref="hp-square" text="The square whose corners are A, B, C and D; the two paths of the problem run along its sides."/>
+              <annotation ref="hp-A" text="The corner A, at the lower left."/>
+              <annotation ref="hp-D" text="The corner D, at the lower right; the path A D C passes through it."/>
+              <annotation ref="hp-C" text="The corner C, at the upper right."/>
+              <annotation ref="hp-B" text="The corner B, at the upper left; the path A B C passes through it."/>
+            </annotation>
+          </annotations>
+        </diagram>
+      </prefigure>
+    </image>
+  </figure>
+
   </exercises>
 </section>
