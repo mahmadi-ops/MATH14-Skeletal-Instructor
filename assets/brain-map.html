@@ -111,11 +111,13 @@ const NODES = [
 ];
 // Third entry marks the gold bridges: a theorem (or a coordinate substitution)
 // trading an integral over a boundary for an integral over what it bounds.
+// The four theorems that start from a line integral all leave from the
+// Line integrals hub, so hovering it lights every bridge out of it.
 const EDGES = [
   ['param-curve','hub-line'], ['hub-line','arclength'], ['hub-line','scalar'], ['hub-line','work'],
   ['hub-line','ftc','gold'],
   ['scalar','wall'], ['scalar','wire'],
-  ['work','green-circ','gold'], ['work','stokes','gold'], ['hub-line','green-flux','gold'],
+  ['hub-line','green-circ','gold'], ['hub-line','stokes','gold'], ['hub-line','green-flux','gold'],
   ['green-circ','dbl','gold'], ['green-flux','dbl','gold'],
   ['stokes','surf','gold'], ['surf','divergence','gold'], ['divergence','tri','gold'],
   ['param','surf'],
