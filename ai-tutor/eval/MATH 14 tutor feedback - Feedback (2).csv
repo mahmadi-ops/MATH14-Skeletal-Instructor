@@ -1,0 +1,215 @@
+received,sentAt,session,page,section,problem,hintsUsed,rating,comment,transcript,device
+12/08/2026 15:53:09,2026-08-12T22:53:06.355Z,s-ks6u6dua,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,0,helped a little,I would have liked more hints.,,small 388x389
+12/08/2026 15:53:10,2026-08-12T22:53:06.355Z,s-ks6u6dua,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,0,helped a little,I would have liked more hints.,,small 388x389
+12/08/2026 20:52:35,2026-08-13T03:52:33.222Z,s-ks6u6dua,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,1,helped a lot,It explained to me exactly how to solve the rest of the problem. I think it should give me a more subtle hint.,"STUDENT: x(t)=cos(t) and y(t)=sin(t) as the parametrization of the xy-projection. I don't know what is z(t)?
+
+TUTOR: Great start with $x(t) = \cos(t)$ and $y(t) = \sin(t)$! 
+
+To find $z(t)$, notice that every point on the curve lies on the surface $z = 4x^2$. Since you already know $x$ in terms of $t$, what happens if you substitute your expression for $x(t)$ into that surface equation?",small 388x389
+12/08/2026 20:52:37,2026-08-13T03:52:33.222Z,s-ks6u6dua,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,1,helped a lot,It explained to me exactly how to solve the rest of the problem. I think it should give me a more subtle hint.,"STUDENT: x(t)=cos(t) and y(t)=sin(t) as the parametrization of the xy-projection. I don't know what is z(t)?
+
+TUTOR: Great start with $x(t) = \cos(t)$ and $y(t) = \sin(t)$! 
+
+To find $z(t)$, notice that every point on the curve lies on the surface $z = 4x^2$. Since you already know $x$ in terms of $t$, what happens if you substitute your expression for $x(t)$ into that surface equation?",small 388x389
+12/08/2026 21:30:34,2026-08-13T04:30:32.241Z,s-drz94xkv,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,3,helped a lot,It helped a little too much as it phrased the next step as a question in such a way that the answer became evident,"STUDENT: x(t)=cos(t) and y(t)=sin(t) as the parametrization of the xy-projection. I don't know what is z(t)?
+
+TUTOR: Great start with $x(t) = \cos(t)$ and $y(t) = \sin(t)$!
+
+To find $z(t)$, look back at the description of the surface that defines $z$ in the problem. What equation relates $z$ to the $x$ and $y$ coordinates for points on this curve?
+
+STUDENT: z=4x^2
+
+TUTOR: Spot on! 
+
+Since you already know $x$ as a function of $t$, how can you express $z$ entirely in terms of $t$ using that equation? 
+
+Since this is your final hint for this problem, take your time putting that together (and thinking about what range of $t$ traces the shadow circle exactly once). If you'd like to talk through the rest, feel free to bring your work to office hours!",small 388x407
+12/08/2026 21:40:27,2026-08-13T04:40:25.601Z,s-drz94xkv,sec-exercises-hw3-online.html,Assignment 3,1. The Sign of a Line Integral,1,did not help,It asked me a question and turned on the timer. The nature of the question was such that it would have made more sense for me to answer straight away,"STUDENT: I think the answer is negative
+
+TUTOR: Welcome! To help you check your thinking, could you share how you're looking at the relationship between the direction of the vector field $\mathbf{F}$ and the orientation of the curve $C$ as you trace around the path?",small 388x407
+12/08/2026 22:05:14,2026-08-13T05:05:12.293Z,s-drz94xkv,sec-exercises-hw3-online.html,Assignment 3,1. The Sign of a Line Integral,3,did not help,My last answer was correct but it did not tell me that my justification was correct,"STUDENT: I think it is negative
+
+TUTOR: What made you choose negative? How are the vectors of the field $\mathbf{F}$ pointing relative to the direction you move along the curve $C$?
+
+STUDENT: on the right F and T have negative dot product mostly and they cancel out the ones on the left that are positive
+
+TUTOR: You're on the right track by focusing on the dot product $\mathbf{F} \cdot \mathbf{T}$ and comparing different parts of the curve! To figure out whether the positive and negative parts completely cancel out or if one side outweighs the other, take a close look at the **lengths** (magnitudes) of the arrows on the left side versus the right side. Is the field equally strong on both sides, or do the vector lengths differ?
+
+Since this is your final hint for this problem, if you'd like to double-check your interpretation of the figure, I warmly encourage you to bring your diagram and reasoning to office hours to talk it through with your instructor!",small 388x407
+13/08/2026 09:38:38,2026-08-13T16:38:36.215Z,s-3jiixedc,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,3,helped a lot,This was very helpful but the last hint gave away the answer.,"STUDENT: x(t)=cos(t) and y(t)=sin(t) since it is the unit circle. What about z(t)?
+
+TUTOR: You are thinking about the shadow in the $xy$-plane in a great way!
+
+To see how $z(t)$ is found once $x(t)$ and $y(t)$ are set, take a look at **Example 1.1.20: Where a plane cuts a cylinder** (or Example 1.1.22) in Section 1.1.
+
+Besides the cylinder, what equation must every point on the curve $C$ satisfy to determine its $z$-coordinate?
+
+STUDENT: z=4x^2
+
+TUTOR: That's the surface!
+
+Now, using the expression for $x(t)$ you already found for the shadow, how can you write $z$ in terms of $t$?
+
+Since this is our last hint for this problem, give that a try! If you'd like to check your full parametrization or talk through the bounds for $t$, I warmly encourage you to bring your work to office hours—your instructor or TA would be happy to look over your steps with you!",small 388x389
+13/08/2026 10:09:37,2026-08-13T17:09:34.364Z,s-3jiixedc,sec-exercises-hw1-online.html,Assignment 1,2. How Much Wire Is in a Spring?,1,other: thumbs up,,,small 388x536
+13/08/2026 10:10:09,2026-08-13T17:10:07.747Z,s-3jiixedc,sec-exercises-hw1-online.html,Assignment 1,2. How Much Wire Is in a Spring?,1,helped a lot,It helped may be a little too much.,"STUDENT: I would need to compute arc length. How do I find limits of integration?
+
+TUTOR: For a helpful look at how the turns of a helix relate to its parameter, check out **Example 1.1.18: A helix** in Section 1.1.
+
+To find the upper limit $T$, look at the $x$- and $y$-components, $R\cos(t)$ and $R\sin(t)$. How much does the parameter $t$ need to increase to complete one full $360^\circ$ turn, and what does that mean for $N$ turns?",small 388x536
+13/08/2026 10:11:52,2026-08-13T17:11:51.546Z,s-3jiixedc,sec-exercises-hw1-online.html,Assignment 1,2. How Much Wire Is in a Spring?,2,other: thumbs down,,,small 388x533
+13/08/2026 10:12:42,2026-08-13T17:12:40.814Z,s-3jiixedc,sec-exercises-hw1-online.html,Assignment 1,2. How Much Wire Is in a Spring?,2,helped a lot,It gave me a little too much help.,"STUDENT: I would need to compute arc length. How do I find limits of integration?
+
+TUTOR: For a helpful look at how the turns of a helix relate to its parameter, check out **Example 1.1.18: A helix** in Section 1.1.
+
+To find the upper limit $T$, look at the $x$- and $y$-components, $R\cos(t)$ and $R\sin(t)$. How much does the parameter $t$ need to increase to complete one full $360^\circ$ turn, and what does that mean for $N$ turns?
+
+STUDENT: 2pi for one turn so 2piN for N turns.
+
+TUTOR: That is spot on! Since $\cos(t)$ and $\sin(t)$ repeat every $2\pi$ radians, one full rotation corresponds to an increase of $2\pi$ in $t$, so $N$ turns means $T = 2\pi N$. 
+
+Now that you have the limit $T$, to set up your arc length integral you'll also need the constant $c$. Since the height reaches $H$ when $t = T$, how can you use $z(t) = c\,t$ to find $c$?",small 388x533
+13/08/2026 10:15:06,2026-08-13T17:15:05.024Z,s-3jiixedc,sec-exercises-hw1-online.html,Assignment 1,2. How Much Wire Is in a Spring?,3,other: thumbs up,,,small 388x533
+13/08/2026 19:44:43,2026-08-14T02:44:40.854Z,s-9rio6w9f,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,3,other: thumbs up,,,small 388x524
+13/08/2026 19:45:40,2026-08-14T02:45:38.841Z,s-9rio6w9f,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,3,helped a little,I tried twice and I got an error with no hints so I was only left with one hint.,"STUDENT: Hint please
+
+TUTOR: Take a look at **Example 1.1.20: Where a plane cuts a cylinder** and **Example 1.1.22: Where two curved surfaces meet** in Section 1.1 for how the shadow in the $xy$-plane is used to build a full space curve parametrization.
+
+To begin: the problem suggests using the standard parametrization for the unit circle to get your $x(t)$ and $y(t)$ (and the range of $t$ for one full turn). Once you have those, what other relationship given in the problem must the $z$-coordinate of every point on this curve satisfy?
+
+Since this is your last hint on this problem, give that a try, and definitely bring whatever you've written down to office hours if you'd like to talk through it together!",small 388x524
+14/08/2026 21:43:46,2026-08-15T04:43:44.277Z,s-3jiixedc,sec-exercises-hw2-online.html,Assignment 2,1. Mass of a Quarter-Circle Wire,1,other: thumbs down,,,small 388x465
+14/08/2026 21:44:56,2026-08-15T04:44:54.902Z,s-3jiixedc,sec-exercises-hw2-online.html,Assignment 2,1. Mass of a Quarter-Circle Wire,1,did not help,I got this response for the first two tries: Something went wrong: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later. and then I was left with only one response.,"STUDENT: I think the answer is 12 (cos(t)-a) sin(t)/((cos(t)-a)^2+sin(t)^2).
+
+TUTOR: What steps led you to that expression? Could you share how you set up your parametrization and the integral for the mass of the wire? 
+
+If you'd like to check your overall setup against a worked problem, take a look at **Example 1.3.3: Mass and length of a helical wire** in Section 1.3 to see how density and arc length combine.",small 388x465
+14/08/2026 21:47:29,2026-08-15T04:47:27.865Z,s-3jiixedc,sec-exercises-hw2-online.html,Assignment 2,3. Around the Unit Square,1,other: thumbs up,,,small 388x465
+14/08/2026 22:02:13,2026-08-15T05:02:11.342Z,s-3jiixedc,sec-exercises-hw2-online.html,Assignment 2,3. Around the Unit Square,2,other: thumbs up,,,small 388x465
+14/08/2026 22:03:58,2026-08-15T05:03:57.241Z,s-3jiixedc,sec-exercises-hw2-online.html,Assignment 2,3. Around the Unit Square,3,other: thumbs up,,,small 388x465
+14/08/2026 22:05:08,2026-08-15T05:05:06.522Z,s-3jiixedc,sec-exercises-hw2-online.html,Assignment 2,3. Around the Unit Square,3,helped a little,I din't have the chance to ask all my questions.,"STUDENT: Do I need to take 4 integrals?
+
+TUTOR: The boundary of the square consists of four line segments, so the total line integral is the sum of the contributions from all four sides. 
+
+Before computing all four from scratch, take a close look at the integrand $\frac{1}{x^2+y^2+1}$ alongside the four sides of the square—what relationship do you notice between different sides?
+
+STUDENT: Well, the shape is symmetric wrt y=x line
+
+TUTOR: That is a great observation—and notice how swapping $x$ and $y$ in the formula $\frac{1}{x^2+y^2+1}$ leaves the integrand unchanged too. 
+
+To find the value for the first requested side from $(0,0)$ to $(1,0)$, how might you parametrize that segment with a single variable $t$, and what does $\int \frac{1}{x^2+y^2+1}\,ds$ become along it? 
+
+*(Since this was your final hint for this problem, give parametrizing those individual segments a shot, and feel free to bring your full work to office hours if you'd like to walk through any tricky steps together!)*",small 388x465
+14/08/2026 22:06:52,2026-08-15T05:06:50.589Z,s-3jiixedc,sec-exercises-hw3-online.html,Assignment 3,1. The Sign of a Line Integral,2,other: thumbs up,,,small 388x465
+14/08/2026 22:21:32,2026-08-15T05:21:30.936Z,s-3jiixedc,sec-exercises-hw4-online.html,Assignment 4,2. Which Shapes Can Carry This Density?,1,other: thumbs up,,,small 388x465
+14/08/2026 22:22:34,2026-08-15T05:22:32.586Z,s-3jiixedc,sec-exercises-hw4-online.html,Assignment 4,2. Which Shapes Can Carry This Density?,2,other: thumbs up,,,small 388x465
+14/08/2026 22:22:56,2026-08-15T05:22:54.341Z,s-3jiixedc,sec-exercises-hw4-online.html,Assignment 4,2. Which Shapes Can Carry This Density?,3,other: thumbs up,,,small 388x465
+14/08/2026 22:23:04,2026-08-15T05:23:03.019Z,s-3jiixedc,sec-exercises-hw4-online.html,Assignment 4,2. Which Shapes Can Carry This Density?,3,helped a lot,,"STUDENT: I am not sure what this means: the two shapes that can carry  as a density
+
+TUTOR: In physics and calculus, what property must a density function $\delta(x,y)$ always satisfy at every point on a real, physical object?
+
+STUDENT: It has to be positive
+
+TUTOR: Density cannot be negative, so we must have $\delta(x,y) \ge 0$ at every point on the shape. 
+
+What geometric condition does the inequality $x^2 - y^2 \ge 0$ place on the coordinates $(x,y)$ in the plane?
+
+STUDENT: x>=y
+
+TUTOR: Test a point like $(1, -2)$: here $x \ge y$ is true, but what is $x^2 - y^2$? 
+
+Because squaring eliminates minus signs, $x^2 \ge y^2$ actually compares the magnitudes: $|x| \ge |y|$. Look at where the lines $y = x$ and $y = -x$ divide the plane, and ask yourself which regions have points closer to the $x$-axis than the $y$-axis.
+
+Since this is your final hint on this problem, if you want to talk through the shapes in Figure 4.4.2 or how to compare their total masses, please bring your sketches and work to office hours!",small 388x465
+14/08/2026 22:34:36,2026-08-15T05:34:34.283Z,s-3jiixedc,sec-exercises-hw4-online.html,Assignment 4,3. Reversing the Order of Integration,1,other: thumbs up,,,small 388x465
+14/08/2026 22:35:21,2026-08-15T05:35:19.248Z,s-3jiixedc,sec-exercises-hw4-online.html,Assignment 4,3. Reversing the Order of Integration,2,other: thumbs up,,,small 388x465
+14/08/2026 22:36:13,2026-08-15T05:36:11.862Z,s-3jiixedc,sec-exercises-hw4-online.html,Assignment 4,3. Reversing the Order of Integration,2,helped a lot,It asked me questions which made me think about the problem rather than giving me the answers.,"STUDENT: Does it only need one double integral?
+
+TUTOR: To see how many integrals are needed, it helps to look at the shape of the region you're integrating over. 
+
+If you sketch the region bounded by the original limits ($0 \le x \le 5$, with $y$ between $x/2$ and $x$), what do horizontal slices (lines of constant $y$) look like as you move from the bottom of the region to the top? Do the left and right boundary curves stay the same the whole way up?
+
+STUDENT: I see I need to split the region into two regions that are separated using y=5/2 line
+
+TUTOR: That's a key observation. When you draw horizontal lines through each of those two sections, what curve or line forms the left boundary for $x$, and what forms the right boundary for $x$ in each piece?",small 388x465
+17/08/2026 09:57:00,2026-08-17T16:56:58.035Z,s-53py207n,sec-exercises-hw1-online.html,Assignment 1,4. Where Is the Object After Travelling 15?,1,other: thumbs up,,,small 388x549
+17/08/2026 09:59:01,2026-08-17T16:58:59.198Z,s-53py207n,sec-exercises-hw1-online.html,Assignment 1,4. Where Is the Object After Travelling 15?,2,other: thumbs up,,,small 388x549
+17/08/2026 10:00:55,2026-08-17T17:00:53.058Z,s-53py207n,sec-exercises-hw1-online.html,Assignment 1,4. Where Is the Object After Travelling 15?,3,other: thumbs down,,,small 388x549
+17/08/2026 10:03:36,2026-08-17T17:03:34.125Z,s-53py207n,sec-exercises-hw1-online.html,Assignment 1,4. Where Is the Object After Travelling 15?,3,helped a lot,The last tip where I used the flash model was too much as it literally summarized the steps I need to do instead of letting me review it and learn on my own. This is the instructor testing the tutor and the first sentence in the third tip would have been enough plus a happy solving! Message at the end.,"STUDENT: How can I approach this problem?
+
+TUTOR: Take a look at **Example 1.2.7: Distance travelled by a paraglider** in Section 1.2 for how arc length and speed are connected to a path $\mathbf{r}(t)$.
+
+To get started on your problem, how do you find the object's velocity and speed from its position vector $\mathbf{r}(t)$?
+
+STUDENT: I see. Since I’ve the distance I can put it equal to arc length and use it to compute b. Then I plug it into v(t) to compute the velocity vector right?
+
+TUTOR: Setting the arc length equal to 15 to solve for that time is spot on!
+
+Just double-check the final question: it asks for the *point* where the object is at that moment. Which function gives the object's position in space at a given time, rather than its velocity?
+
+STUDENT: r(t)
+
+TUTOR: Exactly, $\mathbf{r}(t)$ gives the position! 
+
+Now you have the full roadmap: compute the derivative $\mathbf{r}'(t)$ to find the speed $\|\mathbf{r}'(t)\|$, evaluate it at $t=0$, integrate it to set up the arc length equation equal to $15$, and plug the resulting $t$ back into $\mathbf{r}(t)$. 
+
+Since this is your last hint for this problem, give the algebra a try, and if you get stuck simplifying or want to check your steps, definitely bring your written work to office hours!",small 388x549
+19/08/2026 11:35:08,2026-08-19T18:35:07.011Z,s-1sm52ewu,sec-exercises-hw1-online.html,Assignment 1,4. Where Is the Object After Travelling 15?,1,other: thumbs up,,,small 388x536
+21/08/2026 09:05:07,2026-08-21T16:05:05.852Z,s-1sm52ewu,sec-exercises-hw10-online.html,Assignment 10,1. Flux Through a Piece of a Cylinder,1,other: thumbs up,,,small 388x536
+21/08/2026 09:59:06,2026-08-21T16:59:04.555Z,s-1sm52ewu,sec-exercises-hw10-online.html,Assignment 10,1. Flux Through a Piece of a Cylinder,2,other: thumbs up,,,small 388x464
+21/08/2026 10:00:10,2026-08-21T17:00:08.730Z,s-1sm52ewu,sec-exercises-hw10-online.html,Assignment 10,1. Flux Through a Piece of a Cylinder,3,other: thumbs up,,,small 388x464
+26/08/2026 13:32:11,2026-08-26T20:32:09.425Z,s-w4sxnfg0,sec-exercises-hw1-online.html,Assignment 1,1. Parametrizing a Curve of Intersection,1,other: thumbs up,,,small 388x415
+01/09/2026 10:29:51,2026-09-01T17:29:49.320Z,s-zdk5fpy8,worksheet-assignment-1.html,Assignment 1,Problem 4,1,other: thumbs up,,,small 388x382
+01/09/2026 10:30:39,2026-09-01T17:30:37.286Z,s-zdk5fpy8,worksheet-assignment-1.html,Assignment 1,Problem 4,1,helped a lot,I needed the definitions and it pointed me out to where they were used but it could simply point me out to the actual defs.,"STUDENT: How do I start?
+
+TUTOR: For how to begin tackling an equation with hyperbolic functions, take a look at Example 1.4.2: An integral via a hyperbolic substitution or Example 1.6.4: Solving a hyperbolic equation — how are the hyperbolic functions written out in terms of exponentials in those examples?",small 388x382
+21/09/2026 09:51:45,2026-09-21T16:51:43.568Z,s-z90aruje,worksheet-assignment-1.html,Assignment 1,Problem 1,1,other: thumbs up,,,small 388x505
+21/09/2026 09:52:33,2026-09-21T16:52:31.669Z,s-99dxgbll,worksheet-assignment-1.html,Assignment 1,Problem 1,2,other: thumbs up,,,small 389x537
+21/09/2026 13:39:04,2026-09-21T20:39:01.376Z,s-drz94xkv,sec-exercises-hw1-online.html,Assignment 1,3. Parametrizing an Ellipse as a Motion,1,other: thumbs up,,,small 389x319
+22/09/2026 18:09:26,2026-09-23T01:09:22.352Z,s-h6k65n75,worksheet-assignment-1.html,Assignment 1,Problem 2,1,other: thumbs up,,,small 388x536
+23/09/2026 15:46:23,2026-09-23T22:46:20.328Z,s-e8avbm22,worksheet-assignment-1.html,Assignment 1,Problem 1,3,other: thumbs up,,,small 388x468
+23/09/2026 16:25:04,2026-09-23T23:25:01.919Z,s-3uo5knhv,sec-exercises-hw1-online.html,Assignment 1,"1. Describing a Motion, I",1,other: thumbs down,,,small 388x536
+24/09/2026 11:18:42,2026-09-24T18:18:38.847Z,s-kta8d8lk,worksheet-assignment-1.html,Assignment 1,Problem 1,1,other: thumbs up,,,small 388x527
+24/09/2026 11:49:55,2026-09-24T18:49:53.808Z,s-lumdm5ds,worksheet-assignment-1.html,Assignment 1,Problem 1,1,other: thumbs up,,,small 389x353
+24/09/2026 11:54:53,2026-09-24T18:54:52.005Z,s-kta8d8lk,worksheet-assignment-1.html,Assignment 1,Problem 4,1,other: thumbs down,,,small 388x527
+25/09/2026 14:48:31,2026-09-25T21:48:29.343Z,s-1c78sbhc,worksheet-assignment-1.html,Assignment 1,Problem 6,3,helped a little,,"STUDENT: how do i start
+
+TUTOR: Take a look at Example 1.4.3: An integral via a hyperbolic substitution, which shows how a substitution transforms an integral containing hyperbolic functions. 
+
+For your integral, what does the substitution $x = \tanh(t)$ tell you to use for $dx$ in terms of $t$ and $dt$?
+
+STUDENT: Is the answer t?
+
+TUTOR: What makes you say that? 
+
+If $x = \tanh(t)$, try differentiating both sides with respect to $t$ using the derivative mentioned in the hint: $\frac{d}{dt}\tanh(t) = \operatorname{sech}^2(t)$. What does $dx$ become?
+
+STUDENT: I found the final answer of the integral to be tanh^(-1)(x)
+
+TUTOR: What is your reasoning for that? 
+
+Remember that after you substitute $x = \tanh(t)$ and $dx = \operatorname{sech}^2(t)\,dt$ into the integral, you are integrating with respect to $t$ first — what does that integral simplify to before you substitute $t$ back in terms of $x$? 
+
+Since this is our last hint on this problem, I warmly encourage you to bring your work and your thoughts on this to office hours for further discussion!",small 388x492
+25/09/2026 15:41:45,2026-09-25T22:41:44.268Z,s-rh309y3f,worksheet-assignment-1.html,Assignment 1,Problem 6,2,other: thumbs up,,,small 388x536
+25/09/2026 16:08:10,2026-09-25T23:08:08.332Z,s-pgkkzzm2,sec-exercises-hw1-online.html,Assignment 1,"1. Describing a Motion, I",2,other: thumbs up,,,small 388x430
+25/09/2026 16:16:53,2026-09-25T23:16:52.038Z,s-3wwixjyx,sec-exercises-hw1-online.html,Assignment 1,6. Tangent Line to a Space Curve,3,other: thumbs down,,,small 388x536
+25/09/2026 16:27:09,2026-09-25T23:27:07.399Z,s-3wwixjyx,sec-exercises-hw1-online.html,Assignment 1,5. How Much Wire Is in a Spring?,3,other: thumbs down,,,small 388x536
+25/09/2026 17:14:02,2026-09-26T00:13:58.098Z,s-c2dkg6uh,worksheet-assignment-1.html,Assignment 1,Problem 1,1,other: thumbs up,,,small 389x522
+25/09/2026 17:33:02,2026-09-26T00:32:58.530Z,s-c2dkg6uh,worksheet-assignment-1.html,Assignment 1,Problem 1,3,other: thumbs up,,,small 389x522
+25/09/2026 18:51:05,2026-09-26T01:51:02.876Z,s-h6k65n75,worksheet-assignment-1.html,Assignment 1,Problem 5,1,other: thumbs up,,,small 388x536
+30/09/2026 15:03:13,2026-09-30T22:03:15.548Z,s-e8avbm22,worksheet-assignment-2.html,Assignment 2,Problem 2,3,other: thumbs down,,,small 388x468
+30/09/2026 15:03:39,2026-09-30T22:03:38.184Z,s-dxnjle2i,worksheet-assignment-2.html,Assignment 2,Problem 3,2,other: thumbs down,,,small 389x531
+30/09/2026 15:03:41,2026-09-30T22:03:39.697Z,s-dxnjle2i,worksheet-assignment-2.html,Assignment 2,Problem 3,2,other: thumbs down,,,small 389x531
+01/10/2026 13:48:41,2026-10-01T20:48:39.420Z,s-rh309y3f,worksheet-assignment-2.html,Assignment 2,Problem 6,1,other: thumbs down,,,small 389x537
+01/10/2026 13:49:31,2026-10-01T20:49:29.536Z,s-a3uupag4,sec-exercises-hw2-online.html,Assignment 2,3. Around the Unit Square,1,other: thumbs up,,,small 388x536
+01/10/2026 18:28:47,2026-10-02T01:28:43.946Z,s-5ikcytzj,worksheet-assignment-2.html,Assignment 2,Problem 1,2,other: thumbs down,,,small 388x505
+01/10/2026 20:02:45,2026-10-02T03:02:43.171Z,s-rh309y3f,worksheet-assignment-2.html,Assignment 2,Problem 7,1,other: thumbs down,,,small 388x536
+01/10/2026 22:01:54,2026-10-02T05:01:52.380Z,s-zl8gqsf6,worksheet-assignment-2.html,Assignment 2,Problem 7,1,other: thumbs up,,,small 388x536
+02/10/2026 11:04:45,2026-10-02T18:04:43.517Z,s-pgkkzzm2,sec-exercises-hw2-online.html,Assignment 2,1. Mass of a Quarter-Circle Wire,1,other: thumbs down,,,small 388x430
+02/10/2026 17:53:43,2026-10-03T00:52:48.166Z,s-rccmvcyk,worksheet-assignment-2.html,Assignment 2,Problem 4,2,other: thumbs up,,,small 389x537
+02/10/2026 19:15:27,2026-10-03T02:15:25.982Z,s-rccmvcyk,worksheet-assignment-2.html,Assignment 2,Problem 9,3,other: thumbs down,,,small 389x537
+05/10/2026 11:57:11,2026-10-05T18:57:09.339Z,s-cqjzqjhv,worksheet-assignment-3.html,Assignment 3,Problem 1,1,other: thumbs down,,,small 389x520
+05/10/2026 21:57:55,2026-10-06T04:57:53.902Z,s-5xk5tchq,sec-exercises-hw3-online.html,Assignment 3,7. A Line Integral Along a Helix,3,other: thumbs up,,,small 388x536
+05/10/2026 21:58:01,2026-10-06T04:57:59.272Z,s-5xk5tchq,sec-exercises-hw3-online.html,Assignment 3,7. A Line Integral Along a Helix,3,other: thumbs up,,,small 388x536
+05/10/2026 21:58:02,2026-10-06T04:58:00.559Z,s-5xk5tchq,sec-exercises-hw3-online.html,Assignment 3,7. A Line Integral Along a Helix,3,other: thumbs up,,,small 388x536
