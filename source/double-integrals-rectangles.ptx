@@ -6,16 +6,21 @@
 <!-- completed MATH 14 notes.  The Riemann-sum reminder, the one-box and   -->
 <!-- four-box estimates, the double-integral definition, both worked       -->
 <!-- examples, the Fubini check, and the Concept Check answers are         -->
-<!-- replaced by blank workspace boxes, each preceded by a one-line        -->
-<!-- instruction.  The definition of the double integral is restated in   -->
-<!-- an assemblage so that later sections can still cite                   -->
+<!-- replaced by blank workspace boxes.  The boxes carried row labels     -->
+<!-- naming the steps, and the examples and Concept Check questions a      -->
+<!-- parenthetical how-to, until the instructor had those hints removed    -->
+<!-- (Oct 2026): every box is now empty, and the examples and questions    -->
+<!-- read word for word as in the completed notes.  The definition of the  -->
+<!-- double integral is restated in an assemblage so that later sections   -->
+<!-- can still cite                                                        -->
 <!-- eq-double-integral-def.  Fubini's theorem is kept.  File name and     -->
 <!-- xml:ids are unchanged.                                                -->
 <!--                                                                       -->
 <!-- Figures: the Riemann-sum diagram, every GeoGebra applet, the video    -->
 <!-- and the surface of Example II are kept; the applets are the           -->
 <!-- statements of the Concept Check questions.  Captions that stated a    -->
-<!-- numerical answer have been trimmed.                                   -->
+<!-- numerical answer have been trimmed, and Figure (2) no longer says     -->
+<!-- that half of the plane lies above R and half below.                   -->
 <section xml:id="section-double-integrals-rectangles" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Double and Iterated Integrals Over Rectangles</title>
 
@@ -43,12 +48,11 @@ definite integral it defines.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {Area $= \displaystyle\lim_{n\to\infty}$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$\displaystyle\int_{x=a}^{x=b} f(x)\,dx =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the area as a limit of a sum of rectangle areas and one for the definite integral as the same limit.</shortdescription>
+<shortdescription>Blank workspace for the area as a limit of a sum of rectangle areas and as a definite integral.</shortdescription>
 </image>
 </sidebyside>
 
@@ -199,10 +203,11 @@ compute this (very bad) estimate of the desired volume.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$V \approx f(1,1)\,\Delta A =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,3.25) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box with one row, for the one-box estimate of the volume.</shortdescription>
+<shortdescription>Blank workspace for the one-box estimate of the volume.</shortdescription>
 </image>
 </sidebyside>
 
@@ -246,12 +251,11 @@ The refinement process is animated in <xref ref="fig-riemann-boxes-video"/>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$f\!\left(\tfrac12,\tfrac12\right) =$ \quad $f\!\left(\tfrac12,\tfrac32\right) =$ \quad $f\!\left(\tfrac32,\tfrac12\right) =$ \quad $f\!\left(\tfrac32,\tfrac32\right) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V \approx$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the four sampled heights and one for the four-box estimate of the volume.</shortdescription>
+<shortdescription>Blank workspace for the four-box estimate of the volume.</shortdescription>
 </image>
 </sidebyside>
 
@@ -320,12 +324,11 @@ surface at a sample point.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {Volume $\approx$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {Volume $=$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the double Riemann sum approximating the volume and one for its limit.</shortdescription>
+<shortdescription>Blank workspace for the Riemann sum approximating the volume and for its limit.</shortdescription>
 </image>
 </sidebyside>
 
@@ -353,10 +356,11 @@ integral, with its limits.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {Volume $= \displaystyle\iint_R f(x,y)\,dA =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,3.25) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box with one row, for the volume of the example written as a double integral with limits.</shortdescription>
+<shortdescription>Blank workspace for the volume of the example written as a double integral with limits.</shortdescription>
 </image>
 </sidebyside>
 
@@ -393,9 +397,6 @@ Calculate the double integral
 </p>
 <p>
 <em>Solution.</em>
-(Integrate with respect to <m>x</m> first, treating <m>y</m> as a
-constant and using FTC II; the result is a function of <m>y</m>. Then
-integrate that with respect to <m>y</m>.)
 </p>
 
 <sidebyside width="97%">
@@ -403,12 +404,11 @@ integrate that with respect to <m>y</m>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\int_0^2 \left(x^2+y+5\right)dx =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\displaystyle\int_0^2 \Big(\quad\Big)\,dy =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the inner integral with respect to x and one for the outer integral with respect to y.</shortdescription>
+<shortdescription>Blank workspace for computing the double integral of Example I.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -448,12 +448,11 @@ result of <xref ref="example-iterated-rectangle"/>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\int_0^2 \left(x^2+y+5\right)dy =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\displaystyle\int_0^2 \Big(\quad\Big)\,dx =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the inner integral with respect to y and one for the outer integral with respect to x.</shortdescription>
+<shortdescription>Blank workspace for computing the same integral in the other order.</shortdescription>
 </image>
 </sidebyside>
 
@@ -472,13 +471,6 @@ Calculate the double integral
 </p>
 <p>
 <em>Solution.</em>
-(By <xref ref="thm-fubini"/> you may integrate over <m>y</m> first,
-with <m>x</m> held constant; the substitution <m>u = 1 + xy</m> does
-it. The result is a function of <m>x</m> involving a logarithm, which
-needs integration by parts, <m>\int u\,dv = uv - \int v\,du</m>; in
-the leftover integral, write the numerator as
-<m>(1 + 2x) - 1</m>. The surface is shown in
-<xref ref="fig-substitution-surface-tikz"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -486,14 +478,11 @@ the leftover integral, write the numerator as
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {$\displaystyle\int_0^2 \frac{x}{1+xy}\,dy =$ \quad ($u = 1+xy$)};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$\displaystyle\int \ln(1+2x)\,dx =$ \quad (by parts)};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\displaystyle\int_0^2\!\!\int_0^1 \frac{x}{1+xy}\,dx\,dy =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the inner integral by substitution, for the antiderivative of the logarithm by parts, and for the value of the double integral.</shortdescription>
+<shortdescription>Blank workspace for computing the double integral of Example II.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -596,21 +585,17 @@ Write down a double integral for computing the volume inside the sphere
 <m>x^2+y^2+z^2=1</m> and above the region <m>R</m>. See
 <xref ref="fig-ws-sphere-over-square"/>.
 </p>
-<p>
-(Which half of the sphere is the ceiling, and is its formula defined on
-all of <m>R</m>? The solid is the one of
-<xref ref="fig-volume-solid-geogebra"/> with a different ceiling.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$V = \displaystyle\iint_R \cdots\, dA =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,4.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box with one row, for the double integral with limits giving the volume under the sphere.</shortdescription>
+<shortdescription>Blank workspace for the double integral giving the volume under the sphere.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -655,25 +640,17 @@ are helpful in answering this question.
 <li><p><m>\displaystyle\iint_R (y-x)\,dA \lt 0</m></p></li>
 <li><p><m>\displaystyle\iint_R (y-x)\,dA \gt 0</m></p></li>
 </ol>
-<p>
-(Circle the correct statements and justify each. Where does the plane
-<m>z = x</m> lie above the <m>xy</m>-plane over <m>R</m>, and where
-below? What does the symmetry of <m>R</m> about the line <m>x = 0</m>
-do to the two signed volumes? Then treat <m>y - x</m> the same way,
-using <xref ref="fig-ws-plane-y-minus-x"/>.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\iint_R x\,dA$: \quad sign, and why};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\displaystyle\iint_R (y-x)\,dA$: \quad sign, and why};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, for the sign of the integral of x over the square with its justification, and for the sign of the integral of y minus x with its justification.</shortdescription>
+<shortdescription>Blank workspace for choosing the correct statements and justifying them.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -682,8 +659,7 @@ using <xref ref="fig-ws-plane-y-minus-x"/>.)
 <figure xml:id="fig-ws-plane-x">
 <caption>
 Figure (2): the plane <m>z=x</m> over the square <m>R</m>, together with
-<m>R</m> itself in the <m>xy</m>-plane. Half of the plane lies above
-<m>R</m> and half below.
+<m>R</m> itself in the <m>xy</m>-plane.
 </caption>
 <!-- a local copy of the published material bske5ega with the corner
      drops added, in the style of the drops of figure (1) -->
@@ -692,9 +668,7 @@ Figure (2): the plane <m>z=x</m> over the square <m>R</m>, together with
        aspect="500:500" material-width="500" material-height="500"/>
 <instructions>
 <p>
-Drag the background to rotate the picture and scroll to zoom. Turn it
-until you are looking along the <m>y</m>-axis: the part of the plane
-above <m>R</m> and the part below it are then mirror images.
+Drag the background to rotate the picture and scroll to zoom.
 </p>
 </instructions>
 </interactive>
@@ -730,21 +704,17 @@ Write a double integral for computing the volume of the region bounded by
 the blue plane and the orange plane as graphed in
 <xref ref="fig-ws-plane-x"/>.
 </p>
-<p>
-(Volume is unsigned, so the integrand is the <em>distance</em> between
-the two planes, not the signed height. How does this differ from
-<xref ref="q-di-signs"/>?)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$V = \displaystyle\iint_R \cdots\, dA =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,4.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box with one row, for the double integral giving the volume between the plane z equals x and the square.</shortdescription>
+<shortdescription>Blank workspace for the double integral giving the volume between the plane z equals x and the square.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -758,22 +728,17 @@ Write a double integral for computing the volume of the region bounded by
 the blue plane and the orange plane as graphed in
 <xref ref="fig-ws-plane-y-minus-x"/>.
 </p>
-<p>
-(As before, the integrand is the distance between the two planes. The
-diagonal <m>y = x</m> splits <m>R</m> into two halves; what does the
-symmetry noted in <xref ref="q-di-signs"/> let you do with the absolute
-value?)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$V = \displaystyle\iint_R \cdots\, dA =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,4.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box with one row, for the double integral giving the volume between the plane z equals y minus x and the square.</shortdescription>
+<shortdescription>Blank workspace for the double integral giving the volume between the plane z equals y minus x and the square.</shortdescription>
 </image>
 </sidebyside>
 </statement>
