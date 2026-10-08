@@ -146,7 +146,12 @@
       </p>
       <figure>
         <caption>The curves <m>C_1</m> and <m>C_2</m> with their orientation.</caption>
-        <image width="55%">
+        <!-- An explicit id names the generated image file.  Without one the  -->
+        <!-- name comes from the image's position inside this auto-graded     -->
+        <!-- exercise, and the image generator and the HTML counted that      -->
+        <!-- position differently, so the page asked for a file that was      -->
+        <!-- never made.                                                      -->
+        <image xml:id="image-hw3o-segment-arc" width="55%">
           <shortdescription>
             A segment along the x axis from minus one to one, then the upper
             half of the unit circle back to minus one.
