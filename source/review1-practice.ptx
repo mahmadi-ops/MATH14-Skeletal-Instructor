@@ -182,12 +182,82 @@
         P(x,y) = b^3x^3 + a^3y^3 - a^2b^2xy = 0 .
       </me>
       <p component="review1-solutions">
-        At <m>t = 1</m> the point is
-        <m>\left(\tfrac{a}{2}, \tfrac{b}{2}\right)</m>, and
-        <m>\dfrac{dy}{dx} = \dfrac{y'(1)}{x'(1)} = -\dfrac{b}{a}</m>, so the
-        tangent line is
-        <m>y = -\dfrac{b}{a}\left(x - \dfrac{a}{2}\right) + \dfrac{b}{2}</m>.
+        For the tangent line, follow the steps of
+        <xref ref="ex-tangent-line-helix"/>, with the path
+        <m>\mathbf{r}(t) = \left\langle x(t), y(t) \right\rangle</m>.
       </p>
+      <p component="review1-solutions">
+        <term>Step 1.</term> The point is the one the path passes through at
+        <m>t_0 = 1</m>:
+      </p>
+      <me component="review1-solutions">
+        \mathbf{r}_0 = \mathbf{r}(1)
+          = \left\langle \frac{a}{2},\ \frac{b}{2} \right\rangle .
+      </me>
+      <p component="review1-solutions">
+        <term>Step 2.</term> The tangent vector is given by differentiating
+        each coordinate, by the quotient rule:
+      </p>
+      <md component="review1-solutions">
+        <mrow>
+          \mathbf{v}(t) = \frac{d\mathbf{r}}{dt}
+          \amp = \left\langle
+              \frac{a\left(1+t^3\right) - at\cdot 3t^2}{\left(1+t^3\right)^2},\
+              \frac{2bt\left(1+t^3\right) - bt^2\cdot 3t^2}{\left(1+t^3\right)^2}
+            \right\rangle
+        </mrow>
+        <mrow>
+          \amp = \left\langle
+              \frac{a\left(1 - 2t^3\right)}{\left(1+t^3\right)^2},\
+              \frac{b\left(2t - t^4\right)}{\left(1+t^3\right)^2}
+            \right\rangle .
+        </mrow>
+      </md>
+      <p component="review1-solutions">
+        <term>Step 3.</term> The tangent vector at <m>t_0 = 1</m> is
+      </p>
+      <me component="review1-solutions">
+        \mathbf{v}(1)
+          = \left\langle \frac{a(1-2)}{4},\ \frac{b(2-1)}{4} \right\rangle
+          = \left\langle -\frac{a}{4},\ \frac{b}{4} \right\rangle .
+      </me>
+      <p component="review1-solutions">
+        <term>Step 4.</term> By <xref ref="eq-tangent-line"/>, the tangent
+        line in vector form is
+      </p>
+      <md component="review1-solutions">
+        <mrow>
+          \mathbf{r}(s) \amp = \mathbf{r}_0 + s\,\mathbf{v}(1)
+            = \left\langle \frac{a}{2},\ \frac{b}{2} \right\rangle
+              + s \left\langle -\frac{a}{4},\ \frac{b}{4} \right\rangle
+        </mrow>
+        <mrow>
+          \amp = \left\langle \frac{a}{2} - \frac{a}{4}\,s,\
+              \frac{b}{2} + \frac{b}{4}\,s \right\rangle ,
+            \qquad s \in \R .
+        </mrow>
+      </md>
+      <p component="review1-solutions">
+        <term>Step 5.</term> Reading off the coordinates, the tangent line
+        in parametric form is
+      </p>
+      <md component="review1-solutions">
+        <mrow>
+          x(s) \amp = \frac{a}{2} - \frac{a}{4}\,s ,
+        </mrow>
+        <mrow>
+          y(s) \amp = \frac{b}{2} + \frac{b}{4}\,s , \qquad s \in \R .
+        </mrow>
+      </md>
+      <p component="review1-solutions">
+        The answer is asked for as <m>y</m> in terms of <m>x</m>, so
+        eliminate <m>s</m>. The first equation gives
+        <m>\dfrac{s}{4} = -\dfrac{1}{a}\left(x - \dfrac{a}{2}\right)</m>,
+        and substituting into the second,
+      </p>
+      <me component="review1-solutions">
+        y = -\frac{b}{a}\left(x - \frac{a}{2}\right) + \frac{b}{2} .
+      </me>
     </solution>
   </exercise>
 
