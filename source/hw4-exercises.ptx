@@ -162,5 +162,93 @@
       </p>
     </statement>
   </exercise>
+  <!-- The eight problems below come from a Math 53 discussion worksheet      -->
+  <!-- (Discussion 12, double integrals; UC Berkeley, Spring 2021,           -->
+  <!-- Prof. Stankova): its problems 1.1, 1.2, 2(a), 2(c), 3(c), 3(e), 3(f)  -->
+  <!-- and 5(c), with the worksheet's own solutions, typeset here.           -->
+
+  <exercise xml:id="ex-hw4-geo-box">
+    <statement>
+      <p>
+        Use a geometric argument to find the value of
+        <m>\displaystyle\iint_{[0,a]\times[0,b]} c\,dA</m>, where
+        <m>a</m>, <m>b</m> and <m>c</m> are positive constants.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw4-geo-half-ball">
+    <statement>
+      <p>
+        Use a geometric argument to find the value of
+        <m>\displaystyle\iint_{x^2+y^2\le 1} \sqrt{1-x^2-y^2}\,dA</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw4-order-triangle">
+    <statement>
+      <p>
+        Change the order of integration in
+        <m>\displaystyle\int_0^1\!\!\int_0^y f(x,y)\,dx\,dy</m>. Sketching
+        the region of integration might be helpful.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw4-order-log">
+    <statement>
+      <p>
+        Change the order of integration in
+        <m>\displaystyle\int_1^2\!\!\int_0^{\ln x} f(x,y)\,dy\,dx</m>.
+        Sketching the region of integration might be helpful.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw4-x-under-sine">
+    <statement>
+      <p>
+        Compute <m>\displaystyle\iint_D x\,dA</m>, where
+        <m>D = \{(x,y) \mid 0 \le x \le \pi,\ 0 \le y \le \sin x\}</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw4-exp-square">
+    <statement>
+      <p>
+        Compute <m>\displaystyle\int_0^1\!\!\int_{4y}^{4} e^{x^2}\,dx\,dy</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw4-arcsin">
+    <statement>
+      <p>
+        Compute
+        <m>\displaystyle\int_0^1\!\!\int_{\arcsin y}^{\pi/2}
+        \cos x\,\sqrt{1+\cos^2 x}\,dx\,dy</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw4-fubini-tf">
+    <statement>
+      <p>
+        True or false? Supply convincing reasoning for your answer.
+      </p>
+      <me>
+        \int_0^1\!\!\int_0^1 \frac{x^2-y^2}{\left(x^2+y^2\right)^2}\,dy\,dx
+        = \int_0^1\!\!\int_0^1 \frac{x^2-y^2}{\left(x^2+y^2\right)^2}\,dx\,dy
+        \quad\text{by Fubini's theorem.}
+      </me>
+      <p>
+        <em>Hint:</em>
+        <m>\dfrac{d}{dy}\,\dfrac{y}{x^2+y^2}
+        = \dfrac{x^2-y^2}{\left(x^2+y^2\right)^2}</m>.
+      </p>
+    </statement>
+  </exercise>
   </exercises>
 </section>

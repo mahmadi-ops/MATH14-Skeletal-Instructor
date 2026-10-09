@@ -182,4 +182,241 @@
       </md>
     </solution>
   </problem>
+  <!-- The eight problems below come from a Math 53 discussion worksheet      -->
+  <!-- (Discussion 12, double integrals; UC Berkeley, Spring 2021,           -->
+  <!-- Prof. Stankova): its problems 1.1, 1.2, 2(a), 2(c), 3(c), 3(e), 3(f)  -->
+  <!-- and 5(c), with the worksheet's own solutions, typeset here.           -->
+
+  <problem xml:id="ex-hw4-geo-box">
+    <statement>
+      <p>
+        Use a geometric argument to find the value of
+        <m>\displaystyle\iint_{[0,a]\times[0,b]} c\,dA</m>, where
+        <m>a</m>, <m>b</m> and <m>c</m> are positive constants.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        Over the rectangle <m>[0,a]\times[0,b]</m> the graph of the
+        integrand is the plane <m>z = c</m>, at constant height <m>c</m>.
+        The integral is therefore the volume of a rectangular box with side
+        lengths <m>a</m>, <m>b</m> and <m>c</m>:
+      </p>
+      <me>
+        \iint_{[0,a]\times[0,b]} c\,dA = abc .
+      </me>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw4-geo-half-ball">
+    <statement>
+      <p>
+        Use a geometric argument to find the value of
+        <m>\displaystyle\iint_{x^2+y^2\le 1} \sqrt{1-x^2-y^2}\,dA</m>.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        Over the unit disk <m>x^2+y^2\le 1</m>, the graph of
+        <m>z = \sqrt{1-x^2-y^2}</m> is the upper half of the unit sphere
+        <m>x^2+y^2+z^2 = 1</m>. The integral is therefore the volume of the
+        upper half of the unit ball. A ball of radius <m>R</m> has volume
+        <m>\tfrac43\pi R^3</m>, so
+      </p>
+      <me>
+        \iint_{x^2+y^2\le 1} \sqrt{1-x^2-y^2}\,dA
+        = \frac12\cdot\frac43\pi = \frac{2\pi}{3} \approx 2.094 .
+      </me>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw4-order-triangle">
+    <statement>
+      <p>
+        Change the order of integration in
+        <m>\displaystyle\int_0^1\!\!\int_0^y f(x,y)\,dx\,dy</m>. Sketching
+        the region of integration might be helpful.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        The region is <m>0 \le y \le 1</m>, <m>0 \le x \le y</m>: the
+        triangle with vertices <m>(0,0)</m>, <m>(0,1)</m> and <m>(1,1)</m>.
+        Described the other way it is <m>0 \le x \le 1</m>,
+        <m>x \le y \le 1</m>, so
+      </p>
+      <me>
+        \int_0^1\!\!\int_0^y f(x,y)\,dx\,dy
+        = \int_0^1\!\!\int_x^1 f(x,y)\,dy\,dx .
+      </me>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw4-order-log">
+    <statement>
+      <p>
+        Change the order of integration in
+        <m>\displaystyle\int_1^2\!\!\int_0^{\ln x} f(x,y)\,dy\,dx</m>.
+        Sketching the region of integration might be helpful.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        The region is <m>1 \le x \le 2</m>, <m>0 \le y \le \ln x</m>.
+        Since <m>\ln</m> is increasing, <m>y</m> ranges over
+        <m>0 \le y \le \ln 2</m>, and <m>y \le \ln x</m> is the same as
+        <m>e^y \le x</m>. So
+      </p>
+      <me>
+        \int_1^2\!\!\int_0^{\ln x} f(x,y)\,dy\,dx
+        = \int_0^{\ln 2}\!\!\int_{e^y}^{2} f(x,y)\,dx\,dy .
+      </me>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw4-x-under-sine">
+    <statement>
+      <p>
+        Compute <m>\displaystyle\iint_D x\,dA</m>, where
+        <m>D = \{(x,y) \mid 0 \le x \le \pi,\ 0 \le y \le \sin x\}</m>.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        <m>D</m> is a region of type I, so
+      </p>
+      <md>
+        <mrow>
+          \iint_D x\,dA \amp = \int_0^{\pi}\!\!\int_0^{\sin x} x\,dy\,dx
+          = \int_0^{\pi} x\sin x\,dx
+        </mrow>
+        <mrow>
+          \amp = \Bigl[-x\cos x\Bigr]_0^{\pi} + \int_0^{\pi} \cos x\,dx
+          = \pi + 0 = \pi \approx 3.142 ,
+        </mrow>
+      </md>
+      <p>
+        integrating by parts with <m>u = x</m>, <m>dv = \sin x\,dx</m>.
+      </p>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw4-exp-square">
+    <statement>
+      <p>
+        Compute <m>\displaystyle\int_0^1\!\!\int_{4y}^{4} e^{x^2}\,dx\,dy</m>.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        The function <m>e^{x^2}</m> has no antiderivative that can be
+        written with familiar functions, so change the order of
+        integration. The region <m>0 \le y \le 1</m>,
+        <m>4y \le x \le 4</m> is the same as <m>0 \le x \le 4</m>,
+        <m>0 \le y \le x/4</m>. Hence, with the substitution
+        <m>s = x^2</m>, <m>ds = 2x\,dx</m>,
+      </p>
+      <md>
+        <mrow>
+          \int_0^1\!\!\int_{4y}^{4} e^{x^2}\,dx\,dy
+          \amp = \int_0^4\!\!\int_0^{x/4} e^{x^2}\,dy\,dx
+          = \int_0^4 \frac{x}{4}\,e^{x^2}\,dx
+        </mrow>
+        <mrow>
+          \amp = \frac18\int_0^{16} e^{s}\,ds
+          = \frac{e^{16}-1}{8} \approx 1110763.690 .
+        </mrow>
+      </md>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw4-arcsin">
+    <statement>
+      <p>
+        Compute
+        <m>\displaystyle\int_0^1\!\!\int_{\arcsin y}^{\pi/2}
+        \cos x\,\sqrt{1+\cos^2 x}\,dx\,dy</m>.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        The inner integral looks hard, so change the order of
+        integration. The region is the rectangle
+        <m>[0,\pi/2]\times[0,1]</m> with the extra condition
+        <m>\arcsin y \le x</m>, which is the same as <m>y \le \sin x</m>.
+        Hence
+      </p>
+      <md>
+        <mrow>
+          \int_0^1\!\!\int_{\arcsin y}^{\pi/2} \cos x\,\sqrt{1+\cos^2 x}\,dx\,dy
+          \amp = \int_0^{\pi/2}\!\!\int_0^{\sin x} \cos x\,\sqrt{1+\cos^2 x}\,dy\,dx
+        </mrow>
+        <mrow>
+          \amp = \int_0^{\pi/2} \sin x\cos x\,\sqrt{1+\cos^2 x}\,dx
+        </mrow>
+        <mrow>
+          \amp = \frac12\int_0^1 \sqrt{1+s}\,ds
+          = \frac13\left(2\sqrt2-1\right) \approx 0.609 ,
+        </mrow>
+      </md>
+      <p>
+        with the substitution <m>s = \cos^2 x</m>,
+        <m>ds = -2\sin x\cos x\,dx</m>.
+      </p>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw4-fubini-tf">
+    <statement>
+      <p>
+        True or false? Supply convincing reasoning for your answer.
+      </p>
+      <me>
+        \int_0^1\!\!\int_0^1 \frac{x^2-y^2}{\left(x^2+y^2\right)^2}\,dy\,dx
+        = \int_0^1\!\!\int_0^1 \frac{x^2-y^2}{\left(x^2+y^2\right)^2}\,dx\,dy
+        \quad\text{by Fubini's theorem.}
+      </me>
+      <p>
+        <em>Hint:</em>
+        <m>\dfrac{d}{dy}\,\dfrac{y}{x^2+y^2}
+        = \dfrac{x^2-y^2}{\left(x^2+y^2\right)^2}</m>.
+      </p>
+    </statement>
+    <solution component="hw4-solutions">
+      <p>
+        <alert>False.</alert> Compute both sides. Using the hint,
+      </p>
+      <md>
+        <mrow>
+          \int_0^1\!\!\int_0^1 \frac{x^2-y^2}{\left(x^2+y^2\right)^2}\,dy\,dx
+          \amp = \int_0^1 \left[\frac{y}{x^2+y^2}\right]_{y=0}^{y=1} dx
+          = \int_0^1 \frac{dx}{1+x^2}
+        </mrow>
+        <mrow>
+          \amp = \arctan 1 - \arctan 0 = \frac{\pi}{4} .
+        </mrow>
+      </md>
+      <p>
+        In the other order, <m>\dfrac{d}{dx}\,\dfrac{-x}{x^2+y^2}
+        = \dfrac{x^2-y^2}{\left(x^2+y^2\right)^2}</m>, so
+      </p>
+      <md>
+        <mrow>
+          \int_0^1\!\!\int_0^1 \frac{x^2-y^2}{\left(x^2+y^2\right)^2}\,dx\,dy
+          \amp = \int_0^1 \left[\frac{-x}{x^2+y^2}\right]_{x=0}^{x=1} dy
+          = \int_0^1 \frac{-dy}{1+y^2}
+        </mrow>
+        <mrow>
+          \amp = -\arctan 1 + \arctan 0 = -\frac{\pi}{4} .
+        </mrow>
+      </md>
+      <p>
+        The two orders give different answers, and Fubini's theorem is not
+        contradicted: it requires the integrand to be continuous on the
+        rectangle, and this one is unbounded near <m>(0,0)</m>, so it is
+        not continuous on <m>[0,1]\times[0,1]</m>.
+      </p>
+    </solution>
+  </problem>
+
 </section>
