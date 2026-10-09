@@ -95,7 +95,7 @@ The graphs of an upper and a lower curve, with the region between them left to s
     stroke="#D55E00" thickness="3"/>
 <label at="c1-f1-label" anchor="(0.42,1.35)" alignment="nw"
     color="#0072B2"><m>f_1(x) = x^3 + 1</m></label>
-<label at="c1-f2-label" anchor="(0.52,0.28)" alignment="s"
+<label at="c1-f2-label" anchor="(0.52,0.17)" alignment="s"
     color="#D55E00"><m>f_2(x) = -2x^2 + 2x</m></label>
 <point at="c1-x0" p="(0,0)" fill="black" alignment="sw">
 <m>0</m>
