@@ -6,17 +6,24 @@
 <!-- Skeletal (fill-in) version of the section of the same name in the     -->
 <!-- completed MATH 14 notes.  The two region types, the area formula and  -->
 <!-- the reverse-order remark are kept; the four worked examples and the   -->
-<!-- two Concept Check answers are replaced by blank workspace boxes, each -->
-<!-- preceded by a one-line instruction.  File name and xml:ids are        -->
-<!-- unchanged.                                                            -->
+<!-- two Concept Check answers are replaced by blank workspace boxes.      -->
+<!-- The boxes carried row labels naming the steps, and the examples and   -->
+<!-- Concept Check questions a parenthetical how-to, until the instructor  -->
+<!-- had those hints removed (Oct 2026): every box is now empty, and the   -->
+<!-- examples and questions read as in the completed notes (Example IV     -->
+<!-- keeps the bare labels Method 1 and Method 2).  File name and xml:ids  -->
+<!-- are unchanged.                                                        -->
 <!--                                                                       -->
-<!-- Figures: the two region diagrams with their strips, the strip video,  -->
-<!-- the tetrahedron, the reverse-order picture, the symmetry picture of   -->
-<!-- Method 2, the area region, and the two GeoGebra/PreFigure statements  -->
-<!-- of the Concept Check are kept.  The base of the tetrahedron, which is -->
-<!-- the region of integration the student has to find, becomes an empty  -->
-<!-- grid to sketch on.  Captions that stated a numerical answer have been -->
-<!-- trimmed.                                                              -->
+<!-- Figures: the figures of Examples I and II show only the graphs of the -->
+<!-- boundary curves (no shading, strips or end lines): the student shades -->
+<!-- the region R and draws a strip.  The strip video, the tetrahedron,    -->
+<!-- the reverse-order picture, the symmetry picture of Method 2, the area -->
+<!-- region, and the two GeoGebra/PreFigure statements of the Concept      -->
+<!-- Check are kept, with the captions and applet instructions that spelled -->
+<!-- out an answer (the symmetry argument, the shadow region of Figure (4), -->
+<!-- the diameter of Figure (5)) trimmed.  The base of the tetrahedron,    -->
+<!-- which is the region of integration the student has to find, is an    -->
+<!-- empty grid to sketch on.                                              -->
 <section xml:id="section-double-integrals-general-regions" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Double Integrals Over General Regions and Area by Double Integration</title>
 
@@ -48,11 +55,6 @@ where
 </p>
 <p>
 <em>Solution.</em>
-(The region is shown in <xref ref="fig-case1-region-prefigure"/>. For
-each fixed <m>x</m>, <m>y</m> runs from the lower curve to the upper
-curve, so integrate along the vertical strips first: write the iterated
-integral with its limits, do the inner integral, and then the outer
-one.)
 </p>
 
 <sidebyside width="97%">
@@ -60,14 +62,11 @@ one.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10) -- (15,10);
-\draw[gray!35] (0,5) -- (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$\displaystyle\iint_R (2xy+1)\,dx\,dy = \int_{\quad}^{\quad}\!\!\int_{\quad}^{\quad} \cdots$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {inner integral:};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {outer integral:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the iterated integral with its limits, for the inner integral, and for the outer integral.</shortdescription>
+<shortdescription>Blank workspace for computing the double integral of Example I.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -75,39 +74,23 @@ one.)
 
 <figure xml:id="fig-case1-region-prefigure">
 <caption>
-The region <m>R</m> of <xref ref="example-case1-vertical"/>, bounded
-above by <m>f_1(x) = x^3 + 1</m> and below by
-<m>f_2(x) = -2x^2 + 2x</m> for <m>0 \le x \le 1</m>. For each fixed
-<m>x</m>, the inner integral runs along a vertical strip from the
-lower curve to the upper curve.
+The graphs of <m>f_1(x) = x^3 + 1</m> and <m>f_2(x) = -2x^2 + 2x</m>.
+Shade the region <m>R</m> of <xref ref="example-case1-vertical"/> on
+them, and draw a typical strip.
 </caption>
 <image width="70%">
 <shortdescription>
-A region between an upper and a lower curve, with vertical strips.
+The graphs of an upper and a lower curve, with the region between them left to shade.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-case1-region">
 <diagram dimensions="(380,300)" margins="10">
 <definition>f1(t) = (t, t^3 + 1)</definition>
 <definition>f2(t) = (t, -2*t^2 + 2*t)</definition>
-<definition>f1sc(t) = t^3 + 1</definition>
-<definition>f2sc(t) = -2*t^2 + 2*t</definition>
 <coordinates bbox="(-0.35,-0.4,1.45,2.45)">
 <axes at="c1-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-<area-between-curves at="c1-region" function1="f2sc" function2="f1sc"
-    domain="(0,1)" fill="#d3e8d3" stroke="none"/>
-<line at="c1-strip1" endpoints="((0.25,0.375),(0.25,1.0156))"
-    stroke="#009E73" thickness="3"/>
-<line at="c1-strip2" endpoints="((0.5,0.5),(0.5,1.125))"
-    stroke="#009E73" thickness="3"/>
-<line at="c1-strip3" endpoints="((0.75,0.375),(0.75,1.4219))"
-    stroke="#009E73" thickness="3"/>
-<line at="c1-left" endpoints="((0,0),(0,1))" stroke="black"
-    thickness="2" dash="6 4"/>
-<line at="c1-right" endpoints="((1,0),(1,2))" stroke="black"
-    thickness="2" dash="6 4"/>
-<parametric-curve at="c1-f1" function="f1" domain="(0,1)"
+<parametric-curve at="c1-f1" function="f1" domain="(-0.15,1.1)"
     stroke="#0072B2" thickness="3"/>
-<parametric-curve at="c1-f2" function="f2" domain="(0,1)"
+<parametric-curve at="c1-f2" function="f2" domain="(-0.15,1.1)"
     stroke="#D55E00" thickness="3"/>
 <label at="c1-f1-label" anchor="(0.42,1.35)" alignment="nw"
     color="#0072B2"><m>f_1(x) = x^3 + 1</m></label>
@@ -121,11 +104,9 @@ A region between an upper and a lower curve, with vertical strips.
 </point>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="The region between two curves above the interval from zero to one on the x axis. The upper boundary, drawn in blue, is f 1 of x equals x cubed plus one, rising from one to two. The lower boundary, drawn in vermillion, is f 2 of x equals negative two x squared plus two x, an arch from zero up to one half and back to zero. The region between them is shaded light green with three vertical green strips.">
-  <annotation ref="c1-f1" text="The upper boundary f 1 of x equals x cubed plus 1, drawn in blue."/>
-  <annotation ref="c1-f2" text="The lower boundary f 2 of x equals negative 2 x squared plus 2 x, drawn in vermillion."/>
-  <annotation ref="c1-region" text="The region R, shaded in light green."/>
-  <annotation ref="c1-strip2" text="A typical vertical strip at a fixed x. The inner integral in y runs along this strip from the lower curve to the upper curve."/>
+<annotation ref="figure" text="Two curves above the x axis, with the points zero and one marked on the axis. The curve f 1 of x equals x cubed plus one, drawn in blue, rises from one to two across the interval from zero to one. The curve f 2 of x equals negative two x squared plus two x, drawn in vermillion, is an arch from zero up to one half and back to zero. Nothing between them is shaded: the region is left for the reader to draw.">
+  <annotation ref="c1-f1" text="The curve f 1 of x equals x cubed plus 1, drawn in blue."/>
+  <annotation ref="c1-f2" text="The curve f 2 of x equals negative 2 x squared plus 2 x, drawn in vermillion."/>
 </annotation>
 </annotations>
 </diagram>
@@ -156,10 +137,6 @@ where
 </p>
 <p>
 <em>Solution.</em>
-(The region is shown in <xref ref="fig-case2-region-prefigure"/>. This
-time, for each fixed <m>y</m>, <m>x</m> runs along a horizontal strip
-from the left curve to the right curve, so integrate with respect to
-<m>x</m> first.)
 </p>
 
 <sidebyside width="97%">
@@ -167,14 +144,11 @@ from the left curve to the right curve, so integrate with respect to
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\displaystyle\iint_R x^2 y\,dx\,dy = \int_{\quad}^{\quad}\!\!\int_{\quad}^{\quad} \cdots$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {inner integral:};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {outer integral:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the iterated integral with its limits, for the inner integral, and for the outer integral.</shortdescription>
+<shortdescription>Blank workspace for computing the double integral of Example II.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -182,15 +156,13 @@ from the left curve to the right curve, so integrate with respect to
 
 <figure xml:id="fig-case2-region-prefigure">
 <caption>
-The region <m>R</m> of <xref ref="example-case2-horizontal"/>, bounded
-on the left by <m>g_1(y) = y^2</m> and on the right by
-<m>g_2(y) = y^{1/3}</m> for <m>0.1 \le y \le 0.5</m>. For each fixed
-<m>y</m>, the inner integral runs along a horizontal strip from the
-left curve to the right curve.
+The graphs of <m>x = g_1(y) = y^2</m> and <m>x = g_2(y) = y^{1/3}</m>.
+Shade the region <m>R</m> of <xref ref="example-case2-horizontal"/> on
+them, and draw a typical strip.
 </caption>
 <image width="70%">
 <shortdescription>
-A region between a left and a right curve, with horizontal strips.
+The graphs of a left and a right curve, with the region between them left to shade.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-case2-region">
 <diagram dimensions="(380,300)" margins="10">
@@ -198,39 +170,25 @@ A region between a left and a right curve, with horizontal strips.
 <definition>g2(t) = (t^(1/3), t)</definition>
 <coordinates bbox="(-0.12,-0.09,1.22,0.68)">
 <axes at="c2-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-<polygon at="c2-region" fill="#d3e8d3" stroke="none" closed="yes"
-    points="((0.01,0.1),(0.01361,0.1167),(0.01778,0.1333),(0.0225,0.15),(0.02778,0.1667),(0.03361,0.1833),(0.04,0.2),(0.04694,0.2167),(0.05444,0.2333),(0.0625,0.25),(0.07111,0.2667),(0.08028,0.2833),(0.09,0.3),(0.1003,0.3167),(0.1111,0.3333),(0.1225,0.35),(0.1344,0.3667),(0.1469,0.3833),(0.16,0.4),(0.1736,0.4167),(0.1878,0.4333),(0.2025,0.45),(0.2178,0.4667),(0.2336,0.4833),(0.25,0.5),(0.7937,0.5),(0.7848,0.4833),(0.7757,0.4667),(0.7663,0.45),(0.7567,0.4333),(0.7469,0.4167),(0.7368,0.4),(0.7264,0.3833),(0.7157,0.3667),(0.7047,0.35),(0.6934,0.3333),(0.6816,0.3167),(0.6694,0.3),(0.6568,0.2833),(0.6437,0.2667),(0.63,0.25),(0.6156,0.2333),(0.6006,0.2167),(0.5848,0.2),(0.5681,0.1833),(0.5503,0.1667),(0.5313,0.15),(0.5109,0.1333),(0.4886,0.1167),(0.4642,0.1))"/>
-<line at="c2-strip1" endpoints="((0.04,0.2),(0.585,0.2))"
-    stroke="#009E73" thickness="3"/>
-<line at="c2-strip2" endpoints="((0.09,0.3),(0.669,0.3))"
-    stroke="#009E73" thickness="3"/>
-<line at="c2-strip3" endpoints="((0.16,0.4),(0.737,0.4))"
-    stroke="#009E73" thickness="3"/>
-<line at="c2-bottom" endpoints="((0.01,0.1),(0.464,0.1))"
-    stroke="black" thickness="2" dash="6 4"/>
-<line at="c2-top" endpoints="((0.25,0.5),(0.794,0.5))"
-    stroke="black" thickness="2" dash="6 4"/>
-<parametric-curve at="c2-g1" function="g1" domain="(0.1,0.5)"
+<parametric-curve at="c2-g1" function="g1" domain="(0,0.62)"
     stroke="#D55E00" thickness="3"/>
-<parametric-curve at="c2-g2" function="g2" domain="(0.1,0.5)"
+<parametric-curve at="c2-g2" function="g2" domain="(0,0.62)"
     stroke="#0072B2" thickness="3"/>
 <label at="c2-g1-label" anchor="(0.02,0.56)" alignment="ne"
     color="#D55E00"><m>g_1(y) = y^2</m></label>
 <label at="c2-g2-label" anchor="(0.72,0.22)" alignment="se"
     color="#0072B2"><m>g_2(y) = y^{1/3}</m></label>
-<label at="c2-top-label" anchor="(0.52,0.54)" alignment="n">
-<m>y = 0.5</m>
-</label>
-<label at="c2-bottom-label" anchor="(0.24,0.06)" alignment="s">
-<m>y = 0.1</m>
-</label>
+<point at="c2-y1" p="(0,0.1)" fill="black" alignment="w">
+<m>0.1</m>
+</point>
+<point at="c2-y5" p="(0,0.5)" fill="black" alignment="w">
+<m>0.5</m>
+</point>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="A region between two curves for y between zero point one and zero point five. The left boundary, drawn in vermillion, is g 1 of y equals y squared. The right boundary, drawn in blue, is g 2 of y equals the cube root of y. The region between them is shaded light green with three horizontal green strips, and dashed lines mark y equals zero point one and y equals zero point five.">
-  <annotation ref="c2-g1" text="The left boundary g 1 of y equals y squared, drawn in vermillion."/>
-  <annotation ref="c2-g2" text="The right boundary g 2 of y equals y to the one third, drawn in blue."/>
-  <annotation ref="c2-region" text="The region R, shaded in light green."/>
-  <annotation ref="c2-strip2" text="A typical horizontal strip at a fixed y. The inner integral in x runs along this strip from the left curve to the right curve."/>
+<annotation ref="figure" text="Two curves leaving the origin, with the points zero point one and zero point five marked on the y axis. The curve x equals g 1 of y equals y squared, drawn in vermillion, hugs the y axis. The curve x equals g 2 of y equals the cube root of y, drawn in blue, sweeps out to the right. Nothing between them is shaded: the region is left for the reader to draw.">
+  <annotation ref="c2-g1" text="The curve x equals g 1 of y equals y squared, drawn in vermillion."/>
+  <annotation ref="c2-g2" text="The curve x equals g 2 of y equals y to the one third, drawn in blue."/>
 </annotation>
 </annotations>
 </diagram>
@@ -273,13 +231,6 @@ Find the volume of the tetrahedron bounded by the planes
 </p>
 <p>
 <em>Solution.</em>
-(<xref ref="fig-tetrahedron-tikz"/> shows the tetrahedron. First find
-the region of integration, the base of the tetrahedron in the
-<m>xy</m>-plane: sketch it on <xref ref="fig-tetrahedron-base-prefigure"/>,
-with the lines that bound it and a typical vertical strip, and describe
-it in the form of Case I. Then the volume is the integral over that
-region of the height of the top plane, solved for <m>z</m>. Set up the
-iterated integral and evaluate.)
 </p>
 
 <sidebyside width="97%">
@@ -287,14 +238,11 @@ iterated integral and evaluate.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10) -- (15,10);
-\draw[gray!35] (0,7) -- (15,7);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$R = \{(x,y) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {height of the top plane: $z =$ \qquad so $V = \displaystyle\iint_R$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {evaluate:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the description of the base region, for the height of the top plane and the double integral, and for its evaluation.</shortdescription>
+<shortdescription>Blank workspace for finding the volume of the tetrahedron.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -500,14 +448,7 @@ Calculate the area of the region <m>R</m> shown in
 <m>y = (x+1)^2</m>.
 </p>
 <p>
-<em>Solution.</em>
-(<alert>Method 1.</alert> Split <m>R</m> at the <m>x</m>-axis into
-<m>R_1</m> below and <m>R_2</m> above, as in
-<xref ref="fig-area-region-prefigure"/>, and describe each with
-horizontal strips; on <m>R_2</m> the left boundary is the parabola,
-solved for <m>x</m>. Then the area is
-<xref ref="eq-area-double-integral"/> over each piece; the two outer
-integrals can be combined before evaluating.)
+<em>Solution.</em> <alert>Method 1.</alert>
 </p>
 
 <sidebyside width="97%">
@@ -515,23 +456,16 @@ integrals can be combined before evaluating.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10) -- (15,10);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$R_1 =$ \qquad\qquad $R_2 =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {Area $= \displaystyle\iint_{R_1} dx\,dy + \iint_{R_2} dx\,dy =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the descriptions of the two subregions and one for the area computed as the sum of two iterated integrals.</shortdescription>
+<shortdescription>Blank workspace for Method 1.</shortdescription>
 </image>
 </sidebyside>
 
 <p>
-(<alert>Method 2, using symmetry.</alert> The curve <m>x = y - y^3</m>
-is odd, so rotating it by <m>180^\circ</m> about the origin maps it
-onto itself. In <xref ref="fig-area-symmetry-prefigure"/>, which piece
-does that rotation carry onto which? Swap them, so that the region
-becomes the unit square <m>[-1,0]\times[-1,0]</m> together with the
-strip between the parabola and the <m>y</m>-axis, and add the two
-areas.)
+<alert>Method 2.</alert>
 </p>
 
 <sidebyside width="97%">
@@ -539,12 +473,11 @@ areas.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\draw[gray!35] (0,4.5) -- (15,4.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {why the two pieces $A$ have the same area:};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.2) {Area $=$ square $+$ strip $=$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the symmetry argument and one for the area as the square plus the strip.</shortdescription>
+<shortdescription>Blank workspace for Method 2.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -552,11 +485,10 @@ areas.)
 
 <figure xml:id="fig-area-symmetry-prefigure">
 <caption>
-Method 2: since <m>x = y - y^3</m> is odd, the piece <m>A</m> removed
-from the unit square (below the <m>x</m>-axis) is congruent to the
-piece <m>A</m> added to the right of the <m>y</m>-axis (above it).
-The area is therefore the area of the square plus the area of the green
-strip between the parabola <m>y = (x+1)^2</m> and the <m>y</m>-axis.
+Method 2: the region of <xref ref="example-area-double-integration"/>
+drawn with the unit square <m>[-1,0]\times[-1,0]</m>, the strip between
+the parabola <m>y = (x+1)^2</m> and the <m>y</m>-axis, and the two
+pieces marked <m>A</m>.
 </caption>
 <image width="65%">
 <shortdescription>
@@ -616,11 +548,8 @@ The region decomposed into a unit square and two matching pieces.
 
 <figure xml:id="fig-area-region-prefigure">
 <caption>
-The region of <xref ref="example-area-double-integration"/>, split
-into <m>R_1</m> (below the <m>x</m>-axis) and <m>R_2</m> (above it).
-Both subregions share the right boundary <m>x = y - y^3</m>; the left
-boundary is the vertical line <m>x = -1</m> for <m>R_1</m> and the
-parabola <m>y = (x+1)^2</m> for <m>R_2</m>.
+The region of <xref ref="example-area-double-integration"/>, split at
+the <m>x</m>-axis into <m>R_1</m> (below) and <m>R_2</m> (above).
 </caption>
 <image width="65%">
 <shortdescription>
@@ -696,28 +625,17 @@ Set up a double integral for computing the volume of the region bounded by
 the cylinder <m>x^2+(y-1)^2=1</m> and the sphere
 <m>x^2+y^2+z^2=1</m>. See <xref ref="fig-ws-cylinder-sphere"/>.
 </p>
-<p>
-(The solid is the part of the ball inside the cylinder: what are its
-floor and ceiling, and so its height over a point of the shadow? The
-region of integration is the shadow of the solid, the set of points
-inside both circles <m>x^2+y^2=1</m> and <m>x^2+(y-1)^2=1</m>; find
-where the circles cross, and describe the region as in
-<xref ref="sec-general-regions-case1"/>.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {height of the solid over $(x,y)$:};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {the circles cross at: \qquad so $D = \{(x,y) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$V = \displaystyle\iint_D \cdots\, dA =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the height of the solid, for the crossing points and the description of the region of integration, and for the double integral with limits.</shortdescription>
+<shortdescription>Blank workspace for setting up the volume integral.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -727,9 +645,7 @@ where the circles cross, and describe the region as in
 <caption>
 Figure (4): the sphere <m>x^2+y^2+z^2=1</m> and the cylinder
 <m>x^2+(y-1)^2=1</m>. Use this graph to find the region of integration
-and the integrand. The wall of the cylinder runs straight down to the
-<m>xy</m>-plane, where the red circle outlines the region of
-integration.
+and the integrand.
 </caption>
 <interactive geogebra="z7qbvdyz"
              width="100%" aspect="500:500" design-width="500"
@@ -738,9 +654,7 @@ integration.
 <instructions>
 <p>
 Drag the background to rotate the picture and scroll to zoom. The black
-curve is where the sphere and the cylinder meet; the region of
-integration is the part of the <m>xy</m>-plane lying inside both the red
-circle and the shadow of the sphere.
+curve is where the sphere and the cylinder meet.
 </p>
 </instructions>
 </interactive>
@@ -754,29 +668,17 @@ Set up a double integral for computing the area of the region bounded by
 the blue curve and the red curve, which are graphed in
 <xref ref="fig-ws-arcsin-region"/>.
 </p>
-<p>
-(Identify the two curves: the red one as <m>x</m> in terms of
-<m>y</m>, and the blue one as an arc of a circle whose radius you can
-read off the endpoints. Slice the region horizontally; note that the
-right end of a slice changes when <m>y</m> passes <m>\frac{\pi}{2}</m>,
-so two integrals are needed. Set them up using
-<xref ref="eq-area-double-integral"/>. Then look at what comes out: one
-integrand is odd, and what remains is a familiar area.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {red curve: $x =$ \qquad blue curve: $x^2+y^2 =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$A = \displaystyle\int\!\!\int dx\,dy + \int\!\!\int dx\,dy =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {what it comes to, and why:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the equations of the two curves, for the area as two iterated integrals, and for the value with its explanation.</shortdescription>
+<shortdescription>Blank workspace for setting up the area integral.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -788,8 +690,8 @@ Figure (5): the region bounded by the blue arc of the circle
 <m>x^2+y^2=1+\frac{\pi^2}{4}</m> and the red curve
 <m>y=\sin^{-1}(x)</m>. The two curves meet at
 <m>\left(1,\frac{\pi}{2}\right)</m> and
-<m>\left(-1,-\frac{\pi}{2}\right)</m>, which are opposite ends of a
-diameter; the dashed arc is the rest of the circle.
+<m>\left(-1,-\frac{\pi}{2}\right)</m>; the dashed arc is the rest of
+the circle.
 </caption>
 <image width="64%">
 <shortdescription>
