@@ -17,10 +17,11 @@
 <!-- eq-polar-area-element and eq-polar-double-integral.  File name and    -->
 <!-- xml:ids are unchanged.                                                -->
 <!--                                                                       -->
-<!-- Figures: all kept (the polar rectangles and their video, the four     -->
-<!-- regions of the examples, the solid of Example III, and the three      -->
-<!-- Concept Check pictures with their sliders); each is either a          -->
-<!-- statement or the check on a box.  Captions that stated a polar        -->
+<!-- Figures: the polar rectangles and their video, the regions of        -->
+<!-- Examples I and II, the solid of Example III, and the three            -->
+<!-- Concept Check pictures with their sliders are kept; each is either a  -->
+<!-- statement or the check on a box.  The base disk of Example III is     -->
+<!-- hidden at the instructor's request.  Captions that stated a polar     -->
 <!-- description or a numerical answer have been trimmed; the rose figure  -->
 <!-- lost its dashed rays and their angle labels, the base disk's label    -->
 <!-- lost its polar form, and the labels that sat on curves, axes or the   -->
@@ -432,51 +433,9 @@ cylinder <m>x^2 + y^2 = 2x</m>.
 </statement>
 </example>
 
-<figure xml:id="fig-shifted-disk-prefigure">
-<caption>
-The base of the solid in <xref ref="example-polar-volume"/>: the disk
-inside the cylinder <m>x^2 + y^2 = 2x</m>.
-</caption>
-<image width="55%">
-<shortdescription>
-A disk of radius one centered at (1,0), passing through the origin.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-shifted-disk">
-<diagram dimensions="(340,255)" margins="10">
-<definition>circ(t) = (1 + cos(t), sin(t))</definition>
-<coordinates bbox="(-0.7,-1.35,2.7,1.2)">
-<axes at="sd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-<circle at="sd-disk" center="(1,0)" radius="1" fill="#fbe3d0"
-    stroke="none"/>
-<parametric-curve at="sd-circle" function="circ" domain="(0,2*pi)"
-    stroke="#D55E00" thickness="3"/>
-<point at="sd-1" p="(1,0)" fill="black" alignment="s">
-<m>1</m>
-</point>
-<point at="sd-2" p="(2,0)" fill="black" alignment="se">
-<m>2</m>
-</point>
-<label at="sd-D" anchor="(0.85,0.45)" alignment="c">
-<m>D</m>
-</label>
-<label at="sd-eq" anchor="(1.0,-1.08)" alignment="s"
-    color="#D55E00">
-<m>x^2 + y^2 = 2x</m>
-</label>
-<label at="sd-O" anchor="(-0.08,-0.08)" alignment="sw">
-<m>0</m>
-</label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="A disk of radius one centered at the point one comma zero, shaded tan and labeled D. Its boundary circle, drawn in vermillion, passes through the origin and through the point two comma zero, and is the polar curve r equals two cosine theta.">
-  <annotation ref="sd-disk" text="The base disk D, of radius one centered at one comma zero."/>
-  <annotation ref="sd-circle" text="The boundary circle x squared plus y squared equals two x."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</figure>
+<!-- The figure fig-shifted-disk-prefigure (the base disk of Example III)
+     is hidden at the instructor's request (Oct 2026); it is in the
+     completed notes. -->
 
 <figure xml:id="fig-polar-volume-tikz">
 <caption>
