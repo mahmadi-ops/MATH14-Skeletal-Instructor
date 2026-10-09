@@ -17,10 +17,11 @@
 <!-- Figures: the figures of Examples I and II show only the graphs of the -->
 <!-- boundary curves (no shading, strips or end lines): the student shades -->
 <!-- the region R and draws a strip.  The strip video, the tetrahedron,    -->
-<!-- the reverse-order picture, the symmetry picture of Method 2, the area -->
-<!-- region, and the two GeoGebra/PreFigure statements of the Concept      -->
-<!-- Check are kept, with the captions and applet instructions that spelled -->
-<!-- out an answer (the symmetry argument, the shadow region of Figure (4), -->
+<!-- the reverse-order picture, the area region, and the two GeoGebra/     -->
+<!-- PreFigure statements of the Concept Check are kept; the symmetry      -->
+<!-- picture of Method 2 is hidden at the instructor's request.  Captions  -->
+<!-- and applet instructions that spelled out an answer (the description  -->
+<!-- of the R1 and R2 boundaries, the shadow region of Figure (4),         -->
 <!-- the diameter of Figure (5)) trimmed.  The base of the tetrahedron,    -->
 <!-- which is the region of integration the student has to find, is an    -->
 <!-- empty grid to sketch on.                                              -->
@@ -483,68 +484,8 @@ Calculate the area of the region <m>R</m> shown in
 </statement>
 </example>
 
-<figure xml:id="fig-area-symmetry-prefigure">
-<caption>
-Method 2: the region of <xref ref="example-area-double-integration"/>
-drawn with the unit square <m>[-1,0]\times[-1,0]</m>, the strip between
-the parabola <m>y = (x+1)^2</m> and the <m>y</m>-axis, and the two
-pieces marked <m>A</m>.
-</caption>
-<image width="65%">
-<shortdescription>
-The region decomposed into a unit square and two matching pieces.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-area-symmetry">
-<diagram dimensions="(360,320)" margins="10">
-<definition>right(t) = (t - t^3, t)</definition>
-<definition>leftR2(t) = (sqrt(t) - 1, t)</definition>
-<coordinates bbox="(-1.7,-1.45,1.1,1.55)">
-<axes at="as-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-<rectangle at="as-square" lower-left="(-1,-1)" dimensions="(1,1)"
-    stroke="none" fill="#f4e3c1"/>
-<polygon at="as-lobeA" fill="#f5c6bc" stroke="none" closed="yes"
-    points="((0,0),(-0.04159,-0.04167),(-0.08275,-0.08333),(-0.123,-0.125),(-0.162,-0.1667),(-0.1993,-0.2083),(-0.2344,-0.25),(-0.2669,-0.2917),(-0.2963,-0.3333),(-0.3223,-0.375),(-0.3443,-0.4167),(-0.3621,-0.4583),(-0.375,-0.5),(-0.3827,-0.5417),(-0.3848,-0.5833),(-0.3809,-0.625),(-0.3704,-0.6667),(-0.3529,-0.7083),(-0.3281,-0.75),(-0.2955,-0.7917),(-0.2546,-0.8333),(-0.2051,-0.875),(-0.1464,-0.9167),(-0.0782,-0.9583),(0,-1))"/>
-<polygon at="as-lobeB" fill="#f5c6bc" stroke="none" closed="yes"
-    points="((0,0),(0.04159,0.04167),(0.08275,0.08333),(0.123,0.125),(0.162,0.1667),(0.1993,0.2083),(0.2344,0.25),(0.2669,0.2917),(0.2963,0.3333),(0.3223,0.375),(0.3443,0.4167),(0.3621,0.4583),(0.375,0.5),(0.3827,0.5417),(0.3848,0.5833),(0.3809,0.625),(0.3704,0.6667),(0.3529,0.7083),(0.3281,0.75),(0.2955,0.7917),(0.2546,0.8333),(0.2051,0.875),(0.1464,0.9167),(0.0782,0.9583),(0,1))"/>
-<polygon at="as-strip" fill="#d3e8d3" stroke="none" closed="yes"
-    points="((-1,0),(-0.7959,0.04167),(-0.7113,0.08333),(-0.6464,0.125),(-0.5918,0.1667),(-0.5436,0.2083),(-0.5,0.25),(-0.4599,0.2917),(-0.4226,0.3333),(-0.3876,0.375),(-0.3545,0.4167),(-0.323,0.4583),(-0.2929,0.5),(-0.264,0.5417),(-0.2362,0.5833),(-0.2094,0.625),(-0.1835,0.6667),(-0.1584,0.7083),(-0.134,0.75),(-0.1102,0.7917),(-0.08713,0.8333),(-0.06459,0.875),(-0.04257,0.9167),(-0.02105,0.9583),(0,1),(0,0))"/>
-<parametric-curve at="as-right" function="right" domain="(-1,1)"
-    stroke="#0072B2" thickness="3"/>
-<parametric-curve at="as-left2" function="leftR2" domain="(0,1)"
-    stroke="#D55E00" thickness="3"/>
-<line at="as-left1" endpoints="((-1,-1),(-1,0))" stroke="#555555"
-    thickness="2"/>
-<line at="as-bottom" endpoints="((-1,-1),(0,-1))" stroke="#555555"
-    thickness="2"/>
-<label at="as-square-label" anchor="(-0.72,-0.55)" alignment="c">
-<m>\text{area } 1</m>
-</label>
-<label at="as-lobeA-label" anchor="(-0.29,-0.6)" alignment="c">
-<m>A</m>
-</label>
-<label at="as-lobeB-label" anchor="(0.29,0.6)" alignment="c">
-<m>A</m>
-</label>
-<label at="as-strip-label" anchor="(-0.42,0.3)" alignment="c">
-<m>\tfrac13</m>
-</label>
-<label at="as-right-label" anchor="(0.45,1.15)" alignment="ne"
-    color="#0072B2"><m>x = y - y^3</m></label>
-<label at="as-left2-label" anchor="(-1.62,1.05)" alignment="e"
-    color="#D55E00"><m>y = (x+1)^2</m></label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="The same region as before, decomposed for the symmetry argument. The unit square with corners at negative one comma negative one and zero comma zero is shaded tan and labeled area 1. Two congruent pink pieces, both labeled A, sit between the blue cubic curve and the y axis: one inside the square below the x axis, one to the right of the y axis above it. Rotating the picture one hundred eighty degrees about the origin maps one piece onto the other. A green strip labeled one third lies between the vermillion parabola and the y axis.">
-  <annotation ref="as-square" text="The unit square, of area one."/>
-  <annotation ref="as-lobeA" text="The piece A that the cubic curve cuts out of the square."/>
-  <annotation ref="as-lobeB" text="The congruent piece A that the cubic curve adds to the right of the y axis. It has the same area as the removed piece, by the one hundred eighty degree rotation symmetry of the odd curve."/>
-  <annotation ref="as-strip" text="The strip between the parabola and the y axis, of area one third."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</figure>
+<!-- The figure fig-area-symmetry-prefigure (the picture of Method 2) is hidden at the
+     instructor's request (Oct 2026); it is in the completed notes. -->
 
 <figure xml:id="fig-area-region-prefigure">
 <caption>

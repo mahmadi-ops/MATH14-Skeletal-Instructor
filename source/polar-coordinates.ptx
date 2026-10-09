@@ -12,8 +12,9 @@
 <!-- still cite eq-polar-cartesian.  File name and xml:ids are unchanged.  -->
 <!--                                                                       -->
 <!-- Figures: the diagrams that define the coordinates, the negative-r     -->
-<!-- picture, the two representations, the four curves of Example I, the  -->
-<!-- y-axis and origin symmetry graphs, and every video are kept.  The     -->
+<!-- picture, the two representations, the y-axis and origin symmetry     -->
+<!-- graphs, and every video are kept; the four curves of Example I are    -->
+<!-- hidden at the instructor's request (Oct 2026).  The                   -->
 <!-- cardioid r = 1 + cos(theta), which the student plots from the table,  -->
 <!-- becomes an empty polar grid, with the video as the check.  Captions   -->
 <!-- that stated an answer have been trimmed.                              -->
@@ -384,8 +385,7 @@ equations.
 <alert>B</alert> are one line each; name the curves. In
 <alert>C</alert>, regroup the left side as a product of two familiar
 quantities. In <alert>D</alert>, replace <m>r</m> and
-<m>r\cos\theta</m>, then square to remove the root. Compare with
-<xref ref="fig-polar-to-cartesian-prefigure"/>.)
+<m>r\cos\theta</m>, then square to remove the root.)
 </p>
 
 <sidebyside width="97%">
@@ -408,113 +408,9 @@ quantities. In <alert>D</alert>, replace <m>r</m> and
 </statement>
 </example>
 
-<figure xml:id="fig-polar-to-cartesian-prefigure">
-<caption>
-The four curves of <xref ref="example-polar-to-cartesian"/>, from left
-to right: parts A, B, C and D. Match each with the Cartesian equation
-you found.
-</caption>
-<sidebyside widths="23% 23% 23% 23%">
-<image>
-<shortdescription>
-The unit circle centered at the origin.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-p2c-circle">
-<diagram dimensions="(170,188)" margins="5">
-<definition>c(t) = (cos(t), sin(t))</definition>
-<coordinates bbox="(-1.7,-2.1,1.7,1.7)">
-<axes at="cc-axes" decorations="no" arrows="1"/>
-<parametric-curve at="cc-circle" function="c" domain="(0,2*pi)"
-    stroke="#0072B2" thickness="3"/>
-<label at="cc-label" anchor="(0,-1.45)" alignment="s">
-<m>x^2+y^2=1</m>
-</label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="The unit circle centered at the origin, the graph of the polar equation r equals one.">
-  <annotation ref="cc-circle" text="The circle of radius one centered at the origin."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-<image>
-<shortdescription>
-The line y equals x through the origin.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-p2c-line">
-<diagram dimensions="(170,188)" margins="5">
-<coordinates bbox="(-1.7,-2.1,1.7,1.7)">
-<axes at="ll-axes" decorations="no" arrows="1"/>
-<line at="ll-line" endpoints="((-1.35,-1.35),(1.35,1.35))"
-    stroke="#0072B2" thickness="3"/>
-<label at="ll-label" anchor="(0,-1.45)" alignment="s">
-<m>y = x</m>
-</label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="The line y equals x through the origin, the graph of the polar equation theta equals pi over four.">
-  <annotation ref="ll-line" text="The line through the origin at forty five degrees."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-<image>
-<shortdescription>
-The hyperbola x y equals four.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-p2c-hyperbola">
-<diagram dimensions="(170,170)" margins="5">
-<definition>b1(t) = (t, 4/t)</definition>
-<definition>b2(t) = (-t, -4/t)</definition>
-<coordinates bbox="(-8.5,-8.5,8.5,8.5)">
-<axes at="hh-axes" decorations="no" arrows="1"/>
-<parametric-curve at="hh-b1" function="b1" domain="(0.55,8)"
-    stroke="#0072B2" thickness="3"/>
-<parametric-curve at="hh-b2" function="b2" domain="(0.55,8)"
-    stroke="#0072B2" thickness="3"/>
-<label at="hh-label" anchor="(0,-7.4)" alignment="s">
-<m>xy = 4</m>
-</label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="The hyperbola x y equals four with branches in the first and third quadrants.">
-  <annotation ref="hh-b1" text="The branch in the first quadrant."/>
-  <annotation ref="hh-b2" text="The branch in the third quadrant."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-<image>
-<shortdescription>
-A hyperbola opening left and right.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-p2c-conic">
-<diagram dimensions="(170,190)" margins="5">
-<definition>br1(t) = (cos(t)/(1-2*cos(t)), sin(t)/(1-2*cos(t)))</definition>
-<coordinates bbox="(-2.6,-3.3,2.6,2.6)">
-<axes at="qq-axes" decorations="no" arrows="1"/>
-<parametric-curve at="qq-b1" function="br1" domain="(1.25,5.03)"
-    stroke="#0072B2" thickness="3"/>
-<parametric-curve at="qq-b2" function="br1" domain="(-0.85,0.85)"
-    stroke="#0072B2" thickness="3"/>
-<label at="qq-label" anchor="(0,-2.45)" alignment="s">
-<m>y^2-3x^2-4x-1=0</m>
-</label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="A hyperbola with two branches opening left and right, the graph of the polar equation r equals one plus two r cosine theta.">
-  <annotation ref="qq-b1" text="One branch of the conic."/>
-  <annotation ref="qq-b2" text="The other branch of the conic."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</sidebyside>
-</figure>
+<!-- The figure fig-polar-to-cartesian-prefigure (the four curves of
+     Example I) is hidden at the instructor's request (Oct 2026); it is in
+     the completed notes. -->
 
 <p>
 Next, we would like to learn about graphing polar equations. We will
