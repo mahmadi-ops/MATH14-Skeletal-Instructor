@@ -5,8 +5,13 @@
 <!-- Skeletal (fill-in) version of the section of the same name in the     -->
 <!-- completed MATH 14 notes.  The setup of the polar rectangle is kept;   -->
 <!-- the derivation of the area element, the four worked examples and the  -->
-<!-- four Concept Check answers are replaced by blank workspace boxes,     -->
-<!-- each preceded by a one-line instruction.  The area element and the    -->
+<!-- four Concept Check answers are replaced by blank workspace boxes.     -->
+<!-- The boxes carried row labels naming the steps, and the examples and   -->
+<!-- Concept Check questions a parenthetical how-to, until the instructor  -->
+<!-- had those hints removed (Oct 2026): every box is now empty, and the   -->
+<!-- examples and questions read as in the completed notes (the two Hint   -->
+<!-- lines of Example IV and of the rose question are the completed        -->
+<!-- notes' own).  The area element and the                                -->
 <!-- polar form of the double integral are restated in an assemblage so    -->
 <!-- that later sections and the assignments can still cite                -->
 <!-- eq-polar-area-element and eq-polar-double-integral.  File name and    -->
@@ -16,7 +21,10 @@
 <!-- regions of the examples, the solid of Example III, and the three      -->
 <!-- Concept Check pictures with their sliders); each is either a          -->
 <!-- statement or the check on a box.  Captions that stated a polar        -->
-<!-- description or a numerical answer have been trimmed.                  -->
+<!-- description or a numerical answer have been trimmed; the rose figure  -->
+<!-- lost its dashed rays and their angle labels, the base disk's label    -->
+<!-- lost its polar form, and the labels that sat on curves, axes or the   -->
+<!-- grid were moved clear (Oct 2026).                                     -->
 <section xml:id="section-double-integrals-polar-form" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Double Integrals in Polar Form</title>
 
@@ -71,14 +79,11 @@ sum for <m>\iint_R f\,dA</m> with these cells and pass to the limit.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,6) -- (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\Delta A_i =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$\displaystyle\iint_R f(x,y)\,dA = \lim_{n,m\to\infty} \sum\sum$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$=$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the area of a polar rectangle, for the Riemann sum over polar rectangles, and for the resulting polar form of the double integral.</shortdescription>
+<shortdescription>Blank workspace for the area of a polar rectangle and the polar form of the double integral.</shortdescription>
 </image>
 </sidebyside>
 
@@ -139,12 +144,12 @@ A washer-slice region between two radii and two angles.
 </label>
 <label at="pr-rb" anchor="(1.85,1.55)" alignment="ne"
     color="#0072B2"><m>r = b</m></label>
-<label at="pr-ra" anchor="(0.62,0.52)" alignment="se"
+<label at="pr-ra" anchor="(0.78,0.47)" alignment="sw"
     color="#0072B2"><m>r = a</m></label>
-<label at="pr-beta" anchor="(0.4,1.62)" alignment="ne">
+<label at="pr-beta" anchor="(0.62,2.38)" alignment="n">
 <m>\theta = \beta</m>
 </label>
-<label at="pr-alpha" anchor="(1.62,0.22)" alignment="se">
+<label at="pr-alpha" anchor="(1.95,0.34)" alignment="se">
 <m>\theta = \alpha</m>
 </label>
 <label at="pr-O" anchor="(-0.08,-0.08)" alignment="sw">
@@ -201,9 +206,11 @@ The washer slice divided into small polar rectangles, one highlighted.
 <line at="pg-r7" endpoints="((0.2802,1.0636),(0.6112,2.3204))"
     stroke="#0072B2" thickness="2"/>
 <point at="pg-center" p="(1.414,0.7209)" fill="black"/>
+<line at="pg-center-leader" endpoints="((1.414,0.7209),(2.05,1.58))"
+    stroke="#555555" thickness="1" dash="3 3"/>
 <label at="pg-cell-label" anchor="(1.9,0.32)" alignment="se"
     color="#D55E00"><m>R_{ij}</m></label>
-<label at="pg-center-label" anchor="(1.85,0.95)" alignment="ne">
+<label at="pg-center-label" anchor="(2.05,1.58)" alignment="ne">
 <m>(r_i^*, \theta_j^*)</m>
 </label>
 <label at="pg-O" anchor="(-0.08,-0.08)" alignment="sw">
@@ -258,11 +265,6 @@ is the region in the upper half plane bounded by the circles
 </p>
 <p>
 <em>Solution.</em>
-(Sketch the region, shown in <xref ref="fig-half-annulus-prefigure"/>,
-and describe it in polar coordinates. Convert the integrand with
-<xref ref="eq-polar-cartesian"/>, remember the factor <m>r</m> in
-<m>dA</m>, integrate in <m>r</m> first, and use the half-angle identity
-for <m>\sin^2\theta</m> in the outer integral.)
 </p>
 
 <sidebyside width="97%">
@@ -270,14 +272,11 @@ for <m>\sin^2\theta</m> in the outer integral.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$R = \{(r,\theta) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$\displaystyle\iint_R (3x+4y^2)\,dA = \int_{\quad}^{\quad}\!\!\int_{\quad}^{\quad}$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {evaluate:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the polar description of the region, for the polar iterated integral, and for its evaluation.</shortdescription>
+<shortdescription>Blank workspace for Example I.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -294,10 +293,10 @@ the annulus between the circles <m>x^2+y^2 = 1</m> and
 The upper half of an annulus between radii one and two.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-half-annulus">
-<diagram dimensions="(380,232)" margins="10">
+<diagram dimensions="(380,252)" margins="10">
 <definition>outer(t) = (2*cos(t), 2*sin(t))</definition>
 <definition>inner(t) = (cos(t), sin(t))</definition>
-<coordinates bbox="(-2.6,-0.5,2.6,2.5)">
+<coordinates bbox="(-2.6,-0.78,2.6,2.5)">
 <axes at="ha-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
 <polygon at="ha-region" fill="#fbe3d0" stroke="none" closed="yes"
     points="((1,0),(2,0),(1.9754,0.3129),(1.9021,0.618),(1.782,0.908),(1.6180,1.1756),(1.4142,1.4142),(1.1756,1.618),(0.908,1.782),(0.618,1.9021),(0.3129,1.9754),(0,2),(-0.3129,1.9754),(-0.618,1.9021),(-0.908,1.782),(-1.1756,1.618),(-1.4142,1.4142),(-1.618,1.1756),(-1.782,0.908),(-1.9021,0.618),(-1.9754,0.3129),(-2,0),(-1,0),(-0.9877,0.1564),(-0.9511,0.309),(-0.891,0.454),(-0.809,0.5878),(-0.7071,0.7071),(-0.5878,0.809),(-0.454,0.891),(-0.309,0.9511),(-0.1564,0.9877),(0,1),(0.1564,0.9877),(0.309,0.9511),(0.454,0.891),(0.5878,0.809),(0.7071,0.7071),(0.809,0.5878),(0.891,0.454),(0.9511,0.309),(0.9877,0.1564))"/>
@@ -308,9 +307,9 @@ The upper half of an annulus between radii one and two.
 <label at="ha-R" anchor="(0,1.5)" alignment="c">
 <m>R</m>
 </label>
-<label at="ha-outer-label" anchor="(1.35,1.75)" alignment="n"
+<label at="ha-outer-label" anchor="(1.35,1.9)" alignment="ne"
     color="#0072B2"><m>x^2+y^2 = 4</m></label>
-<label at="ha-inner-label" anchor="(0.62,0.42)" alignment="se"
+<label at="ha-inner-label" anchor="(-0.4,-0.14)" alignment="sw"
     color="#D55E00"><m>x^2+y^2 = 1</m></label>
 <point at="ha-1" p="(1,0)" fill="black" alignment="s">
 <m>1</m>
@@ -347,11 +346,6 @@ four-leaved rose <m>r = \cos(2\theta)</m>, graphed in
 </p>
 <p>
 <em>Solution.</em>
-(Describe the colored loop <m>D</m> of <xref ref="fig-rose-prefigure"/>
-in polar coordinates: which angles sweep it, and for each such angle,
-from where to where does <m>r</m> run? Then the area is
-<xref ref="eq-area-double-integral"/> in polar form; the half-angle
-identity handles <m>\cos^2 2\theta</m>.)
 </p>
 
 <sidebyside width="97%">
@@ -359,12 +353,11 @@ identity handles <m>\cos^2 2\theta</m>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,11);
-\draw[gray!35] (0,8.5) -- (15,8.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {$D = \{(r,\theta) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.2) {$A(D) = \displaystyle\iint_D dA =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,10.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the polar description of the loop and one for the area integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for Example II.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -391,26 +384,14 @@ A four-leaved rose with one petal outlined and shaded.
     stroke="#56B4E9" thickness="2"/>
 <parametric-curve at="ro-loop" function="loop" domain="(-pi/4,pi/4)"
     stroke="#D55E00" thickness="3"/>
-<line at="ro-ray1" endpoints="((0,0),(1.2,1.2))" stroke="black"
-    thickness="1" dash="6 4"/>
-<line at="ro-ray2" endpoints="((0,0),(1.2,-1.2))" stroke="black"
-    thickness="1" dash="6 4"/>
 <label at="ro-D-label" anchor="(0.42,0)" alignment="c">
 <m>D</m>
 </label>
-<label at="ro-ray1-label" anchor="(1.08,1.22)" alignment="n">
-<m>\theta = \tfrac{\pi}{4}</m>
-</label>
-<label at="ro-ray2-label" anchor="(1.08,-1.22)" alignment="s">
-<m>\theta = -\tfrac{\pi}{4}</m>
-</label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="A four leaved rose curve centered at the origin, drawn in light blue. The right hand loop, along the positive x axis, is outlined in vermillion and shaded tan, and is labeled D. Two dashed rays at angles plus and minus pi over four bound the loop.">
+<annotation ref="figure" text="A four leaved rose curve centered at the origin, drawn in light blue. The right hand loop, along the positive x axis, is outlined in vermillion and shaded tan, and is labeled D.">
   <annotation ref="ro-curve" text="The four leaved rose r equals cosine of two theta."/>
-  <annotation ref="ro-D" text="The region D: one loop of the rose, swept as theta runs from minus pi over four to pi over four."/>
-  <annotation ref="ro-ray1" text="The dashed ray theta equals pi over four, where r equals zero."/>
-  <annotation ref="ro-ray2" text="The dashed ray theta equals minus pi over four, where r equals zero."/>
+  <annotation ref="ro-D" text="The region D: the loop of the rose along the positive x axis."/>
 </annotation>
 </annotations>
 </diagram>
@@ -434,15 +415,6 @@ cylinder <m>x^2 + y^2 = 2x</m>.
 </p>
 <p>
 <em>Solution.</em>
-(Complete the square to see what the cylinder's cross-section is; the
-base disk is shown in <xref ref="fig-shifted-disk-prefigure"/> and the
-solid in <xref ref="fig-polar-volume-tikz"/>. Convert
-<m>x^2+y^2 = 2x</m> to polar form and solve for <m>r</m>; that gives the
-upper limit of <m>r</m>, and the disk is swept by
-<m>-\pi/2 \le \theta \le \pi/2</m>. Integrate the height of the
-paraboloid over the disk. The outer integral involves
-<m>\cos^4\theta</m>: use the half-angle identity twice, and use
-symmetry to halve the interval.)
 </p>
 
 <sidebyside width="97%">
@@ -450,14 +422,11 @@ symmetry to halve the interval.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,12.5) -- (15,12.5);
-\draw[gray!35] (0,9.5) -- (15,9.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {the cylinder in polar form: \qquad so $D = \{(r,\theta) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,12.2) {$V = \displaystyle\iint_D (x^2+y^2)\,dA = \int_{\quad}^{\quad}\!\!\int_{\quad}^{\quad}$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {evaluate:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the polar form of the cylinder and the description of the base disk, for the polar volume integral, and for its evaluation.</shortdescription>
+<shortdescription>Blank workspace for Example III.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -490,9 +459,9 @@ A disk of radius one centered at (1,0), passing through the origin.
 <label at="sd-D" anchor="(0.85,0.45)" alignment="c">
 <m>D</m>
 </label>
-<label at="sd-eq" anchor="(1.15,-1.08)" alignment="s"
+<label at="sd-eq" anchor="(1.0,-1.08)" alignment="s"
     color="#D55E00">
-<m>(x-1)^2 + y^2 = 1 \text{ (or } r = 2\cos\theta)</m>
+<m>x^2 + y^2 = 2x</m>
 </label>
 <label at="sd-O" anchor="(-0.08,-0.08)" alignment="sw">
 <m>0</m>
@@ -501,7 +470,7 @@ A disk of radius one centered at (1,0), passing through the origin.
 <annotations>
 <annotation ref="figure" text="A disk of radius one centered at the point one comma zero, shaded tan and labeled D. Its boundary circle, drawn in vermillion, passes through the origin and through the point two comma zero, and is the polar curve r equals two cosine theta.">
   <annotation ref="sd-disk" text="The base disk D, of radius one centered at one comma zero."/>
-  <annotation ref="sd-circle" text="The boundary circle x minus one squared plus y squared equals one, which in polar coordinates is r equals two cosine theta."/>
+  <annotation ref="sd-circle" text="The boundary circle x squared plus y squared equals two x."/>
 </annotation>
 </annotations>
 </diagram>
@@ -573,8 +542,8 @@ lines mark the base circle.
     % ---- labels ----
     \node[font=\large, anchor=north west] at (axis description cs:0.0,0.98)
       {$z = x^2 + y^2$};
-    \node[oivermillion, font=\small, anchor=north]
-      at (axis cs:1.0,-1.35,-0.25) {$x^2 + y^2 = 2x$};
+    \node[oivermillion, font=\small, anchor=south east]
+      at (axis description cs:0.98,0.02) {base circle $x^2 + y^2 = 2x$};
   \end{axis}
 \end{tikzpicture}]]>
 </latex-image>
@@ -602,9 +571,6 @@ Cartesian coordinates.
 </p>
 <p>
 <em>Solution.</em>
-(Describe the unit disk in polar coordinates and convert the integrand.
-The extra factor of <m>r</m> in <m>dA</m> is exactly what makes the
-inner integral computable: which substitution?)
 </p>
 
 <sidebyside width="97%">
@@ -612,10 +578,11 @@ inner integral computable: which substitution?)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\iint_R e^{x^2+y^2}\,dx\,dy = \int_{\quad}^{\quad}\!\!\int_{\quad}^{\quad}$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for converting the integral to polar form and evaluating it.</shortdescription>
+<shortdescription>Blank workspace for Example IV.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -654,29 +621,17 @@ to the following areas graphed in <xref ref="fig-polar-two-areas"/>:
 <li><p>the blue-colored area,</p></li>
 <li><p>the sum of the areas in (1) and (2).</p></li>
 </ol>
-<p>
-(Which angles sweep both regions? Write the vertical line <m>x = 1</m>
-and the two arcs in polar form; along a ray, where does each region
-begin and end? The third integral should need no line at all: what
-region is the union, and what does that give you to check the first two
-against?)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,6) -- (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {$x = 1$ in polar form: \qquad the arcs:};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {1. $A_{\text{red}} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {2. $A_{\text{blue}} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {3. $A_{\text{red}} + A_{\text{blue}} =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the polar forms of the boundary curves and for the three area integrals.</shortdescription>
+<shortdescription>Blank workspace for the three area integrals.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -715,16 +670,17 @@ Two semicircles, a slanted line, and two vertical lines bounding two shaded regi
 <line at="pa-x2" endpoints="((2,-0.4),(2,2.3))"
     stroke="#777777" thickness="1.5" dash="5 4"/>
 <point at="pa-C" p="(0.5,0.866)" fill="black" alignment="nw"/>
-<point at="pa-A" p="(1,1.732)" fill="black" alignment="nw">
+<point at="pa-A" p="(1,1.732)" fill="black"/>
+<label at="pa-A-label" anchor="(0.92,1.80)" alignment="nw">
 <m>\left(1,\sqrt3\right)</m>
-</point>
+</label>
 <point at="pa-E" p="(1,0)" fill="black" alignment="sw"/>
 <point at="pa-F" p="(2,0)" fill="black" alignment="se"/>
 <label at="pa-ray-label" anchor="(1.30,2.21)" alignment="e"
     color="#333333"><m>\theta = \pi/3</m></label>
-<label at="pa-inner-label" anchor="(-0.72,0.60)" alignment="w"
+<label at="pa-inner-label" anchor="(-0.85,0.95)" alignment="nw"
     color="#555555"><m>r=1</m></label>
-<label at="pa-outer-label" anchor="(-1.45,1.30)" alignment="w"
+<label at="pa-outer-label" anchor="(-1.55,1.45)" alignment="nw"
     color="#555555"><m>r=2</m></label>
 <label at="pa-x1-label" anchor="(1,-0.42)" alignment="s"
     color="#777777"><m>x=1</m></label>
@@ -765,31 +721,17 @@ whose density is given by
 <em>Hint</em>: note that as <m>\theta</m> varies, you may need to modify
 the limits of <m>r</m> accordingly.
 </p>
-<p>
-(Write the density and <m>dA</m> in polar form first; something
-cancels. Then the limits: take the petal around <m>\theta = 0</m>,
-which is traced for <m>-\pi/6 \le \theta \le \pi/6</m>, and slide the
-ray in <xref ref="fig-polar-rose-circle"/>. Near <m>\theta = 0</m>
-which curve does the ray leave <m>R</m> at, and near the edges of the
-petal which one? Find the changeover angle, write the integral for one
-petal, and use the congruence of the three petals.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,9.5) -- (15,9.5);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,2.5) -- (15,2.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {$\rho\,dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {the ray leaves $R$ at $r = \tfrac12$ when \qquad and at $r = \cos 3\theta$ when};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$M_{\text{petal}} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.2) {$M =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the density times the area element in polar form, for the two ranges of theta with their upper limits of r, for the mass of one petal, and for the total mass.</shortdescription>
+<shortdescription>Blank workspace for the mass integral.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -840,29 +782,17 @@ Set up a double integral (in polar coordinates) for computing the volume
 of the region bounded by the cylinder <m>x^2+(y-1)^2=1</m> and the sphere
 <m>x^2+y^2+z^2=1</m>. See <xref ref="fig-ws-cylinder-sphere"/>.
 </p>
-<p>
-(This is <xref ref="q-di-cylinder-sphere"/> again. The height over a
-point of the region is unchanged; write it in terms of <m>r</m>. Put
-both boundary circles in polar form and find the angles where they
-cross. For which <m>\theta</m> is the sphere the binding constraint,
-and for which the cylinder? Use the symmetry about the <m>y</m>-axis,
-and compare the region of integration with the one you described in
-Cartesian coordinates.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,9.5) -- (15,9.5);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {height: \qquad sphere: $r =$ \qquad cylinder: $r =$ \qquad they cross at $\theta =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {the ray leaves at $r = 1$ when \qquad and at $r = 2\sin\theta$ when};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$V =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the height and the polar forms of the two circles with their crossing angles, for the two ranges of theta with their upper limits, and for the volume as polar integrals.</shortdescription>
+<shortdescription>Blank workspace for the volume integral in polar coordinates.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -877,28 +807,17 @@ the two curves <m>r(\theta)=1+\cos\theta</m> and
 <m>r(\theta)=1+\sin\theta</m>. See
 <xref ref="fig-polar-cardioids"/>.
 </p>
-<p>
-(A point lies in the overlap when its <m>r</m> is at most <em>both</em>
-radii, so along each ray the region runs from <m>r = 0</m> out to the
-smaller of the two. Where do the cardioids cross, and which radius is
-the smaller one on each side of the crossing? Slide the ray in
-<xref ref="fig-polar-cardioids"/> to see. Set up one integral for each
-range of <m>\theta</m>, and say what symmetry relates the two.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {the cardioids cross at $\theta =$ \qquad the smaller radius is};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$A =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {symmetry:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the crossing angles and which radius is smaller where, for the area as a sum of polar integrals, and for the symmetry between the two pieces.</shortdescription>
+<shortdescription>Blank workspace for the area of the overlap.</shortdescription>
 </image>
 </sidebyside>
 </statement>
