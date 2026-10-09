@@ -25,6 +25,11 @@
 <!-- the diameter of Figure (5)) trimmed.  The base of the tetrahedron,    -->
 <!-- which is the region of integration the student has to find, is an    -->
 <!-- empty grid to sketch on.                                              -->
+<!--                                                                       -->
+<!-- Animated figure: assets/tetrahedron-manim.html (three.js, in the      -->
+<!-- manim style of helix-manim.html), right after the tikz tetrahedron    -->
+<!-- of Example III: its four faces switch on one at a time, each in the   -->
+<!-- colour of its plane, with the whole planes and a top view.            -->
 <section xml:id="section-double-integrals-general-regions" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Double Integrals Over General Regions and Area by Double Integration</title>
 
@@ -330,6 +335,40 @@ the vertical face x equals two y are labeled with arrows.
 \end{tikzpicture}]]>
 </latex-image>
 </image>
+</figure>
+
+<p>
+<xref ref="fig-tetrahedron-manim"/> is the same tetrahedron, animated:
+switch its four faces on one at a time, each in the colour of the plane
+it lies in, extend them to the whole planes, or look at <m>T</m> from
+straight above to see what it stands on.
+</p>
+
+<figure xml:id="fig-tetrahedron-manim">
+<caption>
+The tetrahedron <m>T</m> of <xref ref="example-tetrahedron"/>, animated,
+face by face: the slanted face in the plane <m>x + 2y + z = 2</m> (blue),
+the vertical face in <m>x = 2y</m> (green), the back face in <m>x = 0</m>
+(violet) and the base in <m>z = 0</m> (yellow). <q>Top view</q> looks
+straight down the <m>z</m>-axis, where <m>T</m> collapses onto its base.
+</caption>
+<interactive xml:id="interactive-tetrahedron-manim"
+             iframe="tetrahedron-manim.html"
+             width="100%" aspect="1:1">
+<instructions>
+<p>
+The four face buttons switch the faces of <m>T</m> on and off, one at a
+time, or all together with <q>All</q> and <q>None</q>; the card at the
+top left lists the faces that are on and the vertices each one passes
+through. <q>Whole planes</q> extends every face that is on to the part of
+its plane in the first octant, to see the four planes boxing <m>T</m> in.
+<q>Play</q> runs a guided tour that builds <m>T</m> one face at a time,
+dragging the figure turns it, <q>Spin</q> turns it on its own, <q>Top
+view</q> looks straight down the <m>z</m>-axis onto the base, and
+<q>Full screen</q> fills the screen with it.
+</p>
+</instructions>
+</interactive>
 </figure>
 
 <figure xml:id="fig-tetrahedron-base-prefigure">
