@@ -392,7 +392,7 @@ def main():
     # The head of each family's chain in the widget. Kept concrete here (the
     # widget's own fallbacks are what a student gets; an eval that silently
     # graded a fallback would be grading a different model than it reports).
-    concrete = {"careful": "gemini-3.7-flash",
+    concrete = {"careful": "gemini-3.8-flash",
                 "quick": "gemini-3.5-flash-lite"}[args.model]
 
     results = []

@@ -274,10 +274,12 @@ const INSTRUCTOR_API_KEY = "";
 // The careful entry pins a concrete id instead, so the two choices stay
 // distinct rather than collapsing onto whatever the alias points at today;
 // the alias sits behind it, so a retirement degrades the tutor rather than
-// killing it.
+// killing it. (October 2026: Google deprecated 3.7 Flash and now redirects
+// its traffic to 3.8 Flash at the same pricing; the careful slot
+// names 3.8 directly rather than relying on the redirect.)
 const MODELS = [
   { id: "careful", label: "Careful — slower, more thorough",
-    candidates: ["gemini-3.7-flash", "gemini-flash-latest", "gemini-3.6-flash"] },
+    candidates: ["gemini-3.8-flash", "gemini-flash-latest", "gemini-3.6-flash"] },
   { id: "quick",   label: "Quick — faster, lighter",
     candidates: ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-flash-latest"] },
 ];

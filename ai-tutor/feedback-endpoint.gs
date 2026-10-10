@@ -29,7 +29,7 @@ var HEADERS = [
   // with, and simply gains two more columns from here on. New fields must
   // always be added at the END for that reason.
   'model',       // which model the student had chosen: pro | flash
-  'modelUsed',   // the concrete model id that answered, e.g. gemini-3.7-flash
+  'modelUsed',   // the concrete model id that answered, e.g. gemini-3.8-flash
 ];
 
 // Generous ceilings, purely so a runaway or malicious post cannot bloat the
