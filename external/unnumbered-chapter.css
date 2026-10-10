@@ -1,0 +1,34 @@
+/* The "Assignments and Review Problems" chapter (xml:id ch-problems) is
+   unnumbered: its own heading, its section headings, and every table-of-
+   contents or navigation entry pointing into it show the bare title.
+   The sections all share the id prefix "sec-exercises-", which is what
+   the attribute selectors key on.  Loaded on every page through
+   html.css.extra (see xsl/custom-html.xsl). */
+
+section#ch-problems > .heading .type,
+section#ch-problems > .heading .codenumber,
+section#ch-problems > .heading .heading-divison-mark,
+section[id^="sec-exercises-"] > .heading .type,
+section[id^="sec-exercises-"] > .heading .codenumber,
+section[id^="sec-exercises-"] > .heading .heading-divison-mark,
+a[href^="ch-problems.html"] .codenumber,
+a[href^="sec-exercises-"] .codenumber {
+  display: none;
+}
+
+/* An unposted solution.
+   In the review sets each <solution> is a bare element whose *contents*
+   carry component="reviewN-solutions"; the publisher's <version include>
+   list in publication/publication.ptx decides whether those contents
+   survive.  The solution element itself always survives, which is what
+   keeps PreTeXt from generating an automatic answer-key copy of the
+   statement - see the comment at the top of source/review1-practice.ptx.
+   The cost is that a hidden solution leaves an empty "Solution." heading
+   behind, and these two rules drop it.  A solution whose only children
+   are its heading and its permalink has no content, so it is not shown,
+   and neither is the wrapper holding it. */
+
+.solution.solution-like:not(:has(> *:not(.heading):not(.autopermalink))),
+.solutions:not(:has(> .solution.solution-like > *:not(.heading):not(.autopermalink))) {
+  display: none;
+}

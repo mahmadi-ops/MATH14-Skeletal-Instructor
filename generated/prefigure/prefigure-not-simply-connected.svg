@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-not-simply-connected-figure" width="320" height="280" viewBox="0 0 320 280">
+  <defs>
+    <clipPath id="prefigure-not-simply-connected-clipPath-0">
+      <rect x="10.0" y="10.0" width="300.0" height="260.0"/>
+    </clipPath>
+    <clipPath id="prefigure-not-simply-connected-clipPath-1">
+      <rect x="10.0" y="10.0" width="300.0" height="260.0"/>
+    </clipPath>
+    <marker id="prefigure-not-simply-connected-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-not-simply-connected-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-not-simply-connected-arrow-head-end-2_None_24_60-hD55E00" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#D55E00" stroke="none"/>
+    </marker>
+    <marker id="prefigure-not-simply-connected-arrow-head-end-2_None_24_60-hD55E00-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="nsc-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-not-simply-connected-line-0" x1="10.0" y1="155.6" x2="310.0" y2="155.6" stroke="black" stroke-width="2" marker-end="url(#prefigure-not-simply-connected-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-not-simply-connected-line-1" x1="160.0" y1="270.0" x2="160.0" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-not-simply-connected-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-not-simply-connected-label-0" transform="translate(304.0,149.6) translate(-10.4,-8.2)">
+    <g id="prefigure-not-simply-connected-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-not-simply-connected-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-not-simply-connected-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-not-simply-connected-label-1" transform="translate(166.0,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-not-simply-connected-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-not-simply-connected-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-not-simply-connected-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <path id="prefigure-not-simply-connected-nsc-region" d="M 258.3 140.0 L 260.7 135.0 L 262.6 130.0 L 264.0 125.4 L 264.8 121.0 L 265.0 117.1 L 264.5 113.6 L 263.3 110.7 L 261.4 108.2 L 258.8 106.2 L 255.4 104.6 L 251.4 103.4 L 246.7 102.3 L 241.4 101.4 L 235.6 100.4 L 229.3 99.4 L 222.7 98.2 L 215.8 96.7 L 208.6 94.9 L 201.4 92.7 L 194.1 90.2 L 186.9 87.4 L 179.8 84.4 L 173.0 81.2 L 166.3 78.0 L 160.0 75.0 L 154.0 72.2 L 148.3 69.8 L 143.0 67.9 L 138.0 66.7 L 133.4 66.2 L 129.0 66.4 L 124.9 67.5 L 121.1 69.4 L 117.4 72.1 L 113.8 75.4 L 110.3 79.4 L 106.9 83.9 L 103.4 88.7 L 99.9 93.8 L 96.4 99.0 L 92.8 104.1 L 89.2 109.2 L 85.5 114.0 L 81.8 118.5 L 78.1 122.7 L 74.5 126.7 L 70.9 130.3 L 67.6 133.7 L 64.5 136.9 L 61.7 140.0 L 59.3 143.1 L 57.4 146.3 L 56.0 149.7 L 55.2 153.3 L 55.0 157.3 L 55.5 161.5 L 56.7 166.0 L 58.6 170.8 L 61.2 175.9 L 64.6 181.0 L 68.6 186.2 L 73.3 191.3 L 78.6 196.1 L 84.4 200.6 L 90.7 204.6 L 97.3 207.9 L 104.2 210.6 L 111.4 212.5 L 118.6 213.6 L 125.9 213.8 L 133.1 213.3 L 140.2 212.1 L 147.0 210.2 L 153.7 207.8 L 160.0 205.0 L 166.0 202.0 L 171.7 198.8 L 177.0 195.6 L 182.0 192.6 L 186.6 189.8 L 191.0 187.3 L 195.1 185.1 L 198.9 183.3 L 202.6 181.8 L 206.2 180.6 L 209.7 179.6 L 213.1 178.6 L 216.6 177.7 L 220.1 176.6 L 223.6 175.4 L 227.2 173.8 L 230.8 171.8 L 234.5 169.3 L 238.2 166.4 L 241.9 162.9 L 245.5 159.0 L 249.1 154.6 L 252.4 150.0 L 255.5 145.0 L 258.3 140.0 Z" stroke="#56B4E9" stroke-width="2" fill="#f4e3c1" clip-path="url(#prefigure-not-simply-connected-clipPath-1)"/>
+  <path id="prefigure-not-simply-connected-nsc-hole1" d="M 140.3 134.8 L 140.3 133.8 L 140.2 132.7 L 140.1 131.7 L 139.8 130.7 L 139.5 129.7 L 139.2 128.7 L 138.8 127.7 L 138.3 126.8 L 137.8 125.9 L 137.2 125.0 L 136.5 124.2 L 135.9 123.4 L 135.1 122.7 L 134.3 122.0 L 133.5 121.3 L 132.7 120.8 L 131.8 120.2 L 130.8 119.7 L 129.9 119.3 L 128.9 119.0 L 127.9 118.7 L 126.9 118.5 L 125.9 118.3 L 124.8 118.2 L 123.8 118.2 L 122.8 118.2 L 121.7 118.3 L 120.7 118.5 L 119.7 118.7 L 118.7 119.0 L 117.7 119.3 L 116.7 119.7 L 115.8 120.2 L 114.9 120.8 L 114.1 121.3 L 113.2 122.0 L 112.5 122.7 L 111.7 123.4 L 111.0 124.2 L 110.4 125.0 L 109.8 125.9 L 109.3 126.8 L 108.8 127.7 L 108.4 128.7 L 108.1 129.7 L 107.8 130.7 L 107.5 131.7 L 107.4 132.7 L 107.3 133.8 L 107.2 134.8 L 107.3 135.8 L 107.4 136.9 L 107.5 137.9 L 107.8 138.9 L 108.1 139.9 L 108.4 140.9 L 108.8 141.9 L 109.3 142.8 L 109.8 143.7 L 110.4 144.6 L 111.0 145.4 L 111.7 146.2 L 112.5 146.9 L 113.2 147.6 L 114.1 148.3 L 114.9 148.8 L 115.8 149.4 L 116.7 149.9 L 117.7 150.3 L 118.7 150.6 L 119.7 150.9 L 120.7 151.1 L 121.7 151.3 L 122.8 151.4 L 123.8 151.4 L 124.8 151.4 L 125.9 151.3 L 126.9 151.1 L 127.9 150.9 L 128.9 150.6 L 129.9 150.3 L 130.8 149.9 L 131.8 149.4 L 132.7 148.8 L 133.5 148.3 L 134.3 147.6 L 135.1 146.9 L 135.9 146.2 L 136.5 145.4 L 137.2 144.6 L 137.8 143.7 L 138.3 142.8 L 138.8 141.9 L 139.2 140.9 L 139.5 139.9 L 139.8 138.9 L 140.1 137.9 L 140.2 136.9 L 140.3 135.8 Z" stroke="#56B4E9" stroke-width="2" fill="white"/>
+  <path id="prefigure-not-simply-connected-nsc-hole2" d="M 231.4 129.6 L 231.4 128.7 L 231.3 127.8 L 231.1 126.9 L 230.9 126.0 L 230.7 125.1 L 230.4 124.2 L 230.0 123.4 L 229.6 122.6 L 229.1 121.8 L 228.6 121.0 L 228.1 120.3 L 227.5 119.6 L 226.8 119.0 L 226.1 118.4 L 225.4 117.8 L 224.7 117.3 L 223.9 116.8 L 223.1 116.4 L 222.2 116.1 L 221.4 115.8 L 220.5 115.5 L 219.6 115.3 L 218.7 115.2 L 217.8 115.1 L 216.9 115.0 L 216.0 115.1 L 215.1 115.2 L 214.2 115.3 L 213.3 115.5 L 212.4 115.8 L 211.6 116.1 L 210.7 116.4 L 209.9 116.8 L 209.1 117.3 L 208.4 117.8 L 207.7 118.4 L 207.0 119.0 L 206.3 119.6 L 205.7 120.3 L 205.2 121.0 L 204.7 121.8 L 204.2 122.6 L 203.8 123.4 L 203.4 124.2 L 203.1 125.1 L 202.9 126.0 L 202.7 126.9 L 202.5 127.8 L 202.4 128.7 L 202.4 129.6 L 202.4 130.5 L 202.5 131.4 L 202.7 132.3 L 202.9 133.2 L 203.1 134.1 L 203.4 135.0 L 203.8 135.8 L 204.2 136.6 L 204.7 137.4 L 205.2 138.2 L 205.7 138.9 L 206.3 139.6 L 207.0 140.2 L 207.7 140.8 L 208.4 141.4 L 209.1 141.9 L 209.9 142.4 L 210.7 142.8 L 211.6 143.1 L 212.4 143.4 L 213.3 143.7 L 214.2 143.9 L 215.1 144.0 L 216.0 144.1 L 216.9 144.2 L 217.8 144.1 L 218.7 144.0 L 219.6 143.9 L 220.5 143.7 L 221.4 143.4 L 222.2 143.1 L 223.1 142.8 L 223.9 142.4 L 224.7 141.9 L 225.4 141.4 L 226.1 140.8 L 226.8 140.2 L 227.5 139.6 L 228.1 138.9 L 228.6 138.2 L 229.1 137.4 L 229.6 136.6 L 230.0 135.8 L 230.4 135.0 L 230.7 134.1 L 230.9 133.2 L 231.1 132.3 L 231.3 131.4 L 231.4 130.5 Z" stroke="#56B4E9" stroke-width="2" fill="white"/>
+  <path id="prefigure-not-simply-connected-nsc-loop" d="M 155.9 134.8 L 155.8 132.8 L 155.6 130.8 L 155.3 128.8 L 154.9 126.8 L 154.3 124.8 L 153.6 122.9 L 152.8 121.1 L 151.9 119.3 L 150.9 117.5 L 149.7 115.8 L 148.5 114.2 L 147.2 112.7 L 145.7 111.3 L 144.2 110.0 L 142.6 108.7 L 141.0 107.6 L 139.2 106.5 L 137.4 105.6 L 135.6 104.8 L 133.7 104.1 L 131.8 103.6 L 129.8 103.1 L 127.8 102.8 L 125.8 102.6 L 123.8 102.6 L 121.8 102.6 L 119.8 102.8 L 117.8 103.1 L 115.8 103.6 L 113.9 104.1 L 112.0 104.8 L 110.1 105.6 L 108.3 106.5 L 106.6 107.6 L 104.9 108.7 L 103.4 110.0 L 101.8 111.3 L 100.4 112.7 L 99.1 114.2 L 97.8 115.8 L 96.7 117.5 L 95.7 119.3 L 94.8 121.1 L 94.0 122.9 L 93.3 124.8 L 92.7 126.8 L 92.3 128.8 L 92.0 130.8 L 91.8 132.8 L 91.7 134.8 L 91.8 136.8 L 92.0 138.8 L 92.3 140.8 L 92.7 142.8 L 93.3 144.8 L 94.0 146.7 L 94.8 148.5 L 95.7 150.3 L 96.7 152.1 L 97.8 153.8 L 99.1 155.4 L 100.4 156.9 L 101.8 158.3 L 103.4 159.6 L 104.9 160.9 L 106.6 162.0 L 108.3 163.1 L 110.1 164.0 L 112.0 164.8 L 113.9 165.5 L 115.8 166.0 L 117.8 166.5 L 119.8 166.8 L 121.8 167.0 L 123.8 167.0 L 125.8 167.0 L 127.8 166.8 L 129.8 166.5 L 131.8 166.0 L 133.7 165.5 L 135.6 164.8 L 137.4 164.0 L 139.2 163.1 L 141.0 162.0 L 142.6 160.9 L 144.2 159.6 L 145.7 158.3 L 147.2 156.9 L 148.5 155.4 L 149.7 153.8 L 150.9 152.1 L 151.9 150.3 L 152.8 148.5 L 153.6 146.7 L 154.3 144.8 L 154.9 142.8 L 155.3 140.8 L 155.6 138.8 L 155.8 136.8 Z" stroke="#D55E00" stroke-width="2" fill="none"/>
+  <path id="prefigure-not-simply-connected-nsc-loop-arrow" stroke="#D55E00" stroke-width="2" fill="none" d="M 131.0 102.6 L 116.6 102.6" marker-end="url(#prefigure-not-simply-connected-arrow-head-end-2_None_24_60-hD55E00)"/>
+  <g id="prefigure-not-simply-connected-nsc-loop-label" transform="translate(123.8,183.0) translate(-10.4,-0.0)">
+    <g id="prefigure-not-simply-connected-g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#D55E00" width="20.840px" height="15.472px" role="img" focusable="false" viewBox="0 -705 1151.6 855" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-not-simply-connected-MJX-4-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-not-simply-connected-MJX-4-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="upper C 1">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="upper C" data-semantic-prefix="Base">
+                <use data-c="1D436" xlink:href="#prefigure-not-simply-connected-MJX-4-TEX-I-1D436"/>
+              </g>
+              <g data-mml-node="mn" transform="translate(748,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="1" data-semantic-prefix="Subscript">
+                <use data-c="31" xlink:href="#prefigure-not-simply-connected-MJX-4-TEX-N-31"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-not-simply-connected-nsc-label" transform="translate(240.7,248.0) translate(-76.3,-0.0)">
+    <g id="prefigure-not-simply-connected-g-3">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Not simply connected</text>
+    </g>
+  </g>
+</svg>

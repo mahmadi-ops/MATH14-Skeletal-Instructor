@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-loop-reversed-figure" speech2="The same oval through A and B, but now both halves run from A to B. The upper half C 1 is drawn in blue and the lower half, relabeled minus C 2 and drawn in green, has its arrow reversed so that it also runs from A to B. Since both curves connect A to B, path independence makes the two line integrals equal.">
+      <grouped>prefigure-loop-reversed-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-loop-reversed-lr-c1</active>
+        <active>prefigure-loop-reversed-lr-negc2</active>
+      </children>
+      <components>
+        <active>prefigure-loop-reversed-lr-c1</active>
+        <active>prefigure-loop-reversed-lr-negc2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-loop-reversed-lr-c1" speech2="The piece C 1, still running from A to B along the top.">
+      <active>prefigure-loop-reversed-lr-c1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-loop-reversed-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-loop-reversed-lr-negc2" speech2="The reversed piece minus C 2, drawn in green, now running from A to B along the bottom. C 1 and minus C 2 both connect A to B.">
+      <active>prefigure-loop-reversed-lr-negc2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-loop-reversed-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

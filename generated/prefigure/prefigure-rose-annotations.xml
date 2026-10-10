@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-rose-figure" speech2="A four leaved rose curve centered at the origin, drawn in light blue. The right hand loop, along the positive x axis, is outlined in vermillion and shaded tan, and is labeled D.">
+      <grouped>prefigure-rose-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rose-ro-curve</active>
+        <active>prefigure-rose-ro-D</active>
+      </children>
+      <components>
+        <active>prefigure-rose-ro-curve</active>
+        <active>prefigure-rose-ro-D</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-rose-ro-curve" speech2="The four leaved rose r equals cosine of two theta.">
+      <active>prefigure-rose-ro-curve</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-rose-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rose-ro-D" speech2="The region D: the loop of the rose along the positive x axis.">
+      <active>prefigure-rose-ro-D</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rose-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,60 @@
+<diagram>
+  <annotations>
+    <annotation id="half-circle-force-figure" speech2="An object travels over the top of a circle of radius                                     R from the point A to the point B, pushed by a force F                                     that always makes a thirty degree angle with the                                     direction of travel">
+      <grouped>half-circle-force-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>half-circle-force-circle</active>
+        <active>half-circle-force-path</active>
+        <active>half-circle-force-center</active>
+        <active>half-circle-force-endpoints</active>
+        <active>half-circle-force-vectors</active>
+      </children>
+      <components>
+        <active>half-circle-force-circle</active>
+        <active>half-circle-force-path</active>
+        <active>half-circle-force-center</active>
+        <active>half-circle-force-endpoints</active>
+        <active>half-circle-force-vectors</active>
+      </components>
+    </annotation>
+    <annotation id="half-circle-force-circle" speech2="The circle of radius R centred at O, drawn dashed">
+      <active>half-circle-force-circle</active>
+      <position>1</position>
+      <parents>
+        <grouped>half-circle-force-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="half-circle-force-path" speech2="The path C, the upper half of the circle, traversed                                       clockwise from A over the top to B" sonify="yes">
+      <active>half-circle-force-path</active>
+      <position>2</position>
+      <parents>
+        <grouped>half-circle-force-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>half-circle-force-path</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="half-circle-force-center" speech2="The centre O of the circle and a radius of length                                       R">
+      <active>half-circle-force-center</active>
+      <position>3</position>
+      <parents>
+        <grouped>half-circle-force-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="half-circle-force-endpoints" speech2="The starting point A at the left end of the                                       horizontal diameter and the end point B at the                                       right end">
+      <active>half-circle-force-endpoints</active>
+      <position>4</position>
+      <parents>
+        <grouped>half-circle-force-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="half-circle-force-vectors" speech2="At a point on the upper left of the path, the unit                                       tangent vector T pointing up and to the right in                                       the direction of travel, and the force F, which                                       leans thirty degrees away from T toward the outside                                       of the circle">
+      <active>half-circle-force-vectors</active>
+      <position>5</position>
+      <parents>
+        <grouped>half-circle-force-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

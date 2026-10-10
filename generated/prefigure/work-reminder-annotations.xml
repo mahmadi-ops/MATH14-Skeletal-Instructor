@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="work-reminder-figure" speech2="A box on the ground pulled by a force applied                                 at an angle alpha, with the displacement                                 measured from one centre of mass to the                                 other">
+      <grouped>work-reminder-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>work-reminder-ground</active>
+        <active>work-reminder-boxes</active>
+        <active>work-reminder-force</active>
+        <active>work-reminder-component</active>
+        <active>work-reminder-displacement</active>
+      </children>
+      <components>
+        <active>work-reminder-ground</active>
+        <active>work-reminder-boxes</active>
+        <active>work-reminder-force</active>
+        <active>work-reminder-component</active>
+        <active>work-reminder-displacement</active>
+      </components>
+    </annotation>
+    <annotation id="work-reminder-ground" speech2="The ground the box slides on">
+      <active>work-reminder-ground</active>
+      <position>1</position>
+      <parents>
+        <grouped>work-reminder-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="work-reminder-boxes" speech2="The box in its initial position and, faintly,                                   in its final position">
+      <active>work-reminder-boxes</active>
+      <position>2</position>
+      <parents>
+        <grouped>work-reminder-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="work-reminder-force" speech2="The force F, applied at an angle alpha to                                   the direction of motion">
+      <active>work-reminder-force</active>
+      <position>3</position>
+      <parents>
+        <grouped>work-reminder-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="work-reminder-component" speech2="The component of the force along the                                   motion, the magnitude of F times cosine                                   alpha">
+      <active>work-reminder-component</active>
+      <position>4</position>
+      <parents>
+        <grouped>work-reminder-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="work-reminder-displacement" speech2="The displacement delta x, measured below the                                   ground line from the centre of mass of the                                   box in its initial position to its centre of                                   mass in the final position">
+      <active>work-reminder-displacement</active>
+      <position>5</position>
+      <parents>
+        <grouped>work-reminder-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
