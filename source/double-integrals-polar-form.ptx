@@ -26,6 +26,10 @@
 <!-- lost its dashed rays and their angle labels, the base disk's label    -->
 <!-- lost its polar form, and the labels that sat on curves, axes or the   -->
 <!-- grid were moved clear (Oct 2026).                                     -->
+<!--                                                                       -->
+<!-- The parenthetical hint before the box for the area of a polar         -->
+<!-- rectangle (the sector areas, the factoring, the Riemann sum) was      -->
+<!-- removed as well (Oct 2026).                                           -->
 <section xml:id="section-double-integrals-polar-form" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Double Integrals in Polar Form</title>
 
@@ -66,13 +70,7 @@ R_{ij} = \{(r,\theta) : r_{i-1} \le r \le r_i,\
 </me>
 
 <p>
-Compute this area. (The area of a sector of a circle with radius
-<m>r</m> and central angle <m>\theta</m> is <m>\tfrac12 r^2\theta</m>;
-the polar rectangle is the difference of two sectors. Factor the
-difference of squares and write the result in terms of
-<m>\Delta r = r_i - r_{i-1}</m>, <m>\Delta\theta</m>, and the average
-radius <m>r_i^* = \tfrac12(r_i + r_{i-1})</m>. Then write the Riemann
-sum for <m>\iint_R f\,dA</m> with these cells and pass to the limit.)
+Compute this area.
 </p>
 
 <sidebyside width="97%">

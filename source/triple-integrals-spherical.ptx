@@ -31,6 +31,12 @@
 <!-- cream cone and the cone-and-plane solid are moved off curves and      -->
 <!-- axes; the half disk gets room for its equation, and its annotation no -->
 <!-- longer gives the theta range.                                         -->
+<!--                                                                       -->
+<!-- Later in Oct 2026 the instructor had four figures taken out of the    -->
+<!-- skeletal notes: the ice cream cone (fig-icecream-tikz), the sphere of -->
+<!-- Example IV (fig-shifted-sphere-tikz), and the half disk and the solid -->
+<!-- of Example V (fig-halfdisk-prefigure, fig-cone-plane-tikz). A comment -->
+<!-- marks each place; they remain in the completed notes.                 -->
 <section xml:id="section-triple-integrals-spherical" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Triple Integrals in Spherical Coordinates</title>
 
@@ -419,71 +425,7 @@ solid sphere <m>\rho \le 1</m> by the cone <m>\phi = \pi/3</m>.
 </statement>
 </example>
 
-<figure xml:id="fig-icecream-tikz">
-<caption>
-The <q>ice cream cone</q> of
-<xref ref="example-spherical-icecream"/>: the region inside the
-sphere <m>\rho = 1</m> and above the cone <m>\phi = \pi/3</m>.
-</caption>
-<image width="60%">
-<shortdescription>
-An ice cream cone shape: a cone from the origin capped by a piece of a sphere.
-</shortdescription>
-<description>
-Three coordinate axes in space with an ice cream cone shaped solid: a
-cone with vertex at the origin opening upward at sixty degrees from
-the z axis, capped by a dome which is part of the unit sphere. The
-circle where the cone meets the sphere is drawn.
-</description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={125}{18},
-      width=11cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.15, xmax=1.35, ymin=-1.15, ymax=1.45, zmin=0, zmax=1.5,
-      clip=false,
-    ]
-    % cone: phi = pi/3, rho from 0 to 1: r = z tan(60), z up to cos(60)=0.5
-    \addplot3[surf, shader=interp,
-              colormap={softk}{color=(oigreen!12!white) color=(oigreen!42!white)},
-              opacity=0.45, fill opacity=0.45,
-              domain=0:360, samples=37,
-              y domain=0:0.5, samples y=7,
-              z buffer=sort, forget plot]
-      ({y*1.7320508*cos(x)}, {y*1.7320508*sin(x)}, {y});
-    % spherical cap: rho=1, phi from 0 to 60
-    \addplot3[surf, shader=faceted, faceted color=black!35,
-              point meta={z},
-              colormap={softz}{color=(oiblue!12!white) color=(oiblue!42!white)},
-              opacity=0.55, fill opacity=0.55,
-              domain=0:360, samples=37,
-              y domain=0:60, samples y=9,
-              z buffer=sort, forget plot]
-      ({sin(y)*cos(x)}, {sin(y)*sin(x)}, {cos(y)});
-    % rim circle: phi = 60 on the sphere (radius sin60, height cos60)
-    \addplot3[oivermillion, line width=1.3pt, domain=0:360, samples=73,
-        samples y=0, forget plot]
-      ({0.8660254*cos(x)}, {0.8660254*sin(x)}, {0.5});
-    % labels
-    \node[oiblue, anchor=west, font=\small]
-      at (axis cs:0.0,1.12,0.95) {Sphere $\rho = 1$};
-    \node[oigreen!60!black, anchor=west, font=\small]
-      at (axis cs:0.72,0.72,0.22) {Cone $\phi = \tfrac{\pi}{3}$};
-    \node[font=\large] at (axis cs:-0.35,-0.5,1.02) {$D$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
-</image>
-</figure>
+<!-- Figure fig-icecream-tikz (the ice cream cone of Example III) removed from the skeletal notes at the instructor's request (Oct 2026); it remains in the completed notes. -->
 
 <p>
 How the spherical description of the ice cream cone
@@ -549,68 +491,7 @@ coordinates:
 </statement>
 </example>
 
-<figure xml:id="fig-shifted-sphere-tikz">
-<caption>
-The sphere <m>x^2 + y^2 + (z-2)^2 = 4</m> of
-<xref ref="example-spherical-convert"/>. It sits on the
-<m>xy</m>-plane, touching the origin.
-</caption>
-<image width="55%">
-<shortdescription>
-A sphere resting on the origin, centered on the vertical axis.
-</shortdescription>
-<description>
-Three coordinate axes in space with a sphere of radius two centered on
-the z axis at height two, so it touches the origin from above. A
-dashed vertical diameter runs from the origin to the north pole at
-height four.
-</description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \begin{axis}[
-      view={125}{15},
-      width=10cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-2.3, xmax=2.6, ymin=-2.3, ymax=2.7, zmin=0, zmax=4.6,
-      clip=false,
-    ]
-    % sphere rho = 4 cos(phi): center (0,0,2), radius 2
-    \addplot3[surf, shader=faceted, faceted color=black!30,
-              point meta={z},
-              colormap={softz}{color=(oiblue!12!white) color=(oiblue!45!white)},
-              opacity=0.5, fill opacity=0.5,
-              domain=0:360, samples=31,
-              y domain=0:180, samples y=17,
-              z buffer=sort, forget plot]
-      ({2*sin(y)*cos(x)}, {2*sin(y)*sin(x)}, {2 + 2*cos(y)});
-    % equator
-    \addplot3[oiblue, line width=1.0pt, domain=0:360, samples=73,
-        samples y=0, forget plot]
-      ({2*cos(x)}, {2*sin(x)}, 2);
-    % dashed diameter
-    \draw[black!60, dashed, line width=0.8pt]
-      (axis cs:0,0,0) -- (axis cs:0,0,4);
-    \addplot3[only marks, mark=*, mark size=1.5pt, color=black,
-        forget plot] coordinates {(0,0,0) (0,0,2) (0,0,4)};
-    % labels
-    \node[font=\large, anchor=north west] at (axis description cs:0.0,0.98)
-      {$x^2 + y^2 + (z-2)^2 = 4$};
-    \node[anchor=west, font=\small] at (axis cs:0.12,0.12,4.12)
-      {$(0,0,4)$};
-    \node[anchor=west, font=\small] at (axis cs:0.15,0.18,2.08)
-      {$(0,0,2)$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
-</image>
-</figure>
+<!-- Figure fig-shifted-sphere-tikz (the sphere of Example IV) removed from the skeletal notes at the instructor's request (Oct 2026); it remains in the completed notes. -->
 
 </subsection>
 
@@ -650,120 +531,9 @@ Re-write (do not evaluate) the following integral in
 </statement>
 </example>
 
-<figure xml:id="fig-halfdisk-prefigure">
-<caption>
-The <m>xy</m>-projection of the solid in
-<xref ref="example-spherical-rewrite"/>: the lower half of the unit
-disk.
-</caption>
-<image width="45%">
-<shortdescription>
-The lower half of the unit disk, shaded.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-halfdisk">
-<diagram dimensions="(384,215)" margins="10">
-<definition>arc(t) = (cos(t), sin(t))</definition>
-<coordinates bbox="(-1.5,-1.35,2.1,0.65)">
-<axes at="hd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-<polygon at="hd-region" fill="#f5c6bc" stroke="none" closed="yes"
-    points="((1,0),(0.9877,-0.1564),(0.9511,-0.309),(0.891,-0.454),(0.809,-0.5878),(0.7071,-0.7071),(0.5878,-0.809),(0.454,-0.891),(0.309,-0.9511),(0.1564,-0.9877),(0,-1),(-0.1564,-0.9877),(-0.309,-0.9511),(-0.454,-0.891),(-0.5878,-0.809),(-0.7071,-0.7071),(-0.809,-0.5878),(-0.891,-0.454),(-0.9511,-0.309),(-0.9877,-0.1564),(-1,0))"/>
-<parametric-curve at="hd-arc" function="arc" domain="(pi,2*pi)"
-    stroke="#D55E00" thickness="3"/>
-<line at="hd-diam" endpoints="((-1,0),(1,0))" stroke="#555555"
-    thickness="2"/>
-<label at="hd-eq" anchor="(0.72,-0.85)" alignment="se"
-    color="#D55E00"><m>y = -\sqrt{1-x^2}</m></label>
-<point at="hd-1" p="(1,0)" fill="black" alignment="ne">
-<m>1</m>
-</point>
-<point at="hd-m1" p="(-1,0)" fill="black" alignment="nw">
-<m>-1</m>
-</point>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="The lower half of the unit disk, below the x axis, shaded light red. Its curved boundary y equals negative square root of one minus x squared is drawn in vermillion.">
-  <annotation ref="hd-region" text="The projection: the lower half of the unit disk."/>
-  <annotation ref="hd-arc" text="The lower half of the unit circle."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</figure>
+<!-- Figure fig-halfdisk-prefigure (the half disk of Example V) removed from the skeletal notes at the instructor's request (Oct 2026); it remains in the completed notes. -->
 
-<figure xml:id="fig-cone-plane-tikz">
-<caption>
-The solid of <xref ref="example-spherical-rewrite"/>: over the lower
-half disk, between the cone <m>z = \sqrt{x^2+y^2}</m> and the plane
-<m>z = 1</m>.
-</caption>
-<image width="60%">
-<shortdescription>
-A half cone over the negative y half plane, capped by a flat half disk.
-</shortdescription>
-<description>
-Three coordinate axes in space with a half cone opening upward from
-the origin at forty five degrees, over the half of the plane with y
-negative, capped above by the flat half disk in the plane z equals
-one. The straight edge of the cap lies over the x axis.
-</description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={35}{18},
-      width=11cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.3, xmax=1.5, ymin=-1.5, ymax=1.3, zmin=0, zmax=1.6,
-      clip=false,
-    ]
-    % half cone z = r over theta in [180,360]
-    \addplot3[surf, shader=interp,
-              colormap={softk}{color=(oigreen!12!white) color=(oigreen!42!white)},
-              opacity=0.45, fill opacity=0.45,
-              domain=180:360, samples=25,
-              y domain=0:1, samples y=7,
-              z buffer=sort, forget plot]
-      ({y*cos(x)}, {y*sin(x)}, {y});
-    % top half disk z = 1
-    \fill[oiblue, opacity=0.35]
-      (axis cs:1,0,1)
-      \foreach \a in {350,340,...,180} { -- (axis cs:{cos(\a)},{sin(\a)},1) }
-      -- cycle;
-    \draw[oiblue, line width=1.2pt]
-      (axis cs:1,0,1)
-      \foreach \a in {350,340,...,180} { -- (axis cs:{cos(\a)},{sin(\a)},1) }
-      -- cycle;
-    % cone edge lines
-    \draw[oigreen!60!black, line width=1.0pt]
-      (axis cs:0,0,0) -- (axis cs:1,0,1)
-      (axis cs:0,0,0) -- (axis cs:-1,0,1);
-    % projection half disk (dashed)
-    \draw[oivermillion, line width=1.0pt, dashed]
-      (axis cs:1,0,0)
-      \foreach \a in {350,340,...,180} { -- (axis cs:{cos(\a)},{sin(\a)},0) }
-      -- cycle;
-    % labels
-    \node[oiblue, anchor=west, font=\small]
-      at (axis cs:1.08,0,1.0) {$z = 1$};
-    \draw[oigreen!60!black, line width=0.5pt]
-      (axis cs:0.55,-0.25,0.6) -- (axis cs:1.15,0,0.3);
-    \node[oigreen!60!black, anchor=west, font=\small]
-      at (axis cs:1.15,0,0.3) {$z = \sqrt{x^2+y^2}$};
-    \node[oivermillion, anchor=north, font=\small]
-      at (axis cs:0.1,-1.15,-0.12) {projection};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
-</image>
-</figure>
+<!-- Figure fig-cone-plane-tikz (the solid of Example V) removed from the skeletal notes at the instructor's request (Oct 2026); it remains in the completed notes. -->
 
 <exercise xml:id="exercise-spherical-volume">
 <statement>

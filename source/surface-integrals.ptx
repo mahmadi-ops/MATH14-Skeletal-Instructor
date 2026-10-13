@@ -30,6 +30,12 @@
 <!-- captions no longer state which way the normals point; labels are      -->
 <!-- moved off rims and arrows.  The paragraph before the unit-sphere box  -->
 <!-- no longer names the identities to use.                                -->
+<!--                                                                       -->
+<!-- Later in Oct 2026, at the instructor's request, equations (2.10.1) to -->
+<!-- (2.10.4) and (2.10.6) have a blank line in place of their left-hand   -->
+<!-- side (the sphere's parametrization r(theta, phi), the normal n and    -->
+<!-- patch area, r_phi x r_theta, the unit normal, and the flux integral), -->
+<!-- for the student to fill in. Ids and numbers are unchanged.            -->
 <section xml:id="section-surface-integrals" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Surface Integrals: Flux Through a Surface</title>
 
@@ -245,7 +251,7 @@ parametrization
 
 <md>
 <mrow>
-\amp \mathbf{r}(\theta,\phi) = \langle \sin\phi\cos\theta,
+\amp \underline{\hspace{1.5cm}} = \langle \sin\phi\cos\theta,
 </mrow>
 <mrow xml:id="eq-sphere-param" number="yes">
 \amp \qquad \sin\phi\sin\theta,\ \cos\phi \rangle.
@@ -288,12 +294,16 @@ area of the patch:
 
 <md>
 <mrow>
-\mathbf{n} \amp \approx (\mathbf{r}_\phi \times \mathbf{r}_\theta)\,
-\Delta\phi\, \Delta\theta,
+\underline{\hspace{1.2cm}} \amp \approx (\mathbf{r}_\phi \times \mathbf{r}_\theta)
+</mrow>
+<mrow>
+\amp \qquad \Delta\phi\, \Delta\theta,
+</mrow>
+<mrow>
+\underline{\hspace{1.2cm}} \amp \approx \lVert \mathbf{r}_\phi \times \mathbf{r}_\theta \rVert
 </mrow>
 <mrow xml:id="eq-normal-patch" number="yes">
-\Delta\sigma \amp \approx \lVert \mathbf{r}_\phi \times
-\mathbf{r}_\theta \rVert\, \Delta\phi\, \Delta\theta.
+\amp \qquad \Delta\phi\, \Delta\theta.
 </mrow>
 </md>
 
@@ -412,7 +422,7 @@ For the parametrization <xref ref="eq-sphere-param"/> of the unit
 sphere,
 <md>
 <mrow>
-\amp \mathbf{r}_\phi \times \mathbf{r}_\theta
+\amp \underline{\hspace{2cm}}
 </mrow>
 <mrow>
 \amp = \sin\phi\, \langle \sin\phi\cos\theta,
@@ -427,7 +437,7 @@ sphere,
 and the unit normal is
 <md>
 <mrow xml:id="eq-sphere-unit-normal" number="yes">
-\amp \hat{\mathbf{n}} = \langle x, y, z \rangle
+\amp \underline{\hspace{1.2cm}} = \langle x, y, z \rangle
 </mrow>
 <mrow>
 \amp \quad = \langle \sin\phi\cos\theta,
@@ -614,7 +624,7 @@ integral as
 
 <md>
 <mrow>
-\amp \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
+\amp \underline{\hspace{2.5cm}}
 </mrow>
 <mrow>
 \amp \quad = \iint_R \mathbf{F} \cdot (\mathbf{r}_u \times \mathbf{r}_v)
