@@ -442,10 +442,9 @@ and
 \amp \quad = \langle \sin\phi\cos\theta,
 </mrow>
 <mrow>
-\amp \quad \sin\phi\sin\theta,\ \cos\phi \rangle,
+\amp \quad \sin\phi\sin\theta,\ \cos\phi \rangle.
 </mrow>
 </md>
-the position vector of the point itself: it points radially outward.
 </p>
 </assemblage>
 
