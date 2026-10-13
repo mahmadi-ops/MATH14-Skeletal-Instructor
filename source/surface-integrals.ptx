@@ -32,10 +32,11 @@
 <!-- no longer names the identities to use.                                -->
 <!--                                                                       -->
 <!-- Later in Oct 2026, at the instructor's request, equations (2.10.1) to -->
-<!-- (2.10.4) and (2.10.6) have a blank line in place of their left-hand   -->
-<!-- side (the sphere's parametrization r(theta, phi), the normal n and    -->
-<!-- patch area, r_phi x r_theta, the unit normal, and the flux integral), -->
-<!-- for the student to fill in. Ids and numbers are unchanged.            -->
+<!-- (2.10.4) and (2.10.6) keep their left-hand sides (r(theta, phi), the  -->
+<!-- normal n and patch area, r_phi x r_theta, the unit normal, and the    -->
+<!-- flux integral) and have blank lines in place of their right-hand      -->
+<!-- sides, for the student to fill in; the sentences around them no       -->
+<!-- longer give the formulas away. Ids and numbers are unchanged.         -->
 <section xml:id="section-surface-integrals" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Surface Integrals: Flux Through a Surface</title>
 
@@ -250,11 +251,8 @@ parametrization
 </p>
 
 <md>
-<mrow>
-\amp \underline{\hspace{1.5cm}} = \langle \sin\phi\cos\theta,
-</mrow>
 <mrow xml:id="eq-sphere-param" number="yes">
-\amp \qquad \sin\phi\sin\theta,\ \cos\phi \rangle.
+\mathbf{r}(\theta,\phi) = \underline{\hspace{3.2cm}}.
 </mrow>
 </md>
 
@@ -287,22 +285,16 @@ other produces two tangent vectors,
 so that the two edges of a small coordinate patch on the sphere are
 approximately <m>\mathbf{r}_\phi\, \Delta\phi</m> and
 <m>\mathbf{r}_\theta\, \Delta\theta</m>, as in
-<xref ref="fig-sphere-patch"/>. Fill in what their cross product and
-its length approximate:
+<xref ref="fig-sphere-patch"/>. Use them to approximate a normal vector
+to the patch and the area of the patch:
 </p>
 
 <md>
 <mrow>
-\underline{\hspace{1.2cm}} \amp \approx (\mathbf{r}_\phi \times \mathbf{r}_\theta)
-</mrow>
-<mrow>
-\amp \qquad \Delta\phi\, \Delta\theta,
-</mrow>
-<mrow>
-\underline{\hspace{1.2cm}} \amp \approx \lVert \mathbf{r}_\phi \times \mathbf{r}_\theta \rVert
+\mathbf{n} \amp \approx \underline{\hspace{3.2cm}},
 </mrow>
 <mrow xml:id="eq-normal-patch" number="yes">
-\amp \qquad \Delta\phi\, \Delta\theta.
+\Delta\sigma \amp \approx \underline{\hspace{3.2cm}}.
 </mrow>
 </md>
 
@@ -421,28 +413,25 @@ For the parametrization <xref ref="eq-sphere-param"/> of the unit
 sphere,
 <md>
 <mrow>
-\amp \underline{\hspace{2cm}}
+\amp \mathbf{r}_\phi \times \mathbf{r}_\theta
 </mrow>
 <mrow>
-\amp = \sin\phi\, \langle \sin\phi\cos\theta,
-</mrow>
-<mrow>
-\amp \quad \sin\phi\sin\theta,\ \cos\phi \rangle
+\amp = \underline{\hspace{3.8cm}}
 </mrow>
 <mrow xml:id="eq-sphere-cross" number="yes">
-\amp = \sin\phi\, \langle x, y, z \rangle,
+\amp = \underline{\hspace{3.8cm}},
 </mrow>
 </md>
-and
+and the unit normal is
 <md>
 <mrow xml:id="eq-sphere-unit-normal" number="yes">
-\amp \underline{\hspace{1.2cm}} = \langle x, y, z \rangle
+\amp \hat{\mathbf{n}}
 </mrow>
 <mrow>
-\amp \quad = \langle \sin\phi\cos\theta,
+\amp = \underline{\hspace{3.8cm}}
 </mrow>
 <mrow>
-\amp \quad \sin\phi\sin\theta,\ \cos\phi \rangle.
+\amp = \underline{\hspace{3.8cm}}.
 </mrow>
 </md>
 </p>
@@ -622,13 +611,10 @@ integral as
 
 <md>
 <mrow>
-\amp \underline{\hspace{2.5cm}}
-</mrow>
-<mrow>
-\amp \quad = \iint_R \mathbf{F} \cdot (\mathbf{r}_u \times \mathbf{r}_v)
+\amp \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
 </mrow>
 <mrow xml:id="eq-flux-param" number="yes">
-\amp \qquad du\, dv,
+\amp = \underline{\hspace{4cm}},
 </mrow>
 </md>
 
