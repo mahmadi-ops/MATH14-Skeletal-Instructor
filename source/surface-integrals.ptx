@@ -7,7 +7,7 @@
 <!-- and the normal to a patch, the definition of the surface integral and -->
 <!-- the parametrized flux formula are kept; the flat-plate flow rate, the -->
 <!-- five worked examples and the sphere's normal are replaced by blank    -->
-<!-- workspace boxes, each preceded by a one-line instruction.  The        -->
+<!-- workspace boxes, each preceded by a one-line hint (gone).  The        -->
 <!-- sphere's cross product and unit normal are restated in an assemblage  -->
 <!-- so that Stokes' theorem can still cite eq-sphere-cross and            -->
 <!-- eq-sphere-unit-normal.  File name and xml:ids are unchanged.          -->
@@ -16,6 +16,20 @@
 <!-- normals, the paraboloid-and-disk surface, and every video); each is   -->
 <!-- the check on the box above it.  Captions that stated a formula or a   -->
 <!-- numerical answer have been trimmed.                                   -->
+<!--                                                                       -->
+<!-- Hints removed (Oct 2026), at the instructor's request as for sections -->
+<!-- 2.1 to 2.4: every workspace box is now empty except for the faint     -->
+<!-- workspace tag (the row labels and rules are gone), and the            -->
+<!-- parenthetical how-to after each Solution and in the Concept Check     -->
+<!-- questions is deleted.  Hint lines that are the completed notes' own   -->
+<!-- stay.  Long displayed equations are broken into aligned rows so that  -->
+<!-- they fit a phone screen (390 px) with their numbers; xml:ids and      -->
+<!-- equation numbers are unchanged.                                       -->
+<!--                                                                       -->
+<!-- Figure labels: the cylinder, sphere-patch and closed-paraboloid       -->
+<!-- captions no longer state which way the normals point; labels are      -->
+<!-- moved off rims and arrows.  The paragraph before the unit-sphere box  -->
+<!-- no longer names the identities to use.                                -->
 <section xml:id="section-surface-integrals" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Surface Integrals: Flux Through a Surface</title>
 
@@ -53,14 +67,11 @@ the area of <m>S</m>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\draw[gray!35] (0,5.5) -- (15,5.5);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {perpendicular flow: flow rate $=$ \qquad units:};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.2) {tilted by $\theta$: flow rate $=$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {as a dot product: flow rate $=$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the flow rate through a perpendicular plate with its units, for the flow rate through a tilted plate, and for the same quantity written as a dot product with the normal vector.</shortdescription>
+<shortdescription>Blank workspace for the flow rate through the plate.</shortdescription>
 </image>
 </sidebyside>
 
@@ -193,14 +204,6 @@ Find parametric representations for each of the following surfaces.
 </p>
 <p>
 <em>Solution.</em>
-(In <alert>A</alert>, start from the position vector
-<m>\langle x, y, z\rangle</m> of an arbitrary point and impose the
-constraint, so that <m>x</m> and <m>y</m> themselves are the
-parameters; then do the same in cylindrical and in spherical
-coordinates, stating the ranges of the parameters. In <alert>B</alert>,
-what surface is this, and which coordinate system fits it? In
-<alert>C</alert>, one parameter goes around and one is free. Compare
-with <xref ref="fig-parametric-surfaces-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -208,14 +211,11 @@ with <xref ref="fig-parametric-surfaces-video"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {A. $\mathbf r(x,y) =$ \qquad $\mathbf r(r,\theta) =$ \qquad $\mathbf r(\theta,\phi) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {B. $\mathbf r(\theta,\phi) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {C. $\mathbf r(\theta,z) =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three labelled rows, for the parametrizations of the paraboloid in three coordinate systems, of the sphere, and of the cylinder, each with the ranges of its parameters.</shortdescription>
+<shortdescription>Blank workspace for the example Parametrizing Surfaces.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -243,11 +243,14 @@ Consider the unit sphere <m>x^2 + y^2 + z^2 = 1</m> with its spherical
 parametrization
 </p>
 
-<men xml:id="eq-sphere-param">
-\mathbf{r}(\theta,\phi)
-= \langle \sin\phi\cos\theta,\, \sin\phi\sin\theta,\,
-\cos\phi \rangle.
-</men>
+<md>
+<mrow>
+\amp \mathbf{r}(\theta,\phi) = \langle \sin\phi\cos\theta,
+</mrow>
+<mrow xml:id="eq-sphere-param" number="yes">
+\amp \qquad \sin\phi\sin\theta,\ \cos\phi \rangle.
+</mrow>
+</md>
 
 <p>
 Our goal is to find the normal <m>\mathbf{n}</m> to the sphere at every
@@ -255,17 +258,24 @@ point on its surface. Holding one parameter fixed and varying the
 other produces two tangent vectors,
 </p>
 
-<me>
-\mathbf{r}_\phi = \frac{\partial \mathbf{r}}{\partial \phi}
-= \lim_{\Delta\phi \to 0}
+<md>
+<mrow>
+\mathbf{r}_\phi \amp = \frac{\partial \mathbf{r}}{\partial \phi}
+</mrow>
+<mrow>
+\amp = \lim_{\Delta\phi \to 0}
 \frac{\mathbf{r}(\theta, \phi + \Delta\phi)
 - \mathbf{r}(\theta,\phi)}{\Delta\phi},
-\qquad
-\mathbf{r}_\theta = \frac{\partial \mathbf{r}}{\partial \theta}
-= \lim_{\Delta\theta \to 0}
+</mrow>
+<mrow>
+\mathbf{r}_\theta \amp = \frac{\partial \mathbf{r}}{\partial \theta}
+</mrow>
+<mrow>
+\amp = \lim_{\Delta\theta \to 0}
 \frac{\mathbf{r}(\theta + \Delta\theta, \phi)
 - \mathbf{r}(\theta,\phi)}{\Delta\theta},
-</me>
+</mrow>
+</md>
 
 <p>
 so that the two edges of a small coordinate patch on the sphere are
@@ -276,20 +286,22 @@ to the patch, so it gives a normal vector, and its length gives the
 area of the patch:
 </p>
 
-<men xml:id="eq-normal-patch">
-\mathbf{n} \approx (\mathbf{r}_\phi \times \mathbf{r}_\theta)\,
+<md>
+<mrow>
+\mathbf{n} \amp \approx (\mathbf{r}_\phi \times \mathbf{r}_\theta)\,
 \Delta\phi\, \Delta\theta,
-\qquad
-\Delta\sigma \approx \lVert \mathbf{r}_\phi \times
+</mrow>
+<mrow xml:id="eq-normal-patch" number="yes">
+\Delta\sigma \amp \approx \lVert \mathbf{r}_\phi \times
 \mathbf{r}_\theta \rVert\, \Delta\phi\, \Delta\theta.
-</men>
+</mrow>
+</md>
 
 <figure xml:id="fig-sphere-patch">
 <caption>
 A small coordinate patch on the unit sphere. The tangent vectors
 <m>\mathbf{r}_\theta</m> and <m>\mathbf{r}_\phi</m> span the patch,
-and their cross product points along the outward normal
-<m>\hat{\mathbf{n}}</m>.
+and <m>\hat{\mathbf{n}}</m> is the unit normal.
 </caption>
 <image xml:id="image-sphere-patch" width="80%">
 <shortdescription>
@@ -346,8 +358,7 @@ perpendicular to both.
     % position vector from origin
     \draw[-latex, black!80, line width=1.1pt]
       (axis cs:0,0,0) -- (axis cs:0.5792,0.4056,0.7071);
-    \node[lbl, font=\small, anchor=north, text=black!80]
-      at (axis cs:0.34,0.18,0.38) {$\mathbf{r}(\theta,\phi)$};
+    \node[lbl, font=\small, anchor=east, xshift=-10pt, text=black!80] at (axis cs:0.29,0.2,0.35) {$\mathbf{r}(\theta,\phi)$};
     % r_theta = sinphi*(-sin t, cos t, 0) = 0.7071*(-0.5736,0.8192,0)
     \draw[-latex, oiblue, line width=1.5pt]
       (axis cs:0.5792,0.4056,0.7071)
@@ -375,14 +386,10 @@ perpendicular to both.
 </figure>
 
 <p>
-Carry out this computation for the sphere: differentiate
-<xref ref="eq-sphere-param"/> to get <m>\mathbf{r}_\phi</m> and
-<m>\mathbf{r}_\theta</m>, take their cross product, and simplify it
-using <m>\cos^2\theta + \sin^2\theta = 1</m>; you should be able to
-write the result as a multiple of <m>\langle x, y, z\rangle</m>. Then
-normalize, using the fact that <m>x^2+y^2+z^2 = 1</m> on the sphere,
-and say in words which way the unit normal points. Compare with
-<xref ref="fig-surface-normal-video"/>.
+Carry out this computation for the sphere: find
+<m>\mathbf{r}_\phi</m>, <m>\mathbf{r}_\theta</m> and their cross
+product, then the unit normal, and say in words which way it points.
+Compare with <xref ref="fig-surface-normal-video"/>.
 </p>
 
 <sidebyside width="97%">
@@ -390,14 +397,11 @@ and say in words which way the unit normal points. Compare with
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
-\draw[gray!35] (0,11) -- (15,11);
-\draw[gray!35] (0,5) -- (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {$\mathbf r_\phi =$ \qquad\qquad $\mathbf r_\theta =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {$\mathbf r_\phi \times \mathbf r_\theta =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$\hat{\mathbf n} =$ \qquad which points};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,13.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the two tangent vectors, for their cross product, and for the unit normal with its direction.</shortdescription>
+<shortdescription>Blank workspace for the normal to the unit sphere.</shortdescription>
 </image>
 </sidebyside>
 
@@ -407,18 +411,29 @@ and say in words which way the unit normal points. Compare with
 For the parametrization <xref ref="eq-sphere-param"/> of the unit
 sphere,
 <md>
+<mrow>
+\amp \mathbf{r}_\phi \times \mathbf{r}_\theta
+</mrow>
+<mrow>
+\amp = \sin\phi\, \langle \sin\phi\cos\theta,
+</mrow>
+<mrow>
+\amp \quad \sin\phi\sin\theta,\ \cos\phi \rangle
+</mrow>
 <mrow xml:id="eq-sphere-cross" number="yes">
-\mathbf{r}_\phi \times \mathbf{r}_\theta
-= \sin\phi\, \langle \sin\phi\cos\theta,\,
-\sin\phi\sin\theta,\, \cos\phi \rangle
-= \sin\phi\, \langle x, y, z \rangle,
+\amp = \sin\phi\, \langle x, y, z \rangle,
 </mrow>
 </md>
 and the unit normal is
 <md>
 <mrow xml:id="eq-sphere-unit-normal" number="yes">
-\hat{\mathbf{n}} = \langle x, y, z \rangle
-= \langle \sin\phi\cos\theta,\, \sin\phi\sin\theta,\, \cos\phi \rangle,
+\amp \hat{\mathbf{n}} = \langle x, y, z \rangle
+</mrow>
+<mrow>
+\amp \quad = \langle \sin\phi\cos\theta,
+</mrow>
+<mrow>
+\amp \quad \sin\phi\sin\theta,\ \cos\phi \rangle,
 </mrow>
 </md>
 the position vector of the point itself: it points radially outward.
@@ -460,9 +475,6 @@ orientations.
 </p>
 <p>
 <em>Solution.</em>
-(Describe the two normal vectors in words, with reference to the
-<m>z</m>-axis, and say how they are related; see
-<xref ref="fig-cylinder-normals"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -470,10 +482,11 @@ orientations.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$\mathbf n_1$: \qquad\qquad $\mathbf n_2$: \qquad\qquad relation:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,4.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for describing the two orientations of the cylinder and how they are related.</shortdescription>
+<shortdescription>Blank workspace for describing the two orientations of the cylinder and how they are related.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -481,9 +494,8 @@ orientations.
 
 <figure xml:id="fig-cylinder-normals">
 <caption>
-The cylinder <m>x^2 + y^2 = 1</m> with its two possible orientations:
-<m>\mathbf{n}_1</m> points away from the <m>z</m>-axis and
-<m>\mathbf{n}_2 = -\mathbf{n}_1</m> points toward it.
+The cylinder <m>x^2 + y^2 = 1</m> with its two possible orientations,
+<m>\mathbf{n}_1</m> and <m>\mathbf{n}_2</m>.
 </caption>
 <image xml:id="image-cylinder-normals" width="55%">
 <shortdescription>
@@ -514,7 +526,7 @@ the axis.
       xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
       label style={font=\large},
       ticks=none,
-      xmin=-1.6, xmax=1.6, ymin=-2.6, ymax=2.6, zmin=-1.5, zmax=1.9,
+      xmin=-1.6, xmax=2.5, ymin=-2.6, ymax=2.6, zmin=-1.5, zmax=2.3,
       clip=false,
     ]
     % cylinder surface
@@ -541,8 +553,7 @@ the axis.
       (axis cs:0,1,0.2) -- (axis cs:0,0.15,0.2);
     \node[lbl, font=\normalsize, text=oiteal!80!black, anchor=south]
       at (axis cs:0,0.42,0.34) {$\mathbf{n}_2$};
-    \node[lbl, font=\normalsize, text=oiblue] at (axis cs:-1.0,-0.85,1.0)
-      {$x^2+y^2=1$};
+    \node[lbl, font=\normalsize, text=oiblue, anchor=east] at (axis cs:0.5,-1.15,0.9) {$x^2+y^2=1$};
   \end{axis}
 \end{tikzpicture}]]>
 </latex-image>
@@ -573,10 +584,14 @@ oriented surface <m>S</m> with unit normal vector
 <m>\mathbf{F}</m> over <m>S</m></term> is
 </p>
 
-<men xml:id="eq-flux-def">
-\iint_S \mathbf{F} \cdot d\mathbf{S}
-= \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma.
-</men>
+<md>
+<mrow>
+\amp \iint_S \mathbf{F} \cdot d\mathbf{S}
+</mrow>
+<mrow xml:id="eq-flux-def" number="yes">
+\amp \quad = \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma.
+</mrow>
+</md>
 
 <p>
 This integral is also called the <term>flux</term> of
@@ -597,11 +612,17 @@ du\, dv</m> (from <xref ref="eq-normal-patch"/>) to write the surface
 integral as
 </p>
 
-<men xml:id="eq-flux-param">
-\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
-= \iint_R \mathbf{F} \cdot (\mathbf{r}_u \times \mathbf{r}_v)\,
-du\, dv,
-</men>
+<md>
+<mrow>
+\amp \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
+</mrow>
+<mrow>
+\amp \quad = \iint_R \mathbf{F} \cdot (\mathbf{r}_u \times \mathbf{r}_v)
+</mrow>
+<mrow xml:id="eq-flux-param" number="yes">
+\amp \qquad du\, dv,
+</mrow>
+</md>
 
 <p>
 where <m>R</m> is the region of the parameters in the
@@ -632,13 +653,6 @@ x\,\mathbf{k}</m> across the unit sphere
 </p>
 <p>
 <em>Solution.</em>
-(Use the spherical parametrization <xref ref="eq-sphere-param"/> with
-its parameter ranges, so that <xref ref="eq-flux-param"/> applies; the
-cross product is <xref ref="eq-sphere-cross"/>, and check that it
-points outward. Substitute the parametrization into <m>\mathbf{F}</m>,
-dot, and integrate over the parameter rectangle; one of the two terms
-integrates to zero over a full period of <m>\theta</m>. Compare with
-<xref ref="fig-sphere-flux-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -646,16 +660,11 @@ integrates to zero over a full period of <m>\theta</m>. Compare with
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,8) -- (15,8);
-\draw[gray!35] (0,5) -- (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$\mathbf r_\phi \times \mathbf r_\theta =$ \qquad (outward because)};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$\mathbf F(\theta,\phi) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\mathbf F \cdot (\mathbf r_\phi \times \mathbf r_\theta) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$\displaystyle\iint_S \mathbf F\cdot\hat{\mathbf n}\,d\sigma = \int_0^{2\pi}\!\!\int_0^{\pi}$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the cross product and its orientation, for the field along the sphere, for the integrand, and for the flux integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for the example Flux Across the Unit Sphere.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -686,17 +695,6 @@ solid region <m>E</m> enclosed by the paraboloid
 </p>
 <p>
 <em>Solution.</em>
-(The closed surface has two pieces, shown in
-<xref ref="fig-paraboloid-flux"/>: the paraboloid cap <m>S_1</m> and
-the unit disk <m>S_2</m> in the plane <m>z = 0</m>. Which way must the
-outward normal point on each? Parametrize the cap as a graph,
-<m>\mathbf{r}(x,y) = \langle x, y, 1 - x^2 - y^2\rangle</m>, and
-compute <m>\mathbf{r}_x \times \mathbf{r}_y</m>; check its
-<m>z</m>-component against the required orientation. Do the same for
-the disk, fixing the sign if necessary. Then apply
-<xref ref="eq-flux-param"/> to each piece over the unit disk <m>R</m>;
-on the cap, one term vanishes by symmetry and polar coordinates finish
-the rest. Compare with <xref ref="fig-paraboloid-flux-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -704,18 +702,11 @@ the rest. Compare with <xref ref="fig-paraboloid-flux-video"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,17);
-\draw[gray!35] (0,14) -- (15,14);
-\draw[gray!35] (0,11.5) -- (15,11.5);
-\draw[gray!35] (0,6) -- (15,6);
-\draw[gray!35] (0,2.5) -- (15,2.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,16.7) {on $S_1$: $\mathbf n_1 = \mathbf r_x \times \mathbf r_y =$ \qquad orientation check:};
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {on $S_2$: $\mathbf n_2 =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {$\displaystyle\iint_{S_1} \mathbf F\cdot\hat{\mathbf n}\,d\sigma = \iint_R$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$\displaystyle\iint_{S_2} \mathbf F\cdot\hat{\mathbf n}\,d\sigma =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.2) {total:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,16.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in five rows, for the normal to the cap with its orientation check, for the normal to the disk, for the flux through the cap, for the flux through the disk, and for the total.</shortdescription>
+<shortdescription>Blank workspace for the example Flux Across a Closed Surface.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -736,9 +727,8 @@ through each piece.
 <figure xml:id="fig-paraboloid-flux">
 <caption>
 The boundary <m>S</m> of the solid enclosed by
-<m>z = 1 - x^2 - y^2</m> and <m>z = 0</m>: the cap <m>S_1</m> with
-upward-and-outward normals, and the disk <m>S_2</m> with downward
-normals.
+<m>z = 1 - x^2 - y^2</m> and <m>z = 0</m>: the cap <m>S_1</m> and the
+disk <m>S_2</m>, with outward normals.
 </caption>
 <image xml:id="image-paraboloid-flux" width="75%">
 <shortdescription>
@@ -768,7 +758,7 @@ give the closed surface its positive, outward orientation.
       xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
       label style={font=\large},
       ticks=none,
-      xmin=-1.6, xmax=1.6, ymin=-1.9, ymax=1.9, zmin=-0.7, zmax=1.7,
+      xmin=-1.6, xmax=2.4, ymin=-1.9, ymax=1.9, zmin=-0.7, zmax=1.7,
       clip=false,
     ]
     % paraboloid cap

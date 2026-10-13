@@ -8,13 +8,29 @@
 <!-- substitution formulas and the comparison with one-variable            -->
 <!-- substitution are kept; the five worked examples and the activity      -->
 <!-- solution are replaced by blank workspace boxes, each preceded by a    -->
-<!-- one-line instruction.  File name and xml:ids are unchanged.           -->
+<!-- one-line hint (gone).  File name and xml:ids are unchanged.           -->
 <!--                                                                       -->
 <!-- Figures: all kept (the two blobs, the rectangle, the parallelogram,   -->
 <!-- the curved region, the parallelepiped, the ellipsoid, the GeoGebra    -->
 <!-- transformation, and every video); each is the check on the box above -->
 <!-- it.  Captions that stated the substitution, the Jacobian or a         -->
 <!-- numerical answer have been trimmed.                                   -->
+<!--                                                                       -->
+<!-- Hints removed (Oct 2026), at the instructor's request as for sections -->
+<!-- 2.1 to 2.4: every workspace box is now empty except for the faint     -->
+<!-- workspace tag (the row labels and rules are gone), and the            -->
+<!-- parenthetical how-to after each Solution and in the Concept Check     -->
+<!-- questions is deleted.  Hint lines that are the completed notes' own   -->
+<!-- stay.  Long displayed equations are broken into aligned rows so that  -->
+<!-- they fit a phone screen (390 px) with their numbers; xml:ids and      -->
+<!-- equation numbers are unchanged.                                       -->
+<!--                                                                       -->
+<!-- Figure labels: the parallelepiped is labelled by its corner and three -->
+<!-- edge endpoints instead of its face equations, which the example asks  -->
+<!-- for; the ellipsoid figure loses the transformation (au, bv, cw), and  -->
+<!-- the rectangle figure its formula for T; the hyperbola and line labels -->
+<!-- are moved off their curves, the uv tick labels are fixed, and the     -->
+<!-- annotations no longer give the substitution.                          -->
 <section xml:id="section-jacobian-substitution" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Substitution in Multiple Integrals and the Jacobian Determinant</title>
 
@@ -121,28 +137,41 @@ The <term>Jacobian determinant</term> of the transformation
 <m>x = f(u,v)</m>, <m>y = g(u,v)</m> is defined as
 </p>
 
-<men xml:id="eq-jacobian-2d">
-J(u,v) = \frac{\partial(x,y)}{\partial(u,v)}
-= \begin{vmatrix}
+<md>
+<mrow>
+\amp J(u,v) = \frac{\partial(x,y)}{\partial(u,v)}
+</mrow>
+<mrow>
+\amp = \begin{vmatrix}
 \dfrac{\partial x}{\partial u} \amp \dfrac{\partial x}{\partial v} \\[2ex]
 \dfrac{\partial y}{\partial u} \amp \dfrac{\partial y}{\partial v}
 \end{vmatrix}
-= \frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
+</mrow>
+<mrow xml:id="eq-jacobian-2d" number="yes">
+\amp = \frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
 - \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}.
-</men>
+</mrow>
+</md>
 
 <p>
 In 3D, this definition is generalized to
 </p>
 
-<men xml:id="eq-jacobian-3d">
-J(u,v,w) = \frac{\partial(x,y,z)}{\partial(u,v,w)}
-= \begin{vmatrix}
+<md>
+<mrow>
+\amp J(u,v,w)
+</mrow>
+<mrow>
+\amp = \frac{\partial(x,y,z)}{\partial(u,v,w)}
+</mrow>
+<mrow xml:id="eq-jacobian-3d" number="yes">
+\amp = \begin{vmatrix}
 \dfrac{\partial x}{\partial u} \amp \dfrac{\partial x}{\partial v} \amp \dfrac{\partial x}{\partial w} \\[2ex]
 \dfrac{\partial y}{\partial u} \amp \dfrac{\partial y}{\partial v} \amp \dfrac{\partial y}{\partial w} \\[2ex]
 \dfrac{\partial z}{\partial u} \amp \dfrac{\partial z}{\partial v} \amp \dfrac{\partial z}{\partial w}
 \end{vmatrix}.
-</men>
+</mrow>
+</md>
 </statement>
 </definition>
 
@@ -151,11 +180,20 @@ Then the multiple integrals can be converted from one coordinate system
 to another as follows:
 </p>
 
-<men xml:id="eq-sub-2d">
-\iint_R F(x,y)\, dx\, dy
-= \iint_S F\big(f(u,v),\, g(u,v)\big)
-\left| \frac{\partial(x,y)}{\partial(u,v)} \right| du\, dv,
-</men>
+<md>
+<mrow>
+\amp \iint_R F(x,y)\, dx\, dy
+</mrow>
+<mrow>
+\amp \quad = \iint_S F\big(f(u,v),
+</mrow>
+<mrow>
+\amp \qquad\quad g(u,v)\big)
+</mrow>
+<mrow xml:id="eq-sub-2d" number="yes">
+\amp \qquad \left| \frac{\partial(x,y)}{\partial(u,v)} \right| du\, dv,
+</mrow>
+</md>
 
 <p>
 and in three dimensions, with <m>x = f(u,v,w)</m>, <m>y = g(u,v,w)</m>,
@@ -163,11 +201,23 @@ and in three dimensions, with <m>x = f(u,v,w)</m>, <m>y = g(u,v,w)</m>,
 a region <m>D</m> in <m>xyz</m>-space,
 </p>
 
-<men xml:id="eq-sub-3d">
-\iiint_D F(x,y,z)\, dx\, dy\, dz
-= \iiint_E F\big(f(u,v,w),\, g(u,v,w),\, h(u,v,w)\big)
-\left| \frac{\partial(x,y,z)}{\partial(u,v,w)} \right| du\, dv\, dw.
-</men>
+<md>
+<mrow>
+\amp \iiint_D F(x,y,z)\, dx\, dy\, dz
+</mrow>
+<mrow>
+\amp \quad = \iiint_E F\big(f(u,v,w),
+</mrow>
+<mrow>
+\amp \qquad\quad g(u,v,w),
+</mrow>
+<mrow>
+\amp \qquad\quad h(u,v,w)\big)
+</mrow>
+<mrow xml:id="eq-sub-3d" number="yes">
+\amp \left| \frac{\partial(x,y,z)}{\partial(u,v,w)} \right| du\, dv\, dw.
+</mrow>
+</md>
 
 <p>
 The integrals <xref ref="eq-sub-2d"/> and <xref ref="eq-sub-3d"/>
@@ -213,13 +263,6 @@ of the two regions of integration.
 </p>
 <p>
 <em>Solution.</em>
-(Solve for <m>x</m> and <m>y</m> to get <m>T(u,v)</m>, and find the
-region <m>S</m> in the <m>uv</m>-plane that <m>T</m> carries onto the
-unit square; both are shown in <xref ref="fig-jacobian-rectangle"/>.
-Compute the Jacobian by <xref ref="eq-jacobian-2d"/> and compare it
-with the ratio of the two areas. Then substitute, using
-<xref ref="eq-sub-2d"/>, and check against a direct evaluation of the
-original integral. Compare with <xref ref="fig-jacobian-rectangle-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -227,16 +270,11 @@ original integral. Compare with <xref ref="fig-jacobian-rectangle-video"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,8) -- (15,8);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$T(u,v) = (x,y) =$ \qquad $S =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$\dfrac{\partial(x,y)}{\partial(u,v)} =$ \qquad $\dfrac{A_R}{A_S} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\int_0^1\!\!\int_0^1 6xy\,dx\,dy = \iint_S$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {directly:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the transformation and the region S, for the Jacobian and the area ratio, for the substituted integral, and for the direct check.</shortdescription>
+<shortdescription>Blank workspace for the example A First Substitution: Scaling a Rectangle.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -256,8 +294,7 @@ as the ratio of the areas.
 <figure xml:id="fig-jacobian-rectangle">
 <caption>
 The rectangle <m>S</m> in the <m>uv</m>-plane (right) and its image,
-the unit square <m>R</m>, in the <m>xy</m>-plane (left) under
-<m>T(u,v) = (u/3, v/2)</m>.
+the unit square <m>R</m>, in the <m>xy</m>-plane (left).
 </caption>
 <sidebyside widths="46% 46%" valign="middle">
 <image>
@@ -297,7 +334,7 @@ The rectangle S from the origin to (3,2) in the u v plane.
 </label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="The rectangle S, shaded orange, with corners at the origin and 3 comma 2 in the u v plane. Its area is 6 times the area of the unit square R.">
+<annotation ref="figure" text="The rectangle S, shaded orange, with corners at the origin and 3 comma 2 in the u v plane.">
   <annotation ref="rs-rect" text="The rectangle S from 0 to 3 in u and 0 to 2 in v. The transformation shrinks it onto the unit square."/>
 </annotation>
 </annotations>
@@ -340,13 +377,6 @@ shown in <xref ref="fig-parallelogram-sub"/>.
 </p>
 <p>
 <em>Solution.</em>
-(Read <m>x</m> and <m>y</m> off <m>T</m> and compute the Jacobian by
-<xref ref="eq-jacobian-2d"/>. Invert the transformation to get
-<m>u</m> and <m>v</m> in terms of <m>x</m> and <m>y</m>, and translate
-each of the four boundary lines; the parallelogram should become a
-rectangle, shown in <xref ref="fig-parallelogram-sub"/>. Rewrite the
-integrand in <m>u</m> and <m>v</m>, apply <xref ref="eq-sub-2d"/>, and
-evaluate. Compare with <xref ref="fig-parallelogram-sub-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -354,16 +384,11 @@ evaluate. Compare with <xref ref="fig-parallelogram-sub-video"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
-\draw[gray!35] (0,11.5) -- (15,11.5);
-\draw[gray!35] (0,8.5) -- (15,8.5);
-\draw[gray!35] (0,6) -- (15,6);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {$x =$ \quad $y =$ \qquad $\dfrac{\partial(x,y)}{\partial(u,v)} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {inverse: $u =$ \quad $v =$ \qquad the four lines become: \qquad so $R =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.2) {integrand: $x + 3y =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$\displaystyle\iint_D (x+3y)\,dx\,dy = \iint_R$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,13.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the transformation and its Jacobian, for the inverse and the rectangle, for the integrand in the new variables, and for the substituted integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for the example A Parallelogram Region.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -411,7 +436,7 @@ A parallelogram between two slanted lines and two horizontal lines.
        color="#d02090">
 <m>x+2y=10</m>
 </label>
-<label at="pd-l1-label" anchor="(1.5,0.9)" alignment="se"
+<label at="pd-l1-label" anchor="(0.15,0.85)" alignment="se"
        color="#d02090">
 <m>x+2y=6</m>
 </label>
@@ -422,8 +447,8 @@ A parallelogram between two slanted lines and two horizontal lines.
 <annotations>
 <annotation ref="figure" text="Two parallel lines with slope negative one half, x plus 2 y equals 6 and x plus 2 y equals 10, drawn in pink. Between them, the horizontal lines y equals 1 and y equals 3 cut off a parallelogram D, shaded tan.">
   <annotation ref="pd-region" text="The parallelogram D, bounded by the two pink lines and the horizontal lines y equals 1 and y equals 3."/>
-  <annotation ref="pd-line1" text="The line x plus 2 y equals 6, which becomes u equals 6 after the substitution."/>
-  <annotation ref="pd-line2" text="The line x plus 2 y equals 10, which becomes u equals 10 after the substitution."/>
+  <annotation ref="pd-line1" text="The line x plus 2 y equals 6."/>
+  <annotation ref="pd-line2" text="The line x plus 2 y equals 10."/>
 </annotation>
 </annotations>
 </diagram>
@@ -434,7 +459,7 @@ A parallelogram between two slanted lines and two horizontal lines.
 The rectangle R in the u v plane, image of the parallelogram.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-parallelogram-R">
-<diagram dimensions="(280,240)" margins="10">
+<diagram dimensions="(300,240)" margins="(30,10,10,10)">
 <coordinates bbox="(4.4,-0.8,11.5,5.8)">
 <grid-axes at="pr-grid" xlabel="u" ylabel="v"/>
 <polygon closed="yes" at="pr-rect" points="((6,1),(10,1),(10,3),(6,3))"
@@ -480,17 +505,6 @@ Compute the integral <m>\displaystyle \iint_D xy\, (x^2 + y^2)\, dx\, dy</m>.
 </p>
 <p>
 <em>Solution.</em>
-(In <alert>A</alert>, let the boundary curves suggest <m>u</m> and
-<m>v</m>: each pair of curves should become a pair of lines
-<m>u = \text{const}</m> or <m>v = \text{const}</m>. Describe the
-rectangle <m>R</m>; compare with <xref ref="fig-curved-region"/>. In
-<alert>B</alert>, the substitution is given in the direction
-<m>u = u(x,y)</m>, <m>v = v(x,y)</m>, so first compute
-<m>\partial(u,v)/\partial(x,y)</m>; by the inverse function theorem
-the Jacobian you need, <m>\partial(x,y)/\partial(u,v)</m>, is its
-reciprocal. Then apply <xref ref="eq-sub-2d"/>: a factor in the
-integrand cancels against the Jacobian, and what is left is a function
-of <m>v</m> alone. Compare with <xref ref="fig-curved-region-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -498,16 +512,11 @@ of <m>v</m> alone. Compare with <xref ref="fig-curved-region-video"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {A. $u =$ \quad $v =$ \qquad $R =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {B. $\dfrac{\partial(u,v)}{\partial(x,y)} =$ \qquad so \qquad $\dfrac{\partial(x,y)}{\partial(u,v)} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$\displaystyle\iint_D xy\,(x^2+y^2)\,dx\,dy = \iint_R$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {evaluate:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,13.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the substitution and the rectangle, for the Jacobian in the easy direction and its reciprocal, for the substituted integral, and for its evaluation.</shortdescription>
+<shortdescription>Blank workspace for the example A Curved Region Mapped to a Rectangle.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -535,10 +544,10 @@ and <m>xy = 1</m>, <m>xy = 4</m> (left) corresponds to a rectangle
 A curved region bounded by two families of hyperbolas in the first quadrant.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-curved-D">
-<diagram dimensions="(300,300)" margins="10">
+<diagram dimensions="(368,300)" margins="10">
 <definition>hyp(x,y) = x^2 - y^2</definition>
 <definition>prod(x,y) = x*y</definition>
-<coordinates bbox="(0,0,3.1,3.1)">
+<coordinates bbox="(0,0,3.8,3.1)">
 <axes at="cd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
 <polygon closed="yes" at="cd-region" points="((0.550,1.817),(0.586,1.707),(0.628,1.593),(0.678,1.475),(0.739,1.353),(0.812,1.231),(0.899,1.112),(1.000,1.000),(1.112,0.899),(1.231,0.812),(1.353,0.739),(1.475,0.678),(1.593,0.628),(1.707,0.586),(1.817,0.550),(1.862,0.684),(1.911,0.809),(1.964,0.926),(2.018,1.036),(2.074,1.140),(2.129,1.238),(2.185,1.332),(2.240,1.420),(2.295,1.505),(2.349,1.587),(2.402,1.665),(2.342,1.708),(2.283,1.752),(2.224,1.798),(2.167,1.846),(2.110,1.896),(2.054,1.947),(2.000,2.000),(1.947,2.054),(1.896,2.110),(1.846,2.167),(1.798,2.224),(1.752,2.283),(1.708,2.342),(1.665,2.402),(1.587,2.349),(1.505,2.295),(1.420,2.240),(1.332,2.185),(1.238,2.129),(1.140,2.074),(1.036,2.018),(0.926,1.964),(0.809,1.911),(0.684,1.862))"
          fill="#e9dcae" stroke="none"/>
@@ -550,7 +559,7 @@ A curved region bounded by two families of hyperbolas in the first quadrant.
                 thickness="2"/>
 <implicit-curve at="cd-prod-4" function="prod" k="4" stroke="#2b6cb0"
                 thickness="2"/>
-<label at="cd-hyp-neg-label" anchor="(0.62,2.75)" alignment="e"
+<label at="cd-hyp-neg-label" anchor="(2.32,2.62)" alignment="e"
        color="#d02090">
 <m>x^2-y^2=-3</m>
 </label>
@@ -558,7 +567,7 @@ A curved region bounded by two families of hyperbolas in the first quadrant.
        color="#d02090">
 <m>x^2-y^2=3</m>
 </label>
-<label at="cd-prod-4-label" anchor="(2.05,2.4)" alignment="ne"
+<label at="cd-prod-4-label" anchor="(3.05,1.42)" alignment="ne"
        color="#2b6cb0">
 <m>xy=4</m>
 </label>
@@ -573,10 +582,10 @@ A curved region bounded by two families of hyperbolas in the first quadrant.
 <annotations>
 <annotation ref="figure" text="Four curves in the first quadrant: the hyperbolas x squared minus y squared equals negative 3 and positive 3, in pink, and the hyperbolas x y equals 1 and x y equals 4, in blue. They bound a curved four-sided region D, shaded tan.">
   <annotation ref="cd-region" text="The curved region D bounded by the four hyperbolas."/>
-  <annotation ref="cd-hyp-neg" text="The hyperbola x squared minus y squared equals negative 3, which becomes u equals negative 3."/>
-  <annotation ref="cd-hyp-pos" text="The hyperbola x squared minus y squared equals 3, which becomes u equals 3."/>
-  <annotation ref="cd-prod-1" text="The hyperbola x y equals 1, which becomes v equals 1."/>
-  <annotation ref="cd-prod-4" text="The hyperbola x y equals 4, which becomes v equals 4."/>
+  <annotation ref="cd-hyp-neg" text="The hyperbola x squared minus y squared equals negative 3."/>
+  <annotation ref="cd-hyp-pos" text="The hyperbola x squared minus y squared equals 3."/>
+  <annotation ref="cd-prod-1" text="The hyperbola x y equals 1."/>
+  <annotation ref="cd-prod-4" text="The hyperbola x y equals 4."/>
 </annotation>
 </annotations>
 </diagram>
@@ -589,10 +598,11 @@ The rectangle R in the u v plane, image of the curved region.
 <prefigure xmlns="https://prefigure.org" label="prefigure-curved-R">
 <diagram dimensions="(300,300)" margins="10">
 <coordinates bbox="(-4.3,-0.8,4.3,5.2)">
-<grid-axes at="cr-grid" xlabel="u" ylabel="v"/>
+<grid at="cr-grid"/>
 <polygon closed="yes" at="cr-rect" points="((-3,1),(3,1),(3,4),(-3,4))"
          fill="#e9dcae" stroke="#c07020" thickness="2"/>
-<label at="cr-R" anchor="(0,2.5)" alignment="c">
+<axes at="cr-axes" xlabel="u" ylabel="v" clear-background="yes"/>
+<label at="cr-R" anchor="(1.5,2.5)" alignment="c">
 <m>R</m>
 </label>
 </coordinates>
@@ -625,16 +635,6 @@ are constants (as opposed to functions).
 </p>
 <p>
 <em>Solution.</em>
-(Four of the faces are parallel to coordinate planes; write their
-equations. For the two slanted faces, find a normal vector from two
-edge directions with a cross product, then use a point on each face to
-write its equation. Describe the parallelepiped by three inequalities,
-and choose <m>u</m>, <m>v</m>, <m>w</m> so that each inequality becomes
-a constant range: that turns the solid into a box <m>S</m>. Compute the
-Jacobian in the easy direction with <xref ref="eq-jacobian-3d"/> and
-take the reciprocal, as in the previous example. Then apply
-<xref ref="eq-sub-3d"/>, and compare with
-<xref ref="fig-parallelepiped-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -642,20 +642,11 @@ take the reciprocal, as in the previous example. Then apply
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,17);
-\draw[gray!35] (0,14.5) -- (15,14.5);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,8) -- (15,8);
-\draw[gray!35] (0,5.5) -- (15,5.5);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,16.7) {the four easy faces:};
-\node[anchor=north west, font=\small\itshape] at (0.35,14.2) {the slanted faces: $\mathbf n =$ \qquad equations:};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$R = \{(x,y,z) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$u =$ \quad $v =$ \quad $w =$ \qquad $S =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.2) {$\dfrac{\partial(u,v,w)}{\partial(x,y,z)} =$ \qquad so \qquad $\dfrac{\partial(x,y,z)}{\partial(u,v,w)} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V_P = \displaystyle\iiint_R dx\,dy\,dz =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,16.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in six rows, for the four easy faces, for the normal and equations of the slanted faces, for the description of the parallelepiped, for the change of variables and the box, for the Jacobian, and for the volume.</shortdescription>
+<shortdescription>Blank workspace for the example Volume of a Parallelepiped by Substitution.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -684,20 +675,21 @@ the box, and the volume, with what you found.
 
 <figure xml:id="fig-parallelepiped-tikz">
 <caption>
-The parallelepiped bounded by the planes <m>x = 0</m>, <m>x = 1</m>,
-<m>z = 0</m>, <m>z = 1</m>, <m>y - z = 0</m>, and <m>y - z = 3</m>.
+The parallelepiped of <xref ref="example-parallelepiped-volume"/>. Its
+three edges at the origin end at <m>(1,0,0)</m>, <m>(0,3,0)</m> and
+<m>(0,1,1)</m>.
 </caption>
 <image xml:id="image-parallelepiped-tikz" width="80%">
 <shortdescription>
-A long slanted box in space bounded by six planes.
+A long slanted box in space with one corner at the origin.
 </shortdescription>
 <description>
 <p>
 A parallelepiped drawn with crimson edges in a three-dimensional
-coordinate system. Its base is the unit square <m>0 \le x \le 1</m> in
-the plane <m>z = 0</m>, sheared in the <m>y</m>-direction: the bottom
-face lies between the planes <m>y - z = 0</m> and <m>y - z = 3</m>,
-and the top face, at height <m>z = 1</m>, is shifted one unit in
+coordinate system. One corner is at the origin, and the three edges
+that meet there end at the points <m>(1,0,0)</m> on the <m>x</m>-axis,
+<m>(0,3,0)</m> on the <m>y</m>-axis, and <m>(0,1,1)</m>, so that the
+top face is the bottom face raised one unit and shifted one unit in
 <m>y</m>.
 </p>
 </description>
@@ -738,19 +730,17 @@ and the top face, at height <m>z = 1</m>, is shifted one unit in
     \draw[oicrimson, line width=1.3pt] (axis cs:1,0,0) -- (axis cs:1,1,1);
     \draw[oicrimson, line width=1.3pt] (axis cs:1,3,0) -- (axis cs:1,4,1);
     \draw[oicrimson, line width=1.3pt] (axis cs:0,3,0) -- (axis cs:0,4,1);
-    % ---- labels ----
-    \draw[black!70, line width=0.5pt]
-      (axis cs:0.5,0.5,0.5) -- (axis cs:-0.35,0.4,1.15);
-    \node[lbl, font=\normalsize, anchor=east] at (axis cs:-0.35,0.4,1.15)
-      {$y-z=0$};
-    \draw[black!70, line width=0.5pt]
-      (axis cs:0.5,3.5,0.5) -- (axis cs:0.4,3.6,1.55);
-    \node[lbl, font=\normalsize, anchor=south] at (axis cs:0.4,3.6,1.55)
-      {$y-z=3$};
-    \node[lbl, font=\normalsize, anchor=north west] at (axis cs:1.25,1.5,-0.08)
-      {$x=1$};
-    \node[lbl, font=\normalsize, anchor=south west] at (axis cs:0.1,2.5,1.05)
-      {$z=1$};
+    % ---- vertices: the three edges at the origin ----
+    \addplot3[only marks, mark=*, mark size=1.6pt, color=black,
+        forget plot] coordinates {(0,0,0) (1,0,0) (0,3,0) (0,1,1)};
+    \node[lbl, font=\normalsize, anchor=south east] at (axis cs:0,-0.08,0.05)
+      {$O$};
+    \node[lbl, font=\normalsize, anchor=north west] at (axis cs:1.0,0.12,-0.08)
+      {$(1,0,0)$};
+    \node[lbl, font=\normalsize, anchor=north west] at (axis cs:0,3.05,-0.06)
+      {$(0,3,0)$};
+    \node[lbl, font=\normalsize, anchor=south east] at (axis cs:0,0.95,1.05)
+      {$(0,1,1)$};
   \end{axis}
 \end{tikzpicture}]]>
 </latex-image>
@@ -774,12 +764,6 @@ is equal to <m>\dfrac{4\pi}{3}\, abc</m>.
 </p>
 <p>
 <em>Solution.</em>
-(The ellipsoid is a stretched sphere: choose a transformation that
-carries the unit ball <m>S</m> onto the solid ellipsoid <m>E</m>, as
-in <xref ref="fig-ellipsoid-tikz"/>. Compute the Jacobian by
-<xref ref="eq-jacobian-3d"/>, apply <xref ref="eq-sub-3d"/>, and use
-the volume of the unit ball. Compare with
-<xref ref="fig-ellipsoid-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -787,14 +771,11 @@ the volume of the unit ball. Compare with
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,9);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$T:\ x =$ \quad $y =$ \quad $z =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$\dfrac{\partial(x,y,z)}{\partial(u,v,w)} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$V_E = \displaystyle\iiint_E dx\,dy\,dz =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,8.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the transformation, for its Jacobian, and for the volume of the ellipsoid by substitution.</shortdescription>
+<shortdescription>Blank workspace for the example Volume of an Ellipsoid.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -814,9 +795,8 @@ along the coordinate axes produces the ellipsoid; the Jacobian
 
 <figure xml:id="fig-ellipsoid-tikz">
 <caption>
-The transformation <m>T(u,v,w) = (au, bv, cw)</m> carries the unit
-ball <m>S</m> onto the solid ellipsoid <m>E</m> with semi-axes
-<m>a</m>, <m>b</m>, <m>c</m>.
+A transformation <m>T</m> carries the unit ball <m>S</m> onto the solid
+ellipsoid <m>E</m> with semi-axes <m>a</m>, <m>b</m>, <m>c</m>.
 </caption>
 <image xml:id="image-ellipsoid-tikz" width="97%">
 <shortdescription>
@@ -826,8 +806,7 @@ ellipsoid on the right.
 <description>
 <p>
 On the left, the unit sphere <m>u^2 + v^2 + w^2 = 1</m>, labeled
-<m>S</m>, drawn as a translucent gray-blue ball. An arrow labeled
-<m>T(u,v,w) = (au, bv, cw)</m> points to the right, where the ellipsoid
+<m>S</m>, drawn as a translucent gray-blue ball. An arrow labeled <m>T</m> points to the right, where the ellipsoid
 <m>x^2/a^2 + y^2/b^2 + z^2/c^2 = 1</m>, labeled <m>E</m>, is drawn as
 a translucent green surface, wider than it is tall, with its three
 semi-axes <m>a</m>, <m>b</m>, and <m>c</m> drawn in vermillion, blue,
@@ -868,8 +847,6 @@ and green.
   % ---- arrow ----
   \draw[-latex, black!75, line width=1pt] (5.6,2.6) -- (7.4,2.6)
     node[midway, above, font=\small] {$T$};
-  \node[lbl, font=\small, anchor=north] at (6.5,2.45)
-    {$(au,bv,cw)$};
   % ---- ellipsoid ----
   \begin{axis}[
       at={(7.6cm,-0.4cm)}, anchor=south west,
@@ -936,10 +913,14 @@ to compute
 where
 </p>
 
-<me>
-E = \left\{ (x,y) \in \R^2 : 1 \le x \le 4,\
-\frac{1}{2}\sqrt{x} \le y \le \frac{5}{2}\sqrt{x} \right\}.
-</me>
+<md>
+<mrow>
+E = \Bigl\{ (x,y) \in \R^2 : \amp 1 \le x \le 4,
+</mrow>
+<mrow>
+\amp \tfrac{1}{2}\sqrt{x} \le y \le \tfrac{5}{2}\sqrt{x} \Bigr\}.
+</mrow>
+</md>
 
 <p>
 Also, make sure to graph the region of integration in the
@@ -971,14 +952,6 @@ rectangle sweep out its image, and <q>Clear Traces</q> to start over.
 </interactive>
 <p>
 <em>Solution.</em>
-(The transformation is already solved for <m>x</m> and <m>y</m>, so
-translate the description of <m>E</m> directly: with <m>u \ge 0</m>,
-turn <m>1 \le x \le 4</m> into a range of <m>u</m>, and turn the two
-<m>\sqrt{x}</m>-bounds on <m>y</m> into a range of <m>v</m>. Sketch the
-resulting rectangle <m>S</m> and check it against the interactive.
-Compute <m>\partial(x,y)/\partial(u,v)</m> directly, decide its sign on
-<m>S</m>, rewrite the integrand, and apply
-<xref ref="eq-sub-2d"/>; the integral separates.)
 </p>
 
 <sidebyside widths="60% 32%">
@@ -986,16 +959,11 @@ Compute <m>\partial(x,y)/\partial(u,v)</m> directly, decide its sign on
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (9,12);
-\draw[gray!35] (0,9) -- (9,9);
-\draw[gray!35] (0,6.5) -- (9,6.5);
-\draw[gray!35] (0,4) -- (9,4);
-\node[anchor=north west, font=\small\itshape] at (0.3,11.7) {$1 \le x \le 4 \Rightarrow$ \qquad $\tfrac12\sqrt x \le y \le \tfrac52\sqrt x \Rightarrow$};
-\node[anchor=north west, font=\small\itshape] at (0.3,8.7) {$\dfrac{\partial(x,y)}{\partial(u,v)} =$};
-\node[anchor=north west, font=\small\itshape] at (0.3,6.2) {$\dfrac{x}{y^2} =$};
-\node[anchor=north west, font=\small\itshape] at (0.3,3.7) {$\displaystyle\iint_E \frac{x}{y^2}\,dx\,dy = \iint_S$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the ranges of u and v, for the Jacobian, for the integrand in the new variables, and for the substituted integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for the activity.</shortdescription>
 </image>
 <image>
 <latex-image><![CDATA[
@@ -1003,8 +971,8 @@ Compute <m>\partial(x,y)/\partial(u,v)</m> directly, decide its sign on
 \draw[gray!30, very thin] (-0.5,-0.5) grid (5.5,5.5);
 \draw[->, thick] (-0.5,0) -- (5.9,0) node[right] {$u$};
 \draw[->, thick] (0,-0.5) -- (0,5.9) node[above] {$v$};
-\foreach \x in {1,2,3,4,5} \draw (\x,-0.12) -- (\x,0.12) node[below=3pt, font=\scriptsize] {$\x$};
-\foreach \y in {1,2,3,4,5} \draw (-0.12,\y) -- (0.12,\y) node[left=3pt, font=\scriptsize] {$\y$};
+\foreach \x in {1,2,3,4,5} \draw (\x,0.12) -- (\x,-0.12) node[below=1pt, font=\scriptsize] {$\x$};
+\foreach \y in {1,2,3,4,5} \draw (0.12,\y) -- (-0.12,\y) node[left=1pt, font=\scriptsize] {$\y$};
 \end{tikzpicture}
 ]]></latex-image>
 <shortdescription>Empty u v grid running from zero to five in each direction, for sketching the region of integration in the u v plane.</shortdescription>

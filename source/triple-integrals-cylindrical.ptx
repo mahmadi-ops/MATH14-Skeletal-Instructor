@@ -6,7 +6,7 @@
 <!-- completed MATH 14 notes.  The coordinate relations and the general    -->
 <!-- cylindrical iterated integral are kept; the volume element, the       -->
 <!-- worked example, and the eight Concept Check setups are replaced by    -->
-<!-- blank workspace boxes, each preceded by a one-line instruction.  The  -->
+<!-- blank workspace boxes, each preceded by a one-line hint (gone).  The  -->
 <!-- volume element itself is restated so that later sections and the      -->
 <!-- assignments can still cite eq-dv-cylindrical.  File name and xml:ids  -->
 <!-- are unchanged.                                                        -->
@@ -16,6 +16,20 @@
 <!-- integral up from the description alone and then opens the solid to    -->
 <!-- check the picture, as the introduction to the Concept Check asks.     -->
 <!-- Captions that stated a numerical answer have been trimmed.            -->
+<!--                                                                       -->
+<!-- Hints removed (Oct 2026), at the instructor's request as for sections -->
+<!-- 2.1 to 2.4: every workspace box is now empty except for the faint     -->
+<!-- workspace tag (the row labels and rules are gone), and the            -->
+<!-- parenthetical how-to after each Solution and in the Concept Check     -->
+<!-- questions is deleted.  Hint lines that are the completed notes' own   -->
+<!-- stay.  Long displayed equations are broken into aligned rows so that  -->
+<!-- they fit a phone screen (390 px) with their numbers; xml:ids and      -->
+<!-- equation numbers are unchanged.                                       -->
+<!--                                                                       -->
+<!-- Figure labels: the solid of Example I is labelled with the given      -->
+<!-- equations x^2 + y^2 = 1 and z = 1 - x^2 - y^2 instead of their        -->
+<!-- cylindrical forms, which were answers, and z = 4 is moved off the     -->
+<!-- axis.                                                                 -->
 <section xml:id="section-triple-integrals-cylindrical" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Triple Integrals in Cylindrical Coordinates</title>
 
@@ -41,9 +55,17 @@ polar coordinates <m>(r,\theta)</m> in the <m>xy</m>-plane and the
 Cartesian and cylindrical coordinates are
 </p>
 
-<men xml:id="eq-cyl-to-rect">
-x = r\cos\theta, \qquad y = r\sin\theta, \qquad z = z,
-</men>
+<md>
+<mrow>
+x \amp = r\cos\theta,
+</mrow>
+<mrow xml:id="eq-cyl-to-rect" number="yes">
+y \amp = r\sin\theta,
+</mrow>
+<mrow>
+z \amp = z,
+</mrow>
+</md>
 
 <me>
 r^2 = x^2 + y^2, \qquad \tan\theta = \frac{y}{x}, \qquad z = z.
@@ -123,8 +145,7 @@ need to figure out the volume element <m>dV</m> in this new set of
 coordinates. Remember from <xref ref="eq-polar-area-element"/> that the
 area element <m>dA</m> in polar coordinates is <m>r\,dr\,d\theta</m>.
 Stack it through a height <m>dz</m>, and write down the cylindrical
-volume element. (The applet below builds the element one edge at a
-time; check your answer against the three edge lengths.)
+volume element.
 </p>
 
 <sidebyside width="97%">
@@ -132,10 +153,11 @@ time; check your answer against the three edge lengths.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$dV = dA\,dz =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,3.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box with one row, for the cylindrical volume element.</shortdescription>
+<shortdescription>Blank workspace for the cylindrical volume element.</shortdescription>
 </image>
 </sidebyside>
 
@@ -178,19 +200,27 @@ Now suppose our goal is to integrate over a region <m>E</m> described
 as
 </p>
 
-<me>
-E = \left\{(x,y,z)\ \middle|\ (x,y)\in D,\
-u_1(x,y) \le z \le u_2(x,y)\right\},
-</me>
+<md>
+<mrow>
+E = \bigl\{(x,y,z) \bigm| \amp (x,y)\in D,
+</mrow>
+<mrow>
+\amp u_1(x,y) \le z \le u_2(x,y)\bigr\},
+</mrow>
+</md>
 
 <p>
 where the region <m>D</m> is known in polar coordinates:
 </p>
 
-<me>
-D = \left\{(r,\theta)\ \middle|\ \alpha\le\theta\le\beta,\
-h_1(\theta) \le r \le h_2(\theta)\right\}.
-</me>
+<md>
+<mrow>
+D = \bigl\{(r,\theta) \bigm| \amp \alpha\le\theta\le\beta,
+</mrow>
+<mrow>
+\amp h_1(\theta) \le r \le h_2(\theta)\bigr\}.
+</mrow>
+</md>
 
 <p>
 Then the iterated integral <xref ref="eq-triple-iterated"/>, written as
@@ -199,12 +229,20 @@ Then the iterated integral <xref ref="eq-triple-iterated"/>, written as
 cylindrical coordinates:
 </p>
 
-<men xml:id="eq-triple-cylindrical">
-\iiint_E f(x,y,z)\,dV
-= \int_{\alpha}^{\beta}\!\!\int_{h_1(\theta)}^{h_2(\theta)}
-\!\!\int_{u_1(r\cos\theta,\,r\sin\theta)}^{u_2(r\cos\theta,\,r\sin\theta)}
-f(r\cos\theta,\ r\sin\theta,\ z)\ r\,dz\,dr\,d\theta.
-</men>
+<md>
+<mrow>
+\amp \iiint_E f(x,y,z)\,dV =
+</mrow>
+<mrow>
+\amp \int_{\alpha}^{\beta}\!\!\int_{h_1(\theta)}^{h_2(\theta)}\!\!\int_{u_1(r\cos\theta,r\sin\theta)}^{u_2(r\cos\theta,r\sin\theta)}
+</mrow>
+<mrow>
+\amp \qquad f(r\cos\theta,\ r\sin\theta,\ z)
+</mrow>
+<mrow xml:id="eq-triple-cylindrical" number="yes">
+\amp \qquad r\,dz\,dr\,d\theta.
+</mrow>
+</md>
 
 </subsection>
 
@@ -224,14 +262,6 @@ find the mass of the solid.
 </p>
 <p>
 <em>Solution.</em>
-(Begin by plotting the region, shown in
-<xref ref="fig-cylindrical-solid-tikz"/>. Write the cylinder and the
-paraboloid in cylindrical coordinates, and describe <m>E</m> with
-<m>z</m> running from the paraboloid up to the plane. Turn the
-description of the density into a formula <mdash/> distance from the
-axis is a familiar quantity in these coordinates. Then compute the mass
-by <xref ref="eq-mass-triple"/> and <xref ref="eq-triple-cylindrical"/>,
-and compare with <xref ref="fig-cylindrical-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -239,16 +269,11 @@ and compare with <xref ref="fig-cylindrical-video"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,12.5) -- (15,12.5);
-\draw[gray!35] (0,10) -- (15,10);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {cylinder: \qquad paraboloid: $z =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,12.2) {$E = \{(r,\theta,z) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {density: $\delta(x,y,z) =$ \qquad so $\delta(r,\theta,z) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {$m = \displaystyle\iiint_E \delta\,dV = \int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the cylindrical equations of the bounding surfaces, for the description of the solid, for the density in cylindrical coordinates, and for the mass integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for Example I.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -267,8 +292,8 @@ A vertical cylinder with a flat top and a dome-shaped paraboloid floor.
 <description>
 Three coordinate axes in space with a vertical circular cylinder of
 radius one about the z axis, capped by the plane z equals four on top.
-Inside the bottom of the cylinder, the paraboloid z equals one minus r
-squared forms a dome shaped floor that touches the point zero zero one
+Inside the bottom of the cylinder, the paraboloid z equals one minus x
+squared minus y squared forms a dome shaped floor that touches the point zero zero one
 on the z axis and meets the cylinder wall at the x y plane.
 </description>
 <latex-image>
@@ -328,12 +353,14 @@ on the z axis and meets the cylinder wall at the x y plane.
       {$(0,0,1)$};
     \node[anchor=north, font=\small] at (axis cs:1.12,0,-0.12)
       {$(1,0,0)$};
-    \node[font=\small, anchor=east] at (axis cs:-1.05,-0.5,3.5)
+    \node[oiblue, font=\small, anchor=east] at (axis cs:0.62,-0.95,4.0)
       {$z = 4$};
-    \node[oivermillion, font=\small, anchor=west]
-      at (axis cs:0.55,0.9,0.35) {$z = 1 - r^2$};
+    \draw[oivermillion, line width=0.5pt]
+      (axis cs:0.45,-0.45,0.62) -- (axis cs:0.95,-1.3,1.3);
+    \node[oivermillion, font=\small, anchor=east]
+      at (axis cs:0.95,-1.3,1.3) {$z = 1 - x^2 - y^2$};
     \node[oiblue, font=\small, anchor=west]
-      at (axis cs:0.1,1.15,2.6) {$r = 1$};
+      at (axis cs:0.1,1.15,2.6) {$x^2 + y^2 = 1$};
   \end{axis}
 \end{tikzpicture}]]>
 </latex-image>
@@ -393,12 +420,11 @@ by the plane <m>z=0</m>, and on the side by the cylinder
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (a).</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -438,12 +464,11 @@ The volume of the region bounded below by the paraboloid
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (b).</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -483,12 +508,11 @@ and on the side by the cylinder <m>x^2+y^2=4</m>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (c).</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -527,12 +551,11 @@ The volume of the region bounded below by the lower half of the sphere
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (d).</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -571,12 +594,11 @@ and the planes <m>z=1</m> and <m>z=-1</m>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (e).</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -615,12 +637,11 @@ The volume of the region bounded by the hyperboloid of one sheet
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (f).</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -659,12 +680,11 @@ and the planes <m>z=2</m> and <m>z=-1</m>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (g).</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -704,12 +724,11 @@ by the plane <m>z=0</m>, and on the side by the cylinder
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the bounding surfaces in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$V = \displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the bounding surfaces in cylindrical coordinates and one for the triple integral with its limits.</shortdescription>
+<shortdescription>Blank workspace for part (h).</shortdescription>
 </image>
 </sidebyside>
 </statement>

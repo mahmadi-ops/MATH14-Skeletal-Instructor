@@ -7,7 +7,7 @@
 <!-- assemblages of conversion formulas and the general spherical          -->
 <!-- iterated integral are kept; the sphere equation, the five worked      -->
 <!-- examples, the volume element and the closing exercise are replaced by -->
-<!-- blank workspace boxes, each preceded by a one-line instruction.  The  -->
+<!-- blank workspace boxes, each preceded by a one-line hint (gone).  The  -->
 <!-- volume element is restated so that the assignments can still cite    -->
 <!-- eq-dv-spherical.  File name and xml:ids are unchanged.                -->
 <!--                                                                       -->
@@ -16,6 +16,21 @@
 <!-- cone-and-plane solid); each is the check on the box above it.         -->
 <!-- Captions that stated a spherical equation or a numerical answer have  -->
 <!-- been trimmed.                                                         -->
+<!--                                                                       -->
+<!-- Hints removed (Oct 2026), at the instructor's request as for sections -->
+<!-- 2.1 to 2.4: every workspace box is now empty except for the faint     -->
+<!-- workspace tag (the row labels and rules are gone), and the            -->
+<!-- parenthetical how-to after each Solution and in the Concept Check     -->
+<!-- questions is deleted.  Hint lines that are the completed notes' own   -->
+<!-- stay.  Long displayed equations are broken into aligned rows so that  -->
+<!-- they fit a phone screen (390 px) with their numbers; xml:ids and      -->
+<!-- equation numbers are unchanged.                                       -->
+<!--                                                                       -->
+<!-- Figure labels: the shifted sphere loses the label rho = 4 cos phi,    -->
+<!-- which was the answer; the labels of the coordinate diagram, the ice   -->
+<!-- cream cone and the cone-and-plane solid are moved off curves and      -->
+<!-- axes; the half disk gets room for its equation, and its annotation no -->
+<!-- longer gives the theta range.                                         -->
 <section xml:id="section-triple-integrals-spherical" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Triple Integrals in Spherical Coordinates</title>
 
@@ -121,12 +136,12 @@ projection.
     % labels
     \node[oivermillion, anchor=south, font=\small]
       at (axis cs:1.15,1.2,1.58) {$P(\rho,\theta,\phi)$};
-    \node[oivermillion, anchor=south east, font=\small]
-      at (axis cs:0.52,0.62,0.82) {$\rho$};
+    \node[oivermillion, anchor=north west, font=\small]
+      at (axis cs:0.66,0.68,0.78) {$\rho$};
     \node[oipurple, anchor=west, font=\small]
       at (axis cs:0.56,0.2,0.1) {$\theta$};
     \node[oiblue, anchor=south west, font=\small]
-      at (axis cs:0.18,0.3,0.78) {$\phi$};
+      at (axis cs:0.04,0.06,0.9) {$\phi$};
     \node[anchor=south east, font=\small] at (axis cs:0.0,-0.05,0.02)
       {$O$};
   \end{axis}
@@ -140,15 +155,28 @@ projection.
 <p>
 <md>
 <mrow xml:id="eq-spherical-to-rect" number="yes">
-r = \rho\sin\phi, \qquad
-x = r\cos\theta = \rho\sin\phi\cos\theta,
+r \amp = \rho\sin\phi,
 </mrow>
 <mrow>
-z = \rho\cos\phi, \qquad
-y = r\sin\theta = \rho\sin\phi\sin\theta,
+z \amp = \rho\cos\phi,
 </mrow>
 <mrow>
-\rho = \sqrt{x^2 + y^2 + z^2} = \sqrt{r^2 + z^2}.
+x \amp = r\cos\theta
+</mrow>
+<mrow>
+\amp = \rho\sin\phi\cos\theta,
+</mrow>
+<mrow>
+y \amp = r\sin\theta
+</mrow>
+<mrow>
+\amp = \rho\sin\phi\sin\theta,
+</mrow>
+<mrow>
+\rho \amp = \sqrt{x^2 + y^2 + z^2}
+</mrow>
+<mrow>
+\amp = \sqrt{r^2 + z^2}.
 </mrow>
 </md>
 </p>
@@ -166,10 +194,11 @@ equation of a sphere of radius <m>R</m> centered at the origin,
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$x^2+y^2+z^2 = R^2 \ \Rightarrow$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for converting the equation of a sphere centered at the origin to spherical coordinates.</shortdescription>
+<shortdescription>Blank workspace for converting the equation of a sphere centered at the origin to spherical coordinates.</shortdescription>
 </image>
 </sidebyside>
 
@@ -182,9 +211,6 @@ spherical coordinates.
 </p>
 <p>
 <em>Solution.</em>
-(Substitute <xref ref="eq-spherical-to-rect"/>, expand the square, and
-use <m>\sin^2\phi + \cos^2\phi = 1</m>; a factor of <m>\rho</m>
-cancels.)
 </p>
 
 <sidebyside width="97%">
@@ -192,10 +218,11 @@ cancels.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,7);
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$x^2+y^2+(z-1)^2 = 1 \ \Rightarrow$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,6.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for converting the equation of the shifted sphere to spherical coordinates.</shortdescription>
+<shortdescription>Blank workspace for Example I.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -211,8 +238,6 @@ coordinates?
 </p>
 <p>
 <em>Solution.</em>
-(What angle does each cone make with the positive <m>z</m>-axis? Confirm
-algebraically by substituting <xref ref="eq-spherical-to-rect"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -220,10 +245,11 @@ algebraically by substituting <xref ref="eq-spherical-to-rect"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {upper cone: \qquad\qquad lower cone:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,4.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for the spherical equations of the two cones.</shortdescription>
+<shortdescription>Blank workspace for Example II.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -234,26 +260,37 @@ algebraically by substituting <xref ref="eq-spherical-to-rect"/>.)
 <p>
 <md>
 <mrow>
-\text{Cylindrical to rectangular:}\quad
-\amp x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
+\amp \text{Cylindrical to rectangular:}
 </mrow>
 <mrow>
-\text{Spherical to rectangular:}\quad
-\amp x = \rho\sin\phi\cos\theta, \quad
-y = \rho\sin\phi\sin\theta, \quad z = \rho\cos\phi
+\amp \quad x = r\cos\theta, \quad y = r\sin\theta, \quad z = z
 </mrow>
 <mrow>
-\text{Spherical to cylindrical:}\quad
-\amp r = \rho\sin\phi, \quad z = \rho\cos\phi, \quad \theta = \theta
+\amp \text{Spherical to rectangular:}
+</mrow>
+<mrow>
+\amp \quad x = \rho\sin\phi\cos\theta, \quad y = \rho\sin\phi\sin\theta,
+</mrow>
+<mrow>
+\amp \quad z = \rho\cos\phi
+</mrow>
+<mrow>
+\amp \text{Spherical to cylindrical:}
+</mrow>
+<mrow>
+\amp \quad r = \rho\sin\phi, \quad z = \rho\cos\phi, \quad \theta = \theta
 </mrow>
 </md>
 The corresponding formulas for <m>dV</m> in triple integrals (see
 <xref ref="eq-dv-cylindrical"/> and <xref ref="eq-dv-spherical"/>):
-<me>
-dV = dx\,dy\,dz
-= dz\ r\,dr\,d\theta
-= \rho^2\sin\phi\ d\rho\,d\phi\,d\theta.
-</me>
+<md>
+<mrow>
+dV \amp = dx\,dy\,dz = dz\ r\,dr\,d\theta
+</mrow>
+<mrow>
+\amp = \rho^2\sin\phi\ d\rho\,d\phi\,d\theta.
+</mrow>
+</md>
 </p>
 </assemblage>
 
@@ -276,12 +313,11 @@ three edge lengths comes from, and multiply them to get <m>dV</m>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the three edges:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$dV =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the three edge lengths of the spherical wedge and one for the volume element.</shortdescription>
+<shortdescription>Blank workspace for the spherical volume element.</shortdescription>
 </image>
 </sidebyside>
 
@@ -333,13 +369,23 @@ spherical coordinates by
 into spherical coordinates as follows:
 </p>
 
-<men xml:id="eq-triple-spherical">
-\iiint_D f(x,y,z)\,dV
-= \int_{\alpha}^{\beta}\!\!\int_{\phi_{\min}}^{\phi_{\max}}
-\!\!\int_{g_1(\theta,\phi)}^{g_2(\theta,\phi)}
-f\!\left(\rho\sin\phi\cos\theta,\ \rho\sin\phi\sin\theta,\
-\rho\cos\phi\right)\rho^2\sin\phi\ d\rho\,d\phi\,d\theta.
-</men>
+<md>
+<mrow>
+\amp \iiint_D f(x,y,z)\,dV
+</mrow>
+<mrow>
+\amp \quad = \int_{\alpha}^{\beta}\!\!\int_{\phi_{\min}}^{\phi_{\max}}\!\!\int_{g_1(\theta,\phi)}^{g_2(\theta,\phi)}
+</mrow>
+<mrow>
+\amp \qquad f\big(\rho\sin\phi\cos\theta,
+</mrow>
+<mrow>
+\amp \qquad \rho\sin\phi\sin\theta,\ \rho\cos\phi\big)
+</mrow>
+<mrow xml:id="eq-triple-spherical" number="yes">
+\amp \qquad \rho^2\sin\phi\ d\rho\,d\phi\,d\theta.
+</mrow>
+</md>
 
 </subsection>
 
@@ -356,11 +402,6 @@ solid sphere <m>\rho \le 1</m> by the cone <m>\phi = \pi/3</m>.
 </p>
 <p>
 <em>Solution.</em>
-(Plot the ice cream cone, shown in <xref ref="fig-icecream-tikz"/>, and
-describe it by the ranges of <m>\theta</m>, <m>\phi</m> and
-<m>\rho</m>. Then use <xref ref="eq-volume-triple"/> and
-<xref ref="eq-triple-spherical"/> with <m>f = 1</m>, and compare with
-<xref ref="fig-spherical-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -368,12 +409,11 @@ describe it by the ranges of <m>\theta</m>, <m>\phi</m> and
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$D = \{(\rho,\theta,\phi) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {$V = \displaystyle\iiint_D \rho^2\sin\phi\ d\rho\,d\phi\,d\theta =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the spherical description of the ice cream cone and one for the volume integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for Example III.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -434,8 +474,8 @@ circle where the cone meets the sphere is drawn.
         samples y=0, forget plot]
       ({0.8660254*cos(x)}, {0.8660254*sin(x)}, {0.5});
     % labels
-    \node[oiblue, anchor=south west, font=\small]
-      at (axis cs:0.45,0.72,0.95) {Sphere $\rho = 1$};
+    \node[oiblue, anchor=west, font=\small]
+      at (axis cs:0.0,1.12,0.95) {Sphere $\rho = 1$};
     \node[oigreen!60!black, anchor=west, font=\small]
       at (axis cs:0.72,0.72,0.22) {Cone $\phi = \tfrac{\pi}{3}$};
     \node[font=\large] at (axis cs:-0.35,-0.5,1.02) {$D$};
@@ -481,21 +521,17 @@ Calculate the triple integral below by converting it to spherical
 coordinates:
 </p>
 
-<me>
-\int_{-2}^{2}\!\!\int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}}
+<md>
+<mrow>
+\amp \int_{-2}^{2}\!\!\int_{-\sqrt{4-x^2}}^{\sqrt{4-x^2}}
 \!\!\int_{2-\sqrt{4-x^2-y^2}}^{2+\sqrt{4-x^2-y^2}}
-\left(x^2+y^2+z^2\right)^{3/2} dz\,dy\,dx.
-</me>
+</mrow>
+<mrow>
+\amp \qquad \left(x^2+y^2+z^2\right)^{3/2} dz\,dy\,dx.
+</mrow>
+</md>
 <p>
 <em>Solution.</em>
-(Read the solid off the limits: the <m>z</m>-limits are the two halves
-of a sphere; which one, and where is its center? It is shown in
-<xref ref="fig-shifted-sphere-tikz"/>. Convert its equation to
-spherical coordinates as in <xref ref="example-spherical-shifted-sphere"/>,
-and describe the solid by the ranges of <m>\theta</m>, <m>\phi</m> and
-<m>\rho</m>; the integrand is a power of <m>\rho</m>. Then apply
-<xref ref="eq-triple-spherical"/>; the <m>\phi</m>-integral is a
-substitution.)
 </p>
 
 <sidebyside width="97%">
@@ -503,16 +539,11 @@ substitution.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
-\draw[gray!35] (0,11.5) -- (15,11.5);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {the solid: \qquad in spherical coordinates: $\rho =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {limits: \qquad\qquad integrand: $(x^2+y^2+z^2)^{3/2} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$= \displaystyle\int\!\!\int\!\!\int$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {evaluate:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,13.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for identifying the solid and its spherical equation, for the limits and the integrand, for the spherical iterated integral, and for its evaluation.</shortdescription>
+<shortdescription>Blank workspace for Example IV.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -571,8 +602,6 @@ height four.
     % labels
     \node[font=\large, anchor=north west] at (axis description cs:0.0,0.98)
       {$x^2 + y^2 + (z-2)^2 = 4$};
-    \node[oivermillion, font=\large, anchor=north west]
-      at (axis description cs:0.0,0.88) {$\rho = 4\cos\phi$};
     \node[anchor=west, font=\small] at (axis cs:0.12,0.12,4.12)
       {$(0,0,4)$};
     \node[anchor=west, font=\small] at (axis cs:0.15,0.18,2.08)
@@ -600,19 +629,10 @@ Re-write (do not evaluate) the following integral in
 <me>
 \int_{-1}^{1}\!\!\int_{-\sqrt{1-x^2}}^{0}
 \!\!\int_{\sqrt{x^2+y^2}}^{1}
-\left(x^2+y^2\right) dz\,dy\,dx.
+(x^2+y^2)\, dz\,dy\,dx.
 </me>
 <p>
 <em>Solution.</em>
-(Read the <m>xy</m>-projection off the outer two limits, shown in
-<xref ref="fig-halfdisk-prefigure"/>, and describe it in polar
-coordinates. The <m>z</m>-limits run from a cone up to a plane; the
-solid is shown in <xref ref="fig-cone-plane-tikz"/>. For the
-cylindrical form, convert the cone and the integrand and use
-<xref ref="eq-triple-cylindrical"/>. For the spherical form, the cone
-is a fixed <m>\phi</m>, and the plane <m>z = 1</m> becomes an upper
-limit on <m>\rho</m> that depends on <m>\phi</m>; convert the integrand
-and use <xref ref="eq-triple-spherical"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -620,14 +640,11 @@ and use <xref ref="eq-triple-spherical"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,5) -- (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {projection: \qquad cone: \qquad plane:};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {cylindrical: $\displaystyle\int\!\!\int\!\!\int$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {spherical: $\displaystyle\int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the projection and the bounding surfaces in the new coordinates, for the cylindrical form of the integral, and for the spherical form.</shortdescription>
+<shortdescription>Blank workspace for Example V.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -644,9 +661,9 @@ disk.
 The lower half of the unit disk, shaded.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-halfdisk">
-<diagram dimensions="(320,215)" margins="10">
+<diagram dimensions="(384,215)" margins="10">
 <definition>arc(t) = (cos(t), sin(t))</definition>
-<coordinates bbox="(-1.5,-1.35,1.5,0.65)">
+<coordinates bbox="(-1.5,-1.35,2.1,0.65)">
 <axes at="hd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
 <polygon at="hd-region" fill="#f5c6bc" stroke="none" closed="yes"
     points="((1,0),(0.9877,-0.1564),(0.9511,-0.309),(0.891,-0.454),(0.809,-0.5878),(0.7071,-0.7071),(0.5878,-0.809),(0.454,-0.891),(0.309,-0.9511),(0.1564,-0.9877),(0,-1),(-0.1564,-0.9877),(-0.309,-0.9511),(-0.454,-0.891),(-0.5878,-0.809),(-0.7071,-0.7071),(-0.809,-0.5878),(-0.891,-0.454),(-0.9511,-0.309),(-0.9877,-0.1564),(-1,0))"/>
@@ -665,7 +682,7 @@ The lower half of the unit disk, shaded.
 </coordinates>
 <annotations>
 <annotation ref="figure" text="The lower half of the unit disk, below the x axis, shaded light red. Its curved boundary y equals negative square root of one minus x squared is drawn in vermillion.">
-  <annotation ref="hd-region" text="The projection: the lower half of the unit disk, where theta runs from pi to two pi."/>
+  <annotation ref="hd-region" text="The projection: the lower half of the unit disk."/>
   <annotation ref="hd-arc" text="The lower half of the unit circle."/>
 </annotation>
 </annotations>
@@ -735,9 +752,11 @@ one. The straight edge of the cap lies over the x axis.
       -- cycle;
     % labels
     \node[oiblue, anchor=west, font=\small]
-      at (axis cs:0.42,-0.95,1.22) {$z = 1$};
+      at (axis cs:1.08,0,1.0) {$z = 1$};
+    \draw[oigreen!60!black, line width=0.5pt]
+      (axis cs:0.55,-0.25,0.6) -- (axis cs:1.15,0,0.3);
     \node[oigreen!60!black, anchor=west, font=\small]
-      at (axis cs:0.35,-0.75,0.35) {$z = \sqrt{x^2+y^2}$};
+      at (axis cs:1.15,0,0.3) {$z = \sqrt{x^2+y^2}$};
     \node[oivermillion, anchor=north, font=\small]
       at (axis cs:0.1,-1.15,-0.12) {projection};
   \end{axis}
@@ -757,12 +776,11 @@ below <m>z = \sqrt{x^2+y^2}</m>.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,9);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {the region, in spherical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$V =$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,8.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the spherical description of the region and one for the volume integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for the volume of the region.</shortdescription>
 </image>
 </sidebyside>
 </statement>

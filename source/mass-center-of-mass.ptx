@@ -7,12 +7,26 @@
 <!-- of mass and the centroid, and the boxed mass formula are kept; the    -->
 <!-- construction of the mass integral and the three worked examples are   -->
 <!-- replaced by blank workspace boxes, each preceded by a one-line        -->
-<!-- instruction.  File name and xml:ids are unchanged.                    -->
+<!-- hint (gone).  File name and xml:ids are unchanged.                    -->
 <!--                                                                       -->
 <!-- Figures: all kept (the mass-element diagram and video, the paraboloid -->
 <!-- solid and its video, the region between the curves and its video, and -->
 <!-- the cardioid and its video); each is the check on the box above it.   -->
 <!-- Captions that stated the centroid have been trimmed.                  -->
+<!--                                                                       -->
+<!-- Hints removed (Oct 2026), at the instructor's request as for sections -->
+<!-- 2.1 to 2.4: every workspace box is now empty except for the faint     -->
+<!-- workspace tag (the row labels and rules are gone), and the            -->
+<!-- parenthetical how-to after each Solution and in the Concept Check     -->
+<!-- questions is deleted.  Hint lines that are the completed notes' own   -->
+<!-- stay.  Long displayed equations are broken into aligned rows so that  -->
+<!-- they fit a phone screen (390 px) with their numbers; xml:ids and      -->
+<!-- equation numbers are unchanged.                                       -->
+<!--                                                                       -->
+<!-- Figure labels: the center of mass of the paraboloid solid and the two -->
+<!-- centroids are no longer marked (the dots, their coordinates, and the  -->
+<!-- captions and annotations that stated them), and the paraboloid's x    -->
+<!-- label and R are moved off the rim.                                    -->
 <section xml:id="section-mass-center-of-mass" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Applications: Mass and Center of Mass</title>
 
@@ -45,22 +59,28 @@ boxes, and let the size of the boxes shrink to zero.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$\Delta m_k \approx$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$M = \displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,5.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the mass of a small box and one for the total mass as a limit of Riemann sums and as a triple integral.</shortdescription>
+<shortdescription>Blank workspace for the total mass as a triple integral.</shortdescription>
 </image>
 </sidebyside>
 
 <assemblage xml:id="assemblage-mass-3d">
 <title>Mass of a Solid</title>
 <p>
-<men xml:id="eq-mass-3d">
-M = \lim_{n \to \infty} \sum_{k=1}^{n} \delta(x_k, y_k, z_k)\, \Delta V_k
-  = \iiint_D \delta(x,y,z)\, dV.
-</men>
+<md>
+<mrow>
+\amp M = \lim_{n \to \infty} \sum_{k=1}^{n}
+</mrow>
+<mrow>
+\amp \quad \delta(x_k, y_k, z_k)\, \Delta V_k
+</mrow>
+<mrow xml:id="eq-mass-3d" number="yes">
+\amp = \iiint_D \delta(x,y,z)\, dV.
+</mrow>
+</md>
 </p>
 </assemblage>
 
@@ -173,22 +193,34 @@ contributions and passing to the limit gives the
 <term>first moments</term>
 </p>
 
-<men xml:id="eq-first-moments-3d">
-M_{yz} = \iiint_D x\, \delta\, dV, \qquad
-M_{xz} = \iiint_D y\, \delta\, dV, \qquad
-M_{xy} = \iiint_D z\, \delta\, dV.
-</men>
+<md>
+<mrow>
+M_{yz} \amp = \iiint_D x\, \delta\, dV,
+</mrow>
+<mrow xml:id="eq-first-moments-3d" number="yes">
+M_{xz} \amp = \iiint_D y\, \delta\, dV,
+</mrow>
+<mrow>
+M_{xy} \amp = \iiint_D z\, \delta\, dV.
+</mrow>
+</md>
 
 <p>
 The <term>center of mass</term> <m>(\bar{x}, \bar{y}, \bar{z})</m> is
 the point whose coordinates are the moments divided by the total mass:
 </p>
 
-<men xml:id="eq-com-3d">
-\bar{x} = \frac{M_{yz}}{M}, \qquad
-\bar{y} = \frac{M_{xz}}{M}, \qquad
-\bar{z} = \frac{M_{xy}}{M}.
-</men>
+<md>
+<mrow>
+\bar{x} \amp = \frac{M_{yz}}{M},
+</mrow>
+<mrow xml:id="eq-com-3d" number="yes">
+\bar{y} \amp = \frac{M_{xz}}{M},
+</mrow>
+<mrow>
+\bar{z} \amp = \frac{M_{xy}}{M}.
+</mrow>
+</md>
 
 <example xml:id="example-paraboloid-com">
 <title>Center of Mass of a Solid Bounded by a Paraboloid</title>
@@ -200,14 +232,6 @@ which is bounded by the disk <m>x^2 + y^2 \le 4</m> (in the plane
 </p>
 <p>
 <em>Solution.</em>
-(The solid is shown in <xref ref="fig-paraboloid-com-tikz"/>. Use its
-symmetry to dispose of two of the three coordinates at once. For the
-third, work in cylindrical coordinates with
-<xref ref="eq-dv-cylindrical"/>: describe the region, compute <m>M</m>
-by <xref ref="eq-mass-3d"/> and the needed moment by
-<xref ref="eq-first-moments-3d"/>, and divide as in
-<xref ref="eq-com-3d"/>. What happens to <m>\delta</m>? Compare with
-<xref ref="fig-paraboloid-com-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -215,18 +239,11 @@ by <xref ref="eq-mass-3d"/> and the needed moment by
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,16);
-\draw[gray!35] (0,13.5) -- (15,13.5);
-\draw[gray!35] (0,11) -- (15,11);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,15.7) {by symmetry:};
-\node[anchor=north west, font=\small\itshape] at (0.35,13.2) {the region in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {$M = \displaystyle\iiint_D \delta\,dV =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$M_{xy} = \displaystyle\iiint_D z\,\delta\,dV =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$\bar z = \dfrac{M_{xy}}{M} =$ \qquad center of mass:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,15.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in five rows, for the symmetry argument, for the cylindrical description of the region, for the mass, for the first moment about the x y plane, and for the center of mass.</shortdescription>
+<shortdescription>Blank workspace for the example Center of Mass of a Solid Bounded by a Paraboloid.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -247,21 +264,17 @@ disk <m>x^2 + y^2 \le 4</m>. By symmetry the center of mass lies on the
 <caption>
 The solid of constant density bounded by the paraboloid
 <m>z = 4 - x^2 - y^2</m> and the disk <m>R</m>: <m>x^2 + y^2 \le 4</m>
-in the plane <m>z = 0</m>. The center of mass sits on the axis of
-symmetry.
+in the plane <m>z = 0</m>.
 </caption>
 <image xml:id="image-paraboloid-com-tikz" width="80%">
 <shortdescription>
-A dome-shaped solid over a disk with its center of mass marked on the
-vertical axis.
+A dome-shaped solid over a disk.
 </shortdescription>
 <description>
 <p>
 The paraboloid <m>z = 4 - x^2 - y^2</m> forms a translucent green dome
 over the disk <m>x^2 + y^2 \le 4</m> in the <m>xy</m>-plane, labeled
-<m>R</m>. The dashed <m>z</m>-axis passes through the apex at height 4,
-and a magenta dot on the axis at height <m>4/3</m> marks the center of
-mass.
+<m>R</m>. The dashed <m>z</m>-axis passes through the apex at height 4.
 </p>
 </description>
 <latex-image>
@@ -280,7 +293,7 @@ mass.
       xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
       label style={font=\large},
       ticks=none,
-      xmin=-3, xmax=3, ymin=-3, ymax=3, zmin=0, zmax=4.6,
+      xmin=-3, xmax=4.4, ymin=-3, ymax=3, zmin=0, zmax=4.6,
       clip=false,
     ]
     % ---- base disk R ----
@@ -316,10 +329,6 @@ mass.
     % ---- dashed axis of symmetry through the solid ----
     \draw[dashed, black!60, line width=0.7pt]
       (axis cs:0,0,0) -- (axis cs:0,0,4);
-    % ---- center of mass ----
-    \fill[oimagenta] (axis cs:0,0,1.3333) circle (2.6pt);
-    \node[lbl, font=\normalsize, anchor=west, text=oimagenta]
-      at (axis cs:0.15,0.55,1.55) {c.m. $\left(0,0,\tfrac{4}{3}\right)$};
     % ---- labels ----
     \draw[black!70, line width=0.5pt]
       (axis cs:{1.35*cos(35)},{1.35*sin(35)},{4-1.35^2}) -- (axis cs:1.9,2.5,3.4);
@@ -329,7 +338,7 @@ mass.
       (axis cs:{2*cos(320)},{2*sin(320)},0) -- (axis cs:1.4,-2.75,0.75);
     \node[lbl, font=\normalsize, anchor=east] at (axis cs:1.4,-2.75,0.75)
       {$x^2 + y^2 = 4$};
-    \node[lbl, font=\large] at (axis cs:1.15,1.5,0) {$R$};
+    \node[lbl, font=\large, anchor=north west] at (axis cs:2.0,1.3,0) {$R$};
     \node[lbl, font=\normalsize] at (axis cs:-0.3,-0.25,0) {$0$};
   \end{axis}
 \end{tikzpicture}]]>
@@ -364,11 +373,17 @@ reasoning that gave <xref ref="eq-mass-3d"/> and
 of triple integrals<mdash/>gives the mass and first moments
 </p>
 
-<men xml:id="eq-first-moments-2d">
-M = \iint_R \delta\, dA, \qquad
-M_y = \iint_R x\, \delta\, dA, \qquad
-M_x = \iint_R y\, \delta\, dA,
-</men>
+<md>
+<mrow>
+M \amp = \iint_R \delta\, dA,
+</mrow>
+<mrow xml:id="eq-first-moments-2d" number="yes">
+M_y \amp = \iint_R x\, \delta\, dA,
+</mrow>
+<mrow>
+M_x \amp = \iint_R y\, \delta\, dA,
+</mrow>
+</md>
 
 <p>
 where <m>M_y</m> is the moment about the <m>y</m>-axis and <m>M_x</m>
@@ -389,14 +404,6 @@ Find the centroid of the region between <m>y = \sqrt{x}</m> and
 </p>
 <p>
 <em>Solution.</em>
-(Find where the curves meet, and describe the region, shown in
-<xref ref="fig-centroid-between-curves"/>. Since only the centroid is
-wanted, what may you take <m>\delta</m> to be, and what does <m>M</m>
-then measure? Compute <m>M</m>, <m>M_y</m> and <m>M_x</m> from
-<xref ref="eq-first-moments-2d"/>, divide as in
-<xref ref="eq-com-2d"/>, and explain from the picture why
-<m>\bar x = \bar y</m> had to happen. Compare with
-<xref ref="fig-centroid-between-curves-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -404,18 +411,11 @@ then measure? Compute <m>M</m>, <m>M_y</m> and <m>M_x</m> from
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,16);
-\draw[gray!35] (0,13.5) -- (15,13.5);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,15.7) {the region: \qquad take $\delta =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,13.2) {$M =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$M_y = \displaystyle\iint_R x\,dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$M_x = \displaystyle\iint_R y\,dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$(\bar x, \bar y) =$ \qquad why $\bar x = \bar y$:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,15.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in five rows, for the description of the region, for the mass, for the two first moments, and for the centroid with the symmetry explanation.</shortdescription>
+<shortdescription>Blank workspace for the example Centroid of the Region Between Two Curves.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -435,7 +435,7 @@ animation to check its coordinates.
 <figure xml:id="fig-centroid-between-curves">
 <caption>
 The region between <m>y = \sqrt{x}</m> (blue) and <m>y = x^2</m> (red)
-over <m>0 \le x \le 1</m>, with its centroid marked.
+over <m>0 \le x \le 1</m>.
 </caption>
 <image width="55%">
 <shortdescription>
@@ -457,11 +457,6 @@ The region between the square-root curve and the parabola, from 0 to 1.
 <point at="cb-one" clear-background="yes" background-margin="3" p="(1,1)" fill="black" size="3" alignment="se">
 <m>(1,1)</m>
 </point>
-<point at="cb-centroid" p="(0.45,0.45)" fill="maroon" size="4"/>
-<label at="cb-centroid-label" anchor="(0.5,0.4)" alignment="se"
-       clear-background="yes" background-margin="4">
-<m>\left(\frac{9}{20},\frac{9}{20}\right)</m>
-</label>
 <label at="cb-sqrt-label" anchor="(1.5,0.72)" alignment="sw"
        color="blue">
 <m>y=\sqrt{x}</m>
@@ -473,12 +468,11 @@ The region between the square-root curve and the parabola, from 0 to 1.
 </coordinates>
 
 <annotations>
-<annotation ref="figure" text="A coordinate grid showing the region between the curves y equals the square root of x, in blue, and y equals x squared, in red. The curves intersect at the origin and at the point 1 comma 1, enclosing a lens-shaped region shaded light blue. The centroid of the region, at 9 twentieths comma 9 twentieths, is marked in maroon.">
+<annotation ref="figure" text="A coordinate grid showing the region between the curves y equals the square root of x, in blue, and y equals x squared, in red. The curves intersect at the origin and at the point 1 comma 1, enclosing a lens-shaped region shaded light blue.">
   <annotation ref="cb-sqrt" text="The blue curve y equals the square root of x, the upper boundary of the region."/>
   <annotation ref="cb-square" text="The red curve y equals x squared, the lower boundary of the region."/>
   <annotation ref="cb-region" text="The lens-shaped region between the two curves, shaded light blue, lying over the interval from 0 to 1."/>
   <annotation ref="cb-one" text="The point 1 comma 1, where the two curves intersect."/>
-  <annotation ref="cb-centroid" text="The centroid of the region at 9 twentieths comma 9 twentieths, marked in maroon. It lies on the line y equals x because the region is symmetric about that line."/>
 </annotation>
 </annotations>
 </diagram>
@@ -495,16 +489,6 @@ Find the centroid of the object that has the shape
 </p>
 <p>
 <em>Solution.</em>
-(The cardioid is shown in <xref ref="fig-cardioid-centroid"/>. Use its
-symmetry to dispose of one coordinate. Work in polar coordinates with
-<m>dA = r\,dr\,d\theta</m> from <xref ref="eq-polar-area-element"/> and
-<m>x = r\cos\theta</m>: compute <m>M</m> and <m>M_y</m> from
-<xref ref="eq-first-moments-2d"/>. In the <m>\theta</m>-integrals, the
-odd powers of cosine integrate to zero over a full period,
-<m>\int_0^{2\pi}\cos^2\theta\,d\theta = \pi</m>, and
-<m>\int_0^{2\pi}\cos^4\theta\,d\theta = \tfrac{3\pi}{4}</m>. Then divide
-as in <xref ref="eq-com-2d"/>; what happens to <m>\delta = 2</m>?
-Compare with <xref ref="fig-cardioid-centroid-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -512,16 +496,11 @@ Compare with <xref ref="fig-cardioid-centroid-video"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,12.5) -- (15,12.5);
-\draw[gray!35] (0,8.5) -- (15,8.5);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {by symmetry:};
-\node[anchor=north west, font=\small\itshape] at (0.35,12.2) {$M = \displaystyle\iint_R \delta\,dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.2) {$M_y = \displaystyle\iint_R x\,\delta\,dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\bar x = \dfrac{M_y}{M} =$ \qquad centroid:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the symmetry argument, for the mass in polar coordinates, for the moment about the y axis, and for the centroid.</shortdescription>
+<shortdescription>Blank workspace for the example Centroid of a Cardioid.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -540,8 +519,7 @@ locate it. Use the animation to check your value.
 
 <figure xml:id="fig-cardioid-centroid">
 <caption>
-The cardioid <m>r = 1 + \cos(\theta)</m>. The region is symmetric about
-the <m>x</m>-axis and its centroid is marked in maroon.
+The cardioid <m>r = 1 + \cos(\theta)</m>.
 </caption>
 <image width="55%">
 <shortdescription>
@@ -555,10 +533,6 @@ A cardioid symmetric about the x axis with shaded interior.
 <parametric-curve at="cd-cardioid" function="c" domain="(0,2*pi)"
                   closed="yes" fill="#9ecfff" stroke="blue"
                   thickness="2.5"/>
-<point at="cd-centroid" clear-background="yes" background-margin="3" p="(0.8333,0)" fill="maroon" size="4"
-       alignment="ne">
-<m>\left(\frac{5}{6},0\right)</m>
-</point>
 <label at="cd-curve-label" clear-background="yes" background-margin="4" anchor="(1.55,-1.05)" alignment="se"
        color="blue">
 <m>r=1+\cos(\theta)</m>
@@ -566,9 +540,8 @@ A cardioid symmetric about the x axis with shaded interior.
 </coordinates>
 
 <annotations>
-<annotation ref="figure" text="A cardioid, the heart-shaped curve r equals 1 plus cosine theta, drawn in blue with its interior shaded light blue. It is symmetric about the x axis, with a cusp at the origin and its widest point at x equals 2. The centroid, at five sixths comma 0, is marked in maroon on the x axis.">
+<annotation ref="figure" text="A cardioid, the heart-shaped curve r equals 1 plus cosine theta, drawn in blue with its interior shaded light blue. It has a cusp at the origin and its widest point at x equals 2.">
   <annotation ref="cd-cardioid" text="The cardioid r equals 1 plus cosine theta, a closed heart-shaped curve with a cusp at the origin, shaded light blue."/>
-  <annotation ref="cd-centroid" text="The centroid of the cardioid at five sixths comma 0, marked in maroon. It lies on the x axis because the region is symmetric about that axis."/>
 </annotation>
 </annotations>
 </diagram>

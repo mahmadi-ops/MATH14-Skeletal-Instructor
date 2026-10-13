@@ -7,7 +7,7 @@
 <!-- two region types with their iterated integrals are kept; the three    -->
 <!-- worked examples, the location of the Concept Check solid, and the six -->
 <!-- Concept Check answers are replaced by blank workspace boxes, each     -->
-<!-- preceded by a one-line instruction.  File name and xml:ids are        -->
+<!-- preceded by a one-line hint (gone).  File name and xml:ids are        -->
 <!-- unchanged.                                                            -->
 <!--                                                                       -->
 <!-- Figures: the two TikZ solids, the column video and every GeoGebra     -->
@@ -15,6 +15,20 @@
 <!-- projections of the wedge, which are the regions the student has to    -->
 <!-- find, become empty grids to sketch on (same ids, so the references    -->
 <!-- still resolve).                                                       -->
+<!--                                                                       -->
+<!-- Hints removed (Oct 2026), at the instructor's request as for sections -->
+<!-- 2.1 to 2.4: every workspace box is now empty except for the faint     -->
+<!-- workspace tag (the row labels and rules are gone), and the            -->
+<!-- parenthetical how-to after each Solution and in the Concept Check     -->
+<!-- questions is deleted.  Hint lines that are the completed notes' own   -->
+<!-- stay.  Long displayed equations are broken into aligned rows so that  -->
+<!-- they fit a phone screen (390 px) with their numbers; xml:ids and      -->
+<!-- equation numbers are unchanged.                                       -->
+<!--                                                                       -->
+<!-- Figure labels: the plane label of the tetrahedron and D are moved     -->
+<!-- clear of the edges.  The captions of the sketching grids no longer    -->
+<!-- say how to set the integrals up, and Figure (3) and its applet no     -->
+<!-- longer say where the two surfaces meet.                               -->
 <section xml:id="section-triple-integrals-rectangular" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Triple Integrals in Rectangular Coordinates</title>
 
@@ -67,7 +81,10 @@ integration is of the form
 
 <md>
 <mrow>
-E = \{(x,y,z) : \amp a \le x \le b,\ g_1(x) \le y \le g_2(x),
+E = \{(x,y,z) : \amp a \le x \le b,
+</mrow>
+<mrow>
+\amp g_1(x) \le y \le g_2(x),
 </mrow>
 <mrow>
 \amp u_1(x,y) \le z \le u_2(x,y)\},
@@ -80,11 +97,17 @@ so <m>E</m> lies between the surfaces <m>z = u_1(x,y)</m> and
 <m>xy</m>-plane, and
 </p>
 
-<men xml:id="eq-triple-iterated">
-\iiint_E f(x,y,z)\,dV
-= \int_a^b\!\!\int_{g_1(x)}^{g_2(x)}\!\!\int_{u_1(x,y)}^{u_2(x,y)}
-f(x,y,z)\,dz\,dy\,dx.
-</men>
+<md>
+<mrow>
+\amp \iiint_E f(x,y,z)\,dV
+</mrow>
+<mrow>
+\amp \quad = \int_a^b\!\!\int_{g_1(x)}^{g_2(x)}\!\!\int_{u_1(x,y)}^{u_2(x,y)}
+</mrow>
+<mrow xml:id="eq-triple-iterated" number="yes">
+\amp \qquad f(x,y,z)\,dz\,dy\,dx.
+</mrow>
+</md>
 
 <example xml:id="example-triple-tetrahedron">
 <title>Example I</title>
@@ -97,11 +120,6 @@ the coordinate planes and the plane <m>z = 1 - x - y</m>.
 </p>
 <p>
 <em>Solution.</em>
-(Begin by describing the projection <m>D</m> of the tetrahedron into
-the <m>xy</m>-plane; sketch it on
-<xref ref="fig-triple-tetra-base-prefigure"/>. Then describe <m>E</m>
-in the form of Case I, with <m>z</m> running from the floor to the
-plane, and evaluate the iterated integral from the inside out.)
 </p>
 
 <sidebyside width="97%">
@@ -109,14 +127,11 @@ plane, and evaluate the iterated integral from the inside out.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,8) -- (15,8);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$D = \{(x,y) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$E = \{(x,y,z) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\iiint_E z\,dV = \int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the description of the projection, for the description of the solid, and for the iterated integral and its evaluation.</shortdescription>
+<shortdescription>Blank workspace for Example I.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -182,11 +197,12 @@ The base triangle D in the x y plane is shaded.
     \node[anchor=south east, font=\small] at (axis cs:0,-0.02,1.03)
       {$(0,0,1)$};
     \node[font=\large] at (axis cs:0.2,0.24,0.33) {$E$};
-    \node[oivermillion, font=\small] at (axis cs:0.42,0.42,-0.02)
+    \node[oivermillion, font=\small, fill=white, fill opacity=0.85,
+        text opacity=1, inner sep=1.5pt] at (axis cs:0.36,0.36,0)
       {$D$};
     \draw[-{Latex}, black!70, line width=0.7pt]
-      (axis cs:0.75,0.75,0.75) -- (axis cs:0.42,0.42,0.36);
-    \node[anchor=south, font=\small] at (axis cs:0.75,0.75,0.77)
+      (axis cs:0.2,1.15,0.85) -- (axis cs:0.25,0.5,0.3);
+    \node[anchor=south west, font=\small] at (axis cs:0.2,1.15,0.85)
       {$z = 1 - x - y$};
   \end{axis}
 \end{tikzpicture}]]>
@@ -197,9 +213,7 @@ The base triangle D in the x y plane is shaded.
 <figure xml:id="fig-triple-tetra-base-prefigure">
 <caption>
 Sketch the projection <m>D</m> of the tetrahedron into the
-<m>xy</m>-plane. At a fixed <m>(x,y)</m> in <m>D</m>, the inner
-<m>z</m>-integration runs up a vertical arrow from the floor to the
-plane.
+<m>xy</m>-plane.
 </caption>
 <image width="50%">
 <latex-image><![CDATA[
@@ -251,7 +265,10 @@ described with horizontal strips:
 
 <md>
 <mrow>
-E = \{(x,y,z) : \amp h_1(y) \le x \le h_2(y),\ c \le y \le d,
+E = \{(x,y,z) : \amp h_1(y) \le x \le h_2(y),
+</mrow>
+<mrow>
+\amp c \le y \le d,
 </mrow>
 <mrow>
 \amp u_1(x,y) \le z \le u_2(x,y)\},
@@ -291,17 +308,6 @@ computing such a volume? (Three more; six in total.)
 </p>
 <p>
 <em>Solution.</em>
-(For each order, the two outer variables describe a projection of
-<m>R</m> into a coordinate plane, and the 3D figure gives the limits of
-the innermost variable. Sketch the three projections on
-<xref ref="fig-triple-projections-prefigure"/>. In <alert>A</alert>,
-project into the <m>xy</m>-plane. In <alert>B</alert>, project into the
-<m>xz</m>-plane; solve the cylinder for <m>x</m>. In <alert>C</alert>,
-project into the <m>yz</m>-plane: which surface does a ray in the
-<m>x</m>-direction reach first, the plane or the cylinder? The answer
-depends on where <m>(y,z)</m> is, so the projection splits along a
-curve, and two integrals are needed. Evaluate two of the three, and
-check that they agree.)
 </p>
 
 <sidebyside width="97%">
@@ -309,14 +315,11 @@ check that they agree.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,20);
-\draw[gray!35] (0,14) -- (15,14);
-\draw[gray!35] (0,8) -- (15,8);
-\node[anchor=north west, font=\small\itshape] at (0.35,19.7) {A. $\displaystyle\iiint_R dz\,dx\,dy = \int\!\!\int\!\!\int$};
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {B. $\displaystyle\iiint_R dy\,dx\,dz = \int\!\!\int\!\!\int$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {C. $\displaystyle\iiint_R dx\,dy\,dz =$ \quad (the split: $R_1 =$ \quad $R_2 =$)};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,19.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three labelled rows, one for each order of integration, with room to set up and evaluate the iterated integrals.</shortdescription>
+<shortdescription>Blank workspace for Example II.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -413,11 +416,9 @@ one.
 
 <figure xml:id="fig-triple-projections-prefigure">
 <caption>
-Sketch the three projections of the solid <m>R</m>. Left: into the
-<m>xy</m>-plane (order <m>dz\,dx\,dy</m>). Middle: into the
-<m>xz</m>-plane (order <m>dy\,dx\,dz</m>). Right: into the
-<m>yz</m>-plane (order <m>dx\,dy\,dz</m>); mark the curve that splits it
-into <m>R_1</m> and <m>R_2</m>.
+Sketch the three projections of the solid <m>R</m>: into the
+<m>xy</m>-plane (left), the <m>xz</m>-plane (middle) and the
+<m>yz</m>-plane (right).
 </caption>
 <sidebyside widths="31% 31% 31%">
 <image>
@@ -498,8 +499,6 @@ Assume that the density (mass per unit volume) is given by
 </p>
 <p>
 <em>Solution.</em>
-(Use the mass formula <xref ref="eq-mass-triple"/> with the same limits
-as in Part A of <xref ref="example-triple-order"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -507,10 +506,11 @@ as in Part A of <xref ref="example-triple-order"/>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,9);
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$M = \displaystyle\iiint_R x\,dV = \int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,8.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for setting up and evaluating the mass integral.</shortdescription>
+<shortdescription>Blank workspace for Example III.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -532,9 +532,7 @@ integrand on the region, not to integrate.
 </p>
 
 <p>
-It is worth locating <m>E</m> first. Find where the two surfaces meet
-(set the two expressions for <m>z</m> equal and write
-<m>u = x^2+y^2</m>), and describe <m>E</m>: over which region of the
+It is worth locating <m>E</m> first. Find where the two surfaces meet, and describe <m>E</m>: over which region of the
 <m>xy</m>-plane does it sit, and between which surfaces does <m>z</m>
 run?
 </p>
@@ -544,12 +542,11 @@ run?
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,7);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {the surfaces meet where:};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$E = \{(x,y,z) :$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,6.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for finding where the paraboloid and the sphere meet and one for the description of the solid.</shortdescription>
+<shortdescription>Blank workspace for locating the solid E.</shortdescription>
 </image>
 </sidebyside>
 
@@ -574,20 +571,17 @@ region bounded by <m>z=x^2+y^2</m> and
 <p>
 <em>Hint</em>: begin by determining the limits of integration.
 </p>
-<p>
-(Compare the integrand with the upper surface of <m>E</m>: what sign
-does it have at every point of the solid, and where does it vanish?)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {answer, and why:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,4.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for the sign of the integral and its justification.</shortdescription>
+<shortdescription>Blank workspace for the sign of the integral and its justification.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -605,19 +599,17 @@ in <xref ref="fig-triple-paraboloid-sphere"/>?
 <li><p>Yes</p></li>
 <li><p>No</p></li>
 </ol>
-<p>
-(What sign must a mass density have?)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {answer, and why:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,3.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for the answer and its justification.</shortdescription>
+<shortdescription>Blank workspace for the answer and its justification.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -635,20 +627,17 @@ graphed in <xref ref="fig-triple-paraboloid-sphere"/>?
 <li><p>Yes</p></li>
 <li><p>No</p></li>
 </ol>
-<p>
-(What is different about charge? What would the integral of
-<xref ref="q-triple-sign-one"/> then mean?)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {answer, and why:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,3.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for the answer and its justification.</shortdescription>
+<shortdescription>Blank workspace for the answer and its justification.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -672,20 +661,17 @@ region bounded by <m>z=x^2+y^2</m> and
 <li><p>Negative</p></li>
 <li><p>Zero</p></li>
 </ol>
-<p>
-(Over which disk does <m>E</m> sit? Use that to bound <m>x^2+y^2</m>,
-and so the integrand, on all of <m>E</m>.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {answer, and why:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,4.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for the sign of the integral and its justification.</shortdescription>
+<shortdescription>Blank workspace for the sign of the integral and its justification.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -703,20 +689,17 @@ per unit volume) over the region <m>E</m>, which is graphed in
 <li><p>Yes</p></li>
 <li><p>No</p></li>
 </ol>
-<p>
-(Bound <m>f</m> on <m>E</m>. Would the same formula do on a larger
-region?)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {answer, and why:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,3.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box for the answer and its justification.</shortdescription>
+<shortdescription>Blank workspace for the answer and its justification.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -726,8 +709,7 @@ region?)
 <caption>
 Figure (3): the region of integration <m>E</m>, bounded below by the
 paraboloid <m>z=x^2+y^2</m> and above by
-<m>z=1+\sqrt{1-x^2-y^2}</m>. The two surfaces meet over the circle
-<m>x^2+y^2=1</m>.
+<m>z=1+\sqrt{1-x^2-y^2}</m>.
 </caption>
 <interactive geogebra="snf5uec4"
              width="100%" aspect="500:500" design-width="500"
@@ -737,8 +719,7 @@ paraboloid <m>z=x^2+y^2</m> and above by
 <p>
 Drag the background to rotate the picture and scroll to zoom. Turning it
 until you look nearly along the <m>xy</m>-plane shows the two surfaces
-closing on each other at the rim, which is where
-<m>x^2+y^2=1</m>.
+closing on each other at the rim.
 </p>
 </instructions>
 </interactive>
@@ -753,25 +734,17 @@ the two cylinders <m>y=x^2</m> and <m>y=\sqrt{x}</m> and the two planes
 <m>z=0</m> and <m>z=\frac13(x+y+1)</m>. See
 <xref ref="fig-triple-two-cylinders"/>.
 </p>
-<p>
-(The two cylinders are vertical walls standing on two curves of the
-<m>xy</m>-plane; where do the curves cross, and which is on top in
-between? That gives the shadow <m>D</m>. The floor and the ceiling give
-the limits of <m>z</m>. Set up the integral, and note what the
-innermost integration returns.)
-</p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
-\draw[gray!35] (0,5) -- (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$D = \{(x,y) :$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$V = \int\!\!\int\!\!\int$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the shadow of the solid and one for the triple integral with limits.</shortdescription>
+<shortdescription>Blank workspace for the volume between the two cylinders.</shortdescription>
 </image>
 </sidebyside>
 </statement>
