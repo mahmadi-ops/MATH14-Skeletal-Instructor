@@ -287,9 +287,8 @@ other produces two tangent vectors,
 so that the two edges of a small coordinate patch on the sphere are
 approximately <m>\mathbf{r}_\phi\, \Delta\phi</m> and
 <m>\mathbf{r}_\theta\, \Delta\theta</m>, as in
-<xref ref="fig-sphere-patch"/>. Their cross product is perpendicular
-to the patch, so it gives a normal vector, and its length gives the
-area of the patch:
+<xref ref="fig-sphere-patch"/>. Fill in what their cross product and
+its length approximate:
 </p>
 
 <md>
@@ -434,7 +433,7 @@ sphere,
 \amp = \sin\phi\, \langle x, y, z \rangle,
 </mrow>
 </md>
-and the unit normal is
+and
 <md>
 <mrow xml:id="eq-sphere-unit-normal" number="yes">
 \amp \underline{\hspace{1.2cm}} = \langle x, y, z \rangle
