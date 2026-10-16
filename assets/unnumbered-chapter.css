@@ -26,9 +26,13 @@ a[href^="sec-exercises-"] .codenumber {
    The cost is that a hidden solution leaves an empty "Solution." heading
    behind, and these two rules drop it.  A solution whose only children
    are its heading and its permalink has no content, so it is not shown,
-   and neither is the wrapper holding it. */
+   and neither is the wrapper holding it.  The wrapper rule looks for any
+   solution-like child with content (a solution, an answer or a hint),
+   not only a solution: the Concept Checks in the sections keep their
+   worked answers in <answer>, and the first version of this rule hid
+   every one of them (Oct 2026). */
 
 .solution.solution-like:not(:has(> *:not(.heading):not(.autopermalink))),
-.solutions:not(:has(> .solution.solution-like > *:not(.heading):not(.autopermalink))) {
+.solutions:not(:has(> .solution-like > *:not(.heading):not(.autopermalink))) {
   display: none;
 }
