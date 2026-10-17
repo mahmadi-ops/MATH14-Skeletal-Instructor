@@ -203,4 +203,240 @@
       </md>
     </solution>
   </problem>
+
+  <problem xml:id="ex-hw5-polar-points">
+    <statement>
+      <p>
+      For each point below, find polar coordinates <m>(r,\theta)</m>
+      with <m>0 \le \theta \lt 2\pi</m>, first with <m>r \gt 0</m> and
+      then with <m>r \lt 0</m>.
+      </p>
+      <p>
+      (a) The point with Cartesian coordinates <m>(1,1)</m>.
+      </p>
+      <p>
+      (b) The point with Cartesian coordinates <m>(2\sqrt3,\,-2)</m>.
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        (a) <m>r = \sqrt{1^2+1^2} = \sqrt2</m> and the point lies on the
+        ray <m>\theta = \pi/4</m>, so <m>(r,\theta) = (\sqrt2, \pi/4)
+        \approx (1.414, 0.785)</m>. A negative <m>r</m> points the
+        opposite way, so the same point is
+        <m>(-\sqrt2, 5\pi/4) \approx (-1.414, 3.927)</m>.
+      </p>
+      <p>
+        (b) <m>r = \sqrt{12 + 4} = 4</m>. The point is in the fourth
+        quadrant with <m>\tan\theta = -2/(2\sqrt3) = -1/\sqrt3</m>, so
+        <m>\theta = 11\pi/6 \approx 5.760</m>: <m>(4, 11\pi/6)</m>. With
+        <m>r \lt 0</m>, add <m>\pi</m> to the angle:
+        <m>(-4, 5\pi/6) \approx (-4, 2.618)</m>.
+      </p>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw5-limacon-point">
+    <statement>
+      <p>
+      A curve in polar coordinates is given by
+      <m>r = 12 + 2\cos\theta</m>, and the point <m>P</m> on it is at
+      <m>\theta = \dfrac{26\pi}{24}</m>.
+      </p>
+      <p>
+      (a) Find the polar coordinate <m>r</m> of <m>P</m>, with
+      <m>r \gt 0</m> and <m>\pi \lt \theta \lt \frac{3\pi}{2}</m>.
+      </p>
+      <p>
+      (b) Find the Cartesian coordinates of <m>P</m>.
+      </p>
+      <p>
+      (c) How many times does the curve pass through the origin as
+      <m>\theta</m> runs over <m>0 \lt \theta \lt 2\pi</m>?
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        (a) <m>\theta = 26\pi/24 = 13\pi/12</m> already lies in
+        <m>(\pi, 3\pi/2)</m>, so
+        <m>r = 12 + 2\cos(13\pi/12) = 12 - 2\cos(\pi/12)
+        \approx 10.068</m>, which is positive.
+      </p>
+      <p>
+        (b) <m>x = r\cos\theta \approx 10.068 \cdot (-0.9659)
+        \approx -9.725</m> and
+        <m>y = r\sin\theta \approx 10.068 \cdot (-0.2588)
+        \approx -2.606</m>.
+      </p>
+      <p>
+        (c) Since <m>-1 \le \cos\theta \le 1</m>, we have
+        <m>r = 12 + 2\cos\theta \ge 10</m> for every <m>\theta</m>, so
+        <m>r</m> is never zero: the curve never passes through the origin.
+        The answer is <m>0</m>.
+      </p>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw5-cartesian-to-polar">
+    <statement>
+      <p>
+      Write each equation in polar coordinates, solved for <m>r</m>.
+      </p>
+      <p>
+      (a) <m>y = 10</m>
+      </p>
+      <p>
+      (b) <m>x^2 + y^2 = 2</m>
+      </p>
+      <p>
+      (c) <m>x^2 + y^2 - 5x = 0</m>
+      </p>
+      <p>
+      (d) <m>x^2(x^2 + y^2) = 8y^2</m>, assuming <m>r \ge 0</m>
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        Use <m>x = r\cos\theta</m>, <m>y = r\sin\theta</m>, and
+        <m>x^2 + y^2 = r^2</m>.
+      </p>
+      <p>
+        (a) <m>r\sin\theta = 10</m>, so <m>r = 10/\sin\theta
+        = 10\csc\theta</m>.
+      </p>
+      <p>
+        (b) <m>r^2 = 2</m>, so <m>r = \sqrt2</m>: a circle of radius
+        <m>\sqrt2</m> about the origin.
+      </p>
+      <p>
+        (c) <m>r^2 - 5r\cos\theta = 0</m>; dividing by <m>r</m> gives
+        <m>r = 5\cos\theta</m>, the circle of diameter <m>5</m> through
+        the origin centered at <m>(5/2, 0)</m>.
+      </p>
+      <p>
+        (d) <m>r^2\cos^2\theta \cdot r^2 = 8r^2\sin^2\theta</m>, so
+        <m>r^2\cos^2\theta = 8\sin^2\theta</m> and, with <m>r \ge 0</m>,
+        <m>r = \sqrt8\,\dfrac{\sin\theta}{\cos\theta}
+        = 2\sqrt2\,\tan\theta</m> (on the angles where this is
+        nonnegative).
+      </p>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw5-half-disk">
+    <statement>
+      <p>
+      Sketch the region of integration and evaluate by changing to polar
+      coordinates:
+      </p>
+      <me>
+      \int_{9}^{18}\!\!\int_{0}^{\sqrt{18x - x^2}}
+      \frac{1}{\sqrt{x^2+y^2}}\,dy\,dx .
+      </me>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        The curve <m>y = \sqrt{18x - x^2}</m> is the upper half of
+        <m>x^2 + y^2 = 18x</m>, the circle of radius <m>9</m> centered at
+        <m>(9,0)</m>, which in polar form is <m>r = 18\cos\theta</m>. The
+        condition <m>x \ge 9</m> is <m>r\cos\theta \ge 9</m>, that is
+        <m>r \ge 9\sec\theta</m>. The vertical line and the circle meet
+        where <m>18\cos\theta = 9\sec\theta</m>, so <m>\cos^2\theta =
+        1/2</m> and <m>\theta = \pi/4</m>. The region is the part of the
+        upper half-disk to the right of <m>x = 9</m>, described by
+        <m>0 \le \theta \le \pi/4</m>,
+        <m>9\sec\theta \le r \le 18\cos\theta</m>. With
+        <m>dA = r\,dr\,d\theta</m> by
+        <xref ref="eq-polar-area-element"/> and
+        <m>1/\sqrt{x^2+y^2} = 1/r</m>,
+      </p>
+      <md>
+        <mrow>
+          \int_0^{\pi/4}\!\!\int_{9\sec\theta}^{18\cos\theta}
+          \frac{1}{r}\,r\,dr\,d\theta
+          \amp = \int_0^{\pi/4} \left(18\cos\theta - 9\sec\theta\right)
+          d\theta
+        </mrow>
+        <mrow>
+          \amp = \Big[\,18\sin\theta
+          - 9\ln\lvert\sec\theta + \tan\theta\rvert\,\Big]_0^{\pi/4}
+          = 9\sqrt2 - 9\ln\!\left(1 + \sqrt2\right) \approx 4.796 .
+        </mrow>
+      </md>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw5-cardioid-circle">
+    <statement>
+      <p>
+      Use a double integral in polar coordinates to find the area of the
+      region bounded on the inside by the circle of radius <m>5</m>
+      centered at the origin and on the outside by the cardioid
+      <m>r = 5(1 + \cos\theta)</m>.
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        The circle is <m>r = 5</m>, and it meets the cardioid where
+        <m>5(1+\cos\theta) = 5</m>, that is <m>\cos\theta = 0</m>,
+        <m>\theta = \pm\pi/2</m>. The cardioid is outside the circle
+        exactly when <m>\cos\theta \gt 0</m>, so the region is
+        <m>-\pi/2 \le \theta \le \pi/2</m>,
+        <m>5 \le r \le 5(1+\cos\theta)</m>, and
+      </p>
+      <md>
+        <mrow>
+          A \amp = \int_{-\pi/2}^{\pi/2}\!\!\int_{5}^{5(1+\cos\theta)}
+          r\,dr\,d\theta
+          = \frac{25}{2}\int_{-\pi/2}^{\pi/2}
+          \left[(1+\cos\theta)^2 - 1\right] d\theta
+        </mrow>
+        <mrow>
+          \amp = \frac{25}{2}\int_{-\pi/2}^{\pi/2}
+          \left(2\cos\theta + \cos^2\theta\right) d\theta
+          = \frac{25}{2}\left(4 + \frac{\pi}{2}\right)
+          = 50 + \frac{25\pi}{4} \approx 69.635 .
+        </mrow>
+      </md>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw5-triangle-polar">
+    <statement>
+      <p>
+      Convert the integral
+      <m>\displaystyle\int_{0}^{\sqrt{10}}\!\!\int_{-x}^{x} dy\,dx</m>
+      to polar coordinates and evaluate it.
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        The region <m>0 \le x \le \sqrt{10}</m>, <m>-x \le y \le x</m> is
+        the triangle with vertices <m>(0,0)</m>,
+        <m>(\sqrt{10}, \sqrt{10})</m>, and <m>(\sqrt{10}, -\sqrt{10})</m>.
+        The two slanted sides are the rays <m>\theta = \pm\pi/4</m>, and
+        the vertical side <m>x = \sqrt{10}</m> is
+        <m>r\cos\theta = \sqrt{10}</m>, that is
+        <m>r = \sqrt{10}\sec\theta</m>. So <m>a = -\pi/4</m>,
+        <m>b = \pi/4</m>, <m>c = 0</m>, <m>d = \sqrt{10}\sec\theta</m>,
+        and with <m>dA = r\,dr\,d\theta</m> by
+        <xref ref="eq-polar-area-element"/>,
+      </p>
+      <md>
+        <mrow>
+          \int_{-\pi/4}^{\pi/4}\!\!\int_{0}^{\sqrt{10}\sec\theta}
+          r\,dr\,d\theta
+          \amp = \int_{-\pi/4}^{\pi/4} 5\sec^2\theta\,d\theta
+          = \Big[\,5\tan\theta\,\Big]_{-\pi/4}^{\pi/4}
+        </mrow>
+        <mrow>
+          \amp = 5 - (-5) = 10 ,
+        </mrow>
+      </md>
+      <p>
+        which is the triangle's area:
+        <m>\tfrac12 \cdot 2\sqrt{10} \cdot \sqrt{10} = 10</m>.
+      </p>
+    </solution>
+  </problem>
 </section>
