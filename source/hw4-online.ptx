@@ -164,11 +164,18 @@
         <m>3</m>.
       </p>
       <p>
-        Shape <m>2</m> is the triangle of area <m>r^2/2</m> and shape
-        <m>4</m> the sector of area <m>\pi r^2/8</m>. The triangle
-        contains the sector's range of radii and has the larger area, so
-        <m>\iint_{R_2}\delta\,dA \ge \iint_{R_4}\delta\,dA</m>: shape
-        <m>2</m> is heavier.
+        Shape <m>2</m> is the triangle <m>0 \le y \le x \le r</m>, and shape
+        <m>4</m> is the sector of the circle of radius <m>r</m> between the
+        negative <m>x</m>-axis and <m>y=-x</m>. Since
+        <m>\delta(-x,y) = \delta(x,y)</m>, shape <m>4</m> has the same mass as
+        its mirror image in the <m>y</m>-axis, the sector between the positive
+        <m>x</m>-axis and <m>y=x</m>, and that sector lies inside the triangle.
+        As <m>\delta \ge 0</m> on the triangle, and <m>\delta \gt 0</m> on the
+        part of it outside the sector,
+        <m>\iint_{R_2}\delta\,dA \gt \iint_{R_4}\delta\,dA</m>: shape
+        <m>2</m> is heavier. (In fact
+        <m>\iint_{R_2}\delta\,dA = \int_0^r\!\int_0^x (x^2-y^2)\,dy\,dx = \frac{r^4}{6}</m>,
+        while shape <m>4</m> has mass <m>\frac{r^4}{8}</m>.)
       </p>
     </solution>
   </exercise>
