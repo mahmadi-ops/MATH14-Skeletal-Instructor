@@ -23,6 +23,311 @@
     <xref ref="sec-exercises-hw5-online" text="title"/>.
   </p>
 
+  <problem xml:id="ex-hw5-polar-points">
+    <statement>
+      <p>
+      For each point below, find polar coordinates <m>(r,\theta)</m>
+      with <m>0 \le \theta \lt 2\pi</m>, first with <m>r \gt 0</m> and
+      then with <m>r \lt 0</m>.
+      </p>
+      <p>
+      (a) The point with Cartesian coordinates <m>(1,1)</m>.
+      </p>
+      <p>
+      (b) The point with Cartesian coordinates <m>(2\sqrt3,\,-2)</m>.
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        (a) <m>r = \sqrt{1^2+1^2} = \sqrt2</m> and the point lies on the
+        ray <m>\theta = \pi/4</m>, so <m>(r,\theta) = (\sqrt2, \pi/4)
+        \approx (1.414, 0.785)</m>. A negative <m>r</m> points the
+        opposite way, so the same point is
+        <m>(-\sqrt2, 5\pi/4) \approx (-1.414, 3.927)</m>.
+      </p>
+      <p>
+        (b) <m>r = \sqrt{12 + 4} = 4</m>. The point is in the fourth
+        quadrant with <m>\tan\theta = -2/(2\sqrt3) = -1/\sqrt3</m>, so
+        <m>\theta = 11\pi/6 \approx 5.760</m>: <m>(4, 11\pi/6)</m>. With
+        <m>r \lt 0</m>, add <m>\pi</m> to the angle:
+        <m>(-4, 5\pi/6) \approx (-4, 2.618)</m>.
+      </p>
+    <figure xml:id="fig-hw5-polar-points">
+      <caption>
+        The two points of <xref ref="ex-hw5-polar-points"/>. In each panel the solid blue segment is the representation with <m>r \gt 0</m> and the dashed orange ray is the one with <m>r \lt 0</m>, which points the opposite way and so needs an angle larger by <m>\pi</m>.
+      </caption>
+      <sidebyside widths="48% 48%" valign="middle">
+        <image width="100%">
+          <shortdescription>
+          The point one comma one with its polar angle pi over four, and the opposite ray for the negative-r representation at angle five pi over four.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with the point one comma one. A solid blue segment from the origin to the point is labelled r equals square root of two, with an arc marking the angle theta equals pi over four. A dashed orange ray leaves the origin in the opposite direction, labelled r equals negative square root of two, with a larger arc marking theta equals five pi over four.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-point-a">
+            <diagram dimensions="(300,300)" margins="10">
+              <coordinates bbox="(-1.9,-1.9,1.9,1.9)">
+              <grid-axes at="hw5o-point-a-grid" xlabel="x" ylabel="y"/>
+              <line at="hw5o-point-a-ray" endpoints="((0,0),(1,1))" stroke="#0072B2" thickness="3"/>
+              <line at="hw5o-point-a-opp" endpoints="((0,0),(-1,-1))" stroke="#D55E00" thickness="2" dash="6 4"/>
+              <arc at="hw5o-point-a-arc-pos" center="(0,0)" radius="0.55" range="(0,45)" stroke="#0072B2" thickness="2" arrows="1"/>
+              <arc at="hw5o-point-a-arc-neg" center="(0,0)" radius="0.85" range="(0,225)" stroke="#D55E00" thickness="2" arrows="1"/>
+              <point at="hw5o-point-a-P" p="(1,1)" fill="black" size="4"/>
+              <label at="pa-Plab" anchor="(1,1)" alignment="ne" offset="(4,4)" clear-background="yes"><m>(1,1)</m></label>
+              <label at="pa-pos" anchor="(0.62,0.22)" alignment="e" color="#0072B2" clear-background="yes"><m>\theta=\tfrac{\pi}{4}</m></label>
+              <label at="pa-neg" anchor="(-0.55,-1.0)" alignment="s" color="#D55E00" clear-background="yes"><m>\theta=\tfrac{5\pi}{4}</m></label>
+              <label at="pa-rlab" anchor="(0.72,0.98)" alignment="nw" color="#0072B2" clear-background="yes"><m>r=\sqrt2</m></label>
+              <label at="pa-rneg" anchor="(-1.0,-0.55)" alignment="w" color="#D55E00" clear-background="yes"><m>r=-\sqrt2</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The point one comma one in the plane, with its two polar representations.">
+                <annotation ref="pa-ray" text="The segment from the origin to the point, of length square root of two, at angle pi over four."/>
+                <annotation ref="pa-opp" text="The dashed ray from the origin in the opposite direction, used when r is negative square root of two and theta is five pi over four."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+        <image width="100%">
+          <shortdescription>
+          The point two root three comma negative two with its polar angle eleven pi over six, and the opposite ray for the negative-r representation at angle five pi over six.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with the point two root three comma negative two in the fourth quadrant. A solid blue segment from the origin to the point is labelled r equals four, with an arc sweeping counterclockwise almost all the way around to mark theta equals eleven pi over six. A dashed orange ray leaves the origin in the opposite direction, into the second quadrant, labelled r equals negative four, with an arc marking theta equals five pi over six.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-point-b">
+            <diagram dimensions="(300,216)" margins="10">
+              <coordinates bbox="(-4.6,-3.6,5.4,3.6)">
+              <grid-axes at="hw5o-point-b-grid" xlabel="x" ylabel="y"/>
+              <line at="hw5o-point-b-ray" endpoints="((0,0),(3.464,-2))" stroke="#0072B2" thickness="3"/>
+              <line at="hw5o-point-b-opp" endpoints="((0,0),(-3.464,2))" stroke="#D55E00" thickness="2" dash="6 4"/>
+              <arc at="hw5o-point-b-arc-pos" center="(0,0)" radius="1.3" range="(0,330)" stroke="#0072B2" thickness="2" arrows="1"/>
+              <arc at="hw5o-point-b-arc-neg" center="(0,0)" radius="2.0" range="(0,150)" stroke="#D55E00" thickness="2" arrows="1"/>
+              <point at="hw5o-point-b-P" p="(3.464,-2)" fill="black" size="4"/>
+              <label at="pb-Plab" anchor="(3.464,-2)" alignment="s" offset="(0,-5)" clear-background="yes"><m>(2\sqrt3,-2)</m></label>
+              <label at="pb-pos" anchor="(0.5,-2.25)" alignment="s" color="#0072B2" clear-background="yes"><m>\theta=\tfrac{11\pi}{6}</m></label>
+              <label at="pb-neg" anchor="(0.7,2.1)" alignment="ne" color="#D55E00"><m>\theta=\tfrac{5\pi}{6}</m></label>
+              <label at="pb-rlab" anchor="(1.5,-1.45)" alignment="s" color="#0072B2" clear-background="yes"><m>r=4</m></label>
+              <label at="pb-rneg" anchor="(-2.9,2.1)" alignment="n" color="#D55E00" clear-background="yes"><m>r=-4</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The point two root three comma negative two in the plane, with its two polar representations.">
+                <annotation ref="pb-ray" text="The segment from the origin to the point, of length four, at angle eleven pi over six."/>
+                <annotation ref="pb-opp" text="The dashed ray from the origin in the opposite direction, used when r is negative four and theta is five pi over six."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </sidebyside>
+    </figure>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw5-limacon-point">
+    <statement>
+      <p>
+      A curve in polar coordinates is given by
+      <m>r = 12 + 2\cos\theta</m>, and the point <m>P</m> on it is at
+      <m>\theta = \dfrac{26\pi}{24}</m>.
+      </p>
+      <p>
+      (a) Find the polar coordinate <m>r</m> of <m>P</m>, with
+      <m>r \gt 0</m> and <m>\pi \lt \theta \lt \frac{3\pi}{2}</m>.
+      </p>
+      <p>
+      (b) Find the Cartesian coordinates of <m>P</m>.
+      </p>
+      <p>
+      (c) How many times does the curve pass through the origin as
+      <m>\theta</m> runs over <m>0 \lt \theta \lt 2\pi</m>?
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        (a) <m>\theta = 26\pi/24 = 13\pi/12</m> already lies in
+        <m>(\pi, 3\pi/2)</m>, so
+        <m>r = 12 + 2\cos(13\pi/12) = 12 - 2\cos(\pi/12)
+        \approx 10.068</m>, which is positive.
+      </p>
+      <p>
+        (b) <m>x = r\cos\theta \approx 10.068 \cdot (-0.9659)
+        \approx -9.725</m> and
+        <m>y = r\sin\theta \approx 10.068 \cdot (-0.2588)
+        \approx -2.606</m>.
+      </p>
+      <p>
+        (c) Since <m>-1 \le \cos\theta \le 1</m>, we have
+        <m>r = 12 + 2\cos\theta \ge 10</m> for every <m>\theta</m>, so
+        <m>r</m> is never zero: the curve never passes through the origin.
+        The answer is <m>0</m>.
+      </p>
+    <figure xml:id="fig-hw5-limacon">
+      <caption>
+        The curve <m>r = 12 + 2\cos\theta</m> of <xref ref="ex-hw5-limacon-point"/> with the point <m>P</m> at <m>\theta = 13\pi/12</m>. The dashed circle <m>r = 10</m> is the smallest value <m>r</m> ever takes, so the curve never reaches the origin.
+      </caption>
+      <image width="70%">
+        <shortdescription>
+        A slightly flattened oval around the origin, the curve r equals twelve plus two cosine theta, with the point P marked on its left side and a dashed circle of radius ten inside it.
+        </shortdescription>
+        <description>
+          <p>
+          Coordinate axes with a blue closed curve, r equals twelve plus two cosine theta, which is nearly circular: it crosses the positive x axis at fourteen and the negative x axis at ten. A dashed orange circle of radius ten fits inside it, touching it at negative ten comma zero. A green segment from the origin at angle thirteen pi over twelve, just below the negative x axis, ends at the point P on the curve, with the length labelled r approximately ten point zero seven.
+          </p>
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-limacon">
+          <diagram dimensions="(330,330)" margins="10">
+            <definition>lim(t) = ((12 + 2*cos(t))*cos(t), (12 + 2*cos(t))*sin(t))</definition>
+            <coordinates bbox="(-15.5,-15.5,15.5,15.5)">
+            <grid-axes at="lm-grid" xlabel="x" ylabel="y" hlabels="(-10,10,10)" vlabels="(-10,10,10)" spacing="(5,5)"/>
+            <parametric-curve at="lm-curve" function="lim" domain="(0,2*pi)" stroke="#0072B2" thickness="3"/>
+            <circle at="lm-inner" center="(0,0)" radius="10" stroke="#D55E00" thickness="1" dash="4 4" fill="none"/>
+            <line at="lm-ray" endpoints="((0,0),(-9.725,-2.606))" stroke="#009E73" thickness="2.5"/>
+            <arc at="lm-arc" center="(0,0)" radius="5" range="(0,195)" stroke="#009E73" thickness="2" arrows="1"/>
+            <point at="lm-P" p="(-9.725,-2.606)" fill="black" size="4"/>
+            <label at="lm-Plab" anchor="(-9.725,-2.606)" alignment="sw" offset="(-4,-4)" clear-background="yes"><m>P</m></label>
+            <label at="lm-tlab" anchor="(-5.2,1.0)" alignment="nw" color="#009E73" clear-background="yes"><m>\theta=\tfrac{13\pi}{12}</m></label>
+            <label at="lm-rlab" anchor="(-4.5,-2.3)" alignment="s" color="#009E73" clear-background="yes"><m>r\approx 10.07</m></label>
+            <label at="lm-clab" anchor="(3,12.8)" alignment="ne" color="#0072B2" clear-background="yes"><m>r=12+2\cos\theta</m></label>
+            <label at="lm-ilab" anchor="(7.6,-7.5)" alignment="sw" color="#D55E00" clear-background="yes"><m>r=10</m></label>
+            </coordinates>
+            <annotations>
+            <annotation ref="figure" text="The curve r equals twelve plus two cosine theta, with the point P at angle thirteen pi over twelve and the inner circle of radius ten.">
+              <annotation ref="lm-curve" text="The curve r equals twelve plus two cosine theta, a nearly circular closed curve." sonify="yes"/>
+              <annotation ref="lm-inner" text="The dashed circle r equals ten, the minimum value of r, which touches the curve at negative ten comma zero."/>
+              <annotation ref="lm-ray" text="The segment from the origin to P at angle thirteen pi over twelve, of length about ten point zero seven."/>
+            </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+    </figure>
+    </solution>
+  </problem>
+
+  <problem xml:id="ex-hw5-cartesian-to-polar">
+    <statement>
+      <p>
+      Write each equation in polar coordinates, solved for <m>r</m>.
+      </p>
+      <p>
+      (a) <m>y = 10</m>
+      </p>
+      <p>
+      (b) <m>x^2 + y^2 = 2</m>
+      </p>
+      <p>
+      (c) <m>x^2 + y^2 - 5x = 0</m>
+      </p>
+      <p>
+      (d) <m>x^2(x^2 + y^2) = 8y^2</m>, assuming <m>r \ge 0</m>
+      </p>
+    </statement>
+    <solution component="hw5-solutions">
+      <p>
+        Use <m>x = r\cos\theta</m>, <m>y = r\sin\theta</m>, and
+        <m>x^2 + y^2 = r^2</m>.
+      </p>
+      <p>
+        (a) <m>r\sin\theta = 10</m>, so <m>r = 10/\sin\theta
+        = 10\csc\theta</m>.
+      </p>
+      <p>
+        (b) <m>r^2 = 2</m>, so <m>r = \sqrt2</m>: a circle of radius
+        <m>\sqrt2</m> about the origin.
+      </p>
+      <p>
+        (c) <m>r^2 - 5r\cos\theta = 0</m>; dividing by <m>r</m> gives
+        <m>r = 5\cos\theta</m>, the circle of diameter <m>5</m> through
+        the origin centered at <m>(5/2, 0)</m>.
+      </p>
+      <p>
+        (d) <m>r^2\cos^2\theta \cdot r^2 = 8r^2\sin^2\theta</m>, so
+        <m>r^2\cos^2\theta = 8\sin^2\theta</m> and, with <m>r \ge 0</m>,
+        <m>r = \sqrt8\,\dfrac{\sin\theta}{\cos\theta}
+        = 2\sqrt2\,\tan\theta</m> (on the angles where this is
+        nonnegative).
+      </p>
+    <figure xml:id="fig-hw5-polar-equations">
+      <caption>
+        Parts (c) and (d) of <xref ref="ex-hw5-cartesian-to-polar"/>. Left: <m>x^2 + y^2 = 5x</m> is the circle <m>r = 5\cos\theta</m>, of diameter <m>5</m>, through the origin. Right: <m>x^2(x^2+y^2) = 8y^2</m>, which in polar form is <m>r = 2\sqrt2\tan\theta</m>; the dashed lines <m>x = \pm 2\sqrt2</m> are asymptotes.
+      </caption>
+      <sidebyside widths="48% 48%" valign="middle">
+        <image width="100%">
+          <shortdescription>
+          A circle of diameter five passing through the origin, centered at five halves comma zero, with a dashed radial segment to a point on it.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with a blue circle centered at five halves comma zero and of radius five halves, so it passes through the origin and through five comma zero. A dashed green segment from the origin to a point on the upper part of the circle illustrates r equals five cosine theta.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-circle-5cos">
+            <diagram dimensions="(300,256)" margins="10">
+              <definition>cc(t) = (5*cos(t)*cos(t), 5*cos(t)*sin(t))</definition>
+              <coordinates bbox="(-1.3,-3,6.3,3.5)">
+              <grid-axes at="cc-grid" xlabel="x" ylabel="y"/>
+              <parametric-curve at="cc-curve" function="cc" domain="(-pi/2,pi/2)" stroke="#0072B2" thickness="3"/>
+              <line at="cc-ray" endpoints="((0,0),(3.75,2.165))" stroke="#009E73" thickness="2" dash="6 4"/>
+              <point at="cc-center" p="(2.5,0)" fill="black" size="3.5"/>
+              <point at="cc-Q" p="(3.75,2.165)" fill="black" size="3.5"/>
+              <label at="cc-clab" anchor="(2.5,0)" alignment="s" offset="(0,-5)" clear-background="yes"><m>(\tfrac52,0)</m></label>
+              <label at="cc-rlab" anchor="(2.4,0.95)" alignment="se" color="#009E73" clear-background="yes"><m>r=5\cos\theta</m></label>
+              <label at="cc-eq" anchor="(3.0,2.65)" alignment="ne" color="#0072B2" clear-background="yes"><m>x^2+y^2=5x</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The circle x squared plus y squared equals five x, which is r equals five cosine theta.">
+                <annotation ref="cc-curve" text="The circle of radius five halves centered at five halves comma zero, passing through the origin." sonify="yes"/>
+                <annotation ref="cc-ray" text="A dashed segment from the origin to a point of the circle, of length five cosine theta."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+        <image width="100%">
+          <shortdescription>
+          A curve through the origin with four branches, shaped like two parabolas opening up and down but steepening toward the vertical asymptotes x equals plus or minus two root two.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with a blue curve symmetric about both axes. It passes through the origin, where the upper and lower halves are tangent to the x axis, and the four branches rise steeply toward the dashed orange vertical lines x equals two root two and x equals negative two root two, which are asymptotes.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-quartic">
+            <diagram dimensions="(320,320)" margins="10">
+              <definition>up(x) = (x, x^2/sqrt(8 - x^2))</definition>
+              <definition>dn(x) = (x, -x^2/sqrt(8 - x^2))</definition>
+              <coordinates bbox="(-5.9,-5.6,5.9,5.6)">
+              <grid-axes at="qd-grid" xlabel="x" ylabel="y"/>
+              <line at="qd-asym1" endpoints="((2.828,-5.6),(2.828,5.6))" stroke="#D55E00" thickness="1" dash="4 4"/>
+              <line at="qd-asym2" endpoints="((-2.828,-5.6),(-2.828,5.6))" stroke="#D55E00" thickness="1" dash="4 4"/>
+              <parametric-curve at="qd-ne" function="up" domain="(0,2.5248)" stroke="#0072B2" thickness="3"/>
+              <parametric-curve at="qd-nw" function="up" domain="(-2.5248,0)" stroke="#0072B2" thickness="3"/>
+              <parametric-curve at="qd-se" function="dn" domain="(0,2.5248)" stroke="#0072B2" thickness="3"/>
+              <parametric-curve at="qd-sw" function="dn" domain="(-2.5248,0)" stroke="#0072B2" thickness="3"/>
+              <label at="qd-a1" anchor="(2.9,2.6)" alignment="e" offset="(3,0)" color="#D55E00" clear-background="yes"><m>x=2\sqrt2</m></label>
+              <label at="qd-a2" anchor="(-2.9,2.6)" alignment="w" offset="(-1,0)" color="#D55E00" clear-background="yes"><m>x=-2\sqrt2</m></label>
+              <label at="qd-eq" anchor="(0.35,-5.25)" alignment="e" color="#0072B2" clear-background="yes"><m>r=2\sqrt2\,\tan\theta</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The curve x squared times x squared plus y squared equals eight y squared, in polar form r equals two root two tangent theta.">
+                <annotation ref="qd-ne" text="The branch in the first quadrant, rising from the origin toward the asymptote x equals two root two." sonify="yes"/>
+                <annotation ref="qd-asym1" text="The vertical asymptote x equals two root two."/>
+                <annotation ref="qd-asym2" text="The vertical asymptote x equals negative two root two."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </sidebyside>
+    </figure>
+    </solution>
+  </problem>
+
   <problem xml:id="ex-hw5-rose">
     <statement>
       <p>
@@ -344,311 +649,6 @@
           </prefigure>
         </image>
       </figure>
-    </solution>
-  </problem>
-
-  <problem xml:id="ex-hw5-polar-points">
-    <statement>
-      <p>
-      For each point below, find polar coordinates <m>(r,\theta)</m>
-      with <m>0 \le \theta \lt 2\pi</m>, first with <m>r \gt 0</m> and
-      then with <m>r \lt 0</m>.
-      </p>
-      <p>
-      (a) The point with Cartesian coordinates <m>(1,1)</m>.
-      </p>
-      <p>
-      (b) The point with Cartesian coordinates <m>(2\sqrt3,\,-2)</m>.
-      </p>
-    </statement>
-    <solution component="hw5-solutions">
-      <p>
-        (a) <m>r = \sqrt{1^2+1^2} = \sqrt2</m> and the point lies on the
-        ray <m>\theta = \pi/4</m>, so <m>(r,\theta) = (\sqrt2, \pi/4)
-        \approx (1.414, 0.785)</m>. A negative <m>r</m> points the
-        opposite way, so the same point is
-        <m>(-\sqrt2, 5\pi/4) \approx (-1.414, 3.927)</m>.
-      </p>
-      <p>
-        (b) <m>r = \sqrt{12 + 4} = 4</m>. The point is in the fourth
-        quadrant with <m>\tan\theta = -2/(2\sqrt3) = -1/\sqrt3</m>, so
-        <m>\theta = 11\pi/6 \approx 5.760</m>: <m>(4, 11\pi/6)</m>. With
-        <m>r \lt 0</m>, add <m>\pi</m> to the angle:
-        <m>(-4, 5\pi/6) \approx (-4, 2.618)</m>.
-      </p>
-    <figure xml:id="fig-hw5-polar-points">
-      <caption>
-        The two points of <xref ref="ex-hw5-polar-points"/>. In each panel the solid blue segment is the representation with <m>r \gt 0</m> and the dashed orange ray is the one with <m>r \lt 0</m>, which points the opposite way and so needs an angle larger by <m>\pi</m>.
-      </caption>
-      <sidebyside widths="48% 48%" valign="middle">
-        <image width="100%">
-          <shortdescription>
-          The point one comma one with its polar angle pi over four, and the opposite ray for the negative-r representation at angle five pi over four.
-          </shortdescription>
-          <description>
-            <p>
-            Coordinate axes with the point one comma one. A solid blue segment from the origin to the point is labelled r equals square root of two, with an arc marking the angle theta equals pi over four. A dashed orange ray leaves the origin in the opposite direction, labelled r equals negative square root of two, with a larger arc marking theta equals five pi over four.
-            </p>
-          </description>
-          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-point-a">
-            <diagram dimensions="(300,300)" margins="10">
-              <coordinates bbox="(-1.9,-1.9,1.9,1.9)">
-              <grid-axes at="hw5o-point-a-grid" xlabel="x" ylabel="y"/>
-              <line at="hw5o-point-a-ray" endpoints="((0,0),(1,1))" stroke="#0072B2" thickness="3"/>
-              <line at="hw5o-point-a-opp" endpoints="((0,0),(-1,-1))" stroke="#D55E00" thickness="2" dash="6 4"/>
-              <arc at="hw5o-point-a-arc-pos" center="(0,0)" radius="0.55" range="(0,45)" stroke="#0072B2" thickness="2" arrows="1"/>
-              <arc at="hw5o-point-a-arc-neg" center="(0,0)" radius="0.85" range="(0,225)" stroke="#D55E00" thickness="2" arrows="1"/>
-              <point at="hw5o-point-a-P" p="(1,1)" fill="black" size="4"/>
-              <label at="pa-Plab" anchor="(1,1)" alignment="ne" offset="(4,4)" clear-background="yes"><m>(1,1)</m></label>
-              <label at="pa-pos" anchor="(0.62,0.22)" alignment="e" color="#0072B2" clear-background="yes"><m>\theta=\tfrac{\pi}{4}</m></label>
-              <label at="pa-neg" anchor="(-0.55,-1.0)" alignment="s" color="#D55E00" clear-background="yes"><m>\theta=\tfrac{5\pi}{4}</m></label>
-              <label at="pa-rlab" anchor="(0.72,0.98)" alignment="nw" color="#0072B2" clear-background="yes"><m>r=\sqrt2</m></label>
-              <label at="pa-rneg" anchor="(-1.0,-0.55)" alignment="w" color="#D55E00" clear-background="yes"><m>r=-\sqrt2</m></label>
-              </coordinates>
-              <annotations>
-              <annotation ref="figure" text="The point one comma one in the plane, with its two polar representations.">
-                <annotation ref="pa-ray" text="The segment from the origin to the point, of length square root of two, at angle pi over four."/>
-                <annotation ref="pa-opp" text="The dashed ray from the origin in the opposite direction, used when r is negative square root of two and theta is five pi over four."/>
-              </annotation>
-              </annotations>
-            </diagram>
-          </prefigure>
-        </image>
-        <image width="100%">
-          <shortdescription>
-          The point two root three comma negative two with its polar angle eleven pi over six, and the opposite ray for the negative-r representation at angle five pi over six.
-          </shortdescription>
-          <description>
-            <p>
-            Coordinate axes with the point two root three comma negative two in the fourth quadrant. A solid blue segment from the origin to the point is labelled r equals four, with an arc sweeping counterclockwise almost all the way around to mark theta equals eleven pi over six. A dashed orange ray leaves the origin in the opposite direction, into the second quadrant, labelled r equals negative four, with an arc marking theta equals five pi over six.
-            </p>
-          </description>
-          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-point-b">
-            <diagram dimensions="(300,216)" margins="10">
-              <coordinates bbox="(-4.6,-3.6,5.4,3.6)">
-              <grid-axes at="hw5o-point-b-grid" xlabel="x" ylabel="y"/>
-              <line at="hw5o-point-b-ray" endpoints="((0,0),(3.464,-2))" stroke="#0072B2" thickness="3"/>
-              <line at="hw5o-point-b-opp" endpoints="((0,0),(-3.464,2))" stroke="#D55E00" thickness="2" dash="6 4"/>
-              <arc at="hw5o-point-b-arc-pos" center="(0,0)" radius="1.3" range="(0,330)" stroke="#0072B2" thickness="2" arrows="1"/>
-              <arc at="hw5o-point-b-arc-neg" center="(0,0)" radius="2.0" range="(0,150)" stroke="#D55E00" thickness="2" arrows="1"/>
-              <point at="hw5o-point-b-P" p="(3.464,-2)" fill="black" size="4"/>
-              <label at="pb-Plab" anchor="(3.464,-2)" alignment="s" offset="(0,-5)" clear-background="yes"><m>(2\sqrt3,-2)</m></label>
-              <label at="pb-pos" anchor="(0.5,-2.25)" alignment="s" color="#0072B2" clear-background="yes"><m>\theta=\tfrac{11\pi}{6}</m></label>
-              <label at="pb-neg" anchor="(0.7,2.1)" alignment="ne" color="#D55E00"><m>\theta=\tfrac{5\pi}{6}</m></label>
-              <label at="pb-rlab" anchor="(1.5,-1.45)" alignment="s" color="#0072B2" clear-background="yes"><m>r=4</m></label>
-              <label at="pb-rneg" anchor="(-2.9,2.1)" alignment="n" color="#D55E00" clear-background="yes"><m>r=-4</m></label>
-              </coordinates>
-              <annotations>
-              <annotation ref="figure" text="The point two root three comma negative two in the plane, with its two polar representations.">
-                <annotation ref="pb-ray" text="The segment from the origin to the point, of length four, at angle eleven pi over six."/>
-                <annotation ref="pb-opp" text="The dashed ray from the origin in the opposite direction, used when r is negative four and theta is five pi over six."/>
-              </annotation>
-              </annotations>
-            </diagram>
-          </prefigure>
-        </image>
-      </sidebyside>
-    </figure>
-    </solution>
-  </problem>
-
-  <problem xml:id="ex-hw5-limacon-point">
-    <statement>
-      <p>
-      A curve in polar coordinates is given by
-      <m>r = 12 + 2\cos\theta</m>, and the point <m>P</m> on it is at
-      <m>\theta = \dfrac{26\pi}{24}</m>.
-      </p>
-      <p>
-      (a) Find the polar coordinate <m>r</m> of <m>P</m>, with
-      <m>r \gt 0</m> and <m>\pi \lt \theta \lt \frac{3\pi}{2}</m>.
-      </p>
-      <p>
-      (b) Find the Cartesian coordinates of <m>P</m>.
-      </p>
-      <p>
-      (c) How many times does the curve pass through the origin as
-      <m>\theta</m> runs over <m>0 \lt \theta \lt 2\pi</m>?
-      </p>
-    </statement>
-    <solution component="hw5-solutions">
-      <p>
-        (a) <m>\theta = 26\pi/24 = 13\pi/12</m> already lies in
-        <m>(\pi, 3\pi/2)</m>, so
-        <m>r = 12 + 2\cos(13\pi/12) = 12 - 2\cos(\pi/12)
-        \approx 10.068</m>, which is positive.
-      </p>
-      <p>
-        (b) <m>x = r\cos\theta \approx 10.068 \cdot (-0.9659)
-        \approx -9.725</m> and
-        <m>y = r\sin\theta \approx 10.068 \cdot (-0.2588)
-        \approx -2.606</m>.
-      </p>
-      <p>
-        (c) Since <m>-1 \le \cos\theta \le 1</m>, we have
-        <m>r = 12 + 2\cos\theta \ge 10</m> for every <m>\theta</m>, so
-        <m>r</m> is never zero: the curve never passes through the origin.
-        The answer is <m>0</m>.
-      </p>
-    <figure xml:id="fig-hw5-limacon">
-      <caption>
-        The curve <m>r = 12 + 2\cos\theta</m> of <xref ref="ex-hw5-limacon-point"/> with the point <m>P</m> at <m>\theta = 13\pi/12</m>. The dashed circle <m>r = 10</m> is the smallest value <m>r</m> ever takes, so the curve never reaches the origin.
-      </caption>
-      <image width="70%">
-        <shortdescription>
-        A slightly flattened oval around the origin, the curve r equals twelve plus two cosine theta, with the point P marked on its left side and a dashed circle of radius ten inside it.
-        </shortdescription>
-        <description>
-          <p>
-          Coordinate axes with a blue closed curve, r equals twelve plus two cosine theta, which is nearly circular: it crosses the positive x axis at fourteen and the negative x axis at ten. A dashed orange circle of radius ten fits inside it, touching it at negative ten comma zero. A green segment from the origin at angle thirteen pi over twelve, just below the negative x axis, ends at the point P on the curve, with the length labelled r approximately ten point zero seven.
-          </p>
-        </description>
-        <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-limacon">
-          <diagram dimensions="(330,330)" margins="10">
-            <definition>lim(t) = ((12 + 2*cos(t))*cos(t), (12 + 2*cos(t))*sin(t))</definition>
-            <coordinates bbox="(-15.5,-15.5,15.5,15.5)">
-            <grid-axes at="lm-grid" xlabel="x" ylabel="y" hlabels="(-10,10,10)" vlabels="(-10,10,10)" spacing="(5,5)"/>
-            <parametric-curve at="lm-curve" function="lim" domain="(0,2*pi)" stroke="#0072B2" thickness="3"/>
-            <circle at="lm-inner" center="(0,0)" radius="10" stroke="#D55E00" thickness="1" dash="4 4" fill="none"/>
-            <line at="lm-ray" endpoints="((0,0),(-9.725,-2.606))" stroke="#009E73" thickness="2.5"/>
-            <arc at="lm-arc" center="(0,0)" radius="5" range="(0,195)" stroke="#009E73" thickness="2" arrows="1"/>
-            <point at="lm-P" p="(-9.725,-2.606)" fill="black" size="4"/>
-            <label at="lm-Plab" anchor="(-9.725,-2.606)" alignment="sw" offset="(-4,-4)" clear-background="yes"><m>P</m></label>
-            <label at="lm-tlab" anchor="(-5.2,1.0)" alignment="nw" color="#009E73" clear-background="yes"><m>\theta=\tfrac{13\pi}{12}</m></label>
-            <label at="lm-rlab" anchor="(-4.5,-2.3)" alignment="s" color="#009E73" clear-background="yes"><m>r\approx 10.07</m></label>
-            <label at="lm-clab" anchor="(3,12.8)" alignment="ne" color="#0072B2" clear-background="yes"><m>r=12+2\cos\theta</m></label>
-            <label at="lm-ilab" anchor="(7.6,-7.5)" alignment="sw" color="#D55E00" clear-background="yes"><m>r=10</m></label>
-            </coordinates>
-            <annotations>
-            <annotation ref="figure" text="The curve r equals twelve plus two cosine theta, with the point P at angle thirteen pi over twelve and the inner circle of radius ten.">
-              <annotation ref="lm-curve" text="The curve r equals twelve plus two cosine theta, a nearly circular closed curve." sonify="yes"/>
-              <annotation ref="lm-inner" text="The dashed circle r equals ten, the minimum value of r, which touches the curve at negative ten comma zero."/>
-              <annotation ref="lm-ray" text="The segment from the origin to P at angle thirteen pi over twelve, of length about ten point zero seven."/>
-            </annotation>
-            </annotations>
-          </diagram>
-        </prefigure>
-      </image>
-    </figure>
-    </solution>
-  </problem>
-
-  <problem xml:id="ex-hw5-cartesian-to-polar">
-    <statement>
-      <p>
-      Write each equation in polar coordinates, solved for <m>r</m>.
-      </p>
-      <p>
-      (a) <m>y = 10</m>
-      </p>
-      <p>
-      (b) <m>x^2 + y^2 = 2</m>
-      </p>
-      <p>
-      (c) <m>x^2 + y^2 - 5x = 0</m>
-      </p>
-      <p>
-      (d) <m>x^2(x^2 + y^2) = 8y^2</m>, assuming <m>r \ge 0</m>
-      </p>
-    </statement>
-    <solution component="hw5-solutions">
-      <p>
-        Use <m>x = r\cos\theta</m>, <m>y = r\sin\theta</m>, and
-        <m>x^2 + y^2 = r^2</m>.
-      </p>
-      <p>
-        (a) <m>r\sin\theta = 10</m>, so <m>r = 10/\sin\theta
-        = 10\csc\theta</m>.
-      </p>
-      <p>
-        (b) <m>r^2 = 2</m>, so <m>r = \sqrt2</m>: a circle of radius
-        <m>\sqrt2</m> about the origin.
-      </p>
-      <p>
-        (c) <m>r^2 - 5r\cos\theta = 0</m>; dividing by <m>r</m> gives
-        <m>r = 5\cos\theta</m>, the circle of diameter <m>5</m> through
-        the origin centered at <m>(5/2, 0)</m>.
-      </p>
-      <p>
-        (d) <m>r^2\cos^2\theta \cdot r^2 = 8r^2\sin^2\theta</m>, so
-        <m>r^2\cos^2\theta = 8\sin^2\theta</m> and, with <m>r \ge 0</m>,
-        <m>r = \sqrt8\,\dfrac{\sin\theta}{\cos\theta}
-        = 2\sqrt2\,\tan\theta</m> (on the angles where this is
-        nonnegative).
-      </p>
-    <figure xml:id="fig-hw5-polar-equations">
-      <caption>
-        Parts (c) and (d) of <xref ref="ex-hw5-cartesian-to-polar"/>. Left: <m>x^2 + y^2 = 5x</m> is the circle <m>r = 5\cos\theta</m>, of diameter <m>5</m>, through the origin. Right: <m>x^2(x^2+y^2) = 8y^2</m>, which in polar form is <m>r = 2\sqrt2\tan\theta</m>; the dashed lines <m>x = \pm 2\sqrt2</m> are asymptotes.
-      </caption>
-      <sidebyside widths="48% 48%" valign="middle">
-        <image width="100%">
-          <shortdescription>
-          A circle of diameter five passing through the origin, centered at five halves comma zero, with a dashed radial segment to a point on it.
-          </shortdescription>
-          <description>
-            <p>
-            Coordinate axes with a blue circle centered at five halves comma zero and of radius five halves, so it passes through the origin and through five comma zero. A dashed green segment from the origin to a point on the upper part of the circle illustrates r equals five cosine theta.
-            </p>
-          </description>
-          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-circle-5cos">
-            <diagram dimensions="(300,256)" margins="10">
-              <definition>cc(t) = (5*cos(t)*cos(t), 5*cos(t)*sin(t))</definition>
-              <coordinates bbox="(-1.3,-3,6.3,3.5)">
-              <grid-axes at="cc-grid" xlabel="x" ylabel="y"/>
-              <parametric-curve at="cc-curve" function="cc" domain="(-pi/2,pi/2)" stroke="#0072B2" thickness="3"/>
-              <line at="cc-ray" endpoints="((0,0),(3.75,2.165))" stroke="#009E73" thickness="2" dash="6 4"/>
-              <point at="cc-center" p="(2.5,0)" fill="black" size="3.5"/>
-              <point at="cc-Q" p="(3.75,2.165)" fill="black" size="3.5"/>
-              <label at="cc-clab" anchor="(2.5,0)" alignment="s" offset="(0,-5)" clear-background="yes"><m>(\tfrac52,0)</m></label>
-              <label at="cc-rlab" anchor="(2.4,0.95)" alignment="se" color="#009E73" clear-background="yes"><m>r=5\cos\theta</m></label>
-              <label at="cc-eq" anchor="(3.0,2.65)" alignment="ne" color="#0072B2" clear-background="yes"><m>x^2+y^2=5x</m></label>
-              </coordinates>
-              <annotations>
-              <annotation ref="figure" text="The circle x squared plus y squared equals five x, which is r equals five cosine theta.">
-                <annotation ref="cc-curve" text="The circle of radius five halves centered at five halves comma zero, passing through the origin." sonify="yes"/>
-                <annotation ref="cc-ray" text="A dashed segment from the origin to a point of the circle, of length five cosine theta."/>
-              </annotation>
-              </annotations>
-            </diagram>
-          </prefigure>
-        </image>
-        <image width="100%">
-          <shortdescription>
-          A curve through the origin with four branches, shaped like two parabolas opening up and down but steepening toward the vertical asymptotes x equals plus or minus two root two.
-          </shortdescription>
-          <description>
-            <p>
-            Coordinate axes with a blue curve symmetric about both axes. It passes through the origin, where the upper and lower halves are tangent to the x axis, and the four branches rise steeply toward the dashed orange vertical lines x equals two root two and x equals negative two root two, which are asymptotes.
-            </p>
-          </description>
-          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5-quartic">
-            <diagram dimensions="(320,320)" margins="10">
-              <definition>up(x) = (x, x^2/sqrt(8 - x^2))</definition>
-              <definition>dn(x) = (x, -x^2/sqrt(8 - x^2))</definition>
-              <coordinates bbox="(-5.9,-5.6,5.9,5.6)">
-              <grid-axes at="qd-grid" xlabel="x" ylabel="y"/>
-              <line at="qd-asym1" endpoints="((2.828,-5.6),(2.828,5.6))" stroke="#D55E00" thickness="1" dash="4 4"/>
-              <line at="qd-asym2" endpoints="((-2.828,-5.6),(-2.828,5.6))" stroke="#D55E00" thickness="1" dash="4 4"/>
-              <parametric-curve at="qd-ne" function="up" domain="(0,2.5248)" stroke="#0072B2" thickness="3"/>
-              <parametric-curve at="qd-nw" function="up" domain="(-2.5248,0)" stroke="#0072B2" thickness="3"/>
-              <parametric-curve at="qd-se" function="dn" domain="(0,2.5248)" stroke="#0072B2" thickness="3"/>
-              <parametric-curve at="qd-sw" function="dn" domain="(-2.5248,0)" stroke="#0072B2" thickness="3"/>
-              <label at="qd-a1" anchor="(2.9,2.6)" alignment="e" offset="(3,0)" color="#D55E00" clear-background="yes"><m>x=2\sqrt2</m></label>
-              <label at="qd-a2" anchor="(-2.9,2.6)" alignment="w" offset="(-1,0)" color="#D55E00" clear-background="yes"><m>x=-2\sqrt2</m></label>
-              <label at="qd-eq" anchor="(0.35,-5.25)" alignment="e" color="#0072B2" clear-background="yes"><m>r=2\sqrt2\,\tan\theta</m></label>
-              </coordinates>
-              <annotations>
-              <annotation ref="figure" text="The curve x squared times x squared plus y squared equals eight y squared, in polar form r equals two root two tangent theta.">
-                <annotation ref="qd-ne" text="The branch in the first quadrant, rising from the origin toward the asymptote x equals two root two." sonify="yes"/>
-                <annotation ref="qd-asym1" text="The vertical asymptote x equals two root two."/>
-                <annotation ref="qd-asym2" text="The vertical asymptote x equals negative two root two."/>
-              </annotation>
-              </annotations>
-            </diagram>
-          </prefigure>
-        </image>
-      </sidebyside>
-    </figure>
     </solution>
   </problem>
 

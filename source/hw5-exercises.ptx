@@ -12,6 +12,75 @@
 
   <exercises xml:id="exercises-hw5">
 
+  <exercise xml:id="ex-hw5-polar-points">
+    <statement>
+      <p>
+        For each point below, find polar coordinates <m>(r,\theta)</m>
+        with <m>0 \le \theta \lt 2\pi</m>, first with <m>r \gt 0</m> and
+        then with <m>r \lt 0</m>.
+      </p>
+      <p>
+        (a) The point with Cartesian coordinates <m>(1,1)</m>.
+      </p>
+      <p>
+        (b) The point with Cartesian coordinates <m>(2\sqrt3,\,-2)</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw5-limacon-point">
+    <introduction>
+      <p>
+        A curve in polar coordinates is given by
+        <m>r = 12 + 2\cos\theta</m>, and the point <m>P</m> on it is at
+        <m>\theta = \dfrac{26\pi}{24}</m>.
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Find the polar coordinate <m>r</m> of <m>P</m>, with
+          <m>r \gt 0</m> and <m>\pi \lt \theta \lt \frac{3\pi}{2}</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Find the Cartesian coordinates of <m>P</m>.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How many times does the curve pass through the origin as
+          <m>\theta</m> runs over <m>0 \lt \theta \lt 2\pi</m>?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <exercise xml:id="ex-hw5-cartesian-to-polar">
+    <statement>
+      <p>
+        Write each equation in polar coordinates, solved for <m>r</m>.
+      </p>
+      <p>
+        (a) <m>y = 10</m>
+      </p>
+      <p>
+        (b) <m>x^2 + y^2 = 2</m>
+      </p>
+      <p>
+        (c) <m>x^2 + y^2 - 5x = 0</m>
+      </p>
+      <p>
+        (d) <m>x^2(x^2 + y^2) = 8y^2</m>, assuming <m>r \ge 0</m>
+      </p>
+    </statement>
+  </exercise>
+
   <exercise xml:id="ex-hw5-rose">
     <introduction>
       <p>
@@ -153,75 +222,6 @@
         bounded by <m>x^2 + y^2 = 2x</m> and <m>x^2 + y^2 = 2y</m>, and
         whose mass density is given by
         <m>\rho(x,y) = \dfrac{1}{x}</m>.
-      </p>
-    </statement>
-  </exercise>
-
-  <exercise xml:id="ex-hw5-polar-points">
-    <statement>
-      <p>
-        For each point below, find polar coordinates <m>(r,\theta)</m>
-        with <m>0 \le \theta \lt 2\pi</m>, first with <m>r \gt 0</m> and
-        then with <m>r \lt 0</m>.
-      </p>
-      <p>
-        (a) The point with Cartesian coordinates <m>(1,1)</m>.
-      </p>
-      <p>
-        (b) The point with Cartesian coordinates <m>(2\sqrt3,\,-2)</m>.
-      </p>
-    </statement>
-  </exercise>
-
-  <exercise xml:id="ex-hw5-limacon-point">
-    <introduction>
-      <p>
-        A curve in polar coordinates is given by
-        <m>r = 12 + 2\cos\theta</m>, and the point <m>P</m> on it is at
-        <m>\theta = \dfrac{26\pi}{24}</m>.
-      </p>
-    </introduction>
-    <task>
-      <statement>
-        <p>
-          Find the polar coordinate <m>r</m> of <m>P</m>, with
-          <m>r \gt 0</m> and <m>\pi \lt \theta \lt \frac{3\pi}{2}</m>.
-        </p>
-      </statement>
-    </task>
-    <task>
-      <statement>
-        <p>
-          Find the Cartesian coordinates of <m>P</m>.
-        </p>
-      </statement>
-    </task>
-    <task>
-      <statement>
-        <p>
-          How many times does the curve pass through the origin as
-          <m>\theta</m> runs over <m>0 \lt \theta \lt 2\pi</m>?
-        </p>
-      </statement>
-    </task>
-  </exercise>
-
-  <exercise xml:id="ex-hw5-cartesian-to-polar">
-    <statement>
-      <p>
-        Write each equation in polar coordinates, solved for <m>r</m>.
-      </p>
-      <p>
-        (a) <m>y = 10</m>
-      </p>
-      <p>
-        (b) <m>x^2 + y^2 = 2</m>
-      </p>
-      <p>
-        (c) <m>x^2 + y^2 - 5x = 0</m>
-      </p>
-      <p>
-        (d) <m>x^2(x^2 + y^2) = 8y^2</m>, assuming <m>r \ge 0</m>
       </p>
     </statement>
   </exercise>
