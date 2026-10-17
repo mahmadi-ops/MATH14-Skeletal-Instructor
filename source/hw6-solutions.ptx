@@ -229,18 +229,22 @@
   <problem xml:id="ex-hw6-wedge">
     <statement>
       <p>
-      Find the volume of the wedge-shaped region <m>\mathcal{W}</m> of
-      <xref ref="fig-hw6s-wedge"/>, contained in the cylinder
-      <m>x^2 + y^2 = 9</m>, bounded above by the plane <m>z = x</m> and
-      below by the <m>xy</m>-plane.
+      Find the volume of the wedge-shaped region <m>\mathcal{W}</m>
+      contained in the cylinder <m>x^2 + y^2 = 9</m>, bounded above by the
+      plane <m>z = x</m> and below by the <m>xy</m>-plane.
       </p>
-      <figure xml:id="fig-hw6s-wedge">
+    </statement>
+    <solution component="hw6-solutions">
+      <p>
+      The wedge is shown in <xref ref="fig-hw6-wedge"/>.
+      </p>
+      <figure xml:id="fig-hw6-wedge">
         <caption>
           The wedge of <xref ref="ex-hw6-wedge"/>: inside the cylinder
           <m>x^2 + y^2 = 9</m>, above the <m>xy</m>-plane and below the plane
           <m>z = x</m>.
         </caption>
-        <image xml:id="image-hw6s-wedge" width="60%">
+        <image xml:id="image-hw6-wedge" width="60%">
           <shortdescription>
             A wedge standing on a half disk in the xy-plane: its curved side is part of
             a cylinder and its sloping top is the plane z equals x.
@@ -307,8 +311,6 @@
           </latex-image>
         </image>
       </figure>
-    </statement>
-    <solution component="hw6-solutions">
       <p>
       The wedge is bounded below by <m>z = 0</m> and above by <m>z = x</m>,
       so <m>0 \le z \le x</m>; in particular <m>x \ge 0</m>, and the wedge
