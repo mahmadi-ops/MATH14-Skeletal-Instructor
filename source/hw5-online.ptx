@@ -449,6 +449,79 @@
         <m>r \lt 0</m>, add <m>\pi</m> to the angle:
         <m>(-4, 5\pi/6) \approx (-4, 2.618)</m>.
       </p>
+      <figure xml:id="fig-hw5o-polar-points">
+        <caption>
+          The two points of <xref ref="ex-hw5o-polar-points"/>. In each panel the solid blue segment is the representation with <m>r \gt 0</m> and the dashed orange ray is the one with <m>r \lt 0</m>, which points the opposite way and so needs an angle larger by <m>\pi</m>.
+        </caption>
+        <sidebyside widths="48% 48%" valign="middle">
+          <image width="100%">
+            <shortdescription>
+            The point one comma one with its polar angle pi over four, and the opposite ray for the negative-r representation at angle five pi over four.
+            </shortdescription>
+            <description>
+              <p>
+              Coordinate axes with the point one comma one. A solid blue segment from the origin to the point is labelled r equals square root of two, with an arc marking the angle theta equals pi over four. A dashed orange ray leaves the origin in the opposite direction, labelled r equals negative square root of two, with a larger arc marking theta equals five pi over four.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-point-a">
+              <diagram dimensions="(300,300)" margins="10">
+                <coordinates bbox="(-1.9,-1.9,1.9,1.9)">
+                <grid-axes at="hw5o-point-a-grid" xlabel="x" ylabel="y"/>
+                <line at="hw5o-point-a-ray" endpoints="((0,0),(1,1))" stroke="#0072B2" thickness="3"/>
+                <line at="hw5o-point-a-opp" endpoints="((0,0),(-1,-1))" stroke="#D55E00" thickness="2" dash="6 4"/>
+                <arc at="hw5o-point-a-arc-pos" center="(0,0)" radius="0.55" range="(0,45)" stroke="#0072B2" thickness="2" arrows="1"/>
+                <arc at="hw5o-point-a-arc-neg" center="(0,0)" radius="0.85" range="(0,225)" stroke="#D55E00" thickness="2" arrows="1"/>
+                <point at="hw5o-point-a-P" p="(1,1)" fill="black" size="4"/>
+                <label at="pa-Plab" anchor="(1,1)" alignment="ne" offset="(4,4)" clear-background="yes"><m>(1,1)</m></label>
+                <label at="pa-pos" anchor="(0.62,0.22)" alignment="e" color="#0072B2" clear-background="yes"><m>\theta=\tfrac{\pi}{4}</m></label>
+                <label at="pa-neg" anchor="(-0.55,-1.0)" alignment="s" color="#D55E00" clear-background="yes"><m>\theta=\tfrac{5\pi}{4}</m></label>
+                <label at="pa-rlab" anchor="(0.72,0.98)" alignment="nw" color="#0072B2" clear-background="yes"><m>r=\sqrt2</m></label>
+                <label at="pa-rneg" anchor="(-1.0,-0.55)" alignment="w" color="#D55E00" clear-background="yes"><m>r=-\sqrt2</m></label>
+                </coordinates>
+                <annotations>
+                <annotation ref="figure" text="The point one comma one in the plane, with its two polar representations.">
+                  <annotation ref="pa-ray" text="The segment from the origin to the point, of length square root of two, at angle pi over four."/>
+                  <annotation ref="pa-opp" text="The dashed ray from the origin in the opposite direction, used when r is negative square root of two and theta is five pi over four."/>
+                </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+          <image width="100%">
+            <shortdescription>
+            The point two root three comma negative two with its polar angle eleven pi over six, and the opposite ray for the negative-r representation at angle five pi over six.
+            </shortdescription>
+            <description>
+              <p>
+              Coordinate axes with the point two root three comma negative two in the fourth quadrant. A solid blue segment from the origin to the point is labelled r equals four, with an arc sweeping counterclockwise almost all the way around to mark theta equals eleven pi over six. A dashed orange ray leaves the origin in the opposite direction, into the second quadrant, labelled r equals negative four, with an arc marking theta equals five pi over six.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-point-b">
+              <diagram dimensions="(300,216)" margins="10">
+                <coordinates bbox="(-4.6,-3.6,5.4,3.6)">
+                <grid-axes at="hw5o-point-b-grid" xlabel="x" ylabel="y"/>
+                <line at="hw5o-point-b-ray" endpoints="((0,0),(3.464,-2))" stroke="#0072B2" thickness="3"/>
+                <line at="hw5o-point-b-opp" endpoints="((0,0),(-3.464,2))" stroke="#D55E00" thickness="2" dash="6 4"/>
+                <arc at="hw5o-point-b-arc-pos" center="(0,0)" radius="1.3" range="(0,330)" stroke="#0072B2" thickness="2" arrows="1"/>
+                <arc at="hw5o-point-b-arc-neg" center="(0,0)" radius="2.0" range="(0,150)" stroke="#D55E00" thickness="2" arrows="1"/>
+                <point at="hw5o-point-b-P" p="(3.464,-2)" fill="black" size="4"/>
+                <label at="pb-Plab" anchor="(3.464,-2)" alignment="s" offset="(0,-5)" clear-background="yes"><m>(2\sqrt3,-2)</m></label>
+                <label at="pb-pos" anchor="(0.5,-2.25)" alignment="s" color="#0072B2" clear-background="yes"><m>\theta=\tfrac{11\pi}{6}</m></label>
+                <label at="pb-neg" anchor="(0.7,2.1)" alignment="ne" color="#D55E00"><m>\theta=\tfrac{5\pi}{6}</m></label>
+                <label at="pb-rlab" anchor="(1.5,-1.45)" alignment="s" color="#0072B2" clear-background="yes"><m>r=4</m></label>
+                <label at="pb-rneg" anchor="(-2.9,2.1)" alignment="n" color="#D55E00" clear-background="yes"><m>r=-4</m></label>
+                </coordinates>
+                <annotations>
+                <annotation ref="figure" text="The point two root three comma negative two in the plane, with its two polar representations.">
+                  <annotation ref="pb-ray" text="The segment from the origin to the point, of length four, at angle eleven pi over six."/>
+                  <annotation ref="pb-opp" text="The dashed ray from the origin in the opposite direction, used when r is negative four and theta is five pi over six."/>
+                </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </sidebyside>
+      </figure>
     </solution>
   </exercise>
 
@@ -528,6 +601,46 @@
         <m>r</m> is never zero: the curve never passes through the origin.
         The answer is <m>0</m>.
       </p>
+      <figure xml:id="fig-hw5o-limacon">
+        <caption>
+          The curve <m>r = 12 + 2\cos\theta</m> of <xref ref="ex-hw5o-limacon-point"/> with the point <m>P</m> at <m>\theta = 13\pi/12</m>. The dashed circle <m>r = 10</m> is the smallest value <m>r</m> ever takes, so the curve never reaches the origin.
+        </caption>
+        <image width="70%">
+          <shortdescription>
+          A slightly flattened oval around the origin, the curve r equals twelve plus two cosine theta, with the point P marked on its left side and a dashed circle of radius ten inside it.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with a blue closed curve, r equals twelve plus two cosine theta, which is nearly circular: it crosses the positive x axis at fourteen and the negative x axis at ten. A dashed orange circle of radius ten fits inside it, touching it at negative ten comma zero. A green segment from the origin at angle thirteen pi over twelve, just below the negative x axis, ends at the point P on the curve, with the length labelled r approximately ten point zero seven.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-limacon">
+            <diagram dimensions="(330,330)" margins="10">
+              <definition>lim(t) = ((12 + 2*cos(t))*cos(t), (12 + 2*cos(t))*sin(t))</definition>
+              <coordinates bbox="(-15.5,-15.5,15.5,15.5)">
+              <grid-axes at="lm-grid" xlabel="x" ylabel="y" hlabels="(-10,10,10)" vlabels="(-10,10,10)" spacing="(5,5)"/>
+              <parametric-curve at="lm-curve" function="lim" domain="(0,2*pi)" stroke="#0072B2" thickness="3"/>
+              <circle at="lm-inner" center="(0,0)" radius="10" stroke="#D55E00" thickness="1" dash="4 4" fill="none"/>
+              <line at="lm-ray" endpoints="((0,0),(-9.725,-2.606))" stroke="#009E73" thickness="2.5"/>
+              <arc at="lm-arc" center="(0,0)" radius="5" range="(0,195)" stroke="#009E73" thickness="2" arrows="1"/>
+              <point at="lm-P" p="(-9.725,-2.606)" fill="black" size="4"/>
+              <label at="lm-Plab" anchor="(-9.725,-2.606)" alignment="sw" offset="(-4,-4)" clear-background="yes"><m>P</m></label>
+              <label at="lm-tlab" anchor="(-5.2,1.0)" alignment="nw" color="#009E73" clear-background="yes"><m>\theta=\tfrac{13\pi}{12}</m></label>
+              <label at="lm-rlab" anchor="(-4.5,-2.3)" alignment="s" color="#009E73" clear-background="yes"><m>r\approx 10.07</m></label>
+              <label at="lm-clab" anchor="(3,12.8)" alignment="ne" color="#0072B2" clear-background="yes"><m>r=12+2\cos\theta</m></label>
+              <label at="lm-ilab" anchor="(7.6,-7.5)" alignment="sw" color="#D55E00" clear-background="yes"><m>r=10</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The curve r equals twelve plus two cosine theta, with the point P at angle thirteen pi over twelve and the inner circle of radius ten.">
+                <annotation ref="lm-curve" text="The curve r equals twelve plus two cosine theta, a nearly circular closed curve." sonify="yes"/>
+                <annotation ref="lm-inner" text="The dashed circle r equals ten, the minimum value of r, which touches the curve at negative ten comma zero."/>
+                <annotation ref="lm-ray" text="The segment from the origin to P at angle thirteen pi over twelve, of length about ten point zero seven."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -613,6 +726,79 @@
         = 2\sqrt2\,\tan\theta</m> (on the angles where this is
         nonnegative).
       </p>
+      <figure xml:id="fig-hw5o-polar-equations">
+        <caption>
+          Parts (c) and (d) of <xref ref="ex-hw5o-cartesian-to-polar"/>. Left: <m>x^2 + y^2 = 5x</m> is the circle <m>r = 5\cos\theta</m>, of diameter <m>5</m>, through the origin. Right: <m>x^2(x^2+y^2) = 8y^2</m>, which in polar form is <m>r = 2\sqrt2\tan\theta</m>; the dashed lines <m>x = \pm 2\sqrt2</m> are asymptotes.
+        </caption>
+        <sidebyside widths="48% 48%" valign="middle">
+          <image width="100%">
+            <shortdescription>
+            A circle of diameter five passing through the origin, centered at five halves comma zero, with a dashed radial segment to a point on it.
+            </shortdescription>
+            <description>
+              <p>
+              Coordinate axes with a blue circle centered at five halves comma zero and of radius five halves, so it passes through the origin and through five comma zero. A dashed green segment from the origin to a point on the upper part of the circle illustrates r equals five cosine theta.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-circle-5cos">
+              <diagram dimensions="(300,256)" margins="10">
+                <definition>cc(t) = (5*cos(t)*cos(t), 5*cos(t)*sin(t))</definition>
+                <coordinates bbox="(-1.3,-3,6.3,3.5)">
+                <grid-axes at="cc-grid" xlabel="x" ylabel="y"/>
+                <parametric-curve at="cc-curve" function="cc" domain="(-pi/2,pi/2)" stroke="#0072B2" thickness="3"/>
+                <line at="cc-ray" endpoints="((0,0),(3.75,2.165))" stroke="#009E73" thickness="2" dash="6 4"/>
+                <point at="cc-center" p="(2.5,0)" fill="black" size="3.5"/>
+                <point at="cc-Q" p="(3.75,2.165)" fill="black" size="3.5"/>
+                <label at="cc-clab" anchor="(2.5,0)" alignment="s" offset="(0,-5)" clear-background="yes"><m>(\tfrac52,0)</m></label>
+                <label at="cc-rlab" anchor="(2.4,0.95)" alignment="se" color="#009E73" clear-background="yes"><m>r=5\cos\theta</m></label>
+                <label at="cc-eq" anchor="(3.0,2.65)" alignment="ne" color="#0072B2" clear-background="yes"><m>x^2+y^2=5x</m></label>
+                </coordinates>
+                <annotations>
+                <annotation ref="figure" text="The circle x squared plus y squared equals five x, which is r equals five cosine theta.">
+                  <annotation ref="cc-curve" text="The circle of radius five halves centered at five halves comma zero, passing through the origin." sonify="yes"/>
+                  <annotation ref="cc-ray" text="A dashed segment from the origin to a point of the circle, of length five cosine theta."/>
+                </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+          <image width="100%">
+            <shortdescription>
+            A curve through the origin with four branches, shaped like two parabolas opening up and down but steepening toward the vertical asymptotes x equals plus or minus two root two.
+            </shortdescription>
+            <description>
+              <p>
+              Coordinate axes with a blue curve symmetric about both axes. It passes through the origin, where the upper and lower halves are tangent to the x axis, and the four branches rise steeply toward the dashed orange vertical lines x equals two root two and x equals negative two root two, which are asymptotes.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-quartic">
+              <diagram dimensions="(320,320)" margins="10">
+                <definition>up(x) = (x, x^2/sqrt(8 - x^2))</definition>
+                <definition>dn(x) = (x, -x^2/sqrt(8 - x^2))</definition>
+                <coordinates bbox="(-5.9,-5.6,5.9,5.6)">
+                <grid-axes at="qd-grid" xlabel="x" ylabel="y"/>
+                <line at="qd-asym1" endpoints="((2.828,-5.6),(2.828,5.6))" stroke="#D55E00" thickness="1" dash="4 4"/>
+                <line at="qd-asym2" endpoints="((-2.828,-5.6),(-2.828,5.6))" stroke="#D55E00" thickness="1" dash="4 4"/>
+                <parametric-curve at="qd-ne" function="up" domain="(0,2.5248)" stroke="#0072B2" thickness="3"/>
+                <parametric-curve at="qd-nw" function="up" domain="(-2.5248,0)" stroke="#0072B2" thickness="3"/>
+                <parametric-curve at="qd-se" function="dn" domain="(0,2.5248)" stroke="#0072B2" thickness="3"/>
+                <parametric-curve at="qd-sw" function="dn" domain="(-2.5248,0)" stroke="#0072B2" thickness="3"/>
+                <label at="qd-a1" anchor="(2.9,2.6)" alignment="e" offset="(3,0)" color="#D55E00" clear-background="yes"><m>x=2\sqrt2</m></label>
+                <label at="qd-a2" anchor="(-2.9,2.6)" alignment="w" offset="(-1,0)" color="#D55E00" clear-background="yes"><m>x=-2\sqrt2</m></label>
+                <label at="qd-eq" anchor="(0.35,-5.25)" alignment="e" color="#0072B2" clear-background="yes"><m>r=2\sqrt2\,\tan\theta</m></label>
+                </coordinates>
+                <annotations>
+                <annotation ref="figure" text="The curve x squared times x squared plus y squared equals eight y squared, in polar form r equals two root two tangent theta.">
+                  <annotation ref="qd-ne" text="The branch in the first quadrant, rising from the origin toward the asymptote x equals two root two." sonify="yes"/>
+                  <annotation ref="qd-asym1" text="The vertical asymptote x equals two root two."/>
+                  <annotation ref="qd-asym2" text="The vertical asymptote x equals negative two root two."/>
+                </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </sidebyside>
+      </figure>
     </solution>
   </exercise>
 
@@ -657,6 +843,57 @@
         <xref ref="eq-polar-area-element"/> and
         <m>1/\sqrt{x^2+y^2} = 1/r</m>,
       </p>
+      <figure xml:id="fig-hw5o-half-disk">
+        <caption>
+          The region of integration <m>R</m> in <xref ref="ex-hw5o-half-disk"/>: the part of the upper half of the disk <m>x^2 + y^2 \le 18x</m> to the right of <m>x = 9</m>. Along the orange ray at angle <m>\theta</m>, <m>r</m> runs from <m>9\sec\theta</m> on the line to <m>18\cos\theta</m> on the circle; the ray <m>\theta = \pi/4</m> through <m>(9,9)</m> is where those two bounds meet.
+        </caption>
+        <image width="80%">
+          <shortdescription>
+          A shaded region bounded by the vertical line x equals nine, the x axis from nine to eighteen, and the arc of the circle of radius nine centered at nine comma zero, with a ray from the origin at angle theta crossing it.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with the upper half of the circle of radius nine centered at nine comma zero drawn in blue. The region R, shaded tan, is the part of that half disk with x at least nine: it is bounded by the vertical segment from nine comma zero up to nine comma nine, the arc from nine comma nine down to eighteen comma zero, and the x axis. A dashed green ray from the origin at angle pi over four passes through nine comma nine. An orange ray from the origin at a smaller angle theta enters R where it crosses the line x equals nine, at r equals nine secant theta, and leaves it on the circle, at r equals eighteen cosine theta.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-half-disk">
+            <diagram dimensions="(420,258)" margins="10">
+              <definition>circ(t) = (18*cos(t)*cos(t), 18*cos(t)*sin(t))</definition>
+              <coordinates bbox="(-1.8,-1.8,19.8,10.8)">
+              <axes at="hd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <polygon at="hd-region" fill="#fbe3d0" stroke="none" closed="yes" points="((9,0),(9,9),(9.236,8.997),(9.471,8.988),(9.706,8.972),(9.941,8.951),(10.17,8.923),(10.41,8.889),(10.64,8.849),(10.87,8.803),(11.1,8.751),(11.33,8.693),(11.56,8.629),(11.78,8.56),(12,8.484),(12.23,8.402),(12.44,8.315),(12.66,8.222),(12.87,8.123),(13.09,8.019),(13.29,7.909),(13.5,7.794),(13.7,7.674),(13.9,7.548),(14.1,7.417),(14.29,7.281),(14.48,7.14),(14.66,6.994),(14.85,6.844),(15.02,6.688),(15.2,6.528),(15.36,6.364),(15.53,6.195),(15.69,6.022),(15.84,5.845),(15.99,5.664),(16.14,5.479),(16.28,5.29),(16.42,5.098),(16.55,4.902),(16.67,4.702),(16.79,4.5),(16.91,4.294),(17.02,4.086),(17.12,3.875),(17.22,3.661),(17.31,3.444),(17.4,3.225),(17.48,3.004),(17.56,2.781),(17.63,2.556),(17.69,2.329),(17.75,2.101),(17.8,1.871),(17.85,1.64),(17.89,1.408),(17.92,1.175),(17.95,0.9408),(17.97,0.7061),(17.99,0.471),(18,0.2356),(18,0),(9,0))"/>
+              <parametric-curve at="hd-circle" function="circ" domain="(0,pi/2)" stroke="#0072B2" thickness="3"/>
+              <line at="hd-wall" endpoints="((9,0),(9,9))" stroke="#0072B2" thickness="3"/>
+              <line at="hd-base" endpoints="((9,0),(18,0))" stroke="#0072B2" thickness="3"/>
+              <line at="hd-ray" endpoints="((0,0),(9,9))" stroke="#009E73" thickness="2" dash="6 4"/>
+              <line at="hd-ray2" endpoints="((0,0),(17.6,2.66))" stroke="#D55E00" thickness="2"/>
+              <arc at="hd-arc" center="(0,0)" radius="3.2" range="(0,45)" stroke="#009E73" thickness="2" arrows="1"/>
+              <point at="hd-O" p="(0,0)" fill="black" size="3"/>
+              <point at="hd-c" p="(9,0)" fill="black" size="3"/>
+              <point at="hd-T" p="(9,9)" fill="black" size="3.5"/>
+              <point at="hd-in" p="(9.102,1.36)" fill="#D55E00" size="3.5"/>
+              <point at="hd-out" p="(17.6,2.66)" fill="#D55E00" size="3.5"/>
+              <label at="hd-clab" anchor="(9,0)" alignment="s" offset="(0,-4)" clear-background="yes"><m>9</m></label>
+              <label at="hd-elab" anchor="(18,0)" alignment="s" offset="(0,-4)" clear-background="yes"><m>18</m></label>
+              <label at="hd-Tlab" anchor="(9,9)" alignment="n" offset="(0,5)" clear-background="yes"><m>(9,9)</m></label>
+              <label at="hd-tlab" anchor="(3.7,1.5)" alignment="e" color="#009E73"><m>\theta=\tfrac{\pi}{4}</m></label>
+              <label at="hd-wlab" anchor="(9.4,6.4)" alignment="e" color="#0072B2"><m>x=9,\ r=9\sec\theta</m></label>
+              <label at="hd-rlab" anchor="(14.2,7.4)" alignment="ne" color="#0072B2" clear-background="yes"><m>r=18\cos\theta</m></label>
+              <label at="hd-Rlab" anchor="(13.0,3.6)" alignment="c"><m>R</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The region R: the right half of the upper half disk of radius nine centered at nine comma zero, with a ray showing the polar bounds.">
+                <annotation ref="hd-region" text="The shaded region R, between the line x equals nine, the x axis, and the circle."/>
+                <annotation ref="hd-circle" text="The upper half of the circle r equals eighteen cosine theta, of radius nine centered at nine comma zero." sonify="yes"/>
+                <annotation ref="hd-wall" text="The vertical segment x equals nine from the x axis up to nine comma nine, which is r equals nine secant theta."/>
+                <annotation ref="hd-ray" text="The dashed ray theta equals pi over four through nine comma nine, where the line and the circle meet."/>
+                <annotation ref="hd-ray2" text="A ray at angle theta, which crosses R from r equals nine secant theta to r equals eighteen cosine theta."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
       <md>
         <mrow>
           \int_0^{\pi/4}\!\!\int_{9\sec\theta}^{18\cos\theta}
@@ -705,6 +942,51 @@
         <m>-\pi/2 \le \theta \le \pi/2</m>,
         <m>5 \le r \le 5(1+\cos\theta)</m>, and
       </p>
+      <figure xml:id="fig-hw5o-cardioid">
+        <caption>
+          The region <m>R</m> of <xref ref="ex-hw5o-cardioid-circle"/>, inside the cardioid <m>r = 5(1+\cos\theta)</m> and outside the circle <m>r = 5</m>. The two curves cross at <m>\theta = \pm\pi/2</m>, and along a ray in between, <m>r</m> runs from <m>5</m> to <m>5(1+\cos\theta)</m>.
+        </caption>
+        <image width="80%">
+          <shortdescription>
+          A cardioid and a circle of radius five, both through the points zero comma plus or minus five, with the crescent-shaped region inside the cardioid and outside the circle shaded.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with a blue cardioid r equals five times one plus cosine theta, whose cusp is at the origin and whose far point is ten comma zero, and an orange circle of radius five centered at the origin. The two curves cross at zero comma five and zero comma negative five. The region R, shaded tan, is the crescent to the right of the circle and inside the cardioid. A green ray from the origin at an angle theta between negative pi over two and pi over two is dashed until it leaves the circle at r equals five and solid from there to the cardioid at r equals five times one plus cosine theta.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-cardioid">
+            <diagram dimensions="(420,280)" margins="10">
+              <definition>card(t) = (5*(1 + cos(t))*cos(t), 5*(1 + cos(t))*sin(t))</definition>
+              <coordinates bbox="(-6.5,-7,14.5,7)">
+              <axes at="cd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <polygon at="cd-region" fill="#fbe3d0" stroke="none" closed="yes" points="((3.062e-16,-5),(0.204,-5.192),(0.4231,-5.376),(0.6568,-5.549),(0.9045,-5.711),(1.166,-5.861),(1.44,-5.997),(1.726,-6.119),(2.023,-6.225),(2.33,-6.315),(2.646,-6.387),(2.97,-6.442),(3.3,-6.478),(3.637,-6.494),(3.978,-6.491),(4.321,-6.467),(4.666,-6.423),(5.012,-6.358),(5.356,-6.271),(5.698,-6.164),(6.036,-6.036),(6.368,-5.886),(6.693,-5.716),(7.01,-5.526),(7.318,-5.317),(7.614,-5.088),(7.898,-4.84),(8.169,-4.575),(8.424,-4.292),(8.664,-3.994),(8.887,-3.681),(9.092,-3.354),(9.278,-3.015),(9.444,-2.663),(9.589,-2.302),(9.714,-1.932),(9.816,-1.555),(9.896,-1.171),(9.954,-0.7834),(9.988,-0.3924),(10,0),(9.988,0.3924),(9.954,0.7834),(9.896,1.171),(9.816,1.555),(9.714,1.932),(9.589,2.302),(9.444,2.663),(9.278,3.015),(9.092,3.354),(8.887,3.681),(8.664,3.994),(8.424,4.292),(8.169,4.575),(7.898,4.84),(7.614,5.088),(7.318,5.317),(7.01,5.526),(6.693,5.716),(6.368,5.886),(6.036,6.036),(5.698,6.164),(5.356,6.271),(5.012,6.358),(4.666,6.423),(4.321,6.467),(3.978,6.491),(3.637,6.494),(3.3,6.478),(2.97,6.442),(2.646,6.387),(2.33,6.315),(2.023,6.225),(1.726,6.119),(1.44,5.997),(1.166,5.861),(0.9045,5.711),(0.6568,5.549),(0.4231,5.376),(0.204,5.192),(3.062e-16,5),(0.1963,4.996),(0.3923,4.985),(0.5877,4.965),(0.7822,4.938),(0.9755,4.904),(1.167,4.862),(1.357,4.812),(1.545,4.755),(1.731,4.691),(1.913,4.619),(2.093,4.541),(2.27,4.455),(2.443,4.362),(2.612,4.263),(2.778,4.157),(2.939,4.045),(3.095,3.927),(3.247,3.802),(3.394,3.672),(3.536,3.536),(3.672,3.394),(3.802,3.247),(3.927,3.095),(4.045,2.939),(4.157,2.778),(4.263,2.612),(4.362,2.443),(4.455,2.27),(4.541,2.093),(4.619,1.913),(4.691,1.731),(4.755,1.545),(4.812,1.357),(4.862,1.167),(4.904,0.9755),(4.938,0.7822),(4.965,0.5877),(4.985,0.3923),(4.996,0.1963),(5,0),(4.996,-0.1963),(4.985,-0.3923),(4.965,-0.5877),(4.938,-0.7822),(4.904,-0.9755),(4.862,-1.167),(4.812,-1.357),(4.755,-1.545),(4.691,-1.731),(4.619,-1.913),(4.541,-2.093),(4.455,-2.27),(4.362,-2.443),(4.263,-2.612),(4.157,-2.778),(4.045,-2.939),(3.927,-3.095),(3.802,-3.247),(3.672,-3.394),(3.536,-3.536),(3.394,-3.672),(3.247,-3.802),(3.095,-3.927),(2.939,-4.045),(2.778,-4.157),(2.612,-4.263),(2.443,-4.362),(2.27,-4.455),(2.093,-4.541),(1.913,-4.619),(1.731,-4.691),(1.545,-4.755),(1.357,-4.812),(1.167,-4.862),(0.9755,-4.904),(0.7822,-4.938),(0.5877,-4.965),(0.3923,-4.985),(0.1963,-4.996),(3.062e-16,-5))"/>
+              <parametric-curve at="cd-card" function="card" domain="(0,2*pi)" stroke="#0072B2" thickness="3"/>
+              <circle at="cd-circle" center="(0,0)" radius="5" stroke="#D55E00" thickness="3" fill="none"/>
+              <line at="cd-ray" endpoints="((0,0),(7.533,5.153))" stroke="#009E73" thickness="2"/>
+              <line at="cd-rayin" endpoints="((0,0),(4.127,2.823))" stroke="#009E73" thickness="2" dash="5 4"/>
+              <point at="cd-top" p="(0,5)" fill="black" size="3.5"/>
+              <point at="cd-bot" p="(0,-5)" fill="black" size="3.5"/>
+              <point at="cd-in" p="(4.127,2.823)" fill="#009E73" size="3.5"/>
+              <point at="cd-out" p="(7.533,5.153)" fill="#009E73" size="3.5"/>
+              <label at="cd-toplab" anchor="(0,5)" alignment="nw" offset="(-3,4)" clear-background="yes"><m>\theta=\tfrac{\pi}{2}</m></label>
+              <label at="cd-botlab" anchor="(0,-5)" alignment="sw" offset="(-3,-4)" clear-background="yes"><m>\theta=-\tfrac{\pi}{2}</m></label>
+              <label at="cd-clab" anchor="(8.3,4.4)" alignment="ne" color="#0072B2" clear-background="yes"><m>r=5(1+\cos\theta)</m></label>
+              <label at="cd-ilab" anchor="(-3.4,-3.8)" alignment="sw" color="#D55E00" clear-background="yes"><m>r=5</m></label>
+              <label at="cd-Rlab" anchor="(7.1,-1.6)" alignment="c" clear-background="yes"><m>R</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The crescent region inside the cardioid r equals five times one plus cosine theta and outside the circle r equals five.">
+                <annotation ref="cd-region" text="The shaded region R, inside the cardioid and outside the circle, for theta between minus pi over two and pi over two."/>
+                <annotation ref="cd-card" text="The cardioid r equals five times one plus cosine theta, with its cusp at the origin." sonify="yes"/>
+                <annotation ref="cd-circle" text="The circle r equals five, centered at the origin."/>
+                <annotation ref="cd-ray" text="A ray at angle theta, crossing R from r equals five to r equals five times one plus cosine theta."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
       <md>
         <mrow>
           A \amp = \int_{-\pi/2}^{\pi/2}\!\!\int_{5}^{5(1+\cos\theta)}
@@ -824,6 +1106,48 @@
         and with <m>dA = r\,dr\,d\theta</m> by
         <xref ref="eq-polar-area-element"/>,
       </p>
+      <figure xml:id="fig-hw5o-triangle">
+        <caption>
+          The region of <xref ref="ex-hw5o-triangle-polar"/>: the triangle <m>0 \le x \le \sqrt{10}</m>, <m>-x \le y \le x</m>. Its slanted sides are the rays <m>\theta = \pm\pi/4</m>, and along the green ray at angle <m>\theta</m>, <m>r</m> runs from <m>0</m> to the vertical side, <m>r = \sqrt{10}\sec\theta</m>.
+        </caption>
+        <image width="60%">
+          <shortdescription>
+          A shaded triangle with vertices at the origin, root ten comma root ten, and root ten comma negative root ten, with a ray from the origin crossing it to its vertical side.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with a tan triangle outlined in blue, with one vertex at the origin and the other two at root ten comma root ten and root ten comma negative root ten, so its third side is the vertical segment x equals root ten. Arcs at the origin mark the angles pi over four and negative pi over four of the two slanted sides. A green segment from the origin at an angle theta in between ends on the vertical side, at r equals root ten secant theta.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-triangle">
+            <diagram dimensions="(330,357)" margins="10">
+              <coordinates bbox="(-0.9,-4.1,4.9,4.1)">
+              <axes at="tr-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <polygon at="tr-region" fill="#fbe3d0" stroke="#0072B2" thickness="3" closed="yes" points="((0,0),(3.162,3.162),(3.162,-3.162))"/>
+              <line at="tr-ray" endpoints="((0,0),(3.162,0.9782))" stroke="#009E73" thickness="2"/>
+              <arc at="tr-arc-pos" center="(0,0)" radius="1.1" range="(0,45)" stroke="black" thickness="2" arrows="1"/>
+              <arc at="tr-arc-neg" center="(0,0)" radius="1.1" range="(-45,0)" stroke="black" thickness="2" arrows="1"/>
+              <point at="tr-A" p="(3.162,3.162)" fill="black" size="3.5"/>
+              <point at="tr-B" p="(3.162,-3.162)" fill="black" size="3.5"/>
+              <point at="tr-E" p="(3.162,0.9782)" fill="#009E73" size="3.5"/>
+              <label at="tr-Alab" anchor="(3.162,3.162)" alignment="ne" offset="(3,3)" clear-background="yes"><m>(\sqrt{10},\sqrt{10})</m></label>
+              <label at="tr-Blab" anchor="(3.162,-3.162)" alignment="se" offset="(3,-3)" clear-background="yes"><m>(\sqrt{10},-\sqrt{10})</m></label>
+              <label at="tr-tp" anchor="(1.25,0.3)" alignment="ne"><m>\tfrac{\pi}{4}</m></label>
+              <label at="tr-tn" anchor="(1.25,-0.3)" alignment="se"><m>-\tfrac{\pi}{4}</m></label>
+              <label at="tr-wall" anchor="(3.162,-0.5)" alignment="e" offset="(5,0)" color="#0072B2"><m>x=\sqrt{10}</m></label>
+              <label at="tr-rlab" anchor="(1.6,-0.9)" alignment="se" color="#009E73"><m>r=\sqrt{10}\sec\theta</m></label>
+              <label at="tr-Rlab" anchor="(2.7,-1.9)" alignment="c"><m>R</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The triangular region with vertices at the origin, root ten comma root ten, and root ten comma negative root ten.">
+                <annotation ref="tr-region" text="The shaded triangle R, bounded by the rays theta equals plus or minus pi over four and the line x equals root ten."/>
+                <annotation ref="tr-ray" text="A ray at angle theta from the origin to the vertical side, of length root ten secant theta."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
       <md>
         <mrow>
           \int_{-\pi/4}^{\pi/4}\!\!\int_{0}^{\sqrt{10}\sec\theta}
