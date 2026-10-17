@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-case2-region-figure" speech2="Two curves leaving the origin, with the points zero point one and zero point five marked on the y axis. The curve x equals g 1 of y equals y squared, drawn in vermillion, hugs the y axis. The curve x equals g 2 of y equals the cube root of y, drawn in blue, sweeps out to the right. Nothing between them is shaded: the region is left for the reader to draw.">
+      <grouped>prefigure-case2-region-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-case2-region-c2-g1</active>
+        <active>prefigure-case2-region-c2-g2</active>
+      </children>
+      <components>
+        <active>prefigure-case2-region-c2-g1</active>
+        <active>prefigure-case2-region-c2-g2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-case2-region-c2-g1" speech2="The curve x equals g 1 of y equals y squared, drawn in vermillion.">
+      <active>prefigure-case2-region-c2-g1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-case2-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-case2-region-c2-g2" speech2="The curve x equals g 2 of y equals y to the one third, drawn in blue.">
+      <active>prefigure-case2-region-c2-g2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-case2-region-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

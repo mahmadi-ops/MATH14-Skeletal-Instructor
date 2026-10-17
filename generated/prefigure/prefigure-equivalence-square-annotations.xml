@@ -1,0 +1,84 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-equivalence-square-figure" speech2="Four boxed statements at the corners of a square, each joined to its neighbours by a double-headed arrow running from the middle of one box to the middle of the next. Top left: F is a conservative field. Top right: F is a gradient field, that is F equals grad f for some f. Bottom left: the loop integral of F dot d r is zero on every loop. Bottom right: the integral of F dot d r is path independent and equals f of B minus f of A. Because every arrow is double-headed, any one of the four statements implies all of the others.">
+      <grouped>prefigure-equivalence-square-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-equivalence-square-eq-box-cons</active>
+        <active>prefigure-equivalence-square-eq-box-grad</active>
+        <active>prefigure-equivalence-square-eq-box-loop</active>
+        <active>prefigure-equivalence-square-eq-box-path</active>
+        <active>prefigure-equivalence-square-eq-arrow-top</active>
+        <active>prefigure-equivalence-square-eq-arrow-bottom</active>
+        <active>prefigure-equivalence-square-eq-arrow-left</active>
+        <active>prefigure-equivalence-square-eq-arrow-right</active>
+      </children>
+      <components>
+        <active>prefigure-equivalence-square-eq-box-cons</active>
+        <active>prefigure-equivalence-square-eq-box-grad</active>
+        <active>prefigure-equivalence-square-eq-box-loop</active>
+        <active>prefigure-equivalence-square-eq-box-path</active>
+        <active>prefigure-equivalence-square-eq-arrow-top</active>
+        <active>prefigure-equivalence-square-eq-arrow-bottom</active>
+        <active>prefigure-equivalence-square-eq-arrow-left</active>
+        <active>prefigure-equivalence-square-eq-arrow-right</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-box-cons" speech2="Top left box: F is a conservative field.">
+      <active>prefigure-equivalence-square-eq-box-cons</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-box-grad" speech2="Top right box: F is a gradient field, F equals grad f for some potential function f.">
+      <active>prefigure-equivalence-square-eq-box-grad</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-box-loop" speech2="Bottom left box: the integral of F dot d r around every loop is zero.">
+      <active>prefigure-equivalence-square-eq-box-loop</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-box-path" speech2="Bottom right box: the integral of F dot d r is path independent, and equals f of B minus f of A.">
+      <active>prefigure-equivalence-square-eq-box-path</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-arrow-top" speech2="A double arrow across the top: conservative if and only if gradient field.">
+      <active>prefigure-equivalence-square-eq-arrow-top</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-arrow-bottom" speech2="A double arrow across the bottom: the loop property if and only if path independence.">
+      <active>prefigure-equivalence-square-eq-arrow-bottom</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-arrow-left" speech2="A double arrow down the left side: conservative if and only if the loop property.">
+      <active>prefigure-equivalence-square-eq-arrow-left</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-equivalence-square-eq-arrow-right" speech2="A double arrow down the right side: gradient field if and only if path independence.">
+      <active>prefigure-equivalence-square-eq-arrow-right</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-equivalence-square-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-riemann-1d-figure" viewBox="0 0 440 300">
+  <defs>
+    <clipPath id="prefigure-riemann-1d-clipPath-0">
+      <rect x="10.0" y="10.0" width="420.0" height="280.0"/>
+    </clipPath>
+    <clipPath id="prefigure-riemann-1d-clipPath-1">
+      <rect x="10.0" y="10.0" width="420.0" height="280.0"/>
+    </clipPath>
+    <marker id="prefigure-riemann-1d-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-riemann-1d-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-riemann-1d-arrow-head-end-2_None_24_60-h009E73" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+    </marker>
+    <marker id="prefigure-riemann-1d-arrow-head-end-2_None_24_60-h009E73-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="r1-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-riemann-1d-line-0" x1="10.0" y1="241.3" x2="430.0" y2="241.3" stroke="black" stroke-width="2" marker-end="url(#prefigure-riemann-1d-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-riemann-1d-line-1" x1="45.6" y1="290.0" x2="45.6" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-riemann-1d-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-riemann-1d-label-0" transform="translate(424.0,235.3) translate(-10.4,-8.2)">
+    <g id="prefigure-riemann-1d-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-riemann-1d-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-riemann-1d-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-riemann-1d-label-1" transform="translate(51.6,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-riemann-1d-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-riemann-1d-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-riemann-1d-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <path id="prefigure-riemann-1d-r1-rect1" d="M 81.2 241.3 L 116.8 241.3 L 116.8 111.0 L 81.2 111.0 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-rect2" d="M 116.8 241.3 L 152.4 241.3 L 152.4 74.2 L 116.8 74.2 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-rect3" d="M 152.4 241.3 L 188.0 241.3 L 188.0 61.3 L 152.4 61.3 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-rect4" d="M 188.0 241.3 L 223.6 241.3 L 223.6 65.6 L 188.0 65.6 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-rect5" d="M 223.6 241.3 L 259.2 241.3 L 259.2 80.1 L 223.6 80.1 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-rect6" d="M 259.2 241.3 L 294.7 241.3 L 294.7 98.1 L 259.2 98.1 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-rect7" d="M 294.7 241.3 L 330.3 241.3 L 330.3 112.7 L 294.7 112.7 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-rect8" d="M 330.3 241.3 L 365.9 241.3 L 365.9 116.9 L 330.3 116.9 Z" stroke="#0072B2" stroke-width="1" fill="#f4e3c1"/>
+  <path id="prefigure-riemann-1d-r1-curve" d="M 70.5 162.3 L 73.6 155.7 L 76.6 149.4 L 79.7 143.3 L 82.8 137.6 L 85.8 132.0 L 88.9 126.7 L 91.9 121.7 L 95.0 116.9 L 98.1 112.3 L 101.1 107.9 L 104.2 103.8 L 107.2 99.9 L 110.3 96.2 L 113.4 92.8 L 116.4 89.5 L 119.5 86.4 L 122.5 83.6 L 125.6 80.9 L 128.7 78.4 L 131.7 76.1 L 134.8 74.0 L 137.9 72.1 L 140.9 70.3 L 144.0 68.7 L 147.0 67.3 L 150.1 66.0 L 153.2 64.9 L 156.2 63.9 L 159.3 63.1 L 162.3 62.4 L 165.4 61.9 L 168.5 61.5 L 171.5 61.2 L 174.6 61.1 L 177.6 61.0 L 180.7 61.1 L 183.8 61.3 L 186.8 61.6 L 189.9 62.0 L 192.9 62.5 L 196.0 63.1 L 199.1 63.8 L 202.1 64.6 L 205.2 65.4 L 208.3 66.4 L 211.3 67.4 L 214.4 68.4 L 217.4 69.6 L 220.5 70.8 L 223.6 72.0 L 226.6 73.3 L 229.7 74.7 L 232.7 76.0 L 235.8 77.5 L 238.9 78.9 L 241.9 80.4 L 245.0 81.9 L 248.0 83.5 L 251.1 85.0 L 254.2 86.6 L 257.2 88.1 L 260.3 89.7 L 263.4 91.3 L 266.4 92.8 L 269.5 94.4 L 272.5 95.9 L 275.6 97.5 L 278.7 98.9 L 281.7 100.4 L 284.8 101.9 L 287.8 103.3 L 290.9 104.6 L 294.0 105.9 L 297.0 107.2 L 300.1 108.4 L 303.1 109.5 L 306.2 110.6 L 309.3 111.7 L 312.3 112.6 L 315.4 113.5 L 318.5 114.3 L 321.5 115.0 L 324.6 115.6 L 327.6 116.1 L 330.7 116.6 L 333.8 116.9 L 336.8 117.1 L 339.9 117.2 L 342.9 117.2 L 346.0 117.1 L 349.1 116.9 L 352.1 116.5 L 355.2 116.0 L 358.2 115.3 L 361.3 114.6 L 364.4 113.6 L 367.4 112.6 L 370.5 111.3 L 373.5 109.9 L 376.6 108.4" stroke="#D55E00" stroke-width="3" fill="none" clip-path="url(#prefigure-riemann-1d-clipPath-1)"/>
+  <g id="prefigure-riemann-1d-r1-a">
+    <g transform="translate(81.2,249.3) translate(-4.8,-0.0)">
+      <g id="prefigure-riemann-1d-g-2">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.184px" width="9.576px" height="8.160px" role="img" focusable="false" viewBox="0 -441 529 451" x="0.0" y="0.0">
+          <defs>
+            <path id="prefigure-riemann-1d-MJX-4-TEX-I-1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="a">
+                <use data-c="1D44E" xlink:href="#prefigure-riemann-1d-MJX-4-TEX-I-1D44E"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle cx="81.2" cy="241.3" r="4" stroke="black" stroke-width="2" fill="black"/>
+  </g>
+  <g id="prefigure-riemann-1d-r1-b">
+    <g transform="translate(365.9,249.3) translate(-3.9,-0.0)">
+      <g id="prefigure-riemann-1d-g-3">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="7.768px" height="12.760px" role="img" focusable="false" viewBox="0 -694 429 705" x="0.0" y="0.0">
+          <defs>
+            <path id="prefigure-riemann-1d-MJX-5-TEX-I-1D44F" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="b">
+                <use data-c="1D44F" xlink:href="#prefigure-riemann-1d-MJX-5-TEX-I-1D44F"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle cx="365.9" cy="241.3" r="4" stroke="black" stroke-width="2" fill="black"/>
+  </g>
+  <g id="prefigure-riemann-1d-r1-dx" transform="translate(205.8,39.5) translate(-12.7,-13.2)">
+    <g id="prefigure-riemann-1d-g-4">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#0072B2" width="25.432px" height="13.160px" role="img" focusable="false" viewBox="0 -716 1405 727" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-riemann-1d-MJX-6-TEX-N-394" d="M51 0Q46 4 46 7Q46 9 215 357T388 709Q391 716 416 716Q439 716 444 709Q447 705 616 357T786 7Q786 4 781 0H51ZM507 344L384 596L137 92L383 91H630Q630 93 507 344Z"/>
+          <path id="prefigure-riemann-1d-MJX-6-TEX-N-2062" d=""/>
+          <path id="prefigure-riemann-1d-MJX-6-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="3" data-semantic-children="0,1" data-semantic-content="2" data-semantic-speech="normal upper Delta x">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="greekletter" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="normal upper Delta">
+              <use data-c="394" xlink:href="#prefigure-riemann-1d-MJX-6-TEX-N-394"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="2" data-semantic-parent="3" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(833,0)">
+              <use data-c="2062" xlink:href="#prefigure-riemann-1d-MJX-6-TEX-N-2062"/>
+            </g>
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="3" data-semantic-speech="x" transform="translate(833,0)">
+              <use data-c="1D465" xlink:href="#prefigure-riemann-1d-MJX-6-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-riemann-1d-r1-dx-left" x1="188.0" y1="55.7" x2="188.0" y2="65.6" stroke="#0072B2" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <line id="prefigure-riemann-1d-r1-dx-right" x1="223.6" y1="55.7" x2="223.6" y2="65.6" stroke="#0072B2" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <line id="prefigure-riemann-1d-r1-height" x1="205.8" y1="241.3" x2="205.8" y2="65.6" stroke="#009E73" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <g id="prefigure-riemann-1d-r1-xi">
+    <g transform="translate(205.8,249.3) translate(-9.1,-0.0)">
+      <g id="prefigure-riemann-1d-g-5">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.840px" width="18.256px" height="17.360px" role="img" focusable="false" viewBox="0 -691.8 1008.6 959.2" x="0.0" y="0.0">
+          <defs>
+            <path id="prefigure-riemann-1d-MJX-7-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+            <path id="prefigure-riemann-1d-MJX-7-TEX-N-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"/>
+            <path id="prefigure-riemann-1d-MJX-7-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="msubsup" data-semantic-type="subsup" data-semantic-role="latinletter" data-semantic-id="4" data-semantic-children="0,1,2" data-semantic-collapsed="(4 (3 0 1) 2)" data-semantic-speech="x Subscript i Superscript asterisk">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="4" data-semantic-speech="x" data-semantic-prefix="Base">
+                  <use data-c="1D465" xlink:href="#prefigure-riemann-1d-MJX-7-TEX-I-1D465"/>
+                </g>
+                <g data-mml-node="mo" transform="translate(605,363) scale(0.707)" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="2" data-semantic-parent="4" data-semantic-speech="asterisk" data-semantic-prefix="Exponent">
+                  <use data-c="2217" xlink:href="#prefigure-riemann-1d-MJX-7-TEX-N-2217"/>
+                </g>
+                <g data-mml-node="mi" transform="translate(605,-259.6) scale(0.707)" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="4" data-semantic-speech="i" data-semantic-prefix="Subscript">
+                  <use data-c="1D456" xlink:href="#prefigure-riemann-1d-MJX-7-TEX-I-1D456"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle cx="205.8" cy="241.3" r="4" stroke="black" stroke-width="2" fill="#009E73"/>
+  </g>
+  <circle id="prefigure-riemann-1d-r1-fxi-top" cx="205.8" cy="65.6" r="4" stroke="black" stroke-width="2" fill="#009E73"/>
+  <path id="prefigure-riemann-1d-r1-height-up" stroke="#009E73" stroke-width="2" fill="none" d="M 232.1 153.7 L 232.1 120.2" marker-end="url(#prefigure-riemann-1d-arrow-head-end-2_None_24_60-h009E73)"/>
+  <path id="prefigure-riemann-1d-r1-height-down" stroke="#009E73" stroke-width="2" fill="none" d="M 232.1 153.7 L 232.1 187.1" marker-end="url(#prefigure-riemann-1d-arrow-head-end-2_None_24_60-h009E73)"/>
+  <g id="prefigure-riemann-1d-r1-fxi" transform="translate(243.2,153.7) translate(0.0,-9.2)">
+    <g id="prefigure-riemann-1d-g-6">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.840px; color:#009E73" width="115.712px" height="18.416px" role="img" focusable="false" viewBox="0 -750 6393.1 1017.4" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-68" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 124T102 167T103 217T103 272T103 329Q103 366 103 407T103 482T102 542T102 586T102 603Q99 622 88 628T43 637H25V660Q25 683 27 683L37 684Q47 685 66 686T103 688Q120 689 140 690T170 693T181 694H184V367Q244 442 328 442Q451 442 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-I-1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-2061" d=""/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-I-1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-riemann-1d-MJX-8-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="punctuated" data-semantic-role="text" data-semantic-id="16" data-semantic-children="0,14" data-semantic-collapsed="(16 (c 15) 0 14)" data-semantic-speech="height equals f left parenthesis x Subscript i Superscript asterisk Baseline right parenthesis">
+            <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="unknown" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="0" data-semantic-parent="16" data-semantic-speech="height">
+              <use data-c="68" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-68"/>
+              <use data-c="65" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-65" transform="translate(556,0)"/>
+              <use data-c="69" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-69" transform="translate(1000,0)"/>
+              <use data-c="67" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-67" transform="translate(1278,0)"/>
+              <use data-c="68" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-68" transform="translate(1778,0)"/>
+              <use data-c="74" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-74" transform="translate(2334,0)"/>
+            </g>
+            <g data-mml-node="mrow" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="14" data-semantic-children="13,12" data-semantic-content="1" data-semantic-parent="16" data-semantic-speech="equals f left parenthesis x Subscript i Superscript asterisk Baseline right parenthesis" transform="translate(2723,0)">
+              <g data-mml-node="mrow" data-semantic-type="empty" data-semantic-role="unknown" data-semantic-id="13" data-semantic-parent="14" data-semantic-speech=""/>
+              <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="14" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(277.8,0)">
+                <use data-c="3D" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-3D"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-id="12" data-semantic-children="2,10" data-semantic-content="11,2" data-semantic-parent="14" data-semantic-speech="f left parenthesis x Subscript i Superscript asterisk Baseline right parenthesis" transform="translate(1333.6,0)">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="12" data-semantic-operator="appl" data-semantic-speech="f">
+                  <use data-c="1D453" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-I-1D453"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="11" data-semantic-parent="12" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(550,0)">
+                  <use data-c="2061" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-2061"/>
+                </g>
+                <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="10" data-semantic-children="8" data-semantic-content="3,9" data-semantic-parent="12" data-semantic-speech="left parenthesis x Subscript i Superscript asterisk Baseline right parenthesis" transform="translate(550,0)">
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="3" data-semantic-parent="10" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                    <use data-c="28" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-28"/>
+                  </g>
+                  <g data-mml-node="msubsup" data-semantic-type="subsup" data-semantic-role="latinletter" data-semantic-id="8" data-semantic-children="4,5,6" data-semantic-parent="10" data-semantic-collapsed="(8 (7 4 5) 6)" data-semantic-speech="x Subscript i Superscript asterisk Baseline" transform="translate(389,0)">
+                    <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="8" data-semantic-speech="x" data-semantic-prefix="Base">
+                      <use data-c="1D465" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-I-1D465"/>
+                    </g>
+                    <g data-mml-node="mo" transform="translate(605,363) scale(0.707)" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="6" data-semantic-parent="8" data-semantic-speech="asterisk" data-semantic-prefix="Exponent">
+                      <use data-c="2217" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-2217"/>
+                    </g>
+                    <g data-mml-node="mi" transform="translate(605,-259.6) scale(0.707)" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="5" data-semantic-parent="8" data-semantic-speech="i" data-semantic-prefix="Subscript">
+                      <use data-c="1D456" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-I-1D456"/>
+                    </g>
+                  </g>
+                  <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="9" data-semantic-parent="10" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(1397.6,0)">
+                    <use data-c="29" xlink:href="#prefigure-riemann-1d-MJX-8-TEX-N-29"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-riemann-1d-r1-flabel" transform="translate(337.9,45.6) translate(0.0,-18.1)">
+    <g id="prefigure-riemann-1d-g-7">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px; color:#D55E00" width="67.392px" height="18.096px" role="img" focusable="false" viewBox="0 -750 3723.6 1000" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-riemann-1d-MJX-9-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-riemann-1d-MJX-9-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-riemann-1d-MJX-9-TEX-I-1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"/>
+          <path id="prefigure-riemann-1d-MJX-9-TEX-N-2061" d=""/>
+          <path id="prefigure-riemann-1d-MJX-9-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+          <path id="prefigure-riemann-1d-MJX-9-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+          <path id="prefigure-riemann-1d-MJX-9-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="9" data-semantic-children="0,8" data-semantic-content="1" data-semantic-speech="y equals f left parenthesis x right parenthesis">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="9" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-riemann-1d-MJX-9-TEX-I-1D466"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="9" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(767.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-riemann-1d-MJX-9-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mrow" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-annotation="clearspeak:simple" data-semantic-id="8" data-semantic-children="2,6" data-semantic-content="7,2" data-semantic-parent="9" data-semantic-speech="f left parenthesis x right parenthesis" transform="translate(1823.6,0)">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="8" data-semantic-operator="appl" data-semantic-speech="f">
+                <use data-c="1D453" xlink:href="#prefigure-riemann-1d-MJX-9-TEX-I-1D453"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="7" data-semantic-parent="8" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(550,0)">
+                <use data-c="2061" xlink:href="#prefigure-riemann-1d-MJX-9-TEX-N-2061"/>
+              </g>
+              <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="6" data-semantic-children="4" data-semantic-content="3,5" data-semantic-parent="8" data-semantic-speech="left parenthesis x right parenthesis" transform="translate(550,0)">
+                <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="3" data-semantic-parent="6" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                  <use data-c="28" xlink:href="#prefigure-riemann-1d-MJX-9-TEX-N-28"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="6" data-semantic-speech="x" transform="translate(389,0)">
+                  <use data-c="1D465" xlink:href="#prefigure-riemann-1d-MJX-9-TEX-I-1D465"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="5" data-semantic-parent="6" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(961,0)">
+                  <use data-c="29" xlink:href="#prefigure-riemann-1d-MJX-9-TEX-N-29"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

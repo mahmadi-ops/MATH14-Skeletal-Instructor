@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-loop-split-figure" speech2="An oval loop through the points A on the right and B on the left. The upper half, labeled C 1, is drawn in blue and runs counterclockwise from A to B. The lower half, labeled C 2, is drawn in reddish purple and continues from B back to A, closing the loop.">
+      <grouped>prefigure-loop-split-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-loop-split-ls-c1</active>
+        <active>prefigure-loop-split-ls-c2</active>
+      </children>
+      <components>
+        <active>prefigure-loop-split-ls-c1</active>
+        <active>prefigure-loop-split-ls-c2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-loop-split-ls-c1" speech2="The piece C 1 of the loop, running from A to B along the top.">
+      <active>prefigure-loop-split-ls-c1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-loop-split-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-loop-split-ls-c2" speech2="The piece C 2 of the loop, running from B back to A along the bottom, so the loop is the union of C 1 and C 2.">
+      <active>prefigure-loop-split-ls-c2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-loop-split-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

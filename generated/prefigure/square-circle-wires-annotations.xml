@@ -1,0 +1,91 @@
+<diagram>
+  <annotations>
+    <annotation id="square-circle-wires-figure" speech2="A circle of radius two centered at the origin                                 together with the square inscribed in it,                                 whose four vertices lie on the circle">
+      <grouped>square-circle-wires-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>square-circle-wires-grid-axes</active>
+        <active>square-circle-wires-grid</active>
+        <active>square-circle-wires-axes</active>
+        <active>square-circle-wires-circle-wire</active>
+        <active>square-circle-wires-square-wire</active>
+        <active>square-circle-wires-marks</active>
+      </children>
+      <components>
+        <active>square-circle-wires-grid-axes</active>
+        <active>square-circle-wires-grid</active>
+        <active>square-circle-wires-axes</active>
+        <active>square-circle-wires-circle-wire</active>
+        <active>square-circle-wires-square-wire</active>
+        <active>square-circle-wires-marks</active>
+      </components>
+    </annotation>
+    <annotation id="square-circle-wires-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>square-circle-wires-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>square-circle-wires-grid</active>
+        <active>square-circle-wires-axes</active>
+      </children>
+      <components>
+        <active>square-circle-wires-grid</active>
+        <active>square-circle-wires-axes</active>
+      </components>
+      <parents>
+        <grouped>square-circle-wires-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="square-circle-wires-grid" speech2="The coordinate grid">
+      <active>square-circle-wires-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>square-circle-wires-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="square-circle-wires-axes" speech2="The coordinate axes">
+      <active>square-circle-wires-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>square-circle-wires-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="square-circle-wires-grid" speech2="The coordinate grid">
+      <active>square-circle-wires-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>square-circle-wires-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="square-circle-wires-axes" speech2="The coordinate axes">
+      <active>square-circle-wires-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>square-circle-wires-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="square-circle-wires-circle-wire" speech2="The circular wire, the circle of radius two                                   centered at the origin" sonify="yes">
+      <active>square-circle-wires-circle-wire</active>
+      <position>4</position>
+      <parents>
+        <grouped>square-circle-wires-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>square-circle-wires-circle-wire</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="square-circle-wires-square-wire" speech2="The square-shaped wire inscribed in the                                   circle, with horizontal and vertical sides                                   of length two root two">
+      <active>square-circle-wires-square-wire</active>
+      <position>5</position>
+      <parents>
+        <grouped>square-circle-wires-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="square-circle-wires-marks" speech2="The point two comma zero on the circle and                                   the vertex root two comma root two shared by                                   the square and the circle">
+      <active>square-circle-wires-marks</active>
+      <position>6</position>
+      <parents>
+        <grouped>square-circle-wires-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

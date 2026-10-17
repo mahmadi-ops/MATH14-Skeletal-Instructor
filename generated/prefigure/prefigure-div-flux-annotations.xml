@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-div-flux-figure" speech2="A blue rectangle with corner x comma y, width delta x, and height delta y, sitting in a gray vector field that points up and to the right. An arrow at the middle of each side shows the outward component of the field in that side's own color, and a legend at the upper left pairs each color with its dot product: positive through the top and right sides, negative through the bottom and left sides.">
+      <grouped>prefigure-div-flux-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-div-flux-df-rect</active>
+        <active>prefigure-div-flux-df-top</active>
+        <active>prefigure-div-flux-df-right</active>
+        <active>prefigure-div-flux-df-bottom</active>
+        <active>prefigure-div-flux-df-left</active>
+      </children>
+      <components>
+        <active>prefigure-div-flux-df-rect</active>
+        <active>prefigure-div-flux-df-top</active>
+        <active>prefigure-div-flux-df-right</active>
+        <active>prefigure-div-flux-df-bottom</active>
+        <active>prefigure-div-flux-df-left</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-div-flux-df-rect" speech2="The rectangle with area A equals delta x delta y through whose boundary we measure the net flux.">
+      <active>prefigure-div-flux-df-rect</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-div-flux-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-div-flux-df-top" speech2="On the top side, in vermillion, the outward direction is j, and F dot j is positive: fluid leaves through the top.">
+      <active>prefigure-div-flux-df-top</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-div-flux-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-div-flux-df-right" speech2="On the right side, in green, the outward direction is i, and F dot i is positive: fluid leaves through the right.">
+      <active>prefigure-div-flux-df-right</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-div-flux-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-div-flux-df-bottom" speech2="On the bottom side, in orange, the outward direction is negative j, and F dot negative j is negative: fluid enters through the bottom.">
+      <active>prefigure-div-flux-df-bottom</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-div-flux-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-div-flux-df-left" speech2="On the left side, in purple, the outward direction is negative i, and F dot negative i is negative: fluid enters through the left.">
+      <active>prefigure-div-flux-df-left</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-div-flux-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
