@@ -192,6 +192,50 @@
         <m>2\int_{\pi/6}^{\pi/2}\int_0^{1+\sin(3\theta)}
         r\,dr\,d\theta</m>.
       </p>
+      <figure xml:id="fig-hw5o-rose-area">
+        <caption>
+          The curve <m>r = 1 + \sin 3\theta</m> for <m>\pi/6 \le \theta \le 5\pi/6</m> (solid) and the area it bounds, between the rays <m>\theta = \pi/6</m> and <m>\theta = 5\pi/6</m>. The rest of the rose is dotted. The picture is its own mirror image across the <m>y</m>-axis, and along a ray at angle <m>\theta</m> the radius runs from <m>0</m> to <m>1 + \sin 3\theta</m>.
+        </caption>
+        <image width="80%">
+          <shortdescription>
+          Two symmetric lobes meeting at the origin, bounded by the curve r equals one plus sine three theta between theta equals pi over six and five pi over six, with the region under them shaded.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with a blue curve starting at the point at angle pi over six and distance two, sweeping up and in to the origin at theta equals pi over two, and back out to the point at angle five pi over six and distance two: two lobes that are mirror images across the y axis. The region between the curve and the two dashed green rays at angles pi over six and five pi over six is shaded tan. The remaining petals of the rose are drawn dotted in gray. An orange segment from the origin to the curve marks a sample radius r.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-rose">
+            <diagram dimensions="(400,203)" margins="10">
+              <definition>rose(t) = ((1 + sin(3*t))*cos(t), (1 + sin(3*t))*sin(t))</definition>
+              <coordinates bbox="(-2.95,-0.6,2.95,2.4)">
+              <grid-axes at="rs-grid" xlabel="x" ylabel="y"/>
+              <polygon at="rs-region" fill="#fbe3d0" stroke="none" closed="yes" points="((0,0),(1.732,1),(1.713,1.029),(1.691,1.057),(1.667,1.083),(1.64,1.106),(1.61,1.128),(1.578,1.147),(1.544,1.164),(1.508,1.178),(1.47,1.19),(1.429,1.199),(1.388,1.206),(1.344,1.21),(1.3,1.212),(1.254,1.211),(1.207,1.207),(1.159,1.201),(1.111,1.192),(1.062,1.18),(1.013,1.166),(0.9642,1.149),(0.915,1.13),(0.8661,1.109),(0.8175,1.085),(0.7694,1.059),(0.722,1.031),(0.6755,1.001),(0.6298,0.9699),(0.5853,0.9367),(0.542,0.902),(0.5,0.866),(0.4594,0.8288),(0.4204,0.7907),(0.383,0.7516),(0.3472,0.7119),(0.3132,0.6717),(0.281,0.6312),(0.2507,0.5906),(0.2222,0.5501),(0.1957,0.5097),(0.171,0.4698),(0.1483,0.4306),(0.1274,0.392),(0.1084,0.3545),(0.0912,0.3181),(0.07581,0.2829),(0.06214,0.2492),(0.05013,0.2171),(0.03971,0.1868),(0.03078,0.1584),(0.02326,0.1319),(0.01705,0.1077),(0.01203,0.08561),(0.008095,0.06592),(0.005116,0.04868),(0.00297,0.03394),(0.001524,0.0218),(0.0006443,0.01229),(0.0001912,0.005475),(2.392e-05,0.00137),(0,0),(-2.392e-05,0.00137),(-0.0001912,0.005475),(-0.0006443,0.01229),(-0.001524,0.0218),(-0.00297,0.03394),(-0.005116,0.04868),(-0.008095,0.06592),(-0.01203,0.08561),(-0.01705,0.1077),(-0.02326,0.1319),(-0.03078,0.1584),(-0.03971,0.1868),(-0.05013,0.2171),(-0.06214,0.2492),(-0.07581,0.2829),(-0.0912,0.3181),(-0.1084,0.3545),(-0.1274,0.392),(-0.1483,0.4306),(-0.171,0.4698),(-0.1957,0.5097),(-0.2222,0.5501),(-0.2507,0.5906),(-0.281,0.6312),(-0.3132,0.6717),(-0.3472,0.7119),(-0.383,0.7516),(-0.4204,0.7907),(-0.4594,0.8288),(-0.5,0.866),(-0.542,0.902),(-0.5853,0.9367),(-0.6298,0.9699),(-0.6755,1.001),(-0.722,1.031),(-0.7694,1.059),(-0.8175,1.085),(-0.8661,1.109),(-0.915,1.13),(-0.9642,1.149),(-1.013,1.166),(-1.062,1.18),(-1.111,1.192),(-1.159,1.201),(-1.207,1.207),(-1.254,1.211),(-1.3,1.212),(-1.344,1.21),(-1.388,1.206),(-1.429,1.199),(-1.47,1.19),(-1.508,1.178),(-1.544,1.164),(-1.578,1.147),(-1.61,1.128),(-1.64,1.106),(-1.667,1.083),(-1.691,1.057),(-1.713,1.029),(-1.732,1))"/>
+              <parametric-curve at="rs-curve" function="rose" domain="(pi/6,5*pi/6)" stroke="#0072B2" thickness="3"/>
+              <parametric-curve at="rs-rest" function="rose" domain="(5*pi/6,2*pi+pi/6)" stroke="#bbbbbb" thickness="1" dash="3 3"/>
+              <line at="rs-ray1" endpoints="((0,0),(1.732,1))" stroke="#009E73" thickness="2" dash="6 4"/>
+              <line at="rs-ray2" endpoints="((0,0),(-1.732,1))" stroke="#009E73" thickness="2" dash="6 4"/>
+              <line at="rs-sample" endpoints="((0,0),(0.382,0.7506))" stroke="#D55E00" thickness="2"/>
+              <point at="rs-out" p="(0.382,0.7506)" fill="#D55E00" size="3.5"/>
+              <point at="rs-A" p="(1.732,1)" fill="black" size="3.5"/>
+              <point at="rs-B" p="(-1.732,1)" fill="black" size="3.5"/>
+              <label at="rs-t1" anchor="(1.732,1)" alignment="e" offset="(4,0)" color="#009E73"><m>\theta=\tfrac{\pi}{6}</m></label>
+              <label at="rs-t2" anchor="(-1.732,1)" alignment="w" offset="(-4,0)" color="#009E73"><m>\theta=\tfrac{5\pi}{6}</m></label>
+              <label at="rs-clab" anchor="(0.55,1.95)" alignment="ne" color="#0072B2"><m>r=1+\sin 3\theta</m></label>
+              <label at="rs-rlab" anchor="(0.3,0.42)" alignment="e" color="#D55E00"><m>r</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The two lobes of r equals one plus sine three theta between theta equals pi over six and five pi over six, with the area they bound shaded.">
+                <annotation ref="rs-region" text="The shaded area, bounded by the curve and the rays theta equals pi over six and five pi over six."/>
+                <annotation ref="rs-curve" text="The curve r equals one plus sine three theta for theta from pi over six to five pi over six, symmetric about the y axis." sonify="yes"/>
+                <annotation ref="rs-rest" text="The rest of the rose, dotted, which is not part of the problem."/>
+                <annotation ref="rs-sample" text="A sample radius, from the origin out to the curve at r equals one plus sine three theta."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -269,6 +313,58 @@
         \int_0^{\pi/4}\!\!\int_1^2 r^3 \sin\theta\cos\theta
         \,dr\,d\theta .
       </me>
+      <figure xml:id="fig-hw5o-combine-region">
+        <caption>
+          The three regions of integration in <xref ref="ex-hw5o-combine"/>, labelled I, II, and III from left to right, with the dashed lines <m>x = 1/\sqrt2</m>, <m>x = 1</m>, and <m>x = \sqrt2</m> that separate them. Together they make up the part of the annulus <m>1 \le r \le 2</m> between the <m>x</m>-axis and the line <m>y = x</m>.
+        </caption>
+        <image width="75%">
+          <shortdescription>
+          A shaded sector of an annulus between the circles of radius one and two, from the x axis up to the line y equals x, split into three vertical strips by dashed lines.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with blue quarter circles of radius one and two and the blue line y equals x. The region between the two circles and between the x axis and the line is shaded tan. Dashed orange vertical lines at x equals one over root two, x equals one, and x equals root two divide it into three pieces labelled I, II, and III: piece I, between x equals one over root two and one, lies between the small circle and the line; piece II, between x equals one and root two, lies between the x axis and the line; piece III, between x equals root two and two, lies between the x axis and the large circle.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-combine">
+            <diagram dimensions="(380,288)" margins="10">
+              <definition>c1(t) = (cos(t), sin(t))</definition>
+              <definition>c2(t) = (2*cos(t), 2*sin(t))</definition>
+              <coordinates bbox="(-0.35,-0.35,2.55,1.85)">
+              <grid-axes at="cb-grid" xlabel="x" ylabel="y" hlabels="(1,2,1)" vlabels="(1,1,1)"/>
+              <polygon at="cb-region" fill="#fbe3d0" stroke="none" closed="yes" points="((2,0),(2,0.02618),(1.999,0.05235),(1.998,0.07852),(1.997,0.1047),(1.996,0.1308),(1.994,0.1569),(1.992,0.183),(1.989,0.2091),(1.986,0.2351),(1.983,0.2611),(1.979,0.287),(1.975,0.3129),(1.971,0.3387),(1.967,0.3645),(1.962,0.3902),(1.956,0.4158),(1.951,0.4414),(1.945,0.4669),(1.938,0.4923),(1.932,0.5176),(1.925,0.5429),(1.918,0.568),(1.91,0.5931),(1.902,0.618),(1.894,0.6429),(1.885,0.6676),(1.876,0.6922),(1.867,0.7167),(1.858,0.7411),(1.848,0.7654),(1.838,0.7895),(1.827,0.8135),(1.816,0.8373),(1.805,0.861),(1.794,0.8846),(1.782,0.908),(1.77,0.9312),(1.758,0.9543),(1.745,0.9772),(1.732,1),(1.719,1.023),(1.705,1.045),(1.691,1.067),(1.677,1.089),(1.663,1.111),(1.648,1.133),(1.633,1.154),(1.618,1.176),(1.603,1.197),(1.587,1.218),(1.571,1.238),(1.554,1.259),(1.538,1.279),(1.521,1.299),(1.504,1.319),(1.486,1.338),(1.469,1.358),(1.451,1.377),(1.433,1.396),(1.414,1.414),(0.7071,0.7071),(0.7163,0.6978),(0.7254,0.6884),(0.7343,0.6788),(0.7431,0.6691),(0.7518,0.6593),(0.7604,0.6494),(0.7688,0.6394),(0.7771,0.6293),(0.7853,0.6191),(0.7934,0.6088),(0.8013,0.5983),(0.809,0.5878),(0.8166,0.5771),(0.8241,0.5664),(0.8315,0.5556),(0.8387,0.5446),(0.8457,0.5336),(0.8526,0.5225),(0.8594,0.5113),(0.866,0.5),(0.8725,0.4886),(0.8788,0.4772),(0.885,0.4656),(0.891,0.454),(0.8969,0.4423),(0.9026,0.4305),(0.9081,0.4187),(0.9135,0.4067),(0.9188,0.3947),(0.9239,0.3827),(0.9288,0.3706),(0.9336,0.3584),(0.9382,0.3461),(0.9426,0.3338),(0.9469,0.3214),(0.9511,0.309),(0.955,0.2965),(0.9588,0.284),(0.9625,0.2714),(0.9659,0.2588),(0.9692,0.2462),(0.9724,0.2334),(0.9753,0.2207),(0.9781,0.2079),(0.9808,0.1951),(0.9833,0.1822),(0.9856,0.1693),(0.9877,0.1564),(0.9897,0.1435),(0.9914,0.1305),(0.9931,0.1175),(0.9945,0.1045),(0.9958,0.0915),(0.9969,0.07846),(0.9979,0.0654),(0.9986,0.05234),(0.9992,0.03926),(0.9997,0.02618),(0.9999,0.01309),(1,0))"/>
+              <parametric-curve at="cb-inner" function="c1" domain="(0,pi/2)" stroke="#0072B2" thickness="3"/>
+              <parametric-curve at="cb-outer" function="c2" domain="(0,pi/2)" stroke="#0072B2" thickness="3"/>
+              <line at="cb-diag" endpoints="((0,0),(1.6,1.6))" stroke="#0072B2" thickness="3"/>
+              <line at="cb-split1" endpoints="((1,0),(1,1))" stroke="#D55E00" thickness="2" dash="5 4"/>
+              <line at="cb-split2" endpoints="((1.414,0),(1.414,1.414))" stroke="#D55E00" thickness="2" dash="5 4"/>
+              <line at="cb-split0" endpoints="((0.7071,0),(0.7071,0.7071))" stroke="#D55E00" thickness="2" dash="5 4"/>
+              <point at="cb-p0" p="(0.7071,0.7071)" fill="black" size="3"/>
+              <point at="cb-p2" p="(1.414,1.414)" fill="black" size="3"/>
+              <label at="cb-x0" anchor="(0.7071,0)" alignment="s" offset="(0,-4)" color="#D55E00" clear-background="yes"><m>\tfrac{1}{\sqrt2}</m></label>
+              <label at="cb-x2" anchor="(1.414,0)" alignment="s" offset="(0,-4)" color="#D55E00" clear-background="yes"><m>\sqrt2</m></label>
+              <label at="cb-r1" anchor="(0.5,0.95)" alignment="ne" color="#0072B2"><m>r=1</m></label>
+              <label at="cb-r2" anchor="(1.0,1.73)" alignment="ne" color="#0072B2"><m>r=2</m></label>
+              <label at="cb-diaglab" anchor="(1.62,1.62)" alignment="ne" offset="(2,2)" color="#0072B2"><m>y=x</m></label>
+              <label at="cb-I" anchor="(0.9,0.64)" alignment="c"><m>\mathrm{I}</m></label>
+              <label at="cb-II" anchor="(1.2,0.5)" alignment="c"><m>\mathrm{II}</m></label>
+              <label at="cb-III" anchor="(1.68,0.5)" alignment="c"><m>\mathrm{III}</m></label>
+              <label at="cb-x3" anchor="(2,0)" alignment="s" offset="(0,-4)"><m>2</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The sector of the annulus between radii one and two and between the x axis and the line y equals x, split into the three regions of the given integrals.">
+                <annotation ref="cb-region" text="The shaded region, the union of the three regions of integration."/>
+                <annotation ref="cb-inner" text="The inner circle r equals one." sonify="yes"/>
+                <annotation ref="cb-outer" text="The outer circle r equals two." sonify="yes"/>
+                <annotation ref="cb-diag" text="The line y equals x, which is the ray theta equals pi over four."/>
+                <annotation ref="cb-split1" text="The dashed line x equals one, between regions one and two."/>
+                <annotation ref="cb-split2" text="The dashed line x equals root two, between regions two and three."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -333,6 +429,53 @@
           = \ln 2 + \frac{\pi}{2} \approx 2.264 .
         </mrow>
       </md>
+      <figure xml:id="fig-hw5o-two-circles-region">
+        <caption>
+          The region of <xref ref="ex-hw5o-two-circles"/>, inside both circles <m>r = 2\cos\theta</m> and <m>r = 2\sin\theta</m>. The dashed ray <m>\theta = \pi/4</m> through <m>(1,1)</m> splits it: below it a ray leaves the region on <m>r = 2\sin\theta</m>, above it on <m>r = 2\cos\theta</m>.
+        </caption>
+        <image width="60%">
+          <shortdescription>
+          Two unit circles, one centered at one comma zero and one at zero comma one, with their lens-shaped overlap shaded and the diagonal through the origin and one comma one drawn dashed.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with a blue circle of radius one centered at one comma zero, which is r equals two cosine theta, and an orange circle of radius one centered at zero comma one, which is r equals two sine theta. Both pass through the origin and through one comma one. Their lens-shaped overlap R is shaded tan. A dashed green ray from the origin at angle pi over four passes through one comma one. Two solid green segments from the origin show sample rays: one below the diagonal ends on the orange circle, one above it ends on the blue circle.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw5o-two-circles">
+            <diagram dimensions="(320,320)" margins="10">
+              <definition>a(t) = (2*cos(t)*cos(t), 2*cos(t)*sin(t))</definition>
+              <definition>b(t) = (2*sin(t)*cos(t), 2*sin(t)*sin(t))</definition>
+              <coordinates bbox="(-0.55,-0.75,2.95,2.75)">
+              <grid-axes at="tc-grid" xlabel="x" ylabel="y" hlabels="(1,2,1)" vlabels="(1,2,1)"/>
+              <polygon at="tc-region" fill="#fbe3d0" stroke="none" closed="yes" points="((0,0),(0.02618,0.0003427),(0.05234,0.00137),(0.07846,0.003083),(0.1045,0.005478),(0.1305,0.008555),(0.1564,0.01231),(0.1822,0.01675),(0.2079,0.02185),(0.2334,0.02763),(0.2588,0.03407),(0.284,0.04118),(0.309,0.04894),(0.3338,0.05736),(0.3584,0.06642),(0.3827,0.07612),(0.4067,0.08645),(0.4305,0.09741),(0.454,0.109),(0.4772,0.1212),(0.5,0.134),(0.5225,0.1474),(0.5446,0.1613),(0.5664,0.1759),(0.5878,0.191),(0.6088,0.2066),(0.6293,0.2229),(0.6494,0.2396),(0.6691,0.2569),(0.6884,0.2746),(0.7071,0.2929),(0.7254,0.3116),(0.7431,0.3309),(0.7604,0.3506),(0.7771,0.3707),(0.7934,0.3912),(0.809,0.4122),(0.8241,0.4336),(0.8387,0.4554),(0.8526,0.4775),(0.866,0.5),(0.8788,0.5228),(0.891,0.546),(0.9026,0.5695),(0.9135,0.5933),(0.9239,0.6173),(0.9336,0.6416),(0.9426,0.6662),(0.9511,0.691),(0.9588,0.716),(0.9659,0.7412),(0.9724,0.7666),(0.9781,0.7921),(0.9833,0.8178),(0.9877,0.8436),(0.9914,0.8695),(0.9945,0.8955),(0.9969,0.9215),(0.9986,0.9477),(0.9997,0.9738),(1,1),(0.9738,0.9997),(0.9477,0.9986),(0.9215,0.9969),(0.8955,0.9945),(0.8695,0.9914),(0.8436,0.9877),(0.8178,0.9833),(0.7921,0.9781),(0.7666,0.9724),(0.7412,0.9659),(0.716,0.9588),(0.691,0.9511),(0.6662,0.9426),(0.6416,0.9336),(0.6173,0.9239),(0.5933,0.9135),(0.5695,0.9026),(0.546,0.891),(0.5228,0.8788),(0.5,0.866),(0.4775,0.8526),(0.4554,0.8387),(0.4336,0.8241),(0.4122,0.809),(0.3912,0.7934),(0.3707,0.7771),(0.3506,0.7604),(0.3309,0.7431),(0.3116,0.7254),(0.2929,0.7071),(0.2746,0.6884),(0.2569,0.6691),(0.2396,0.6494),(0.2229,0.6293),(0.2066,0.6088),(0.191,0.5878),(0.1759,0.5664),(0.1613,0.5446),(0.1474,0.5225),(0.134,0.5),(0.1212,0.4772),(0.109,0.454),(0.09741,0.4305),(0.08645,0.4067),(0.07612,0.3827),(0.06642,0.3584),(0.05736,0.3338),(0.04894,0.309),(0.04118,0.284),(0.03407,0.2588),(0.02763,0.2334),(0.02185,0.2079),(0.01675,0.1822),(0.01231,0.1564),(0.008555,0.1305),(0.005478,0.1045),(0.003083,0.07846),(0.00137,0.05234),(0.0003427,0.02618),(7.499e-33,1.225e-16))"/>
+              <parametric-curve at="tc-a" function="a" domain="(-pi/2,pi/2)" stroke="#0072B2" thickness="3"/>
+              <parametric-curve at="tc-b" function="b" domain="(0,pi)" stroke="#D55E00" thickness="3"/>
+              <line at="tc-ray" endpoints="((0,0),(1,1))" stroke="#009E73" thickness="2" dash="6 4"/>
+              <line at="tc-s1" endpoints="((0,0),(0.7833,0.3784))" stroke="#009E73" thickness="2"/>
+              <line at="tc-s2" endpoints="((0,0),(0.3337,0.7457))" stroke="#009E73" thickness="2"/>
+              <point at="tc-P" p="(1,1)" fill="black" size="3.5"/>
+              <point at="tc-e1" p="(0.7833,0.3784)" fill="#009E73" size="3.5"/>
+              <point at="tc-e2" p="(0.3337,0.7457)" fill="#009E73" size="3.5"/>
+              <label at="tc-Plab" anchor="(1,1)" alignment="se" offset="(4,-4)"><m>(1,1),\ \theta=\tfrac{\pi}{4}</m></label>
+              <label at="tc-alab" anchor="(1.45,-0.4)" alignment="e" color="#0072B2"><m>r=2\cos\theta</m></label>
+              <label at="tc-blab" anchor="(0.85,2.0)" alignment="ne" color="#D55E00"><m>r=2\sin\theta</m></label>
+              <label at="tc-Rlab" anchor="(0.55,0.62)" alignment="c"><m>R</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The lens where the circles r equals two cosine theta and r equals two sine theta overlap, split by the ray theta equals pi over four.">
+                <annotation ref="tc-region" text="The shaded region R, inside both circles."/>
+                <annotation ref="tc-a" text="The circle r equals two cosine theta, of radius one centered at one comma zero." sonify="yes"/>
+                <annotation ref="tc-b" text="The circle r equals two sine theta, of radius one centered at zero comma one." sonify="yes"/>
+                <annotation ref="tc-ray" text="The dashed ray theta equals pi over four through one comma one, where the two circles cross."/>
+                <annotation ref="tc-s1" text="A ray below the diagonal, which leaves R on the circle r equals two sine theta."/>
+                <annotation ref="tc-s2" text="A ray above the diagonal, which leaves R on the circle r equals two cosine theta."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
     </solution>
   </exercise>
 
