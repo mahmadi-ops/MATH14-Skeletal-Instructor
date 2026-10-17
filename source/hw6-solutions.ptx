@@ -225,4 +225,172 @@
     </solution>
   </problem>
 
+
+  <problem xml:id="ex-hw6-wedge">
+    <statement>
+      <p>
+      Find the volume of the wedge-shaped region <m>\mathcal{W}</m> of
+      <xref ref="fig-hw6s-wedge"/>, contained in the cylinder
+      <m>x^2 + y^2 = 9</m>, bounded above by the plane <m>z = x</m> and
+      below by the <m>xy</m>-plane.
+      </p>
+      <figure xml:id="fig-hw6s-wedge">
+        <caption>
+          The wedge of <xref ref="ex-hw6-wedge"/>: inside the cylinder
+          <m>x^2 + y^2 = 9</m>, above the <m>xy</m>-plane and below the plane
+          <m>z = x</m>.
+        </caption>
+        <image xml:id="image-hw6s-wedge" width="60%">
+          <shortdescription>
+            A wedge standing on a half disk in the xy-plane: its curved side is part of
+            a cylinder and its sloping top is the plane z equals x.
+          </shortdescription>
+          <description>
+            <p>
+              A solid wedge. Its base is the half of the disk of radius 3 centered at
+              the origin that lies on the side x greater than or equal to zero, shaded
+              orange and labelled D. Its curved side is the piece of the cylinder over the
+              semicircle, drawn in translucent blue, and its top is the sloping plane z
+              equals x, which meets the base along the diameter on the y axis and rises
+              to height 3 at the point (3,0,3) on the x axis.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+                      \definecolor{oiblue}{RGB}{0,114,178}
+                      \definecolor{oiorange}{RGB}{213,94,0}
+                      \begin{axis}[
+                          view={40}{22},
+                          width=11cm,
+                          axis lines=center,
+                          axis line style={-latex, black!70, line width=0.7pt},
+                          xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                          label style={font=\large},
+                          ticks=none,
+                          xmin=-0.4, xmax=1.55, ymin=-1.4, ymax=1.4, zmin=0, zmax=1.35,
+                          clip=false,
+                        ]
+                        % ---- base: the half disk D in the xy-plane ----
+                        \addplot3[surf, shader=flat, color=oiorange!25, opacity=0.5, fill opacity=0.5,
+                                  domain=-90:90, samples=40, y domain=0:1, samples y=2,
+                                  z buffer=sort, forget plot]
+                          ({y*cos(x)}, {y*sin(x)}, 0);
+                        % ---- curved cylinder wall x^2+y^2=R^2, from z=0 up to z=x ----
+                        \addplot3[surf, shader=faceted, faceted color=oiblue!25,
+                                  colormap={wallz}{color=(oiblue!10!white) color=(oiblue!45!white)},
+                                  opacity=0.55, fill opacity=0.55,
+                                  domain=-90:90, samples=40, y domain=0:1, samples y=8,
+                                  z buffer=sort, forget plot]
+                          ({cos(x)}, {sin(x)}, {y*cos(x)});
+                        % ---- top: the plane z = x over D ----
+                        \addplot3[surf, shader=faceted, faceted color=oiblue!30,
+                                  colormap={topz}{color=(oiblue!18!white) color=(oiblue!55!white)},
+                                  opacity=0.7, fill opacity=0.7,
+                                  domain=-90:90, samples=40, y domain=0:1, samples y=8,
+                                  z buffer=sort, forget plot]
+                          ({y*cos(x)}, {y*sin(x)}, {y*cos(x)});
+                        % ---- edges ----
+                        \addplot3[black!65, dashed, line width=1.1pt, samples=80, samples y=0,
+                                  domain=-90:90, forget plot] ({cos(x)}, {sin(x)}, 0);
+                        \addplot3[oiblue, line width=1.6pt, samples=80, samples y=0,
+                                  domain=-90:90, forget plot] ({cos(x)}, {sin(x)}, {cos(x)});
+                        \draw[oiblue, line width=1.2pt] (axis cs:0,-1,0) -- (axis cs:0,1,0);
+                        \draw[oiblue, line width=1.2pt] (axis cs:1,0,0) -- (axis cs:1,0,1);
+                        % ---- labels ----
+                        \node[anchor=north, font=\small] at (axis cs:1,0,-0.05) {$3$};
+                        \node[anchor=south west, font=\small] at (axis cs:1,0,1) {$(3,0,3)$};
+                        \node[oiblue, font=\large, anchor=south west]
+                          at (axis description cs:0.02,0.86) {$z = x$};
+                        \node[oiorange!80!black, font=\small] at (axis cs:0.5,-0.45,0) {$\mathcal{D}$};
+                      \end{axis}
+                    \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+    </statement>
+    <solution component="hw6-solutions">
+      <p>
+      The wedge is bounded below by <m>z = 0</m> and above by <m>z = x</m>,
+      so <m>0 \le z \le x</m>; in particular <m>x \ge 0</m>, and the wedge
+      projects onto the half disk <m>\mathcal{D}</m> of radius <m>3</m>
+      with <m>x \ge 0</m> (<xref ref="fig-hw6-wedge-D"/>). In polar
+      coordinates
+      </p>
+      <me>
+      \mathcal{D}:\ -\frac{\pi}{2} \le \theta \le \frac{\pi}{2},\ 0 \le r \le 3 ,
+      </me>
+      <p>
+      and the top surface is <m>z = x = r\cos\theta</m>. So in cylindrical
+      coordinates
+      </p>
+      <me>
+      \mathcal{W}:\ -\frac{\pi}{2} \le \theta \le \frac{\pi}{2},\
+      0 \le r \le 3,\ 0 \le z \le r\cos\theta .
+      </me>
+      <figure xml:id="fig-hw6-wedge-D">
+        <caption>
+          The projection <m>\mathcal{D}</m> of the wedge of <xref ref="ex-hw6-wedge"/> onto the <m>xy</m>-plane: the half of the disk of radius <m>3</m> with <m>x \ge 0</m>, described in polar coordinates by <m>-\pi/2 \le \theta \le \pi/2</m>, <m>0 \le r \le 3</m>. Above a point of <m>\mathcal{D}</m> the wedge runs from <m>z = 0</m> up to <m>z = x = r\cos\theta</m>.
+        </caption>
+        <image width="45%">
+          <shortdescription>
+          A shaded half disk to the right of the y axis, with a ray from the origin at angle theta ending on the semicircle.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes with the right half of the disk of radius 3 shaded tan and labelled D. Its straight edge is the segment of the y axis from theta equals minus pi over two to theta equals pi over two, and its curved edge is the semicircle r equals 3. A green ray from the origin at an angle theta marks a sample radius r.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw6-wedge-D">
+            <diagram dimensions="(260,320)" margins="10">
+              <definition>semi(t) = (cos(t), sin(t))</definition>
+              <coordinates bbox="(-0.6,-1.35,1.6,1.35)">
+              <axes at="hw6-wedge-D-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <polygon at="hw6-wedge-D-region" fill="#fbe3d0" stroke="none" closed="yes" points="((6.123e-17,-1),(0.05234,-0.9986),(0.1045,-0.9945),(0.1564,-0.9877),(0.2079,-0.9781),(0.2588,-0.9659),(0.309,-0.9511),(0.3584,-0.9336),(0.4067,-0.9135),(0.454,-0.891),(0.5,-0.866),(0.5446,-0.8387),(0.5878,-0.809),(0.6293,-0.7771),(0.6691,-0.7431),(0.7071,-0.7071),(0.7431,-0.6691),(0.7771,-0.6293),(0.809,-0.5878),(0.8387,-0.5446),(0.866,-0.5),(0.891,-0.454),(0.9135,-0.4067),(0.9336,-0.3584),(0.9511,-0.309),(0.9659,-0.2588),(0.9781,-0.2079),(0.9877,-0.1564),(0.9945,-0.1045),(0.9986,-0.05234),(1,-2.22e-16),(0.9986,0.05234),(0.9945,0.1045),(0.9877,0.1564),(0.9781,0.2079),(0.9659,0.2588),(0.9511,0.309),(0.9336,0.3584),(0.9135,0.4067),(0.891,0.454),(0.866,0.5),(0.8387,0.5446),(0.809,0.5878),(0.7771,0.6293),(0.7431,0.6691),(0.7071,0.7071),(0.6691,0.7431),(0.6293,0.7771),(0.5878,0.809),(0.5446,0.8387),(0.5,0.866),(0.454,0.891),(0.4067,0.9135),(0.3584,0.9336),(0.309,0.9511),(0.2588,0.9659),(0.2079,0.9781),(0.1564,0.9877),(0.1045,0.9945),(0.05234,0.9986),(5.053e-16,1))"/>
+              <parametric-curve at="hw6-wedge-D-arc" function="semi" domain="(-pi/2,pi/2)" stroke="#0072B2" thickness="3"/>
+              <line at="hw6-wedge-D-diam" endpoints="((0,-1),(0,1))" stroke="#0072B2" thickness="3"/>
+              <line at="hw6-wedge-D-ray" endpoints="((0,0),(0.8776,0.4794))" stroke="#009E73" thickness="2"/>
+              <arc at="hw6-wedge-D-angle" center="(0,0)" radius="0.3" range="(0,28.6)" stroke="#009E73" thickness="2"/>
+              <point at="hw6-wedge-D-top" p="(0,1)" fill="black" size="3.5"/>
+              <point at="hw6-wedge-D-bot" p="(0,-1)" fill="black" size="3.5"/>
+              <point at="hw6-wedge-D-end" p="(0.8776,0.4794)" fill="#009E73" size="3.5"/>
+              <label at="hw6-wedge-D-toplab" anchor="(0,1)" alignment="nw" offset="(-3,4)"><m>\theta=\tfrac{\pi}{2}</m></label>
+              <label at="hw6-wedge-D-botlab" anchor="(0,-1)" alignment="sw" offset="(-3,-4)"><m>\theta=-\tfrac{\pi}{2}</m></label>
+              <label at="hw6-wedge-D-rlab" anchor="(0.55,0.08)" alignment="se" color="#009E73"><m>r</m></label>
+              <label at="hw6-wedge-D-tlab" anchor="(0.34,0.06)" alignment="ne" color="#009E73"><m>\theta</m></label>
+              <label at="hw6-wedge-D-Rlab" anchor="(1,0)" alignment="se" offset="(4,-4)" color="#0072B2"><m>r=3</m></label>
+              <label at="hw6-wedge-D-Dlab" anchor="(0.45,-0.5)" alignment="c"><m>\mathcal{D}</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The half disk D of radius 3 on the side x greater than or equal to zero, the shadow of the wedge.">
+                <annotation ref="hw6-wedge-D-region" text="The shaded half disk D."/>
+                <annotation ref="hw6-wedge-D-arc" text="The semicircle r equals 3, from theta equals minus pi over two to pi over two." sonify="yes"/>
+                <annotation ref="hw6-wedge-D-diam" text="The straight edge of D along the y axis, where the top plane z equals x meets the base."/>
+                <annotation ref="hw6-wedge-D-ray" text="A sample ray at angle theta, with r running from zero to 3."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+      The volume is <m>\iiint_{\mathcal{W}} 1\,dV</m>, and with
+      <m>dV = r\,dz\,dr\,d\theta</m> by <xref ref="eq-dv-cylindrical"/>,
+      </p>
+      <md>
+      <mrow>
+      V \amp = \int_{-\pi/2}^{\pi/2}\!\!\int_0^{3}\!\!\int_0^{r\cos\theta}
+      r\,dz\,dr\,d\theta
+      = \int_{-\pi/2}^{\pi/2}\!\!\int_0^{3} r^2\cos\theta\,dr\,d\theta
+      </mrow>
+      <mrow>
+      \amp = \frac{27}{3}\int_{-\pi/2}^{\pi/2} \cos\theta\,d\theta
+      = 9\Big[\sin\theta\Big]_{-\pi/2}^{\pi/2}
+      = 18 .
+      </mrow>
+      </md>
+      <p>
+      In general, a cylinder of radius <m>R</m> gives <m>V = 2R^3/3</m>.
+      </p>
+    </solution>
+  </problem>
 </section>
