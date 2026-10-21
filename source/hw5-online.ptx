@@ -709,8 +709,21 @@
     <title>Three Integrals Into One</title>
     <statement>
       <p>
-        Combine the three integrals of
-        <xref ref="ex-hw5o-combine"/> into a single polar integral. In
+        Combine the three integrals
+      </p>
+      <md>
+        <mrow>
+          \int_{1/\sqrt2}^{1}\!\!\int_{\sqrt{1-x^2}}^{x} xy\,dy\,dx
+        </mrow>
+        <mrow>
+          {}+ \int_{1}^{\sqrt2}\!\!\int_{0}^{x} xy\,dy\,dx
+        </mrow>
+        <mrow>
+          {}+ \int_{\sqrt2}^{2}\!\!\int_{0}^{\sqrt{4-x^2}} xy\,dy\,dx
+        </mrow>
+      </md>
+      <p>
+        into a single polar integral. In
         <m>\displaystyle\int\!\!\int r^3\sin\theta\cos\theta\,
         dr\,d\theta</m>, the radius runs from <var width="6"/> to
         <var width="6"/> and <m>\theta</m> from <var width="6"/> to
