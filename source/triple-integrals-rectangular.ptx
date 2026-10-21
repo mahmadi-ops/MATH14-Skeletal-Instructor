@@ -52,6 +52,23 @@ with variable density (mass per unit volume) <m>\rho(x,y,z)</m> is
 M = \iiint_B \rho(x,y,z)\,dV.
 </men>
 
+<figure xml:id="fig-block-mass-video">
+<caption>
+Where <xref ref="eq-mass-triple"/> comes from. Divide the <m>x</m>,
+<m>y</m> and <m>z</m> directions into <m>n</m>, <m>m</m> and <m>p</m>
+pieces, so that <m>B</m> is cut into tiny blocks <m>B_{ijk}</m> of
+volume <m>\Delta V = \Delta x\,\Delta y\,\Delta z</m>. On a tiny
+block the density hardly changes, so its mass is about
+<m>\rho(x_i,y_j,z_k)\,\Delta V</m>; adding these over all the blocks
+gives a triple Riemann sum, an estimate of <m>M</m>; and as
+<m>n, m, p \to \infty</m> the estimate becomes exact. That limit is
+the triple integral.
+</caption>
+<video preview="play-button.png" xml:id="video-block-mass"
+       source="videos/block_mass_1080p.mp4"
+       width="70%" aspect="16:9"/>
+</figure>
+
 <p>
 More generally, a <term>triple integral</term> has the form
 <m>\iiint_E f(x,y,z)\,dV</m>, defined by chopping the solid <m>E</m>
