@@ -332,6 +332,733 @@
     </solution>
   </exercise>
 
+  <exercise xml:id="ex-hw6o-spherical-surfaces">
+    <title>Surfaces in Spherical Coordinates</title>
+    <statement>
+      <p>
+        Describe each surface, given in rectangular coordinates, in
+        spherical coordinates.
+      </p>
+      <p>
+        (a) The plane <m>x = \sqrt3\,y</m> is the union of the two
+        half-planes <m>\theta = </m><var width="6"/> and
+        <m>\theta = </m><var width="6"/> (the smaller angle first; both
+        between <m>0</m> and <m>2\pi</m>).
+      </p>
+      <p>
+        (b) The cone <m>z^2 = x^2 + y^2</m> is the union of the two cones
+        <m>\phi = </m><var width="6"/> and <m>\phi = </m><var width="6"/>
+        (the smaller angle first).
+      </p>
+      <p>
+        (c) On the ellipsoid <m>x^2 + y^2 + z^2/4 = 1</m>,
+        <m>\rho^2 = \dfrac{A}{1 + B\sin^2\phi}</m> with
+        <m>A = </m><var width="4"/> and <m>B = </m><var width="4"/>; so
+        on the <m>z</m>-axis (<m>\phi = 0</m>) <m>\rho = </m><var width="4"/>,
+        and in the <m>xy</m>-plane (<m>\phi = \pi/2</m>)
+        <m>\rho = </m><var width="4"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="0.5236" tolerance="0.005">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="3.6652" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="0.7854" tolerance="0.005">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="2.3562" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="4" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="3" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="2" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw6-solutions">
+      <p>
+        Substitute <m>x = \rho\sin\phi\cos\theta</m>,
+        <m>y = \rho\sin\phi\sin\theta</m>, <m>z = \rho\cos\phi</m>
+        (<xref ref="eq-spherical-to-rect"/>) in each equation.
+      </p>
+      <p>
+        (a) <m>x = \sqrt3\,y</m> becomes
+        <m>\rho\sin\phi\,(\cos\theta - \sqrt3\sin\theta) = 0</m>. Off the
+        <m>z</m>-axis this says <m>\tan\theta = 1/\sqrt3</m>, so
+        <m>\theta = \pi/6</m> or <m>\theta = 7\pi/6</m>; the <m>z</m>-axis
+        itself (<m>\rho\sin\phi = 0</m>) lies in the plane and on both
+        half-planes. The plane is vertical, so it is determined by its
+        trace in the <m>xy</m>-plane, the line through the origin at angle
+        <m>\pi/6</m> (<xref ref="fig-hw6o-surfaces-plane"/>).
+      </p>
+      <figure xml:id="fig-hw6o-surfaces-plane">
+        <caption>
+          The trace of the plane <m>x = \sqrt3\,y</m> in the <m>xy</m>-plane: the line through the origin making the angle <m>\pi/6</m> with the positive <m>x</m>-axis. Its two rays are <m>\theta = \pi/6</m> and <m>\theta = 7\pi/6</m>, and the plane is the union of the vertical half-planes above and below them.
+        </caption>
+        <image width="45%">
+          <shortdescription>
+          A line through the origin in the xy-plane, tilted thirty degrees above the x axis, with its two rays labelled theta equals pi over six and theta equals seven pi over six.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and y. A blue line through the origin makes an angle of thirty degrees with the positive x axis. The ray into the first quadrant is labelled theta equals pi over six, with a small green arc marking the angle from the x axis; the opposite ray into the third quadrant is labelled theta equals seven pi over six, with a larger green arc from the positive x axis around to it.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw6o-surfaces-plane">
+            <diagram dimensions="(300,300)" margins="10">
+              <coordinates bbox="(-1.5,-1.5,1.5,1.5)">
+              <axes at="sp-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <line at="sp-line" endpoints="((-1.3,-0.7506),(1.3,0.7506))" stroke="#0072B2" thickness="3"/>
+              <arc at="sp-arc1" center="(0,0)" radius="0.45" range="(0,30)" stroke="#009E73" thickness="2"/>
+              <arc at="sp-arc2" center="(0,0)" radius="0.7" range="(0,210)" stroke="#009E73" thickness="2"/>
+              <label at="sp-lab1" anchor="(0.62,0.16)" alignment="e" color="#009E73"><m>\tfrac{\pi}{6}</m></label>
+              <label at="sp-lab2" anchor="(-0.35,0.7)" alignment="ne" color="#009E73"><m>\tfrac{7\pi}{6}</m></label>
+              <label at="sp-ray1" anchor="(1.1,0.635)" alignment="se" offset="(4,-2)" color="#0072B2"><m>\theta=\tfrac{\pi}{6}</m></label>
+              <label at="sp-ray2" anchor="(-0.75,-0.433)" alignment="se" offset="(2,-3)" color="#0072B2"><m>\theta=\tfrac{7\pi}{6}</m></label>
+              <label at="sp-eq" anchor="(0.45,-1.2)" alignment="c" color="#0072B2"><m>x=\sqrt3\,y</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The line x equals root three y in the xy-plane, the trace of the vertical plane.">
+                <annotation ref="sp-line" text="The line through the origin at angle pi over six to the x axis." sonify="yes"/>
+                <annotation ref="sp-arc1" text="The angle theta equals pi over six, from the positive x axis to the ray in the first quadrant."/>
+                <annotation ref="sp-arc2" text="The angle theta equals seven pi over six, from the positive x axis around to the opposite ray."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+        (b) <m>z^2 = x^2 + y^2</m> becomes
+        <m>\rho^2\cos^2\phi = \rho^2\sin^2\phi</m>, that is
+        <m>\tan^2\phi = 1</m> with <m>0 \le \phi \le \pi</m>: the upper
+        nappe <m>z = \sqrt{x^2+y^2}</m> is <m>\phi = \pi/4</m> and the
+        lower nappe <m>z = -\sqrt{x^2+y^2}</m> is <m>\phi = 3\pi/4</m>
+        (<xref ref="fig-hw6o-surfaces-cone"/>). (Geometrically: every point
+        of the cone has <m>|z| = r</m>, so the line from the origin to it
+        makes a <m>45^\circ</m> angle with the <m>z</m>-axis.)
+      </p>
+      <figure xml:id="fig-hw6o-surfaces-cone">
+        <caption>
+          The cone <m>z^2 = x^2 + y^2</m>: the upper nappe is <m>\phi = \pi/4</m> and the lower nappe is <m>\phi = 3\pi/4</m>, the angle being measured from the positive <m>z</m>-axis.
+        </caption>
+        <image width="55%">
+          <shortdescription>
+          A double cone with its vertex at the origin and the z axis as its axis, the upper nappe in blue and the lower in orange, with the angles pi over four and three pi over four marked from the positive z axis.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x, y and z. A double cone has its vertex at the origin and opens along the z axis. The upper nappe, translucent blue, makes an angle of forty-five degrees with the positive z axis, marked by a small blue arc labelled phi equals pi over four along a generator in the xz-plane. The lower nappe, translucent orange, makes an angle of one hundred thirty-five degrees with the positive z axis, marked by a larger orange arc labelled phi equals three pi over four down to a generator on the opposite side.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+                      \definecolor{oiblue}{RGB}{0,114,178}
+                      \definecolor{oiorange}{RGB}{213,94,0}
+                      \begin{axis}[
+                          view={40}{18},
+                          width=9.5cm,
+                          axis lines=center,
+                          axis line style={-latex, black!70, line width=0.7pt},
+                          xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                          label style={font=\large},
+                          ticks=none,
+                          xmin=-1.35, xmax=1.35, ymin=-1.35, ymax=1.35, zmin=-1.3, zmax=1.4,
+                          clip=false,
+                          unit vector ratio=1 1 1,
+                        ]
+                        \addplot3[surf, shader=faceted, faceted color=oiorange!30,
+                                  colormap={lonappe}{color=(oiorange!12!white) color=(oiorange!45!white)},
+                                  opacity=0.55, fill opacity=0.55,
+                                  domain=0:1, samples=10, y domain=0:360, samples y=40,
+                                  z buffer=sort, forget plot]
+                          ({x*cos(y)}, {x*sin(y)}, {-x});
+                        \addplot3[surf, shader=faceted, faceted color=oiblue!30,
+                                  colormap={upnappe}{color=(oiblue!12!white) color=(oiblue!50!white)},
+                                  opacity=0.55, fill opacity=0.55,
+                                  domain=0:1, samples=10, y domain=0:360, samples y=40,
+                                  z buffer=sort, forget plot]
+                          ({x*cos(y)}, {x*sin(y)}, {x});
+                        \draw[oiblue, line width=1.3pt] (axis cs:0,0,0) -- (axis cs:1,0,1);
+                        \draw[oiorange!85!black, line width=1.3pt] (axis cs:0,0,0) -- (axis cs:-1,0,-1);
+                        \addplot3[oiblue, line width=1.2pt, samples=30, samples y=0, domain=0:45, forget plot]
+                          ({0.5*sin(x)}, 0, {0.5*cos(x)});
+                        \addplot3[oiorange!85!black, line width=1.2pt, samples=40, samples y=0, domain=0:135, forget plot]
+                          ({-0.42*sin(x)}, 0, {0.42*cos(x)});
+                        \node[oiblue, font=\small, anchor=west] at (axis cs:1.02,0,1.02) {$\phi=\tfrac{\pi}{4}$};
+                        \node[oiorange!85!black, font=\small, anchor=east] at (axis cs:-1.02,0,-1.02) {$\phi=\tfrac{3\pi}{4}$};
+                      \end{axis}
+                    \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <p>
+        (c) Since <m>x^2 + y^2 = \rho^2\sin^2\phi</m> and
+        <m>z^2 = \rho^2\cos^2\phi</m>, the ellipsoid becomes
+      </p>
+      <me>
+        \rho^2\sin^2\phi + \frac{\rho^2\cos^2\phi}{4} = 1,
+        \qquad\text{that is}\qquad
+        \rho^2\,(4\sin^2\phi + \cos^2\phi) = 4 .
+      </me>
+      <p>
+        With <m>\cos^2\phi = 1 - \sin^2\phi</m> this is
+        <m>\rho^2 = \dfrac{4}{1 + 3\sin^2\phi}</m>, so <m>A = 4</m> and
+        <m>B = 3</m>. On the <m>z</m>-axis, <m>\phi = 0</m> gives
+        <m>\rho = 2</m>; in the <m>xy</m>-plane, <m>\phi = \pi/2</m> gives
+        <m>\rho = 1</m>. The distance from the origin to the surface shrinks
+        from <m>2</m> at the poles to <m>1</m> at the equator
+        (<xref ref="fig-hw6o-surfaces-ellipsoid"/>).
+      </p>
+      <figure xml:id="fig-hw6o-surfaces-ellipsoid">
+        <caption>
+          The ellipsoid <m>x^2 + y^2 + z^2/4 = 1</m>. The distance <m>\rho</m> from the origin to the surface depends on <m>\phi</m> alone: <m>\rho = 2</m> along the <m>z</m>-axis, <m>\rho = 1</m> in the <m>xy</m>-plane, and <m>\rho = 2/\sqrt{1+3\sin^2\phi}</m> in between.
+        </caption>
+        <image width="40%">
+          <shortdescription>
+          A translucent ellipsoid, twice as tall as it is wide, with three segments from the origin to its surface labelled with their lengths.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x, y and z. A translucent blue ellipsoid is centered at the origin, reaching height two on the z axis and radius one in the xy-plane. An orange segment from the origin up the z axis to the top of the ellipsoid is labelled rho equals two, and an orange segment along the x axis to the equator is labelled rho equals one. A green segment from the origin to a point of the surface at angle phi from the z axis is labelled rho equals two over the square root of one plus three sine squared phi, with a small green arc marking phi.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+                      \definecolor{oiblue}{RGB}{0,114,178}
+                      \definecolor{oiorange}{RGB}{213,94,0}
+                      \definecolor{oigreen}{RGB}{0,158,115}
+                      \begin{axis}[
+                          view={40}{18},
+                          width=9.5cm,
+                          axis lines=center,
+                          axis line style={-latex, black!70, line width=0.7pt},
+                          xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                          label style={font=\large},
+                          ticks=none,
+                          xmin=-1.7, xmax=1.7, ymin=-1.7, ymax=1.7, zmin=-2.2, zmax=2.45,
+                          clip=false,
+                          unit vector ratio=1 1 1,
+                        ]
+                        \addplot3[surf, shader=faceted, faceted color=oiblue!25,
+                                  colormap={ellip}{color=(oiblue!10!white) color=(oiblue!50!white)},
+                                  opacity=0.45, fill opacity=0.45,
+                                  domain=0:180, samples=25, y domain=0:360, samples y=40,
+                                  z buffer=sort, forget plot]
+                          ({sin(x)*cos(y)}, {sin(x)*sin(y)}, {2*cos(x)});
+                        \draw[oiorange, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:0,0,2);
+                        \node[font=\small, anchor=west] at (axis cs:0.04,0,1.45) {$\rho=2$};
+                        \draw[oiorange, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:1,0,0);
+                        \node[font=\small, anchor=north west] at (axis cs:0.7,0,-0.1) {$\rho=1$};
+                        \draw[oigreen, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:-0.9608,0,0.5547);
+                        \node[font=\small, anchor=east] at (axis cs:-1.0,0,0.62) {$\rho$};
+                        \node[font=\small, anchor=north] at (axis cs:0,0,-2.3)
+                          {$\rho=2/\sqrt{1+3\sin^2\phi}$};
+                        \addplot3[oigreen, line width=1pt, samples=30, samples y=0, domain=0:60, forget plot]
+                          ({-0.4*sin(x)}, 0, {0.4*cos(x)});
+                        \node[oigreen!70!black, font=\small] at (axis cs:-0.2,0,0.64) {$\phi$};
+                      \end{axis}
+                    \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw6o-cap">
+    <title>A Cap Cut From a Ball</title>
+    <statement>
+      <p>
+        Find the volume of the region bounded by the sphere
+        <m>x^2 + y^2 + z^2 = 4</m> and the plane <m>z = 1</m> (the part of
+        the ball that lies above the plane).
+      </p>
+      <p>
+        In spherical coordinates the region is <m>0 \le \theta \le 2\pi</m>,
+        <m>0 \le \phi \le </m><var width="6"/>, and <m>\rho</m> runs from a
+        lower limit that depends on <m>\phi</m> (at <m>\phi = \pi/4</m>
+        that limit equals <var width="6"/>) up to <var width="4"/>. The
+        volume is <m>V = </m><var width="8"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="1.0472" tolerance="0.005">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1.4142" tolerance="0.005">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="2" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="5.236" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw6-solutions">
+      <p>
+        The sphere is <m>\rho = 2</m>, and the plane <m>z = 1</m> is
+        <m>\rho\cos\phi = 1</m>, that is <m>\rho = \sec\phi</m>. They meet
+        where <m>2\cos\phi = 1</m>, so <m>\phi = \pi/3</m>; that is the
+        circle <m>x^2 + y^2 = 3</m>, <m>z = 1</m>. A ray from the origin at
+        angle <m>\phi \le \pi/3</m> enters the region through the plane at
+        <m>\rho = \sec\phi</m> and leaves it through the sphere at
+        <m>\rho = 2</m> (<xref ref="fig-hw6o-cap-3d"/> and
+        <xref ref="fig-hw6o-cap-section"/>), so the region is
+      </p>
+      <me>
+        0 \le \theta \le 2\pi,\qquad 0 \le \phi \le \frac{\pi}{3},\qquad
+        \sec\phi \le \rho \le 2 .
+      </me>
+      <p>
+        At <m>\phi = \pi/4</m> the lower limit is
+        <m>\sec(\pi/4) = \sqrt2 \approx 1.414</m>.
+      </p>
+      <figure xml:id="fig-hw6o-cap-3d">
+        <caption>
+          The cap of <xref ref="ex-hw6o-cap"/>: the part of the ball <m>\rho \le 2</m> above the plane <m>z = 1</m>. The plane meets the sphere along the circle <m>x^2 + y^2 = 3</m>, <m>z = 1</m>, where <m>\phi = \pi/3</m>.
+        </caption>
+        <image width="55%">
+          <shortdescription>
+          A spherical cap, in blue, sitting on an orange disk at height one; the rest of the sphere is a dashed outline, and a green ray from the origin to the rim marks the angle pi over three.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x, y and z. A dashed circle in the xz-plane outlines the sphere of radius two. The cap of the sphere above height one is drawn as a translucent blue surface, resting on a translucent orange disk of radius root three in the plane z equals one. A green segment from the origin to a point on the rim of the cap makes an angle with the positive z axis marked by a green arc and labelled phi equals pi over three.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+                      \definecolor{oiblue}{RGB}{0,114,178}
+                      \definecolor{oiorange}{RGB}{213,94,0}
+                      \definecolor{oigreen}{RGB}{0,158,115}
+                      \begin{axis}[
+                          view={40}{20},
+                          width=10cm,
+                          axis lines=center,
+                          axis line style={-latex, black!70, line width=0.7pt},
+                          xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                          label style={font=\large},
+                          ticks=none,
+                          xmin=-2.4, xmax=2.4, ymin=-2.4, ymax=2.4, zmin=-2.2, zmax=2.5,
+                          clip=false,
+                          unit vector ratio=1 1 1,
+                        ]
+                        \addplot3[black!45, dashed, line width=0.9pt, samples=90, samples y=0, domain=0:360, forget plot]
+                          ({2*sin(x)}, 0, {2*cos(x)});
+                        \addplot3[surf, shader=flat, color=oiorange!25, opacity=0.55, fill opacity=0.55,
+                                  domain=0:1.7321, samples=12, y domain=0:360, samples y=40,
+                                  z buffer=sort, forget plot]
+                          ({x*cos(y)}, {x*sin(y)}, 1);
+                        \addplot3[surf, shader=faceted, faceted color=oiblue!30,
+                                  colormap={capz}{color=(oiblue!15!white) color=(oiblue!55!white)},
+                                  opacity=0.65, fill opacity=0.65,
+                                  domain=0:60, samples=16, y domain=0:360, samples y=40,
+                                  z buffer=sort, forget plot]
+                          ({2*sin(x)*cos(y)}, {2*sin(x)*sin(y)}, {2*cos(x)});
+                        \addplot3[oiblue, line width=1.4pt, samples=90, samples y=0, domain=0:360, forget plot]
+                          ({1.7321*cos(x)}, {1.7321*sin(x)}, 1);
+                        \draw[oigreen, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:-1.7321,0,1);
+                        \addplot3[oigreen, line width=1pt, samples=30, samples y=0, domain=0:60, forget plot]
+                          ({-0.55*sin(x)}, 0, {0.55*cos(x)});
+                        \node[oigreen!70!black, font=\small, anchor=east] at (axis cs:-1.3,0,0.74) {$\phi=\tfrac{\pi}{3}$};
+                        \node[oiorange!80!black, font=\small, anchor=west] at (axis cs:1.8,0,1.0) {$z=1$};
+                        \node[oiblue, font=\small, anchor=south west] at (axis cs:1.05,0,1.75) {$\rho=2$};
+                      \end{axis}
+                    \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <figure xml:id="fig-hw6o-cap-section">
+        <caption>
+          The cross-section of the cap of <xref ref="ex-hw6o-cap"/> by the <m>xz</m>-plane. The shaded region lies between the line <m>z = 1</m>, which is <m>\rho = \sec\phi</m>, and the circle <m>\rho = 2</m>; the two meet at <m>\phi = \pi/3</m>. Along a ray at angle <m>\phi</m>, <m>\rho</m> runs from <m>\sec\phi</m> to <m>2</m>.
+        </caption>
+        <image width="55%">
+          <shortdescription>
+          A circle of radius two centered at the origin, cut by the horizontal line z equals one; the segment of the disk above the line is shaded, with a ray at angle pi over three to its corner and a sample ray at a smaller angle.
+          </shortdescription>
+          <description>
+            <p>
+            Axes x and z. A blue circle of radius two is centered at the origin and a blue horizontal line crosses it at height one. The part of the disk above the line is shaded tan. A green ray from the origin to the right-hand corner of the shaded region, the point root three comma one, makes the angle pi over three with the positive z axis, marked by a green arc. A second green segment at a smaller angle phi starts on the line z equals one, where rho equals secant phi, and ends on the circle, where rho equals two.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw6o-cap-section">
+            <diagram dimensions="(340,330)" margins="10">
+              <definition>plane(x) = 1</definition>
+              <definition>sphere(x) = sqrt(4 - x^2)</definition>
+              <definition>circ(t) = (2*cos(t), 2*sin(t))</definition>
+              <coordinates bbox="(-2.55,-2.45,2.55,2.5)">
+              <area-between-curves at="cap-region" function1="plane" function2="sphere" domain="(-1.7320508,1.7320508)" fill="#fbe3d0" stroke="none"/>
+              <axes at="cap-axes" xlabel="x" ylabel="z" hlabels="(-2,2,2)" vlabels="(-2,2,2)" arrows="1"/>
+              <parametric-curve at="cap-circle" function="circ" domain="(0,2*pi)" stroke="#0072B2" thickness="3"/>
+              <line at="cap-plane" endpoints="((-2.4,1),(2.4,1))" stroke="#0072B2" thickness="3"/>
+              <line at="cap-ray" endpoints="((0,0),(1.7320508,1))" stroke="#009E73" thickness="2.5"/>
+              <arc at="cap-angle" center="(0,0)" radius="0.5" range="(30,90)" stroke="#009E73" thickness="2"/>
+              <line at="cap-sample" endpoints="((-0.7002,1),(-1.1472,1.6383))" stroke="#009E73" thickness="2.5"/>
+              <line at="cap-sample-in" endpoints="((0,0),(-0.7002,1))" stroke="#009E73" thickness="1" dash="4 3"/>
+              <arc at="cap-sample-angle" center="(0,0)" radius="0.3" range="(90,125)" stroke="#009E73" thickness="1.5"/>
+              <point at="cap-corner" p="(1.7320508,1)" fill="black" size="3.5"/>
+              <point at="cap-corner2" p="(-1.7320508,1)" fill="black" size="3.5"/>
+              <point at="cap-s1" p="(-0.7002,1)" fill="#009E73" size="3"/>
+              <point at="cap-s2" p="(-1.1472,1.6383)" fill="#009E73" size="3"/>
+              <label at="cap-philab" anchor="(0.33,0.56)" alignment="ne" color="#009E73"><m>\tfrac{\pi}{3}</m></label>
+              <label at="cap-cornerlab" anchor="(1.7320508,1)" alignment="se" offset="(4,-4)"><m>(\sqrt3,1)</m></label>
+              <label at="cap-planelab" anchor="(-2.35,1)" alignment="ne" offset="(0,3)" color="#0072B2"><m>z=1</m></label>
+              <label at="cap-rholab" anchor="(1.55,1.35)" alignment="ne" color="#0072B2"><m>\rho=2</m></label>
+              <label at="cap-seclab" anchor="(-0.7002,1)" alignment="sw" offset="(-3,-4)" color="#009E73"><m>\rho=\sec\phi</m></label>
+              <label at="cap-twolab" anchor="(-1.1472,1.6383)" alignment="nw" offset="(-3,3)" color="#009E73"><m>\rho=2</m></label>
+              <label at="cap-samplephi" anchor="(-0.16,0.36)" alignment="nw" color="#009E73"><m>\phi</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The cross-section of the cap by the xz-plane: the part of the disk of radius two above the line z equals one.">
+                <annotation ref="cap-region" text="The shaded cross-section of the cap."/>
+                <annotation ref="cap-circle" text="The circle rho equals two." sonify="yes"/>
+                <annotation ref="cap-plane" text="The line z equals one, which is rho equals secant phi."/>
+                <annotation ref="cap-ray" text="The ray at angle pi over three from the z axis, through the corner of the region at root three comma one."/>
+                <annotation ref="cap-sample" text="A sample ray at a smaller angle phi, inside the region from rho equals secant phi to rho equals two."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+        With <m>dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta</m> by
+        <xref ref="eq-dv-spherical"/>,
+      </p>
+      <md>
+        <mrow>
+          V \amp = \int_0^{2\pi}\!\!\int_0^{\pi/3}\!\!\int_{\sec\phi}^{2}
+          \rho^2\sin\phi\,d\rho\,d\phi\,d\theta
+          = 2\pi\int_0^{\pi/3} \frac{8 - \sec^3\phi}{3}\,\sin\phi\,d\phi
+        </mrow>
+        <mrow>
+          \amp = \frac{2\pi}{3}\left[-8\cos\phi - \frac{1}{2\cos^2\phi}\right]_0^{\pi/3}
+          = \frac{2\pi}{3}\left[(-4 - 2) - \left(-8 - \tfrac12\right)\right]
+        </mrow>
+        <mrow>
+          \amp = \frac{2\pi}{3}\cdot\frac{5}{2} = \frac{5\pi}{3} \approx 5.236 ,
+        </mrow>
+      </md>
+      <p>
+        where <m>\int \sec^3\phi\,\sin\phi\,d\phi = \int \cos^{-3}\phi\,\sin\phi\,d\phi
+        = \dfrac{1}{2\cos^2\phi}</m>. (Check: a cap of height <m>h</m> on a
+        ball of radius <m>R</m> has volume <m>\pi h^2(3R - h)/3</m>; with
+        <m>R = 2</m>, <m>h = 1</m> this is <m>5\pi/3</m>.)
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw6o-cone-sphere">
+    <title>An Integral Over an Ice-Cream Cone</title>
+    <statement>
+      <p>
+        Let <m>R</m> be the region above the cone <m>z = \sqrt{x^2 + y^2}</m>
+        and below the unit sphere <m>x^2 + y^2 + z^2 = 1</m>. Compute
+      </p>
+      <me>
+        \iiint_R z^2\,dV .
+      </me>
+      <p>
+        In spherical coordinates <m>R</m> is <m>0 \le \theta \le 2\pi</m>,
+        <m>0 \le \phi \le </m><var width="6"/>,
+        <m>0 \le \rho \le </m><var width="4"/>, and the integral equals
+        <var width="8"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="0.7854" tolerance="0.005">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="0.2708" tolerance="0.002">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw6-solutions">
+      <p>
+        The cone <m>z = \sqrt{x^2+y^2}</m> is <m>\phi = \pi/4</m> and the
+        sphere is <m>\rho = 1</m>, so <m>R</m> is the ice-cream cone
+      </p>
+      <me>
+        0 \le \theta \le 2\pi,\qquad 0 \le \phi \le \frac{\pi}{4},\qquad
+        0 \le \rho \le 1
+      </me>
+      <p>
+        of <xref ref="fig-hw6o-cone-sphere-3d"/> and
+        <xref ref="fig-hw6o-cone-sphere-section"/>.
+      </p>
+      <figure xml:id="fig-hw6o-cone-sphere-3d">
+        <caption>
+          The region <m>R</m> of <xref ref="ex-hw6o-cone-sphere"/>: inside the cone <m>\phi = \pi/4</m> and inside the unit sphere <m>\rho = 1</m>. The cone and the sphere meet along the circle at height <m>z = 1/\sqrt2</m>.
+        </caption>
+        <image width="55%">
+          <shortdescription>
+          An ice-cream cone shape: an orange cone with its vertex at the origin opening upward, capped by a blue piece of the unit sphere, with a green ray marking the angle pi over four.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x, y and z. A translucent orange cone has its vertex at the origin and opens upward at forty-five degrees from the z axis. It is capped by a translucent blue piece of the unit sphere, and the two meet along a circle at height one over root two. A dashed circle in the xz-plane outlines the unit sphere. A green segment from the origin along the cone to the rim makes an angle with the z axis marked by a green arc and labelled phi equals pi over four.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+                      \definecolor{oiblue}{RGB}{0,114,178}
+                      \definecolor{oiorange}{RGB}{213,94,0}
+                      \definecolor{oigreen}{RGB}{0,158,115}
+                      \begin{axis}[
+                          view={40}{20},
+                          width=9.5cm,
+                          axis lines=center,
+                          axis line style={-latex, black!70, line width=0.7pt},
+                          xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                          label style={font=\large},
+                          ticks=none,
+                          xmin=-1.2, xmax=1.2, ymin=-1.2, ymax=1.2, zmin=-1.1, zmax=1.3,
+                          clip=false,
+                          unit vector ratio=1 1 1,
+                        ]
+                        \addplot3[black!45, dashed, line width=0.9pt, samples=90, samples y=0, domain=0:360, forget plot]
+                          ({sin(x)}, 0, {cos(x)});
+                        \addplot3[surf, shader=faceted, faceted color=oiorange!30,
+                                  colormap={conez}{color=(oiorange!12!white) color=(oiorange!45!white)},
+                                  opacity=0.6, fill opacity=0.6,
+                                  domain=0:1, samples=10, y domain=0:360, samples y=40,
+                                  z buffer=sort, forget plot]
+                          ({0.7071*x*cos(y)}, {0.7071*x*sin(y)}, {0.7071*x});
+                        \addplot3[surf, shader=faceted, faceted color=oiblue!30,
+                                  colormap={capone}{color=(oiblue!15!white) color=(oiblue!55!white)},
+                                  opacity=0.65, fill opacity=0.65,
+                                  domain=0:45, samples=12, y domain=0:360, samples y=40,
+                                  z buffer=sort, forget plot]
+                          ({sin(x)*cos(y)}, {sin(x)*sin(y)}, {cos(x)});
+                        \addplot3[oiblue, line width=1.4pt, samples=90, samples y=0, domain=0:360, forget plot]
+                          ({0.7071*cos(x)}, {0.7071*sin(x)}, 0.7071);
+                        \draw[oigreen, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:-0.7071,0,0.7071);
+                        \addplot3[oigreen, line width=1pt, samples=30, samples y=0, domain=0:45, forget plot]
+                          ({-0.4*sin(x)}, 0, {0.4*cos(x)});
+                        \node[oigreen!70!black, font=\small, anchor=east] at (axis cs:-0.62,0,0.32) {$\phi=\tfrac{\pi}{4}$};
+                        \node[oiblue, font=\small, anchor=south west] at (axis cs:0.45,0,0.92) {$\rho=1$};
+                        \node[oiorange!80!black, font=\small, anchor=west] at (axis cs:0.55,0,0.3) {$z=\sqrt{x^2+y^2}$};
+                      \end{axis}
+                    \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <figure xml:id="fig-hw6o-cone-sphere-section">
+        <caption>
+          The cross-section of <m>R</m> by the <m>xz</m>-plane: the sector of the unit disk between the rays <m>\phi = \pi/4</m> on either side of the <m>z</m>-axis. Along every ray from the origin, <m>\rho</m> runs from <m>0</m> to <m>1</m>.
+        </caption>
+        <image width="45%">
+          <shortdescription>
+          A shaded sector of the unit disk, opening upward from the origin at forty-five degrees on each side of the z axis and bounded above by the unit circle.
+          </shortdescription>
+          <description>
+            <p>
+            Axes x and z. Two blue rays from the origin, the lines z equals plus or minus x, open upward at forty-five degrees from the z axis, and the upper half of the blue unit circle arches over them. The sector between the rays and under the circle is shaded tan. A green arc near the origin marks the angle pi over four from the positive z axis to the right-hand ray.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw6o-cone-sphere-section">
+            <diagram dimensions="(340,230)" margins="10">
+              <definition>cone(x) = sqrt(x^2)</definition>
+              <definition>sphere(x) = sqrt(1 - x^2)</definition>
+              <definition>circ(t) = (cos(t), sin(t))</definition>
+              <coordinates bbox="(-1.7,-0.4,1.7,1.35)">
+              <area-between-curves at="cs-region" function1="cone" function2="sphere" domain="(-0.70710678,0.70710678)" fill="#fbe3d0" stroke="none"/>
+              <axes at="cs-axes" xlabel="x" ylabel="z" hlabels="(-1,1,1)" vlabels="(1,1,1)" arrows="1"/>
+              <parametric-curve at="cs-circle" function="circ" domain="(0,pi)" stroke="#0072B2" thickness="3"/>
+              <line at="cs-ray-right" endpoints="((0,0),(1.25,1.25))" stroke="#0072B2" thickness="3"/>
+              <line at="cs-ray-left" endpoints="((0,0),(-1.25,1.25))" stroke="#0072B2" thickness="3"/>
+              <arc at="cs-angle" center="(0,0)" radius="0.35" range="(45,90)" stroke="#009E73" thickness="2"/>
+              <point at="cs-c1" p="(0.70710678,0.70710678)" fill="black" size="3.5"/>
+              <point at="cs-c2" p="(-0.70710678,0.70710678)" fill="black" size="3.5"/>
+              <label at="cs-philab" anchor="(0.2,0.42)" alignment="ne" color="#009E73"><m>\tfrac{\pi}{4}</m></label>
+              <label at="cs-raylab" anchor="(1.05,1.05)" alignment="se" offset="(4,-2)" color="#0072B2"><m>\phi=\tfrac{\pi}{4}</m></label>
+              <label at="cs-rholab" anchor="(0.25,0.97)" alignment="ne" color="#0072B2"><m>\rho=1</m></label>
+              <label at="cs-cornerlab" anchor="(0.70710678,0.70710678)" alignment="se" offset="(4,-4)"><m>\bigl(\tfrac{1}{\sqrt2},\tfrac{1}{\sqrt2}\bigr)</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The cross-section of the ice-cream cone by the xz-plane: a sector of the unit disk opening upward.">
+                <annotation ref="cs-region" text="The shaded sector."/>
+                <annotation ref="cs-circle" text="The unit circle rho equals one." sonify="yes"/>
+                <annotation ref="cs-ray-right" text="The ray phi equals pi over four, the right edge of the cone."/>
+                <annotation ref="cs-ray-left" text="The left edge of the cone, also at angle pi over four from the z axis."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+        With <m>z = \rho\cos\phi</m> and
+        <m>dV = \rho^2\sin\phi\,d\rho\,d\phi\,d\theta</m>,
+      </p>
+      <md>
+        <mrow>
+          \iiint_R z^2\,dV
+          \amp = \int_0^{2\pi}\!\!\int_0^{\pi/4}\!\!\int_0^{1}
+          \rho^2\cos^2\phi\cdot\rho^2\sin\phi\,d\rho\,d\phi\,d\theta
+        </mrow>
+        <mrow>
+          \amp = 2\pi\left(\int_0^1 \rho^4\,d\rho\right)
+          \left(\int_0^{\pi/4}\cos^2\phi\,\sin\phi\,d\phi\right)
+          = 2\pi\cdot\frac15\cdot\left[-\frac{\cos^3\phi}{3}\right]_0^{\pi/4}
+        </mrow>
+        <mrow>
+          \amp = \frac{2\pi}{15}\left(1 - \frac{\sqrt2}{4}\right)
+          = \frac{\pi\,(4 - \sqrt2)}{30} \approx 0.271 .
+        </mrow>
+      </md>
+    </solution>
+  </exercise>
+
   <exercise xml:id="ex-hw6o-wedge">
     <title>A Wedge Cut From a Cylinder</title>
     <setup>
