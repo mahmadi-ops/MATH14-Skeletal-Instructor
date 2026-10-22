@@ -1006,7 +1006,7 @@
             </p>
           </description>
           <prefigure xmlns="https://prefigure.org" label="prefigure-hw6o-cone-sphere-section">
-            <diagram dimensions="(340,230)" margins="10">
+            <diagram dimensions="(340,175)" margins="10">
               <definition>cone(x) = sqrt(x^2)</definition>
               <definition>sphere(x) = sqrt(1 - x^2)</definition>
               <definition>circ(t) = (cos(t), sin(t))</definition>
