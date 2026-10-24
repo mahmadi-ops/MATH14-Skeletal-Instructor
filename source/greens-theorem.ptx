@@ -48,16 +48,17 @@ width <m>\Delta x</m>, and height <m>\Delta y</m>. Each side's outward
 component of <m>\mathbf{F}</m> is drawn in its own color, and the legend
 gives the dot product it represents.
 </caption>
-<image width="70%">
+<image width="84%">
 <shortdescription>
 A rectangle in a vector field with a differently colored outward arrow through each of its four sides, and a legend pairing each color with its dot product.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-div-flux">
-<diagram dimensions="(440,300)" margins="10">
+<diagram dimensions="(530,300)" margins="10">
 <definition>field(x,y) = (0.4*x + 0.25, 0.32*y + 0.18)</definition>
-<coordinates bbox="(-3.0,-0.6,7.9,4.6)">
+<coordinates bbox="(-4.4,-0.6,8.7,4.6)">
 <vector-field at="df-field" function="field"
-              spacings="((0.7,1.1,5.9),(0.3,1.0,4.0))" stroke="#bbbbbb"/>
+              spacings="((1.8,1.8,5.5),(0.15,1.3,4.1))" scale="0.36"
+              stroke="#bbbbbb"/>
 <polygon closed="yes" at="df-rect" points="((1.2,1.0),(4.8,1.0),(4.8,3.2),(1.2,3.2))"
          stroke="#2b9ad6" thickness="2.5" fill="none"/>
 <point at="df-corner-bl" clear-background="yes" background-margin="3" p="(1.2,1.0)" fill="#d02090" size="3"
@@ -87,24 +88,24 @@ A rectangle in a vector field with a differently colored outward arrow through e
 <!-- Legend: one row per side, a swatch arrow in the side's color paired -->
 <!-- with the dot product it represents, in the order of the derivation  -->
 <!-- (top, bottom, right, left) in the text below the figure.            -->
-<line at="df-leg-top" p1="(-2.85,4.35)" p2="(-2.45,4.35)" arrows="1"
+<line at="df-leg-top" p1="(-4.25,4.35)" p2="(-3.85,4.35)" arrows="1"
       stroke="#D55E00" thickness="3"/>
-<label at="df-leg-top-label" clear-background="yes" background-margin="4" anchor="(-2.35,4.35)" alignment="e">
+<label at="df-leg-top-label" clear-background="yes" background-margin="4" anchor="(-3.75,4.35)" alignment="e">
 <m>\mathbf{F}\cdot\mathbf{j}\gt 0</m>
 </label>
-<line at="df-leg-bottom" p1="(-2.85,3.90)" p2="(-2.45,3.90)" arrows="1"
+<line at="df-leg-bottom" p1="(-4.25,3.90)" p2="(-3.85,3.90)" arrows="1"
       stroke="#E69F00" thickness="3"/>
-<label at="df-leg-bottom-label" clear-background="yes" background-margin="4" anchor="(-2.35,3.90)" alignment="e">
+<label at="df-leg-bottom-label" clear-background="yes" background-margin="4" anchor="(-3.75,3.90)" alignment="e">
 <m>\mathbf{F}\cdot(-\mathbf{j})\mathrel{\unicode{x3C}} 0</m>
 </label>
-<line at="df-leg-right" p1="(-2.85,3.45)" p2="(-2.45,3.45)" arrows="1"
+<line at="df-leg-right" p1="(-4.25,3.45)" p2="(-3.85,3.45)" arrows="1"
       stroke="#009E73" thickness="3"/>
-<label at="df-leg-right-label" clear-background="yes" background-margin="4" anchor="(-2.35,3.45)" alignment="e">
+<label at="df-leg-right-label" clear-background="yes" background-margin="4" anchor="(-3.75,3.45)" alignment="e">
 <m>\mathbf{F}\cdot\mathbf{i}\gt 0</m>
 </label>
-<line at="df-leg-left" p1="(-2.85,3.00)" p2="(-2.45,3.00)" arrows="1"
+<line at="df-leg-left" p1="(-4.25,3.00)" p2="(-3.85,3.00)" arrows="1"
       stroke="#7b3294" thickness="3"/>
-<label at="df-leg-left-label" clear-background="yes" background-margin="4" anchor="(-2.35,3.00)" alignment="e">
+<label at="df-leg-left-label" clear-background="yes" background-margin="4" anchor="(-3.75,3.00)" alignment="e">
 <m>\mathbf{F}\cdot(-\mathbf{i})\mathrel{\unicode{x3C}} 0</m>
 </label>
 <label at="df-A" clear-background="yes" background-margin="4" anchor="(3.0,2.35)" alignment="c">
@@ -345,16 +346,17 @@ along each side we take the component of <m>\mathbf{F}</m> in the
 direction of travel. Each side's component is drawn in its own color,
 and the legend gives the dot product it represents.
 </caption>
-<image width="70%">
+<image width="84%">
 <shortdescription>
 A rectangle in a vector field with differently colored arrows tracing a counterclockwise loop along its sides, and a legend pairing each color with its dot product.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-curl-circulation">
-<diagram dimensions="(440,300)" margins="10">
+<diagram dimensions="(530,300)" margins="10">
 <definition>field(x,y) = (0.4*x + 0.25, 0.32*y + 0.18)</definition>
-<coordinates bbox="(-3.0,-0.6,7.9,4.6)">
+<coordinates bbox="(-4.4,-0.6,8.7,4.6)">
 <vector-field at="cf-field" function="field"
-              spacings="((0.7,1.1,5.9),(0.3,1.0,4.0))" stroke="#bbbbbb"/>
+              spacings="((1.8,1.8,5.5),(0.15,1.3,4.1))" scale="0.36"
+              stroke="#bbbbbb"/>
 <polygon closed="yes" at="cf-rect" points="((1.2,1.0),(4.8,1.0),(4.8,3.2),(1.2,3.2))"
          stroke="#2b9ad6" thickness="2.5" fill="none"/>
 <point at="cf-corner-bl" clear-background="yes" background-margin="3" p="(1.2,1.0)" fill="#d02090" size="3"
@@ -385,24 +387,24 @@ A rectangle in a vector field with differently colored arrows tracing a counterc
 <!-- with the dot product it represents, in the order of the derivation  -->
 <!-- (top, bottom, right, left) in the text below the figure.  The side  -->
 <!-- colors match the flux figure earlier in this section.               -->
-<line at="cf-leg-top" p1="(-2.85,4.35)" p2="(-2.45,4.35)" arrows="1"
+<line at="cf-leg-top" p1="(-4.25,4.35)" p2="(-3.85,4.35)" arrows="1"
       stroke="#D55E00" thickness="3"/>
-<label at="cf-leg-top-label" clear-background="yes" background-margin="4" anchor="(-2.35,4.35)" alignment="e">
+<label at="cf-leg-top-label" clear-background="yes" background-margin="4" anchor="(-3.75,4.35)" alignment="e">
 <m>\mathbf{F}\cdot(-\mathbf{i})\mathrel{\unicode{x3C}} 0</m>
 </label>
-<line at="cf-leg-bottom" p1="(-2.85,3.90)" p2="(-2.45,3.90)" arrows="1"
+<line at="cf-leg-bottom" p1="(-4.25,3.90)" p2="(-3.85,3.90)" arrows="1"
       stroke="#E69F00" thickness="3"/>
-<label at="cf-leg-bottom-label" clear-background="yes" background-margin="4" anchor="(-2.35,3.90)" alignment="e">
+<label at="cf-leg-bottom-label" clear-background="yes" background-margin="4" anchor="(-3.75,3.90)" alignment="e">
 <m>\mathbf{F}\cdot\mathbf{i}\gt 0</m>
 </label>
-<line at="cf-leg-right" p1="(-2.85,3.45)" p2="(-2.45,3.45)" arrows="1"
+<line at="cf-leg-right" p1="(-4.25,3.45)" p2="(-3.85,3.45)" arrows="1"
       stroke="#009E73" thickness="3"/>
-<label at="cf-leg-right-label" clear-background="yes" background-margin="4" anchor="(-2.35,3.45)" alignment="e">
+<label at="cf-leg-right-label" clear-background="yes" background-margin="4" anchor="(-3.75,3.45)" alignment="e">
 <m>\mathbf{F}\cdot\mathbf{j}\gt 0</m>
 </label>
-<line at="cf-leg-left" p1="(-2.85,3.00)" p2="(-2.45,3.00)" arrows="1"
+<line at="cf-leg-left" p1="(-4.25,3.00)" p2="(-3.85,3.00)" arrows="1"
       stroke="#7b3294" thickness="3"/>
-<label at="cf-leg-left-label" clear-background="yes" background-margin="4" anchor="(-2.35,3.00)" alignment="e">
+<label at="cf-leg-left-label" clear-background="yes" background-margin="4" anchor="(-3.75,3.00)" alignment="e">
 <m>\mathbf{F}\cdot(-\mathbf{j})\mathrel{\unicode{x3C}} 0</m>
 </label>
 <label at="cf-A" clear-background="yes" background-margin="4" anchor="(3.0,2.35)" alignment="c">
