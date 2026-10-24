@@ -37,6 +37,12 @@
 <!-- flux integral) and have blank lines in place of their right-hand      -->
 <!-- sides, for the student to fill in; the sentences around them no       -->
 <!-- longer give the formulas away. Ids and numbers are unchanged.         -->
+<!--                                                                       -->
+<!-- Animated figure: assets/sphere-patch-manim.html (three.js, in the     -->
+<!-- manim style of tetrahedron-manim.html), right after fig-sphere-patch. -->
+<!-- Its SKELETAL switch is on here: the normal is shown only as the unit  -->
+<!-- normal n-hat, and neither r_phi x r_theta nor the area of the patch   -->
+<!-- is named, since both are blanks in the text.                         -->
 <section xml:id="section-surface-integrals" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Surface Integrals: Flux Through a Surface</title>
 
@@ -384,6 +390,43 @@ perpendicular to both.
 \end{tikzpicture}]]>
 </latex-image>
 </image>
+</figure>
+
+<p>
+<xref ref="fig-sphere-patch-manim"/> is the same patch, animated: move
+the point around the sphere, shrink the patch and follow it in, and
+watch it flatten onto the parallelogram spanned by its two edges.
+</p>
+
+<figure xml:id="fig-sphere-patch-manim">
+<caption>
+The coordinate patch of <xref ref="fig-sphere-patch"/>, animated. The
+point <m>\mathbf{r}(\theta,\phi)</m> sits on its parallel (blue), along
+which <m>\theta</m> varies with velocity <m>\mathbf{r}_\theta</m>, and
+on its meridian (red), along which <m>\phi</m> varies with velocity
+<m>\mathbf{r}_\phi</m>. The yellow patch is cut out by steps
+<m>\Delta\theta</m> and <m>\Delta\phi</m>; the dashed parallelogram is
+spanned by its edges <m>\mathbf{r}_\phi\,\Delta\phi</m> and
+<m>\mathbf{r}_\theta\,\Delta\theta</m>, and the green arrow is the unit
+normal <m>\hat{\mathbf{n}}</m>.
+</caption>
+<interactive xml:id="interactive-sphere-patch-manim"
+             iframe="sphere-patch-manim.html"
+             width="100%" aspect="1:1">
+<instructions>
+<p>
+The <m>\theta</m> and <m>\phi</m> sliders move the point around the
+sphere and down from the north pole, and the patch slider changes
+<m>\Delta\theta</m> and <m>\Delta\phi</m> together. <q>Tangent
+plane</q> shows the parallelogram spanned by the two edges,
+<q>Normal</q> shows the unit normal <m>\hat{\mathbf{n}}</m>, and <q>Zoom to patch</q> follows the patch in so
+that it fills the view as it shrinks: make it small and the curved patch
+and the flat parallelogram become one. <q>Play</q> runs a guided tour,
+dragging the figure turns it, <q>Spin</q> turns it on its own, and
+<q>Full screen</q> fills the screen with it.
+</p>
+</instructions>
+</interactive>
 </figure>
 
 <p>

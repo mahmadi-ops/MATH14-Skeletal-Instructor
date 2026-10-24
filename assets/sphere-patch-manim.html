@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A small coordinate patch on the unit sphere</title>
+<!-- The animated companion of fig-sphere-patch in "Surface Integrals: Flux
+     Through a Surface": the unit sphere swept out by r(theta, phi), a point
+     on it with its two coordinate curves (the parallel, theta varying, and
+     the meridian, phi varying), the tangent vectors r_theta and r_phi, and
+     the small coordinate patch between theta, theta + dtheta and phi,
+     phi + dphi.  "Tangent plane" draws the parallelogram spanned by the two
+     edges r_phi dphi and r_theta dtheta; "Zoom to patch" follows the patch
+     in as it shrinks, so that it flattens onto that parallelogram.
+
+     No numbers anywhere: the sliders have no scale and the card is
+     symbolic, so the figure shows the idea only.
+
+     SKELETAL (below) is false in the completed books and true in the
+     skeletal ones, where the notes leave n and the area of the patch as
+     blanks: there the cross product and the area formula are never named,
+     and the normal is drawn only as the unit normal n-hat, as in the
+     static figure.
+
+     Same three.js stage, palette and controls as tetrahedron-manim.html and
+     wall-area-manim.html, so the animated figures of the book read as one
+     family. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+  :root {
+    --bg:        #06070a;
+    --panel:     #101218;
+    --edge:      #262a36;
+    --ink:       #ece6e2;
+    --dim:       #9aa0ad;
+    --blue:      #58c4dd;   /* r_theta and the parallel */
+    --red:       #fc6255;   /* r_phi and the meridian */
+    --green:     #83c167;   /* the normal */
+    --yellow:    #ffe14d;   /* the patch */
+    --violet:    #caa3e8;
+    --sans:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "PT Serif", "Times New Roman", Times, serif;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); }
+  body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  #app { width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
+
+  #stage { position: relative; width: 100%; background: var(--bg); flex: 1 1 auto; min-height: 0; overflow: hidden; }
+  canvas { display: block; cursor: grab; }
+  canvas:active { cursor: grabbing; }
+  .overlay { position: absolute; pointer-events: none; }
+
+  #eqcard {
+    top: 12px; left: 14px;
+    padding: 9px 13px 10px 13px;
+    background: rgba(16,18,24,0.72);
+    border: 1px solid var(--edge);
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    line-height: 1.5;
+  }
+  .math { font-family: var(--serif); font-size: 17px; }
+  .math i { font-style: italic; }
+  .math sub { font-size: 72%; vertical-align: -0.28em; line-height: 0; }
+  .vec { font-weight: 700; font-style: normal; }
+  .hat { position: relative; display: inline-block; }
+  .hat::after { content: "^"; position: absolute; left: 0.12em; top: -0.42em; font-size: 0.8em; font-weight: 400; }
+  #eqcard .line { white-space: nowrap; }
+  #eqcard .note { font-family: var(--sans); font-size: 12.5px; color: var(--dim); }
+
+  #caption {
+    left: 50%; transform: translateX(-50%);
+    bottom: 18px; max-width: 74%;
+    text-align: center; font-size: 15px; line-height: 1.45;
+    background: rgba(6,7,10,0.8);
+    padding: 7px 14px; border-radius: 6px;
+    opacity: 0; transition: opacity .45s ease;
+  }
+  #caption.show { opacity: 1; }
+  #caption .m { font-family: var(--serif); font-size: 16px; }
+
+  #panel { flex: 0 0 auto; border-top: 1px solid var(--edge); background: var(--panel);
+           padding: 9px 12px 11px 12px; box-sizing: border-box; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .row + .row { margin-top: 9px; }
+  .lbl { font-size: 13px; color: var(--dim); }
+  .slider { display: inline-flex; align-items: center; gap: 6px; flex: 1 1 150px; min-width: 120px; }
+  .slider span { font-family: var(--serif); font-size: 15px; white-space: nowrap; }
+  input[type=range] { -webkit-appearance: none; appearance: none; flex: 1 1 auto; min-width: 60px;
+                      height: 4px; border-radius: 2px; background: #2a2f3c; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px;
+                      border-radius: 50%; background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 13px; height: 13px; border-radius: 50%;
+                      background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+
+  button { font: inherit; font-size: 13.5px; padding: 5px 12px; border-radius: 999px;
+           color: var(--ink); background: #1a1d26; border: 1px solid var(--edge);
+           cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
+  button:hover { background: #232734; }
+  button .m { font-family: var(--serif); font-size: 15px; }
+  #btnTour.running { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
+  #btnPlane.active { background: var(--ink);    border-color: var(--ink);    color: #06070a; font-weight: 600; }
+  #btnNormal.active{ background: var(--green);  border-color: var(--green);  color: #06070a; font-weight: 600; }
+  #btnZoom.active  { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
+  #btnSpin.active  { background: var(--blue);   border-color: var(--blue);   color: #06070a; font-weight: 600; }
+  #btnFull.active  { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
+
+  @media (max-width: 560px) {
+    #eqcard { position: static; padding: 7px 12px 8px 12px; border: none; border-bottom: 1px solid var(--edge);
+              border-radius: 0; background: var(--panel); line-height: 1.35; }
+    .math { font-size: 15px; }
+    #eqcard .note { display: none; }
+    #panel { padding: 7px 10px 8px 10px; }
+    .row + .row { margin-top: 7px; }
+    .lbl, .long { display: none; }
+    button { font-size: 13px; padding: 4px 10px; }
+    #caption { font-size: 13px; max-width: 92%; bottom: 12px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="eqcard" class="overlay math"></div>
+    <div id="caption" class="overlay"></div>
+  </div>
+
+  <div id="panel">
+    <div class="row">
+      <label class="slider" title="Move the point around the sphere: theta turns about the z-axis">
+        <span><i>θ</i></span><input id="sTheta" type="range" min="0" max="1000" style="--c:#58c4dd"></label>
+      <label class="slider" title="Move the point down from the north pole: phi tilts away from the z-axis">
+        <span><i>φ</i></span><input id="sPhi" type="range" min="0" max="1000" style="--c:#fc6255"></label>
+      <label class="slider" title="The size of the patch: Δθ and Δφ together">
+        <span>patch</span><input id="sSize" type="range" min="0" max="1000" style="--c:#ffe14d"></label>
+    </div>
+    <div class="row">
+      <button id="btnTour" aria-label="Play the guided tour" title="A guided tour of the patch and its edges">&#9654;<span class="long">&nbsp;Play</span></button>
+      <button id="btnPlane" title="The parallelogram spanned by the two edges of the patch">Tangent plane</button>
+      <button id="btnNormal" class="active" title="The normal to the patch">Normal</button>
+      <button id="btnZoom" title="Follow the patch in, so that it fills the view as it shrinks">Zoom to patch</button>
+      <button id="btnSpin">Spin</button>
+      <span style="flex:1"></span>
+      <button id="btnFull" aria-label="Full screen" title="Show the figure full screen">&#x26F6;<span class="long">&nbsp;Full screen</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // false in the completed notes; true in the skeletal notes, where n and the
+  // area of the patch are left for the student (see the comment at the top)
+  var SKELETAL = true;
+
+  var BLUE_C = 0x58c4dd, RED_C = 0xfc6255, GREEN_C = 0x83c167, YELLOW = 0xffe14d,
+      GREY = 0x8a8f9c, INK = 0xece6e2;
+  var DEG = Math.PI / 180;
+
+  // ---------- the parametrization ----------
+  function R(t, p)  { return new THREE.Vector3(Math.sin(p) * Math.cos(t), Math.sin(p) * Math.sin(t), Math.cos(p)); }
+  function Rt(t, p) { return new THREE.Vector3(-Math.sin(p) * Math.sin(t), Math.sin(p) * Math.cos(t), 0); }
+  function Rp(t, p) { return new THREE.Vector3(Math.cos(p) * Math.cos(t), Math.cos(p) * Math.sin(t), -Math.sin(p)); }
+
+  // the slider ranges, in radians (never shown)
+  var TH = [-20 * DEG, 100 * DEG], PH = [18 * DEG, 125 * DEG], SZ = [1.5 * DEG, 32 * DEG];
+  var VEC = 0.62;          // the drawn length scale of the tangent vectors
+
+  // every animated quantity eases toward its target in frame()
+  var S = {
+    theta: { v: 35 * DEG, t: 35 * DEG, k: 7 },
+    phi:   { v: 45 * DEG, t: 45 * DEG, k: 7 },
+    size:  { v: 20 * DEG, t: 20 * DEG, k: 3.2 },
+    zoom:  { v: 0, t: 0, k: 2.6 },
+    plane: { v: 0, t: 0, k: 5 },
+    normal:{ v: 1, t: 1, k: 5 },
+    patch: { v: 1, t: 1, k: 5 },
+    tang:  { v: 1, t: 1, k: 5 },
+    curves:{ v: 1, t: 1, k: 5 }
+  };
+
+  // ---------- renderer / scene ----------
+  var stage = document.getElementById("stage");
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  stage.appendChild(renderer.domElement);
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x06070a);
+  var camera = new THREE.PerspectiveCamera(34, 1, 0.005, 200);
+  camera.up.set(0, 0, 1);
+
+  // the orbiting camera: spherical angles about the target
+  var camTheta = -0.05, camPhi = 1.27;   // a side view, roughly the static figure's
+  var zoomOff = 0;          // zoomed in: how far the view has been turned around the patch
+  var band = 1, aspect = 1, padPx = 0, canvasH = 1;
+
+  // ---------- text sprites ----------
+  // A label is a list of runs: {t, i (italic), b (bold), sub, hat}.
+  var FONT = '"PT Serif", "Times New Roman", Times, serif';
+  var LABELS = [];
+  function paintLabel(rec) {
+    var s = 128, pad = 16, cv = document.createElement("canvas"), g = cv.getContext("2d");
+    function font(r) { return (r.i ? "italic " : "") + (r.b ? "700 " : "") + (r.sub ? "54px " : "80px ") + FONT; }
+    var w = 0;
+    rec.runs.forEach(function (r) { g.font = font(r); w += g.measureText(r.t).width + (r.sub ? 2 : 0); });
+    cv.width = Math.ceil(w) + 2 * pad; cv.height = s;
+    g = cv.getContext("2d"); g.fillStyle = rec.color; g.textBaseline = "middle";
+    var x = pad;
+    rec.runs.forEach(function (r) {
+      g.font = font(r);
+      var y = r.sub ? s / 2 + 20 : s / 2, tw = g.measureText(r.t).width;
+      g.fillText(r.t, x, y);
+      if (r.hat) {                       // a circumflex over the letter
+        g.lineWidth = 5; g.strokeStyle = rec.color; g.beginPath();
+        g.moveTo(x + tw * 0.2, s / 2 - 30); g.lineTo(x + tw * 0.5, s / 2 - 44); g.lineTo(x + tw * 0.8, s / 2 - 30); g.stroke();
+      }
+      x += tw + (r.sub ? 2 : 0);
+    });
+    var tex = new THREE.CanvasTexture(cv); tex.minFilter = THREE.LinearFilter;
+    if (rec.sprite.material.map) rec.sprite.material.map.dispose();
+    rec.sprite.material.map = tex; rec.sprite.material.needsUpdate = true;
+    rec.aspect = cv.width / s;
+    rec.sprite.scale.set(rec.size * rec.aspect, rec.size, 1);
+  }
+  function makeLabel(runs, color, size) {
+    var sp = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthTest: false }));
+    sp.renderOrder = 20;
+    var rec = { sprite: sp, runs: runs, color: color, size: size || 0.13, aspect: 1 };
+    LABELS.push(rec); paintLabel(rec);
+    return rec;
+  }
+  var bold = function (t) { return { t: t, b: true }; };
+  var it = function (t) { return { t: t, i: true }; };
+  var sub = function (t) { return { t: t, i: true, sub: true }; };
+
+  // ---------- the sphere ----------
+  // A manim-style checkerboard of coordinate cells, front faces only, over an
+  // invisible depth-only ball that hides the far side of every line.
+  (function buildSphere() {
+    var nT = 24, nP = 12, pos = [], col = [];
+    var cA = new THREE.Color(0x1d5e8c), cB = new THREE.Color(0x174a6e);
+    for (var j = 0; j < nP; j++) for (var i = 0; i < nT; i++) {
+      var t0 = 2 * Math.PI * i / nT, t1 = 2 * Math.PI * (i + 1) / nT;
+      var p0 = Math.PI * j / nP, p1 = Math.PI * (j + 1) / nP, sub = 3;
+      var cc = ((i + j) % 2 === 0) ? cA : cB;
+      for (var a = 0; a < sub; a++) for (var b = 0; b < sub; b++) {
+        var ta = t0 + (t1 - t0) * a / sub, tb = t0 + (t1 - t0) * (a + 1) / sub;
+        var pa = p0 + (p1 - p0) * b / sub, pb = p0 + (p1 - p0) * (b + 1) / sub;
+        var q = [R(ta, pa), R(tb, pa), R(tb, pb), R(ta, pb)];
+        [0, 2, 1, 0, 3, 2].forEach(function (k) { pos.push(q[k].x, q[k].y, q[k].z); col.push(cc.r, cc.g, cc.b); });
+      }
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    geo.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
+    var shell = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true,
+      opacity: 0.5, side: THREE.FrontSide, depthWrite: false }));
+    shell.renderOrder = 2;
+    scene.add(shell);
+    var occ = new THREE.Mesh(new THREE.SphereGeometry(0.996, 64, 48),
+      new THREE.MeshBasicMaterial({ colorWrite: false }));
+    occ.renderOrder = 0;
+    scene.add(occ);
+    // faint grid lines on the near side
+    var lm = new THREE.LineBasicMaterial({ color: 0x7fb8e6, transparent: true, opacity: 0.22 });
+    for (var m = 0; m < 24; m++) {
+      var pts = []; for (var k = 0; k <= 48; k++) pts.push(R(2 * Math.PI * m / 24, Math.PI * k / 48).multiplyScalar(1.001));
+      scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), lm));
+    }
+    for (var n = 1; n < 12; n++) {
+      var pp = []; for (var k2 = 0; k2 <= 96; k2++) pp.push(R(2 * Math.PI * k2 / 96, Math.PI * n / 12).multiplyScalar(1.001));
+      scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pp), lm));
+    }
+  })();
+
+  // ---------- axes: dim inside the ball (seen through it), plain outside ----------
+  var AXES = { mats: [], labels: [] };   // faded out as the view zooms in on the patch
+  (function buildAxes() {
+    var inner = new THREE.LineBasicMaterial({ color: GREY, transparent: true, opacity: 0.35, depthTest: false });
+    var outer = new THREE.LineBasicMaterial({ color: GREY, transparent: true, opacity: 0.7 });
+    var tipMat = new THREE.MeshBasicMaterial({ color: GREY, transparent: true, opacity: 1 });
+    AXES.mats = [{ m: inner, base: 0.35 }, { m: outer, base: 0.7 }, { m: tipMat, base: 1 }];
+    [{ v: [1, 0, 0], r: [0, 0, -Math.PI / 2], t: "x" }, { v: [0, 1, 0], r: [0, 0, 0], t: "y" },
+     { v: [0, 0, 1], r: [Math.PI / 2, 0, 0], t: "z" }].forEach(function (d) {
+      var v = new THREE.Vector3(d.v[0], d.v[1], d.v[2]);
+      var li = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), v]), inner);
+      li.renderOrder = 1; scene.add(li);
+      scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([v, v.clone().multiplyScalar(1.32)]), outer));
+      var tip = new THREE.Mesh(new THREE.ConeGeometry(0.03, 0.1, 14), tipMat);
+      tip.position.copy(v.clone().multiplyScalar(1.32)); tip.rotation.set(d.r[0], d.r[1], d.r[2]); scene.add(tip);
+      var lab = makeLabel([it(d.t)], "#9aa0ad", 0.14);
+      lab.sprite.position.copy(v.clone().multiplyScalar(1.45)); scene.add(lab.sprite); AXES.labels.push(lab);
+    });
+  })();
+
+  // ---------- arrows ----------
+  function makeArrow(hex, rad, depthTest) {
+    var mat = new THREE.MeshBasicMaterial({ color: hex, transparent: true, opacity: 1, depthTest: depthTest !== false });
+    var shaft = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 1, 12), mat);
+    var head = new THREE.Mesh(new THREE.ConeGeometry(1, 1, 16), mat);
+    var g = new THREE.Group(); g.add(shaft); g.add(head); g.renderOrder = 15;
+    shaft.renderOrder = head.renderOrder = 15;
+    scene.add(g);
+    return { g: g, mat: mat, shaft: shaft, head: head, rad: rad };
+  }
+  var _q = new THREE.Quaternion(), _y = new THREE.Vector3(0, 1, 0);
+  function setArrow(a, from, vec, scale) {
+    var L = vec.length(); if (L < 1e-6) { a.g.visible = false; return; }
+    var s = scale || 1, hl = Math.min(0.42 * L, 0.085 * s), hr = 0.032 * s, sr = a.rad * s;
+    _q.setFromUnitVectors(_y, vec.clone().normalize());
+    a.g.position.copy(from); a.g.quaternion.copy(_q);
+    a.shaft.scale.set(sr, L - hl, sr); a.shaft.position.set(0, (L - hl) / 2, 0);
+    a.head.scale.set(hr, hl, hr); a.head.position.set(0, L - hl / 2, 0);
+  }
+
+  // ---------- the moving pieces ----------
+  var dot = new THREE.Mesh(new THREE.SphereGeometry(1, 20, 20), new THREE.MeshBasicMaterial({ color: INK }));
+  dot.renderOrder = 16; scene.add(dot);
+  var radiusLine = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineDashedMaterial({
+    color: INK, dashSize: 0.04, gapSize: 0.03, transparent: true, opacity: 0.55, depthTest: false }));
+  radiusLine.renderOrder = 1; scene.add(radiusLine);
+
+  var parallel = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: BLUE_C, transparent: true, opacity: 0.9 }));
+  var meridian = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: RED_C, transparent: true, opacity: 0.9 }));
+  parallel.renderOrder = meridian.renderOrder = 5; scene.add(parallel); scene.add(meridian);
+
+  // drawn opaque, in the yellow the translucent patch would show over the sphere:
+  // a transparent mesh shows the seams between its triangles when zoomed in
+  var patchMat = new THREE.MeshBasicMaterial({ color: 0xc4b84e, transparent: false, opacity: 1, side: THREE.DoubleSide });
+  var patch = new THREE.Mesh(new THREE.BufferGeometry(), patchMat); patch.renderOrder = 6; scene.add(patch);
+  var patchEdge = new THREE.LineLoop(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: YELLOW, transparent: true, opacity: 1 }));
+  patchEdge.renderOrder = 7; scene.add(patchEdge);
+
+  var planeMat = new THREE.MeshBasicMaterial({ color: INK, transparent: true, opacity: 0.2, side: THREE.DoubleSide, depthWrite: false, depthTest: false });
+  var plane = new THREE.Mesh(new THREE.BufferGeometry(), planeMat); plane.renderOrder = 8; scene.add(plane);
+  var planeEdge = new THREE.LineLoop(new THREE.BufferGeometry(), new THREE.LineDashedMaterial({
+    color: INK, dashSize: 0.025, gapSize: 0.018, transparent: true, opacity: 0.95, depthTest: false }));
+  planeEdge.renderOrder = 9; scene.add(planeEdge);
+
+  var aT = makeArrow(BLUE_C, 0.011, false), aP = makeArrow(RED_C, 0.011, false), aN = makeArrow(GREEN_C, 0.013, false);
+  var lT = makeLabel([bold("r"), sub("θ")], "#58c4dd", 0.15);
+  var lP = makeLabel([bold("r"), sub("φ")], "#fc6255", 0.15);
+  var lN = SKELETAL ? makeLabel([{ t: "n", b: true, hat: true }], "#83c167", 0.15)
+                    : makeLabel([bold("r"), sub("φ"), { t: " × " }, bold("r"), sub("θ")], "#83c167", 0.15);
+  var lPt = makeLabel([bold("r"), { t: "(" }, it("θ"), { t: ", " }, it("φ"), { t: ")" }], "#ece6e2", 0.13);
+  [lT, lP, lN, lPt].forEach(function (l) { scene.add(l.sprite); });
+
+  function surfGeo(t0, t1, p0, p1, n, rad) {
+    var pos = [];
+    for (var a = 0; a < n; a++) for (var b = 0; b < n; b++) {
+      var ta = t0 + (t1 - t0) * a / n, tb = t0 + (t1 - t0) * (a + 1) / n;
+      var pa = p0 + (p1 - p0) * b / n, pb = p0 + (p1 - p0) * (b + 1) / n;
+      var q = [R(ta, pa), R(tb, pa), R(tb, pb), R(ta, pb)];
+      [0, 1, 2, 0, 2, 3].forEach(function (k) { var v = q[k].clone().multiplyScalar(rad); pos.push(v.x, v.y, v.z); });
+    }
+    var g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); return g;
+  }
+  function setGeo(obj, geo) { obj.geometry.dispose(); obj.geometry = geo; }
+
+  // the scale of what is drawn around the point: shrinks with the zoom, so
+  // that arrows, dots and labels keep their size on screen as the camera closes in
+  function drawScale() { var z = S.zoom.v; return 1 + (zoomScale() - 1) * z; }
+  function zoomScale() { return Math.max(0.035, Math.min(1, 1.9 * S.size.v)); }
+
+  function rebuild() {
+    var t = S.theta.v, p = S.phi.v, d = S.size.v, ds = drawScale();
+    var P = R(t, p), et = Rt(t, p), ep = Rp(t, p);
+    dot.position.copy(P); dot.scale.setScalar(0.022 * ds);
+    radiusLine.geometry.dispose(); radiusLine.geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), P]);
+    radiusLine.computeLineDistances();
+
+    // the coordinate curves through the point
+    var pp = [], mm = [];
+    for (var k = 0; k <= 160; k++) pp.push(R(2 * Math.PI * k / 160, p).multiplyScalar(1.002));
+    for (var k2 = 0; k2 <= 90; k2++) mm.push(R(t, Math.PI * k2 / 90).multiplyScalar(1.002));
+    parallel.geometry.dispose(); parallel.geometry = new THREE.BufferGeometry().setFromPoints(pp);
+    meridian.geometry.dispose(); meridian.geometry = new THREE.BufferGeometry().setFromPoints(mm);
+
+    // the patch [t, t + d] x [p, p + d], and its rim
+    setGeo(patch, surfGeo(t, t + d, p, p + d, 10, 1.003));
+    var rim = [], n = 24;
+    for (var a = 0; a <= n; a++) rim.push(R(t + d * a / n, p).multiplyScalar(1.004));
+    for (var b = 1; b <= n; b++) rim.push(R(t + d, p + d * b / n).multiplyScalar(1.004));
+    for (var c = n - 1; c >= 0; c--) rim.push(R(t + d * c / n, p + d).multiplyScalar(1.004));
+    for (var e = n - 1; e >= 1; e--) rim.push(R(t, p + d * e / n).multiplyScalar(1.004));
+    patchEdge.geometry.dispose(); patchEdge.geometry = new THREE.BufferGeometry().setFromPoints(rim);
+
+    // the parallelogram spanned by the edges r_theta dtheta and r_phi dphi, in the tangent plane
+    var A = et.clone().multiplyScalar(d), B = ep.clone().multiplyScalar(d);
+    var c0 = P.clone(), c1 = P.clone().add(A), c2 = P.clone().add(A).add(B), c3 = P.clone().add(B);
+    var pg = new THREE.BufferGeometry();
+    pg.setAttribute("position", new THREE.Float32BufferAttribute([c0, c1, c2, c0, c2, c3].reduce(function (s, v) { s.push(v.x, v.y, v.z); return s; }, []), 3));
+    setGeo(plane, pg);
+    planeEdge.geometry.dispose(); planeEdge.geometry = new THREE.BufferGeometry().setFromPoints([c0, c1, c2, c3]);
+    planeEdge.computeLineDistances();
+    planeEdge.material.dashSize = 0.025 * ds; planeEdge.material.gapSize = 0.018 * ds;
+
+    // the tangent vectors (drawn VEC times their size) and the normal
+    var L = VEC * ds;
+    setArrow(aT, P, et.clone().multiplyScalar(L), ds);
+    setArrow(aP, P, ep.clone().multiplyScalar(L), ds);
+    // completed: r_phi x r_theta = sin(phi) r, drawn on the same scale; skeletal: the unit normal
+    var nv = SKELETAL ? P.clone().multiplyScalar(L) : ep.clone().cross(et).multiplyScalar(L);
+    setArrow(aN, P, nv, ds);
+
+    var off = 0.06 * ds;
+    lT.sprite.position.copy(P).addScaledVector(et, L).add(et.clone().normalize().multiplyScalar(off * 1.6));
+    lP.sprite.position.copy(P).addScaledVector(ep, L).add(ep.clone().normalize().multiplyScalar(off * 1.6));
+    lN.sprite.position.copy(P).add(nv).add(P.clone().multiplyScalar(off * 1.4));
+    lPt.sprite.position.copy(P).multiplyScalar(0.5).add(new THREE.Vector3(0, 0, -0.07 * ds));
+    [lT, lP, lN, lPt].forEach(function (l) { l.sprite.scale.set(l.size * l.aspect * ds, l.size * ds, 1); });
+  }
+
+  function applyAlphas() {
+    var tg = S.tang.v, pl = S.plane.v, no = S.normal.v, pa = S.patch.v, cu = S.curves.v;
+    aT.mat.opacity = aP.mat.opacity = tg; aT.g.visible = aP.g.visible = tg > 0.01;
+    lT.sprite.material.opacity = lP.sprite.material.opacity = tg;
+    lT.sprite.visible = lP.sprite.visible = tg > 0.01;
+    planeMat.opacity = 0.2 * pl; planeEdge.material.opacity = 0.95 * pl; plane.visible = planeEdge.visible = pl > 0.01;
+    aN.mat.opacity = no; aN.g.visible = no > 0.01; lN.sprite.material.opacity = no; lN.sprite.visible = no > 0.01;
+    var solid = pa > 0.999;
+    if (patchMat.transparent === solid) { patchMat.transparent = !solid; patchMat.depthWrite = solid; patchMat.needsUpdate = true; }
+    patchMat.opacity = pa; patchEdge.material.opacity = pa; patch.visible = patchEdge.visible = pa > 0.01;
+    parallel.material.opacity = meridian.material.opacity = 0.9 * cu; parallel.visible = meridian.visible = cu > 0.01;
+    var lab = 1 - S.zoom.v; lPt.sprite.material.opacity = lab; lPt.sprite.visible = lab > 0.05;
+    AXES.mats.forEach(function (r) { r.m.opacity = r.base * lab; });
+    AXES.labels.forEach(function (l) { l.sprite.material.opacity = lab; l.sprite.visible = lab > 0.05; });
+    radiusLine.material.opacity = 0.55 * lab;
+  }
+
+  // ---------- the card ----------
+  var V = function (s) { return '<span class="vec">' + s + "</span>"; };
+  var rT = V("r") + "<sub>θ</sub>", rP = V("r") + "<sub>φ</sub>";
+  var card = document.getElementById("eqcard");
+  card.innerHTML =
+    '<div class="line">' + V("r") + "(<i>θ</i>, <i>φ</i>) on the unit sphere</div>" +
+    '<div class="line">edges of the patch: &nbsp;<span style="color:#fc6255">' + rP + " Δ<i>φ</i></span>, &nbsp;" +
+    '<span style="color:#58c4dd">' + rT + " Δ<i>θ</i></span></div>" +
+    (SKELETAL
+      ? '<div class="note">Use the two edges to approximate the normal and the area of the patch.</div>'
+      : '<div class="line" style="color:#83c167">' + V("n") + " ≈ (" + rP + " × " + rT + ") Δ<i>φ</i> Δ<i>θ</i></div>" +
+        '<div class="line" style="color:#ffe14d">Δ<i>σ</i> ≈ ‖' + rP + " × " + rT + "‖ Δ<i>φ</i> Δ<i>θ</i></div>");
+
+  // ---------- camera ----------
+  var FIT = [];   // the extreme points of the picture, measured once
+  (function fitCloud() {
+    for (var i = 0; i < 26; i++) for (var j = 0; j <= 13; j++) FIT.push(R(2 * Math.PI * i / 26, Math.PI * j / 13));
+    [[1.52, 0, 0], [0, 1.52, 0], [0, 0, 1.52]].forEach(function (v) { FIT.push(new THREE.Vector3(v[0], v[1], v[2])); });
+  })();
+  var _e = new THREE.Vector3(), _u = new THREE.Vector3(), _r = new THREE.Vector3();
+  function wholeRadius() {
+    _e.set(Math.sin(camPhi) * Math.cos(camTheta), Math.sin(camPhi) * Math.sin(camTheta), Math.cos(camPhi));
+    _u.set(0, 0, 1).addScaledVector(_e, -_e.z); if (_u.lengthSq() < 1e-9) _u.set(0, 1, 0); else _u.normalize();
+    _r.crossVectors(_u, _e).normalize();
+    var th = Math.tan(camera.fov * Math.PI / 360), tv = th * band, tw = th * aspect, rr = 1;
+    FIT.forEach(function (d) { rr = Math.max(rr, d.dot(_e) + Math.abs(d.dot(_u)) / tv, d.dot(_e) + Math.abs(d.dot(_r)) / tw); });
+    return 1.04 * rr;
+  }
+  function placeCamera() {
+    var z = S.zoom.v, t = S.theta.v, p = S.phi.v, d = S.size.v;
+    // zoomed in, the camera faces the patch from outside, a little to one side
+    var C = R(t + d / 2, p + d / 2);
+    var th = camTheta, ph = camPhi;
+    var zt = t + d / 2 - 0.75 + zoomOff, zp = Math.min(Math.PI - 0.15, p + d / 2 + 0.55);
+    var thE = th + (zt - th) * z, phE = ph + (zp - ph) * z;
+    var rad = wholeRadius();
+    var near = 3.2 * zoomScale() + 0.02;
+    var target = new THREE.Vector3().lerp(C, z);
+    var dist = rad * (1 - z) + near * z;            // from the target (zoomed: from the patch)
+    var eye = new THREE.Vector3(Math.sin(phE) * Math.cos(thE), Math.sin(phE) * Math.sin(thE), Math.cos(phE)).multiplyScalar(dist);
+    var fwd = eye.clone().negate().normalize();
+    var up = camera.up.clone().addScaledVector(fwd, -camera.up.dot(fwd)); if (up.lengthSq() < 1e-9) up.set(0, 1, 0);
+    up.normalize().multiplyScalar(padPx * 2 * dist * Math.tan(camera.fov * Math.PI / 360) / canvasH);
+    camera.position.copy(target).add(eye).add(up);
+    var look = target.clone().add(up);
+    camera.lookAt(look.x, look.y, look.z);
+    camera.near = Math.max(0.002, 0.02 * zoomScale()); camera.far = 200; camera.updateProjectionMatrix();
+  }
+
+  // ---------- render loop ----------
+  var spinning = false, rafId = null, lastT = 0, needsDraw = false;
+  function render() { renderer.render(scene, camera); }
+  function frame(now) {
+    rafId = requestAnimationFrame(frame);
+    var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0; lastT = now;
+    var busy = false;
+    Object.keys(S).forEach(function (key) {
+      var q = S[key];
+      if (Math.abs(q.v - q.t) > 1e-5) {
+        q.v += (q.t - q.v) * (1 - Math.exp(-q.k * dt));
+        if (Math.abs(q.v - q.t) < 1e-4) q.v = q.t;
+        busy = true;
+      }
+    });
+    if (spinning) { camTheta += 0.2 * dt; busy = true; }
+    if (busy || tour.running || needsDraw) { needsDraw = false; rebuild(); applyAlphas(); placeCamera(); render(); syncSliders(); }
+    if (!busy && !spinning && !tour.running) { cancelAnimationFrame(rafId); rafId = null; lastT = 0; }
+  }
+  function ensureLoop() { if (rafId === null) { lastT = 0; rafId = requestAnimationFrame(frame); } }
+  function set(key, val) { S[key].t = val; ensureLoop(); }
+
+  // ---------- sliders (no scale on them: the figure is about the idea) ----------
+  var sTheta = document.getElementById("sTheta"), sPhi = document.getElementById("sPhi"), sSize = document.getElementById("sSize");
+  function toSl(v, r) { return Math.round(1000 * (v - r[0]) / (r[1] - r[0])); }
+  function fromSl(x, r) { return r[0] + (r[1] - r[0]) * x / 1000; }
+  var userSliding = false;
+  function syncSliders() {
+    if (userSliding) return;
+    sTheta.value = toSl(S.theta.v, TH); sPhi.value = toSl(S.phi.v, PH); sSize.value = toSl(S.size.v, SZ);
+  }
+  [[sTheta, "theta", TH], [sPhi, "phi", PH], [sSize, "size", SZ]].forEach(function (a) {
+    a[0].addEventListener("input", function () {
+      if (tour.running) stopTour();
+      userSliding = true; S[a[1]].t = fromSl(+a[0].value, a[2]);
+      if (a[1] !== "size") S[a[1]].v = S[a[1]].t;    // the point follows the thumb directly
+      needsDraw = true; ensureLoop();
+    });
+    a[0].addEventListener("change", function () { userSliding = false; });
+  });
+
+  // ---------- toggles ----------
+  var btnPlane = document.getElementById("btnPlane"), btnNormal = document.getElementById("btnNormal"),
+      btnZoom = document.getElementById("btnZoom"), btnSpin = document.getElementById("btnSpin");
+  function setPlane(on)  { set("plane", on ? 1 : 0);  btnPlane.classList.toggle("active", on); }
+  function setNormal(on) { set("normal", on ? 1 : 0); btnNormal.classList.toggle("active", on); }
+  function setZoom(on)   { set("zoom", on ? 1 : 0);   btnZoom.classList.toggle("active", on); if (on) zoomOff = 0;
+                           if (on && spinning) { spinning = false; btnSpin.classList.remove("active"); } }
+  btnPlane.addEventListener("click", function () { if (tour.running) stopTour(); setPlane(S.plane.t < 0.5); });
+  btnNormal.addEventListener("click", function () { if (tour.running) stopTour(); setNormal(S.normal.t < 0.5); });
+  btnZoom.addEventListener("click", function () { if (tour.running) stopTour(); setZoom(S.zoom.t < 0.5); });
+  btnSpin.addEventListener("click", function () {
+    spinning = !spinning; btnSpin.classList.toggle("active", spinning);
+    if (spinning && S.zoom.t > 0.5) setZoom(false);
+    needsDraw = true; ensureLoop();
+  });
+
+  // ---------- the guided tour ----------
+  var elCaption = document.getElementById("caption");
+  function say(html) {
+    elCaption.classList.remove("show");
+    window.setTimeout(function () { elCaption.innerHTML = html; if (html) elCaption.classList.add("show"); }, html ? 160 : 0);
+  }
+  var M = function (s) { return '<span class="m">' + s + "</span>"; };
+  var STORY = [
+    { say: "The unit sphere is swept out by " + M(V("r") + "(<i>θ</i>, <i>φ</i>)") + ": " + M("<i>θ</i>") +
+           " turns around the " + M("<i>z</i>") + "-axis and " + M("<i>φ</i>") + " tilts down from the north pole.",
+      st: { tang: 0, plane: 0, normal: 0, patch: 0, curves: 0, zoom: 0 }, go: { theta: 15 * DEG, phi: 70 * DEG }, hold: 3.4 },
+    { say: "Hold " + M("<i>φ</i>") + " fixed and let " + M("<i>θ</i>") + " vary: the point runs along a parallel, " +
+           "and its velocity is the tangent vector " + M('<span style="color:#58c4dd">' + rT + "</span>") + ".",
+      st: { curves: 1, tang: 1 }, go: { theta: 45 * DEG, phi: 70 * DEG }, hold: 3.6 },
+    { say: "Hold " + M("<i>θ</i>") + " fixed and let " + M("<i>φ</i>") + " vary: the point runs down a meridian, " +
+           "with velocity " + M('<span style="color:#fc6255">' + rP + "</span>") + ".",
+      go: { theta: 35 * DEG, phi: 45 * DEG }, hold: 3.6 },
+    { say: "Step " + M("<i>θ</i>") + " by " + M("Δ<i>θ</i>") + " and " + M("<i>φ</i>") + " by " + M("Δ<i>φ</i>") +
+           ": a small coordinate patch. Its edges are approximately " + M(rP + " Δ<i>φ</i>") + " and " + M(rT + " Δ<i>θ</i>") + ".",
+      st: { patch: 1, plane: 1 }, go: { size: 20 * DEG }, hold: 4.2 },
+    { say: "Shrink the patch and follow it in: it flattens onto the parallelogram spanned by its two edges.",
+      st: { zoom: 1 }, go: { size: 3 * DEG }, hold: 5.2 },
+    SKELETAL
+      ? { say: "The unit normal " + M('<span style="color:#83c167"><span class="vec hat">n</span></span>') +
+               " is perpendicular to the patch. Use the two edges to approximate a normal vector and the area of the patch: that is the blank in the notes.",
+          st: { normal: 1, zoom: 0 }, go: { size: 20 * DEG }, hold: 5.4 }
+      : { say: M('<span style="color:#83c167">' + rP + " × " + rT + "</span>") +
+               " is perpendicular to both edges, so it points along the normal: on the sphere, straight out.",
+          st: { normal: 1, zoom: 0 }, go: { size: 20 * DEG }, hold: 4.4 },
+    SKELETAL ? null
+      : { say: "Its length is the area of the parallelogram the edges span, so the area of the patch is " +
+               M("Δ<i>σ</i> ≈ ‖" + rP + " × " + rT + "‖ Δ<i>φ</i> Δ<i>θ</i>") + ". Near the poles the patches, and this length, get small.",
+          go: { phi: 22 * DEG }, hold: 5.0 },
+    { say: "Your turn: move the point, change the patch, zoom in on it, or drag to look from anywhere.",
+      go: { phi: 45 * DEG, theta: 35 * DEG }, hold: 1.4 }
+  ].filter(Boolean);
+
+  var tour = { running: false, i: 0, timer: null };
+  var btnTour = document.getElementById("btnTour");
+  function tourStep() {
+    if (!tour.running) return;
+    if (tour.i >= STORY.length) { stopTour(); return; }
+    var beat = STORY[tour.i++];
+    if (beat.st) Object.keys(beat.st).forEach(function (k) {
+      var on = beat.st[k] > 0.5;
+      if (k === "plane") setPlane(on); else if (k === "normal") setNormal(on); else if (k === "zoom") setZoom(on); else set(k, beat.st[k]);
+    });
+    if (beat.go) Object.keys(beat.go).forEach(function (k) { set(k, beat.go[k]); });
+    say(beat.say);
+    tour.timer = window.setTimeout(tourStep, beat.hold * 1000);
+  }
+  function startTour() {
+    tour.running = true; tour.i = 0;
+    if (spinning) { spinning = false; btnSpin.classList.remove("active"); }
+    btnTour.innerHTML = "&#10074;&#10074;<span class=\"long\">&nbsp;Stop</span>"; btnTour.classList.add("running");
+    ensureLoop(); tourStep();
+  }
+  function stopTour() {
+    tour.running = false;
+    if (tour.timer) { window.clearTimeout(tour.timer); tour.timer = null; }
+    btnTour.innerHTML = "&#9654;<span class=\"long\">&nbsp;Play</span>"; btnTour.classList.remove("running");
+    set("tang", 1); set("patch", 1); set("curves", 1);
+    say(""); ensureLoop();
+  }
+  btnTour.addEventListener("click", function () { tour.running ? stopTour() : startTour(); });
+
+  // ---------- drag to orbit ----------
+  var dragging = false, lastX = 0, lastY = 0, el = renderer.domElement;
+  function startDrag(x, y) { dragging = true; lastX = x; lastY = y; }
+  function moveDrag(x, y) {
+    if (!dragging) return;
+    if (S.zoom.t > 0.5) {                    // zoomed: drag turns the view around the patch
+      zoomOff = Math.max(-0.9, Math.min(0.9, zoomOff - (x - lastX) * 0.006));
+    } else {
+      camTheta -= (x - lastX) * 0.008;
+      camPhi = Math.min(Math.PI - 0.05, Math.max(0.05, camPhi - (y - lastY) * 0.008));
+    }
+    lastX = x; lastY = y; placeCamera(); render();
+  }
+  el.addEventListener("mousedown", function (e) { startDrag(e.clientX, e.clientY); });
+  window.addEventListener("mousemove", function (e) { moveDrag(e.clientX, e.clientY); });
+  window.addEventListener("mouseup", function () { dragging = false; });
+  el.addEventListener("touchstart", function (e) { if (e.touches.length === 1) { startDrag(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  el.addEventListener("touchmove", function (e) { if (e.touches.length === 1) { moveDrag(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  window.addEventListener("touchend", function () { dragging = false; });
+
+  // ---------- full screen ----------
+  var btnFull = document.getElementById("btnFull"), docEl = document.documentElement;
+  function fsElement() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+  function openStandalone() { window.open(window.location.href, "_blank", "noopener"); }
+  btnFull.addEventListener("click", function () {
+    if (fsElement()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    var req = docEl.requestFullscreen || docEl.webkitRequestFullscreen;
+    if (!req) { openStandalone(); return; }
+    try { var p = req.call(docEl); if (p && p.catch) p.catch(openStandalone); } catch (e) { openStandalone(); }
+  });
+  function onFs() {
+    var on = !!fsElement(); btnFull.classList.toggle("active", on);
+    btnFull.innerHTML = on ? "&#x26F6;<span class=\"long\">&nbsp;Exit full screen</span>" : "&#x26F6;<span class=\"long\">&nbsp;Full screen</span>";
+    window.setTimeout(resize, 50);
+  }
+  document.addEventListener("fullscreenchange", onFs);
+  document.addEventListener("webkitfullscreenchange", onFs);
+
+  // ---------- sizing ----------
+  function resize() {
+    var w = document.getElementById("app").clientWidth, h = stage.clientHeight;
+    var stacked = window.getComputedStyle(card).position === "static";
+    var cardH = stacked ? card.offsetHeight : 0, ch = Math.max(120, h - cardH);
+    renderer.setSize(w, ch); camera.aspect = w / ch; aspect = camera.aspect;
+    var reach = Math.min(1, card.offsetWidth / (0.45 * w));
+    var topPad = stacked ? 0 : (card.offsetHeight + 16) * reach, botPad = 10;
+    band = Math.max(0.5, (ch - topPad - botPad) / ch);
+    padPx = 0.5 * (topPad - botPad); canvasH = ch;
+    rebuild(); applyAlphas(); placeCamera(); render();
+  }
+  window.addEventListener("resize", resize);
+
+  syncSliders();
+  resize();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { LABELS.forEach(paintLabel); rebuild(); render(); });
+  }
+})();
+</script>
+</body>
+</html>
