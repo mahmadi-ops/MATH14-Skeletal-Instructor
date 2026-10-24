@@ -9,9 +9,11 @@
      on it with its two coordinate curves (the parallel, theta varying, and
      the meridian, phi varying), the tangent vectors r_theta and r_phi, and
      the small coordinate patch between theta, theta + dtheta and phi,
-     phi + dphi.  "Tangent plane" draws the parallelogram spanned by the two
-     edges r_phi dphi and r_theta dtheta; "Zoom to patch" follows the patch
-     in as it shrinks, so that it flattens onto that parallelogram.
+     phi + dphi, with the parallelogram that approximates it: spanned by the
+     two edges r_phi dphi and r_theta dtheta, in the tangent plane at the
+     point, drawn in violet with its edges labelled ("Parallelogram" switches
+     it off and on).  "Zoom to patch" follows the patch in as it shrinks, so
+     that it flattens onto that parallelogram.
 
      No numbers anywhere: the sliders have no scale and the card is
      symbolic, so the figure shows the idea only.
@@ -101,7 +103,7 @@
   button:hover { background: #232734; }
   button .m { font-family: var(--serif); font-size: 15px; }
   #btnTour.running { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
-  #btnPlane.active { background: var(--ink);    border-color: var(--ink);    color: #06070a; font-weight: 600; }
+  #btnPlane.active { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
   #btnNormal.active{ background: var(--green);  border-color: var(--green);  color: #06070a; font-weight: 600; }
   #btnZoom.active  { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
   #btnSpin.active  { background: var(--blue);   border-color: var(--blue);   color: #06070a; font-weight: 600; }
@@ -138,7 +140,7 @@
     </div>
     <div class="row">
       <button id="btnTour" aria-label="Play the guided tour" title="A guided tour of the patch and its edges">&#9654;<span class="long">&nbsp;Play</span></button>
-      <button id="btnPlane" title="The parallelogram spanned by the two edges of the patch">Tangent plane</button>
+      <button id="btnPlane" class="active" title="The parallelogram spanned by the two edges of the patch, which approximates it">Parallelogram</button>
       <button id="btnNormal" class="active" title="The normal to the patch">Normal</button>
       <button id="btnZoom" title="Follow the patch in, so that it fills the view as it shrinks">Zoom to patch</button>
       <button id="btnSpin">Spin</button>
@@ -176,7 +178,7 @@
     phi:   { v: 45 * DEG, t: 45 * DEG, k: 7 },
     size:  { v: 20 * DEG, t: 20 * DEG, k: 3.2 },
     zoom:  { v: 0, t: 0, k: 2.6 },
-    plane: { v: 0, t: 0, k: 5 },
+    plane: { v: 1, t: 1, k: 5 },
     normal:{ v: 1, t: 1, k: 5 },
     patch: { v: 1, t: 1, k: 5 },
     tang:  { v: 1, t: 1, k: 5 },
@@ -335,11 +337,21 @@
   var patchEdge = new THREE.LineLoop(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: YELLOW, transparent: true, opacity: 1 }));
   patchEdge.renderOrder = 7; scene.add(patchEdge);
 
-  var planeMat = new THREE.MeshBasicMaterial({ color: INK, transparent: true, opacity: 0.2, side: THREE.DoubleSide, depthWrite: false, depthTest: false });
+  // the parallelogram that approximates the patch: it lies in the tangent plane,
+  // so off the point itself it stands just outside the curved patch
+  var VIOLET = 0xcaa3e8, PLANE_FILL = 0.38;
+  var planeMat = new THREE.MeshBasicMaterial({ color: VIOLET, transparent: true, opacity: PLANE_FILL, side: THREE.DoubleSide, depthWrite: false });
   var plane = new THREE.Mesh(new THREE.BufferGeometry(), planeMat); plane.renderOrder = 8; scene.add(plane);
-  var planeEdge = new THREE.LineLoop(new THREE.BufferGeometry(), new THREE.LineDashedMaterial({
-    color: INK, dashSize: 0.025, gapSize: 0.018, transparent: true, opacity: 0.95, depthTest: false }));
-  planeEdge.renderOrder = 9; scene.add(planeEdge);
+  var segMat = new THREE.MeshBasicMaterial({ color: VIOLET, transparent: true, opacity: 1 });
+  var planeSegs = [0, 1, 2, 3].map(function () {
+    var m = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 1, 10), segMat); m.renderOrder = 9; scene.add(m); return m;
+  });
+  function setSeg(m, a, b, r) {
+    var v = b.clone().sub(a), L = v.length();
+    if (L < 1e-7) { m.visible = false; return; }
+    m.visible = true; m.quaternion.setFromUnitVectors(_y, v.normalize());
+    m.position.copy(a).add(b).multiplyScalar(0.5); m.scale.set(r, L, r);
+  }
 
   var aT = makeArrow(BLUE_C, 0.011, false), aP = makeArrow(RED_C, 0.011, false), aN = makeArrow(GREEN_C, 0.013, false);
   var lT = makeLabel([bold("r"), sub("θ")], "#58c4dd", 0.15);
@@ -347,7 +359,9 @@
   var lN = SKELETAL ? makeLabel([{ t: "n", b: true, hat: true }], "#83c167", 0.15)
                     : makeLabel([bold("r"), sub("φ"), { t: " × " }, bold("r"), sub("θ")], "#83c167", 0.15);
   var lPt = makeLabel([bold("r"), { t: "(" }, it("θ"), { t: ", " }, it("φ"), { t: ")" }], "#ece6e2", 0.13);
-  [lT, lP, lN, lPt].forEach(function (l) { scene.add(l.sprite); });
+  var lEt = makeLabel([bold("r"), sub("θ"), { t: " Δ" }, it("θ")], "#58c4dd", 0.12);
+  var lEp = makeLabel([bold("r"), sub("φ"), { t: " Δ" }, it("φ")], "#fc6255", 0.12);
+  [lT, lP, lN, lPt, lEt, lEp].forEach(function (l) { scene.add(l.sprite); });
 
   function surfGeo(t0, t1, p0, p1, n, rad) {
     var pos = [];
@@ -381,23 +395,32 @@
     meridian.geometry.dispose(); meridian.geometry = new THREE.BufferGeometry().setFromPoints(mm);
 
     // the patch [t, t + d] x [p, p + d], and its rim
-    setGeo(patch, surfGeo(t, t + d, p, p + d, 10, 1.003));
+    // lifted off the sphere by an amount that shrinks with the zoom, so that it stays
+    // below the tangent plane however small the patch is drawn
+    var rP = 1 + 0.003 * ds, rR = 1 + 0.004 * ds;
+    setGeo(patch, surfGeo(t, t + d, p, p + d, 10, rP));
     var rim = [], n = 24;
-    for (var a = 0; a <= n; a++) rim.push(R(t + d * a / n, p).multiplyScalar(1.004));
-    for (var b = 1; b <= n; b++) rim.push(R(t + d, p + d * b / n).multiplyScalar(1.004));
-    for (var c = n - 1; c >= 0; c--) rim.push(R(t + d * c / n, p + d).multiplyScalar(1.004));
-    for (var e = n - 1; e >= 1; e--) rim.push(R(t, p + d * e / n).multiplyScalar(1.004));
+    for (var a = 0; a <= n; a++) rim.push(R(t + d * a / n, p).multiplyScalar(rR));
+    for (var b = 1; b <= n; b++) rim.push(R(t + d, p + d * b / n).multiplyScalar(rR));
+    for (var c = n - 1; c >= 0; c--) rim.push(R(t + d * c / n, p + d).multiplyScalar(rR));
+    for (var e = n - 1; e >= 1; e--) rim.push(R(t, p + d * e / n).multiplyScalar(rR));
     patchEdge.geometry.dispose(); patchEdge.geometry = new THREE.BufferGeometry().setFromPoints(rim);
 
     // the parallelogram spanned by the edges r_theta dtheta and r_phi dphi, in the tangent plane
     var A = et.clone().multiplyScalar(d), B = ep.clone().multiplyScalar(d);
-    var c0 = P.clone(), c1 = P.clone().add(A), c2 = P.clone().add(A).add(B), c3 = P.clone().add(B);
+    var lift = P.clone().multiplyScalar(0.0045 * ds);   // a hair above the patch and its rim
+    var c0 = P.clone().add(lift), c1 = c0.clone().add(A), c2 = c0.clone().add(A).add(B), c3 = c0.clone().add(B);
     var pg = new THREE.BufferGeometry();
     pg.setAttribute("position", new THREE.Float32BufferAttribute([c0, c1, c2, c0, c2, c3].reduce(function (s, v) { s.push(v.x, v.y, v.z); return s; }, []), 3));
     setGeo(plane, pg);
-    planeEdge.geometry.dispose(); planeEdge.geometry = new THREE.BufferGeometry().setFromPoints([c0, c1, c2, c3]);
-    planeEdge.computeLineDistances();
-    planeEdge.material.dashSize = 0.025 * ds; planeEdge.material.gapSize = 0.018 * ds;
+    var sr = 0.0055 * ds;
+    setSeg(planeSegs[0], c0, c1, sr); setSeg(planeSegs[1], c1, c2, sr);
+    setSeg(planeSegs[2], c2, c3, sr); setSeg(planeSegs[3], c3, c0, sr);
+    // each edge is named on the far side, away from the arrows at the point:
+    // r_theta dtheta under the side parallel to r_theta, r_phi dphi beside the other
+    var oE = 0.075 * ds;
+    lEt.sprite.position.copy(c3).add(c2).multiplyScalar(0.5).add(B.clone().normalize().multiplyScalar(oE));
+    lEp.sprite.position.copy(c1).add(c2).multiplyScalar(0.5).add(A.clone().normalize().multiplyScalar(oE * 1.9));
 
     // the tangent vectors (drawn VEC times their size) and the normal
     var L = VEC * ds;
@@ -412,7 +435,7 @@
     lP.sprite.position.copy(P).addScaledVector(ep, L).add(ep.clone().normalize().multiplyScalar(off * 1.6));
     lN.sprite.position.copy(P).add(nv).add(P.clone().multiplyScalar(off * 1.4));
     lPt.sprite.position.copy(P).multiplyScalar(0.5).add(new THREE.Vector3(0, 0, -0.07 * ds));
-    [lT, lP, lN, lPt].forEach(function (l) { l.sprite.scale.set(l.size * l.aspect * ds, l.size * ds, 1); });
+    [lT, lP, lN, lPt, lEt, lEp].forEach(function (l) { l.sprite.scale.set(l.size * l.aspect * ds, l.size * ds, 1); });
   }
 
   function applyAlphas() {
@@ -420,7 +443,9 @@
     aT.mat.opacity = aP.mat.opacity = tg; aT.g.visible = aP.g.visible = tg > 0.01;
     lT.sprite.material.opacity = lP.sprite.material.opacity = tg;
     lT.sprite.visible = lP.sprite.visible = tg > 0.01;
-    planeMat.opacity = 0.2 * pl; planeEdge.material.opacity = 0.95 * pl; plane.visible = planeEdge.visible = pl > 0.01;
+    planeMat.opacity = PLANE_FILL * pl; segMat.opacity = pl; plane.visible = pl > 0.01;
+    if (pl <= 0.01) planeSegs.forEach(function (m) { m.visible = false; });
+    lEt.sprite.material.opacity = lEp.sprite.material.opacity = pl; lEt.sprite.visible = lEp.sprite.visible = pl > 0.01;
     aN.mat.opacity = no; aN.g.visible = no > 0.01; lN.sprite.material.opacity = no; lN.sprite.visible = no > 0.01;
     var solid = pa > 0.999;
     if (patchMat.transparent === solid) { patchMat.transparent = !solid; patchMat.depthWrite = solid; patchMat.needsUpdate = true; }
@@ -440,6 +465,7 @@
     '<div class="line">' + V("r") + "(<i>θ</i>, <i>φ</i>) on the unit sphere</div>" +
     '<div class="line">edges of the patch: &nbsp;<span style="color:#fc6255">' + rP + " Δ<i>φ</i></span>, &nbsp;" +
     '<span style="color:#58c4dd">' + rT + " Δ<i>θ</i></span></div>" +
+    '<div class="line" style="color:#caa3e8">the parallelogram they span ≈ the patch</div>' +
     (SKELETAL
       ? '<div class="note">Use the two edges to approximate the normal and the area of the patch.</div>'
       : '<div class="line" style="color:#83c167">' + V("n") + " ≈ (" + rP + " × " + rT + ") Δ<i>φ</i> Δ<i>θ</i></div>" +

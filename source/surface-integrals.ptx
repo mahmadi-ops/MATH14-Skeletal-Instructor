@@ -405,9 +405,10 @@ point <m>\mathbf{r}(\theta,\phi)</m> sits on its parallel (blue), along
 which <m>\theta</m> varies with velocity <m>\mathbf{r}_\theta</m>, and
 on its meridian (red), along which <m>\phi</m> varies with velocity
 <m>\mathbf{r}_\phi</m>. The yellow patch is cut out by steps
-<m>\Delta\theta</m> and <m>\Delta\phi</m>; the dashed parallelogram is
+<m>\Delta\theta</m> and <m>\Delta\phi</m>; the violet parallelogram,
 spanned by its edges <m>\mathbf{r}_\phi\,\Delta\phi</m> and
-<m>\mathbf{r}_\theta\,\Delta\theta</m>, and the green arrow is the unit
+<m>\mathbf{r}_\theta\,\Delta\theta</m>, approximates it, and the green
+arrow is the unit
 normal <m>\hat{\mathbf{n}}</m>.
 </caption>
 <interactive xml:id="interactive-sphere-patch-manim"
@@ -417,8 +418,9 @@ normal <m>\hat{\mathbf{n}}</m>.
 <p>
 The <m>\theta</m> and <m>\phi</m> sliders move the point around the
 sphere and down from the north pole, and the patch slider changes
-<m>\Delta\theta</m> and <m>\Delta\phi</m> together. <q>Tangent
-plane</q> shows the parallelogram spanned by the two edges,
+<m>\Delta\theta</m> and <m>\Delta\phi</m> together.
+<q>Parallelogram</q> switches the parallelogram spanned by the two edges
+off and on,
 <q>Normal</q> shows the unit normal <m>\hat{\mathbf{n}}</m>, and <q>Zoom to patch</q> follows the patch in so
 that it fills the view as it shrinks: make it small and the curved patch
 and the flat parallelogram become one. <q>Play</q> runs a guided tour,
