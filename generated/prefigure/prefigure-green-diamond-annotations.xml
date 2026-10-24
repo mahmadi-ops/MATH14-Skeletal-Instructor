@@ -1,0 +1,52 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-green-diamond-figure" speech2="A square rotated 45 degrees, with vertices at 1 comma 0, 2 comma 1, 1 comma 2, and 0 comma 1, shaded light blue. Its four edges lie on the lines y equals x plus 1, y equals minus x plus 3, y equals x minus 1, and y equals minus x plus 1.">
+      <grouped>prefigure-green-diamond-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-green-diamond-grid-axes</active>
+        <active>prefigure-green-diamond-gd-square</active>
+      </children>
+      <components>
+        <active>prefigure-green-diamond-grid-axes</active>
+        <active>prefigure-green-diamond-gd-square</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-green-diamond-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>prefigure-green-diamond-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-green-diamond-grid</active>
+        <active>prefigure-green-diamond-axes</active>
+      </children>
+      <components>
+        <active>prefigure-green-diamond-grid</active>
+        <active>prefigure-green-diamond-axes</active>
+      </components>
+      <parents>
+        <grouped>prefigure-green-diamond-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-diamond-grid" speech2="The coordinate grid">
+      <active>prefigure-green-diamond-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-green-diamond-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-diamond-axes" speech2="The coordinate axes">
+      <active>prefigure-green-diamond-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-green-diamond-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-diamond-gd-square" speech2="The region R enclosed by the tilted square C. On this region x plus y runs from 1 to 3, so the integrand is defined everywhere.">
+      <active>prefigure-green-diamond-gd-square</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-green-diamond-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

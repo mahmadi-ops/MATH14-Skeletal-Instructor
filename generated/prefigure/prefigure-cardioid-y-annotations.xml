@@ -1,0 +1,21 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cardioid-y-figure" speech2="A polar grid with concentric gray circles. The cardioid r equals one minus sine theta is drawn in blue: a heart shaped curve pointing downward, widest at the bottom where theta equals three pi over two and r equals two, with a cusp at the origin at the top where theta equals pi over two. The curve is symmetric about the y axis.">
+      <grouped>prefigure-cardioid-y-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cardioid-y-cy-curve</active>
+      </children>
+      <components>
+        <active>prefigure-cardioid-y-cy-curve</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cardioid-y-cy-curve" speech2="The cardioid r equals one minus sine theta, symmetric about the y axis.">
+      <active>prefigure-cardioid-y-cy-curve</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cardioid-y-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

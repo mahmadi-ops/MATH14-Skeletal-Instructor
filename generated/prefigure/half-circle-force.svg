@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="half-circle-force-figure" width="410" height="380" viewBox="0 0 410 380">
+  <defs>
+    <clipPath id="half-circle-force-clipPath-0">
+      <rect x="5.0" y="5.0" width="400.0" height="370.0"/>
+    </clipPath>
+    <clipPath id="half-circle-force-clipPath-1">
+      <rect x="5.0" y="5.0" width="400.0" height="370.0"/>
+    </clipPath>
+    <marker id="half-circle-force-arrow-head-end-3_None_24_60-black" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="half-circle-force-arrow-head-end-3_None_24_60-black-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="half-circle-force-arrow-head-end-3_None_24_60-red" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="red" stroke="none"/>
+    </marker>
+    <marker id="half-circle-force-arrow-head-end-3_None_24_60-red-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="half-circle-force-arrow-head-end-3_None_24_60-h009E73" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+    </marker>
+    <marker id="half-circle-force-arrow-head-end-3_None_24_60-h009E73-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="half-circle-force-circle">
+    <path id="half-circle-force-path-0" d="M 322.6 236.8 L 322.4 229.4 L 321.7 222.0 L 320.6 214.7 L 319.0 207.5 L 316.9 200.4 L 314.4 193.5 L 311.5 186.7 L 308.1 180.1 L 304.3 173.7 L 300.2 167.6 L 295.6 161.8 L 290.8 156.2 L 285.5 151.0 L 280.0 146.1 L 274.2 141.6 L 268.0 137.4 L 261.7 133.7 L 255.1 130.3 L 248.3 127.4 L 241.4 124.9 L 234.3 122.8 L 227.0 121.2 L 219.7 120.0 L 212.4 119.3 L 205.0 119.1 L 197.6 119.3 L 190.3 120.0 L 183.0 121.2 L 175.7 122.8 L 168.6 124.9 L 161.7 127.4 L 154.9 130.3 L 148.3 133.7 L 142.0 137.4 L 135.8 141.6 L 130.0 146.1 L 124.5 151.0 L 119.2 156.2 L 114.4 161.8 L 109.8 167.6 L 105.7 173.7 L 101.9 180.1 L 98.5 186.7 L 95.6 193.5 L 93.1 200.4 L 91.0 207.5 L 89.4 214.7 L 88.3 222.0 L 87.6 229.4 L 87.4 236.8 L 87.6 244.2 L 88.3 251.5 L 89.4 258.8 L 91.0 266.0 L 93.1 273.1 L 95.6 280.1 L 98.5 286.9 L 101.9 293.4 L 105.7 299.8 L 109.8 305.9 L 114.4 311.8 L 119.2 317.3 L 124.5 322.5 L 130.0 327.4 L 135.8 331.9 L 142.0 336.1 L 148.3 339.9 L 154.9 343.2 L 161.7 346.2 L 168.6 348.7 L 175.7 350.7 L 183.0 352.3 L 190.3 353.5 L 197.6 354.2 L 205.0 354.4 L 212.4 354.2 L 219.7 353.5 L 227.0 352.3 L 234.3 350.7 L 241.4 348.7 L 248.3 346.2 L 255.1 343.2 L 261.7 339.9 L 268.0 336.1 L 274.2 331.9 L 280.0 327.4 L 285.5 322.5 L 290.8 317.3 L 295.6 311.8 L 300.2 305.9 L 304.3 299.8 L 308.1 293.4 L 311.5 286.9 L 314.4 280.1 L 316.9 273.1 L 319.0 266.0 L 320.6 258.8 L 321.7 251.5 L 322.4 244.2 Z" stroke="#777" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  </g>
+  <g id="half-circle-force-path">
+    <path id="half-circle-force-path-1" d="M 87.4 236.8 L 87.4 233.1 L 87.6 229.4 L 87.9 225.7 L 88.3 222.0 L 88.8 218.4 L 89.4 214.7 L 90.2 211.1 L 91.0 207.5 L 92.0 203.9 L 93.1 200.4 L 94.3 196.9 L 95.6 193.5 L 97.0 190.0 L 98.5 186.7 L 100.2 183.4 L 101.9 180.1 L 103.7 176.9 L 105.7 173.7 L 107.7 170.6 L 109.8 167.6 L 112.0 164.7 L 114.4 161.8 L 116.8 159.0 L 119.2 156.2 L 121.8 153.6 L 124.5 151.0 L 127.2 148.5 L 130.0 146.1 L 132.9 143.8 L 135.8 141.6 L 138.9 139.5 L 142.0 137.4 L 145.1 135.5 L 148.3 133.7 L 151.6 131.9 L 154.9 130.3 L 158.3 128.8 L 161.7 127.4 L 165.1 126.1 L 168.6 124.9 L 172.2 123.8 L 175.7 122.8 L 179.3 122.0 L 183.0 121.2 L 186.6 120.6 L 190.3 120.0 L 193.9 119.6 L 197.6 119.3 L 201.3 119.2 L 205.0 119.1 L 208.7 119.2 L 212.4 119.3 L 216.1 119.6 L 219.7 120.0 L 223.4 120.6 L 227.0 121.2 L 230.7 122.0 L 234.3 122.8 L 237.8 123.8 L 241.4 124.9 L 244.9 126.1 L 248.3 127.4 L 251.7 128.8 L 255.1 130.3 L 258.4 131.9 L 261.7 133.7 L 264.9 135.5 L 268.0 137.4 L 271.1 139.5 L 274.2 141.6 L 277.1 143.8 L 280.0 146.1 L 282.8 148.5 L 285.5 151.0 L 288.2 153.6 L 290.8 156.2 L 293.2 159.0 L 295.6 161.8 L 298.0 164.7 L 300.2 167.6 L 302.3 170.6 L 304.3 173.7 L 306.3 176.9 L 308.1 180.1 L 309.8 183.4 L 311.5 186.7 L 313.0 190.0 L 314.4 193.5 L 315.7 196.9 L 316.9 200.4 L 318.0 203.9 L 319.0 207.5 L 319.8 211.1 L 320.6 214.7 L 321.2 218.4 L 321.7 222.0 L 322.1 225.7 L 322.4 229.4 L 322.6 233.1 L 322.6 236.8 M 242.2 125.2 L 245.7 126.4 L 249.2 127.7 L 252.6 129.2 L 255.9 130.7 L 259.2 132.4" stroke="black" stroke-width="3" fill="none" clip-path="url(#half-circle-force-clipPath-1)" marker-end="url(#half-circle-force-arrow-head-end-3_None_24_60-black)"/>
+    <g id="half-circle-force-label-0" transform="translate(282.2,133.6) translate(0.0,-13.2)">
+      <g id="half-circle-force-g-0">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="13.752px" height="13.160px" role="img" focusable="false" viewBox="0 -705 760 727" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-2-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper C">
+                <use data-c="1D436" xlink:href="#half-circle-force-MJX-2-TEX-I-1D436"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="half-circle-force-center">
+    <circle id="half-circle-force-circle-0" cx="205.0" cy="236.8" r="3.5" stroke="black" stroke-width="2" fill="black"/>
+    <g id="half-circle-force-label-1" transform="translate(205.0,246.8) translate(-6.9,-0.0)">
+      <g id="half-circle-force-g-1">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="13.808px" height="13.144px" role="img" focusable="false" viewBox="0 -704 763 726" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-3-TEX-I-1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper O">
+                <use data-c="1D442" xlink:href="#half-circle-force-MJX-3-TEX-I-1D442"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <line id="half-circle-force-line-0" x1="205.0" y1="236.8" x2="300.2" y2="167.6" stroke="black" stroke-width="2" fill="none"/>
+    <g id="half-circle-force-label-2" transform="translate(258.6,208.2) translate(0.0,-0.0)">
+      <g id="half-circle-force-g-2">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.384px" width="13.736px" height="12.744px" role="img" focusable="false" viewBox="0 -683 759 704" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-4-TEX-I-1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper R">
+                <use data-c="1D445" xlink:href="#half-circle-force-MJX-4-TEX-I-1D445"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="half-circle-force-endpoints">
+    <circle id="half-circle-force-circle-1" cx="87.4" cy="236.8" r="4" stroke="black" stroke-width="2" fill="black"/>
+    <g id="half-circle-force-label-3" transform="translate(77.4,236.8) translate(-13.6,-6.5)">
+      <g id="half-circle-force-g-3">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="13.576px" height="12.960px" role="img" focusable="false" viewBox="0 -716 750 716" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-5-TEX-I-1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper A">
+                <use data-c="1D434" xlink:href="#half-circle-force-MJX-5-TEX-I-1D434"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle id="half-circle-force-circle-2" cx="322.6" cy="236.8" r="4" stroke="black" stroke-width="2" fill="black"/>
+    <g id="half-circle-force-label-4" transform="translate(332.6,236.8) translate(0.0,-6.2)">
+      <g id="half-circle-force-g-4">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px" width="13.736px" height="12.360px" role="img" focusable="false" viewBox="0 -683 759 683" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-6-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper B">
+                <use data-c="1D435" xlink:href="#half-circle-force-MJX-6-TEX-I-1D435"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+  </g>
+  <g id="half-circle-force-vectors">
+    <path id="half-circle-force-path-2" stroke="red" stroke-width="3" fill="none" d="M 121.8 153.6 L 150.7 45.6" marker-end="url(#half-circle-force-arrow-head-end-3_None_24_60-red)"/>
+    <g id="half-circle-force-label-5" transform="translate(150.7,37.6) translate(-6.6,-12.3)">
+      <g id="half-circle-force-g-5">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:red" width="13.104px" height="12.304px" role="img" focusable="false" viewBox="0 -680 724 680" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-7-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F">
+                  <use data-c="1D405" xlink:href="#half-circle-force-MJX-7-TEX-B-1D405"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <path id="half-circle-force-path-3" stroke="#009E73" stroke-width="3" fill="none" d="M 121.8 153.6 L 173.8 101.6" marker-end="url(#half-circle-force-arrow-head-end-3_None_24_60-h009E73)"/>
+    <g id="half-circle-force-label-6" transform="translate(181.8,101.6) translate(0.0,-6.1)">
+      <g id="half-circle-force-g-6">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:#009E73" width="14.480px" height="12.216px" role="img" focusable="false" viewBox="0 -675 800 675" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-8-TEX-B-1D413" d="M41 425Q41 426 51 545T62 669V675H737V669Q738 665 748 546T758 425V419H696V425Q687 517 669 555T595 607Q578 612 522 613H478V62H631V0H615Q585 3 399 3Q214 3 184 0H168V62H321V613H277H263Q164 613 134 561Q113 527 103 425V419H41V425Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper T">
+                  <use data-c="1D413" xlink:href="#half-circle-force-MJX-8-TEX-B-1D413"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <path id="half-circle-force-path-4" d="M 155.1 120.3 L 154.9 120.1 L 154.7 120.0 L 154.6 119.8 L 154.4 119.6 L 154.2 119.4 L 154.0 119.3 L 153.8 119.1 L 153.7 118.9 L 153.5 118.8 L 153.3 118.6 L 153.1 118.4 L 152.9 118.3 L 152.7 118.1 L 152.6 118.0 L 152.4 117.8 L 152.2 117.6 L 152.0 117.5 L 151.8 117.3 L 151.6 117.2 L 151.4 117.0 L 151.2 116.8 L 151.0 116.7 L 150.8 116.5 L 150.7 116.4 L 150.5 116.2 L 150.3 116.1 L 150.1 115.9 L 149.9 115.8 L 149.7 115.6 L 149.5 115.5 L 149.3 115.4 L 149.1 115.2 L 148.9 115.1 L 148.7 114.9 L 148.5 114.8 L 148.3 114.7 L 148.1 114.5 L 147.9 114.4 L 147.6 114.2 L 147.4 114.1 L 147.2 114.0 L 147.0 113.8 L 146.8 113.7 L 146.6 113.6 L 146.4 113.5 L 146.2 113.3 L 146.0 113.2 L 145.8 113.1 L 145.6 112.9 L 145.3 112.8 L 145.1 112.7 L 144.9 112.6 L 144.7 112.5 L 144.5 112.3 L 144.3 112.2 L 144.0 112.1 L 143.8 112.0 L 143.6 111.9 L 143.4 111.8 L 143.2 111.6 L 143.0 111.5 L 142.7 111.4 L 142.5 111.3 L 142.3 111.2 L 142.1 111.1 L 141.8 111.0 L 141.6 110.9 L 141.4 110.8 L 141.2 110.7 L 141.0 110.6 L 140.7 110.5 L 140.5 110.4 L 140.3 110.3 L 140.0 110.2 L 139.8 110.1 L 139.6 110.0 L 139.4 109.9 L 139.1 109.8 L 138.9 109.7 L 138.7 109.6 L 138.4 109.6 L 138.2 109.5 L 138.0 109.4 L 137.8 109.3 L 137.5 109.2 L 137.3 109.1 L 137.1 109.1 L 136.8 109.0 L 136.6 108.9 L 136.4 108.8 L 136.1 108.7 L 135.9 108.7 L 135.6 108.6 L 135.4 108.5 L 135.2 108.5 L 134.9 108.4 L 134.7 108.3 L 134.5 108.3 L 134.2 108.2" stroke="black" stroke-width="1" fill="none"/>
+    <g id="half-circle-force-label-7" transform="translate(154.2,97.5) translate(-13.0,-6.6)">
+      <g id="half-circle-force-g-7">
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="26.000px" height="13.192px" role="img" focusable="false" viewBox="0 -707 1436.6 729" x="0.0" y="0.0">
+          <defs>
+            <path id="half-circle-force-MJX-9-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"/>
+            <path id="half-circle-force-MJX-9-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+            <path id="half-circle-force-MJX-9-TEX-N-2218" d="M55 251Q55 328 112 386T249 444T386 388T444 249Q444 171 388 113T250 55Q170 55 113 112T55 251ZM245 403Q188 403 142 361T96 250Q96 183 141 140T250 96Q284 96 313 109T354 135T375 160Q403 197 403 250Q403 313 360 358T245 403Z"/>
+          </defs>
+          <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+            <g data-mml-node="math">
+              <g data-mml-node="msup" data-semantic-type="superscript" data-semantic-role="integer" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="30 Superscript ring">
+                <g data-mml-node="mn" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="30" data-semantic-prefix="Base">
+                  <use data-c="33" xlink:href="#half-circle-force-MJX-9-TEX-N-33"/>
+                  <use data-c="30" xlink:href="#half-circle-force-MJX-9-TEX-N-30" transform="translate(500,0)"/>
+                </g>
+                <g data-mml-node="mo" transform="translate(1033,393.1) scale(0.707)" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="ring" data-semantic-prefix="Exponent">
+                  <use data-c="2218" xlink:href="#half-circle-force-MJX-9-TEX-N-2218"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </g>
+    </g>
+    <circle id="half-circle-force-circle-3" cx="121.8" cy="153.6" r="4" stroke="black" stroke-width="2" fill="black"/>
+  </g>
+</svg>
