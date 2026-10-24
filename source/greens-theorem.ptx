@@ -782,13 +782,16 @@ A region between an upper and a lower curve with a counterclockwise boundary.
 <figure xml:id="fig-green-proof-video">
 <caption>
 The idea of the proof, without the algebra: the <m>\mathbf{k}</m>-component
-of the curl is circulation per unit area, so chop <m>R</m> into little
-cells and add the circulation around each one. Every interior edge is
+of the curl is circulation per unit area, so cover <m>R</m> with tiny
+rectangles and add the circulation around each one. Every interior edge is
 travelled twice, once in each direction, so the inside cancels in pairs and
-only the circulation around <m>C</m> is left.
+only a staircase hugging <m>C</m> is left. As the number of rectangles
+increases, less of their area sticks out of <m>R</m> and the
+approximation improves; in the limit the staircase becomes <m>C</m> and
+the sum becomes the double integral.
 </caption>
 <video preview="play-button.png" xml:id="video-green-proof-idea"
-       source="videos/green_proof_idea_1080p.mp4"
+       source="videos/green_circulation_proof_1080p.mp4"
        width="70%" aspect="16:9"/>
 </figure>
 
