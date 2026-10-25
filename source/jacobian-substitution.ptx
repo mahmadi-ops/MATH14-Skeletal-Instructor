@@ -31,6 +31,12 @@
 <!-- the rectangle figure its formula for T; the hyperbola and line labels -->
 <!-- are moved off their curves, the uv tick labels are fixed, and the     -->
 <!-- annotations no longer give the substitution.                          -->
+<!--                                                                       -->
+<!-- Animated figure: assets/jacobian-area-manim.html (2D canvas, in the   -->
+<!-- style of sphere-patch-manim.html), right after the curved-region     -->
+<!-- video. In the skeletal books it runs with SKELETAL = true: neither   -->
+<!-- the substitution nor the Jacobian is named, and the card shows only -->
+<!-- the measured ratio of areas, as the check on the student's Jacobian. -->
 <section xml:id="section-jacobian-substitution" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Substitution in Multiple Integrals and the Jacobian Determinant</title>
 
@@ -530,6 +536,38 @@ rectangle. Watch what the Jacobian does to the integrand.
 <video preview="play-button.png" xml:id="video-curved-region-sub"
        source="videos/curved_region_sub_1080p.mp4"
        width="70%" aspect="16:9"/>
+</figure>
+
+<figure xml:id="fig-jacobian-area-manim">
+<caption>
+The Jacobian as a local ratio of areas, animated. A small rectangle with
+corner <m>(u,v)</m> and sides <m>\Delta u</m>, <m>\Delta v</m> in
+<m>R</m> (left) is carried by <m>T</m> to a small curved patch of
+<m>D</m> (right), drawn to the same scale. The violet parallelogram,
+spanned by <m>T_u\,\Delta u</m> and <m>T_v\,\Delta v</m>, where
+<m>T_u = \left\langle \partial x/\partial u,\ \partial y/\partial u \right\rangle</m>
+and
+<m>T_v = \left\langle \partial x/\partial v,\ \partial y/\partial v \right\rangle</m>,
+approximates the patch. As the rectangle shrinks, the area of the patch
+divided by <m>\Delta u\,\Delta v</m> settles on <m>|J|</m> at the corner:
+check it against the Jacobian you found.
+</caption>
+<interactive xml:id="interactive-jacobian-area-manim"
+             iframe="jacobian-area-manim.html"
+             width="100%" aspect="4:3">
+<instructions>
+<p>
+Drag the corner of the rectangle in either plane, or use the
+<m>u</m> and <m>v</m> sliders; the <q>rectangle</q> slider changes
+<m>\Delta u</m> and <m>\Delta v</m> together. The card divides the area
+of the patch by <m>\Delta u\,\Delta v</m>. <q>Zoom to patch</q>
+follows the rectangle and its image in, at one common scale, so that
+both stay in view as they shrink; <q>Parallelogram</q> and <q>Grid</q>
+switch those layers off and on, <q>Play</q> runs a guided tour, and
+<q>Full screen</q> fills the screen with the figure.
+</p>
+</instructions>
+</interactive>
 </figure>
 
 <figure xml:id="fig-curved-region">
