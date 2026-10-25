@@ -439,12 +439,23 @@
     // ---- the arrow T between the planes ----
     var gx0 = LY.uv.x + LY.uv.w + 0.12 * LY.s0, gx1 = LY.xy.x - 0.12 * LY.s0, gy = LY.top + 2.1 * LY.s0;
     if (gx1 - gx0 > 18) {
-      var mx = (gx0 + gx1) / 2, lift = 0.32 * LY.s0;
-      ctx.strokeStyle = INK; ctx.lineWidth = 1.8; ctx.globalAlpha = 0.85;
-      ctx.beginPath(); ctx.moveTo(gx0, gy); ctx.quadraticCurveTo(mx, gy - 2 * lift, gx1 - 6, gy - 2); ctx.stroke();
-      arrowS(gx1 - 14, gy - 4, gx1, gy, INK, 1.8, 10, 0.85);
-      ctx.globalAlpha = 1;
-      label(mx, gy - lift - 14, [["T"]], INK, "center", 19);
+      // a quadratic arc from (gx0, gy) to its tip (gx1, gy), its head along the arc's own direction there
+      var mx = (gx0 + gx1) / 2, cy = gy - 0.42 * LY.s0, head = 11;
+      var bez = function (t) { var a = (1 - t) * (1 - t), b2 = 2 * (1 - t) * t, c = t * t;
+                               return [a * gx0 + b2 * mx + c * gx1, a * gy + b2 * cy + c * gy]; };
+      var lo = 0, hi = 1;                          // where the shaft stops, just inside the head
+      for (var it = 0; it < 30; it++) { var tm = (lo + hi) / 2, q = bez(tm);
+        if (Math.hypot(gx1 - q[0], gy - q[1]) > 0.7 * head) lo = tm; else hi = tm; }
+      ctx.globalAlpha = 0.85; ctx.strokeStyle = INK; ctx.lineWidth = 1.8; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(gx0, gy);
+      for (var k = 1; k <= 40; k++) { var r = bez(lo * k / 40); ctx.lineTo(r[0], r[1]); }
+      ctx.stroke();
+      var hx = gx1 - mx, hy = gy - cy, hn = Math.hypot(hx, hy); hx /= hn; hy /= hn;
+      var bx = gx1 - hx * head, by = gy - hy * head;
+      ctx.fillStyle = INK; ctx.beginPath(); ctx.moveTo(gx1, gy);
+      ctx.lineTo(bx - hy * head * 0.42, by + hx * head * 0.42); ctx.lineTo(bx + hy * head * 0.42, by - hx * head * 0.42);
+      ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+      label(mx, (gy + cy) / 2 - 14, [["T"]], INK, "center", 19);
     }
     updateCard();
   }
