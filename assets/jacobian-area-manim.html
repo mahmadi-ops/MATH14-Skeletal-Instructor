@@ -8,8 +8,10 @@
      Multiple Integrals and the Jacobian Determinant": the substitution
      u = x^2 - y^2, v = xy of the curved-region example, with T, its
      inverse, carrying the rectangle R = [-3,3] x [1,4] of the uv-plane
-     (left) onto the region D between the four hyperbolas (right).  Both
-     planes are drawn to the same scale, so areas can be compared by eye.
+     (left) onto the region D between the four hyperbolas (right).  D is
+     small next to R, so the xy-plane is drawn K times larger (its box as
+     tall as R's, K about 1.9), and says so; areas are compared in the
+     card, not by eye.
 
      A small rectangle with corner (u, v) and sides du = dv (yellow) is
      carried to a small curved patch of D, bounded by arcs of the
@@ -18,7 +20,7 @@
      area of the patch (by the shoelace formula on its sampled boundary)
      by du dv and, in the completed notes, gives |J| = 1/(2(x^2 + y^2)) at
      the corner: as the rectangle shrinks the two agree.  "Zoom to patch"
-     follows the rectangle and its image in, at one common scale.
+     follows the rectangle and its image in, D still K times larger.
 
      The sliders carry no scale; the only numbers are the ratio and |J|
      in the card, which are the point of the figure.
@@ -141,7 +143,7 @@
       <button id="btnTour" aria-label="Play the guided tour" title="A guided tour of the rectangle and its image">&#9654;<span class="long">&nbsp;Play</span></button>
       <button id="btnPara" class="active" title="The parallelogram spanned by T_u Δu and T_v Δv, which approximates the patch">Parallelogram</button>
       <button id="btnGrid" class="active" title="The lines u = const and v = const, and the hyperbolas they become">Grid</button>
-      <button id="btnZoom" title="Follow the rectangle and its image in, at one common scale">Zoom to patch</button>
+      <button id="btnZoom" title="Follow the rectangle and its image in">Zoom to patch</button>
       <span style="flex:1"></span>
       <button id="btnFull" aria-label="Full screen" title="Show the figure full screen">&#x26F6;<span class="long">&nbsp;Full screen</span></button>
     </div>
@@ -227,35 +229,36 @@
   var cv = document.getElementById("cv"), ctx = cv.getContext("2d");
   var W = 0, Hc = 0, DPR = 1, LY = null, VW = null;
   // the world boxes the two pictures need, and the gap between them for the arrow T
-  var BOX_UV = { x0: -3.75, x1: 3.75, y0: -0.55, y1: 4.7 }, BOX_XY = { x0: -0.3, x1: 3.15 }, GAP = 1.45;
+  var BOX_UV = { x0: -3.75, x1: 3.75, y0: -0.55, y1: 4.7 }, BOX_XY = { x0: -0.1, x1: 2.6, y0: -0.1, y1: 2.6 }, GAP = 1.3;
+  // D is small next to R, so the xy-plane is drawn K times larger, its box as tall as R's
+  var K = (BOX_UV.y1 - BOX_UV.y0) / (BOX_XY.y1 - BOX_XY.y0);
 
   function layout() {
     var stacked = window.getComputedStyle(card).position === "static";
     var topPad = stacked ? 8 : card.offsetTop + card.offsetHeight + 10, botPad = 8, side = 10;
     var availW = W - 2 * side, availH = Math.max(60, Hc - topPad - botPad);
-    var wUV = BOX_UV.x1 - BOX_UV.x0, wXY = BOX_XY.x1 - BOX_XY.x0, hAll = BOX_UV.y1 - BOX_UV.y0;
+    var wUV = BOX_UV.x1 - BOX_UV.x0, wXY = K * (BOX_XY.x1 - BOX_XY.x0), hAll = BOX_UV.y1 - BOX_UV.y0;
     var s0 = Math.min(availW / (wUV + GAP + wXY), availH / hAll);
     var left = side + (availW - s0 * (wUV + GAP + wXY)) / 2;
     var top = topPad + (availH - s0 * hAll) / 2;
-    var oy = top + s0 * BOX_UV.y1;                 // the screen height of the two axes
-    var uv = { x: left, y: topPad, w: s0 * wUV, h: availH, ax0: left - s0 * BOX_UV.x0, ay0: oy };
-    var xl = left + s0 * (wUV + GAP);
-    var xy = { x: xl, y: topPad, w: s0 * wXY, h: availH, ax0: xl - s0 * BOX_XY.x0, ay0: oy };
-    LY = { s0: s0, uv: uv, xy: xy, oy: oy };
+    var uv = { x: left, y: topPad, w: s0 * wUV, h: availH, s0: s0, ax0: left - s0 * BOX_UV.x0, ay0: top + s0 * BOX_UV.y1 };
+    var xl = left + s0 * (wUV + GAP), sx = K * s0;
+    var xy = { x: xl, y: topPad, w: s0 * wXY, h: availH, s0: sx, ax0: xl - sx * BOX_XY.x0, ay0: top + sx * BOX_XY.y1 };
+    LY = { s0: s0, uv: uv, xy: xy, top: top };
   }
 
-  // the two views: unzoomed, the fixed layout; zoomed, both follow the patch in at one scale
+  // the two views: unzoomed, the fixed layout; zoomed, both follow the patch in, D still K times larger
   function views() {
     var d = Math.exp(S.ls.v), z = S.zoom.v;
     var cu = [S.pu.v + d / 2, S.pv.v + d / 2], cx = T(cu[0], cu[1]);
     var sZ = 0.4 * Math.min(LY.uv.w, LY.uv.h) / d;
     var s = Math.exp(Math.log(LY.s0) + z * (Math.log(Math.max(sZ, LY.s0)) - Math.log(LY.s0)));
-    function one(P, c) {
-      var p0x = P.ax0 + LY.s0 * c[0], p0y = P.ay0 - LY.s0 * c[1];
+    function one(P, c, f) {
+      var p0x = P.ax0 + P.s0 * c[0], p0y = P.ay0 - P.s0 * c[1];
       var tx = p0x + z * (P.x + P.w / 2 - p0x), ty = p0y + z * (P.y + P.h / 2 - p0y);
-      return { s: s, ax: tx - s * c[0], ay: ty + s * c[1] };
+      return { s: s * f, ax: tx - s * f * c[0], ay: ty + s * f * c[1] };
     }
-    return { uv: one(LY.uv, cu), xy: one(LY.xy, cx) };
+    return { uv: one(LY.uv, cu, 1), xy: one(LY.xy, cx, K) };
   }
   function sc(vw, p) { return [vw.ax + vw.s * p[0], vw.ay - vw.s * p[1]]; }
 
@@ -360,9 +363,9 @@
     R_EDGES.forEach(function (e) { stroke(vx, e.img, e.c, 2.6, 0.95); });
     var ox = sc(vx, [0, 0]);
     arrowS(sc(vx, [BOX_XY.x0 + 0.05, 0])[0], ox[1], sc(vx, [BOX_XY.x1 - 0.05, 0])[0], ox[1], AXIS, 1.5, 9, lab);
-    arrowS(ox[0], sc(vx, [0, -0.3])[1], ox[0], sc(vx, [0, 3.15])[1], AXIS, 1.5, 9, lab);
+    arrowS(ox[0], sc(vx, [0, BOX_XY.y0 + 0.05])[1], ox[0], sc(vx, [0, BOX_XY.y1 - 0.05])[1], AXIS, 1.5, 9, lab);
     label(sc(vx, [BOX_XY.x1 - 0.05, 0])[0] - 2, ox[1] + 14, [["x"]], INK, "right", 17, lab);
-    label(ox[0] + 9, sc(vx, [0, 3.15])[1] + 4, [["y"]], INK, "left", 17, lab);
+    label(ox[0] + 9, sc(vx, [0, BOX_XY.y1 - 0.05])[1] + 4, [["y"]], INK, "left", 17, lab);
     var dl = sc(vx, T(-3, 4));
     label(dl[0] - 8, dl[1] - 10, [["D"]], INK, "right", 19, lab);
     // the patch, then the parallelogram spanned by T_u du and T_v dv
@@ -382,6 +385,10 @@
     }
     dot(vx, P, 4.5, 1);
     ctx.restore();
+    ctx.font = "12.5px 'Open Sans', 'Helvetica Neue', Arial, sans-serif"; ctx.textBaseline = "top";
+    var note = "D drawn enlarged", nw = ctx.measureText(note).width, nx = LY.xy.x + LY.xy.w - nw - 8, ny = LY.xy.y + 3;
+    ctx.fillStyle = "rgba(6,7,10,0.85)"; ctx.fillRect(nx - 4, ny - 1, nw + 8, 19);
+    ctx.fillStyle = "#9aa0ad"; ctx.fillText(note, nx, ny + 1);
 
     // ---- frames round the two views while zoomed ----
     if (z > 0.01) {
@@ -391,7 +398,7 @@
     }
 
     // ---- the arrow T between the planes ----
-    var gx0 = LY.uv.x + LY.uv.w + 0.12 * LY.s0, gx1 = LY.xy.x - 0.12 * LY.s0, gy = LY.oy - 2.6 * LY.s0;
+    var gx0 = LY.uv.x + LY.uv.w + 0.12 * LY.s0, gx1 = LY.xy.x - 0.12 * LY.s0, gy = LY.top + 2.1 * LY.s0;
     if (gx1 - gx0 > 18) {
       var mx = (gx0 + gx1) / 2, lift = 0.32 * LY.s0;
       ctx.strokeStyle = INK; ctx.lineWidth = 1.8; ctx.globalAlpha = 0.85;
@@ -536,7 +543,7 @@
     { say: (SKELETAL ? "The lines that grid " + M(V("R")) + " become the curves that grid "
                      : "The lines " + C(RED, M(V("u") + " = const")) + " and " + C(BLUE, M(V("v") + " = const")) + " that grid " +
                        M(V("R")) + " become the hyperbolas that grid ") +
-           M(V("D")) + ". Both planes are drawn to the same scale.", hold: 4.4 },
+           M(V("D")) + ". The picture of " + M(V("D")) + " is enlarged, so compare areas with the card, not by eye.", hold: 4.8 },
     { say: "Take a small rectangle in " + M(V("R")) + ", with corner " + M("(" + V("u") + ", " + V("v") + ")") + " and sides " +
            C(BLUE, M(dU)) + " and " + C(RED, M(dV)) + ". " + M(V("T")) + " carries it to a small curved patch of " + M(V("D")) + ".",
       st: { patch: 1 }, hold: 4.6 },

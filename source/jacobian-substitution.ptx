@@ -543,7 +543,7 @@ rectangle. Watch what the Jacobian does to the integrand.
 The Jacobian as a local ratio of areas, animated. A small rectangle with
 corner <m>(u,v)</m> and sides <m>\Delta u</m>, <m>\Delta v</m> in
 <m>R</m> (left) is carried by <m>T</m> to a small curved patch of
-<m>D</m> (right), drawn to the same scale. The violet parallelogram,
+<m>D</m> (right), drawn enlarged. The violet parallelogram,
 spanned by <m>T_u\,\Delta u</m> and <m>T_v\,\Delta v</m>, where
 <m>T_u = \left\langle \partial x/\partial u,\ \partial y/\partial u \right\rangle</m>
 and
@@ -561,8 +561,8 @@ Drag the corner of the rectangle in either plane, or use the
 <m>u</m> and <m>v</m> sliders; the <q>rectangle</q> slider changes
 <m>\Delta u</m> and <m>\Delta v</m> together. The card divides the area
 of the patch by <m>\Delta u\,\Delta v</m>. <q>Zoom to patch</q>
-follows the rectangle and its image in, at one common scale, so that
-both stay in view as they shrink; <q>Parallelogram</q> and <q>Grid</q>
+follows the rectangle and its image in, so that both stay in view as
+they shrink; <q>Parallelogram</q> and <q>Grid</q>
 switch those layers off and on, <q>Play</q> runs a guided tour, and
 <q>Full screen</q> fills the screen with the figure.
 </p>
