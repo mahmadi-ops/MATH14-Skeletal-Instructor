@@ -540,15 +540,17 @@ rectangle. Watch what the Jacobian does to the integrand.
 
 <figure xml:id="fig-jacobian-area-manim">
 <caption>
-The Jacobian as a local ratio of areas, animated. A small rectangle with
-corner <m>(u,v)</m> and sides <m>\Delta u</m>, <m>\Delta v</m> in
-<m>R</m> (left) is carried by <m>T</m> to a small curved patch of
-<m>D</m> (right), drawn enlarged. The violet parallelogram,
+The Jacobian as a local ratio of areas, animated. The lines
+<m>u = \text{const}</m> and <m>v = \text{const}</m> cut <m>R</m> (left)
+into small rectangles with sides <m>\Delta u</m> and <m>\Delta v</m>, and
+<m>T</m> carries each one to a cell of the curved grid of <m>D</m>
+(right, drawn enlarged). For the highlighted cell, with corner
+<m>(u,v)</m>, the violet parallelogram,
 spanned by <m>T_u\,\Delta u</m> and <m>T_v\,\Delta v</m>, where
 <m>T_u = \left\langle \partial x/\partial u,\ \partial y/\partial u \right\rangle</m>
 and
 <m>T_v = \left\langle \partial x/\partial v,\ \partial y/\partial v \right\rangle</m>,
-approximates the patch. As the rectangle shrinks, the area of the patch
+approximates its image. As the grid is refined, the area of the image
 divided by <m>\Delta u\,\Delta v</m> settles on <m>|J|</m> at the corner:
 check it against the Jacobian you found.
 </caption>
@@ -557,12 +559,12 @@ check it against the Jacobian you found.
              width="100%" aspect="4:3">
 <instructions>
 <p>
-Drag the corner of the rectangle in either plane, or use the
-<m>u</m> and <m>v</m> sliders; the <q>rectangle</q> slider changes
-<m>\Delta u</m> and <m>\Delta v</m> together. The card divides the area
+Click or drag in either plane to pick a cell, or use the <m>u</m> and
+<m>v</m> sliders; the <q>rectangle</q> slider makes the grid coarser or
+finer, and the rectangle is always one of its cells. The card divides the area
 of the patch by <m>\Delta u\,\Delta v</m>. <q>Zoom to patch</q>
-follows the rectangle and its image in, so that both stay in view as
-they shrink; <q>Parallelogram</q> and <q>Grid</q>
+follows the cell and its image in, so that both stay in view as the
+grid is refined; <q>Parallelogram</q> and <q>Grid</q>
 switch those layers off and on, <q>Play</q> runs a guided tour, and
 <q>Full screen</q> fills the screen with the figure.
 </p>
