@@ -110,46 +110,44 @@ projection.
   \definecolor{oiblue}{RGB}{0,114,178}
   \definecolor{oivermillion}{RGB}{213,94,0}
   \definecolor{oipurple}{RGB}{204,121,167}
+  % P = (1.15, 1.2, 1.5): theta0 = atan(1.2/1.15) = 46.2 deg, phi0 = acos(1.5/|OP|) = 47.9 deg
   \begin{axis}[
       view={125}{20},
       width=11cm,
       axis lines=center,
-      axis line style={-latex, black!75, line width=0.7pt},
+      axis line style={-latex, black!75, line width=0.8pt},
       xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
+      label style={font=\LARGE},
       ticks=none,
-      xmin=0, xmax=2.1, ymin=0, ymax=2.3, zmin=0, zmax=2.3,
+      xmin=0, xmax=1.6, ymin=0, ymax=1.75, zmin=0, zmax=1.95,
       clip=false,
     ]
     % rho segment
-    \draw[oivermillion, line width=1.5pt]
+    \draw[oivermillion, line width=1.8pt]
       (axis cs:0,0,0) -- (axis cs:1.15,1.2,1.5);
     % projection
-    \draw[black!60, dashed, line width=0.8pt]
+    \draw[black!60, dashed, line width=0.9pt]
       (axis cs:0,0,0) -- (axis cs:1.15,1.2,0)
       (axis cs:1.15,1.2,0) -- (axis cs:1.15,1.2,1.5);
-    % angle theta in xy-plane
-    \draw[oipurple, line width=1.0pt, -{Latex[length=1.6mm]}]
-      (axis cs:0.5,0,0) .. controls (axis cs:0.52,0.28,0) ..
-      (axis cs:0.34,0.36,0);
-    % angle phi from z-axis
-    \draw[oiblue, line width=1.0pt, -{Latex[length=1.6mm]}]
-      (axis cs:0,0,0.75) .. controls (axis cs:0.3,0.28,0.72) ..
-      (axis cs:0.42,0.44,0.55);
+    % angle theta in the xy-plane: a circular arc of radius 0.62 from the x-axis to the projection
+    \addplot3[oipurple, line width=1.3pt, -{Latex[length=2.4mm]}, domain=0:1, samples=30, samples y=0]
+      ({0.62*cos(46.2*x)}, {0.62*sin(46.2*x)}, {0});
+    % angle phi from the z-axis: a circular arc of radius 1.25 from the z-axis to the segment
+    \addplot3[oiblue, line width=1.3pt, -{Latex[length=2.4mm]}, domain=0:1, samples=30, samples y=0]
+      ({1.25*sin(47.9*x)*cos(46.2)}, {1.25*sin(47.9*x)*sin(46.2)}, {1.25*cos(47.9*x)});
     % point
-    \addplot3[only marks, mark=*, mark size=1.7pt, color=oivermillion,
+    \addplot3[only marks, mark=*, mark size=2.2pt, color=oivermillion,
         forget plot] coordinates {(1.15,1.2,1.5)};
     % labels
-    \node[oivermillion, anchor=south, font=\small]
-      at (axis cs:1.15,1.2,1.58) {$P(\rho,\theta,\phi)$};
-    \node[oivermillion, anchor=north west, font=\small]
-      at (axis cs:0.66,0.68,0.78) {$\rho$};
-    \node[oipurple, anchor=west, font=\small]
-      at (axis cs:0.56,0.2,0.1) {$\theta$};
-    \node[oiblue, anchor=south west, font=\small]
-      at (axis cs:0.04,0.06,0.9) {$\phi$};
-    \node[anchor=south east, font=\small] at (axis cs:0.0,-0.05,0.02)
-      {$O$};
+    \node[oivermillion, anchor=south west, font=\LARGE, xshift=2pt]
+      at (axis cs:1.15,1.2,1.5) {$P(\rho,\theta,\phi)$};
+    \node[oivermillion, anchor=north west, font=\LARGE]
+      at (axis cs:0.75,0.78,0.95) {$\rho$};
+    \node[oipurple, font=\LARGE]
+      at (axis cs:{0.9*cos(23.1)},{0.9*sin(23.1)},0) {$\theta$};
+    \node[oiblue, font=\LARGE, xshift=1pt]
+      at (axis cs:{0.88*sin(25)*cos(46.2)},{0.88*sin(25)*sin(46.2)},{0.88*cos(25)}) {$\phi$};
+    \node[anchor=south east, font=\LARGE, xshift=-1pt] at (axis cs:0,0,0) {$O$};
   \end{axis}
 \end{tikzpicture}]]>
 </latex-image>
