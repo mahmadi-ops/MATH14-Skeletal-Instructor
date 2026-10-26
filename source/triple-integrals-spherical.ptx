@@ -37,6 +37,16 @@
 <!-- Example IV (fig-shifted-sphere-tikz), and the half disk and the solid -->
 <!-- of Example V (fig-halfdisk-prefigure, fig-cone-plane-tikz). A comment -->
 <!-- marks each place; they remain in the completed notes.                 -->
+<!--                                                                       -->
+<!-- Animated figures (Oct 2026): the ice cream cone's limits               -->
+<!-- (fig-icecream-limits-manim, assets/icecream-limits-manim.html) after   -->
+<!-- Example III, and Example V's solid in cylindrical and spherical        -->
+<!-- coordinates (fig-cone-plane-cyl-manim, fig-cone-plane-sph-manim, from  -->
+<!-- assets/cone-plane-*-manim.html). They run with SKELETAL = true: the    -->
+<!-- sweeps are shown, but the card has empty boxes for the limits (and for -->
+<!-- Example V the integrand), the surfaces of Example V are named only as  -->
+<!-- the problem gives them, and neither the captions nor the tours state a -->
+<!-- limit.                                                                 -->
 <section xml:id="section-triple-integrals-spherical" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Triple Integrals in Spherical Coordinates</title>
 
@@ -426,6 +436,41 @@ solid sphere <m>\rho \le 1</m> by the cone <m>\phi = \pi/3</m>.
 <!-- Figure fig-icecream-tikz (the ice cream cone of Example III) removed from the skeletal notes at the instructor's request (Oct 2026); it remains in the completed notes. -->
 
 <p>
+The limits of integration can be read as three nested sweeps, and
+<xref ref="fig-icecream-limits-manim"/> builds <m>D</m> from them,
+innermost first.
+</p>
+
+<figure xml:id="fig-icecream-limits-manim">
+<caption>
+The limits of integration of <xref ref="example-spherical-icecream"/>,
+animated: the ice cream cone built the way an iterated integral in the
+order <m>d\rho\,d\phi\,d\theta</m> sweeps it. A ray at fixed
+<m>\theta</m> and <m>\phi</m> runs from the origin out to the sphere
+(yellow); tilting it from the <m>z</m>-axis down to the cone fills a
+flat fan (red); and turning the fan once around the <m>z</m>-axis sweeps
+out the solid (blue). Read each sweep's limits off the figure.
+</caption>
+<interactive xml:id="interactive-icecream-limits-manim"
+             iframe="icecream-limits-manim.html"
+             width="100%" aspect="1:1">
+<instructions>
+<p>
+The <m>\rho</m>, <m>\phi</m> and <m>\theta</m> sliders run the three
+sweeps: the solid is drawn for the values of <m>\theta</m> already swept,
+the fan at the current <m>\theta</m> for the values of <m>\phi</m>
+already swept, and the ray at the current <m>\theta</m> and <m>\phi</m>
+out to the current <m>\rho</m>. The card shows the integral with an empty
+box for each limit. <q>Surfaces</q> shows the sphere and the cone that
+bound the solid, <q>Angles</q> marks <m>\phi</m> and <m>\theta</m>,
+<q>Play</q> runs a guided tour, <q>Spin</q> turns the figure (dragging
+turns it by hand), and <q>Full screen</q> fills the screen with it.
+</p>
+</instructions>
+</interactive>
+</figure>
+
+<p>
 How the spherical description of the ice cream cone
 works<mdash/>the angle <m>\phi</m> sweeping from the <m>z</m>-axis
 down to the cone while <m>\rho</m> reaches out to the
@@ -532,6 +577,73 @@ Re-write (do not evaluate) the following integral in
 <!-- Figure fig-halfdisk-prefigure (the half disk of Example V) removed from the skeletal notes at the instructor's request (Oct 2026); it remains in the completed notes. -->
 
 <!-- Figure fig-cone-plane-tikz (the solid of Example V) removed from the skeletal notes at the instructor's request (Oct 2026); it remains in the completed notes. -->
+
+<p>
+<xref ref="fig-cone-plane-cyl-manim"/> and
+<xref ref="fig-cone-plane-sph-manim"/> build the solid of
+<xref ref="example-spherical-rewrite"/> as a sweep in each coordinate
+system, innermost first: the two descriptions fill the same flat
+triangle in different ways before turning it about the <m>z</m>-axis.
+</p>
+
+<figure xml:id="fig-cone-plane-cyl-manim">
+<caption>
+The solid of <xref ref="example-spherical-rewrite"/> in cylindrical
+coordinates, animated: built the way an iterated integral in the order
+<m>dz\,dr\,d\theta</m> sweeps it. A vertical segment at fixed <m>r</m>
+and <m>\theta</m> runs from the cone up to the plane (yellow); letting
+<m>r</m> run out from the <m>z</m>-axis fills a flat triangle (red); and
+turning the triangle across the half disk under the solid sweeps it out
+(blue).
+</caption>
+<interactive xml:id="interactive-cone-plane-cyl-manim"
+             iframe="cone-plane-cyl-manim.html"
+             width="100%" aspect="1:1">
+<instructions>
+<p>
+The <m>z</m>, <m>r</m> and <m>\theta</m> sliders run the three sweeps:
+the solid is drawn for the values of <m>\theta</m> already swept, the
+triangle at the current <m>\theta</m> for the values of <m>r</m> already
+swept, and the segment at the current <m>r</m> and <m>\theta</m> up to
+the current <m>z</m>. The card shows the integral with empty boxes for
+the limits and the integrand. <q>Surfaces</q> shows the cone, the plane
+and the half disk below them, <q>Coordinates</q> marks <m>r</m> and
+<m>\theta</m>, <q>Play</q> runs a guided tour, <q>Spin</q> turns the
+figure (dragging turns it by hand), and <q>Full screen</q> fills the
+screen with it.
+</p>
+</instructions>
+</interactive>
+</figure>
+
+<figure xml:id="fig-cone-plane-sph-manim">
+<caption>
+The same solid in spherical coordinates, animated: built the way an
+iterated integral in the order <m>d\rho\,d\phi\,d\theta</m> sweeps it. A
+ray at fixed <m>\theta</m> and <m>\phi</m> runs from the origin out to
+the plane (yellow); letting <m>\phi</m> run from the <m>z</m>-axis down
+to the cone fills the same triangle (red); and turning it across the
+half <m>y \le 0</m> sweeps out the solid (blue).
+</caption>
+<interactive xml:id="interactive-cone-plane-sph-manim"
+             iframe="cone-plane-sph-manim.html"
+             width="100%" aspect="1:1">
+<instructions>
+<p>
+The <m>\rho</m>, <m>\phi</m> and <m>\theta</m> sliders run the three
+sweeps: the solid is drawn for the values of <m>\theta</m> already
+swept, the triangle at the current <m>\theta</m> for the values of
+<m>\phi</m> already swept, and the ray at the current <m>\theta</m> and
+<m>\phi</m> out to the current <m>\rho</m>. The card shows the integral
+with empty boxes for the limits and the integrand. <q>Surfaces</q> shows
+the cone, the plane and the half disk below them, <q>Coordinates</q>
+marks <m>\phi</m> and <m>\theta</m>, <q>Play</q> runs a guided tour,
+<q>Spin</q> turns the figure (dragging turns it by hand), and <q>Full
+screen</q> fills the screen with it.
+</p>
+</instructions>
+</interactive>
+</figure>
 
 <exercise xml:id="exercise-spherical-volume">
 <statement>
