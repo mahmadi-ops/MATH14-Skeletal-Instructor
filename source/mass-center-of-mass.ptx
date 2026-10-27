@@ -905,11 +905,36 @@ over the disk <m>x^2 + y^2 \le 4</m> in the <m>xy</m>-plane, labeled
 <title>Concept Check</title>
 
 <p>
-The first problem revisits the region of
+The first problem is about point masses, where everything can be done by
+hand in a line or two; the second revisits the region of
 <xref ref="example-centroid-between-curves"/> with two densities that are
-not constant; the second is about point masses, where everything can be
-done by hand in a line or two.
+not constant.
 </p>
+
+<exercise xml:id="q-mass-three-points">
+<title>Three point masses</title>
+<statement>
+<p>
+Masses of <m>1</m>, <m>2</m>, and <m>3</m> kilograms sit at the points
+<m>(0,0)</m>, <m>(4,0)</m>, and <m>(0,4)</m>, respectively. Find the
+center of mass of the system. Where would it be if the three masses were
+equal?
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,7);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,6.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for the center of mass of the three point masses, and of three equal masses.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</exercise>
 
 <exercise xml:id="q-mass-two-densities">
 <title>The same plate, two densities</title>
@@ -941,31 +966,6 @@ centroid of this region first, in
 \end{tikzpicture}
 </latex-image>
 <shortdescription>Blank workspace for the center of mass with each of the two densities, and the comparison with intuition.</shortdescription>
-</image>
-</sidebyside>
-</statement>
-</exercise>
-
-<exercise xml:id="q-mass-three-points">
-<title>Three point masses</title>
-<statement>
-<p>
-Masses of <m>1</m>, <m>2</m>, and <m>3</m> kilograms sit at the points
-<m>(0,0)</m>, <m>(4,0)</m>, and <m>(0,4)</m>, respectively. Find the
-center of mass of the system. Where would it be if the three masses were
-equal?
-</p>
-
-<sidebyside width="97%">
-<image>
-<latex-image>
-\begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,7);
-\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
-  at (0.25,6.75) {workspace};
-\end{tikzpicture}
-</latex-image>
-<shortdescription>Blank workspace for the center of mass of the three point masses, and of three equal masses.</shortdescription>
 </image>
 </sidebyside>
 </statement>
