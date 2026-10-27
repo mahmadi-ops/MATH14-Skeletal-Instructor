@@ -3,30 +3,27 @@
 <!-- Section: Applications: Mass and Center of Mass                        -->
 <!--                                                                       -->
 <!-- Skeletal (fill-in) version of the section of the same name in the     -->
-<!-- completed MATH 14 notes.  The definitions of the moments, the center  -->
-<!-- of mass and the centroid, and the boxed mass formula are kept; the    -->
-<!-- construction of the mass integral and the three worked examples are   -->
-<!-- replaced by blank workspace boxes, each preceded by a one-line        -->
-<!-- hint (gone).  File name and xml:ids are unchanged.                    -->
+<!-- completed MATH 14 notes, which (Oct 2026) builds up in the order of   -->
+<!-- the lecture: two point masses, n point masses with the first moments, -->
+<!-- a flat plate, a solid, and a Concept Check.  Kept: the introduction,  -->
+<!-- the setup prose that poses each construction, the definitions of the  -->
+<!-- center of mass, the first moments and the centroid, the boxed mass    -->
+<!-- formulas, and every statement.  Hollowed: the Newton's-law derivation -->
+<!-- for two masses, the two Riemann-sum constructions (double sums with   -->
+<!-- indices i, j for the plate; triple sums with i, j, k for the solid),  -->
+<!-- the three worked examples, and the two Concept Check answers, each    -->
+<!-- replaced by an empty workspace box (no hints, as for sections 2.1 to  -->
+<!-- 2.4).  File name and xml:ids are unchanged.                           -->
 <!--                                                                       -->
-<!-- Figures: all kept (the mass-element diagram and video, the paraboloid -->
-<!-- solid and its video, the region between the curves and its video, and -->
-<!-- the cardioid and its video); each is the check on the box above it.   -->
-<!-- Captions that stated the centroid have been trimmed.                  -->
-<!--                                                                       -->
-<!-- Hints removed (Oct 2026), at the instructor's request as for sections -->
-<!-- 2.1 to 2.4: every workspace box is now empty except for the faint     -->
-<!-- workspace tag (the row labels and rules are gone), and the            -->
-<!-- parenthetical how-to after each Solution and in the Concept Check     -->
-<!-- questions is deleted.  Hint lines that are the completed notes' own   -->
-<!-- stay.  Long displayed equations are broken into aligned rows so that  -->
-<!-- they fit a phone screen (390 px) with their numbers; xml:ids and      -->
-<!-- equation numbers are unchanged.                                       -->
-<!--                                                                       -->
-<!-- Figure labels: the center of mass of the paraboloid solid and the two -->
-<!-- centroids are no longer marked (the dots, their coordinates, and the  -->
-<!-- captions and annotations that stated them), and the paraboloid's x    -->
-<!-- label and R are moved off the rim.                                    -->
+<!-- Figures: all kept.  The two masses with their center of mass and the  -->
+<!-- plate cut into rectangles illustrate statements; the mass-element     -->
+<!-- diagram and video, the paraboloid solid and its video, the region     -->
+<!-- between the curves and its video, and the cardioid and its video are  -->
+<!-- each the check on the box above them.  The center of mass of the      -->
+<!-- paraboloid solid and the two centroids are not marked (dots,          -->
+<!-- coordinates, captions and annotations that stated them are gone), and -->
+<!-- captions that stated an answer are trimmed.  Long displayed equations -->
+<!-- are broken into aligned rows so that they fit a phone screen.         -->
 <section xml:id="section-mass-center-of-mass" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Applications: Mass and Center of Mass</title>
 
@@ -36,34 +33,593 @@ Multiple integrals let us compute physical quantities of solid objects
 and flat plates whose <term>density</term> varies from point to point.
 In this section we use double and triple integrals to compute the total
 mass of an object and to locate its <term>center of mass</term><mdash/>the
-point at which the object would balance perfectly.
+point at which the object would balance perfectly. Before we study
+continuous objects, we review what the center of mass of a system of
+point masses is and why it deserves its name: first for two masses, then
+for any number of them. A flat plate and a solid are then handled in the
+same way, by cutting them into many small pieces and treating each piece
+as a point mass.
 </p>
 </introduction>
 
 <!-- ================================================================ -->
-<subsection xml:id="sec-mass-3d-object">
-<title>Finding the Center of Mass of a 3D Object</title>
+<subsection xml:id="sec-com-two-masses">
+<title>The Center of Mass of Two Point Masses</title>
 
 <p>
-Suppose a solid object occupies a region <m>D</m> in space and its
-density (mass per unit volume) at each point is given by a continuous
-function <m>\delta(x,y,z)</m>. To measure the total mass, we partition
-<m>D</m> into small boxes, as in <xref ref="fig-mass-element-tikz"/>.
-If the <m>k</m>-th box contains the point <m>(x_k, y_k, z_k)</m> and has
-volume <m>\Delta V_k</m>, write down its approximate mass, sum over the
-boxes, and let the size of the boxes shrink to zero.
+Consider two masses <m>m_1</m> and <m>m_2</m> located at the points
+<m>\mathbf{r}_1 = (x_1, y_1)</m> and <m>\mathbf{r}_2 = (x_2, y_2)</m>, as
+in <xref ref="fig-two-masses"/>, and let <m>\mathbf{F}_1</m> and
+<m>\mathbf{F}_2</m> be the net forces acting on them. By Newton's second
+law, each force is the mass times the acceleration,
+<m>\mathbf{F}_1 = m_1\, \dfrac{d^2\mathbf{r}_1}{dt^2}</m> and
+<m>\mathbf{F}_2 = m_2\, \dfrac{d^2\mathbf{r}_2}{dt^2}</m>. Write the
+total force <m>\mathbf{F} = \mathbf{F}_1 + \mathbf{F}_2</m> on the system
+of the two masses, then multiply and divide by the total mass
+<m>M = m_1 + m_2</m> to bring it to the familiar form
+<m>\mathbf{F} = M\mathbf{a}</m> of Newton's second law.
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
 \node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
-  at (0.25,5.75) {workspace};
+  at (0.25,7.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank workspace for the total mass as a triple integral.</shortdescription>
+<shortdescription>Blank workspace for writing the total force on the two masses in the form of Newton's second law.</shortdescription>
+</image>
+</sidebyside>
+
+<assemblage xml:id="assemblage-com-two-masses">
+<title>Center of Mass of Two Point Masses</title>
+<p>
+The total force is <m>\mathbf{F} = M\, \dfrac{d^2\bar{\mathbf{r}}}{dt^2}</m>,
+where the <term>center of mass</term> of the system is the point
+<md>
+<mrow>
+\bar{\mathbf{r}} \amp = \frac{1}{M} \sum_{i=1}^{2} m_i\, \mathbf{r}_i
+</mrow>
+<mrow xml:id="eq-com-two-masses" number="yes">
+\amp = \left( \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2},\
+         \frac{m_1 y_1 + m_2 y_2}{m_1 + m_2} \right).
+</mrow>
+</md>
+</p>
+</assemblage>
+
+<p>
+Thus the total force equals the total mass times the acceleration of a
+virtual mass <m>M</m> located at <m>\bar{\mathbf{r}}</m>: as far as the
+net force is concerned, the pair of masses moves like a single particle
+of mass <m>M</m> sitting at the center of mass. The formula is a weighted
+average of the two positions, with the masses as the weights. If
+<m>m_1 = m_2</m>, the center of mass is the midpoint of the segment
+joining the two masses; otherwise it lies on that segment, closer to the
+heavier mass.
+</p>
+
+<figure xml:id="fig-two-masses">
+<caption>
+Two point masses <m>m_1</m> and <m>m_2</m> at the points
+<m>\mathbf{r}_1</m> and <m>\mathbf{r}_2</m>, with the net forces
+<m>\mathbf{F}_1</m> and <m>\mathbf{F}_2</m> acting on them. Their center
+of mass <m>\bar{\mathbf{r}}</m> lies on the segment joining them, closer
+to the heavier mass (here <m>m_2 = 2m_1</m>).
+</caption>
+<image width="60%">
+<shortdescription>
+Two masses in the plane with their position vectors, downward force
+arrows, and the center of mass on the segment between them.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-two-masses">
+<diagram dimensions="(360,280)" margins="10">
+<coordinates bbox="(-0.6,-1.2,4.6,3.0)">
+<axes at="tm-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<line at="tm-seg" endpoints="((1.2,2.2),(3.4,1.2))" stroke="#999999"
+      thickness="1" dash="4 3"/>
+<vector at="tm-r1" v="(1.2,2.2)" tail="(0,0)" stroke="#D55E00"
+        thickness="2" dash="2 3"/>
+<vector at="tm-r2" v="(3.4,1.2)" tail="(0,0)" stroke="#0072B2"
+        thickness="2" dash="2 3"/>
+<vector at="tm-F1" v="(0,-0.8)" tail="(1.2,2.2)" stroke="#D55E00"
+        thickness="3"/>
+<vector at="tm-F2" v="(0,-0.8)" tail="(3.4,1.2)" stroke="#0072B2"
+        thickness="3"/>
+<point at="tm-m1" p="(1.2,2.2)" fill="#D55E00" size="5"/>
+<point at="tm-m2" p="(3.4,1.2)" fill="#0072B2" size="6.5"/>
+<point at="tm-cm" p="(2.667,1.533)" fill="maroon" size="4"/>
+<label at="tm-m1-lab" anchor="(1.2,2.38)" alignment="n" color="#D55E00">
+<m>m_1</m>
+</label>
+<label at="tm-m2-lab" anchor="(3.4,1.4)" alignment="n" color="#0072B2">
+<m>m_2</m>
+</label>
+<label at="tm-r1-lab" anchor="(0.5,1.2)" alignment="w" color="#D55E00">
+<m>\mathbf{r}_1</m>
+</label>
+<label at="tm-r2-lab" anchor="(1.8,0.52)" alignment="s" color="#0072B2">
+<m>\mathbf{r}_2</m>
+</label>
+<label at="tm-F1-lab" anchor="(1.32,1.75)" alignment="e" color="#D55E00">
+<m>\mathbf{F}_1</m>
+</label>
+<label at="tm-F2-lab" anchor="(3.52,0.75)" alignment="e" color="#0072B2">
+<m>\mathbf{F}_2</m>
+</label>
+<label at="tm-cm-lab" anchor="(2.72,1.65)" alignment="ne" color="maroon">
+<m>\bar{\mathbf{r}}</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="Coordinate axes with two masses: m one, a vermillion dot in the upper left, and m two, a larger blue dot to its lower right. Dotted arrows from the origin to each mass are the position vectors r one and r two, and a thick arrow pointing straight down from each mass is the net force on it, F one and F two. A maroon dot on the dashed segment joining the two masses, closer to m two, is the center of mass.">
+  <annotation ref="tm-m1" text="The mass m one at the point r one."/>
+  <annotation ref="tm-m2" text="The mass m two, twice as heavy as m one, at the point r two."/>
+  <annotation ref="tm-r1" text="The position vector r one, drawn dotted from the origin to m one."/>
+  <annotation ref="tm-r2" text="The position vector r two, drawn dotted from the origin to m two."/>
+  <annotation ref="tm-F1" text="The net force F one on m one, an arrow pointing straight down."/>
+  <annotation ref="tm-F2" text="The net force F two on m two, an arrow pointing straight down."/>
+  <annotation ref="tm-cm" text="The center of mass, a maroon dot on the segment between the two masses, two thirds of the way from m one to m two."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="sec-com-n-masses">
+<title>The Center of Mass of <m>n</m> Point Masses and the First Moments</title>
+
+<p>
+Nothing in the computation above depended on there being only two
+masses. For a system of <m>n</m> point masses <m>m_1, \dots, m_n</m> at
+the points <m>\mathbf{r}_1, \dots, \mathbf{r}_n</m>, adding Newton's
+second law for each mass and multiplying and dividing by the total mass
+<m>M = m_1 + \cdots + m_n</m> gives, exactly as before,
+<m>\mathbf{F} = M\, \dfrac{d^2\bar{\mathbf{r}}}{dt^2}</m> with
+</p>
+
+<md>
+<mrow xml:id="eq-com-points-vector" number="yes">
+\bar{\mathbf{r}} \amp = \frac{1}{M} \sum_{i=1}^{n} m_i\, \mathbf{r}_i,
+</mrow>
+<mrow>
+M \amp = \sum_{i=1}^{n} m_i .
+</mrow>
+</md>
+
+<p>
+The sums in the coordinates of <m>\bar{\mathbf{r}}</m> have names of
+their own. For masses in the plane, with <m>\mathbf{r}_i = (x_i, y_i)</m>,
+the <term>first moments</term> of the system are
+</p>
+
+<md>
+<mrow xml:id="eq-first-moments-points" number="yes">
+M_y \amp = \sum_{i=1}^{n} m_i\, x_i,
+</mrow>
+<mrow>
+M_x \amp = \sum_{i=1}^{n} m_i\, y_i .
+</mrow>
+</md>
+
+<p>
+<m>M_y</m> is the <term>moment about the <m>y</m>-axis</term>: each mass
+is multiplied by its signed distance <m>x_i</m> from the <m>y</m>-axis,
+so <m>M_y</m> measures the tendency of the system to tip about that axis
+(masses to the right of the axis, with <m>x_i \gt 0</m>, count
+positively, and masses to its left count negatively). Likewise
+<m>M_x</m> is the <term>moment about the <m>x</m>-axis</term>, computed
+with the signed distances <m>y_i</m> from the <m>x</m>-axis. In this
+notation, <xref ref="eq-com-points-vector"/> says that the center of
+mass <m>\bar{\mathbf{r}} = (\bar{x}, \bar{y})</m> has the coordinates
+</p>
+
+<men xml:id="eq-com-points">
+\bar{x} = \frac{M_y}{M}, \qquad
+\bar{y} = \frac{M_x}{M}.
+</men>
+
+<p>
+For masses in space, with <m>\mathbf{r}_i = (x_i, y_i, z_i)</m>, the
+distances are measured from the coordinate planes instead. The
+<term>first moments about the coordinate planes</term> are
+</p>
+
+<md>
+<mrow>
+M_{yz} \amp = \sum_{i=1}^{n} m_i\, x_i,
+</mrow>
+<mrow xml:id="eq-first-moments-points-3d" number="yes">
+M_{xz} \amp = \sum_{i=1}^{n} m_i\, y_i,
+</mrow>
+<mrow>
+M_{xy} \amp = \sum_{i=1}^{n} m_i\, z_i
+</mrow>
+</md>
+
+<p>
+(<m>M_{yz}</m> uses the signed distance <m>x_i</m> from the
+<m>yz</m>-plane, and so on), and the center of mass
+<m>\bar{\mathbf{r}} = (\bar{x}, \bar{y}, \bar{z})</m> is
+</p>
+
+<md>
+<mrow>
+\bar{x} \amp = \frac{M_{yz}}{M},
+</mrow>
+<mrow xml:id="eq-com-points-3d" number="yes">
+\bar{y} \amp = \frac{M_{xz}}{M},
+</mrow>
+<mrow>
+\bar{z} \amp = \frac{M_{xy}}{M}.
+</mrow>
+</md>
+
+<p>
+Every formula in the rest of this section is one of these, with the sum
+over point masses replaced by an integral over a continuous object.
+</p>
+
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="sec-mass-2d-object">
+<title>Finding the Center of Mass of a 2D Object</title>
+
+<p>
+Now let the mass be spread continuously over a flat plate that occupies a
+region <m>R</m> in the plane, with <term>density</term>
+<m>\delta(x,y)</m> (mass per unit area) at the point <m>(x,y)</m>. To
+bring the formulas of the previous subsection to bear, we cut the plate
+into small pieces and treat each piece as a point mass. Partition the
+plane into small rectangles by the lines <m>x = x_0, x_1, \dots, x_n</m>
+and <m>y = y_0, y_1, \dots, y_m</m>, as in
+<xref ref="fig-plate-element"/>. The rectangle in column <m>i</m> and
+row <m>j</m> has width <m>\Delta x_i</m>, height <m>\Delta y_j</m>, and
+area <m>\Delta A_{ij} = \Delta x_i\, \Delta y_j</m>; if it meets
+<m>R</m>, we pick a point <m>(x_i, y_j)</m> in it. Write down the
+approximate mass <m>\Delta m_{ij}</m> of this small piece, treat the
+pieces as a system of point masses, and use
+<xref ref="eq-com-points-vector"/> and
+<xref ref="eq-first-moments-points"/> to write the mass and the first
+moments of the plate as double sums; then let the rectangles shrink,
+<m>m, n \to \infty</m>.
+</p>
+
+<figure xml:id="fig-plate-element">
+<caption>
+A flat plate <m>R</m> cut into small rectangles. The rectangle in column
+<m>i</m> and row <m>j</m> has the area <m>\Delta A_{ij} = \Delta x_i\,
+\Delta y_j</m>, contains the point <m>(x_i, y_j)</m>, and carries the
+mass <m>\Delta m_{ij} = \delta(x_i, y_j)\, \Delta A_{ij}</m>.
+</caption>
+<image width="60%">
+<shortdescription>
+A blob-shaped region over a grid of small rectangles, with one rectangle
+inside it highlighted.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-plate-element">
+<diagram dimensions="(360,300)" margins="10">
+<definition>blob(t) = (5.2 + 3.1*cos(t) + 0.45*cos(2*t), 4.4 + 2.2*sin(t) - 0.35*sin(2*t) + 0.25*cos(3*t))</definition>
+<coordinates bbox="(-0.8,-0.8,10.4,8.6)">
+<parametric-curve at="pe-region" function="blob" domain="(0,2*pi)"
+                  closed="yes" fill="#cfe0f5" stroke="#0072B2"
+                  thickness="2.5"/>
+<grid at="pe-grid" spacings="((0,1,10),(0,1,8))" stroke="#9aa6b2" thickness="0.6"/>
+<axes at="pe-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<rectangle at="pe-cell" lower-left="(6,4)" dimensions="(1,1)"
+           fill="#cc79a7" stroke="#7a3e62" thickness="1"/>
+<point at="pe-pt" p="(6.5,4.5)" fill="black" size="3"/>
+<label at="pe-R" anchor="(3.0,5.8)" alignment="c" clear-background="yes"
+       background-margin="3">
+<m>R</m>
+</label>
+<label at="pe-dx" anchor="(6.5,3.9)" alignment="s" clear-background="yes"
+       background-margin="2">
+<m>\Delta x_i</m>
+</label>
+<label at="pe-dy" anchor="(5.9,4.5)" alignment="w" clear-background="yes"
+       background-margin="2">
+<m>\Delta y_j</m>
+</label>
+<line at="pe-lead1" endpoints="((6.5,4.5),(8.2,2.3))" stroke="#555555"
+      thickness="0.8"/>
+<label at="pe-pt-lab" anchor="(8.25,2.25)" alignment="se"
+       clear-background="yes" background-margin="3">
+<m>(x_i, y_j)</m>
+</label>
+<line at="pe-lead2" endpoints="((6.5,5),(6.2,7.5))" stroke="#555555"
+      thickness="0.8"/>
+<label at="pe-mass-lab" anchor="(6.2,7.6)" alignment="n"
+       clear-background="yes" background-margin="3">
+<m>\Delta m_{ij} = \delta(x_i, y_j)\,\Delta A_{ij}</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A blob-shaped region R, shaded light blue, lying over a grid of small squares in the first quadrant. One square inside the region is highlighted in purple; a dot at its center is the point x sub i comma y sub j, and a leader line labels the mass of the square, delta m sub i j equals delta of x sub i comma y sub j times delta A sub i j. Its width and height are labeled delta x sub i and delta y sub j.">
+  <annotation ref="pe-region" text="The plate, a blob-shaped region R shaded light blue."/>
+  <annotation ref="pe-grid" text="The grid of lines x equals x sub i and y equals y sub j that cuts the plane, and the plate, into small rectangles."/>
+  <annotation ref="pe-cell" text="One small rectangle inside R, highlighted in purple, with width delta x sub i and height delta y sub j."/>
+  <annotation ref="pe-pt" text="The point x sub i comma y sub j chosen inside the highlighted rectangle."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for the mass and the first moments of the plate as double sums and then as double integrals.</shortdescription>
+</image>
+</sidebyside>
+
+<assemblage xml:id="assemblage-mass-2d">
+<title>Mass of a Plate</title>
+<p>
+<md>
+<mrow>
+\amp M = \lim_{m,n \to \infty} \sum_{j=1}^{m}\sum_{i=1}^{n}
+</mrow>
+<mrow>
+\amp \quad \delta(x_i, y_j)\, \Delta x_i\, \Delta y_j
+</mrow>
+<mrow xml:id="eq-mass-2d" number="yes">
+\amp = \iint_R \delta(x,y)\, dA.
+</mrow>
+</md>
+</p>
+</assemblage>
+
+<p>
+The first moments become double integrals in the same way. So the mass
+and the first moments of the plate are
+</p>
+
+<md>
+<mrow>
+M \amp = \iint_R \delta\, dA,
+</mrow>
+<mrow xml:id="eq-first-moments-2d" number="yes">
+M_y \amp = \iint_R x\, \delta\, dA,
+</mrow>
+<mrow>
+M_x \amp = \iint_R y\, \delta\, dA,
+</mrow>
+</md>
+
+<p>
+where, as before, <m>M_y</m> is the moment about the <m>y</m>-axis and
+<m>M_x</m> the moment about the <m>x</m>-axis, and the center of mass
+is
+</p>
+
+<men xml:id="eq-com-2d">
+\bar{x} = \frac{M_y}{M}, \qquad
+\bar{y} = \frac{M_x}{M}.
+</men>
+
+<definition xml:id="def-centroid">
+<statement>
+<p>
+When the density of a plate or of a solid object is constant, the center
+of mass is called the <term>centroid</term> of the object.
+</p>
+</statement>
+</definition>
+
+<p>
+A constant density <m>\delta</m> cancels in the quotients of
+<xref ref="eq-com-2d"/>, so the centroid depends only on the shape of the
+object: to find a centroid we may as well take <m>\delta = 1</m>, and
+then the mass <m>M</m> is simply the area of the plate.
+</p>
+
+<example xml:id="example-centroid-between-curves">
+<title>Centroid of the Region Between Two Curves</title>
+<statement>
+<p>
+Find the centroid of the region between <m>y = \sqrt{x}</m> and
+<m>y = x^2</m>.
+</p>
+<p>
+<em>Solution.</em>
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for the example Centroid of the Region Between Two Curves.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</example>
+
+<figure xml:id="fig-centroid-between-curves-video">
+<caption>
+The region between <m>y = \sqrt{x}</m> and <m>y = x^2</m> is symmetric
+about the line <m>y = x</m>, and its centroid lies on that line. Use the
+animation to check its coordinates.
+</caption>
+<video preview="play-button.png" xml:id="video-centroid-between-curves"
+       source="videos/centroid_between_curves_1080p.mp4"
+       width="70%" aspect="16:9"/>
+</figure>
+
+<figure xml:id="fig-centroid-between-curves">
+<caption>
+The region between <m>y = \sqrt{x}</m> (blue) and <m>y = x^2</m> (red)
+over <m>0 \le x \le 1</m>.
+</caption>
+<image width="55%">
+<shortdescription>
+The region between the square-root curve and the parabola, from 0 to 1.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-centroid-between-curves">
+<diagram dimensions="(320,320)" margins="10">
+<definition>f(x) = sqrt(x)</definition>
+<definition>g(x) = x^2</definition>
+<coordinates bbox="(-0.35,-0.35,1.55,1.55)">
+<grid-axes at="cb-grid" xlabel="x" ylabel="y"/>
+<area-between-curves at="cb-region" functions="(f,g)" domain="(0,1)"
+                     fill="#9ecfff" stroke="none"/>
+<graph at="cb-sqrt" function="f" domain="(0,1.5)" stroke="blue"
+       thickness="2.5"/>
+<graph at="cb-square" function="g" domain="(-0.2,1.22)" stroke="red"
+       thickness="2.5"/>
+<point at="cb-origin" p="(0,0)" fill="black" size="3"/>
+<point at="cb-one" clear-background="yes" background-margin="3" p="(1,1)" fill="black" size="3" alignment="se">
+<m>(1,1)</m>
+</point>
+<label at="cb-sqrt-label" anchor="(1.5,0.72)" alignment="sw"
+       color="blue">
+<m>y=\sqrt{x}</m>
+</label>
+<label at="cb-square-label" anchor="(1.1,1.4)" alignment="w"
+       color="red">
+<m>y=x^2</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A coordinate grid showing the region between the curves y equals the square root of x, in blue, and y equals x squared, in red. The curves intersect at the origin and at the point 1 comma 1, enclosing a lens-shaped region shaded light blue.">
+  <annotation ref="cb-sqrt" text="The blue curve y equals the square root of x, the upper boundary of the region."/>
+  <annotation ref="cb-square" text="The red curve y equals x squared, the lower boundary of the region."/>
+  <annotation ref="cb-region" text="The lens-shaped region between the two curves, shaded light blue, lying over the interval from 0 to 1."/>
+  <annotation ref="cb-one" text="The point 1 comma 1, where the two curves intersect."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<example xml:id="example-cardioid-centroid">
+<title>Centroid of a Cardioid</title>
+<statement>
+<p>
+Find the centroid of the object that has the shape
+<m>r = 1 + \cos(\theta)</m> and density <m>\delta = 2</m>.
+</p>
+<p>
+<em>Solution.</em>
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,12.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for the example Centroid of a Cardioid.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</example>
+
+<figure xml:id="fig-cardioid-centroid-video">
+<caption>
+The cardioid <m>r = 1 + \cos(\theta)</m> with constant density: symmetry
+places the centroid on the <m>x</m>-axis, and the polar moment integrals
+locate it. Use the animation to check your value.
+</caption>
+<video preview="play-button.png" xml:id="video-cardioid-centroid"
+       source="videos/cardioid_centroid_1080p.mp4"
+       width="70%" aspect="16:9"/>
+</figure>
+
+<figure xml:id="fig-cardioid-centroid">
+<caption>
+The cardioid <m>r = 1 + \cos(\theta)</m>.
+</caption>
+<image width="55%">
+<shortdescription>
+A cardioid symmetric about the x axis with shaded interior.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-cardioid-centroid">
+<diagram dimensions="(360,300)" margins="10">
+<definition>c(t) = ((1 + cos(t))*cos(t), (1 + cos(t))*sin(t))</definition>
+<coordinates bbox="(-0.9,-1.55,2.65,1.55)">
+<axes at="cd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<parametric-curve at="cd-cardioid" function="c" domain="(0,2*pi)"
+                  closed="yes" fill="#9ecfff" stroke="blue"
+                  thickness="2.5"/>
+<label at="cd-curve-label" clear-background="yes" background-margin="4" anchor="(1.55,-1.05)" alignment="se"
+       color="blue">
+<m>r=1+\cos(\theta)</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A cardioid, the heart-shaped curve r equals 1 plus cosine theta, drawn in blue with its interior shaded light blue. It has a cusp at the origin and its widest point at x equals 2.">
+  <annotation ref="cd-cardioid" text="The cardioid r equals 1 plus cosine theta, a closed heart-shaped curve with a cusp at the origin, shaded light blue."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="sec-mass-3d-object">
+<title>Finding the Center of Mass of a 3D Object</title>
+
+<p>
+Finally, let a solid object occupy a region <m>D</m> in space, with
+density <m>\delta(x,y,z)</m> (mass per unit volume) at the point
+<m>(x,y,z)</m>. The plan is the same, one dimension up: we cut the solid
+into small boxes and treat each box as a point mass. Partition space into
+boxes by the planes <m>x = x_0, \dots, x_n</m>,
+<m>y = y_0, \dots, y_m</m>, and <m>z = z_0, \dots, z_p</m>. The box in
+position <m>i</m> along the <m>x</m>-direction, <m>j</m> along the
+<m>y</m>-direction, and <m>k</m> along the <m>z</m>-direction has the
+dimensions <m>\Delta x_i</m>, <m>\Delta y_j</m>, <m>\Delta z_k</m> and the
+volume <m>\Delta V_{ijk} = \Delta x_i\, \Delta y_j\, \Delta z_k</m>; if
+it meets <m>D</m>, we pick a point <m>(x_i, y_j, z_k)</m> in it, as in
+<xref ref="fig-mass-element-tikz"/>. Write down the approximate mass
+<m>\Delta m_{ijk}</m> of this small box, treat the boxes as a system of
+point masses, and use <xref ref="eq-com-points-vector"/> and
+<xref ref="eq-first-moments-points-3d"/> to write the mass and the first
+moments of the solid as triple sums; then let the boxes shrink,
+<m>n, m, p \to \infty</m>.
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for the mass and the first moments of the solid as triple sums and then as triple integrals.</shortdescription>
 </image>
 </sidebyside>
 
@@ -72,10 +628,10 @@ boxes, and let the size of the boxes shrink to zero.
 <p>
 <md>
 <mrow>
-\amp M = \lim_{n \to \infty} \sum_{k=1}^{n}
+\amp M = \lim_{n,m,p \to \infty} \sum_{k=1}^{p}\sum_{j=1}^{m}\sum_{i=1}^{n}
 </mrow>
 <mrow>
-\amp \quad \delta(x_k, y_k, z_k)\, \Delta V_k
+\amp \quad \delta(x_i, y_j, z_k)\, \Delta x_i\, \Delta y_j\, \Delta z_k
 </mrow>
 <mrow xml:id="eq-mass-3d" number="yes">
 \amp = \iiint_D \delta(x,y,z)\, dV.
@@ -91,9 +647,8 @@ Watch the construction unfold in <xref ref="fig-mass-element-video"/>.
 <figure xml:id="fig-mass-element-video">
 <caption>
 Partitioning a solid <m>D</m> into small boxes: each box carries the
-mass <m>\Delta m_k = \delta(x_k,y_k,z_k)\,\Delta V_k</m>, and the
-Riemann sum of these masses converges to the triple integral of the
-density.
+mass <q>density times volume</q>, and the Riemann sum of these masses
+converges to the triple integral of the density.
 </caption>
 <video preview="play-button.png" xml:id="video-mass-element"
        source="videos/mass_element_1080p.mp4"
@@ -103,8 +658,8 @@ density.
 <figure xml:id="fig-mass-element-tikz">
 <caption>
 A solid region <m>D</m> with a small box around the point
-<m>(x_k, y_k, z_k)</m>. The box has volume <m>\Delta V_k</m> and mass
-<m>\Delta m_k = \delta(x_k, y_k, z_k)\, \Delta V_k</m>.
+<m>(x_i, y_j, z_k)</m>. The box has the volume <m>\Delta V_{ijk}</m> and
+the mass <m>\Delta m_{ijk} = \delta(x_i, y_j, z_k)\, \Delta V_{ijk}</m>.
 </caption>
 <image xml:id="image-mass-element-tikz" width="75%">
 <shortdescription>
@@ -114,9 +669,9 @@ A potato-shaped solid in space with a small highlighted box inside it.
 <p>
 A translucent potato-shaped solid labeled <m>D</m> floats above the
 <m>xy</m>-plane in a three-dimensional coordinate system. A small
-purple box inside the solid marks the point <m>(x_k, y_k, z_k)</m>,
+purple box inside the solid marks the point <m>(x_i, y_j, z_k)</m>,
 and a leader line labels its mass
-<m>\Delta m_k = \delta(x_k, y_k, z_k)\, \Delta V_k</m>.
+<m>\Delta m_{ijk} = \delta(x_i, y_j, z_k)\, \Delta V_{ijk}</m>.
 </p>
 </description>
 <latex-image>
@@ -174,11 +729,11 @@ and a leader line labels its mass
     \draw[black!70, line width=0.5pt]
       (axis cs:{\cx},{\cy+\hs},{\cz+\hs}) -- (axis cs:1.6,2.0,3.7);
     \node[lbl, font=\normalsize, anchor=west] at (axis cs:1.6,2.0,3.7)
-      {$\Delta m_k = \delta(x_k,y_k,z_k)\,\Delta V_k$};
+      {$\Delta m_{ijk} = \delta(x_i,y_j,z_k)\,\Delta V_{ijk}$};
     \draw[black!70, line width=0.5pt]
       (axis cs:{\cx},{\cy+\hs},{\cz-\hs}) -- (axis cs:1.2,2.3,1.9);
     \node[lbl, font=\normalsize, anchor=west] at (axis cs:1.2,2.3,1.9)
-      {$(x_k, y_k, z_k)$};
+      {$(x_i, y_j, z_k)$};
   \end{axis}
 \end{tikzpicture}]]>
 </latex-image>
@@ -186,11 +741,7 @@ and a leader line labels its mass
 </figure>
 
 <p>
-The same idea locates the balance point of the object. Each small box
-contributes a <term>moment</term> about each coordinate plane<mdash/>its
-mass times its (signed) distance from that plane. Adding these
-contributions and passing to the limit gives the
-<term>first moments</term>
+In the same way, the first moments become the triple integrals
 </p>
 
 <md>
@@ -201,12 +752,13 @@ M_{yz} \amp = \iiint_D x\, \delta\, dV,
 M_{xz} \amp = \iiint_D y\, \delta\, dV,
 </mrow>
 <mrow>
-M_{xy} \amp = \iiint_D z\, \delta\, dV.
+M_{xy} \amp = \iiint_D z\, \delta\, dV,
 </mrow>
 </md>
 
 <p>
-The <term>center of mass</term> <m>(\bar{x}, \bar{y}, \bar{z})</m> is
+the moments about the <m>yz</m>-, <m>xz</m>-, and <m>xy</m>-planes, and
+the center of mass <m>(\bar{x}, \bar{y}, \bar{z})</m> of the solid is
 the point whose coordinates are the moments divided by the total mass:
 </p>
 
@@ -238,9 +790,9 @@ which is bounded by the disk <m>x^2 + y^2 \le 4</m> (in the plane
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,16);
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
 \node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
-  at (0.25,15.75) {workspace};
+  at (0.25,12.75) {workspace};
 \end{tikzpicture}
 </latex-image>
 <shortdescription>Blank workspace for the example Center of Mass of a Solid Bounded by a Paraboloid.</shortdescription>
@@ -349,61 +901,34 @@ over the disk <m>x^2 + y^2 \le 4</m> in the <m>xy</m>-plane, labeled
 </subsection>
 
 <!-- ================================================================ -->
-<subsection xml:id="sec-centroid">
-<title>Centroids</title>
+<subsection xml:id="subsec-mass-questions">
+<title>Concept Check</title>
 
-<definition xml:id="def-centroid">
+<p>
+The first problem revisits the region of
+<xref ref="example-centroid-between-curves"/> with two densities that are
+not constant; the second is about point masses, where everything can be
+done by hand in a line or two.
+</p>
+
+<exercise xml:id="q-mass-two-densities">
+<title>The same plate, two densities</title>
 <statement>
 <p>
-When the density of a solid object (as in the previous example) or plate
-(as in the next example) is constant, the center of mass is called the
-<term>centroid</term> of the object.
-</p>
-</statement>
-</definition>
-
-<p>
-As we saw in <xref ref="example-paraboloid-com"/>, a constant density
-<m>\delta</m> cancels in the quotients of
-<xref ref="eq-com-3d"/>, so the centroid depends only on the shape of
-the object. For a flat plate occupying a region <m>R</m> in the plane
-with density <m>\delta(x,y)</m> (mass per unit area), the same
-reasoning that gave <xref ref="eq-mass-3d"/> and
-<xref ref="eq-first-moments-3d"/><mdash/>with double integrals in place
-of triple integrals<mdash/>gives the mass and first moments
-</p>
-
-<md>
-<mrow>
-M \amp = \iint_R \delta\, dA,
-</mrow>
-<mrow xml:id="eq-first-moments-2d" number="yes">
-M_y \amp = \iint_R x\, \delta\, dA,
-</mrow>
-<mrow>
-M_x \amp = \iint_R y\, \delta\, dA,
-</mrow>
-</md>
-
-<p>
-where <m>M_y</m> is the moment about the <m>y</m>-axis and <m>M_x</m>
-the moment about the <m>x</m>-axis, and the center of mass is
-</p>
-
-<men xml:id="eq-com-2d">
-\bar{x} = \frac{M_y}{M}, \qquad
-\bar{y} = \frac{M_x}{M}.
-</men>
-
-<example xml:id="example-centroid-between-curves">
-<title>Centroid of the Region Between Two Curves</title>
-<statement>
-<p>
-Find the centroid of the region between <m>y = \sqrt{x}</m> and
-<m>y = x^2</m>.
+Find the center of mass of the region between <m>y = \sqrt{x}</m> and
+<m>y = x^2</m>, assuming that the density function is
 </p>
 <p>
-<em>Solution.</em>
+<ol marker="A.">
+<li><p><m>\delta_1(x,y) = xy</m>;</p></li>
+<li><p><m>\delta_2(x,y) = y</m>.</p></li>
+</ol>
+</p>
+<p>
+<em>Question:</em> Do your answers in parts A and B match your intuition?
+If so, justify your answer in each case. (For comparison, find the
+centroid of this region first, in
+<xref ref="example-centroid-between-curves"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -415,139 +940,36 @@ Find the centroid of the region between <m>y = \sqrt{x}</m> and
   at (0.25,15.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank workspace for the example Centroid of the Region Between Two Curves.</shortdescription>
+<shortdescription>Blank workspace for the center of mass with each of the two densities, and the comparison with intuition.</shortdescription>
 </image>
 </sidebyside>
 </statement>
-</example>
+</exercise>
 
-<figure xml:id="fig-centroid-between-curves-video">
-<caption>
-The region between <m>y = \sqrt{x}</m> and <m>y = x^2</m> is symmetric
-about the line <m>y = x</m>, and its centroid lies on that line. Use the
-animation to check its coordinates.
-</caption>
-<video preview="play-button.png" xml:id="video-centroid-between-curves"
-       source="videos/centroid_between_curves_1080p.mp4"
-       width="70%" aspect="16:9"/>
-</figure>
-
-<figure xml:id="fig-centroid-between-curves">
-<caption>
-The region between <m>y = \sqrt{x}</m> (blue) and <m>y = x^2</m> (red)
-over <m>0 \le x \le 1</m>.
-</caption>
-<image width="55%">
-<shortdescription>
-The region between the square-root curve and the parabola, from 0 to 1.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-centroid-between-curves">
-<diagram dimensions="(320,320)" margins="10">
-<definition>f(x) = sqrt(x)</definition>
-<definition>g(x) = x^2</definition>
-<coordinates bbox="(-0.35,-0.35,1.55,1.55)">
-<grid-axes at="cb-grid" xlabel="x" ylabel="y"/>
-<area-between-curves at="cb-region" functions="(f,g)" domain="(0,1)"
-                     fill="#9ecfff" stroke="none"/>
-<graph at="cb-sqrt" function="f" domain="(0,1.5)" stroke="blue"
-       thickness="2.5"/>
-<graph at="cb-square" function="g" domain="(-0.2,1.22)" stroke="red"
-       thickness="2.5"/>
-<point at="cb-origin" p="(0,0)" fill="black" size="3"/>
-<point at="cb-one" clear-background="yes" background-margin="3" p="(1,1)" fill="black" size="3" alignment="se">
-<m>(1,1)</m>
-</point>
-<label at="cb-sqrt-label" anchor="(1.5,0.72)" alignment="sw"
-       color="blue">
-<m>y=\sqrt{x}</m>
-</label>
-<label at="cb-square-label" anchor="(1.1,1.4)" alignment="w"
-       color="red">
-<m>y=x^2</m>
-</label>
-</coordinates>
-
-<annotations>
-<annotation ref="figure" text="A coordinate grid showing the region between the curves y equals the square root of x, in blue, and y equals x squared, in red. The curves intersect at the origin and at the point 1 comma 1, enclosing a lens-shaped region shaded light blue.">
-  <annotation ref="cb-sqrt" text="The blue curve y equals the square root of x, the upper boundary of the region."/>
-  <annotation ref="cb-square" text="The red curve y equals x squared, the lower boundary of the region."/>
-  <annotation ref="cb-region" text="The lens-shaped region between the two curves, shaded light blue, lying over the interval from 0 to 1."/>
-  <annotation ref="cb-one" text="The point 1 comma 1, where the two curves intersect."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</figure>
-
-<example xml:id="example-cardioid-centroid">
-<title>Centroid of a Cardioid</title>
+<exercise xml:id="q-mass-three-points">
+<title>Three point masses</title>
 <statement>
 <p>
-Find the centroid of the object that has the shape
-<m>r = 1 + \cos(\theta)</m> and density <m>\delta = 2</m>.
-</p>
-<p>
-<em>Solution.</em>
+Masses of <m>1</m>, <m>2</m>, and <m>3</m> kilograms sit at the points
+<m>(0,0)</m>, <m>(4,0)</m>, and <m>(0,4)</m>, respectively. Find the
+center of mass of the system. Where would it be if the three masses were
+equal?
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,7);
 \node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
-  at (0.25,14.75) {workspace};
+  at (0.25,6.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank workspace for the example Centroid of a Cardioid.</shortdescription>
+<shortdescription>Blank workspace for the center of mass of the three point masses, and of three equal masses.</shortdescription>
 </image>
 </sidebyside>
 </statement>
-</example>
-
-<figure xml:id="fig-cardioid-centroid-video">
-<caption>
-The cardioid <m>r = 1 + \cos(\theta)</m> with constant density: symmetry
-places the centroid on the <m>x</m>-axis, and the polar moment integrals
-locate it. Use the animation to check your value.
-</caption>
-<video preview="play-button.png" xml:id="video-cardioid-centroid"
-       source="videos/cardioid_centroid_1080p.mp4"
-       width="70%" aspect="16:9"/>
-</figure>
-
-<figure xml:id="fig-cardioid-centroid">
-<caption>
-The cardioid <m>r = 1 + \cos(\theta)</m>.
-</caption>
-<image width="55%">
-<shortdescription>
-A cardioid symmetric about the x axis with shaded interior.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-cardioid-centroid">
-<diagram dimensions="(360,300)" margins="10">
-<definition>c(t) = ((1 + cos(t))*cos(t), (1 + cos(t))*sin(t))</definition>
-<coordinates bbox="(-0.9,-1.55,2.65,1.55)">
-<axes at="cd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-<parametric-curve at="cd-cardioid" function="c" domain="(0,2*pi)"
-                  closed="yes" fill="#9ecfff" stroke="blue"
-                  thickness="2.5"/>
-<label at="cd-curve-label" clear-background="yes" background-margin="4" anchor="(1.55,-1.05)" alignment="se"
-       color="blue">
-<m>r=1+\cos(\theta)</m>
-</label>
-</coordinates>
-
-<annotations>
-<annotation ref="figure" text="A cardioid, the heart-shaped curve r equals 1 plus cosine theta, drawn in blue with its interior shaded light blue. It has a cusp at the origin and its widest point at x equals 2.">
-  <annotation ref="cd-cardioid" text="The cardioid r equals 1 plus cosine theta, a closed heart-shaped curve with a cusp at the origin, shaded light blue."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</figure>
+</exercise>
 
 </subsection>
 
