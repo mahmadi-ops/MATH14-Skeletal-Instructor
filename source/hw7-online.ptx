@@ -4,6 +4,14 @@
 <!-- pattern as hw1-online.ptx: a <var/> per blank in the statement, matched  -->
 <!-- in order by a <var> in <setup>, whose first <condition> is the correct   -->
 <!-- answer.  Every blank is graded on its own, so partial credit survives.   -->
+<!--                                                                          -->
+<!-- The problems run from easiest to hardest.  Four of them were added from  -->
+<!-- WeBWorK problems, with their random parameters fixed and the notation    -->
+<!-- changed to the book's (density delta, mass M, moments M_x, M_y, M_yz,    -->
+<!-- center of mass x-bar): the four point masses (Rogawski 8.3, problem 1),  -->
+<!-- the quarter-disk lamina (Stewart 15.5), the plate read from a graph      -->
+<!-- (Dartmouth; its figure is redrawn here) and the solid under a slanted    -->
+<!-- plane (Hughes-Hallett 16.3).                                             -->
 <section xml:id="sec-exercises-hw7-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 7</title>
 
@@ -25,9 +33,201 @@
 
   <exercises xml:id="exercises-hw7-online">
 
+  <exercise xml:id="ex-hw7o-point-masses">
+    <title>Four Point Masses</title>
+    <statement>
+      <p>
+        Four particles are located at the points <m>(1,3)</m>,
+        <m>(2,1)</m>, <m>(3,4)</m>, and <m>(4,3)</m>.
+      </p>
+      <p>
+        (a) Suppose that the four particles have the same mass <m>m</m>.
+        Then the moments of the system are <m>M_x = </m>
+        <var width="6"/> <m>\cdot\, m</m> and <m>M_y = </m>
+        <var width="6"/> <m>\cdot\, m</m> (type only the number that
+        multiplies <m>m</m>), and its center of mass is
+        <m>(\bar{x}, \bar{y})</m> with <m>\bar{x} = </m> <var width="8"/>
+        and <m>\bar{y} = </m> <var width="8"/>.
+      </p>
+      <p>
+        (b) Suppose instead that the particles have masses <m>3</m>,
+        <m>2</m>, <m>5</m>, and <m>7</m>, respectively. Then the center of
+        mass has <m>\bar{x} = </m> <var width="8"/> and
+        <m>\bar{y} = </m> <var width="8"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="11" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="10" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="2.5" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="2.75" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="2.941" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="3.059" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw7-solutions">
+      <p>
+        By <xref ref="eq-first-moments-points"/>, each mass is multiplied
+        by its signed distance from the axis: <m>M_x</m>, the moment about
+        the <m>x</m>-axis, uses the <m>y</m>-coordinates, and <m>M_y</m>
+        uses the <m>x</m>-coordinates.
+      </p>
+      <p>
+        (a) With four equal masses <m>m</m>, the total mass is
+        <m>M = 4m</m> and
+      </p>
+      <me>
+        M_x = m(3 + 1 + 4 + 3) = 11m, \qquad
+        M_y = m(1 + 2 + 3 + 4) = 10m,
+      </me>
+      <p>
+        so by <xref ref="eq-com-points"/>
+      </p>
+      <me>
+        \bar{x} = \frac{M_y}{M} = \frac{10m}{4m} = \frac52 = 2.5, \qquad
+        \bar{y} = \frac{M_x}{M} = \frac{11m}{4m} = \frac{11}{4} = 2.75 .
+      </me>
+      <p>
+        The common mass <m>m</m> cancels: with equal masses the center of
+        mass is simply the average of the four positions.
+      </p>
+      <p>
+        (b) With masses <m>3</m>, <m>2</m>, <m>5</m>, <m>7</m>, the total
+        mass is <m>M = 17</m> and
+      </p>
+      <md>
+        <mrow>
+          M_x \amp = 3\cdot 3 + 2\cdot 1 + 5\cdot 4 + 7\cdot 3 = 52,
+        </mrow>
+        <mrow>
+          M_y \amp = 3\cdot 1 + 2\cdot 2 + 5\cdot 3 + 7\cdot 4 = 50,
+        </mrow>
+      </md>
+      <p>
+        so
+      </p>
+      <me>
+        \bar{x} = \frac{M_y}{M} = \frac{50}{17} \approx 2.941, \qquad
+        \bar{y} = \frac{M_x}{M} = \frac{52}{17} \approx 3.059 .
+      </me>
+      <p>
+        The two heaviest particles, at <m>(3,4)</m> and <m>(4,3)</m>, pull
+        the center of mass up and to the right of the equal-mass center
+        (<xref ref="fig-hw7o-point-masses"/>).
+      </p>
+      <figure xml:id="fig-hw7o-point-masses">
+        <caption>
+          The four particles of <xref ref="ex-hw7o-point-masses"/>, each labelled with its mass in part (b) and drawn larger the heavier it is. The open dot is the center of mass <m>\left(\frac52, \frac{11}{4}\right)</m> for equal masses; the orange dot is the center of mass <m>\left(\frac{50}{17}, \frac{52}{17}\right)</m> for the masses <m>3</m>, <m>2</m>, <m>5</m>, <m>7</m>.
+        </caption>
+        <image width="50%">
+          <shortdescription>
+          Four dots in the first quadrant labelled with their masses, an open dot for the equal-mass center of mass, and an orange dot, up and to the right of it, for the weighted center of mass.
+          </shortdescription>
+          <description>
+            <p>
+            A grid with x and y running from zero to five. Blue dots sit at one comma three with mass three, two comma one with mass two, three comma four with mass five, and four comma three with mass seven; the heavier dots are drawn larger. An open dot at five halves comma eleven quarters marks the center of mass when the four masses are equal. An orange dot at fifty seventeenths comma fifty-two seventeenths, up and to the right of it, marks the center of mass for the masses three, two, five and seven.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-point-masses">
+          <diagram dimensions="(330,330)" margins="10">
+            <coordinates bbox="(-0.6,-0.6,5.1,5.1)">
+            <grid-axes at="hw7o-pm-axes" xlabel="x" ylabel="y"/>
+            <point at="hw7o-pm-p1" p="(1,3)" fill="#0072B2" size="5.5"/>
+            <point at="hw7o-pm-p2" p="(2,1)" fill="#0072B2" size="4.5"/>
+            <point at="hw7o-pm-p3" p="(3,4)" fill="#0072B2" size="7"/>
+            <point at="hw7o-pm-p4" p="(4,3)" fill="#0072B2" size="8.5"/>
+            <label at="hw7o-pm-l1" anchor="(1,3)" alignment="n" offset="(0,7)" color="#0072B2" clear-background="yes"><m>3</m></label>
+            <label at="hw7o-pm-l2" anchor="(2,1)" alignment="s" offset="(0,-7)" color="#0072B2" clear-background="yes"><m>2</m></label>
+            <label at="hw7o-pm-l3" anchor="(3,4)" alignment="n" offset="(0,9)" color="#0072B2" clear-background="yes"><m>5</m></label>
+            <label at="hw7o-pm-l4" anchor="(4,3)" alignment="n" offset="(0,10)" color="#0072B2" clear-background="yes"><m>7</m></label>
+            <point at="hw7o-pm-c-equal" p="(2.5,2.75)" fill="white" stroke="black" thickness="1.5" size="4.5"/>
+            <point at="hw7o-pm-c-weighted" p="(50/17,52/17)" fill="#D55E00" stroke="black" size="4.5"/>
+            <label at="hw7o-pm-l-equal" anchor="(2.5,2.75)" alignment="sw" offset="(-4,-3)" clear-background="yes"><m>\left(\tfrac{5}{2},\tfrac{11}{4}\right)</m></label>
+            <label at="hw7o-pm-l-weighted" anchor="(50/17,52/17)" alignment="nw" offset="(-8,6)" color="#D55E00" clear-background="yes"><m>\left(\tfrac{50}{17},\tfrac{52}{17}\right)</m></label>
+            </coordinates>
+            <annotations>
+            <annotation ref="figure" text="Four point masses in the plane and the two centers of mass."/>
+            </annotations>
+          </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
   <exercise xml:id="ex-hw7o-ellipse">
     <title>The Area of a Slanted Ellipse</title>
     <statement>
+      <p>
+        Use the change of variables <m>s = x + 4y</m>, <m>t = y</m> to find
+        the area of the region bounded by the ellipse
+        <m>x^2 + 8xy + 17y^2 = 1</m>.
+      </p>
       <p>
         With <m>s = x+4y</m>, <m>t = y</m>, the Jacobian
         <m>\left|\dfrac{\partial(x,y)}{\partial(s,t)}\right|</m>
@@ -39,38 +239,100 @@
       <var>
         <condition number="1" tolerance="0.01">
           <feedback>
-          <p>Correct.</p>
-        </feedback>
+            <p>Correct.</p>
+          </feedback>
         </condition>
-         <condition string=".*">
-     <feedback>
-           <p>Incorrect.</p>
-         </feedback>
-   </condition>
- </var>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
       <var>
         <condition number="3.142" tolerance="0.01">
           <feedback>
-          <p>Correct.</p>
-        </feedback>
+            <p>Correct.</p>
+          </feedback>
         </condition>
-              <condition string=".*">
+        <condition string=".*">
           <feedback>
-                <p>Incorrect.</p>
-              </feedback>
+            <p>Incorrect.</p>
+          </feedback>
         </condition>
       </var>
     </setup>
     <solution component="hw7-solutions">
       <p>
-        Inverting gives <m>x = s-4t</m>, <m>y = t</m>, so the Jacobian
-        determinant is <m>1</m> and <m>dx\,dy = ds\,dt</m>. Substituting,
-        <m>x^2+8xy+17y^2 = (s-4t)^2 + 8(s-4t)t + 17t^2 = s^2+t^2</m>, so
-        the region is the unit disk and
+        Inverting gives <m>x = s-4t</m>, <m>y = t</m>, so by
+        <xref ref="eq-jacobian-2d"/>
       </p>
       <me>
-        \text{Area} = \iint_R dx\,dy = \iint_T ds\,dt = \pi .
+        \frac{\partial(x,y)}{\partial(s,t)}
+        = \begin{vmatrix} 1 \amp -4 \\ 0 \amp 1 \end{vmatrix} = 1
       </me>
+      <p>
+        and <m>dx\,dy = ds\,dt</m>. Substituting,
+        <m>x^2+8xy+17y^2 = (s-4t)^2 + 8(s-4t)t + 17t^2 = s^2+t^2</m>, so
+        the region <m>S</m> in the <m>st</m>-plane is the unit disk
+        (<xref ref="fig-hw7o-ellipse"/>) and, by <xref ref="eq-sub-2d"/>,
+      </p>
+      <me>
+        \text{Area} = \iint_R dx\,dy = \iint_S ds\,dt = \pi .
+      </me>
+      <figure xml:id="fig-hw7o-ellipse">
+        <caption>
+          The ellipse <m>x^2 + 8xy + 17y^2 = 1</m> of <xref ref="ex-hw7o-ellipse"/> (left) and the unit disk <m>s^2 + t^2 \le 1</m> it becomes (right). The substitution <m>s = x + 4y</m>, <m>t = y</m> slides each horizontal line sideways, so it changes no areas: the dashed line <m>x + 4y = 0</m> is the <m>t</m>-axis <m>s = 0</m>, and the <m>x</m>-axis is the <m>s</m>-axis <m>t = 0</m>.
+        </caption>
+        <sidebyside widths="66% 26%" valign="middle">
+          <image width="100%">
+            <shortdescription>
+            A long thin ellipse tilted down to the right through the origin of the xy-plane, with a dashed line along its long axis.
+            </shortdescription>
+            <description>
+              <p>
+              Axes x and y. A long, thin ellipse centered at the origin is tilted so that it falls from upper left to lower right, reaching from about x equals minus four, y equals one, to x equals four, y equals minus one. A dashed orange line through the origin along the ellipse, the line x plus four y equals zero, is labelled s equals zero.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-ellipse-xy">
+            <diagram dimensions="(380,140)" margins="8">
+              <definition>ell(t) = (cos(t) - 4*sin(t), sin(t))</definition>
+              <coordinates bbox="(-4.7,-1.6,4.7,1.6)">
+              <parametric-curve at="hw7o-ell-curve" function="ell" domain="(0,2*pi)" N="200" closed="yes" fill="#d6e6f2" stroke="#0072B2" thickness="2.5"/>
+              <axes at="hw7o-ell-axes" xlabel="x" ylabel="y" hlabels="(-4,2,4)" vlabels="(1,1,1)" arrows="1"/>
+              <line at="hw7o-ell-s0" endpoints="((-4.6,1.15),(4.6,-1.15))" stroke="#D55E00" thickness="1.5" dash="5 4"/>
+              <label at="hw7o-ell-s0lab" anchor="(-4.5,1.12)" alignment="ne" offset="(0,2)" color="#D55E00"><m>s = 0</m></label>
+              <label at="hw7o-ell-lab" anchor="(-4.6,-1.1)" alignment="e" color="#0072B2"><m>x^2+8xy+17y^2=1</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The slanted ellipse in the xy-plane."/>
+              </annotations>
+            </diagram>
+            </prefigure>
+          </image>
+          <image width="100%">
+            <shortdescription>
+            The unit disk in the st-plane.
+            </shortdescription>
+            <description>
+              <p>
+              Axes s and t with a shaded disk of radius one centered at the origin.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-ellipse-st">
+            <diagram dimensions="(140,140)" margins="8">
+              <coordinates bbox="(-1.6,-1.6,1.6,1.6)">
+              <circle at="hw7o-ell-disk" center="(0,0)" radius="1" fill="#d6e6f2" stroke="#0072B2" thickness="2.5"/>
+              <axes at="hw7o-ell-st-axes" xlabel="s" ylabel="t" decorations="no" arrows="1"/>
+              <label at="hw7o-ell-st-one" anchor="(1,0)" alignment="se" offset="(2,-2)"><m>1</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The unit disk in the st-plane."/>
+              </annotations>
+            </diagram>
+            </prefigure>
+          </image>
+        </sidebyside>
+      </figure>
     </solution>
   </exercise>
 
@@ -84,7 +346,7 @@
         <m>g(x,y) = 3f\left(\frac{x}{2},\frac{y}{2}\right)</m>.
       </p>
       <p>
-        The change of variables carrying <m>E</m> onto <m>D</m> multiplies
+        The change of variables carrying <m>D</m> onto <m>E</m> multiplies
         areas by <var width="6"/>, and
         <m>\iint_E g\,dA = </m> <var width="8"/>.
       </p>
@@ -93,37 +355,748 @@
       <var>
         <condition number="4" tolerance="0.01">
           <feedback>
-          <p>Correct.</p>
-        </feedback>
+            <p>Correct.</p>
+          </feedback>
         </condition>
-         <condition string=".*">
-     <feedback>
-           <p>Incorrect.</p>
-         </feedback>
-   </condition>
- </var>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
       <var>
         <condition number="36" tolerance="0.05">
           <feedback>
-          <p>Correct.</p>
-        </feedback>
+            <p>Correct.</p>
+          </feedback>
         </condition>
         <condition number="9" tolerance="0.05">
           <feedback>
-          <p>Incorrect.</p>
-        </feedback>
+            <p>Incorrect.</p>
+          </feedback>
         </condition>
       </var>
     </setup>
     <solution component="hw7-solutions">
       <p>
-        With <m>x = 2u</m>, <m>y = 2v</m> the Jacobian is <m>4</m>, and
-        <m>E</m> becomes <m>u^2+v^2 \le 16</m>, which is <m>D</m>. Hence
+        Take <m>x = 2u</m>, <m>y = 2v</m>. By <xref ref="eq-jacobian-2d"/>
+        the Jacobian is
+        <m>\dfrac{\partial(x,y)}{\partial(u,v)}
+        = \begin{vmatrix} 2 \amp 0 \\ 0 \amp 2 \end{vmatrix} = 4</m>, and
+        the disk <m>u^2+v^2 \le 16</m>, which is <m>D</m>, is carried onto
+        <m>E</m>: every small square of <m>D</m> becomes a square of
+        <m>E</m> with twice the side and four times the area
+        (<xref ref="fig-hw7o-scaling"/>). Since
+        <m>g(2u, 2v) = 3f(u,v)</m>, <xref ref="eq-sub-2d"/> gives
       </p>
       <me>
-        \iint_E g\,dA = 3\iint_D f(u,v)\,(4)\,du\,dv
+        \iint_E g\,dA = \iint_D 3f(u,v)\,(4)\,du\,dv
         = 12 \iint_D f\,dA = 12(3) = 36 .
       </me>
+      <figure xml:id="fig-hw7o-scaling">
+        <caption>
+          The disk <m>D</m> of radius <m>4</m> in the <m>uv</m>-plane (left) and the disk <m>E</m> of radius <m>8</m> in the <m>xy</m>-plane (right), drawn to the same scale. The map <m>x = 2u</m>, <m>y = 2v</m> carries <m>D</m> onto <m>E</m> and the unit square <m>1 \le u \le 2</m>, <m>1 \le v \le 2</m> onto the square <m>2 \le x \le 4</m>, <m>2 \le y \le 4</m>, of area <m>4</m>.
+        </caption>
+        <sidebyside widths="47% 47%" valign="middle">
+          <image width="100%">
+            <shortdescription>
+            A disk of radius four in the uv-plane with a small orange unit square in it.
+            </shortdescription>
+            <description>
+              <p>
+              Axes u and v from minus eight to eight. A shaded disk of radius four, labelled D, is centered at the origin. A small orange square, from one to two in both u and v, sits inside it.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-scaling-uv">
+            <diagram dimensions="(230,230)" margins="8">
+              <coordinates bbox="(-9.4,-9.4,9.4,9.4)">
+              <circle at="hw7o-sc-D" center="(0,0)" radius="4" fill="#d6e6f2" stroke="#0072B2" thickness="2.5"/>
+              <axes at="hw7o-sc-uv-axes" xlabel="u" ylabel="v" hlabels="(-8,4,8)" vlabels="(-8,4,8)" arrows="1"/>
+              <rectangle at="hw7o-sc-sq1" lower-left="(1,1)" dimensions="(1,1)" fill="#D55E00" stroke="#D55E00"/>
+              <label at="hw7o-sc-Dlab" anchor="(-2,-2)" alignment="c" color="#0072B2"><m>D</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The disk D of radius four in the uv-plane, with a unit square."/>
+              </annotations>
+            </diagram>
+            </prefigure>
+          </image>
+          <image width="100%">
+            <shortdescription>
+            A disk of radius eight in the xy-plane with an orange square of side two in it.
+            </shortdescription>
+            <description>
+              <p>
+              Axes x and y from minus eight to eight, at the same scale as the first panel. A shaded disk of radius eight, labelled E, is centered at the origin. An orange square, from two to four in both x and y, sits inside it: twice the side and four times the area of the square in the first panel.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-scaling-xy">
+            <diagram dimensions="(230,230)" margins="8">
+              <coordinates bbox="(-9.4,-9.4,9.4,9.4)">
+              <circle at="hw7o-sc-E" center="(0,0)" radius="8" fill="#d6e6f2" stroke="#0072B2" thickness="2.5"/>
+              <axes at="hw7o-sc-xy-axes" xlabel="x" ylabel="y" hlabels="(-8,4,8)" vlabels="(-8,4,8)" arrows="1"/>
+              <rectangle at="hw7o-sc-sq2" lower-left="(2,2)" dimensions="(2,2)" fill="#D55E00" stroke="#D55E00"/>
+              <label at="hw7o-sc-Elab" anchor="(-4,-4)" alignment="c" color="#0072B2"><m>E</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The disk E of radius eight in the xy-plane, with the image of the square."/>
+              </annotations>
+            </diagram>
+            </prefigure>
+          </image>
+        </sidebyside>
+      </figure>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw7o-lamina">
+    <title>A Quarter-Disk Lamina</title>
+    <statement>
+      <p>
+        A lamina occupies the part of the disk <m>x^2 + y^2 \le 4</m> in the
+        first quadrant, and its density is
+        <m>\delta(x,y) = 2\left(x^2 + y^2\right)</m>.
+      </p>
+      <p>
+        The mass of the lamina is <m>M = </m> <var width="10"/>, and its
+        center of mass is <m>(\bar{x}, \bar{y})</m> with
+        <m>\bar{x} = </m> <var width="8"/> and
+        <m>\bar{y} = </m> <var width="8"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="12.566" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1.019" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1.019" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw7-solutions">
+      <p>
+        In polar coordinates the quarter disk is <m>0 \le r \le 2</m>,
+        <m>0 \le \theta \le \pi/2</m>, the density is
+        <m>\delta = 2r^2</m>, and <m>dA = r\,dr\,d\theta</m> by
+        <xref ref="eq-polar-area-element"/>. By
+        <xref ref="eq-first-moments-2d"/>,
+      </p>
+      <md>
+        <mrow>
+          M \amp = \iint_R \delta\,dA
+          = \int_0^{\pi/2}\!\!\int_0^2 2r^2\, r\,dr\,d\theta
+          = \frac{\pi}{2}\left[\frac{r^4}{2}\right]_0^2
+          = 4\pi \approx 12.566,
+        </mrow>
+        <mrow>
+          M_y \amp = \iint_R x\,\delta\,dA
+          = \int_0^{\pi/2}\!\!\int_0^2 (r\cos\theta)\,2r^2\, r\,dr\,d\theta
+          = \Big[\sin\theta\Big]_0^{\pi/2}\left[\frac{2r^5}{5}\right]_0^2
+          = \frac{64}{5} .
+        </mrow>
+      </md>
+      <p>
+        By <xref ref="eq-com-2d"/>,
+      </p>
+      <me>
+        \bar{x} = \frac{M_y}{M} = \frac{64/5}{4\pi} = \frac{16}{5\pi}
+        \approx 1.019 .
+      </me>
+      <p>
+        Swapping <m>x</m> and <m>y</m> changes neither the region nor the
+        density, so <m>M_x = M_y</m> and <m>\bar{y} = \bar{x} =
+        16/(5\pi)</m>. For comparison, with constant density
+        <m>\delta = 1</m> the same integrals give <m>M = \pi</m> and
+        <m>M_y = 8/3</m>, so the centroid is
+        <m>\left(\frac{8}{3\pi}, \frac{8}{3\pi}\right) \approx
+        (0.849, 0.849)</m>. The density <m>2(x^2+y^2)</m> grows with the
+        distance from the origin, so the center of mass sits farther out
+        than the centroid (<xref ref="fig-hw7o-lamina"/>).
+      </p>
+      <figure xml:id="fig-hw7o-lamina">
+        <caption>
+          The lamina of <xref ref="ex-hw7o-lamina"/>. The dashed quarter circles <m>r = \frac12, 1, \frac32</m> are curves of constant density; the density <m>2r^2</m> grows outward. The orange dot is the center of mass <m>\left(\frac{16}{5\pi}, \frac{16}{5\pi}\right)</m>, and the open dot, closer to the origin, is the centroid <m>\left(\frac{8}{3\pi}, \frac{8}{3\pi}\right)</m>.
+        </caption>
+        <image width="45%">
+          <shortdescription>
+          A quarter disk of radius two in the first quadrant with dashed quarter circles inside, an orange dot for the center of mass and an open dot for the centroid just inside it.
+          </shortdescription>
+          <description>
+            <p>
+            Axes x and y with the quarter of the disk of radius two that lies in the first quadrant shaded, bounded by a solid blue arc labelled r equals two. Dashed blue quarter circles of radius one half, one, and three halves cross the region. On the line y equals x, an orange dot at about one comma one, labelled x bar comma y bar, marks the center of mass, and an open dot slightly closer to the origin marks the centroid.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-lamina">
+          <diagram dimensions="(300,300)" margins="10">
+            <definition>top(x) = sqrt(4 - x^2)</definition>
+            <definition>bot(x) = 0</definition>
+            <coordinates bbox="(-0.45,-0.45,2.6,2.6)">
+            <area-between-curves at="hw7o-lam-region" function1="bot" function2="top" domain="(0,2)" N="120" fill="#d6e6f2" stroke="none"/>
+            <arc at="hw7o-lam-r05" center="(0,0)" radius="0.5" range="(0,90)" stroke="#0072B2" thickness="1" dash="4 3"/>
+            <arc at="hw7o-lam-r10" center="(0,0)" radius="1" range="(0,90)" stroke="#0072B2" thickness="1" dash="4 3"/>
+            <arc at="hw7o-lam-r15" center="(0,0)" radius="1.5" range="(0,90)" stroke="#0072B2" thickness="1" dash="4 3"/>
+            <arc at="hw7o-lam-r20" center="(0,0)" radius="2" range="(0,90)" stroke="#0072B2" thickness="2.5"/>
+            <axes at="hw7o-lam-axes" xlabel="x" ylabel="y" hlabels="(1,1,2)" vlabels="(1,1,2)" arrows="1"/>
+            <point at="hw7o-lam-centroid" p="(8/(3*pi),8/(3*pi))" fill="white" stroke="black" thickness="1.5" size="4"/>
+            <point at="hw7o-lam-com" p="(16/(5*pi),16/(5*pi))" fill="#D55E00" stroke="black" size="4.5"/>
+            <label at="hw7o-lam-comlab" anchor="(16/(5*pi),16/(5*pi))" alignment="ne" offset="(5,3)" color="#D55E00" clear-background="yes"><m>(\bar{x},\bar{y})</m></label>
+            <label at="hw7o-lam-rlab" anchor="(1.75,1.2)" alignment="ne" color="#0072B2"><m>r=2</m></label>
+            </coordinates>
+            <annotations>
+            <annotation ref="figure" text="The quarter disk of radius two with its center of mass."/>
+            </annotations>
+          </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+  <figure xml:id="fig-hw7o-region">
+    <caption>
+      The region <m>R</m> of <xref ref="ex-hw7o-region-mass"/>, bounded by the parabolas <m>x = y^2 - 1</m>, <m>y = (x-1)^2</m>, and <m>y = -(x-1)^2</m>.
+    </caption>
+    <image width="60%">
+      <shortdescription>
+        A shaded region bounded on the left by a parabola opening to the right and on the right by two parabolas that meet at the point one comma zero.
+      </shortdescription>
+      <description>
+        <p>
+          A grid with axes x and y. A black parabola, x equals y squared minus one, opens to the right from its vertex at minus one comma zero and passes through zero comma one and zero comma minus one. A blue parabola, y equals x minus one squared, opens upward from its vertex at one comma zero and passes through zero comma one. A red parabola, y equals minus x minus one squared, opens downward from the same vertex and passes through zero comma minus one. The shaded region R lies between the black parabola on the left and the blue and red parabolas on the right, and comes to a point at one comma zero.
+        </p>
+      </description>
+      <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-region">
+          <diagram dimensions="(390,326)" margins="10">
+            <definition>up(x) = (x - 1)^2</definition>
+            <definition>dn(x) = -(x - 1)^2</definition>
+            <definition>lup(x) = sqrt(x + 1)</definition>
+            <definition>ldn(x) = -sqrt(x + 1)</definition>
+            <definition>par(t) = (t^2 - 1, t)</definition>
+            <coordinates bbox="(-1.6,-2.3,3.9,2.3)">
+            <area-between-curves at="hw7o-reg-left" function1="ldn" function2="lup" domain="(-1,0)" N="120" fill="#d6e6f2" stroke="none"/>
+            <area-between-curves at="hw7o-reg-right" function1="dn" function2="up" domain="(0,1)" N="120" fill="#d6e6f2" stroke="none"/>
+            <grid-axes at="hw7o-reg-axes" xlabel="x" ylabel="y"/>
+            <graph at="hw7o-reg-up" function="up" domain="(-0.6,2.6)" stroke="#0072B2" thickness="2.5"/>
+            <graph at="hw7o-reg-dn" function="dn" domain="(-0.6,2.6)" stroke="#D5283C" thickness="2.5"/>
+            <parametric-curve at="hw7o-reg-par" function="par" domain="(-2.3,2.3)" stroke="black" thickness="2.5"/>
+            <label at="hw7o-reg-Rlab" anchor="(-0.4,0.3)" alignment="c" color="#004c80"><m>R</m></label>
+            <label at="hw7o-reg-parlab" anchor="(0.3,1.98)" alignment="e" clear-background="yes"><m>x = y^2 - 1</m></label>
+            <label at="hw7o-reg-uplab" anchor="(2.3,0.9)" alignment="e" color="#0072B2" clear-background="yes"><m>y = (x-1)^2</m></label>
+            <label at="hw7o-reg-dnlab" anchor="(2.3,-0.9)" alignment="e" color="#D5283C" clear-background="yes"><m>y = -(x-1)^2</m></label>
+            </coordinates>
+            <annotations>
+            <annotation ref="figure" text="The region R bounded by three parabolas."/>
+            </annotations>
+          </diagram>
+      </prefigure>
+    </image>
+  </figure>
+
+  <exercise xml:id="ex-hw7o-region-mass">
+    <title>The Mass of a Plate Read From a Graph</title>
+    <statement>
+      <p>
+        A plate has the shape of the region <m>R</m> shown in
+        <xref ref="fig-hw7o-region"/>, and its density is
+        <m>\delta(x,y) = 3y^2</m>.
+      </p>
+      <p>
+        The mass of the plate is <m>M = </m> <var width="10"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="1.086" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw7-solutions">
+      <p>
+        The parabola <m>x = y^2 - 1</m> meets the <m>y</m>-axis at
+        <m>(0, \pm 1)</m>, which is where it meets the other two parabolas,
+        and the two parabolas <m>y = \pm(x-1)^2</m> meet at <m>(1,0)</m>.
+        Both <m>R</m> and the density <m>3y^2</m> are symmetric about the
+        <m>x</m>-axis, so <m>M</m> is twice the mass of the upper half. For
+        <m>0 \le y \le 1</m>, a horizontal line crosses the upper half from
+        the parabola <m>x = y^2 - 1</m> on the left to the left branch of
+        <m>y = (x-1)^2</m>, which is <m>x = 1 - \sqrt{y}</m>, on the right
+        (left panel of <xref ref="fig-hw7o-region-strips"/>). By
+        <xref ref="eq-mass-2d"/>,
+      </p>
+      <md>
+        <mrow>
+          M \amp = 2\int_0^1\!\!\int_{y^2-1}^{1-\sqrt{y}} 3y^2\,dx\,dy
+          = 6\int_0^1 y^2\left(2 - \sqrt{y} - y^2\right) dy
+        </mrow>
+        <mrow>
+          \amp = 6\left(\frac23 - \frac27 - \frac15\right)
+          = 6\cdot\frac{19}{105} = \frac{38}{35} \approx 1.086 .
+        </mrow>
+      </md>
+      <p>
+        Check, with vertical strips (right panel): for
+        <m>-1 \le x \le 0</m> the plate runs from
+        <m>y = -\sqrt{x+1}</m> to <m>y = \sqrt{x+1}</m>, and for
+        <m>0 \le x \le 1</m> from <m>y = -(x-1)^2</m> to
+        <m>y = (x-1)^2</m>, so
+      </p>
+      <me>
+        M = \int_{-1}^{0} 2(x+1)^{3/2}\,dx + \int_0^1 2(1-x)^6\,dx
+        = \frac45 + \frac27 = \frac{38}{35} .
+      </me>
+      <figure xml:id="fig-hw7o-region-strips">
+        <caption>
+          The region <m>R</m> of <xref ref="ex-hw7o-region-mass"/> cut into strips. Left: a horizontal strip across the upper half runs from <m>x = y^2 - 1</m> to <m>x = 1 - \sqrt{y}</m>, for <m>0 \le y \le 1</m>. Right: a vertical strip runs between <m>y = \pm\sqrt{x+1}</m> for <m>-1 \le x \le 0</m>, and between <m>y = \pm(x-1)^2</m> for <m>0 \le x \le 1</m>.
+        </caption>
+        <sidebyside widths="47% 47%" valign="middle">
+          <image width="100%">
+            <shortdescription>
+            The region R with one horizontal strip drawn across its upper half.
+            </shortdescription>
+            <description>
+              <p>
+              The shaded region R between the three parabolas. An orange horizontal segment at height one half runs from the black parabola x equals y squared minus one on the left to the blue parabola on the right, where x equals one minus the square root of y. Its two ends are labelled with these equations.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-region-h">
+            <diagram dimensions="(360,270)" margins="8">
+              <definition>up(x) = (x - 1)^2</definition>
+              <definition>dn(x) = -(x - 1)^2</definition>
+              <definition>lup(x) = sqrt(x + 1)</definition>
+              <definition>ldn(x) = -sqrt(x + 1)</definition>
+              <definition>par(t) = (t^2 - 1, t)</definition>
+              <coordinates bbox="(-2.0,-1.35,1.6,1.35)">
+              <area-between-curves at="hw7o-regh-left" function1="ldn" function2="lup" domain="(-1,0)" N="120" fill="#d6e6f2" stroke="none"/>
+              <area-between-curves at="hw7o-regh-right" function1="dn" function2="up" domain="(0,1)" N="120" fill="#d6e6f2" stroke="none"/>
+              <axes at="hw7o-regh-axes" xlabel="x" ylabel="y" hlabels="(-1,2,1)" vlabels="(-1,2,1)" arrows="1"/>
+              <graph at="hw7o-regh-up" function="up" domain="(-0.15,1.45)" stroke="#0072B2" thickness="2"/>
+              <graph at="hw7o-regh-dn" function="dn" domain="(-0.15,1.45)" stroke="#D5283C" thickness="2"/>
+              <parametric-curve at="hw7o-regh-par" function="par" domain="(-1.25,1.25)" stroke="black" thickness="2"/>
+              <line at="hw7o-regh-strip" endpoints="((-0.75,0.5),(1-sqrt(0.5),0.5))" stroke="#D55E00" thickness="4"/>
+              <point at="hw7o-regh-a" p="(-0.75,0.5)" fill="#D55E00" size="3"/>
+              <point at="hw7o-regh-b" p="(1-sqrt(0.5),0.5)" fill="#D55E00" size="3"/>
+              <label at="hw7o-regh-alab" anchor="(-0.75,0.5)" alignment="nw" offset="(-4,3)" color="#D55E00"><m>x=y^2-1</m></label>
+              <label at="hw7o-regh-blab" anchor="(1-sqrt(0.5),0.5)" alignment="e" offset="(6,0)" color="#D55E00"><m>x=1-\sqrt{y}</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="A horizontal strip across the upper half of R."/>
+              </annotations>
+            </diagram>
+            </prefigure>
+          </image>
+          <image width="100%">
+            <shortdescription>
+            The region R with one vertical strip on each side of the y-axis.
+            </shortdescription>
+            <description>
+              <p>
+              The shaded region R between the three parabolas. A green vertical segment at x equals minus one half runs between the upper and lower halves of the black parabola, whose upper half is labelled y equals the square root of x plus one. An orange vertical segment at x equals nine twentieths runs between the red and the blue parabolas, the blue one labelled y equals x minus one squared.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-region-v">
+          <diagram dimensions="(360,270)" margins="8">
+            <definition>up(x) = (x - 1)^2</definition>
+            <definition>dn(x) = -(x - 1)^2</definition>
+            <definition>lup(x) = sqrt(x + 1)</definition>
+            <definition>ldn(x) = -sqrt(x + 1)</definition>
+            <definition>par(t) = (t^2 - 1, t)</definition>
+            <coordinates bbox="(-2.0,-1.35,1.6,1.35)">
+            <area-between-curves at="hw7o-regv-left" function1="ldn" function2="lup" domain="(-1,0)" N="120" fill="#d6e6f2" stroke="none"/>
+            <area-between-curves at="hw7o-regv-right" function1="dn" function2="up" domain="(0,1)" N="120" fill="#d6e6f2" stroke="none"/>
+            <axes at="hw7o-regv-axes" xlabel="x" ylabel="y" hlabels="(-1,2,1)" vlabels="(-1,2,1)" arrows="1"/>
+            <graph at="hw7o-regv-up" function="up" domain="(-0.15,1.45)" stroke="#0072B2" thickness="2"/>
+            <graph at="hw7o-regv-dn" function="dn" domain="(-0.15,1.45)" stroke="#D5283C" thickness="2"/>
+            <parametric-curve at="hw7o-regv-par" function="par" domain="(-1.25,1.25)" stroke="black" thickness="2"/>
+            <line at="hw7o-regv-strip1" endpoints="((-0.55,-sqrt(0.45)),(-0.55,sqrt(0.45)))" stroke="#009E73" thickness="4"/>
+            <line at="hw7o-regv-strip2" endpoints="((0.45,-0.3025),(0.45,0.3025))" stroke="#D55E00" thickness="4"/>
+            <label at="hw7o-regv-l1" anchor="(-0.55,0.6708)" alignment="w" offset="(-8,2)" color="#009E73"><m>y=\sqrt{x+1}</m></label>
+            <label at="hw7o-regv-l2" anchor="(0.45,0.3025)" alignment="ne" offset="(4,2)" color="#D55E00"><m>y=(x-1)^2</m></label>
+            </coordinates>
+            <annotations>
+            <annotation ref="figure" text="Vertical strips across R, on either side of the y-axis."/>
+            </annotations>
+          </diagram>
+            </prefigure>
+          </image>
+        </sidebyside>
+      </figure>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw7o-slanted-top">
+    <title>A Solid Under a Slanted Plane</title>
+    <statement>
+      <p>
+        A solid <m>D</m> lies above the rectangle <m>0 \le x \le 2</m>,
+        <m>0 \le y \le 1</m> in the plane <m>z = 0</m> and below the plane
+        <m>z = x + y + 1</m>. Its density is constant,
+        <m>\delta = 1</m> g/cm<m>{}^3</m>, with <m>x</m>, <m>y</m>, <m>z</m>
+        measured in cm.
+      </p>
+      <p>
+        The mass of the solid is <m>M = </m> <var width="8"/> g, and its
+        center of mass <m>(\bar{x}, \bar{y}, \bar{z})</m> has
+        <m>\bar{x} = </m> <var width="8"/> cm,
+        <m>\bar{y} = </m> <var width="8"/> cm, and
+        <m>\bar{z} = </m> <var width="8"/> cm.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="5" tolerance="0.01">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1.133" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="0.533" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="1.333" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw7-solutions">
+      <p>
+        The solid is <m>0 \le x \le 2</m>, <m>0 \le y \le 1</m>,
+        <m>0 \le z \le x + y + 1</m> (<xref ref="fig-hw7o-slanted-top"/>),
+        and <m>\delta = 1</m>. By <xref ref="eq-mass-3d"/>,
+      </p>
+      <me>
+        M = \int_0^2\!\!\int_0^1\!\!\int_0^{x+y+1} dz\,dy\,dx
+        = \int_0^2\!\!\int_0^1 (x + y + 1)\,dy\,dx
+        = \int_0^2 \left(x + \frac32\right) dx = 2 + 3 = 5 \text{ g}.
+      </me>
+      <p>
+        By <xref ref="eq-first-moments-3d"/>, after the <m>z</m>-integration,
+      </p>
+      <md>
+        <mrow>
+          M_{yz} \amp = \int_0^2\!\!\int_0^1 x(x + y + 1)\,dy\,dx
+          = \int_0^2 \left(x^2 + \frac32\,x\right) dx
+          = \frac83 + 3 = \frac{17}{3},
+        </mrow>
+        <mrow>
+          M_{xz} \amp = \int_0^2\!\!\int_0^1 y(x + y + 1)\,dy\,dx
+          = \int_0^2 \left(\frac{x}{2} + \frac56\right) dx
+          = 1 + \frac53 = \frac83,
+        </mrow>
+        <mrow>
+          M_{xy} \amp = \int_0^2\!\!\int_0^1 \frac{(x + y + 1)^2}{2}\,dy\,dx
+          = \frac16\int_0^2 \left[(x+2)^3 - (x+1)^3\right] dx
+        </mrow>
+        <mrow>
+          \amp = \frac1{24}\Big[(x+2)^4 - (x+1)^4\Big]_0^2
+          = \frac{(256 - 81) - (16 - 1)}{24} = \frac{20}{3} .
+        </mrow>
+      </md>
+      <p>
+        By <xref ref="eq-com-3d"/>,
+      </p>
+      <me>
+        \bar{x} = \frac{17/3}{5} = \frac{17}{15} \approx 1.133, \qquad
+        \bar{y} = \frac{8/3}{5} = \frac{8}{15} \approx 0.533, \qquad
+        \bar{z} = \frac{20/3}{5} = \frac43 \approx 1.333,
+      </me>
+      <p>
+        all in cm. The point <m>(\bar{x}, \bar{y})</m> lies beyond the
+        middle <m>(1, \frac12)</m> of the base, toward the corner
+        <m>(2,1)</m> over which the solid is tallest, as it should.
+      </p>
+      <figure xml:id="fig-hw7o-slanted-top">
+        <caption>
+          The solid of <xref ref="ex-hw7o-slanted-top"/>: it stands on the rectangle <m>0 \le x \le 2</m>, <m>0 \le y \le 1</m> and is cut off at the top by the plane <m>z = x + y + 1</m>, which rises from height <m>1</m> over the origin to height <m>4</m> over the corner <m>(2,1)</m>. The orange dot is the center of mass <m>\left(\frac{17}{15}, \frac{8}{15}, \frac43\right)</m>, with a dashed line down to the base.
+        </caption>
+        <image xml:id="image-hw7o-slanted-top" width="55%">
+          <shortdescription>
+          A box-like solid on a two-by-one rectangle whose slanted top rises toward one corner, with its center of mass marked inside.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x, y and z. A translucent blue solid stands on the rectangle from zero to two in x and zero to one in y. Its vertical edges have heights one, three, four and two at the corners zero comma zero, two comma zero, two comma one and zero comma one, and its top is the slanted plane z equals x plus y plus one. An orange dot inside the solid, at seventeen fifteenths, eight fifteenths, four thirds, is labelled x bar, y bar, z bar, with a dashed orange line dropping from it to the base.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oiorange}{RGB}{213,94,0}
+  \begin{axis}[
+      view={140}{24},
+      width=11cm, height=11cm,
+      axis lines=center,
+      axis line style={-latex, black!70, line width=0.7pt},
+      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+      label style={font=\large},
+      ticks=none,
+      xmin=0, xmax=2.9, ymin=0, ymax=1.9, zmin=0, zmax=4.8,
+      unit vector ratio=1 1 1,
+      clip=false,
+    ]
+    % ---- the three back faces, faint ----
+    \addplot3[fill=oiblue!12, draw=oiblue!40, line width=0.5pt, forget plot]
+      coordinates {(0,0,0) (2,0,0) (2,0,3) (0,0,1) (0,0,0)};
+    \addplot3[fill=oiblue!12, draw=oiblue!40, line width=0.5pt, forget plot]
+      coordinates {(0,0,0) (0,1,0) (0,1,2) (0,0,1) (0,0,0)};
+    % ---- the two front faces and the top ----
+    \addplot3[fill=oiblue!25, fill opacity=0.55, draw=oiblue, line width=1pt, forget plot]
+      coordinates {(2,0,0) (2,1,0) (2,1,4) (2,0,3) (2,0,0)};
+    \addplot3[fill=oiblue!25, fill opacity=0.55, draw=oiblue, line width=1pt, forget plot]
+      coordinates {(0,1,0) (2,1,0) (2,1,4) (0,1,2) (0,1,0)};
+    \addplot3[fill=oiblue!40, fill opacity=0.55, draw=oiblue, line width=1.2pt, forget plot]
+      coordinates {(0,0,1) (2,0,3) (2,1,4) (0,1,2) (0,0,1)};
+    % ---- the centre of mass, drawn over the faces so it shows ----
+    \draw[oiorange, dashed, line width=0.8pt]
+      (axis cs:17/15,8/15,0) -- (axis cs:17/15,8/15,4/3);
+    \fill[oiorange] (axis cs:17/15,8/15,0) circle (1.3pt);
+    \fill[oiorange] (axis cs:17/15,8/15,4/3) circle (2.6pt);
+    % ---- labels ----
+    \node[oiorange, font=\small, anchor=west, fill=white, fill opacity=0.85, text opacity=1, inner sep=1.5pt]
+      at (axis cs:17/15,8/15,4/3) {\,$(\bar x,\bar y,\bar z)$};
+    \node[oiblue, font=\small, anchor=west] at (axis cs:0,1,2.1) {\,$z = x+y+1$};
+    \node[font=\small, anchor=north east] at (axis cs:2,0,0) {$2$};
+    \node[font=\small, anchor=north west] at (axis cs:0,1,0) {$1$};
+  \end{axis}
+\end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw7o-center-of-mass">
+    <title>Center of Mass of the Cone</title>
+    <statement>
+      <p>
+        For the solid bounded by <m>x = \sqrt{y^2+z^2}</m> and
+        <m>x = 1</m> with density <m>\delta(x,y,z) = x</m>: the mass is
+        <m>M = </m> <var width="8"/>, the moment <m>M_{yz}</m> is
+        <var width="8"/>, and the center of mass is at
+        <m>\bar{x} = </m> <var width="8"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="0.785" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="0.628" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="0.8" tolerance="0.005">
+          <feedback>
+            <p>Correct.</p>
+          </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+            <p>Incorrect.</p>
+          </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw7-solutions">
+      <p>
+        The solid is the cone of <xref ref="fig-hw7o-cone-3d"/>, with its
+        vertex at the origin and its axis along the <m>x</m>-axis. The
+        solid and its density are symmetric about the <m>x</m>-axis, so
+        <m>\bar{y} = \bar{z} = 0</m>. With <m>r = \sqrt{y^2+z^2}</m> the
+        distance from the <m>x</m>-axis, as in
+        <xref ref="ex-hw6o-cone-mass"/>, the solid is
+        <m>0 \le r \le 1</m>, <m>0 \le \theta \le 2\pi</m>,
+        <m>r \le x \le 1</m> (<xref ref="fig-hw7o-cone-section"/>), and
+        <m>dV = r\,dx\,d\theta\,dr</m>. From
+        <xref ref="ex-hw6o-cone-mass"/>, <m>M = \pi/4 \approx 0.785</m>,
+        and by <xref ref="eq-first-moments-3d"/>
+      </p>
+      <me>
+        M_{yz} = \iiint_D x\,\delta\,dV
+        = \int_0^1\!\!\int_0^{2\pi}\!\!\int_r^1
+        x^2\,r\,dx\,d\theta\,dr
+        = \frac{2\pi}{3}\int_0^1 r\left(1-r^3\right) dr
+        = \frac{\pi}{5} \approx 0.628 .
+      </me>
+      <p>
+        Hence, by <xref ref="eq-com-3d"/>,
+        <m>\bar{x} = \dfrac{M_{yz}}{M} = \dfrac{\pi/5}{\pi/4} =
+        \dfrac45</m>, and the center of mass is
+        <m>\left(\frac45, 0, 0\right)</m>.
+      </p>
+      <figure xml:id="fig-hw7o-cone-3d">
+        <caption>
+          The cone of <xref ref="ex-hw7o-center-of-mass"/>: the solid between the cone <m>x = \sqrt{y^2+z^2}</m> and the plane <m>x = 1</m>, shaded darker where the density <m>x</m> is larger. The orange dot is the center of mass <m>\left(\frac45, 0, 0\right)</m>.
+        </caption>
+        <image xml:id="image-hw7o-cone-3d" width="45%">
+          <shortdescription>
+          A solid cone lying on its side, vertex at the origin and opening along the positive x axis to a disk at x equals one, with its center of mass marked on the x axis.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x, y and z. A translucent blue cone has its vertex at the origin and opens along the positive x axis to a circular cap of radius one in the plane x equals one; it is pale near the vertex and darker toward the cap. An orange dot on the x axis, at four fifths, is labelled x bar equals four fifths.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oiorange}{RGB}{213,94,0}
+  \begin{axis}[
+      view={12}{18},
+      width=10cm, height=10cm,
+      axis lines=center,
+      axis line style={-latex, black!70, line width=0.7pt},
+      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+      label style={font=\large},
+      ticks=none,
+      xmin=0, xmax=1.6, ymin=-1.4, ymax=1.4, zmin=-1.3, zmax=1.4,
+      unit vector ratio=1 1 1,
+      clip=false,
+    ]
+    % ---- the cone x = sqrt(y^2+z^2), 0 <= x <= 1, coloured by x ----
+    \addplot3[surf, shader=faceted, faceted color=oiblue!30,
+              colormap={conex}{color=(oiblue!8!white) color=(oiblue!70!white)},
+              point meta=x,
+              opacity=0.6, fill opacity=0.6,
+              domain=0:1, samples=12, y domain=0:360, samples y=44,
+              z buffer=sort, forget plot]
+      ({x}, {x*cos(y)}, {x*sin(y)});
+    % ---- the cap x = 1 ----
+    \addplot3[surf, shader=flat, color=oiblue!45, opacity=0.35, fill opacity=0.35,
+              domain=0:1, samples=6, y domain=0:360, samples y=44, forget plot]
+      (1, {x*cos(y)}, {x*sin(y)});
+    \addplot3[oiblue, line width=1.3pt, samples=60, samples y=0, domain=0:360, forget plot]
+      (1, {cos(x)}, {sin(x)});
+    % ---- centre of mass ----
+    \fill[oiorange] (axis cs:0.8,0,0) circle (2.6pt);
+    \node[oiorange, font=\small, anchor=north east, fill=white, fill opacity=0.85, text opacity=1, inner sep=1.5pt] at (axis cs:0.78,0,-0.06) {$\bar x = \tfrac45$};
+    \node[oiblue, font=\small, anchor=south] at (axis cs:1,0,1.06) {$x = 1$};
+    \node[oiblue, font=\small, anchor=north east, fill=white, fill opacity=0.85, text opacity=1, inner sep=1.5pt] at (axis cs:0.55,0,-0.72) {$x=\sqrt{y^2+z^2}$};
+  \end{axis}
+\end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+      <figure xml:id="fig-hw7o-cone-section">
+        <caption>
+          The cross-section of the cone of <xref ref="ex-hw7o-center-of-mass"/> by the <m>xy</m>-plane, where <m>r = |y|</m>. At distance <m>r</m> from the <m>x</m>-axis, <m>x</m> runs from the cone, <m>x = r</m>, to the plane <m>x = 1</m>. The orange dot is the center of mass, at <m>\bar{x} = \frac45</m>.
+        </caption>
+        <image width="35%">
+          <shortdescription>
+          A triangle with vertices at the origin, one comma one, and one comma minus one, crossed by a horizontal segment, with an orange dot on the x axis at four fifths.
+          </shortdescription>
+          <description>
+            <p>
+            Axes x and y. The shaded triangle has vertices at the origin, at one comma one, and at one comma minus one. A green horizontal segment at height two fifths runs from the slanted side, labelled x equals r, to the vertical side, labelled x equals one. An orange dot on the x axis at four fifths is labelled x bar equals four fifths.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-cone-section">
+          <diagram dimensions="(240,300)" margins="8">
+            <coordinates bbox="(-0.35,-1.3,1.55,1.3)">
+            <polygon at="hw7o-conex-tri" points="((0,0),(1,1),(1,-1))" closed="yes" fill="#d6e6f2" stroke="#0072B2" thickness="2.5"/>
+            <axes at="hw7o-conex-axes" xlabel="x" ylabel="y" hlabels="(1,1,1)" vlabels="(-1,2,1)" arrows="1"/>
+            <line at="hw7o-conex-strip" endpoints="((0.4,0.4),(1,0.4))" stroke="#009E73" thickness="4"/>
+            <point at="hw7o-conex-sa" p="(0.4,0.4)" fill="#009E73" size="3"/>
+            <point at="hw7o-conex-sb" p="(1,0.4)" fill="#009E73" size="3"/>
+            <label at="hw7o-conex-salab" anchor="(0.4,0.4)" alignment="nw" offset="(-1,3)" color="#009E73"><m>x=r</m></label>
+            <label at="hw7o-conex-sblab" anchor="(1,0.4)" alignment="e" offset="(5,0)" color="#009E73" clear-background="yes"><m>x=1</m></label>
+            <point at="hw7o-conex-com" p="(0.8,0)" fill="#D55E00" stroke="black" size="4.5"/>
+            <label at="hw7o-conex-comlab" anchor="(0.8,0)" alignment="sw" offset="(-3,-6)" color="#D55E00"><m>\bar{x}=\tfrac45</m></label>
+            </coordinates>
+            <annotations>
+            <annotation ref="figure" text="The cross-section of the cone by the xy-plane."/>
+            </annotations>
+          </diagram>
+          </prefigure>
+        </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -220,132 +1193,117 @@
       <var>
         <condition number="6.283" tolerance="0.01">
           <feedback>
-   <p>Correct.</p>
- </feedback>
+            <p>Correct.</p>
+          </feedback>
         </condition>
         <condition string=".*">
           <feedback>
-          <p>Incorrect.</p>
-        </feedback>
+            <p>Incorrect.</p>
+          </feedback>
         </condition>
       </var>
       <var>
         <condition number="1.047" tolerance="0.01">
           <feedback>
-          <p>Correct.</p>
-        </feedback>
+            <p>Correct.</p>
+          </feedback>
         </condition>
-              <condition string=".*">
+        <condition string=".*">
           <feedback>
-                <p>Incorrect.</p>
-              </feedback>
+            <p>Incorrect.</p>
+          </feedback>
         </condition>
       </var>
       <var>
         <condition number="0.25" tolerance="0.005">
           <feedback>
-          <p>Correct.</p>
-        </feedback>
+            <p>Correct.</p>
+          </feedback>
         </condition>
-              <condition string=".*">
+        <condition string=".*">
           <feedback>
-                <p>Incorrect.</p>
-              </feedback>
+            <p>Incorrect.</p>
+          </feedback>
         </condition>
       </var>
     </setup>
     <solution component="hw7-solutions">
       <p>
-        By symmetry the cylinder's own centroid is the origin, so only the
-        cone moves the answer. The cylinder has volume
-        <m>\pi(1)^2(2) = 2\pi</m> and the cone
+        Split the solid into the cylinder and the cone. Both are symmetric
+        about the <m>yz</m>-plane and the <m>xz</m>-plane, so
+        <m>\bar{x} = \bar{y} = 0</m> and only <m>\bar{z}</m> is needed. The
+        cylinder has its centroid at the origin and mass
+        <m>m_1 = \delta\,\pi(1)^2(2) = 2\pi\delta \approx 6.283\,\delta</m>.
+        The cone lies over the unit disk <m>x^2 + y^2 \le 1</m>, between
+        <m>z = 1 + r</m> and <m>z = 2</m>, so in cylindrical coordinates
+        (<xref ref="eq-dv-cylindrical"/>)
+      </p>
+      <md>
+        <mrow>
+          m_2 \amp = \delta\int_0^{2\pi}\!\!\int_0^1\!\!\int_{1+r}^{2}
+          dz\,r\,dr\,d\theta
+          = 2\pi\delta\int_0^1 (1-r)\,r\,dr
+          = \frac{\pi\delta}{3} \approx 1.047\,\delta,
+        </mrow>
+        <mrow>
+          M_{xy}^{\text{cone}} \amp = \delta\int_0^{2\pi}\!\!\int_0^1\!\!\int_{1+r}^{2}
+          z\,dz\,r\,dr\,d\theta
+          = \pi\delta\int_0^1 \left(3 - 2r - r^2\right) r\,dr
+          = \frac{7\pi\delta}{12},
+        </mrow>
+      </md>
+      <p>
+        so the cone's own centroid is at
+        <m>z = \dfrac{7\pi\delta/12}{\pi\delta/3} = \dfrac74</m>. The
+        moments of the two pieces add, and the cylinder's is <m>0</m>, so
+        with <m>M = 2\pi\delta + \frac{\pi\delta}{3} =
+        \frac{7\pi\delta}{3}</m>, <xref ref="eq-com-3d"/> gives
       </p>
       <me>
-        m_2 = \delta\iint_R\left(1-\sqrt{x^2+y^2}\right) dA
-        = \delta\left(\tfrac12 - \tfrac13\right)(2\pi)
-        = \frac{\pi\delta}{3} .
+        \bar{z} = \frac{M_{xy}}{M}
+        = \frac{7\pi\delta/12}{7\pi\delta/3}
+        = \frac14 .
       </me>
       <p>
-        The cone's own centroid sits at <m>z = 1 + \frac34 =
-        \frac74</m>, so with <m>M = 2\pi\delta + \frac{\pi\delta}{3}
-        = \frac{7\pi\delta}{3}</m>,
+        This is <xref ref="eq-com-two-masses"/> with each piece replaced by
+        a point mass at its own centroid: <m>m_1</m> at <m>z = 0</m> and
+        <m>m_2</m> at <m>z = \frac74</m>
+        (<xref ref="fig-hw7o-centroid-section"/>). The centroid is
+        <m>\left(0, 0, \frac14\right)</m>.
       </p>
-      <me>
-        \overline{z} = \frac{m_2}{M}\cdot\frac74
-        = \frac{\pi\delta/3}{7\pi\delta/3}\cdot\frac74
-        = \frac14 ,
-      </me>
-      <p>
-        so the centroid is
-        <m>\left\langle 0, 0, \frac14 \right\rangle</m>.
-      </p>
-    </solution>
-  </exercise>
-
-  <exercise xml:id="ex-hw7o-center-of-mass">
-    <title>Center of Mass of the Cone</title>
-    <statement>
-      <p>
-        For the solid bounded by <m>x = \sqrt{y^2+z^2}</m> and
-        <m>x = 1</m> with <m>\rho(x) = x</m>: the mass is
-        <var width="8"/>, the moment <m>M_{yz}</m> is <var width="8"/>, and
-        the center of mass is at <m>x = </m> <var width="8"/>.
-      </p>
-    </statement>
-    <setup>
-      <var>
-        <condition number="0.785" tolerance="0.005">
-          <feedback>
-          <p>Correct.</p>
-        </feedback>
-        </condition>
-                <condition string=".*">
-            <feedback>
-                  <p>Incorrect.</p>
-                </feedback>
-          </condition>
-        </var>
-      <var>
-        <condition number="0.628" tolerance="0.005">
-          <feedback>
-          <p>Correct.</p>
-        </feedback>
-        </condition>
-              <condition string=".*">
-          <feedback>
-                <p>Incorrect.</p>
-              </feedback>
-        </condition>
-      </var>
-      <var>
-        <condition number="0.8" tolerance="0.005">
-          <feedback>
-          <p>Correct.</p>
-        </feedback>
-        </condition>
-              <condition string=".*">
-          <feedback>
-                <p>Incorrect.</p>
-              </feedback>
-        </condition>
-      </var>
-    </setup>
-    <solution component="hw7-solutions">
-      <p>
-        By symmetry the center of mass lies on the <m>x</m>-axis. From
-        <xref ref="ex-hw6o-cone-mass"/>, <m>M = \pi/4</m>, and
-      </p>
-      <me>
-        M_{yz} = \int_0^1\!\!\int_0^{2\pi}\!\!\int_r^1
-        x^2\,r\,dx\,d\theta\,dr
-        = \frac{2\pi}{3}\int_0^1 r\left(1-r^3\right) dr
-        = \frac{\pi}{5} .
-      </me>
-      <p>
-        Hence <m>\overline{x} = \dfrac{\pi/5}{\pi/4} = \dfrac45</m>,
-        and the center of mass is
-        <m>\left\langle \frac45, 0, 0 \right\rangle</m>.
-      </p>
+      <figure xml:id="fig-hw7o-centroid-section">
+        <caption>
+          The cross-section of the solid of <xref ref="ex-hw7o-centroid"/> by the <m>xz</m>-plane: the unit disk cut from the cylinder and the triangle cut from the cone, which touch at <m>(0,1)</m>. The black dots are the centroids of the two pieces, the cylinder's (mass <m>2\pi\delta</m>) at the origin and the cone's (mass <m>\frac{\pi\delta}{3}</m>) at <m>z = \frac74</m>; the orange dot is the centroid of the whole solid, at <m>z = \frac14</m>.
+        </caption>
+        <image width="40%">
+          <shortdescription>
+          A disk of radius one with a downward-pointing triangle on top of it, and three dots on the vertical axis.
+          </shortdescription>
+          <description>
+            <p>
+            Axes x and z. A red-outlined disk of radius one is centered at the origin. On top of it, touching it at zero comma one, is a red-outlined triangle with its point down at zero comma one and its top side along z equals two, from x equals minus one to one. Black dots mark the origin and the point zero comma seven quarters, labelled seven quarters. An orange dot at zero comma one quarter is labelled z bar equals one quarter.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-centroid-section">
+          <diagram dimensions="(300,307)" margins="8">
+            <coordinates bbox="(-1.9,-1.4,1.9,2.5)">
+            <circle at="hw7o-cc-disk" center="(0,0)" radius="1" fill="#f6d5da" stroke="#D5283C" thickness="2.5"/>
+            <polygon at="hw7o-cc-tri" points="((0,1),(1,2),(-1,2))" closed="yes" fill="#f6d5da" stroke="#D5283C" thickness="2.5"/>
+            <axes at="hw7o-cc-axes" xlabel="x" ylabel="z" decorations="no" arrows="1"/>
+            <point at="hw7o-cc-c1" p="(0,0)" fill="black" size="3.5"/>
+            <point at="hw7o-cc-c2" p="(0,1.75)" fill="black" size="3.5"/>
+            <point at="hw7o-cc-com" p="(0,0.25)" fill="#D55E00" stroke="black" size="4.5"/>
+            <label at="hw7o-cc-c2lab" anchor="(0,1.75)" alignment="e" offset="(6,0)"><m>\tfrac74</m></label>
+            <label at="hw7o-cc-comlab" anchor="(0,0.25)" alignment="e" offset="(7,2)" color="#D55E00"><m>\bar{z}=\tfrac14</m></label>
+            <label at="hw7o-cc-2lab" anchor="(1,2)" alignment="e" offset="(4,0)"><m>z=2</m></label>
+            </coordinates>
+            <annotations>
+            <annotation ref="figure" text="The cross-section of the solid by the xz-plane."/>
+            </annotations>
+          </diagram>
+          </prefigure>
+        </image>
+      </figure>
     </solution>
   </exercise>
   </exercises>
