@@ -42,6 +42,11 @@ for any number of them. A flat plate and a solid are then handled in the
 same way, by cutting them into many small pieces and treating each piece
 as a point mass.
 </p>
+<p>
+Starred material is optional. In this section that is
+<xref ref="sec-mass-3d-object"/>, on point masses in space and solid
+objects.
+</p>
 </introduction>
 
 <!-- ================================================================ -->
