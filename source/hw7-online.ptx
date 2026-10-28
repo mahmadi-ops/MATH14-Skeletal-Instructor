@@ -761,7 +761,7 @@
   </exercise>
 
   <exercise xml:id="ex-hw7o-slanted-top">
-    <title>A Solid Under a Slanted Plane</title>
+    <title>A Solid Under a Slanted Plane*</title>
     <statement>
       <p>
         A solid <m>D</m> lies above the rectangle <m>0 \le x \le 2</m>,
@@ -936,7 +936,7 @@
   </exercise>
 
   <exercise xml:id="ex-hw7o-center-of-mass">
-    <title>Center of Mass of the Cone</title>
+    <title>Center of Mass of the Cone*</title>
     <statement>
       <p>
         For the solid bounded by <m>x = \sqrt{y^2+z^2}</m> and
@@ -1176,7 +1176,7 @@
   </figure>
 
   <exercise xml:id="ex-hw7o-centroid">
-    <title>The Centroid of Cone Plus Cylinder</title>
+    <title>The Centroid of Cone Plus Cylinder*</title>
     <statement>
       <p>
         For the solid of <xref ref="fig-hw7o-solid"/> with constant density

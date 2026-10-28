@@ -5,15 +5,17 @@
 <!-- Skeletal (fill-in) version of the section of the same name in the     -->
 <!-- completed MATH 14 notes, which (Oct 2026) builds up in the order of   -->
 <!-- the lecture: two point masses, n point masses with the first moments, -->
-<!-- a flat plate, a solid, and a Concept Check.  Kept: the introduction,  -->
-<!-- the setup prose that poses each construction, the definitions of the  -->
-<!-- center of mass, the first moments and the centroid, the boxed mass    -->
-<!-- formulas, and every statement.  Hollowed: the Newton's-law derivation -->
-<!-- for two masses, the two Riemann-sum constructions (double sums with   -->
-<!-- indices i, j for the plate; triple sums with i, j, k for the solid),  -->
-<!-- the three worked examples, and the two Concept Check answers, each    -->
-<!-- replaced by an empty workspace box (no hints, as for sections 2.1 to  -->
-<!-- 2.4).  File name and xml:ids are unchanged.                           -->
+<!-- a flat plate, a starred subsection with everything in three           -->
+<!-- dimensions (point masses in space, then a solid), and a Concept       -->
+<!-- Check.  Kept: the introduction, the setup prose that poses each       -->
+<!-- construction, the definitions of the center of mass, the first        -->
+<!-- moments and the centroid, the boxed mass formulas, and every          -->
+<!-- statement.  Hollowed: the Newton's-law derivation for two masses, the -->
+<!-- two Riemann-sum constructions (double sums with indices i, j for the  -->
+<!-- plate; triple sums with i, j, k for the solid), the three worked      -->
+<!-- examples, and the two Concept Check answers, each replaced by an      -->
+<!-- empty workspace box (no hints, as for sections 2.1 to 2.4).  File     -->
+<!-- name and xml:ids are unchanged.                                       -->
 <!--                                                                       -->
 <!-- Figures: all kept.  The two masses with their center of mass and the  -->
 <!-- plate cut into rectangles illustrate statements; the mass-element     -->
@@ -227,44 +229,10 @@ mass <m>\bar{\mathbf{r}} = (\bar{x}, \bar{y})</m> has the coordinates
 </men>
 
 <p>
-For masses in space, with <m>\mathbf{r}_i = (x_i, y_i, z_i)</m>, the
-distances are measured from the coordinate planes instead. The
-<term>first moments about the coordinate planes</term> are
-</p>
-
-<md>
-<mrow>
-M_{yz} \amp = \sum_{i=1}^{n} m_i\, x_i,
-</mrow>
-<mrow xml:id="eq-first-moments-points-3d" number="yes">
-M_{xz} \amp = \sum_{i=1}^{n} m_i\, y_i,
-</mrow>
-<mrow>
-M_{xy} \amp = \sum_{i=1}^{n} m_i\, z_i
-</mrow>
-</md>
-
-<p>
-(<m>M_{yz}</m> uses the signed distance <m>x_i</m> from the
-<m>yz</m>-plane, and so on), and the center of mass
-<m>\bar{\mathbf{r}} = (\bar{x}, \bar{y}, \bar{z})</m> is
-</p>
-
-<md>
-<mrow>
-\bar{x} \amp = \frac{M_{yz}}{M},
-</mrow>
-<mrow xml:id="eq-com-points-3d" number="yes">
-\bar{y} \amp = \frac{M_{xz}}{M},
-</mrow>
-<mrow>
-\bar{z} \amp = \frac{M_{xy}}{M}.
-</mrow>
-</md>
-
-<p>
-Every formula in the rest of this section is one of these, with the sum
-over point masses replaced by an integral over a continuous object.
+Every formula for a flat plate in the next subsection is one of these,
+with the sum over point masses replaced by an integral over the plate.
+Masses in space, and solid objects, are treated in
+<xref ref="sec-mass-3d-object"/>.
 </p>
 
 </subsection>
@@ -588,14 +556,52 @@ A cardioid symmetric about the x axis with shaded interior.
 
 <!-- ================================================================ -->
 <subsection xml:id="sec-mass-3d-object">
-<title>Finding the Center of Mass of a 3D Object</title>
+<title>Finding the Center of Mass of a 3D Object*</title>
 
 <p>
-Finally, let a solid object occupy a region <m>D</m> in space, with
+Everything so far took place in the plane. For point masses in space,
+with <m>\mathbf{r}_i = (x_i, y_i, z_i)</m> in
+<xref ref="eq-com-points-vector"/>, the distances are measured from the
+coordinate planes instead of the coordinate axes. The
+<term>first moments about the coordinate planes</term> are
+</p>
+
+<md>
+<mrow>
+M_{yz} \amp = \sum_{i=1}^{n} m_i\, x_i,
+</mrow>
+<mrow xml:id="eq-first-moments-points-3d" number="yes">
+M_{xz} \amp = \sum_{i=1}^{n} m_i\, y_i,
+</mrow>
+<mrow>
+M_{xy} \amp = \sum_{i=1}^{n} m_i\, z_i
+</mrow>
+</md>
+
+<p>
+(<m>M_{yz}</m> uses the signed distance <m>x_i</m> from the
+<m>yz</m>-plane, and so on), and the center of mass
+<m>\bar{\mathbf{r}} = (\bar{x}, \bar{y}, \bar{z})</m> is
+</p>
+
+<md>
+<mrow>
+\bar{x} \amp = \frac{M_{yz}}{M},
+</mrow>
+<mrow xml:id="eq-com-points-3d" number="yes">
+\bar{y} \amp = \frac{M_{xz}}{M},
+</mrow>
+<mrow>
+\bar{z} \amp = \frac{M_{xy}}{M}.
+</mrow>
+</md>
+
+<p>
+Now let a solid object occupy a region <m>D</m> in space, with
 density <m>\delta(x,y,z)</m> (mass per unit volume) at the point
-<m>(x,y,z)</m>. The plan is the same, one dimension up: we cut the solid
-into small boxes and treat each box as a point mass. Partition space into
-boxes by the planes <m>x = x_0, \dots, x_n</m>,
+<m>(x,y,z)</m>. The plan is the same as for a plate, one dimension up:
+we cut the solid into small boxes and treat each box as a point mass.
+Partition space into boxes by the planes <m>x = x_0, \dots, x_n</m>,
 <m>y = y_0, \dots, y_m</m>, and <m>z = z_0, \dots, z_p</m>. The box in
 position <m>i</m> along the <m>x</m>-direction, <m>j</m> along the
 <m>y</m>-direction, and <m>k</m> along the <m>z</m>-direction has the
