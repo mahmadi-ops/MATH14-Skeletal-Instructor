@@ -47,6 +47,11 @@
 <!-- Example V the integrand), the surfaces of Example V are named only as  -->
 <!-- the problem gives them, and neither the captions nor the tours state a -->
 <!-- limit.                                                                 -->
+<!--                                                                       -->
+<!-- Asymptote (Oct 2026): the coordinate diagram (fig-spherical-point-    -->
+<!-- tikz) is drawn in Asymptote, as in the completed notes: to scale and  -->
+<!-- rotatable on the web page, with the angles theta and phi lightly      -->
+<!-- shaded. The TikZ original is kept in retired-figures.txt.             -->
 <section xml:id="section-triple-integrals-spherical" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Triple Integrals in Spherical Coordinates</title>
 
@@ -114,53 +119,69 @@ marked in the x y plane between the positive x axis and the dashed
 projection of the segment. A dashed vertical line connects P to its
 projection.
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oipurple}{RGB}{204,121,167}
-  % P = (1.15, 1.2, 1.5): theta0 = atan(1.2/1.15) = 46.2 deg, phi0 = acos(1.5/|OP|) = 47.9 deg
-  \begin{axis}[
-      view={125}{20},
-      width=11cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.8pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\LARGE},
-      ticks=none,
-      xmin=0, xmax=1.6, ymin=0, ymax=1.75, zmin=0, zmax=1.95,
-      clip=false,
-    ]
-    % rho segment
-    \draw[oivermillion, line width=1.8pt]
-      (axis cs:0,0,0) -- (axis cs:1.15,1.2,1.5);
-    % projection
-    \draw[black!60, dashed, line width=0.9pt]
-      (axis cs:0,0,0) -- (axis cs:1.15,1.2,0)
-      (axis cs:1.15,1.2,0) -- (axis cs:1.15,1.2,1.5);
-    % angle theta in the xy-plane: a circular arc of radius 0.62 from the x-axis to the projection
-    \addplot3[oipurple, line width=1.3pt, -{Latex[length=2.4mm]}, domain=0:1, samples=30, samples y=0]
-      ({0.62*cos(46.2*x)}, {0.62*sin(46.2*x)}, {0});
-    % angle phi from the z-axis: a circular arc of radius 1.25 from the z-axis to the segment
-    \addplot3[oiblue, line width=1.3pt, -{Latex[length=2.4mm]}, domain=0:1, samples=30, samples y=0]
-      ({1.25*sin(47.9*x)*cos(46.2)}, {1.25*sin(47.9*x)*sin(46.2)}, {1.25*cos(47.9*x)});
-    % point
-    \addplot3[only marks, mark=*, mark size=2.2pt, color=oivermillion,
-        forget plot] coordinates {(1.15,1.2,1.5)};
-    % labels
-    \node[oivermillion, anchor=south west, font=\LARGE, xshift=2pt]
-      at (axis cs:1.15,1.2,1.5) {$P(\rho,\theta,\phi)$};
-    \node[oivermillion, anchor=north west, font=\LARGE]
-      at (axis cs:0.75,0.78,0.95) {$\rho$};
-    \node[oipurple, font=\LARGE]
-      at (axis cs:{0.9*cos(23.1)},{0.9*sin(23.1)},0) {$\theta$};
-    \node[oiblue, font=\LARGE, xshift=1pt]
-      at (axis cs:{0.88*sin(25)*cos(46.2)},{0.88*sin(25)*sin(46.2)},{0.88*cos(25)}) {$\phi$};
-    \node[anchor=south east, font=\LARGE, xshift=-1pt] at (axis cs:0,0,0) {$O$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// A point P(rho, theta, phi) in spherical coordinates.
+// P = (1.15, 1.2, 1.5): theta0 = atan(1.2/1.15) = 46.2 deg, phi0 = acos(1.5/|OP|) = 47.9 deg
+import graph3;
+
+size(11cm);
+// Same viewpoint as the pgfplots figure (view={125}{20}).
+currentprojection = orthographic((0.7698, 0.539, 0.342));
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+
+triple P = (1.15, 1.2, 1.5);
+triple Pxy = (P.x, P.y, 0);
+real theta0 = atan2(P.y, P.x);
+real phi0 = acos(P.z/abs(P));
+
+// axes
+pen axispen = gray(0.25) + linewidth(0.8pt);
+draw(Label("$x$", EndPoint, fontsize(20pt)), O--1.6X,  axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(20pt)), O--1.75Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(20pt)), O--1.95Z, axispen, Arrow3(size=8));
+
+// the planes of the two angles, lightly shaded
+triple thetapt(pair t) { return t.y*(cos(t.x), sin(t.x), 0); }
+triple phipt(pair t) {
+  return t.y*(sin(t.x)*cos(theta0), sin(t.x)*sin(theta0), cos(t.x));
+}
+draw(surface(thetapt, (0, 0), (theta0, 0.62), 8, 1, Spline),
+     0.3*oipurple + 0.7*white + opacity(0.5), light=nolight);
+draw(surface(phipt, (0, 0), (phi0, 1.25), 8, 1, Spline),
+     0.25*oiblue + 0.75*white + opacity(0.5), light=nolight);
+
+// projection
+pen dashpen = gray(0.4) + linewidth(0.9pt) + dashed;
+draw(O--Pxy, dashpen);
+draw(Pxy--P, dashpen);
+
+// angle theta in the xy-plane: an arc of radius 0.62 from the x-axis to the projection
+draw(arc(O, 0.62X, 0.62*unit(Pxy)), oipurple + linewidth(1.3pt), Arrow3(size=7));
+// angle phi from the z-axis: an arc of radius 1.25 from the z-axis to the segment
+draw(arc(O, 1.25Z, 1.25*unit(P)), oiblue + linewidth(1.3pt), Arrow3(size=7));
+
+// rho segment and the point
+draw(O--P, oivermillion + linewidth(1.8pt));
+dot(P, oivermillion + linewidth(6pt));
+
+// labels
+label("$P(\rho,\theta,\phi)$", P, 2NE, oivermillion + fontsize(20pt));
+label("$\rho$", 0.4*P, 1.5E, oivermillion + fontsize(20pt));
+label("$\theta$", 0.9*(cos(theta0/2), sin(theta0/2), 0), oipurple + fontsize(20pt));
+label("$\phi$", 0.88*(sin(phi0/2)*cos(theta0), sin(phi0/2)*sin(theta0), cos(phi0/2)),
+      oiblue + fontsize(20pt));
+label("$O$", O, NW, fontsize(20pt));
+
+// keep the z label inside the frame
+dot((0, 0, 2.2), invisible);
+]]>
+</asymptote>
 </image>
 </figure>
 

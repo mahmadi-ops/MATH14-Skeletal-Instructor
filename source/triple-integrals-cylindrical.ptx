@@ -30,6 +30,13 @@
 <!-- equations x^2 + y^2 = 1 and z = 1 - x^2 - y^2 instead of their        -->
 <!-- cylindrical forms, which were answers, and z = 4 is moved off the     -->
 <!-- axis.                                                                 -->
+<!--                                                                       -->
+<!-- Asymptote (Oct 2026): the coordinate diagram and the solid of Example -->
+<!-- I (fig-cylindrical-point-tikz, fig-cylindrical-solid-tikz) are drawn  -->
+<!-- in Asymptote, as in the completed notes: to scale and rotatable on    -->
+<!-- the web page, with the angle theta lightly shaded. The solid keeps    -->
+<!-- the given equations as its labels, as above. The TikZ originals are   -->
+<!-- kept in retired-figures.txt.                                          -->
 <section xml:id="section-triple-integrals-cylindrical" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Triple Integrals in Cylindrical Coordinates</title>
 
@@ -88,54 +95,58 @@ plane. A segment of length r runs from the origin to the projection of
 P in the x y plane, making an angle theta with the positive x axis,
 and a vertical segment of length z connects the projection to P.
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oipurple}{RGB}{204,121,167}
-  \begin{axis}[
-      view={125}{20},
-      width=11cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=0, xmax=2.1, ymin=0, ymax=2.3, zmin=0, zmax=2.1,
-      clip=false,
-    ]
-    % projection segment r
-    \draw[oivermillion, line width=1.4pt]
-      (axis cs:0,0,0) -- (axis cs:1.3,1.35,0);
-    % vertical segment z
-    \draw[oiblue, line width=1.4pt]
-      (axis cs:1.3,1.35,0) -- (axis cs:1.3,1.35,1.55);
-    % angle arc theta
-    \draw[oipurple, line width=1.0pt, -{Latex[length=1.6mm]}]
-      (axis cs:0.5,0,0) .. controls (axis cs:0.5,0.26,0) ..
-      (axis cs:0.35,0.36,0);
-    % points
-    \addplot3[only marks, mark=*, mark size=1.7pt, color=oiblue,
-        forget plot] coordinates {(1.3,1.35,1.55)};
-    \addplot3[only marks, mark=*, mark size=1.4pt, color=black,
-        forget plot] coordinates {(1.3,1.35,0)};
-    % labels
-    \node[oiblue, anchor=south, font=\small]
-      at (axis cs:1.3,1.35,1.62) {$P(r,\theta,z)$};
-    \node[anchor=north, font=\small] at (axis cs:1.34,1.42,-0.1)
-      {$(r,\theta,0)$};
-    \node[oivermillion, anchor=north east, font=\small]
-      at (axis cs:0.72,0.6,-0.02) {$r$};
-    \node[oiblue, anchor=west, font=\small]
-      at (axis cs:1.32,1.42,0.75) {$z$};
-    \node[oipurple, anchor=west, font=\small]
-      at (axis cs:0.58,0.2,0.08) {$\theta$};
-    \node[anchor=south east, font=\small] at (axis cs:0.0,-0.05,0.02)
-      {$O$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// A point P(r, theta, z) in cylindrical coordinates.
+// P = (1.3, 1.35, 1.55): its projection (r, theta, 0) is (1.3, 1.35, 0).
+import graph3;
+
+size(11cm);
+// Same viewpoint as the pgfplots figure (view={125}{20}).
+currentprojection = orthographic((0.7698, 0.539, 0.342));
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+
+triple P = (1.3, 1.35, 1.55);
+triple Pxy = (P.x, P.y, 0);
+real theta0 = atan2(P.y, P.x);
+
+// axes
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(16pt)), O--2.1X, axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(16pt)), O--2.3Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(16pt)), O--2.1Z, axispen, Arrow3(size=8));
+
+// the angle theta in the xy-plane, lightly shaded
+triple thetapt(pair t) { return t.y*(cos(t.x), sin(t.x), 0); }
+draw(surface(thetapt, (0, 0), (theta0, 0.5), 8, 1, Spline),
+     0.3*oipurple + 0.7*white + opacity(0.5), light=nolight);
+draw(arc(O, 0.5X, 0.5*unit(Pxy)), oipurple + linewidth(1.0pt), Arrow3(size=6));
+
+// projection segment r and vertical segment z
+draw(O--Pxy, oivermillion + linewidth(1.4pt));
+draw(Pxy--P, oiblue + linewidth(1.4pt));
+
+// points
+dot(P, oiblue + linewidth(5pt));
+dot(Pxy, linewidth(4pt));
+
+// labels
+label("$P(r,\theta,z)$", P, 2N, oiblue + fontsize(14pt));
+label("$(r,\theta,0)$", Pxy, 2S, fontsize(14pt));
+label("$r$", 0.55*Pxy, 1.5SW, oivermillion + fontsize(14pt));
+label("$z$", (P.x, P.y, P.z/2), 1.5E, oiblue + fontsize(14pt));
+label("$\theta$", 0.75*(cos(theta0/2), sin(theta0/2), 0), oipurple + fontsize(14pt));
+label("$O$", O, NW, fontsize(14pt));
+
+// keep the z label inside the frame
+dot((0, 0, 2.35), invisible);
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -296,74 +307,71 @@ Inside the bottom of the cylinder, the paraboloid z equals one minus x
 squared minus y squared forms a dome shaped floor that touches the point zero zero one
 on the z axis and meets the cylinder wall at the x y plane.
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \begin{axis}[
-      view={125}{16},
-      width=10.5cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.4, xmax=1.7, ymin=-1.4, ymax=1.8, zmin=0, zmax=4.9,
-      clip=false,
-    ]
-    % ---- paraboloid floor z = 1 - r^2 ----
-    \addplot3[surf, shader=faceted, faceted color=black!40,
-              point meta={z},
-              colormap={softp}{color=(oivermillion!15!white) color=(oivermillion!45!white)},
-              opacity=0.55, fill opacity=0.55,
-              domain=0:360, samples=31,
-              y domain=0:1, samples y=9,
-              z buffer=sort, forget plot]
-      ({y*cos(x)}, {y*sin(x)}, {1 - y^2});
-    % ---- cylinder wall ----
-    \addplot3[surf, shader=interp,
-              colormap={softc}{color=(oiblue!8!white) color=(oiblue!32!white)},
-              opacity=0.32, fill opacity=0.32,
-              domain=0:360, samples=49,
-              y domain=0:1, samples y=2,
-              z buffer=sort, forget plot]
-      ({cos(x)}, {sin(x)}, {y*4});
-    % ---- top cap z = 4 ----
-    \fill[oiblue, opacity=0.30]
-      (axis cs:1,0,4)
-      \foreach \a in {10,20,...,350} { -- (axis cs:{cos(\a)},{sin(\a)},4) }
-      -- cycle;
-    \addplot3[oiblue, line width=1.2pt, domain=0:360, samples=73,
-        samples y=0, forget plot]
-      ({cos(x)}, {sin(x)}, 4);
-    % base circle
-    \addplot3[oiblue, line width=1.0pt, dashed, domain=0:360,
-        samples=73, samples y=0, forget plot]
-      ({cos(x)}, {sin(x)}, 0);
-    % axis dashed
-    \draw[black!55, dashed, line width=0.7pt]
-      (axis cs:0,0,1) -- (axis cs:0,0,4);
-    % points and labels
-    \addplot3[only marks, mark=*, mark size=1.5pt, color=black,
-        forget plot] coordinates {(0,0,4) (0,0,1) (1,0,0)};
-    \node[anchor=west, font=\small] at (axis cs:0.07,0.07,4.18)
-      {$(0,0,4)$};
-    \node[anchor=west, font=\small] at (axis cs:0.1,0.12,1.18)
-      {$(0,0,1)$};
-    \node[anchor=north, font=\small] at (axis cs:1.12,0,-0.12)
-      {$(1,0,0)$};
-    \node[oiblue, font=\small, anchor=east] at (axis cs:0.62,-0.95,4.0)
-      {$z = 4$};
-    \draw[oivermillion, line width=0.5pt]
-      (axis cs:0.45,-0.45,0.62) -- (axis cs:0.95,-1.3,1.3);
-    \node[oivermillion, font=\small, anchor=east]
-      at (axis cs:0.95,-1.3,1.3) {$z = 1 - x^2 - y^2$};
-    \node[oiblue, font=\small, anchor=west]
-      at (axis cs:0.1,1.15,2.6) {$x^2 + y^2 = 1$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The solid inside the cylinder x^2 + y^2 = 1, above the paraboloid
+// z = 1 - x^2 - y^2 and below the plane z = 4.  (Labelled with the given
+// equations: their cylindrical forms are what the student finds.)
+import graph3;
+
+size(10.5cm);
+// Same viewpoint as the pgfplots figure (view={125}{16}).
+currentprojection = orthographic((0.7874, 0.5514, 0.2756));
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+
+// paraboloid floor z = 1 - x^2 - y^2 (param: radius, angle; normal points up)
+triple floorpt(pair t) { return (t.x*cos(t.y), t.x*sin(t.y), 1 - t.x^2); }
+// cylinder wall x^2 + y^2 = 1, z from 0 to 4 (param: angle, z; normal points out)
+triple wallpt(pair t) { return (cos(t.x), sin(t.x), t.y); }
+// top cap z = 4 (param: radius, angle; normal points up)
+triple cappt(pair t) { return (t.x*cos(t.y), t.x*sin(t.y), 4); }
+
+draw(surface(floorpt, (0, 0), (1, 2pi), 4, 16, Spline),
+     surfacepen=material(0.5*oivermillion + 0.5*white + opacity(0.75),
+                         emissivepen=0.35*oivermillion, specularpen=gray(0.05)),
+     meshpen=gray(0.3) + linewidth(0.3pt) + opacity(0.4));
+draw(surface(wallpt, (0, 0), (2pi, 4), 16, 1, Spline),
+     surfacepen=material(0.5*oiblue + 0.5*white + opacity(0.3),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+draw(surface(cappt, (0, 0), (1, 2pi), 1, 16, Spline),
+     surfacepen=material(0.5*oiblue + 0.5*white + opacity(0.35),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+
+// rim of the top cap, and the base circle (dashed)
+draw(circle((0, 0, 4), 1), oiblue + linewidth(1.2pt));
+draw(circle(O, 1), oiblue + linewidth(1.0pt) + dashed);
+
+// axes
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(20pt)), (-1.4, 0, 0)--(2.0, 0, 0), axispen,
+     Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(20pt)), (0, -1.4, 0)--(0, 1.8, 0), axispen,
+     Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(20pt)), O--(0, 0, 4.9), axispen, Arrow3(size=8));
+
+// the axis of the solid, dashed, from the floor to the top
+draw((0, 0, 1)--(0, 0, 4), gray(0.35) + linewidth(0.7pt) + dashed);
+
+// points and labels
+dot((0, 0, 4), linewidth(4pt));
+dot((0, 0, 1), linewidth(4pt));
+dot((1, 0, 0), linewidth(4pt));
+label("$(0,0,4)$", (0, 0, 4), 1.5E + 0.5N, fontsize(17pt));
+label("$(0,0,1)$", (0, 0, 1), 1.5E + 0.5N, fontsize(17pt));
+label("$(1,0,0)$", (1, 0, 0), 2S + 2E, fontsize(17pt));
+// screen-left on the rim of the top cap is the direction (0.574, -0.819, 0)
+label("$z = 4$", (0.574, -0.819, 4), 2W, oiblue + fontsize(17pt));
+label("$z = 1 - x^2 - y^2$", (-0.574, 0.819, 0.6), 3E, oivermillion + fontsize(17pt));
+label("$x^2 + y^2 = 1$", (-0.574, 0.819, 2.6), 3E, oiblue + fontsize(17pt));
+
+// keep the z label inside the frame
+dot((0, 0, 5.2), invisible);
+]]>
+</asymptote>
 </image>
 </figure>
 

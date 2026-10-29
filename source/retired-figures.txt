@@ -451,3 +451,247 @@ theta, and dashed lines connect it to the origin and the z axis.
 </latex-image>
 </image>
 </figure>
+
+
+Figures retired from source/triple-integrals-spherical.ptx (2026-10-29).
+
+The TikZ/pgfplots figure below was redrawn in Asymptote under the
+same xml:ids, captions and descriptions: true proportions, shaded
+surfaces with proper hiding, and a figure the reader can rotate on the
+web page.  To restore it, paste it back into the section file in place
+of the figure with the same xml:id.
+
+<figure xml:id="fig-spherical-point-tikz">
+<caption>
+A point <m>P(\rho,\theta,\phi)</m> in spherical coordinates:
+<m>\rho</m> is the distance from the origin, <m>\theta</m> is the
+usual polar angle of the projection into the <m>xy</m>-plane, and
+<m>\phi</m> is the angle between <m>\overrightarrow{OP}</m> and the
+positive <m>z</m>-axis.
+</caption>
+<image width="60%">
+<shortdescription>
+A point in space located by a distance from the origin and two angles.
+</shortdescription>
+<description>
+Three coordinate axes in space. A segment of length rho runs from the
+origin to a point P above the x y plane. The angle phi is marked
+between the positive z axis and the segment, and the angle theta is
+marked in the x y plane between the positive x axis and the dashed
+projection of the segment. A dashed vertical line connects P to its
+projection.
+</description>
+<latex-image>
+<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  % Okabe-Ito colorblind-safe palette
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oivermillion}{RGB}{213,94,0}
+  \definecolor{oipurple}{RGB}{204,121,167}
+  % P = (1.15, 1.2, 1.5): theta0 = atan(1.2/1.15) = 46.2 deg, phi0 = acos(1.5/|OP|) = 47.9 deg
+  \begin{axis}[
+      view={125}{20},
+      width=11cm,
+      axis lines=center,
+      axis line style={-latex, black!75, line width=0.8pt},
+      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+      label style={font=\LARGE},
+      ticks=none,
+      xmin=0, xmax=1.6, ymin=0, ymax=1.75, zmin=0, zmax=1.95,
+      clip=false,
+    ]
+    % rho segment
+    \draw[oivermillion, line width=1.8pt]
+      (axis cs:0,0,0) -- (axis cs:1.15,1.2,1.5);
+    % projection
+    \draw[black!60, dashed, line width=0.9pt]
+      (axis cs:0,0,0) -- (axis cs:1.15,1.2,0)
+      (axis cs:1.15,1.2,0) -- (axis cs:1.15,1.2,1.5);
+    % angle theta in the xy-plane: a circular arc of radius 0.62 from the x-axis to the projection
+    \addplot3[oipurple, line width=1.3pt, -{Latex[length=2.4mm]}, domain=0:1, samples=30, samples y=0]
+      ({0.62*cos(46.2*x)}, {0.62*sin(46.2*x)}, {0});
+    % angle phi from the z-axis: a circular arc of radius 1.25 from the z-axis to the segment
+    \addplot3[oiblue, line width=1.3pt, -{Latex[length=2.4mm]}, domain=0:1, samples=30, samples y=0]
+      ({1.25*sin(47.9*x)*cos(46.2)}, {1.25*sin(47.9*x)*sin(46.2)}, {1.25*cos(47.9*x)});
+    % point
+    \addplot3[only marks, mark=*, mark size=2.2pt, color=oivermillion,
+        forget plot] coordinates {(1.15,1.2,1.5)};
+    % labels
+    \node[oivermillion, anchor=south west, font=\LARGE, xshift=2pt]
+      at (axis cs:1.15,1.2,1.5) {$P(\rho,\theta,\phi)$};
+    \node[oivermillion, anchor=north west, font=\LARGE]
+      at (axis cs:0.75,0.78,0.95) {$\rho$};
+    \node[oipurple, font=\LARGE]
+      at (axis cs:{0.9*cos(23.1)},{0.9*sin(23.1)},0) {$\theta$};
+    \node[oiblue, font=\LARGE, xshift=1pt]
+      at (axis cs:{0.88*sin(25)*cos(46.2)},{0.88*sin(25)*sin(46.2)},{0.88*cos(25)}) {$\phi$};
+    \node[anchor=south east, font=\LARGE, xshift=-1pt] at (axis cs:0,0,0) {$O$};
+  \end{axis}
+\end{tikzpicture}]]>
+</latex-image>
+</image>
+</figure>
+
+
+Figures retired from source/triple-integrals-cylindrical.ptx (2026-10-29).
+
+The two TikZ/pgfplots figures below were redrawn in Asymptote under the
+same xml:ids, captions and descriptions: true proportions, shaded
+surfaces with proper hiding, and a figure the reader can rotate on the
+web page.  To restore one, paste it back into the section file in place
+of the figure with the same xml:id.
+
+<figure xml:id="fig-cylindrical-point-tikz">
+<caption>
+A point <m>P(r,\theta,z)</m> in cylindrical coordinates:
+<m>(r,\theta)</m> are the polar coordinates of its projection
+<m>(r,\theta,0)</m> into the <m>xy</m>-plane, and <m>z</m> is its
+usual height.
+</caption>
+<image width="80%">
+<shortdescription>
+A point in space located by a radius in the plane, an angle, and a height.
+</shortdescription>
+<description>
+Three coordinate axes in space. A point P is shown above the x y
+plane. A segment of length r runs from the origin to the projection of
+P in the x y plane, making an angle theta with the positive x axis,
+and a vertical segment of length z connects the projection to P.
+</description>
+<latex-image>
+<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  % Okabe-Ito colorblind-safe palette
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oivermillion}{RGB}{213,94,0}
+  \definecolor{oipurple}{RGB}{204,121,167}
+  \begin{axis}[
+      view={125}{20},
+      width=11cm,
+      axis lines=center,
+      axis line style={-latex, black!75, line width=0.7pt},
+      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+      label style={font=\large},
+      ticks=none,
+      xmin=0, xmax=2.1, ymin=0, ymax=2.3, zmin=0, zmax=2.1,
+      clip=false,
+    ]
+    % projection segment r
+    \draw[oivermillion, line width=1.4pt]
+      (axis cs:0,0,0) -- (axis cs:1.3,1.35,0);
+    % vertical segment z
+    \draw[oiblue, line width=1.4pt]
+      (axis cs:1.3,1.35,0) -- (axis cs:1.3,1.35,1.55);
+    % angle arc theta
+    \draw[oipurple, line width=1.0pt, -{Latex[length=1.6mm]}]
+      (axis cs:0.5,0,0) .. controls (axis cs:0.5,0.26,0) ..
+      (axis cs:0.35,0.36,0);
+    % points
+    \addplot3[only marks, mark=*, mark size=1.7pt, color=oiblue,
+        forget plot] coordinates {(1.3,1.35,1.55)};
+    \addplot3[only marks, mark=*, mark size=1.4pt, color=black,
+        forget plot] coordinates {(1.3,1.35,0)};
+    % labels
+    \node[oiblue, anchor=south, font=\small]
+      at (axis cs:1.3,1.35,1.62) {$P(r,\theta,z)$};
+    \node[anchor=north, font=\small] at (axis cs:1.34,1.42,-0.1)
+      {$(r,\theta,0)$};
+    \node[oivermillion, anchor=north east, font=\small]
+      at (axis cs:0.72,0.6,-0.02) {$r$};
+    \node[oiblue, anchor=west, font=\small]
+      at (axis cs:1.32,1.42,0.75) {$z$};
+    \node[oipurple, anchor=west, font=\small]
+      at (axis cs:0.58,0.2,0.08) {$\theta$};
+    \node[anchor=south east, font=\small] at (axis cs:0.0,-0.05,0.02)
+      {$O$};
+  \end{axis}
+\end{tikzpicture}]]>
+</latex-image>
+</image>
+</figure>
+
+<figure xml:id="fig-cylindrical-solid-tikz">
+<caption>
+The solid of <xref ref="example-cylindrical-mass"/>: inside the
+cylinder <m>x^2+y^2 = 1</m>, above the paraboloid
+<m>z = 1 - x^2 - y^2</m>, and below the plane <m>z = 4</m>.
+</caption>
+<image width="60%">
+<shortdescription>
+A vertical cylinder with a flat top and a dome-shaped paraboloid floor.
+</shortdescription>
+<description>
+Three coordinate axes in space with a vertical circular cylinder of
+radius one about the z axis, capped by the plane z equals four on top.
+Inside the bottom of the cylinder, the paraboloid z equals one minus x
+squared minus y squared forms a dome shaped floor that touches the point zero zero one
+on the z axis and meets the cylinder wall at the x y plane.
+</description>
+<latex-image>
+<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+  % Okabe-Ito colorblind-safe palette
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oivermillion}{RGB}{213,94,0}
+  \begin{axis}[
+      view={125}{16},
+      width=10.5cm,
+      axis lines=center,
+      axis line style={-latex, black!75, line width=0.7pt},
+      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+      label style={font=\large},
+      ticks=none,
+      xmin=-1.4, xmax=1.7, ymin=-1.4, ymax=1.8, zmin=0, zmax=4.9,
+      clip=false,
+    ]
+    % ---- paraboloid floor z = 1 - r^2 ----
+    \addplot3[surf, shader=faceted, faceted color=black!40,
+              point meta={z},
+              colormap={softp}{color=(oivermillion!15!white) color=(oivermillion!45!white)},
+              opacity=0.55, fill opacity=0.55,
+              domain=0:360, samples=31,
+              y domain=0:1, samples y=9,
+              z buffer=sort, forget plot]
+      ({y*cos(x)}, {y*sin(x)}, {1 - y^2});
+    % ---- cylinder wall ----
+    \addplot3[surf, shader=interp,
+              colormap={softc}{color=(oiblue!8!white) color=(oiblue!32!white)},
+              opacity=0.32, fill opacity=0.32,
+              domain=0:360, samples=49,
+              y domain=0:1, samples y=2,
+              z buffer=sort, forget plot]
+      ({cos(x)}, {sin(x)}, {y*4});
+    % ---- top cap z = 4 ----
+    \fill[oiblue, opacity=0.30]
+      (axis cs:1,0,4)
+      \foreach \a in {10,20,...,350} { -- (axis cs:{cos(\a)},{sin(\a)},4) }
+      -- cycle;
+    \addplot3[oiblue, line width=1.2pt, domain=0:360, samples=73,
+        samples y=0, forget plot]
+      ({cos(x)}, {sin(x)}, 4);
+    % base circle
+    \addplot3[oiblue, line width=1.0pt, dashed, domain=0:360,
+        samples=73, samples y=0, forget plot]
+      ({cos(x)}, {sin(x)}, 0);
+    % axis dashed
+    \draw[black!55, dashed, line width=0.7pt]
+      (axis cs:0,0,1) -- (axis cs:0,0,4);
+    % points and labels
+    \addplot3[only marks, mark=*, mark size=1.5pt, color=black,
+        forget plot] coordinates {(0,0,4) (0,0,1) (1,0,0)};
+    \node[anchor=west, font=\small] at (axis cs:0.07,0.07,4.18)
+      {$(0,0,4)$};
+    \node[anchor=west, font=\small] at (axis cs:0.1,0.12,1.18)
+      {$(0,0,1)$};
+    \node[anchor=north, font=\small] at (axis cs:1.12,0,-0.12)
+      {$(1,0,0)$};
+    \node[oiblue, font=\small, anchor=east] at (axis cs:0.62,-0.95,4.0)
+      {$z = 4$};
+    \draw[oivermillion, line width=0.5pt]
+      (axis cs:0.45,-0.45,0.62) -- (axis cs:0.95,-1.3,1.3);
+    \node[oivermillion, font=\small, anchor=east]
+      at (axis cs:0.95,-1.3,1.3) {$z = 1 - x^2 - y^2$};
+    \node[oiblue, font=\small, anchor=west]
+      at (axis cs:0.1,1.15,2.6) {$x^2 + y^2 = 1$};
+  \end{axis}
+\end{tikzpicture}]]>
+</latex-image>
+</image>
+</figure>
