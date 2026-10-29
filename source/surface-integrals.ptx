@@ -43,6 +43,14 @@
 <!-- Its SKELETAL switch is on here: the normal is shown only as the unit  -->
 <!-- normal n-hat, and neither r_phi x r_theta nor the area of the patch   -->
 <!-- is named, since both are blanks in the text.                         -->
+<!--                                                                       -->
+<!-- Asymptote (Oct 2026): the plate in a flow, the sphere patch, the      -->
+<!-- cylinder with its two normals and the paraboloid cap and disk         -->
+<!-- (fig-flux-plate, fig-sphere-patch, fig-cylinder-normals,              -->
+<!-- fig-paraboloid-flux) are drawn in Asymptote, as in the completed      -->
+<!-- notes: to scale and rotatable on the web page. The unit normal of the -->
+<!-- sphere patch is magenta and n2 of the cylinder orange (no green). The -->
+<!-- TikZ originals are kept in retired-figures.txt.                       -->
 <section xml:id="section-surface-integrals" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Surface Integrals: Flux Through a Surface</title>
 
@@ -107,49 +115,50 @@ and to the right. A magenta arrow <m>\mathbf{n}</m>, normal to the
 plate, makes an angle <m>\theta</m> with the velocity arrows.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oimagenta}{RGB}{204,0,119}
-  \begin{axis}[
-      view={115}{18},
-      width=11.5cm,
-      axis lines=none,
-      axis equal image,
-      xmin=-2.2, xmax=2.6, ymin=-2.6, ymax=3.2, zmin=-1.4, zmax=2.6,
-      clip=false,
-    ]
-    % uniform flow arrows (direction (0,1,0.35), normalized-ish)
-    \foreach \xx/\zz in {-1.4/-0.9, -1.4/0.1, -1.4/1.1, 0/-0.9, 0/0.1,
-                         0/1.1, 1.4/-0.9, 1.4/0.1, 1.4/1.1}{
-      \edef\tmp{\noexpand\draw[-latex, black!35, line width=0.9pt]
-        (axis cs:\zz,-2.2,\xx) -- (axis cs:\zz,-0.9,{\xx+0.45});}\tmp
-      \edef\tmp{\noexpand\draw[-latex, black!35, line width=0.9pt]
-        (axis cs:\zz,0.6,{\xx+0.55}) -- (axis cs:\zz,1.9,{\xx+1.0});}\tmp}
-    % the plate: a parallelogram with normal in the y-z plane, tilted
-    % plate spanned by u=(1,0,0) and w=(0,0.5,0.9)(scaled)
-    \fill[oiblue!35, draw=oiblue, line width=1.2pt, fill opacity=0.75]
-      (axis cs:-1.1,-0.7,0.6) -- (axis cs:1.1,-0.7,0.6)
-      -- (axis cs:1.1,0.7,-0.6) -- (axis cs:-1.1,0.7,-0.6) -- cycle;
-    \node[lbl, font=\large, text=oiblue] at (axis cs:-0.7,-0.35,0.35) {$S$};
-    % normal vector at the plate center (n ~ (0, 0.65, 0.76))
-    \draw[-latex, oimagenta, line width=1.6pt]
-      (axis cs:0,0,0) -- (axis cs:0,0.85,0.99);
-    \node[lbl, font=\normalsize, text=oimagenta, anchor=south]
-      at (axis cs:0,0.9,1.05) {$\mathbf{n} = \hat{\mathbf{n}}\,A$};
-    % one bold velocity arrow from plate center (direction (0,1,0.35))
-    \draw[-latex, black!75, line width=1.6pt]
-      (axis cs:0,0,0) -- (axis cs:0,1.3,0.455);
-    \node[lbl, font=\normalsize, anchor=west]
-      at (axis cs:0,1.35,0.45) {$\mathbf{v}_0$};
-    % angle arc between n and v0 (both start at plate center)
-    \draw[black!60, line width=0.8pt]
-      (axis cs:0,0.36,0.42) to[bend left=25] (axis cs:0,0.55,0.19);
-    \node[lbl, font=\small] at (axis cs:0,0.58,0.42) {$\theta$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// A tilted plate S of area A in a uniform flow v0, with its normal n and
+// the angle theta between n and v0.
+import graph3;
+
+size(11.5cm);
+// Same viewpoint as the pgfplots figure (view={115}{18}).
+currentprojection = orthographic((0.8619, 0.4019, 0.309));
+currentlight = Headlamp;
+currentlight.background = white;
+
+pen oiblue    = rgb(0/255, 114/255, 178/255);
+pen oimagenta = rgb(204/255, 0/255, 119/255);
+
+// uniform flow: parallel gray arrows in the direction (0, 1, 0.35)
+pen flowpen = gray(0.65) + linewidth(0.9pt);
+for (real xx : new real[] {-0.9, 0.1, 1.1}) {
+  for (real zz : new real[] {-1.4, 0, 1.4}) {
+    draw((xx, -2.2, zz)--(xx, -0.9, zz + 0.45), flowpen, Arrow3(size=6));
+    draw((xx, 0.6, zz + 0.55)--(xx, 1.9, zz + 1.0), flowpen, Arrow3(size=6));
+  }
+}
+
+// the plate: a parallelogram whose normal lies in the y-z plane
+path3 plate = (-1.1, -0.7, 0.6)--(1.1, -0.7, 0.6)--(1.1, 0.7, -0.6)--(-1.1, 0.7, -0.6)--cycle;
+draw(surface(plate), surfacepen=material(0.45*oiblue + 0.55*white + opacity(0.75),
+                                         emissivepen=0.3*oiblue,
+                                         specularpen=gray(0.05)));
+draw(plate, oiblue + linewidth(1.2pt));
+triple toviewer = 0.08*unit((0.8619, 0.4019, 0.309));
+label("$S$", (-0.7, -0.35, 0.35) + toviewer, oiblue + fontsize(18pt));
+
+// the normal n and the velocity v0 at the center of the plate
+triple n = (0, 0.85, 0.99), v = (0, 1.3, 0.455);
+draw(O--n, oimagenta + linewidth(1.6pt), Arrow3(size=9));
+label("$\mathbf{n} = \hat{\mathbf{n}}\,A$", n, 1.2N, oimagenta + fontsize(15pt));
+draw(O--v, gray(0.15) + linewidth(1.6pt), Arrow3(size=9));
+label("$\mathbf{v}_0$", v, E, fontsize(15pt));
+
+// the angle theta between them
+draw(arc(O, 0.56*unit(n), 0.56*unit(v)), gray(0.35) + linewidth(0.8pt));
+label("$\theta$", 0.78*unit(unit(n) + unit(v)), fontsize(14pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -322,73 +331,78 @@ A wireframe octant of the unit sphere. At a point
 vector <m>\mathbf{r}_\theta</m> points east along a parallel, a red
 tangent vector <m>\mathbf{r}_\phi</m> points south along a
 meridian, a small shaded patch <m>\Delta\sigma</m> lies between them,
-and a green arrow <m>\hat{\mathbf{n}}</m> points radially outward,
+and a magenta arrow <m>\hat{\mathbf{n}}</m> points radially outward,
 perpendicular to both.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={115}{18},
-      width=12cm,
-      axis lines=center,
-      axis equal image,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=0, xmax=1.5, ymin=0, ymax=1.5, zmin=0, zmax=1.35,
-      clip=false,
-    ]
-    % wireframe octant of the unit sphere
-    \foreach \pp in {10,20,...,80}{
-      \edef\tmp{\noexpand\addplot3[black!30, line width=0.4pt,
-          domain=0:90, samples=37, samples y=0, forget plot]
-        ({sin(\pp)*cos(x)}, {sin(\pp)*sin(x)}, {cos(\pp)});}\tmp}
-    \foreach \tt in {0,15,...,90}{
-      \edef\tmp{\noexpand\addplot3[black!30, line width=0.4pt,
-          domain=0:90, samples=37, samples y=0, forget plot]
-        ({sin(x)*cos(\tt)}, {sin(x)*sin(\tt)}, {cos(x)});}\tmp}
-    % the patch between theta=35..55, phi=45..65 (shaded)
-    \addplot3[surf, shader=flat, color=black!45, opacity=0.5,
-              fill opacity=0.5,
-              domain=35:55, samples=8, y domain=45:65, samples y=8,
-              z buffer=sort, forget plot]
-      ({sin(y)*cos(x)}, {sin(y)*sin(x)}, {cos(y)});
-    % base point at theta=35, phi=45
-    % r = (sin45 cos35, sin45 sin35, cos45) = (0.5792,0.4056,0.7071)
-    \fill[black] (axis cs:0.5792,0.4056,0.7071) circle (1.4pt);
-    % position vector from origin
-    \draw[-latex, black!80, line width=1.1pt]
-      (axis cs:0,0,0) -- (axis cs:0.5792,0.4056,0.7071);
-    \node[lbl, font=\small, anchor=east, xshift=-10pt, text=black!80] at (axis cs:0.29,0.2,0.35) {$\mathbf{r}(\theta,\phi)$};
-    % r_theta = sinphi*(-sin t, cos t, 0) = 0.7071*(-0.5736,0.8192,0)
-    \draw[-latex, oiblue, line width=1.5pt]
-      (axis cs:0.5792,0.4056,0.7071)
-      -- (axis cs:{0.5792-0.45*0.4056},{0.4056+0.45*0.5793},0.7071);
-    \node[lbl, font=\normalsize, text=oiblue, anchor=west]
-      at (axis cs:0.42,0.72,0.72) {$\mathbf{r}_\theta$};
-    % r_phi = (cosphi cos t, cosphi sin t, -sinphi)
-    %       = (0.7071*0.8192, 0.7071*0.5736, -0.7071)
-    \draw[-latex, oivermillion, line width=1.5pt]
-      (axis cs:0.5792,0.4056,0.7071)
-      -- (axis cs:{0.5792+0.45*0.5793},{0.4056+0.45*0.4056},{0.7071-0.45*0.7071});
-    \node[lbl, font=\normalsize, text=oivermillion, anchor=west]
-      at (axis cs:0.85,0.62,0.42) {$\mathbf{r}_\phi$};
-    % outward normal at the point (radial direction)
-    \draw[-latex, oigreen!70!black, line width=1.6pt]
-      (axis cs:0.5792,0.4056,0.7071)
-      -- (axis cs:{0.5792*1.55},{0.4056*1.55},{0.7071*1.55});
-    \node[lbl, font=\normalsize, text=oigreen!70!black, anchor=south west]
-      at (axis cs:0.9,0.63,1.1) {$\hat{\mathbf{n}}$};
-    \node[lbl, font=\small] at (axis cs:0.72,0.62,0.66) {$\Delta\sigma$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// A small coordinate patch on the unit sphere, with the tangent vectors
+// r_theta and r_phi and the outward unit normal n-hat at r(theta, phi).
+import graph3;
+
+size(12cm);
+// Same viewpoint as the pgfplots figure (view={115}{18}).
+currentprojection = orthographic((0.8619, 0.4019, 0.309));
+currentlight = Headlamp;
+currentlight.background = white;
+
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oimagenta    = rgb(204/255, 0/255, 119/255);
+
+// a point of the sphere from (theta, phi), theta from the x-axis and
+// phi from the z-axis
+triple sph(real t, real p) { return (sin(p)*cos(t), sin(p)*sin(t), cos(p)); }
+
+// the octant of the unit sphere, lightly shaded, with its wireframe
+triple octpt(pair q) { return sph(q.y, q.x); }    // param: (phi, theta)
+draw(surface(octpt, (0, 0), (pi/2, pi/2), 6, 6, Spline),
+     surfacepen=material(gray(0.85) + opacity(0.2), emissivepen=gray(0.3),
+                         specularpen=gray(0.05)));
+pen wire = gray(0.65) + linewidth(0.4pt);
+for (int k = 1; k <= 8; ++k) {
+  real p = radians(10k);
+  draw(arc((0, 0, cos(p)), (sin(p), 0, cos(p)), (0, sin(p), cos(p))), wire);
+}
+for (int k = 0; k <= 6; ++k) {
+  real t = radians(15k);
+  draw(arc(O, Z, (cos(t), sin(t), 0)), wire);
+}
+
+// the patch theta in [35, 55] deg, phi in [45, 65] deg
+// drawn a hair outside the sphere so that it does not flicker against it
+triple patchpt(pair q) { return 1.012*sph(q.y, q.x); }  // param: (phi, theta)
+draw(surface(patchpt, (radians(45), radians(35)), (radians(65), radians(55)), 2, 2,
+             Spline),
+     surfacepen=material(gray(0.45) + opacity(0.6), emissivepen=gray(0.2),
+                         specularpen=gray(0.05)));
+
+// the base point r(theta, phi) at theta = 35 deg, phi = 45 deg
+real t0 = radians(35), p0 = radians(45);
+triple r = sph(t0, p0);
+triple rt = sin(p0)*(-sin(t0), cos(t0), 0);            // r_theta
+triple rp = (cos(p0)*cos(t0), cos(p0)*sin(t0), -sin(p0));  // r_phi
+draw(O--r, gray(0.2) + linewidth(1.1pt), Arrow3(size=7));
+dot(r, linewidth(4pt));
+draw(r--r + 0.45*rt, oiblue + linewidth(1.5pt), Arrow3(size=8));
+draw(r--r + 0.45*rp, oivermillion + linewidth(1.5pt), Arrow3(size=8));
+draw(r--1.55*r, oimagenta + linewidth(1.6pt), Arrow3(size=9));
+
+// labels
+label("$\mathbf{r}(\theta,\phi)$", 0.45*r, 2W, fontsize(14pt));
+label("$\mathbf{r}_\theta$", r + 0.45*rt, E, oiblue + fontsize(16pt));
+label("$\mathbf{r}_\phi$", r + 0.45*rp, SE, oivermillion + fontsize(16pt));
+label("$\hat{\mathbf{n}}$", 1.55*r, NE, oimagenta + fontsize(16pt));
+label("$\Delta\sigma$", 1.12*sph(radians(45), radians(55)), fontsize(14pt));
+
+// axes
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(18pt)), O--1.5X, axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), O--1.5Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), O--1.35Z, axispen, Arrow3(size=8));
+dot((0, 0, 1.6), invisible);
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -548,57 +562,57 @@ an inward normal arrow at the same point.
 <p>
 A translucent cylinder of radius one around the <m>z</m>-axis. At a
 point on its curved surface, a magenta arrow <m>\mathbf{n}_1</m>
-points horizontally away from the axis, and a teal arrow
+points horizontally away from the axis, and an orange arrow
 <m>\mathbf{n}_2</m> points from the same point horizontally toward
 the axis.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oimagenta}{RGB}{204,0,119}
-  \definecolor{oiteal}{RGB}{0,158,115}
-  \begin{axis}[
-      view={115}{18},
-      width=9.5cm,
-      axis lines=center,
-      axis equal image,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.6, xmax=2.5, ymin=-2.6, ymax=2.6, zmin=-1.5, zmax=2.3,
-      clip=false,
-    ]
-    % cylinder surface
-    \addplot3[surf, shader=interp,
-              point meta={cos(x)},
-              colormap={softb}{color=(oiblue!10!white) color=(oiblue!38!white)},
-              opacity=0.5, fill opacity=0.5,
-              domain=0:360, samples=49,
-              y domain=-1.2:1.4, samples y=2,
-              z buffer=sort, forget plot]
-      ({cos(x)}, {sin(x)}, {y});
-    % rims
-    \addplot3[oiblue!60, line width=0.8pt, domain=0:360, samples=73,
-        samples y=0, forget plot] ({cos(x)}, {sin(x)}, {1.4});
-    \addplot3[oiblue!60, line width=0.8pt, domain=0:360, samples=73,
-        samples y=0, forget plot] ({cos(x)}, {sin(x)}, {-1.2});
-    % normals at the point (0,1,0.2)
-    \fill[black] (axis cs:0,1,0.2) circle (1.4pt);
-    \draw[-latex, oimagenta, line width=1.6pt]
-      (axis cs:0,1,0.2) -- (axis cs:0,2.0,0.2);
-    \node[lbl, font=\normalsize, text=oimagenta, anchor=south]
-      at (axis cs:0,1.85,0.32) {$\mathbf{n}_1$};
-    \draw[-latex, oiteal!80!black, line width=1.6pt]
-      (axis cs:0,1,0.2) -- (axis cs:0,0.15,0.2);
-    \node[lbl, font=\normalsize, text=oiteal!80!black, anchor=south]
-      at (axis cs:0,0.42,0.34) {$\mathbf{n}_2$};
-    \node[lbl, font=\normalsize, text=oiblue, anchor=east] at (axis cs:0.5,-1.15,0.9) {$x^2+y^2=1$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The cylinder x^2 + y^2 = 1 with its two orientations at one point:
+// n1 away from the z-axis and n2 = -n1 toward it.
+import graph3;
+
+size(9.5cm);
+// Same viewpoint as the pgfplots figure (view={115}{18}).
+currentprojection = orthographic((0.8619, 0.4019, 0.309));
+currentlight = Headlamp;
+currentlight.background = white;
+
+pen oiblue    = rgb(0/255, 114/255, 178/255);
+pen oiorange  = rgb(230/255, 159/255, 0/255);
+pen oimagenta = rgb(204/255, 0/255, 119/255);
+
+// the cylinder, z from -1.2 to 1.4 (param: angle, z; normal points out)
+triple wallpt(pair q) { return (cos(q.x), sin(q.x), q.y); }
+draw(surface(wallpt, (0, -1.2), (2pi, 1.4), 16, 1, Spline),
+     surfacepen=material(0.4*oiblue + 0.6*white + opacity(0.2),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+draw(circle((0, 0, 1.4), 1), 0.6*oiblue + 0.4*white + linewidth(0.8pt));
+draw(circle((0, 0, -1.2), 1), 0.6*oiblue + 0.4*white + linewidth(0.8pt));
+
+// axes
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.6, 0, 0)--(1.6, 0, 0), axispen,
+     Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -2.6, 0)--(0, 2.6, 0), axispen,
+     Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, -1.5)--(0, 0, 1.9), axispen,
+     Arrow3(size=8));
+
+// the two normals at the point (0, 1, 0.2)
+triple P = (0, 1, 0.2);
+dot(P, linewidth(4pt));
+draw(P--(0, 2.0, 0.2), oimagenta + linewidth(1.6pt), Arrow3(size=9));
+label("$\mathbf{n}_1$", (0, 1.85, 0.32), N, oimagenta + fontsize(16pt));
+draw(P--(0, 0.15, 0.2), oiorange + linewidth(1.6pt), Arrow3(size=9));
+label("$\mathbf{n}_2$", (0, 0.42, 0.34), N, 0.75*oiorange + fontsize(16pt));
+
+// the equation, to the left of the cylinder on the page
+label("$x^2+y^2=1$", 1.05*(0.4226, -0.9063, 0) + (0, 0, 0.9), W, oiblue + fontsize(16pt));
+dot((0, 0, 2.15), invisible);
+dot(2.4*(0.4226, -0.9063, 0) + (0, 0, 0.9), invisible);  // room for the equation
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -783,55 +797,62 @@ and magenta arrows below the disk point straight down: together they
 give the closed surface its positive, outward orientation.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oimagenta}{RGB}{204,0,119}
-  \begin{axis}[
-      view={115}{18},
-      width=11.5cm,
-      axis lines=center,
-      axis equal image,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.6, xmax=2.4, ymin=-1.9, ymax=1.9, zmin=-0.7, zmax=1.7,
-      clip=false,
-    ]
-    % paraboloid cap
-    \addplot3[surf, shader=interp,
-              point meta={z},
-              colormap={softb}{color=(oiblue!22!white) color=(oiblue!60!white)},
-              opacity=0.6, fill opacity=0.6,
-              domain=0:360, samples=49,
-              y domain=0:1, samples y=17,
-              z buffer=sort, forget plot]
-      ({y*cos(x)}, {y*sin(x)}, {1 - y^2});
-    % rim
-    \addplot3[oiblue, line width=1.2pt, domain=0:360, samples=73,
-        samples y=0, forget plot] ({cos(x)}, {sin(x)}, {0});
-    % outward normals on the cap: n = (2x, 2y, 1) scaled
-    \foreach \tt in {20,110,200,290}{
-      \edef\tmp{\noexpand\draw[-latex, oimagenta, line width=1.3pt]
-        (axis cs:{0.7*cos(\tt)},{0.7*sin(\tt)},{0.51})
-        -- (axis cs:{0.7*cos(\tt)+0.32*1.4*cos(\tt)},
-            {0.7*sin(\tt)+0.32*1.4*sin(\tt)},{0.51+0.32});}\tmp}
-    % apex normal (straight up)
-    \draw[-latex, oimagenta, line width=1.3pt]
-      (axis cs:0,0,1) -- (axis cs:0,0,1.45);
-    % downward normals under the disk
-    \foreach \tt in {45,165,285}{
-      \edef\tmp{\noexpand\draw[-latex, oimagenta, line width=1.3pt]
-        (axis cs:{0.55*cos(\tt)},{0.55*sin(\tt)},{0})
-        -- (axis cs:{0.55*cos(\tt)},{0.55*sin(\tt)},{-0.5});}\tmp}
-    % labels
-    \node[lbl, font=\normalsize, text=oiblue] at (axis cs:-0.95,-0.8,0.85) {$S_1$};
-    \node[lbl, font=\normalsize] at (axis cs:-0.35,0.5,0.06) {$S_2$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The boundary S of the solid enclosed by z = 1 - x^2 - y^2 and z = 0:
+// the cap S1 with upward-and-outward normals and the disk S2 with
+// downward normals.
+import graph3;
+
+size(11.5cm);
+// Same viewpoint as the pgfplots figure (view={115}{18}).
+currentprojection = orthographic((0.8619, 0.4019, 0.309));
+currentlight = Headlamp;
+currentlight.background = white;
+
+pen oiblue    = rgb(0/255, 114/255, 178/255);
+pen oimagenta = rgb(204/255, 0/255, 119/255);
+
+// the cap S1 (param: radius, angle; normal points up and out)
+triple cappt(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 1 - q.x^2); }
+draw(surface(cappt, (0, 0), (1, 2pi), 4, 16, Spline),
+     surfacepen=material(0.45*oiblue + 0.55*white + opacity(0.5),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+// the disk S2, lightly shaded
+draw(surface(circle(O, 1)), surfacepen=material(gray(0.8) + opacity(0.45),
+                                                emissivepen=gray(0.3),
+                                                specularpen=gray(0.05)));
+draw(circle(O, 1), oiblue + linewidth(1.2pt));
+
+// axes
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.6, 0, 0)--(1.6, 0, 0), axispen,
+     Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -1.9, 0)--(0, 1.9, 0), axispen,
+     Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, -0.7)--(0, 0, 1.7), axispen,
+     Arrow3(size=8));
+
+// outward normals on the cap, n = (2x, 2y, 1), and at the apex
+pen npen = oimagenta + linewidth(1.3pt);
+for (real t : new real[] {20, 110, 200, 290}) {
+  real c = Cos(t), s = Sin(t);
+  triple p = (0.7c, 0.7s, 0.51);
+  draw(p--p + 0.32*(1.4c, 1.4s, 1), npen, Arrow3(size=7));
+}
+draw((0, 0, 1)--(0, 0, 1.45), npen, Arrow3(size=7));
+// downward normals under the disk
+for (real t : new real[] {45, 165, 285}) {
+  triple p = (0.55*Cos(t), 0.55*Sin(t), 0);
+  draw(p--p - (0, 0, 0.5), npen, Arrow3(size=7));
+}
+
+// labels, to the left of the cap and of the disk on the page
+triple left = (0.4226, -0.9063, 0);
+label("$S_1$", 0.85*left + (0, 0, 0.6), W, oiblue + fontsize(17pt));
+label("$S_2$", 1.08*left + (0, 0, -0.12), W, fontsize(17pt));
+dot((0, 0, 1.95), invisible);
+]]>
+</asymptote>
 </image>
 </figure>
 

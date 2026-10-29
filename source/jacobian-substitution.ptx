@@ -37,6 +37,14 @@
 <!-- video. In the skeletal books it runs with SKELETAL = true: neither   -->
 <!-- the substitution nor the Jacobian is named, and the card shows only -->
 <!-- the measured ratio of areas, as the check on the student's Jacobian. -->
+<!--                                                                       -->
+<!-- Asymptote (Oct 2026): the parallelepiped and the ellipsoid            -->
+<!-- (fig-parallelepiped-tikz, fig-ellipsoid-tikz) are drawn in Asymptote, -->
+<!-- as in the completed notes: to scale and rotatable on the web page.    -->
+<!-- The parallelepiped keeps its corner labels and the ellipsoid figure   -->
+<!-- its bare T, as above; the ellipsoid is pink with semi-axes in         -->
+<!-- vermillion, blue and orange (no green). The TikZ originals are kept   -->
+<!-- in retired-figures.txt.                                               -->
 <section xml:id="section-jacobian-substitution" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Substitution in Multiple Integrals and the Jacobian Determinant</title>
 
@@ -733,57 +741,61 @@ top face is the bottom face raised one unit and shifted one unit in
 <m>y</m>.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oicrimson}{RGB}{165,30,55}
-  \begin{axis}[
-      view={115}{18},
-      width=13.5cm, height=7.5cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-0.6, xmax=1.9, ymin=0, ymax=4.9, zmin=0, zmax=1.9,
-      clip=false,
-    ]
-    % ---- faces (translucent) ----
-    % top face z=1: (0,1,1),(1,1,1),(1,4,1),(0,4,1)
-    \fill[oicrimson!14] (axis cs:0,1,1) -- (axis cs:1,1,1)
-      -- (axis cs:1,4,1) -- (axis cs:0,4,1) -- cycle;
-    % front face x=1
-    \fill[oicrimson!8] (axis cs:1,0,0) -- (axis cs:1,3,0)
-      -- (axis cs:1,4,1) -- (axis cs:1,1,1) -- cycle;
-    % near slanted face y-z=0: (0,0,0),(1,0,0),(1,1,1),(0,1,1)
-    \fill[oicrimson!20] (axis cs:0,0,0) -- (axis cs:1,0,0)
-      -- (axis cs:1,1,1) -- (axis cs:0,1,1) -- cycle;
-    % ---- edges ----
-    % bottom face z=0
-    \draw[oicrimson, line width=1.3pt] (axis cs:0,0,0) -- (axis cs:1,0,0)
-      -- (axis cs:1,3,0) -- (axis cs:0,3,0) -- cycle;
-    % top face z=1
-    \draw[oicrimson, line width=1.3pt] (axis cs:0,1,1) -- (axis cs:1,1,1)
-      -- (axis cs:1,4,1) -- (axis cs:0,4,1) -- cycle;
-    % vertical (slanted) edges
-    \draw[oicrimson, line width=1.3pt] (axis cs:0,0,0) -- (axis cs:0,1,1);
-    \draw[oicrimson, line width=1.3pt] (axis cs:1,0,0) -- (axis cs:1,1,1);
-    \draw[oicrimson, line width=1.3pt] (axis cs:1,3,0) -- (axis cs:1,4,1);
-    \draw[oicrimson, line width=1.3pt] (axis cs:0,3,0) -- (axis cs:0,4,1);
-    % ---- vertices: the three edges at the origin ----
-    \addplot3[only marks, mark=*, mark size=1.6pt, color=black,
-        forget plot] coordinates {(0,0,0) (1,0,0) (0,3,0) (0,1,1)};
-    \node[lbl, font=\normalsize, anchor=south east] at (axis cs:0,-0.08,0.05)
-      {$O$};
-    \node[lbl, font=\normalsize, anchor=north west] at (axis cs:1.0,0.12,-0.08)
-      {$(1,0,0)$};
-    \node[lbl, font=\normalsize, anchor=north west] at (axis cs:0,3.05,-0.06)
-      {$(0,3,0)$};
-    \node[lbl, font=\normalsize, anchor=south east] at (axis cs:0,0.95,1.05)
-      {$(0,1,1)$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The parallelepiped of the example: one corner at the origin, and the
+// three edges there ending at (1,0,0), (0,3,0) and (0,1,1).  (Labelled by
+// its corners: the bounding planes are what the student finds.)
+import graph3;
+
+size(13.5cm);
+// Same viewpoint as the pgfplots figure (view={115}{18}).
+currentprojection = orthographic((0.8619, 0.4019, 0.309));
+currentlight = Headlamp;
+currentlight.background = white;
+
+pen oicrimson = rgb(165/255, 30/255, 55/255);
+
+// the eight corners: bottom face z = 0, top face z = 1 shifted one unit in y
+triple A = (0, 0, 0), B = (1, 0, 0), C = (1, 3, 0), D = (0, 3, 0);
+triple Up = (0, 1, 1);
+triple A1 = A + Up, B1 = B + Up, C1 = C + Up, D1 = D + Up;
+
+// faces (translucent)
+// the two slanted end faces a little darker
+material facepen = material(0.25*oicrimson + 0.75*white + opacity(0.25),
+                            emissivepen=0.25*oicrimson, specularpen=gray(0.05));
+material endpen = material(0.4*oicrimson + 0.6*white + opacity(0.45),
+                           emissivepen=0.3*oicrimson, specularpen=gray(0.05));
+draw(surface(A--B--C--D--cycle), facepen);
+draw(surface(A1--B1--C1--D1--cycle), facepen);
+draw(surface(A--D--D1--A1--cycle), facepen);
+draw(surface(B--C--C1--B1--cycle), facepen);
+draw(surface(A--B--B1--A1--cycle), endpen);
+draw(surface(D--C--C1--D1--cycle), endpen);
+
+// edges
+pen edgepen = oicrimson + linewidth(1.3pt);
+draw(A--B--C--D--cycle, edgepen);
+draw(A1--B1--C1--D1--cycle, edgepen);
+draw(A--A1, edgepen); draw(B--B1, edgepen);
+draw(C--C1, edgepen); draw(D--D1, edgepen);
+
+// axes
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(17pt)), (-0.6, 0, 0)--(1.9, 0, 0), axispen,
+     Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(17pt)), O--(0, 4.9, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(17pt)), O--(0, 0, 1.9), axispen, Arrow3(size=8));
+
+// the corner at the origin and the ends of the three edges there
+dot(A, linewidth(4pt)); dot(B, linewidth(4pt));
+dot(D, linewidth(4pt)); dot(A1, linewidth(4pt));
+label("$O$", A, NW, fontsize(15pt));
+label("$(1,0,0)$", B, SE, fontsize(15pt));
+label("$(0,3,0)$", D, SE, fontsize(15pt));
+label("$(0,1,1)$", A1, NW, fontsize(15pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -848,79 +860,75 @@ ellipsoid on the right.
 On the left, the unit sphere <m>u^2 + v^2 + w^2 = 1</m>, labeled
 <m>S</m>, drawn as a translucent gray-blue ball. An arrow labeled <m>T</m> points to the right, where the ellipsoid
 <m>x^2/a^2 + y^2/b^2 + z^2/c^2 = 1</m>, labeled <m>E</m>, is drawn as
-a translucent green surface, wider than it is tall, with its three
+a translucent pink surface, wider than it is tall, with its three
 semi-axes <m>a</m>, <m>b</m>, and <m>c</m> drawn in vermillion, blue,
-and green.
+and orange.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  % ---- unit sphere ----
-  \begin{axis}[
-      at={(0,0)}, anchor=south west,
-      view={115}{18},
-      width=6.4cm,
-      axis lines=none,
-      axis equal image,
-      xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5, zmin=-1.35, zmax=1.6,
-      clip=false,
-    ]
-    \addplot3[surf, shader=interp,
-              point meta={z},
-              colormap={softb}{color=(oiblue!10!white) color=(oiblue!40!white)},
-              opacity=0.55, fill opacity=0.55,
-              domain=0:360, samples=41,
-              y domain=0:180, samples y=21,
-              z buffer=sort, forget plot]
-      ({cos(x)*sin(y)}, {sin(x)*sin(y)}, {cos(y)});
-    \addplot3[black!30, line width=0.4pt, domain=0:360, samples=73,
-        samples y=0, forget plot]
-      ({cos(x)}, {sin(x)}, {0});
-    \node[lbl, font=\normalsize, anchor=south] at (axis cs:0,0,1.15)
-      {$u^2+v^2+w^2=1$};
-    \node[lbl, font=\large] at (axis cs:-1.05,-0.75,-0.95) {$S$};
-  \end{axis}
-  % ---- arrow ----
-  \draw[-latex, black!75, line width=1pt] (5.6,2.6) -- (7.4,2.6)
-    node[midway, above, font=\small] {$T$};
-  % ---- ellipsoid ----
-  \begin{axis}[
-      at={(7.6cm,-0.4cm)}, anchor=south west,
-      view={115}{18},
-      width=8.6cm,
-      axis lines=none,
-      axis equal image,
-      xmin=-2.6, xmax=2.6, ymin=-2, ymax=2, zmin=-1.4, zmax=1.7,
-      clip=false,
-    ]
-    \addplot3[surf, shader=interp,
-              point meta={z},
-              colormap={softg}{color=(oigreen!12!white) color=(oigreen!45!white)},
-              opacity=0.55, fill opacity=0.55,
-              domain=0:360, samples=41,
-              y domain=0:180, samples y=21,
-              z buffer=sort, forget plot]
-      ({2.4*cos(x)*sin(y)}, {1.55*sin(x)*sin(y)}, {1.05*cos(y)});
-    \addplot3[black!30, line width=0.4pt, domain=0:360, samples=73,
-        samples y=0, forget plot]
-      ({2.4*cos(x)}, {1.55*sin(x)}, {0});
-    % semi-axes
-    \draw[oivermillion, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:2.4,0,0)
-      node[lbl, pos=0.6, below, font=\small, sloped] {$a$};
-    \draw[oiblue, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:0,1.55,0)
-      node[lbl, pos=0.65, below, font=\small] {$b$};
-    \draw[oigreen!60!black, line width=1.4pt] (axis cs:0,0,0) -- (axis cs:0,0,1.05)
-      node[lbl, pos=0.7, left, font=\small] {$c$};
-    \node[lbl, font=\normalsize, anchor=south] at (axis cs:0,0,1.3)
-      {$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$};
-    \node[lbl, font=\large] at (axis cs:-1.5,0.9,-0.75) {$E$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// A transformation T carries the unit ball S onto the solid ellipsoid E with semi-axes a, b, c (here a = 2.4, b = 1.55,
+// c = 1.05).  One scene: S at the origin and E beside it, to the right
+// as seen from the viewpoint.
+import graph3;
+usepackage("amsmath");
+
+size(16cm);
+// Same viewpoint as the pgfplots figure (view={115}{18}).
+currentprojection = orthographic((0.8619, 0.4019, 0.309));
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oiorange     = rgb(230/255, 159/255, 0/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+
+triple right = (-0.4226, 0.9063, 0);   // to the right on the page
+real a = 2.4, b = 1.55, c = 1.05;
+triple C = 4.6*right;                  // center of E
+
+// param: (polar angle, azimuth), so that the normals point outward
+triple ballpt(pair t) { return (sin(t.x)*cos(t.y), sin(t.x)*sin(t.y), cos(t.x)); }
+triple ellpt(pair t) {
+  return C + (a*sin(t.x)*cos(t.y), b*sin(t.x)*sin(t.y), c*cos(t.x));
+}
+
+// the unit ball S
+draw(surface(ballpt, (0, 0), (pi, 2pi), 8, 16, Spline),
+     surfacepen=material(0.5*oiblue + 0.5*white + opacity(0.55),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+draw(circle(O, 1), gray(0.6) + linewidth(0.4pt));
+
+// the ellipsoid E
+draw(surface(ellpt, (0, 0), (pi, 2pi), 8, 16, Spline),
+     surfacepen=material(0.45*oipurple + 0.55*white + opacity(0.25),
+                         emissivepen=0.4*oipurple, specularpen=gray(0.05)));
+draw(shift(C)*scale(a, b, 1)*circle(O, 1), gray(0.6) + linewidth(0.4pt));
+// (E is kept faint, and is reddish purple rather than orange, so that the
+// semi-axes seen through it keep their colors: blue seen through orange
+// turns green)
+
+// semi-axes
+draw(C--C + (a, 0, 0), oivermillion + linewidth(1.4pt));
+draw(C--C + (0, b, 0), oiblue + linewidth(1.4pt));
+draw(C--C + (0, 0, c), 0.8*oiorange + linewidth(1.4pt));
+label("$a$", C + (0.6a, 0, 0), S, oivermillion + fontsize(15pt));
+label("$b$", C + (0, 0.65b, 0), S, oiblue + fontsize(15pt));
+label("$c$", C + (0, 0, 0.7c), W, 0.75*oiorange + fontsize(15pt));
+
+// the arrow T between them
+draw(1.3*right--2.75*right, gray(0.25) + linewidth(1pt), Arrow3(size=9));
+label("$T$", 2.025*right, 1.5N, fontsize(15pt));
+
+// equations and names
+label("$u^2+v^2+w^2=1$", (0, 0, 1.15), N, fontsize(15pt));
+label("$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$", C + (0, 0, 1.3), N,
+      fontsize(15pt));
+label("$S$", -1.15*right + (0, 0, -0.85), fontsize(17pt));
+label("$E$", C - 2.0*right + (0, 0, -0.8), fontsize(17pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
