@@ -112,12 +112,14 @@ positive <m>z</m>-axis.
 A point in space located by a distance from the origin and two angles.
 </shortdescription>
 <description>
+<p>
 Three coordinate axes in space. A segment of length rho runs from the
 origin to a point P above the x y plane. The angle phi is marked
 between the positive z axis and the segment, and the angle theta is
 marked in the x y plane between the positive x axis and the dashed
 projection of the segment. A dashed vertical line connects P to its
 projection.
+</p>
 </description>
 <asymptote>
 <![CDATA[// A point P(rho, theta, phi) in spherical coordinates.
@@ -171,9 +173,9 @@ draw(O--P, oivermillion + linewidth(1.8pt));
 dot(P, oivermillion + linewidth(6pt));
 
 // labels
-label("$P(\rho,\theta,\phi)$", P, 2NE, oivermillion + fontsize(20pt));
-label("$\rho$", 0.4*P, 1.5E, oivermillion + fontsize(20pt));
-label("$\theta$", 0.9*(cos(theta0/2), sin(theta0/2), 0), oipurple + fontsize(20pt));
+label("$P(\rho,\theta,\phi)$", P, 2NE, 0.85*oivermillion + fontsize(20pt));
+label("$\rho$", 0.4*P, 1.5E, 0.85*oivermillion + fontsize(20pt));
+label("$\theta$", 0.9*(cos(theta0/2), sin(theta0/2), 0), 0.75*oipurple + fontsize(20pt));
 label("$\phi$", 0.88*(sin(phi0/2)*cos(theta0), sin(phi0/2)*sin(theta0), cos(phi0/2)),
       oiblue + fontsize(20pt));
 label("$O$", O, NW, fontsize(20pt));

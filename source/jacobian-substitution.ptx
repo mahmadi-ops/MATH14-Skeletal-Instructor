@@ -913,9 +913,9 @@ draw(shift(C)*scale(a, b, 1)*circle(O, 1), gray(0.6) + linewidth(0.4pt));
 draw(C--C + (a, 0, 0), oivermillion + linewidth(1.4pt));
 draw(C--C + (0, b, 0), oiblue + linewidth(1.4pt));
 draw(C--C + (0, 0, c), 0.8*oiorange + linewidth(1.4pt));
-label("$a$", C + (0.6a, 0, 0), S, oivermillion + fontsize(15pt));
+label("$a$", C + (0.6a, 0, 0), S, 0.85*oivermillion + fontsize(15pt));
 label("$b$", C + (0, 0.65b, 0), S, oiblue + fontsize(15pt));
-label("$c$", C + (0, 0, 0.7c), W, 0.75*oiorange + fontsize(15pt));
+label("$c$", C + (0, 0, 0.7c), W, 0.65*oiorange + fontsize(15pt));
 
 // the arrow T between them
 draw(1.3*right--2.75*right, gray(0.25) + linewidth(1pt), Arrow3(size=9));

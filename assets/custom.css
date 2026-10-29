@@ -162,3 +162,44 @@
   width: 18px;
   height: 18px;
 }
+
+/* ------------------------------------------------------------------ *
+ * Asymptote 3D figures (iframe.asymptote), see also custom.js.         *
+ *                                                                      *
+ * Asymptote's WebGL viewer draws one canvas pixel per CSS pixel, so on *
+ * high-density screens (Retina, iPad, phones) the browser stretches it *
+ * and the figure comes out blurry, and on ordinary screens its edges   *
+ * are jagged.  Each frame is laid out at twice its size (three times   *
+ * on 3x screens) and scaled back down, so the figure is drawn at that  *
+ * resolution.  The viewer fits the figure to its frame, so labels and  *
+ * proportions are unchanged, and dragging still rotates it.            *
+ * ------------------------------------------------------------------ */
+.asymptote-box { overflow: hidden; }
+.image-box .asymptote-box iframe.asymptote,
+iframe.asymptote {
+    width: 200%;
+    height: 200%;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
+@media (min-resolution: 2.5dppx), (-webkit-min-device-pixel-ratio: 2.5) {
+    .image-box .asymptote-box iframe.asymptote,
+    iframe.asymptote {
+        width: 300%;
+        height: 300%;
+        transform: scale(0.33333);
+    }
+}
+/* The frame takes keyboard focus; show it.  The outline goes on the box, */
+/* since the frame itself is scaled.                                       */
+.asymptote-box:focus-within {
+    outline: 2px solid #0072b2;
+    outline-offset: 2px;
+}
+/* the keyboard hint custom.js puts under each figure */
+.asymptote-hint {
+    margin: 0.35em 0 0;
+    font-size: 0.85em;
+    font-style: italic;
+    text-align: center;
+}

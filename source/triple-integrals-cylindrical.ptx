@@ -90,10 +90,12 @@ usual height.
 A point in space located by a radius in the plane, an angle, and a height.
 </shortdescription>
 <description>
+<p>
 Three coordinate axes in space. A point P is shown above the x y
 plane. A segment of length r runs from the origin to the projection of
 P in the x y plane, making an angle theta with the positive x axis,
 and a vertical segment of length z connects the projection to P.
+</p>
 </description>
 <asymptote>
 <![CDATA[// A point P(r, theta, z) in cylindrical coordinates.
@@ -138,9 +140,9 @@ dot(Pxy, linewidth(4pt));
 // labels
 label("$P(r,\theta,z)$", P, 2N, oiblue + fontsize(14pt));
 label("$(r,\theta,0)$", Pxy, 2S, fontsize(14pt));
-label("$r$", 0.55*Pxy, 1.5SW, oivermillion + fontsize(14pt));
+label("$r$", 0.55*Pxy, 1.5SW, 0.85*oivermillion + fontsize(14pt));
 label("$z$", (P.x, P.y, P.z/2), 1.5E, oiblue + fontsize(14pt));
-label("$\theta$", 0.75*(cos(theta0/2), sin(theta0/2), 0), oipurple + fontsize(14pt));
+label("$\theta$", 0.75*(cos(theta0/2), sin(theta0/2), 0), 0.75*oipurple + fontsize(14pt));
 label("$O$", O, NW, fontsize(14pt));
 
 // keep the z label inside the frame
@@ -301,11 +303,13 @@ cylinder <m>x^2+y^2 = 1</m>, above the paraboloid
 A vertical cylinder with a flat top and a dome-shaped paraboloid floor.
 </shortdescription>
 <description>
+<p>
 Three coordinate axes in space with a vertical circular cylinder of
 radius one about the z axis, capped by the plane z equals four on top.
 Inside the bottom of the cylinder, the paraboloid z equals one minus x
 squared minus y squared forms a dome shaped floor that touches the point zero zero one
 on the z axis and meets the cylinder wall at the x y plane.
+</p>
 </description>
 <asymptote>
 <![CDATA[// The solid inside the cylinder x^2 + y^2 = 1, above the paraboloid
@@ -365,7 +369,7 @@ label("$(0,0,1)$", (0, 0, 1), 1.5E + 0.5N, fontsize(17pt));
 label("$(1,0,0)$", (1, 0, 0), 2S + 2E, fontsize(17pt));
 // screen-left on the rim of the top cap is the direction (0.574, -0.819, 0)
 label("$z = 4$", (0.574, -0.819, 4), 2W, oiblue + fontsize(17pt));
-label("$z = 1 - x^2 - y^2$", (-0.574, 0.819, 0.6), 3E, oivermillion + fontsize(17pt));
+label("$z = 1 - x^2 - y^2$", (-0.574, 0.819, 0.6), 3E, 0.85*oivermillion + fontsize(17pt));
 label("$x^2 + y^2 = 1$", (-0.574, 0.819, 2.6), 3E, oiblue + fontsize(17pt));
 
 // keep the z label inside the frame

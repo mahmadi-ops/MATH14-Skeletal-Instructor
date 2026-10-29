@@ -391,7 +391,7 @@ draw(r--1.55*r, oimagenta + linewidth(1.6pt), Arrow3(size=9));
 // labels
 label("$\mathbf{r}(\theta,\phi)$", 0.45*r, 2W, fontsize(14pt));
 label("$\mathbf{r}_\theta$", r + 0.45*rt, E, oiblue + fontsize(16pt));
-label("$\mathbf{r}_\phi$", r + 0.45*rp, SE, oivermillion + fontsize(16pt));
+label("$\mathbf{r}_\phi$", r + 0.45*rp, SE, 0.85*oivermillion + fontsize(16pt));
 label("$\hat{\mathbf{n}}$", 1.55*r, NE, oimagenta + fontsize(16pt));
 label("$\Delta\sigma$", 1.12*sph(radians(45), radians(55)), fontsize(14pt));
 
@@ -604,8 +604,8 @@ triple P = (0, 1, 0.2);
 dot(P, linewidth(4pt));
 draw(P--(0, 2.0, 0.2), oimagenta + linewidth(1.6pt), Arrow3(size=9));
 label("$\mathbf{n}_1$", (0, 1.85, 0.32), N, oimagenta + fontsize(16pt));
-draw(P--(0, 0.15, 0.2), oiorange + linewidth(1.6pt), Arrow3(size=9));
-label("$\mathbf{n}_2$", (0, 0.42, 0.34), N, 0.75*oiorange + fontsize(16pt));
+draw(P--(0, 0.15, 0.2), 0.8*oiorange + linewidth(1.6pt), Arrow3(size=9));
+label("$\mathbf{n}_2$", (0, 0.42, 0.34), N, 0.65*oiorange + fontsize(16pt));
 
 // the equation, to the left of the cylinder on the page
 label("$x^2+y^2=1$", 1.05*(0.4226, -0.9063, 0) + (0, 0, 0.9), W, oiblue + fontsize(16pt));

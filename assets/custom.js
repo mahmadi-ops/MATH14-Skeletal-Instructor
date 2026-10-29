@@ -276,3 +276,43 @@
     addPdfButtonIfPresent();
   }
 })();
+
+/* ------------------------------------------------------------------ *
+ * Asymptote 3D figures (iframe.asymptote), see also custom.css.        *
+ *                                                                      *
+ * PreTeXt names each figure's frame by its short description only.     *
+ * This links the frame to the figure's long description (the "info"    *
+ * details PreTeXt prints under it) and to a one-line keyboard hint     *
+ * added below the figure, so a screen reader reads both, and gives the *
+ * page inside the frame the figure's name, since Asymptote titles it   *
+ * after a temporary file.  The keys are the Asymptote viewer's own:    *
+ * x, y and z rotate about those axes, + and - zoom, h resets.          *
+ * ------------------------------------------------------------------ */
+(function () {
+    var HINT = "Drag to rotate. Keyboard: Tab to the figure, then press " +
+        "x, y or z to rotate, + or − to zoom, h to reset.";
+    document.querySelectorAll("iframe.asymptote").forEach(function (f, k) {
+        var name = (f.getAttribute("title") || "").replace(/\s+/g, " ").trim();
+        var box = f.closest(".asymptote-box") || f;
+        var hint = document.createElement("p");
+        hint.className = "asymptote-hint";
+        hint.id = "asymptote-hint-" + (k + 1);
+        hint.textContent = HINT;
+        box.parentNode.insertBefore(hint, box.nextSibling);
+
+        var ids = [];
+        var desc = box.parentNode.querySelector("details.image-description > div[id]");
+        if (desc) ids.push(desc.id);
+        ids.push(hint.id);
+        f.setAttribute("aria-describedby", ids.join(" "));
+        if (name) f.setAttribute("title", name);
+
+        function rename() {
+            try {
+                if (name && f.contentDocument) f.contentDocument.title = name;
+            } catch (e) {}
+        }
+        f.addEventListener("load", rename);
+        rename();
+    });
+})();
