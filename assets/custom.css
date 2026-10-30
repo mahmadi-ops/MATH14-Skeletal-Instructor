@@ -203,3 +203,25 @@ iframe.asymptote {
     font-style: italic;
     text-align: center;
 }
+
+/* ------------------------------------------------------------------ *
+ * Note boxes (the note at the top of Assignment 7).                    *
+ *                                                                      *
+ * The theme draws a <note> with only a bracket at its left.  This      *
+ * gives it the full box of the book's summary boxes (assemblage), in   *
+ * the theme's own colours so it follows dark mode, and leaves out its  *
+ * number ("Note 3.12.1"), which means nothing to a reader.             *
+ * ------------------------------------------------------------------ */
+article.note.remark-like:not(.knowl__content, .born-hidden-knowl) {
+    border: 2px solid var(--assemblage-like-border-color);
+    background-color: var(--assemblage-like-body-background);
+    padding: 10px;
+    border-radius: 8px;
+}
+article.note.remark-like:not(.knowl__content, .born-hidden-knowl)::after {
+    display: none;
+}
+article.note.remark-like > .heading .codenumber,
+article.note.remark-like > .heading .space {
+    display: none;
+}
