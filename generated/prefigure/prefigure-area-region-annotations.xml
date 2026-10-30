@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-area-region-figure" speech2="A region in the plane split into two parts. R 1, shaded tan, lies between y equals negative one and y equals zero, bounded on the left by the vertical line x equals negative one and on the right by the curve x equals y minus y cubed. R 2, shaded light green, lies between y equals zero and y equals one, bounded on the left by the parabola y equals the square of x plus one and on the right by the same curve x equals y minus y cubed.">
+      <grouped>prefigure-area-region-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-area-region-ar-right</active>
+        <active>prefigure-area-region-ar-left2</active>
+        <active>prefigure-area-region-ar-left1</active>
+        <active>prefigure-area-region-ar-r1</active>
+        <active>prefigure-area-region-ar-r2</active>
+      </children>
+      <components>
+        <active>prefigure-area-region-ar-right</active>
+        <active>prefigure-area-region-ar-left2</active>
+        <active>prefigure-area-region-ar-left1</active>
+        <active>prefigure-area-region-ar-r1</active>
+        <active>prefigure-area-region-ar-r2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-area-region-ar-right" speech2="The right boundary of both subregions: the cubic curve x equals y minus y cubed, drawn in blue.">
+      <active>prefigure-area-region-ar-right</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-area-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-area-region-ar-left2" speech2="The left boundary of R 2: the parabola y equals the square of x plus 1, drawn in vermillion, which solved for x is x equals square root of y minus 1.">
+      <active>prefigure-area-region-ar-left2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-area-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-area-region-ar-left1" speech2="The left boundary of R 1: the vertical line x equals negative 1.">
+      <active>prefigure-area-region-ar-left1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-area-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-area-region-ar-r1" speech2="The subregion R 1, below the x axis, shaded tan.">
+      <active>prefigure-area-region-ar-r1</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-area-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-area-region-ar-r2" speech2="The subregion R 2, above the x axis, shaded light green.">
+      <active>prefigure-area-region-ar-r2</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-area-region-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

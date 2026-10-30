@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-two-masses-figure" width="380" height="300" viewBox="0 0 380 300">
+  <defs>
+    <clipPath id="prefigure-two-masses-clipPath-0">
+      <rect x="10.0" y="10.0" width="360.0" height="280.0"/>
+    </clipPath>
+    <clipPath id="prefigure-two-masses-clipPath-1">
+      <rect x="10.0" y="10.0" width="360.0" height="280.0"/>
+    </clipPath>
+    <marker id="prefigure-two-masses-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-2_None_24_60-hD55E00" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#D55E00" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-2_None_24_60-hD55E00-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-2_None_24_60-h0072B2" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#0072B2" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-2_None_24_60-h0072B2-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-3_None_24_60-hD55E00" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#D55E00" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-3_None_24_60-hD55E00-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-3_None_24_60-h0072B2" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#0072B2" stroke="none"/>
+    </marker>
+    <marker id="prefigure-two-masses-arrow-head-end-3_None_24_60-h0072B2-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto-start-reverse" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+  </defs>
+  <g id="tm-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-two-masses-line-0" x1="10.0" y1="210.0" x2="370.0" y2="210.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-two-masses-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-two-masses-line-1" x1="51.5" y1="290.0" x2="51.5" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-two-masses-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-two-masses-label-0" transform="translate(364.0,204.0) translate(-10.4,-8.2)">
+    <g id="prefigure-two-masses-g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-two-masses-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-two-masses-label-1" transform="translate(57.5,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-two-masses-g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-two-masses-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-two-masses-tm-seg" x1="134.6" y1="63.3" x2="286.9" y2="130.0" stroke="#999999" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <path id="prefigure-two-masses-tm-r1" stroke="#D55E00" stroke-width="2" stroke-dasharray="2 3" fill="none" d="M 51.5 210.0 L 134.6 63.3" marker-end="url(#prefigure-two-masses-arrow-head-end-2_None_24_60-hD55E00)"/>
+  <path id="prefigure-two-masses-tm-r2" stroke="#0072B2" stroke-width="2" stroke-dasharray="2 3" fill="none" d="M 51.5 210.0 L 286.9 130.0" marker-end="url(#prefigure-two-masses-arrow-head-end-2_None_24_60-h0072B2)"/>
+  <path id="prefigure-two-masses-tm-F1" stroke="#D55E00" stroke-width="3" fill="none" d="M 134.6 63.3 L 134.6 116.7" marker-end="url(#prefigure-two-masses-arrow-head-end-3_None_24_60-hD55E00)"/>
+  <path id="prefigure-two-masses-tm-F2" stroke="#0072B2" stroke-width="3" fill="none" d="M 286.9 130.0 L 286.9 183.3" marker-end="url(#prefigure-two-masses-arrow-head-end-3_None_24_60-h0072B2)"/>
+  <circle id="prefigure-two-masses-tm-m1" cx="134.6" cy="63.3" r="5" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-two-masses-tm-m2" cx="286.9" cy="130.0" r="6.5" stroke="black" stroke-width="2" fill="#0072B2"/>
+  <circle id="prefigure-two-masses-tm-cm" cx="236.2" cy="107.8" r="4" stroke="black" stroke-width="2" fill="maroon"/>
+  <g id="prefigure-two-masses-tm-m1-lab" transform="translate(134.6,47.3) translate(-11.9,-10.7)">
+    <g id="prefigure-two-masses-g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#D55E00" width="23.792px" height="10.712px" role="img" focusable="false" viewBox="0 -442 1314.6 592" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-4-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-two-masses-MJX-4-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="m 1">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="m" data-semantic-prefix="Base">
+                <use data-c="1D45A" xlink:href="#prefigure-two-masses-MJX-4-TEX-I-1D45A"/>
+              </g>
+              <g data-mml-node="mn" transform="translate(911,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="1" data-semantic-prefix="Subscript">
+                <use data-c="31" xlink:href="#prefigure-two-masses-MJX-4-TEX-N-31"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-two-masses-tm-m2-lab" transform="translate(286.9,112.7) translate(-11.9,-10.7)">
+    <g id="prefigure-two-masses-g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#0072B2" width="23.792px" height="10.712px" role="img" focusable="false" viewBox="0 -442 1314.6 592" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-5-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-two-masses-MJX-5-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="m 2">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-speech="m" data-semantic-prefix="Base">
+                <use data-c="1D45A" xlink:href="#prefigure-two-masses-MJX-5-TEX-I-1D45A"/>
+              </g>
+              <g data-mml-node="mn" transform="translate(911,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="2" data-semantic-prefix="Subscript">
+                <use data-c="32" xlink:href="#prefigure-two-masses-MJX-5-TEX-N-32"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-two-masses-tm-r1-lab" transform="translate(82.2,130.0) translate(-16.5,-5.4)">
+    <g id="prefigure-two-masses-g-4">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#D55E00" width="16.480px" height="10.856px" role="img" focusable="false" viewBox="0 -450 910.6 600" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-6-TEX-B-1D42B" d="M405 293T374 293T324 312T305 361Q305 378 312 394Q315 397 315 399Q305 399 294 394T266 375T238 329T222 249Q221 241 221 149V62H308V0H298Q280 3 161 3Q47 3 38 0H29V62H98V210V303Q98 353 96 363T83 376Q69 380 42 380H29V442H32L118 446Q204 450 205 450H210V414L211 378Q247 449 315 449H321Q384 449 413 422T442 360Q442 332 424 313Z"/>
+          <path id="prefigure-two-masses-MJX-6-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="bold r 1">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold r" data-semantic-prefix="Base">
+                  <use data-c="1D42B" xlink:href="#prefigure-two-masses-MJX-6-TEX-B-1D42B"/>
+                </g>
+              </g>
+              <g data-mml-node="mn" transform="translate(507,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="1" data-semantic-prefix="Subscript">
+                <use data-c="31" xlink:href="#prefigure-two-masses-MJX-6-TEX-N-31"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-two-masses-tm-r2-lab" transform="translate(176.2,179.3) translate(-8.2,-0.0)">
+    <g id="prefigure-two-masses-g-5">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#0072B2" width="16.480px" height="10.856px" role="img" focusable="false" viewBox="0 -450 910.6 600" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-7-TEX-B-1D42B" d="M405 293T374 293T324 312T305 361Q305 378 312 394Q315 397 315 399Q305 399 294 394T266 375T238 329T222 249Q221 241 221 149V62H308V0H298Q280 3 161 3Q47 3 38 0H29V62H98V210V303Q98 353 96 363T83 376Q69 380 42 380H29V442H32L118 446Q204 450 205 450H210V414L211 378Q247 449 315 449H321Q384 449 413 422T442 360Q442 332 424 313Z"/>
+          <path id="prefigure-two-masses-MJX-7-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="bold r 2">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold r" data-semantic-prefix="Base">
+                  <use data-c="1D42B" xlink:href="#prefigure-two-masses-MJX-7-TEX-B-1D42B"/>
+                </g>
+              </g>
+              <g data-mml-node="mn" transform="translate(507,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="2" data-semantic-prefix="Subscript">
+                <use data-c="32" xlink:href="#prefigure-two-masses-MJX-7-TEX-N-32"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-two-masses-tm-F1-lab" transform="translate(146.9,93.3) translate(0.0,-7.5)">
+    <g id="prefigure-two-masses-g-6">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#D55E00" width="21.008px" height="15.024px" role="img" focusable="false" viewBox="0 -680 1160.6 830" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-8-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+          <path id="prefigure-two-masses-MJX-8-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="bold upper F 1">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F" data-semantic-prefix="Base">
+                  <use data-c="1D405" xlink:href="#prefigure-two-masses-MJX-8-TEX-B-1D405"/>
+                </g>
+              </g>
+              <g data-mml-node="mn" transform="translate(757,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="1" data-semantic-prefix="Subscript">
+                <use data-c="31" xlink:href="#prefigure-two-masses-MJX-8-TEX-N-31"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-two-masses-tm-F2-lab" transform="translate(299.2,160.0) translate(0.0,-7.5)">
+    <g id="prefigure-two-masses-g-7">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -2.712px; color:#0072B2" width="21.008px" height="15.024px" role="img" focusable="false" viewBox="0 -680 1160.6 830" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-9-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+          <path id="prefigure-two-masses-MJX-9-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-speech="bold upper F 2">
+              <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F" data-semantic-prefix="Base">
+                  <use data-c="1D405" xlink:href="#prefigure-two-masses-MJX-9-TEX-B-1D405"/>
+                </g>
+              </g>
+              <g data-mml-node="mn" transform="translate(757,-150) scale(0.707)" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="2" data-semantic-prefix="Subscript">
+                <use data-c="32" xlink:href="#prefigure-two-masses-MJX-9-TEX-N-32"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-two-masses-tm-cm-lab" transform="translate(243.8,96.0) translate(0.0,-12.7)">
+    <g id="prefigure-two-masses-g-8">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:maroon" width="8.576px" height="12.688px" role="img" focusable="false" viewBox="0 -701 474 701" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-two-masses-MJX-10-TEX-B-1D42B" d="M405 293T374 293T324 312T305 361Q305 378 312 394Q315 397 315 399Q305 399 294 394T266 375T238 329T222 249Q221 241 221 149V62H308V0H298Q280 3 161 3Q47 3 38 0H29V62H98V210V303Q98 353 96 363T83 376Q69 380 42 380H29V442H32L118 446Q204 450 205 450H210V414L211 378Q247 449 315 449H321Q384 449 413 422T442 360Q442 332 424 313Z"/>
+          <path id="prefigure-two-masses-MJX-10-TEX-N-AF" d="M69 544V590H430V544H69Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+              <g data-mml-node="mover" data-semantic-type="overscore" data-semantic-role="latinletter" data-semantic-id="2" data-semantic-children="0,1" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold r overbar">
+                <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+                  <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold r" data-semantic-prefix="Base">
+                    <use data-c="1D42B" xlink:href="#prefigure-two-masses-MJX-10-TEX-B-1D42B"/>
+                  </g>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="overaccent" data-semantic-annotation="accent:bar" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="bar" data-semantic-prefix="Overscript" transform="translate(237,11) translate(-250 0)">
+                  <use data-c="AF" xlink:href="#prefigure-two-masses-MJX-10-TEX-N-AF"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-green-diamond-R-figure" speech2="The rectangle in the u v plane from u equals 1 to 3 and v equals negative 1 to 1, shaded light blue. It is the image of the tilted square under u equals x plus y, v equals y minus x.">
+      <grouped>prefigure-green-diamond-R-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-green-diamond-R-grid-axes</active>
+        <active>prefigure-green-diamond-R-gr-rect</active>
+      </children>
+      <components>
+        <active>prefigure-green-diamond-R-grid-axes</active>
+        <active>prefigure-green-diamond-R-gr-rect</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-green-diamond-R-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>prefigure-green-diamond-R-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-green-diamond-R-grid</active>
+        <active>prefigure-green-diamond-R-axes</active>
+      </children>
+      <components>
+        <active>prefigure-green-diamond-R-grid</active>
+        <active>prefigure-green-diamond-R-axes</active>
+      </components>
+      <parents>
+        <grouped>prefigure-green-diamond-R-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-diamond-R-grid" speech2="The coordinate grid">
+      <active>prefigure-green-diamond-R-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-green-diamond-R-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-diamond-R-axes" speech2="The coordinate axes">
+      <active>prefigure-green-diamond-R-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-green-diamond-R-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-diamond-R-gr-rect" speech2="The rectangle with constant limits, 1 to 3 in u and negative 1 to 1 in v.">
+      <active>prefigure-green-diamond-R-gr-rect</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-green-diamond-R-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

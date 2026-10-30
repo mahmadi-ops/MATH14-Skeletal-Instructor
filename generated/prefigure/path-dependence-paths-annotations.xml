@@ -1,0 +1,103 @@
+<diagram>
+  <annotations>
+    <annotation id="path-dependence-paths-figure" speech2="Two paths from the origin to the point one                                   comma one, drawn in the field F of x and y                                   equals the vector y, two x">
+      <grouped>path-dependence-paths-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>path-dependence-paths-grid-axes</active>
+        <active>path-dependence-paths-grid</active>
+        <active>path-dependence-paths-axes</active>
+        <active>path-dependence-paths-field</active>
+        <active>path-dependence-paths-c1</active>
+        <active>path-dependence-paths-c2</active>
+        <active>path-dependence-paths-endpoints</active>
+      </children>
+      <components>
+        <active>path-dependence-paths-grid-axes</active>
+        <active>path-dependence-paths-grid</active>
+        <active>path-dependence-paths-axes</active>
+        <active>path-dependence-paths-field</active>
+        <active>path-dependence-paths-c1</active>
+        <active>path-dependence-paths-c2</active>
+        <active>path-dependence-paths-endpoints</active>
+      </components>
+    </annotation>
+    <annotation id="path-dependence-paths-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>path-dependence-paths-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>path-dependence-paths-grid</active>
+        <active>path-dependence-paths-axes</active>
+      </children>
+      <components>
+        <active>path-dependence-paths-grid</active>
+        <active>path-dependence-paths-axes</active>
+      </components>
+      <parents>
+        <grouped>path-dependence-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="path-dependence-paths-grid" speech2="The coordinate grid">
+      <active>path-dependence-paths-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>path-dependence-paths-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="path-dependence-paths-axes" speech2="The coordinate axes">
+      <active>path-dependence-paths-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>path-dependence-paths-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="path-dependence-paths-grid" speech2="The coordinate grid">
+      <active>path-dependence-paths-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>path-dependence-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="path-dependence-paths-axes" speech2="The coordinate axes">
+      <active>path-dependence-paths-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>path-dependence-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="path-dependence-paths-field" speech2="The grid of field vectors of the field F                                     of x and y equals the vector y, two x">
+      <active>path-dependence-paths-field</active>
+      <position>4</position>
+      <parents>
+        <grouped>path-dependence-paths-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="path-dependence-paths-c1" speech2="The path C 1, the straight segment along                                     the line y equals x from O to P" sonify="yes">
+      <active>path-dependence-paths-c1</active>
+      <position>5</position>
+      <parents>
+        <grouped>path-dependence-paths-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>path-dependence-paths-c1</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="path-dependence-paths-c2" speech2="The path C 2, the arc of the parabola y                                     equals x squared from O to P, bowing below                                     the segment" sonify="yes">
+      <active>path-dependence-paths-c2</active>
+      <position>6</position>
+      <parents>
+        <grouped>path-dependence-paths-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>path-dependence-paths-c2</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="path-dependence-paths-endpoints" speech2="The common endpoints O at the origin and P                                     at one comma one">
+      <active>path-dependence-paths-endpoints</active>
+      <position>7</position>
+      <parents>
+        <grouped>path-dependence-paths-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
