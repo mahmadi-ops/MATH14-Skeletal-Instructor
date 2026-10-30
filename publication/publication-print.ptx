@@ -55,6 +55,15 @@
     <version include="none"/>
   </source>
 
+  <!-- The address the book is published at.  The PDF prints a QR code
+       for each video and interactive: this address followed by the
+       page of that element (for instance fig-cyl-a-2.html).  Without
+       it the codes hold only the page name, and a phone opens nothing.
+       Must end with a slash. -->
+  <html>
+    <baseurl href="https://mahmadi-ops.github.io/MATH14-Skeletal-Instructor/"/>
+  </html>
+
   <!-- Table of contents down to subsections, so the sidebar lists every
        subsection of the book, not only chapters and sections. -->
   <common>
