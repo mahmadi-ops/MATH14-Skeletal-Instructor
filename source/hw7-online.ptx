@@ -12,6 +12,15 @@
 <!-- the quarter-disk lamina (Stewart 15.5), the plate read from a graph      -->
 <!-- (Dartmouth; its figure is redrawn here) and the solid under a slanted    -->
 <!-- plane (Hughes-Hallett 16.3).                                             -->
+<!--                                                                          -->
+<!-- A fifth WeBWorK problem, the region between two hyperbolas and two lines -->
+<!-- (Dwyer and Gruenwald 14.7, problem 32), asks for the Jacobian and the    -->
+<!-- new integrand as formulas, so it alone is a dynamic exercise: <setup>    -->
+<!-- holds de-objects and its blanks are <fillin>s.  Its <solution> is a bare -->
+<!-- element carrying include-automatic="no", with component="hw7-solutions"  -->
+<!-- on its children; see the comment at the top of review1-practice.ptx for  -->
+<!-- why.  The WeBWorK answer key gives 41 ln 2 (e^4 - e); the stray factor   -->
+<!-- of 41 is dropped here, since the integral is ln 2 (e^4 - e).             -->
 <section xml:id="sec-exercises-hw7-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 7</title>
 
@@ -33,7 +42,10 @@
       nothing else<mdash/>no units, no <m>=</m> sign, no <m>\pi</m>; give at
       least three decimals (for instance <c>18.850</c>, not <c>6pi</c>).
       Answers are accepted within a small tolerance. Words: type just the
-      word asked for, in lower case.
+      word asked for, in lower case. Expressions: use <c>*</c> for
+      products, <c>^</c> for powers, and parentheses around exponents and
+      function arguments, as in <c>3*u/v</c>, <c>e^(2*t)</c> or
+      <c>exp(2*t)</c>; any equivalent form is accepted.
     </p>
   </introduction>
 
@@ -446,6 +458,201 @@
               </coordinates>
               <annotations>
               <annotation ref="figure" text="The disk E of radius eight in the xy-plane, with the image of the square."/>
+              </annotations>
+            </diagram>
+            </prefigure>
+          </image>
+        </sidebyside>
+      </figure>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw7o-hyperbolas">
+    <title>A Region Between Two Hyperbolas and Two Lines</title>
+    <setup>
+      <de-object name="jac" context="formula"><de-expression>2*u/v</de-expression></de-object>
+      <de-object name="vlo" context="number"><de-expression>1</de-expression></de-object>
+      <de-object name="vhi" context="number"><de-expression>2</de-expression></de-object>
+      <de-object name="ulo" context="number"><de-expression>1</de-expression></de-object>
+      <de-object name="uhi" context="number"><de-expression>2</de-expression></de-object>
+      <de-object name="integrand" context="formula"><de-expression>2*u*exp(u^2)/v</de-expression></de-object>
+      <de-object name="value" context="number"><de-expression>ln(2)*(exp(4)-exp(1))</de-expression></de-object>
+    </setup>
+    <statement>
+      <p>
+        Let <m>R</m> be the region in the first quadrant bounded by the
+        hyperbolas <m>xy = 1</m> and <m>xy = 4</m> and the lines
+        <m>y = x</m> and <m>y = 4x</m>. Evaluate
+      </p>
+      <me>
+        \iint_R e^{xy}\, dA
+      </me>
+      <p>
+        using the transformation <m>x = \dfrac{u}{v}</m>, <m>y = uv</m>,
+        with <m>u</m> and <m>v</m> positive.
+      </p>
+      <p>
+        The Jacobian is
+        <m>\dfrac{\partial(x,y)}{\partial(u,v)} =</m>
+        <fillin name="b1" mode="math" ansobj="jac" width="12"/>.
+      </p>
+      <p>
+        The integral becomes
+        <m>\displaystyle\int_{u_1}^{u_2}\!\!\int_{v_1}^{v_2} G(u,v)\, dv\, du</m>,
+        where <m>G(u,v)</m> is
+        <m>e^{xy}\left|\dfrac{\partial(x,y)}{\partial(u,v)}\right|</m>
+        written in terms of <m>u</m> and <m>v</m>. The limits are
+        <m>v_1 =</m> <fillin name="b2" mode="number" ansobj="vlo" width="5"/>,
+        <m>v_2 =</m> <fillin name="b3" mode="number" ansobj="vhi" width="5"/>,
+        <m>u_1 =</m> <fillin name="b4" mode="number" ansobj="ulo" width="5"/>
+        and <m>u_2 =</m> <fillin name="b5" mode="number" ansobj="uhi" width="5"/>,
+        and <m>G(u,v) =</m>
+        <fillin name="b6" mode="math" ansobj="integrand" width="20"/>.
+      </p>
+      <p>
+        The value of the integral is
+        <m>\displaystyle\iint_R e^{xy}\, dA =</m>
+        <fillin name="b7" mode="number" ansobj="value" width="10"/>.
+      </p>
+    </statement>
+    <evaluation>
+      <evaluate>
+        <test correct="yes"><mathcmp use-answer="yes"/><feedback><p>Correct.</p></feedback></test>
+        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" min="vlo.value({})-Math.max(0.01,1e-4*Math.abs(vlo.value({})))" max="vlo.value({})+Math.max(0.01,1e-4*Math.abs(vlo.value({})))"/>
+          <feedback><p>Correct.</p></feedback>
+        </test>
+        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" min="vhi.value({})-Math.max(0.01,1e-4*Math.abs(vhi.value({})))" max="vhi.value({})+Math.max(0.01,1e-4*Math.abs(vhi.value({})))"/>
+          <feedback><p>Correct.</p></feedback>
+        </test>
+        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" min="ulo.value({})-Math.max(0.01,1e-4*Math.abs(ulo.value({})))" max="ulo.value({})+Math.max(0.01,1e-4*Math.abs(ulo.value({})))"/>
+          <feedback><p>Correct.</p></feedback>
+        </test>
+        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" min="uhi.value({})-Math.max(0.01,1e-4*Math.abs(uhi.value({})))" max="uhi.value({})+Math.max(0.01,1e-4*Math.abs(uhi.value({})))"/>
+          <feedback><p>Correct.</p></feedback>
+        </test>
+        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes"><mathcmp use-answer="yes"/><feedback><p>Correct.</p></feedback></test>
+        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" min="value.value({})-Math.max(0.01,1e-4*Math.abs(value.value({})))" max="value.value({})+Math.max(0.01,1e-4*Math.abs(value.value({})))"/>
+          <feedback><p>Correct.</p></feedback>
+        </test>
+        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
+      </evaluate>
+    </evaluation>
+    <solution include-automatic="no">
+      <p component="hw7-solutions">
+        Multiplying and dividing the two equations of the transformation
+        gives <m>xy = u^2</m> and <m>y/x = v^2</m>. The hyperbolas
+        <m>xy = 1</m> and <m>xy = 4</m> therefore become <m>u = 1</m> and
+        <m>u = 2</m>, and the lines <m>y = x</m> and <m>y = 4x</m> become
+        <m>v = 1</m> and <m>v = 2</m>, so <m>R</m> is the image of the
+        square <m>S = \{(u,v) : 1 \le u \le 2,\ 1 \le v \le 2\}</m>
+        (<xref ref="fig-hw7o-hyperbolas"/>). By <xref ref="eq-jacobian-2d"/>
+      </p>
+      <me component="hw7-solutions">
+        \frac{\partial(x,y)}{\partial(u,v)}
+        = \begin{vmatrix} \dfrac{1}{v} \amp -\dfrac{u}{v^2} \\[1ex] v \amp u \end{vmatrix}
+        = \frac{u}{v} + \frac{u}{v} = \frac{2u}{v} ,
+      </me>
+      <p component="hw7-solutions">
+        which is positive on <m>S</m>. Since <m>e^{xy} = e^{u^2}</m>,
+        <xref ref="eq-sub-2d"/> gives
+      </p>
+      <md component="hw7-solutions">
+        <mrow>
+          \iint_R e^{xy}\, dA
+          \amp = \int_1^2\!\!\int_1^2 e^{u^2}\,\frac{2u}{v}\, dv\, du
+          = \left(\int_1^2 2u\,e^{u^2}\, du\right)\left(\int_1^2 \frac{dv}{v}\right)
+        </mrow>
+        <mrow>
+          \amp = \Bigl[e^{u^2}\Bigr]_1^2\,\Bigl[\ln v\Bigr]_1^2
+          = \left(e^4 - e\right)\ln 2 \approx 35.960 .
+        </mrow>
+      </md>
+      <figure xml:id="fig-hw7o-hyperbolas" component="hw7-solutions">
+        <caption>
+          The region <m>R</m> of <xref ref="ex-hw7o-hyperbolas"/> (left) and the square <m>S</m> it comes from (right), drawn to the same scale. The transformation <m>x = u/v</m>, <m>y = uv</m> carries each edge of <m>S</m> onto the edge of <m>R</m> in the same color: <m>v = 1</m> onto the line <m>y = x</m>, <m>u = 2</m> onto the hyperbola <m>xy = 4</m>, <m>v = 2</m> onto the line <m>y = 4x</m>, and <m>u = 1</m> onto the hyperbola <m>xy = 1</m>.
+        </caption>
+        <sidebyside widths="40% 40%" valign="bottom">
+          <image width="100%">
+            <shortdescription>
+            A curved four-sided region in the first quadrant of the xy-plane, between two lines through the origin and two hyperbolas.
+            </shortdescription>
+            <description>
+              <p>
+              Axes x and y. A shaded region with corners at one comma one, two comma two, one comma four, and one half comma two. Its lower right edge is a blue segment of the line y equals x, from one comma one to two comma two; its upper right edge is an orange arc of the hyperbola xy equals four, from two comma two to one comma four; its upper left edge is a green segment of the line y equals four x, from one half comma two to one comma four; and its lower left edge is a purple arc of the hyperbola xy equals one, from one half comma two to one comma one.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-hyperbolas-xy">
+            <diagram dimensions="(224,341)" margins="8">
+              <definition>hypa(t) = (1/t, t)</definition>
+              <definition>hypb(t) = (2/t, 2*t)</definition>
+              <coordinates bbox="(-0.4,-0.4,2.8,4.6)">
+              <polygon at="hw7o-hyp-R" fill="#d6e6f2" stroke="none" closed="yes" points="((1,1),(2,2),(1.92,2.083),(1.846,2.167),(1.778,2.25),(1.714,2.333),(1.655,2.417),(1.6,2.5),(1.548,2.583),(1.5,2.667),(1.455,2.75),(1.412,2.833),(1.371,2.917),(1.333,3),(1.297,3.083),(1.263,3.167),(1.231,3.25),(1.2,3.333),(1.171,3.417),(1.143,3.5),(1.116,3.583),(1.091,3.667),(1.067,3.75),(1.043,3.833),(1.021,3.917),(1,4),(0.5,2),(0.5106,1.958),(0.5217,1.917),(0.5333,1.875),(0.5455,1.833),(0.5581,1.792),(0.5714,1.75),(0.5854,1.708),(0.6,1.667),(0.6154,1.625),(0.6316,1.583),(0.6486,1.542),(0.6667,1.5),(0.6857,1.458),(0.7059,1.417),(0.7273,1.375),(0.75,1.333),(0.7742,1.292),(0.8,1.25),(0.8276,1.208),(0.8571,1.167),(0.8889,1.125),(0.9231,1.083),(0.96,1.042))"/>
+              <axes at="hw7o-hyp-xy-axes" xlabel="x" ylabel="y" hlabels="(1,1,2)" vlabels="(1,1,4)" arrows="1"/>
+              <line at="hw7o-hyp-yx" endpoints="((1,1),(2,2))" stroke="#0072B2" thickness="2.5"/>
+              <parametric-curve at="hw7o-hyp-xy4" function="hypb" domain="(1,2)" N="60" stroke="#D55E00" thickness="2.5"/>
+              <line at="hw7o-hyp-y4x" endpoints="((0.5,2),(1,4))" stroke="#009E73" thickness="2.5"/>
+              <parametric-curve at="hw7o-hyp-xy1" function="hypa" domain="(1,2)" N="60" stroke="#AA3377" thickness="2.5"/>
+              <label at="hw7o-hyp-yx-lab" anchor="(1.6,1.6)" alignment="se" offset="(3,-3)" color="#0072B2"><m>y = x</m></label>
+              <label at="hw7o-hyp-xy4-lab" anchor="(1.333,3)" alignment="ne" offset="(3,3)" color="#D55E00"><m>xy = 4</m></label>
+              <label at="hw7o-hyp-y4x-lab" anchor="(1,4)" alignment="w" offset="(-8,6)" color="#009E73"><m>y = 4x</m></label>
+              <label at="hw7o-hyp-xy1-lab" anchor="(0.833,1.2)" alignment="sw" offset="(-3,-3)" color="#AA3377"><m>xy = 1</m></label>
+              <label at="hw7o-hyp-Rlab" anchor="(1.15,2.5)" alignment="c"><m>R</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The region R between two hyperbolas and two lines in the xy-plane."/>
+              </annotations>
+            </diagram>
+            </prefigure>
+          </image>
+          <image width="100%">
+            <shortdescription>
+            The square with corners one comma one and two comma two in the uv-plane, its four edges in four colors.
+            </shortdescription>
+            <description>
+              <p>
+              Axes u and v. A shaded square from one to two in both u and v. Its bottom edge v equals one is blue, its right edge u equals two is orange, its top edge v equals two is green, and its left edge u equals one is purple, matching the colors of the edges of R that they are carried onto.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-hw7o-hyperbolas-uv">
+            <diagram dimensions="(224,224)" margins="8">
+              <coordinates bbox="(-0.4,-0.4,2.8,2.8)">
+              <rectangle at="hw7o-hyp-S" lower-left="(1,1)" dimensions="(1,1)" fill="#d6e6f2" stroke="none"/>
+              <axes at="hw7o-hyp-uv-axes" xlabel="u" ylabel="v" hlabels="(1,1,2)" vlabels="(1,1,2)" arrows="1"/>
+              <line at="hw7o-hyp-v1" endpoints="((1,1),(2,1))" stroke="#0072B2" thickness="2.5"/>
+              <line at="hw7o-hyp-u2" endpoints="((2,1),(2,2))" stroke="#D55E00" thickness="2.5"/>
+              <line at="hw7o-hyp-v2" endpoints="((1,2),(2,2))" stroke="#009E73" thickness="2.5"/>
+              <line at="hw7o-hyp-u1" endpoints="((1,1),(1,2))" stroke="#AA3377" thickness="2.5"/>
+              <label at="hw7o-hyp-v1-lab" anchor="(1.5,1)" alignment="s" offset="(0,-4)" color="#0072B2"><m>v = 1</m></label>
+              <label at="hw7o-hyp-u2-lab" anchor="(2,1.5)" alignment="e" offset="(4,0)" color="#D55E00"><m>u = 2</m></label>
+              <label at="hw7o-hyp-v2-lab" anchor="(1.5,2)" alignment="n" offset="(0,4)" color="#009E73"><m>v = 2</m></label>
+              <label at="hw7o-hyp-u1-lab" anchor="(1,1.5)" alignment="w" offset="(-4,0)" color="#AA3377"><m>u = 1</m></label>
+              <label at="hw7o-hyp-Slab" anchor="(1.5,1.5)" alignment="c"><m>S</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The square S in the uv-plane."/>
               </annotations>
             </diagram>
             </prefigure>
