@@ -266,7 +266,12 @@ The same change-of-variables idea in one and two dimensions, side by side:
 map the new coordinates to the old ones, evaluate the same function at the
 mapped point, and multiply by the local scale factor. The derivative
 scales a small interval; the absolute Jacobian determinant scales a small
-area. The animation also compares the familiar notation
+area. Coordinate graphs of <m>x=u^2</m> and <m>(x,y)=(u^2,v)</m>
+are magnified near <m>u=1</m>: <m>\Delta x\approx2\Delta u</m>,
+<m>\Delta y=\Delta v</m>, and
+<m>\Delta x\Delta y\approx2\Delta u\Delta v</m>.
+The enlarged local pictures remain visible while the integral formulas are
+compared. The animation also compares the familiar notation
 <m>u=g(x)</m> with <m>x=h(u)</m>.
 </caption>
 <video xml:id="video-substitution-comparison" preview="play-button.png"
