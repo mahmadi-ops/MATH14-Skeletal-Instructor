@@ -83,10 +83,13 @@ class SubstitutionComparison(Scene):
         geometry = VGroup(uline, xline, ulab, xlab, arr, square, para, slab, plab, ratio1, ratio2, examples)
         self.play(FadeOut(geometry, note))
 
-        factors = pair(r"dx=h'(u)\,du", r"dA=|\det DT(u,v)|\,du\,dv", .75, 34, ORANGE)
+        factors = pair(r"dx=h'(u)\,du", r"dA=\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\,du\,dv", .75, 34, ORANGE)
         labels = VGroup(words("local length scale", 28).move_to([-3.55, -.05, 0]),
                         words("local area scale", 28).move_to([3.55, -.05, 0]))
-        jac = math(r"DT=\begin{pmatrix}x_u&x_v\\y_u&y_v\end{pmatrix}", 33).move_to([3.55, -1.15, 0])
+        jac = VGroup(
+            math(r"J(u,v)=\frac{\partial(x,y)}{\partial(u,v)}", 31),
+            math(r"=\begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\[.4em]\frac{\partial y}{\partial u}&\frac{\partial y}{\partial v}\end{vmatrix}", 29),
+        ).arrange(DOWN, buff=.18).move_to([3.55, -1.45, 0])
         assumption = words(r"For the length picture, take $h'(u)>0$.", 24).move_to([-3.55, -1.15, 0])
         note = caption("For nonlinear maps, these are local scales: zoom in on a tiny piece.")
         self.play(Write(factors), FadeIn(labels, assumption, note), Write(jac), run_time=3)
@@ -95,7 +98,7 @@ class SubstitutionComparison(Scene):
 
         # Function values and measure must both be transformed.
         values = pair(r"f(x)\longrightarrow f(h(u))", r"F(x,y)\longrightarrow F(T(u,v))", -.35, 31, BLUE)
-        pieces = pair(r"f(h(u))\,h'(u)\,\Delta u", r"F(T(u,v))\,|\det DT|\,\Delta u\,\Delta v", -1.45, 30)
+        pieces = pair(r"f(h(u))\,h'(u)\,\Delta u", r"F(T(u,v))\,|J(u,v)|\,\Delta u\,\Delta v", -1.45, 30)
         note = caption("3. Same function value at the same point; multiply by the new piece size.")
         self.play(Write(values), FadeIn(note), run_time=2)
         self.wait(3)
@@ -108,7 +111,7 @@ class SubstitutionComparison(Scene):
         two = math(r"\iint_R F(x,y)\,dA", 38).move_to([3.55, 1.45, 0])
         eqs = pair("=", "=", .55, 36)
         newone = math(r"\int_a^b f(h(u))\,h'(u)\,du", 34).move_to([-3.55, -.35, 0])
-        newtwo = math(r"\iint_S F(T(u,v))\,|\det DT|\,du\,dv", 30).move_to([3.55, -.35, 0])
+        newtwo = math(r"\iint_S F(T(u,v))\,\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\,du\,dv", 30).move_to([3.55, -.35, 0])
         steps = words("New domain. Same function at mapped points. Local scale factor.", 29).move_to([0, -2.1, 0])
         note = caption("4. Add up all the small contributions: the integral is unchanged.")
         self.play(Write(one), Write(two), FadeIn(note), run_time=2)
@@ -123,7 +126,7 @@ class SubstitutionComparison(Scene):
         identity = math(r"\int_a^b f(g(x))\,g'(x)\,dx=\int_{g(a)}^{g(b)}f(u)\,du", 35).move_to([0, -.1, 0])
         inverse = words(r"Where $h=g^{-1}$: $x=h(u)$ and $dx=h'(u)\,du$.", 31).move_to([0, -1.15, 0])
         orient = words(r"Single integrals use signed derivatives and oriented limits.\\"
-                       r"Double integrals use $|\det DT|$ because area is nonnegative.", 28).move_to([0, -2.3, 0])
+                       r"Double integrals use $|J(u,v)|$ because area is nonnegative.", 28).move_to([0, -2.3, 0])
         self.play(FadeIn(familiar), Write(forward), run_time=2)
         self.play(Write(identity), run_time=2)
         self.play(FadeIn(inverse), run_time=1)
