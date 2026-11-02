@@ -260,6 +260,20 @@ same role for areas: <m>|J|</m> is the local ratio of area in the
 this ratio concrete.
 </p>
 
+<figure xml:id="fig-substitution-comparison-video">
+<caption>
+The same change-of-variables idea in one and two dimensions, side by side:
+map the new coordinates to the old ones, evaluate the same function at the
+mapped point, and multiply by the local scale factor. The derivative
+scales a small interval; the absolute Jacobian determinant scales a small
+area. The animation also compares the familiar notation
+<m>u=g(x)</m> with <m>x=h(u)</m>.
+</caption>
+<video xml:id="video-substitution-comparison" preview="play-button.png"
+       source="videos/substitution_comparison_1080p.mp4"
+       width="90%" aspect="16:9"/>
+</figure>
+
 <example xml:id="example-jacobian-rectangle">
 <title>A First Substitution: Scaling a Rectangle</title>
 <statement>
