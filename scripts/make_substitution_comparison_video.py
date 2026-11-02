@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Side-by-side Manim explanation of substitution in one and two variables.
+"""Compare local intervals with local parallelograms, using Manim.
 
 Run: python scripts/make_substitution_comparison_video.py
-Produces assets/videos/substitution_comparison_1080p.mp4 (1080p, 30fps, silent).
-The typography and palette follow make_stokes_proof_idea_video.py.
-The local graphs use x=u^2 near u=1, and (x,y)=(u^2,v) near (1,v_0).
-Finite ratios are 2+Delta u; zooming makes their common limit 2 visible.
+Output: assets/videos/substitution_rectangles_parallelograms_1080p.mp4 (1080p, 30fps, silent).
+Style follows make_stokes_proof_idea_video.py. The 2D construction follows
+fig-jacobian-area-manim: a grid rectangle, its genuinely curved image,
+and the tangent parallelogram spanned by T_u Delta u and T_v Delta v.
+
+The illustrative map is T(u,v)=(2u+v+0.3v^2, v+0.3u^2), on [-.75,.75]^2.
+It is independent of the later hyperbola exercise. At the selected corner
+(0,0), T_u=(2,0), T_v=(1,1), and J=2. Both grid families have curved images.
+The orange area is measured from the sampled image boundary, not from the
+violet parallelogram. Its ratio tends to 2 as the selected cell shrinks.
 """
 import shutil
 import tempfile
@@ -14,12 +20,10 @@ from pathlib import Path
 import numpy as np
 from manim import *
 
-OUT = Path(__file__).resolve().parents[1] / "assets/videos/substitution_comparison_1080p.mp4"
-BLUE = "#2e9aff"
-ORANGE = "#ff862f"
-PURPLE = "#c77dff"
-GREY = "#7f7f7f"
-TPL = TexTemplate(preamble=r"\usepackage{amsmath}\usepackage{amssymb}")
+OUT = Path(__file__).resolve().parents[1] / 'assets/videos/substitution_rectangles_parallelograms_1080p.mp4'
+BLUE, RED = '#2e9aff', '#fc6255'
+ORANGE, PURPLE, GREY = '#ff862f', '#c77dff', '#7f7f7f'
+TPL = TexTemplate(preamble=r'\usepackage{amsmath}\usepackage{amssymb}')
 
 
 def words(s, size=30, color=WHITE):
@@ -31,257 +35,289 @@ def math(s, size=36, color=WHITE):
 
 
 def axes_at(origin, xrange, yrange, unit=1):
-    """Equal physical units on both axes, also shared by the two area plots."""
     axes = Axes(x_range=[*xrange, 1], y_range=[*yrange, 1],
-                x_length=unit * (xrange[1] - xrange[0]),
-                y_length=unit * (yrange[1] - yrange[0]), tips=False,
-                axis_config={"include_ticks": False, "stroke_color": GREY,
-                             "stroke_width": 1.4})
-    axes.shift(np.array(origin) - axes.c2p(0, 0))
+                x_length=unit*(xrange[1]-xrange[0]),
+                y_length=unit*(yrange[1]-yrange[0]), tips=False,
+                axis_config={'include_ticks': False, 'stroke_color': GREY,
+                             'stroke_width': 1.3})
+    axes.shift(np.array(origin)-axes.c2p(0, 0))
     return axes
 
 
-def graph_curve(axes, function, start, stop, color=BLUE):
-    return VMobject(color=color, stroke_width=3).set_points_smoothly(
-        [axes.c2p(t, function(t)) for t in np.linspace(start, stop, 70)])
+def curve(axes, points, color, width=2):
+    return VMobject(color=color, stroke_width=width).set_points_smoothly(
+        [axes.c2p(float(p[0]), float(p[1])) for p in points])
 
 
-def cell(axes, width, height, color, lower=(0, 0)):
-    x, y = lower
-    return Polygon(axes.c2p(x, y), axes.c2p(x+width, y),
-                   axes.c2p(x+width, y+height), axes.c2p(x, y+height),
-                   color=color, fill_opacity=.28, stroke_width=3)
+def ratio(label, value, center, color=ORANGE):
+    lhs = math(label+'=', 32)
+    number = DecimalNumber(value(), num_decimal_places=4, font_size=32, color=color)
+    group = VGroup(lhs, number).arrange(RIGHT, buff=.15).move_to(center)
+
+    def update(m):
+        target = value()
+        if abs(m.get_value()-target) > .000005:
+            m.set_value(target)
+        m.next_to(lhs, RIGHT, buff=.15)
+    number.add_updater(update)
+    return group
 
 
-def interval_global(epsilon):
-    axes = axes_at([-4.95, -1.85, 0], (0, 1.8), (0, 3.2))
-    curve = graph_curve(axes, lambda u: u*u, 0, 1.75)
-    start, corner, end = axes.c2p(1, 1), axes.c2p(1+epsilon, 1), axes.c2p(1+epsilon, (1+epsilon)**2)
-    horizontal = Line(start, corner, color=BLUE, stroke_width=6)
-    vertical = Line(corner, end, color=ORANGE, stroke_width=6)
-    focus = SurroundingRectangle(VGroup(horizontal, vertical), buff=.13, color=PURPLE, stroke_width=2)
-    labels = VGroup(math("u", 25).next_to(axes.x_axis, RIGHT, buff=.1),
-                    math("x", 25).next_to(axes.y_axis, UP, buff=.1),
-                    math(r"\Delta u", 22, BLUE).next_to(horizontal, DOWN, buff=.1),
-                    math(r"\Delta x", 22, ORANGE).next_to(vertical, RIGHT, buff=.1),
-                    math("(1,1)", 23).next_to(Dot(start), LEFT, buff=.12))
-    return VGroup(axes, curve, horizontal, vertical, Dot(start, radius=.045),
-                  Dot(end, radius=.045, color=ORANGE), focus, labels)
+def interval_view(epsilon, zoomed=False):
+    axes = axes_at([-4.7, -1.65, 0], (-.15, 1.45) if zoomed else (0, 1.8),
+                   (-.2, 3.2) if zoomed else (0, 3.2), unit=.95)
 
-
-def interval_zoom(epsilon):
-    # Coordinates are offsets from (1,1), magnified by 1/epsilon:
-    # (x-1)/epsilon = 2q + epsilon*q^2, q=(u-1)/epsilon.
-    axes = axes_at([-4.65, -1.85, 0], (-.2, 1.45), (-.2, 3.2), unit=.95)
-    curve = always_redraw(lambda: graph_curve(
-        axes, lambda q: 2*q + epsilon.get_value()*q*q, -.12, 1.24))
-    tangent = DashedLine(axes.c2p(-.12, -.24), axes.c2p(1.24, 2.48),
-                         color=PURPLE, stroke_width=2, dash_length=.07)
-    horizontal = Line(axes.c2p(0, 0), axes.c2p(1, 0), color=BLUE, stroke_width=6)
-    vertical = always_redraw(lambda: Line(
-        axes.c2p(1, 0), axes.c2p(1, 2+epsilon.get_value()), color=ORANGE, stroke_width=6))
-    endpoint = always_redraw(lambda: Dot(axes.c2p(1, 2+epsilon.get_value()), radius=.045, color=ORANGE))
-    dx = always_redraw(lambda: math(r"\Delta x", 25, ORANGE).next_to(vertical, RIGHT, buff=.13))
-    labels = VGroup(math(r"\Delta u", 25, BLUE).next_to(horizontal, DOWN, buff=.15),
-                    math("(1,1)", 21).next_to(Dot(axes.c2p(0, 0)), LEFT, buff=.14),
-                    words("tangent slope 2", 23, PURPLE).move_to([-2.55, .85, 0]),
-                    math("u", 24).next_to(axes.x_axis, RIGHT, buff=.1),
-                    math("x", 24).next_to(axes.y_axis, UP, buff=.1))
-    return VGroup(axes, tangent, curve, horizontal, vertical, endpoint, dx, labels)
-
-
-def area_global(epsilon):
-    plots = VGroup()
-    for origin, transformed in (([.5, -1.35, 0], False), ([3.8, -1.35, 0], True)):
-        axes = axes_at(origin, (0, 2.55), (0, 1.6))
-        grid = VGroup()
-        for t in np.linspace(0, 1.5, 7):
-            x = t*t if transformed else t
-            grid.add(Line(axes.c2p(x, 0), axes.c2p(x, 1.5), stroke_width=1, color=GREY))
-            grid.add(Line(axes.c2p(0, t), axes.c2p(2.25 if transformed else 1.5, t),
-                          stroke_width=1, color=GREY))
-        width = 2*epsilon + epsilon*epsilon if transformed else epsilon
-        patch = cell(axes, width, epsilon, ORANGE if transformed else BLUE, lower=(1, .5))
-        focus = SurroundingRectangle(patch, buff=.09, color=PURPLE, stroke_width=2)
-        labels = VGroup(math("x" if transformed else "u", 24).next_to(axes.x_axis, RIGHT, buff=.08),
-                        math("y" if transformed else "v", 24).next_to(axes.y_axis, UP, buff=.08),
-                        words("old coordinates" if transformed else "new coordinates", 22).move_to(
-                            [origin[0]+1.2, .75, 0]))
-        plots.add(VGroup(axes, grid, patch, focus, labels))
-    plots.add(Arrow([3.05, -.65, 0], [3.65, -.65, 0], color=PURPLE, buff=.06))
-    return plots
-
-
-def area_zoom(epsilon):
-    uv = axes_at([.5, -1.35, 0], (-.15, 2.55), (-.15, 1.65))
-    xy = axes_at([3.8, -1.35, 0], (-.15, 2.55), (-.15, 1.65))
-    source = cell(uv, 1, 1, BLUE)
-    image = always_redraw(lambda: cell(xy, 2+epsilon.get_value(), 1, ORANGE))
-    source_grid = VGroup()
-    for t in (.25, .5, .75):
-        source_grid.add(Line(uv.c2p(t, 0), uv.c2p(t, 1), color=BLUE, stroke_width=1),
-                        Line(uv.c2p(0, t), uv.c2p(1, t), color=BLUE, stroke_width=1))
-
-    def image_grid():
-        lines = VGroup()
+    def geometry():
         e = epsilon.get_value()
-        for t in (.25, .5, .75):
-            lines.add(Line(xy.c2p(2*t+e*t*t, 0), xy.c2p(2*t+e*t*t, 1), color=ORANGE, stroke_width=1),
-                      Line(xy.c2p(0, t), xy.c2p(2+e, t), color=ORANGE, stroke_width=1))
-        return lines
+        t = np.linspace(-.12, 1.24, 70) if zoomed else np.linspace(0, 1.75, 70)
+        f = (lambda q: 2*q+e*q*q) if zoomed else (lambda u: u*u)
+        graph = curve(axes, np.column_stack((t, f(t))), BLUE, 3)
+        a = (0, 0) if zoomed else (1, 1)
+        b = (1, 0) if zoomed else (1+e, 1)
+        c = (1, 2+e) if zoomed else (1+e, (1+e)**2)
+        horizontal = Line(axes.c2p(*a), axes.c2p(*b), color=BLUE, stroke_width=6)
+        vertical = Line(axes.c2p(*b), axes.c2p(*c), color=ORANGE, stroke_width=6)
+        labels = VGroup(math(r'\Delta u', 25, BLUE).next_to(horizontal, DOWN, buff=.12),
+                        math(r'\Delta x', 25, ORANGE).next_to(vertical, RIGHT, buff=.13),
+                        math('(1,1)', 21).next_to(Dot(axes.c2p(*a)), LEFT, buff=.14))
+        result = VGroup(graph, horizontal, vertical, labels,
+                        Dot(axes.c2p(*c), radius=.04, color=ORANGE))
+        if zoomed:
+            tangent = DashedLine(axes.c2p(-.12, -.24), axes.c2p(1.24, 2.48),
+                                 color=PURPLE, stroke_width=3, dash_length=.07)
+            result.add_to_back(tangent)
+        else:
+            result.add(SurroundingRectangle(VGroup(horizontal, vertical),
+                                           buff=.13, color=PURPLE, stroke_width=2))
+        return result
+    axes_labels = VGroup(math('u', 24).next_to(axes.x_axis, RIGHT, buff=.1),
+                         math('x', 24).next_to(axes.y_axis, UP, buff=.1))
+    return VGroup(axes, always_redraw(geometry), axes_labels)
 
-    grid = always_redraw(image_grid)
+
+def interval_bars(epsilon):
+    origin, unit = np.array([.8, 1, 0]), 1.15
+    source = Line(origin, origin+unit*RIGHT, color=BLUE, stroke_width=7)
+    actual = always_redraw(lambda: Line(origin+DOWN,
+        origin+DOWN+(2+epsilon.get_value())*unit*RIGHT, color=ORANGE, stroke_width=7))
+    model = Line(origin+2*DOWN, origin+2*DOWN+2*unit*RIGHT, color=PURPLE, stroke_width=7)
     labels = VGroup(
-        math(r"\Delta u", 24, BLUE).move_to(uv.c2p(.5, -.33)),
-        math(r"\Delta v", 23, BLUE).rotate(PI/2).move_to(uv.c2p(-.24, .5)),
-        math(r"\Delta x", 24, ORANGE).move_to(xy.c2p(1.1, -.33)),
-        math(r"\Delta y=\Delta v", 20, ORANGE).rotate(PI/2).move_to(xy.c2p(-.25, .5)),
-        math(r"\Delta u\,\Delta v", 23, BLUE).move_to(uv.c2p(.5, 1.25)),
-        math(r"\Delta x\,\Delta y", 23, ORANGE).move_to(xy.c2p(1.1, 1.25)),
-        math(r"(1,v_0)", 18).move_to(uv.c2p(-.12, -.48)),
-        math(r"(1,v_0)", 18).move_to(xy.c2p(-.12, -.48)),
-        words("new coordinates", 22).move_to([1.7, .75, 0]),
-        words("old coordinates", 22).move_to([5, .75, 0]),
-        math("u", 23).next_to(uv.x_axis, RIGHT, buff=.07),
-        math("v", 23).next_to(uv.y_axis, UP, buff=.07),
-        math("x", 23).next_to(xy.x_axis, RIGHT, buff=.07),
-        math("y", 23).next_to(xy.y_axis, UP, buff=.07))
-    arrow = Arrow([3.05, -.8, 0], [3.6, -.8, 0], color=PURPLE, buff=.05)
-    origins = VGroup(Dot(uv.c2p(0, 0), radius=.035), Dot(xy.c2p(0, 0), radius=.035))
-    return VGroup(uv, xy, source, image, source_grid, grid, labels, arrow, origins)
+        math(r'\Delta u', 27, BLUE).next_to(source, UP, buff=.13),
+        math(r'\Delta x', 27, ORANGE).move_to([2.2, .35, 0]),
+        math(r"h'(1)\,\Delta u", 27, PURPLE).next_to(model, UP, buff=.13),
+        words('input interval', 25).move_to([4.9, 1, 0]),
+        words('true image', 25, ORANGE).move_to([4.9, 0, 0]),
+        words('tangent prediction', 25, PURPLE).move_to([4.9, -1, 0]))
+    return VGroup(source, actual, model, labels)
+
+
+def transform(u, v):
+    return np.array([2*u+v+.3*v*v, v+.3*u*u])
+
+
+def rectangle_ring(h, samples=100):
+    t = np.linspace(0, 1, samples, endpoint=False)
+    return np.concatenate((np.column_stack((h*t, 0*t)),
+        np.column_stack((0*t+h, h*t)), np.column_stack((h*(1-t), 0*t+h)),
+        np.column_stack((0*t, h*(1-t)))))
+
+
+def image_area_ratio(h):
+    ring = rectangle_ring(h, 160)
+    points = transform(ring[:, 0], ring[:, 1]).T
+    points -= points[0]
+    area = abs(np.sum(points[:, 0]*np.roll(points[:, 1], -1)
+                      -points[:, 1]*np.roll(points[:, 0], -1)))/2
+    return float(area/(h*h))
+
+
+def area_view(h_tracker, zoomed=False, show_model=False):
+    # Both plots use the same units. Zoom magnifies BOTH by 1/h.
+    if zoomed:
+        uv = axes_at([-4.65, -.85, 0], (-.2, 1.4), (-.2, 1.45), 1.1)
+        xy = axes_at([1.45, -.85, 0], (-.6, 3.9), (-.35, 1.65), 1.1)
+    else:
+        uv = axes_at([-4.4, -.1, 0], (-1, 1), (-1, 1.2), 1.25)
+        xy = axes_at([2, -.1, 0], (-2.35, 2.7), (-1, 1.3), 1.25)
+
+    def geometry():
+        h = h_tracker.get_value()
+        side = 1 if zoomed else h
+        if zoomed:
+            positions, lo, hi = [0, 1], -.18, 1.18
+            def mapped(u, v):
+                return transform(h*u, h*v)/h
+        else:
+            # Keep the selected [0,h] x [0,h] rectangle a grid cell even
+            # between the discrete refinement levels during an animation.
+            interior = np.arange(np.ceil(-.75/h), np.floor(.75/h)+1)*h
+            positions, lo, hi = np.unique(np.r_[interior, -.75, .75]), -.75, .75
+            mapped = transform
+        uv_grid, xy_grid = VGroup(), VGroup()
+        t = np.linspace(lo, hi, 55)
+        for p in positions:
+            for points, color in ((np.column_stack((t, 0*t+p)), BLUE),
+                                  (np.column_stack((0*t+p, t)), RED)):
+                uv_grid.add(curve(uv, points, color, 1).set_stroke(opacity=.4))
+                xy_grid.add(curve(xy, mapped(points[:, 0], points[:, 1]).T, color, 1.3).set_stroke(opacity=.45))
+        source = Polygon(uv.c2p(0, 0), uv.c2p(side, 0), uv.c2p(side, side), uv.c2p(0, side),
+                         color=ORANGE, fill_opacity=.24, stroke_width=2.5)
+        ring = rectangle_ring(h, 36)
+        image = transform(ring[:, 0], ring[:, 1]).T/(h if zoomed else 1)
+        patch = Polygon(*[xy.c2p(*p) for p in image], color=ORANGE,
+                        fill_opacity=.25, stroke_width=3)
+        source_edges = VGroup(
+            Arrow(uv.c2p(0, 0), uv.c2p(side, 0), buff=0, color=BLUE, stroke_width=4),
+            Arrow(uv.c2p(0, 0), uv.c2p(0, side), buff=0, color=RED, stroke_width=4))
+        result = VGroup(uv_grid, xy_grid, source, patch, source_edges)
+        if show_model:
+            vertices = [xy.c2p(0, 0), xy.c2p(2*side, 0),
+                        xy.c2p(3*side, side), xy.c2p(side, side)]
+            fill = Polygon(*vertices, color=PURPLE, stroke_width=0, fill_opacity=.12)
+            outline = DashedVMobject(Polygon(*vertices, color=PURPLE, fill_opacity=0,
+                                             stroke_width=4), num_dashes=32)
+            vectors = VGroup(
+                Arrow(vertices[0], vertices[1], buff=0, color=BLUE, stroke_width=5),
+                Arrow(vertices[0], vertices[3], buff=0, color=RED, stroke_width=5))
+            result.add(fill, outline, vectors)
+        du = math(r'\Delta u', 25, BLUE).next_to(source_edges[0], DOWN, buff=.12)
+        dv = math(r'\Delta v', 25, RED).next_to(source_edges[1], LEFT, buff=.12)
+        result.add(du, dv, Dot(uv.c2p(0, 0), radius=.045), Dot(xy.c2p(0, 0), radius=.045))
+        if show_model:
+            result.add(math(r'T_u\,\Delta u', 25, BLUE).move_to(xy.c2p(side, -.25*side)),
+                       math(r'T_v\,\Delta v', 25, RED).rotate(PI/4).move_to(xy.c2p(.2*side, .75*side)))
+        return result
+
+    labels = VGroup(
+        math('u', 24).next_to(uv.x_axis, RIGHT, buff=.1),
+        math('v', 24).next_to(uv.y_axis, UP, buff=.1),
+        math('x', 24).next_to(xy.x_axis, RIGHT, buff=.1),
+        math('y', 24).next_to(xy.y_axis, UP, buff=.1),
+        math('p=(u_0,v_0)', 23).move_to(uv.c2p(-.18, -.48 if zoomed else -.38)),
+        math('T(p)', 23).move_to(xy.c2p(-.05, -.48 if zoomed else -.38)))
+    arrow = Arrow([-2.75, .1, 0], [-1.35, .1, 0], buff=.05, color=WHITE)
+    labels.add(math('T', 30).next_to(arrow, UP, buff=.08))
+    return VGroup(uv, xy, always_redraw(geometry), labels, arrow)
 
 
 class SubstitutionComparison(Scene):
     def construct(self):
         self.camera.background_color = BLACK
-        title = words("Change of variables: the same idea in two dimensions", 38).to_edge(UP, buff=.3)
-        left = words("Single integral", 32, BLUE).move_to([-3.55, 2.65, 0])
-        right = words("Double integral", 32, BLUE).move_to([3.55, 2.65, 0])
-        divider = Line([0, 2.3, 0], [0, -2.65, 0], color=GREY, stroke_width=1)
-        self.play(Write(title), FadeIn(left, right), Create(divider), run_time=2)
-        self.wait(2)
+        def pause(seconds): self.wait(seconds, frozen_frame=True)
+        def caption(s): return words(s, 27).to_edge(DOWN, buff=.3)
+        def heading(s): return words(s, 37).to_edge(UP, buff=.25)
 
-        def pair(a, b, y, size=36, color=WHITE):
-            return VGroup(math(a, size, color).move_to([-3.55, y, 0]),
-                          math(b, size, color).move_to([3.55, y, 0]))
+        title = heading('Change of variables: compare the small pieces')
+        intro = words('A small piece is predicted by a local linear map.', 34).move_to([0, .4, 0])
+        self.play(Write(title), FadeIn(intro), run_time=2)
+        pause(3)
+        self.play(FadeOut(intro), Transform(title, heading('One variable: interval versus tangent prediction')))
+        e = ValueTracker(.4)
+        formula = math(r'x=h(u)=u^2,\quad u_0=1', 32).move_to([-3.55, 2.45, 0])
+        enlarged = words('Intervals at right: magnified equally', 26).move_to([3.1, 2.45, 0])
+        graph = interval_view(e)
+        bars = interval_bars(e)
+        note = caption('The blue interval has a true image (orange) and a tangent prediction (violet).')
+        self.play(Write(formula), FadeIn(enlarged, graph, bars, note), run_time=3)
+        pause(4)
+        zoom_graph = interval_view(e, True)
+        self.play(ReplacementTransform(graph, zoom_graph), run_time=3)
+        readout = ratio(r'\frac{\text{length of true image}}{\Delta u}', lambda:2+e.get_value(), [0, -2.4, 0])
+        reference = math(r"\text{tangent prediction}/\Delta u=|h'(1)|=2", 29, PURPLE).move_to([0, -3.05, 0])
+        self.play(FadeIn(readout), Write(reference))
+        new_note = caption('Refine and zoom: the true image interval approaches the tangent prediction.')
+        self.play(ReplacementTransform(note, new_note))
+        self.play(e.animate.set_value(.1), run_time=3)
+        pause(2)
+        self.play(e.animate.set_value(.02), run_time=3)
+        pause(4)
+        length_snapshot = VGroup(zoom_graph, bars).copy().clear_updaters(recursive=True)
+        self.play(FadeOut(zoom_graph, bars, formula, enlarged, readout, reference, new_note))
 
-        def caption(s):
-            return words(s, 29).to_edge(DOWN, buff=.35)
+        self.play(Transform(title, heading('Two variables: rectangle, curved image, local parallelogram')))
+        map_label = math(r'T(u,v)=(x(u,v),y(u,v))', 32).move_to([0, 2.6, 0])
+        headers = VGroup(words(r'$uv$-plane: rectangles', 29).move_to([-4.1, 1.9, 0]),
+                         words(r'$xy$-plane: curved grid', 29).move_to([3.3, 1.9, 0]))
+        h = ValueTracker(.75)
+        coarse = area_view(h)
+        note = caption('A rectangle cut out by u = constant and v = constant maps to a curved cell.')
+        self.play(Write(map_label), FadeIn(headers, coarse, note), run_time=3)
+        pause(5)
+        model = area_view(h, show_model=True)
+        definitions = VGroup(
+            math(r'T_u(p)=\left\langle\frac{\partial x}{\partial u},\frac{\partial y}{\partial u}\right\rangle_p=\langle2,0\rangle', 26, BLUE).move_to([-3.5, 2.65, 0]),
+            math(r'T_v(p)=\left\langle\frac{\partial x}{\partial v},\frac{\partial y}{\partial v}\right\rangle_p=\langle1,1\rangle', 26, RED).move_to([3.5, 2.65, 0]))
+        for definition in definitions:
+            if definition.width > 6.4:
+                definition.scale_to_fit_width(6.4)
+        new_note = caption('The violet parallelogram is spanned by the two tangent edge vectors.')
+        self.play(ReplacementTransform(coarse, model), FadeOut(map_label), Write(definitions),
+                  ReplacementTransform(note, new_note), run_time=3)
+        area_readout = ratio(r'\frac{\text{area of curved image}}{\Delta u\,\Delta v}',
+                             lambda:image_area_ratio(h.get_value()), [0, -2.15, 0])
+        area_reference = math(r'\text{area of violet parallelogram}=|J(p)|\,\Delta u\,\Delta v=2\Delta u\,\Delta v',
+                              27, PURPLE).move_to([0, -2.95, 0])
+        if area_reference.width > 12.7:
+            area_reference.scale_to_fit_width(12.7)
+        self.play(FadeIn(area_readout), Write(area_reference))
+        pause(5)
+        self.play(h.animate.set_value(.375), run_time=3)
+        pause(2)
+        zoom = area_view(h, True, True)
+        zoom_note = caption('Zoom to the chosen cell, then refine: the curved patch hugs the parallelogram.')
+        self.play(ReplacementTransform(model, zoom), ReplacementTransform(new_note, zoom_note), run_time=3)
+        self.play(h.animate.set_value(.1875), run_time=3)
+        pause(2)
+        self.play(h.animate.set_value(.09375), run_time=3)
+        pause(2)
+        self.play(h.animate.set_value(.0234375), run_time=3)
+        pause(3)
+        local_value = math(r'J(p)=\left.\frac{\partial(x,y)}{\partial(u,v)}\right|_p=\begin{vmatrix}2&1\\0&1\end{vmatrix}=2',
+                           29, PURPLE).move_to([0, 2.65, 0])
+        final_note = caption('The image area divided by the rectangle area approaches the absolute Jacobian.')
+        self.play(ReplacementTransform(definitions, local_value), ReplacementTransform(zoom_note, final_note))
+        pause(5)
+        area_snapshot = zoom.copy().clear_updaters(recursive=True)
+        self.play(FadeOut(zoom, headers, local_value, area_readout, area_reference, final_note))
 
-        # Read both maps in the same direction: new coordinates to old ones.
-        maps = pair(r"u\longmapsto x=h(u)", r"(u,v)\longmapsto (x,y)=T(u,v)", 1.65, 32, PURPLE)
-        domains = pair(r"[a,b]\longmapsto [h(a),h(b)]", r"S\longmapsto R", .65, 32)
-        sub = words(r"where $T(u,v)=(f(u,v),g(u,v))$", 24).move_to([3.55, -.05, 0])
-        note = caption("1. Describe the same points using new coordinates.")
-        self.play(Write(maps), FadeIn(note), run_time=2)
-        self.play(Write(domains), FadeIn(sub), run_time=2)
-        self.wait(5)
-        self.play(FadeOut(domains, sub, note))
-
-        # Start with actual coordinate graphs, select corresponding pieces,
-        # then magnify the pieces instead of presenting detached shapes.
-        self.play(FadeOut(maps))
-        examples = pair(r"x=u^2,\quad u\approx1", r"x=u^2,\quad y=v,\quad u\approx1", 1.85, 30)
-        note = caption("2. Select a small interval and a small rectangle near u = 1.")
-        coarse_interval = interval_global(.4)
-        coarse_area = area_global(.4)
-        self.play(Write(examples), FadeIn(note))
-        self.play(FadeIn(coarse_interval), FadeIn(coarse_area), run_time=3)
-        self.wait(4)
-        epsilon = ValueTracker(.4)
-        zoom_interval = interval_zoom(epsilon)
-        zoom_area = area_zoom(epsilon)
-        zoom_note = caption("Zoom into the highlighted pieces; use the same scale on corresponding axes.")
-        self.play(ReplacementTransform(coarse_interval, zoom_interval),
-                  ReplacementTransform(coarse_area, zoom_area),
-                  ReplacementTransform(note, zoom_note), run_time=3)
-        ratio1 = math(r"\frac{\Delta x}{\Delta u}=", 30).move_to([-4.05, -2.7, 0])
-        ratio2 = math(r"\frac{\Delta x\,\Delta y}{\Delta u\,\Delta v}=", 30).move_to([2.95, -2.7, 0])
-        number1 = DecimalNumber(2.4, num_decimal_places=3, font_size=32).next_to(ratio1, RIGHT, buff=.15)
-        number2 = DecimalNumber(2.4, num_decimal_places=3, font_size=32).next_to(ratio2, RIGHT, buff=.15)
-        number1.add_updater(lambda m: m.set_value(2+epsilon.get_value()).next_to(ratio1, RIGHT, buff=.15))
-        number2.add_updater(lambda m: m.set_value(2+epsilon.get_value()).next_to(ratio2, RIGHT, buff=.15))
-        ratios = VGroup(ratio1, ratio2, number1, number2)
-        self.play(FadeIn(ratios))
-        self.wait(3)
-        limit_note = caption("Shrink the pieces and magnify further: both ratios approach 2.")
-        self.play(ReplacementTransform(zoom_note, limit_note))
-        self.play(epsilon.animate.set_value(.1), run_time=3, rate_func=smooth)
-        self.wait(2)
-        self.play(epsilon.animate.set_value(.02), run_time=3, rate_func=smooth)
-        self.wait(2)
-        # Freeze, then retain the enlarged local pictures during the formulas.
-        zoom_interval.clear_updaters(recursive=True)
-        zoom_area.clear_updaters(recursive=True)
-        ratios.clear_updaters(recursive=True)
-        local1 = math(r"\Delta x\approx2\Delta u", 29, ORANGE).move_to([-3.55, -2.7, 0])
-        local2 = math(r"\Delta x\,\Delta y\approx2\Delta u\,\Delta v", 29, ORANGE).move_to([3.55, -2.7, 0])
-        final_note = caption("In the limit: dx = 2 du, and dx dy = 2 du dv at u = 1.")
-        self.play(FadeOut(ratios), FadeIn(local1, local2), ReplacementTransform(limit_note, final_note))
-        self.wait(5)
-        insets = VGroup(zoom_interval, zoom_area)
-        self.play(zoom_interval.animate.scale(.5).move_to([-3.55, -1.6, 0]),
-                  zoom_area.animate.scale(.65).move_to([3.55, -1.6, 0]),
-                  FadeOut(examples, local1, local2, final_note), FadeIn(maps), run_time=2)
-
-        factors = pair(r"dx=h'(u)\,du", r"dA=\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\,du\,dv", .75, 34, ORANGE)
-        labels = VGroup(words(r"$h'(1)=2$ in the graph below", 25).move_to([-3.55, -.05, 0]),
-                        words(r"$J(u,v)=\frac{\partial(x,y)}{\partial(u,v)}$; $J(1,v)=2$ below", 25).move_to([3.55, -.05, 0]))
-        note = caption("The enlarged local pictures stay: a length scale becomes an area scale.")
-        self.play(Write(factors), FadeIn(labels, note), run_time=3)
-        self.wait(6)
-        self.play(FadeOut(labels, factors, note))
-
-        # Function values and measure must both be transformed.
-        values = pair(r"f(x)\longrightarrow f(h(u))", r"F(x,y)\longrightarrow F(T(u,v))", .75, 31, BLUE)
-        pieces = pair(r"f(h(u))\,h'(u)\,\Delta u", r"F(T(u,v))\,|J(u,v)|\,\Delta u\,\Delta v", -.05, 30)
-        note = caption("3. Same function value at the same point; multiply by the new piece size.")
-        self.play(Write(values), FadeIn(note), run_time=2)
-        self.wait(3)
-        self.play(Write(pieces), run_time=2)
-        self.wait(5)
-        self.play(FadeOut(values, pieces, note, maps))
-
-        # Keep the correspondence readable instead of one long double integral.
-        one = math(r"\int_{h(a)}^{h(b)} f(x)\,dx", 36).move_to([-3.55, 1.65, 0])
-        two = math(r"\iint_R F(x,y)\,dA", 36).move_to([3.55, 1.65, 0])
-        eqs = pair("=", "=", .9, 34)
-        newone = math(r"\int_a^b f(h(u))\,h'(u)\,du", 32).move_to([-3.55, .15, 0])
-        newtwo = math(r"\iint_S F(T(u,v))\,\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\,du\,dv", 29).move_to([3.55, .15, 0])
-        steps = words("New domain. Same function at mapped points. Local scale factor.", 25).move_to([0, -2.95, 0])
-        note = caption("4. Add up all the small contributions: the integral is unchanged.")
-        self.play(Write(one), Write(two), FadeIn(note), run_time=2)
-        self.play(Write(eqs), Write(newone), Write(newtwo), run_time=3)
-        self.play(FadeIn(steps))
-        self.wait(8)
-        self.play(FadeOut(one, two, eqs, newone, newtwo, steps, note, insets, left, right, divider))
-
-        # Connect to the familiar forward u-substitution in the cited text.
-        familiar = words("The familiar substitution writes the map the other way", 34).move_to([0, 2, 0])
-        forward = math(r"u=g(x),\qquad du=g'(x)\,dx", 40).move_to([0, .95, 0])
-        identity = math(r"\int_a^b f(g(x))\,g'(x)\,dx=\int_{g(a)}^{g(b)}f(u)\,du", 35).move_to([0, -.1, 0])
-        inverse = words(r"Where $h=g^{-1}$: $x=h(u)$ and $dx=h'(u)\,du$.", 31).move_to([0, -1.15, 0])
-        orient = words(r"Single integrals use signed derivatives and oriented limits.\\"
-                       r"Double integrals use $|J(u,v)|$ because area is nonnegative.", 28).move_to([0, -2.3, 0])
-        self.play(FadeIn(familiar), Write(forward), run_time=2)
-        self.play(Write(identity), run_time=2)
-        self.play(FadeIn(inverse), run_time=1)
-        self.wait(5)
-        self.play(FadeIn(orient))
-        self.wait(7)
-        self.play(FadeOut(familiar, forward, identity, inverse, orient))
-        takeaway = words(r"The derivative scales length.\\The Jacobian determinant scales area.", 44).move_to([0, .5, 0])
-        closing = words("Change coordinates, change the small piece, keep the integral.", 30).move_to([0, -1.3, 0])
-        self.play(Write(takeaway), FadeIn(closing), run_time=3)
-        self.wait(6)
+        # Keep both enlarged local constructions visible while comparing factors.
+        self.play(Transform(title, heading('The same local linear idea, one dimension higher')))
+        length_snapshot.scale_to_fit_width(5.7).move_to([-3.55, -1.35, 0])
+        area_snapshot.scale_to_fit_width(5.9).move_to([3.55, -1.35, 0])
+        labels = VGroup(words('Local intervals', 32, BLUE).move_to([-3.55, 2.65, 0]),
+                        words('Local rectangles and parallelograms', 28, BLUE).move_to([3.55, 2.65, 0]))
+        factors = VGroup(
+            math(r'\Delta x\approx h^{\prime}(u)\,\Delta u', 32).move_to([-3.55, 1.65, 0]),
+            math(r'A_{\text{image}}\approx\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\Delta u\,\Delta v',
+                 29).move_to([3.55, 1.65, 0]))
+        if factors[1].width > 6.2:
+            factors[1].scale_to_fit_width(6.2)
+        factor_names = VGroup(words('length scale: derivative', 27, PURPLE).move_to([-3.55, .55, 0]),
+                             words('area scale: absolute Jacobian', 27, PURPLE).move_to([3.55, .55, 0]))
+        note = caption('Replace each small image by its local linear prediction, then add the contributions.')
+        self.play(FadeIn(labels, length_snapshot, area_snapshot, note), Write(factors), FadeIn(factor_names), run_time=3)
+        pause(6)
+        self.play(FadeOut(factors, factor_names, note))
+        one = math(r'\int_{h(a)}^{h(b)} f(x)\,dx', 34).move_to([-3.55, 1.8, 0])
+        two = math(r'\iint_R F(x,y)\,dA', 34).move_to([3.55, 1.8, 0])
+        eqs = VGroup(math('=', 32).move_to([-3.55, 1.05, 0]), math('=', 32).move_to([3.55, 1.05, 0]))
+        newone = math(r'\int_a^b f(h(u))\,h^{\prime}(u)\,du', 31).move_to([-3.55, .3, 0])
+        newtwo = math(r'\iint_S F(T(u,v))\left|\frac{\partial(x,y)}{\partial(u,v)}\right|du\,dv', 28).move_to([3.55, .3, 0])
+        note = caption('Same function at the mapped points; the local scale factor changes the small piece.')
+        self.play(Write(one), Write(two), Write(eqs), Write(newone), Write(newtwo), FadeIn(note), run_time=4)
+        pause(8)
+        self.play(*[FadeOut(m) for m in (labels, length_snapshot, area_snapshot, one, two, eqs, newone, newtwo, note)])
+        closing = words(r'The derivative scales length.\\The Jacobian determinant scales area.', 42).move_to([0, .65, 0])
+        orientation = words(r'Single integrals: signed derivative with oriented limits.\\Double integrals: absolute Jacobian, since area is nonnegative.', 26).move_to([0, -1.35, 0])
+        self.play(Write(closing), FadeIn(orientation), run_time=2)
+        pause(5)
 
 
-if __name__ == "__main__":
-    with tempfile.TemporaryDirectory(prefix="substitution-manim-") as temp:
-        with tempconfig({"media_dir": temp, "pixel_width": 1920,
-                         "pixel_height": 1080, "frame_rate": 30,
-                         "background_color": BLACK, "disable_caching": True,
-                         "output_file": "substitution_comparison"}):
+if __name__ == '__main__':
+    with tempfile.TemporaryDirectory(prefix='substitution-manim-') as temp:
+        with tempconfig({'media_dir': temp, 'pixel_width': 1920, 'pixel_height': 1080,
+                         'frame_rate': 30, 'background_color': BLACK,
+                         'disable_caching': True, 'output_file': 'substitution_comparison'}):
             scene = SubstitutionComparison()
             scene.render()
             OUT.parent.mkdir(parents=True, exist_ok=True)

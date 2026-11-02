@@ -262,20 +262,22 @@ this ratio concrete.
 
 <figure xml:id="fig-substitution-comparison-video">
 <caption>
-The same change-of-variables idea in one and two dimensions, side by side:
-map the new coordinates to the old ones, evaluate the same function at the
-mapped point, and multiply by the local scale factor. The derivative
-scales a small interval; the absolute Jacobian determinant scales a small
-area. Coordinate graphs of <m>x=u^2</m> and <m>(x,y)=(u^2,v)</m>
-are magnified near <m>u=1</m>: <m>\Delta x\approx2\Delta u</m>,
-<m>\Delta y=\Delta v</m>, and
-<m>\Delta x\Delta y\approx2\Delta u\Delta v</m>.
-The enlarged local pictures remain visible while the integral formulas are
-compared. The animation also compares the familiar notation
-<m>u=g(x)</m> with <m>x=h(u)</m>.
+Local linear approximations explain substitution in one and two variables.
+The animation uses an illustrative smooth map with <m>|J|=2</m> at the
+selected corner.
+A small interval has the tangent prediction
+<m>\Delta x\approx h'(u_0)\Delta u</m>. In two variables, the construction of
+<xref ref="fig-jacobian-area-manim"/> carries a rectangle of area
+<m>\Delta u\,\Delta v</m> to a curved image cell. The violet parallelogram
+spanned by <m>T_u\Delta u</m> and <m>T_v\Delta v</m> approximates that image.
+As the grid is refined, the curved-image area divided by
+<m>\Delta u\,\Delta v</m> approaches
+<m>|J(u_0,v_0)|=\left|\frac{\partial(x,y)}{\partial(u,v)}\right|_{(u_0,v_0)}</m>.
+The zoomed interval and local rectangle/parallelogram pictures remain visible
+while the integral formulas are compared.
 </caption>
 <video xml:id="video-substitution-comparison" preview="play-button.png"
-       source="videos/substitution_comparison_1080p.mp4"
+       source="videos/substitution_rectangles_parallelograms_1080p.mp4"
        width="90%" aspect="16:9"/>
 </figure>
 
