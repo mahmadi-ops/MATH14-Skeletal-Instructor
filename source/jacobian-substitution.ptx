@@ -266,16 +266,19 @@ A simple stretch compares substitution in one and two variables.
 The map <m>x=h(u)=2u</m> doubles the whole interval and each of its
 small pieces: <m>\Delta x=2\Delta u</m>.
 The linear map <m>T(u,v)=(2u+v,v)</m> takes a rectangle to one large
-parallelogram, divided into smaller parallelograms by the images of the
-rectangle's grid lines. Every small rectangle of area
-<m>\Delta u\,\Delta v</m> maps exactly to a parallelogram of area
-<m>2\Delta u\,\Delta v</m>, since
-<m>J=\frac{\partial(x,y)}{\partial(u,v)}=2</m>.
-The enlarged selected interval and rectangle/parallelogram pair remain
-visible while the integral formulas are compared.
+parallelogram, divided into smaller parallelograms. Every small rectangle
+of area <m>\Delta u\,\Delta v</m> maps to area
+<m>2\Delta u\,\Delta v</m>. The ending calculates
+<m>J=\frac{\partial(x,y)}{\partial(u,v)}=2\cdot1-1\cdot0=2</m>.
+The next example maps the parameter rectangle
+<m>1\le r\le4</m>, <m>0\le\theta\le\pi/2</m> to an annular sector by
+<m>x=r\cos\theta</m>, <m>y=r\sin\theta</m>. Here
+<m>J(r,\theta)=\frac{\partial(x,y)}{\partial(r,\theta)}=r</m> is not constant:
+equal parameter cells cover more area at larger radii.
+The factor stays inside the integral as <m>dA=r\,dr\,d\theta</m>.
 </caption>
 <video xml:id="video-substitution-comparison" preview="play-button.png"
-       source="videos/substitution_stretch_parallelograms_1080p.mp4"
+       source="videos/substitution_stretch_polar_1080p.mp4"
        width="90%" aspect="16:9"/>
 </figure>
 

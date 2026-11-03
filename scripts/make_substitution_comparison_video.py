@@ -2,7 +2,7 @@
 """Simple linear changes of variables, rendered with Manim.
 
 Run: python scripts/make_substitution_comparison_video.py
-Output: assets/videos/substitution_stretch_parallelograms_1080p.mp4
+Output: assets/videos/substitution_stretch_polar_1080p.mp4
 (1080p, 30fps, silent). Black/Computer Modern styling matches the book.
 
 1D: x=2u stretches a subdivided interval and each of its pieces by 2.
@@ -10,6 +10,9 @@ Output: assets/videos/substitution_stretch_parallelograms_1080p.mp4
      subdivided into a 4x3 grid of smaller parallelograms. Every cell's
      area is exactly doubled. Both pictures use equal coordinate units.
 The enlarged selected pieces remain in the final integral comparison.
+The ending expands the constant determinant as 2*1-1*0, then maps an
+(r,theta)-rectangle to an annular sector. Its Jacobian is r, and equal
+parameter cells have different image areas at different radii.
 """
 import shutil
 import tempfile
@@ -18,7 +21,7 @@ from pathlib import Path
 import numpy as np
 from manim import *
 
-OUT = Path(__file__).resolve().parents[1] / 'assets/videos/substitution_stretch_parallelograms_1080p.mp4'
+OUT = Path(__file__).resolve().parents[1] / 'assets/videos/substitution_stretch_polar_1080p.mp4'
 BLUE, RED = '#2e9aff', '#fc6255'
 ORANGE, PURPLE, GREY = '#ff862f', '#c77dff', '#7f7f7f'
 TPL = TexTemplate(preamble=r'\usepackage{amsmath}\usepackage{amssymb}')
@@ -108,6 +111,55 @@ def area_closeup():
     arrow = Arrow([-2.5,0,0],[-1.2,0,0],buff=.05,color=WHITE)
     labels.add(math('T',30).next_to(arrow,UP,buff=.1))
     return VGroup(uv,xy,source,target,edges,labels,arrow)
+
+
+def polar_transform(r,theta):
+    return np.array([r*np.cos(theta),r*np.sin(theta)])
+
+
+def polar_cell(axes,ra,rb,ta,tb,color,fill=.3):
+    unit=np.linalg.norm(axes.c2p(1,0)-axes.c2p(0,0))
+    return AnnularSector(inner_radius=ra*unit,outer_radius=rb*unit,
+                         start_angle=ta,angle=tb-ta,color=color,
+                         fill_opacity=fill,stroke_width=3).shift(axes.c2p(0,0))
+
+
+def polar_diagram():
+    rt=axes_at([-6.1,-.5,0],4.5,1.9,.8)
+    xy=axes_at([1.05,-1.6,0],4.3,4.3,.8)
+    source=rectangle(rt,1,0,3,PI/2,BLUE,fill=.1)
+    image=polar_cell(xy,1,4,0,PI/2,ORANGE,fill=.1)
+    input_grid,output_grid=VGroup(),VGroup()
+    for radius in (2,3):
+        input_grid.add(Line(rt.c2p(radius,0),rt.c2p(radius,PI/2),color=BLUE,stroke_width=1.6))
+        output_grid.add(Arc(radius=.8*radius,start_angle=0,angle=PI/2,
+                            color=ORANGE,stroke_width=1.6).shift(xy.c2p(0,0)))
+    for angle in (PI/6,PI/3):
+        input_grid.add(Line(rt.c2p(1,angle),rt.c2p(4,angle),color=BLUE,stroke_width=1.6))
+        output_grid.add(Line(xy.c2p(*polar_transform(1,angle)),
+                             xy.c2p(*polar_transform(4,angle)),color=ORANGE,stroke_width=1.6))
+    labels=VGroup(math('r',24).next_to(rt.x_axis,RIGHT,buff=.1),
+                  math(r'\theta',24).next_to(rt.y_axis,UP,buff=.1),
+                  math('x',24).next_to(xy.x_axis,RIGHT,buff=.1),
+                  math('y',24).next_to(xy.y_axis,UP,buff=.1),
+                  words(r'$(r,\theta)$-rectangle',28).move_to([-4.1,1.95,0]),
+                  words('Polar rectangle: an annular sector',26).move_to([3.4,2.05,0]),
+                  math(r'1\le r\le4,\quad0\le\theta\le\pi/2',24).move_to([-4.1,-1.3,0]))
+    for radius in (1,2,3,4):
+        labels.add(math(str(radius),21).next_to(Dot(rt.c2p(radius,0)),DOWN,buff=.12),
+                   math(str(radius),21).next_to(Dot(xy.c2p(radius,0)),DOWN,buff=.12))
+    for angle,text in ((0,'0'),(PI/6,r'\pi/6'),(PI/3,r'\pi/3'),(PI/2,r'\pi/2')):
+        labels.add(math(text,20).next_to(Dot(rt.c2p(0,angle)),LEFT,buff=.12))
+    arrow=Arrow([-2.05,.2,0],[-.3,.2,0],buff=.05,color=WHITE)
+    labels.add(math('T',29).next_to(arrow,UP,buff=.1))
+
+    def pair(ra,rb,color):
+        mid=(ra+rb)/2
+        return VGroup(rectangle(rt,ra,PI/6,rb-ra,PI/6,color,fill=.4),
+                      polar_cell(xy,ra,rb,PI/6,PI/3,color,fill=.4),
+                      Dot(rt.c2p(mid,PI/4),radius=.045,color=color),
+                      Dot(xy.c2p(*polar_transform(mid,PI/4)),radius=.045,color=color))
+    return VGroup(rt,xy,source,image,input_grid,output_grid,labels,arrow),pair(1,2,BLUE),pair(3,4,PURPLE)
 
 
 class SubstitutionComparison(Scene):
@@ -209,6 +261,65 @@ class SubstitutionComparison(Scene):
         if two.width>6.3:two.scale_to_fit_width(6.3)
         note=caption('Change the coordinates in the function, and multiply by the size factor.')
         self.play(Write(one),Write(two),FadeIn(note),run_time=3)
+        pause(7)
+
+        # Explicit recap: the determinant explains the constant area factor.
+        self.play(FadeOut(labels,length_snapshot,area_snapshot,one,two,note))
+        new_heading=title('The Jacobian explains the factor 2')
+        swap(heading,new_heading);heading=new_heading
+        definition=math(r'x=2u+v,\qquad y=v',36).move_to([0,2.6,0])
+        symbolic=math(r'J=\frac{\partial(x,y)}{\partial(u,v)}=\begin{vmatrix}\frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}\\[.35em]\frac{\partial y}{\partial u}&\frac{\partial y}{\partial v}\end{vmatrix}',34).move_to([0,1.0,0])
+        numerical=math(r'=\begin{vmatrix}2&1\\0&1\end{vmatrix}=2\cdot1-1\cdot0=2',38).move_to([0,-.8,0])
+        area_rule=math(r'dA=|J|\,du\,dv=2\,du\,dv',35,PURPLE).move_to([0,-2.35,0])
+        note=caption('This Jacobian is constant: the area factor is 2 everywhere in the parallelogram.')
+        self.play(Write(definition),Write(symbolic),run_time=3)
+        pause(2)
+        self.play(Write(numerical),run_time=3)
+        self.play(Write(area_rule),FadeIn(note),run_time=2)
+        pause(5)
+        self.play(FadeOut(definition,symbolic,numerical,area_rule,note))
+
+        # The next example is a polar rectangle with a variable area factor.
+        new_heading=title('Next: polar coordinates, where the Jacobian varies')
+        swap(heading,new_heading);heading=new_heading
+        polar_map=math(r'x=r\cos\theta,\qquad y=r\sin\theta',34).move_to([0,2.7,0])
+        plots,inner,outer=polar_diagram()
+        note=caption(r'A rectangle in $(r,\theta)$ maps to a polar rectangle in the $xy$-plane.')
+        self.play(Write(polar_map),FadeIn(plots,note),run_time=3)
+        pause(4)
+        self.play(FadeIn(inner[0],inner[2]),TransformFromCopy(inner[0],inner[1]),FadeIn(inner[3]),run_time=2)
+        self.play(FadeIn(outer[0],outer[2]),TransformFromCopy(outer[0],outer[1]),FadeIn(outer[3]),run_time=2)
+        new_note=caption(r'Equal $\Delta r\,\Delta\theta$ cells cover more area farther from the origin.')
+        swap(note,new_note);note=new_note
+        pause(5)
+        self.play(FadeOut(plots,inner,outer,note))
+
+        polar_jac=math(r'J(r,\theta)=\frac{\partial(x,y)}{\partial(r,\theta)}=\begin{vmatrix}\cos\theta&-r\sin\theta\\\sin\theta&r\cos\theta\end{vmatrix}',34).move_to([0,1.15,0])
+        expansion=math(r'=r\cos^2\theta+r\sin^2\theta=r',38).move_to([0,-.55,0])
+        result=math(r'J(r,\theta)=r',44,ORANGE).move_to([0,-1.6,0])
+        polar_area=math(r'dA=|J|\,dr\,d\theta=r\,dr\,d\theta\qquad(r>0)',33).move_to([0,-2.65,0])
+        note=caption('The area factor varies with radius.')
+        self.play(Write(polar_jac),run_time=3)
+        pause(2)
+        self.play(Write(expansion),run_time=3)
+        self.play(Write(result),Write(polar_area),FadeIn(note),run_time=2)
+        pause(4)
+        self.play(FadeOut(polar_jac,expansion,polar_area,note,polar_map))
+
+        # Mark cell midpoints: these are evaluations of J, not a claim that
+        # an arbitrary finite cell's ratio equals J at its lower corner.
+        result.generate_target();result.target.move_to([0,2.7,0]).scale(.8)
+        plots,inner,outer=polar_diagram()
+        values=VGroup(math(r'J(1.5,\theta)=1.5',27,BLUE).move_to([-3.55,-2.15,0]),
+                      math(r'J(3.5,\theta)=3.5',27,PURPLE).move_to([3.55,-2.15,0]))
+        integral=math(r'\iint_R F(x,y)\,dA=\int_0^{\pi/2}\int_1^4 F(r\cos\theta,r\sin\theta)\,r\,dr\,d\theta',27).move_to([0,-2.98,0])
+        if integral.width>12.8:integral.scale_to_fit_width(12.8)
+        note=caption('Here J = r is not constant: keep r inside the integral.')
+        self.play(MoveToTarget(result),FadeIn(plots,inner,outer),run_time=2)
+        self.play(Write(values),run_time=2)
+        self.play(Indicate(VGroup(inner[2],inner[3]),color=BLUE),run_time=1)
+        self.play(Indicate(VGroup(outer[2],outer[3]),color=PURPLE),run_time=1)
+        self.play(Write(integral),FadeIn(note),run_time=3)
         pause(7)
 
 
