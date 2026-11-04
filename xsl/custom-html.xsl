@@ -79,8 +79,28 @@
       <xsl:with-param name="block-type" select="$block-type"/>
       <xsl:with-param name="b-has-hint" select="$b-has-hint"/>
       <xsl:with-param name="b-has-answer" select="$b-has-answer"/>
-      <xsl:with-param name="b-has-solution" select="$b-has-solution"/>
+      <xsl:with-param name="b-has-solution"
+                      select="$b-has-solution and not(starts-with(@xml:id, 'ex-hw9o-'))"/>
     </xsl:apply-templates>
+  </xsl:template>
+
+  <!-- HW9 solutions contain <eval> values from the randomized question.
+       A solution printed outside Runestone's problemHtml keeps literal
+       [%= toTeX(...) %] templates: only problemHtml is interpolated and
+       typeset by the runtime. Append the released solution to the last
+       statement block so it shares the question's variables, seed and
+       MathJax pass. The exercise-components override above omits the
+       separate static copy. Publication component filtering has already
+       removed unreleased contents, so this does not release solutions. -->
+  <xsl:template match="exercise[@exercise-interactive = 'fillin']
+                                [starts-with(@xml:id, 'ex-hw9o-')]
+                                /statement/*[not(following-sibling::*)]">
+    <xsl:apply-imports/>
+    <xsl:if test="../../solution/*">
+      <div class="solutions">
+        <xsl:apply-templates select="../../solution"/>
+      </div>
+    </xsl:if>
   </xsl:template>
 
   <!-- A PreFigure diagram carrying <annotations> is not emitted as an     -->

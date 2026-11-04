@@ -113,6 +113,9 @@
     </evaluation>
     <solution include-automatic="no">
       <p component="hw9-solutions">
+        Write <m>R = <eval obj="rad"/></m>, <m>a = <eval obj="a"/></m>,
+        <m>b = <eval obj="b"/></m>, and <m>c = <eval obj="c"/></m> for
+        the radius and constants in the question.
         With <m>\mathbf{r}(\theta, x) = \left\langle x,\ R\cos\theta,\
         R\sin\theta \right\rangle</m> the outward normal is
         <m>\mathbf{N} = \mathbf{r}_\theta \times \mathbf{r}_x
@@ -121,23 +124,24 @@
         cylinder <m>\mathbf{F} = \left\langle x^2,\ aR\sin\theta,\
         -bR\cos\theta \right\rangle</m>, hence
       </p>
-      <me component="hw9-solutions">
-        \mathbf{F} \cdot \mathbf{N}
-        = aR^2\sin\theta\cos\theta - bR^2\cos\theta\sin\theta
-        = R^2(a-b)\sin\theta\cos\theta ,
-      </me>
+      <md component="hw9-solutions">
+        <mrow>\mathbf{F} \cdot \mathbf{N}
+          &amp;= aR^2\sin\theta\cos\theta</mrow>
+        <mrow>&amp;\quad - bR^2\cos\theta\sin\theta</mrow>
+        <mrow>&amp;= R^2(a-b)\sin\theta\cos\theta,</mrow>
+      </md>
       <p component="hw9-solutions">
-        so <m>K = R^2(a-b)</m>. Nothing here depends on <m>x</m>, and the
+        so <m>K = R^2(a-b) = <eval obj="coef"/></m>.
+        Nothing here depends on <m>x</m>, and the
         piece of the cylinder at angle <m>\theta</m> has length
         <m>c - R\sin\theta</m>, so
       </p>
-      <me component="hw9-solutions">
-        \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
-        = K\int_0^{2\pi} \sin\theta\cos\theta
-          \left(c - R\sin\theta\right) d\theta
-        = K\left[c\int_0^{2\pi}\sin\theta\cos\theta\, d\theta
-          - R\int_0^{2\pi}\sin^2\theta\cos\theta\, d\theta\right] = 0 .
-      </me>
+      <md component="hw9-solutions">
+        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
+        <mrow>&amp;= Kc\int_0^{2\pi}\sin\theta\cos\theta\, d\theta</mrow>
+        <mrow>&amp;\quad - KR\int_0^{2\pi}\sin^2\theta\cos\theta\, d\theta</mrow>
+        <mrow>&amp;= 0.</mrow>
+      </md>
       <p component="hw9-solutions">
         Both integrals vanish over a full turn, so the flux is <m>0</m> no
         matter what <m>a</m>, <m>b</m>, <m>R</m> and <m>c</m> are. Reversing
@@ -226,25 +230,27 @@
     </evaluation>
     <solution include-automatic="no">
       <p component="hw9-solutions">
-        For the graph <m>z = g(x,y) = \sqrt{x^2+y^2}</m> the
-        parametrization <m>\mathbf{r}(x,y) = \left\langle x,\ y,\ g
+        Let <m>g(x,y) = \sqrt{x^2+y^2}</m>. The graph <m>z = g(x,y)</m>
+        has parametrization <m>\mathbf{r}(x,y) = \left\langle x,\ y,\ g
         \right\rangle</m> gives
       </p>
-      <me component="hw9-solutions">
-        \mathbf{n} = \mathbf{r}_x \times \mathbf{r}_y
-        = \left\langle -g_x,\ -g_y,\ 1 \right\rangle
-        = \left\langle -\frac{x}{r},\ -\frac{y}{r},\ 1 \right\rangle ,
-      </me>
+      <md component="hw9-solutions">
+        <mrow>\mathbf{n} &amp;= \mathbf{r}_x \times \mathbf{r}_y</mrow>
+        <mrow>&amp;= \left\langle -g_x,\ -g_y,\ 1 \right\rangle</mrow>
+        <mrow>&amp;= \left\langle -\frac{x}{r},\ -\frac{y}{r},\ 1 \right\rangle,</mrow>
+      </md>
       <p component="hw9-solutions">
         whose <m>\mathbf{k}</m>-component is positive, so it is the upward
-        normal asked for. Writing <m>a</m> and <m>b</m> for the two
-        coefficients of <m>\mathbf{F}</m>,
+        normal asked for. Writing <m>a = <eval obj="a"/></m> and
+        <m>b = <eval obj="b"/></m> for the two coefficients of
+        <m>\mathbf{F}</m>,
       </p>
-      <me component="hw9-solutions">
-        \mathbf{F} \cdot \mathbf{n}
-        = -\frac{a x^2}{r} - \frac{a y^2}{r} + b r
-        = -a r + b r = (b-a)\,r ,
-      </me>
+      <md component="hw9-solutions">
+        <mrow>\mathbf{F} \cdot \mathbf{n}
+          &amp;= -\frac{a x^2}{r} - \frac{a y^2}{r} + b r</mrow>
+        <mrow>&amp;= -a r + b r</mrow>
+        <mrow>&amp;= (b-a)\,r,</mrow>
+      </md>
       <p component="hw9-solutions">
         so <m>C = b-a = <eval obj="coef"/></m>. On the cone
         <m>z = r</m>, so the two planes cut it in the circles
@@ -252,14 +258,14 @@
         <m>R</m> is that annulus in the <m>xy</m>-plane. By
         <xref ref="eq-flux-param"/>, in polar coordinates,
       </p>
-      <me component="hw9-solutions">
-        \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
-        = \iint_R (b-a)\,r\, dx\, dy
-        = (b-a)\int_0^{2\pi}\!\!\int_{<eval obj="z1"/>}^{<eval obj="z2"/>}
-          r^2\, dr\, d\theta
-        = \frac{2\pi (b-a)}{3}
-          \left(<eval obj="z2"/>^3 - <eval obj="z1"/>^3\right) .
-      </me>
+      <md component="hw9-solutions">
+        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
+        <mrow>&amp;= \iint_R (b-a)\,r\, dx\, dy</mrow>
+        <mrow>&amp;= (b-a)\int_0^{2\pi}\!\!\int_{<eval obj="z1"/>}^{<eval obj="z2"/>}
+            r^2\, dr\, d\theta</mrow>
+        <mrow>&amp;= \frac{2\pi (b-a)}{3}
+            \left(<eval obj="z2"/>^3 - <eval obj="z1"/>^3\right).</mrow>
+      </md>
     </solution>
   </exercise>
 
@@ -331,11 +337,11 @@
         <m>\mathbf{F} \cdot \hat{\mathbf{n}} = -<eval obj="a"/></m> is
         constant and
       </p>
-      <me component="hw9-solutions">
-        \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
-        = -<eval obj="a"/> \iint_S d\sigma
-        = -<eval obj="a"/> \cdot \pi \left(<eval obj="b"/>\right)^2 .
-      </me>
+      <md component="hw9-solutions">
+        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
+        <mrow>&amp;= -<eval obj="a"/> \iint_S d\sigma</mrow>
+        <mrow>&amp;= -<eval obj="a"/> \cdot \pi\,<eval obj="b"/>^2.</mrow>
+      </md>
       <p component="hw9-solutions">
         The coefficient <m><eval obj="d"/></m> never enters the answer:
         it multiplies <m>x</m>, which vanishes on <m>S</m>.
@@ -430,25 +436,25 @@
         <m>-<eval obj="h"/> \le x \le <eval obj="h"/></m>,
         <m>-<eval obj="h"/> \le z \le <eval obj="h"/></m>, so
       </p>
-      <me component="hw9-solutions">
-        \int_{-<eval obj="h"/>}^{<eval obj="h"/>} <eval obj="b"/>x^2\, dx
-        = <eval obj="b"/>\,\frac{x^3}{3}
-          \bigg|_{-<eval obj="h"/>}^{<eval obj="h"/>}
-        = \frac{2 \cdot <eval obj="b"/> \left(<eval obj="h"/>\right)^3}{3}
-        = <eval obj="inner"/> .
-      </me>
+      <md component="hw9-solutions">
+        <mrow>\int_{-<eval obj="h"/>}^{<eval obj="h"/>} <eval obj="b"/>x^2\, dx
+          &amp;= <eval obj="b"/>\,\frac{x^3}{3}
+            \bigg|_{-<eval obj="h"/>}^{<eval obj="h"/>}</mrow>
+        <mrow>&amp;= \frac{2 \cdot <eval obj="b"/> \cdot <eval obj="h"/>^3}{3}</mrow>
+        <mrow>&amp;= <eval obj="inner"/>.</mrow>
+      </md>
       <p component="hw9-solutions">
         Nothing depends on <m>z</m>, so the <m>z</m>-integration just
         multiplies by the side length <m><eval obj="side"/></m>:
       </p>
-      <me component="hw9-solutions">
-        \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
-        = <eval obj="inner"/> \cdot <eval obj="side"/>
-        = <eval obj="flux"/> .
-      </me>
+      <md component="hw9-solutions">
+        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
+        <mrow>&amp;= <eval obj="inner"/> \cdot <eval obj="side"/></mrow>
+        <mrow>&amp;= <eval obj="flux"/>.</mrow>
+      </md>
       <p component="hw9-solutions">
         Neither <m><eval obj="a"/></m>, <m><eval obj="c"/></m>, nor the
-        plane <m>y = <eval obj="y0"/></m> affects the answer: the first two
+        plane <m>y = <eval obj="y0"/></m> affects the answer: the first and third
         components are killed by the dot product, and the integrand does
         not involve <m>y</m>.
       </p>
@@ -530,26 +536,28 @@
         <m>g_x = e^y</m> and <m>g_y = xe^y</m>, so the upward normal is
         <m>\mathbf{n} = \mathbf{r}_x \times \mathbf{r}_y
         = \left\langle -e^y,\ -xe^y,\ 1 \right\rangle</m>. Substituting
-        <m>z = xe^y</m> into <m>\mathbf{F}</m> and writing <m>a</m> for
-        the coefficient shared by the first and third components,
+        <m>z = xe^y</m> into <m>\mathbf{F}</m> and writing
+        <m>a = <eval obj="a"/></m> for the coefficient shared by the first
+        and third components,
       </p>
-      <me component="hw9-solutions">
-        \mathbf{F} \cdot \mathbf{n}
-        = -a xy e^y - <eval obj="b"/>x^3 e^y + a y\left(xe^y\right)
-        = -<eval obj="b"/> x^3 e^y ,
-      </me>
+      <md component="hw9-solutions">
+        <mrow>\mathbf{F} \cdot \mathbf{n}
+          &amp;= -a xy e^y - <eval obj="b"/>x^3 e^y</mrow>
+        <mrow>&amp;\quad + a y\left(xe^y\right)</mrow>
+        <mrow>&amp;= -<eval obj="b"/> x^3 e^y,</mrow>
+      </md>
       <p component="hw9-solutions">
         so <m>K = <eval obj="coef"/></m>: the two <m>a</m>-terms cancel,
         which is why the value of <m>a</m> never reaches the answer. The
         parameter region <m>R</m> is the unit square, and by
         <xref ref="eq-flux-param"/> the integral separates:
       </p>
-      <me component="hw9-solutions">
-        \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma
-        = -<eval obj="b"/> \int_0^1 x^3\, dx \int_0^1 e^y\, dy
-        = -<eval obj="b"/> \cdot \frac{1}{4} \cdot (e-1)
-        = <eval obj="k"/>\left(1 - e\right) .
-      </me>
+      <md component="hw9-solutions">
+        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
+        <mrow>&amp;= -<eval obj="b"/> \int_0^1 x^3\, dx \int_0^1 e^y\, dy</mrow>
+        <mrow>&amp;= -<eval obj="b"/> \cdot \frac{1}{4} \cdot (e-1)</mrow>
+        <mrow>&amp;= <eval obj="k"/>\left(1 - e\right).</mrow>
+      </md>
     </solution>
   </exercise>
   </exercises>
