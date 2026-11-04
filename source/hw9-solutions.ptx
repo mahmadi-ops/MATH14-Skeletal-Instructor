@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MATH 14 - Assignment 8, the version WITH solutions.                        -->
+<!-- MATH 14 - Assignment 9, the version WITH solutions.                        -->
 <!--                                                                        -->
 <!-- Statements come from the written assignment, solutions from the auto-   -->
 <!-- graded version; each problem is a <problem> whose <solution> is printed -->
-<!-- directly beneath it.  The auto-graded version is hw8-online.ptx.        -->
+<!-- directly beneath it.  The auto-graded version is hw9-online.ptx.        -->
 <!--                                                                        -->
 <!-- HIDING THE SOLUTIONS.  Every <solution> here carries                    -->
-<!--   component="hw8-solutions"                                            -->
+<!--   component="hw9-solutions"                                            -->
 <!-- so this assignment's solutions can be switched off from                 -->
 <!-- publication/publication.ptx; see the comment in <source> there.         -->
+<!-- Renumbered as Assignment 9; existing xml:ids keep exercise links and saved answers stable. -->
 <section xml:id="sec-solutions-hw8" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Assignment 8</title>
+  <title>Assignment 9</title>
 
     <p>
     Section: <xref ref="section-greens-theorem" text="title"/>.
@@ -40,7 +41,7 @@
       <m>(0,10)</m>.
       </p>
     </statement>
-    <solution component="hw8-solutions">
+    <solution component="hw9-solutions">
       <p>
       Closing the path with the segment <m>C_3</m> down the
       <m>y</m>-axis gives a simple closed curve, and
@@ -121,7 +122,7 @@
       counterclockwise orientation.
       </p>
     </statement>
-    <solution component="hw8-solutions">
+    <solution component="hw9-solutions">
       <p>
       Differentiating, <m>\frac{\partial M}{\partial y}
       = \frac{y}{\sqrt{x^2+y^2}}</m> and
@@ -147,7 +148,7 @@
       across the unit circle.
       </p>
     </statement>
-    <solution component="hw8-solutions">
+    <solution component="hw9-solutions">
       <p>
       Here <m>\nabla\cdot\mathbf{F} = 1 - x</m>, so by the flux form
       of Green's theorem, <xref ref="eq-green-normal"/>,
@@ -185,7 +186,7 @@
       different ways. Briefly explain.
       </p>
     </statement>
-    <solution component="hw8-solutions">
+    <solution component="hw9-solutions">
       <p>
       With <m>M = y^4-2y</m> and <m>N = -(6x-4xy^3)</m>,
       <m>\frac{\partial N}{\partial x} = -6+4y^3</m> and

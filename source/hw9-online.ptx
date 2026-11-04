@@ -1,563 +1,346 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MATH 14 - HW9, online version: surface integrals, computed directly     -->
-<!-- from a parametrization, with no appeal to Stokes' or the divergence      -->
-<!-- theorem.  Auto-graded and randomized: each problem draws                 -->
-<!-- its constants in <setup> and the answer objects are built from them, so  -->
-<!-- every student sees the same problem with different numbers.  Every blank -->
-<!-- is graded on its own, so partial credit survives.                        -->
-<!--                                                                         -->
-<!-- Notation follows the text: fluxes are written                           -->
-<!--   \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma,                   -->
-<!-- circulation is \oint_C \mathbf{F} \cdot d\mathbf{r}, and the boundary    -->
-<!-- curve is called C.                                                       -->
-<!--                                                                         -->
-<!-- Each <solution> is a bare element whose *children* carry                 -->
-<!-- component="hw9-solutions"; the element itself is never dropped and it   -->
-<!-- carries include-automatic="no".  See the comment at the top of           -->
-<!-- source/review1-practice.ptx for why that matters.                        -->
-<section xml:id="sec-exercises-hw9-online" xmlns:xi="http://www.w3.org/2001/XInclude">
+<!-- MATH 14 - HW9, online version: the same problems as the written       -->
+<!-- Assignment 9, rebuilt as auto-graded exercises.  Same "fillin-basic"     -->
+<!-- pattern as hw1-online.ptx: a <var/> per blank in the statement, matched  -->
+<!-- in order by a <var> in <setup>, whose first <condition> is the correct   -->
+<!-- answer.  Every blank is graded on its own, so partial credit survives.   -->
+<!-- Renumbered as Assignment 9; existing xml:ids keep exercise links and saved answers stable. -->
+<section xml:id="sec-exercises-hw8-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 9</title>
 
   <introduction>
     <p>
-      Section: <xref ref="section-surface-integrals" text="title"/>.
+      Section: <xref ref="section-greens-theorem" text="title"/>. Work each problem, then type your answers into the boxes and have them checked here.
     </p>
     <p>
       Press <q>Check Me</q> to submit; you may check as often as you like.
     </p>
     <p>
-      <term>How to type your answers.</term> Give numbers as decimals to at
-      least three places, with no units and no <m>\pi</m>. A negative answer
-      needs its minus sign.
+      <term>How to type your answers.</term> Numbers: a decimal number and
+      nothing else<mdash/>no units, no <m>=</m> sign, no <m>\pi</m>; give at
+      least three decimals (for instance <c>18.850</c>, not <c>6pi</c>).
+      Answers are accepted within a small tolerance. Words: type just the
+      word asked for, in lower case.
     </p>
   </introduction>
 
-  <exercises xml:id="exercises-hw9-online">
+  <exercises xml:id="exercises-hw8-online">
 
-  <exercise xml:id="ex-hw9o-cylinder-flux">
-    <title>Flux Through a Piece of a Cylinder</title>
-    <setup>
-      <de-object name="rad" context="number">
-        <de-random distribution="discrete" min="2" max="5" by="1"/>
-      </de-object>
-      <de-object name="a" context="number">
-        <de-random distribution="discrete" min="2" max="5" by="1"/>
-      </de-object>
-      <de-object name="d" context="number">
-        <de-random distribution="discrete" min="1" max="4" by="1"/>
-      </de-object>
-      <de-object name="m" context="number">
-        <de-random distribution="discrete" min="1" max="4" by="1"/>
-      </de-object>
-      <de-object name="b" context="number">
-        <de-expression>a+d</de-expression>
-      </de-object>
-      <de-object name="c" context="number">
-        <de-expression>rad+m</de-expression>
-      </de-object>
-      <de-object name="rsq" context="number">
-        <de-expression>rad*rad</de-expression>
-      </de-object>
-      <de-object name="coef" context="number">
-        <de-expression>-d*rad^2</de-expression>
-      </de-object>
-      <de-object name="flux" context="number">
-        <de-expression>0</de-expression>
-      </de-object>
-    </setup>
+  <figure xml:id="fig-hw8o-staircase">
+    <caption>
+      The curve <m>C</m> of <xref ref="ex-hw8o-staircase"/>: a staircase of
+      ten unit steps from <m>(0,0)</m> to <m>(10,10)</m>, followed by the
+      horizontal segment back to <m>(0,10)</m>.
+    </caption>
+    <image width="70%">
+      <shortdescription>
+      A staircase of ten unit steps from the origin to (10,10), returning along the top.
+      </shortdescription>
+      <prefigure xmlns="https://prefigure.org" label="prefigure-hw8o-staircase">
+        <diagram dimensions="(360,340)" margins="10">
+          <coordinates bbox="(-1.6,-1.6,12.2,11.6)">
+            <axes at="hst-axes" xlabel="x" ylabel="y" decorations="no"
+                arrows="1"/>
+            <polygon at="hst-path" closed="no" stroke="#0072B2" thickness="2"
+                fill="none" points="((0,0),(1,0),(1,1),(2,1),(2,2),(3,2),(3,3),(4,3),(4,4),(5,4),(5,5),(6,5),(6,6),(7,6),(7,7),(8,7),(8,8),(9,8),(9,9),(10,9),(10,10),(0,10))"/>
+            <vector at="hst-a1" v="(0.9,0)" tail="(4.2,4)" stroke="#0072B2"
+                thickness="2"/>
+            <vector at="hst-a2" v="(-1.1,0)" tail="(5.6,10)" stroke="#0072B2"
+                thickness="2"/>
+            <point at="hst-start" p="(0,0)" fill="black" alignment="sw">
+              <m>(0,0)</m>
+            </point>
+            <point at="hst-corner" p="(10,10)" fill="black" alignment="se">
+              <m>(10,10)</m>
+            </point>
+            <point at="hst-end" p="(0,10)" fill="black" alignment="nw">
+              <m>(0,10)</m>
+            </point>
+          </coordinates>
+          <annotations>
+            <annotation ref="figure" text="A staircase path made of ten unit steps climbing from the origin to the point ten comma ten, each step going one unit to the right and then one unit up. From ten comma ten the path returns straight left along the line y equals ten to the point zero comma ten. Arrowheads show the direction of travel: rightward on the staircase and leftward on the top segment.">
+              <annotation ref="hst-path" text="The staircase path from the origin to ten comma ten and then back along y equals ten to zero comma ten."/>
+              <annotation ref="hst-a1" text="An arrowhead on the staircase pointing to the right, the direction of travel."/>
+              <annotation ref="hst-a2" text="An arrowhead on the top segment pointing to the left, the direction of travel back to zero comma ten."/>
+            </annotation>
+          </annotations>
+        </diagram>
+      </prefigure>
+    </image>
+  </figure>
+
+  <exercise xml:id="ex-hw8o-staircase">
+    <title>Work Along a Staircase</title>
     <statement>
       <p>
-        Compute the flux
-        <m>\displaystyle\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,
-        d\sigma</m>, where
+        For <m>\mathbf{F} = \left\langle x^3e^{x^2}+xe^x-y,\
+        y^2-e^y+x \right\rangle</m> along the path of
+        <xref ref="fig-hw8o-staircase"/>: the curl integrand
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y}</m> of <xref ref="eq-curl-def"/>
+        equals <var width="6"/>.
+      </p>
+      <p>
+        Closing the path into a simple closed curve encloses an area of
+        <var width="8"/>, so the integral around that closed curve is
+        <var width="8"/>.
+      </p>
+      <p>The work along the given path is <var width="14"/>.</p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="2" tolerance="0.01">
+          <feedback>
+   <p>Correct.</p>
+ </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="55" tolerance="0.5">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="110" tolerance="0.5">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="-21582.1" tolerance="1">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw9-solutions">
+      <p>
+        Closing the path with the segment <m>C_3</m> down the
+        <m>y</m>-axis gives a simple closed curve, and
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y} = 1-(-1) = 2</m>, so by Green's
+        theorem, <xref ref="eq-green-tangential"/>, the closed loop
+        integral is <m>2 \times 55 = 110</m>,
+        where <m>55 = 50 + 10\left(\frac12\right)</m> is the enclosed
+        area.
+      </p>
+      <p>
+        On <m>C_3</m>, <m>x = 0</m> and <m>dx = 0</m>, so
+        <m>\int_{C_3}\mathbf{F}\cdot d\mathbf{r}
+        = \int_{10}^{0}\left(y^2-e^y\right) dy
+        = -\frac{1000}{3}-1+e^{10}</m>. Therefore
       </p>
       <me>
-        \mathbf{F} = \left\langle x^2,\ <eval obj="a"/>z,\
-        -<eval obj="b"/>y \right\rangle
+        W = 110 + \frac{1000}{3} + 1 - e^{10}
+        = \frac{1333}{3} - e^{10} \approx -21582.1 .
       </me>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw8o-circle">
+    <title>A Fierce-Looking Integral Around a Circle</title>
+    <statement>
       <p>
-        and <m>S</m> is the portion of the cylinder
-        <m>y^2 + z^2 = <eval obj="rsq"/></m> lying between <m>x = 0</m> and
-        <m>x = <eval obj="c"/> - z</m>, with <m>\hat{\mathbf{n}}</m>
-        pointing away from the <m>x</m>-axis.
-      </p>
-      <p>
-        Parametrize the cylinder by <m>y = <eval obj="rad"/>\cos\theta</m>,
-        <m>z = <eval obj="rad"/>\sin\theta</m>. Writing
-        <m>\mathbf{N} = \mathbf{r}_\theta \times \mathbf{r}_x</m> for the
-        outward normal, the integrand collapses to
-        <m>\mathbf{F} \cdot \mathbf{N} = K\sin\theta\cos\theta</m>. The
-        constant <m>K</m> is
-        <fillin name="b1" mode="number" ansobj="coef" width="12"/>.
-      </p>
-      <p>
-        The flux is
-        <fillin name="b2" mode="number" ansobj="flux" width="12"/>.
+        For the integral of <xref ref="ex-hw8o-circle"/> around the unit
+        circle: after simplification
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y}</m> equals <var width="8"/> (in
+        terms of <m>y</m>), and the integral equals <var width="10"/>.
       </p>
     </statement>
-    <evaluation>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="coef.value({})-Math.max(0.01,1e-4*Math.abs(coef.value({})))" max="coef.value({})+Math.max(0.01,1e-4*Math.abs(coef.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="flux.value({})-Math.max(0.01,1e-4*Math.abs(flux.value({})))" max="flux.value({})+Math.max(0.01,1e-4*Math.abs(flux.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-    </evaluation>
-    <solution include-automatic="no">
-      <p component="hw9-solutions">
-        Write <m>R = <eval obj="rad"/></m>, <m>a = <eval obj="a"/></m>,
-        <m>b = <eval obj="b"/></m>, and <m>c = <eval obj="c"/></m> for
-        the radius and constants in the question.
-        With <m>\mathbf{r}(\theta, x) = \left\langle x,\ R\cos\theta,\
-        R\sin\theta \right\rangle</m> the outward normal is
-        <m>\mathbf{N} = \mathbf{r}_\theta \times \mathbf{r}_x
-        = \left\langle 0,\ R\cos\theta,\ R\sin\theta \right\rangle</m>, so
-        only the last two components of <m>\mathbf{F}</m> matter. On the
-        cylinder <m>\mathbf{F} = \left\langle x^2,\ aR\sin\theta,\
-        -bR\cos\theta \right\rangle</m>, hence
+    <setup>
+      <var case="insensitive">
+        <condition string="y\s*\^\s*2">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+         <condition string=".*">
+     <feedback>
+           <p>Incorrect.</p>
+         </feedback>
+   </condition>
+ </var>
+      <var>
+        <condition number="0.785" tolerance="0.005">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw9-solutions">
+      <p>
+        Differentiating, <m>\frac{\partial M}{\partial y}
+        = \frac{y}{\sqrt{x^2+y^2}}</m> and
+        <m>\frac{\partial N}{\partial x} = y\left(y +
+        \frac{1}{\sqrt{x^2+y^2}}\right)</m>, so their difference is
+        <m>y^2</m>. By Green's theorem,
+        <xref ref="eq-green-tangential"/>,
       </p>
-      <md component="hw9-solutions">
-        <mrow>\mathbf{F} \cdot \mathbf{N}
-          &amp;= aR^2\sin\theta\cos\theta</mrow>
-        <mrow>&amp;\quad - bR^2\cos\theta\sin\theta</mrow>
-        <mrow>&amp;= R^2(a-b)\sin\theta\cos\theta,</mrow>
-      </md>
-      <p component="hw9-solutions">
-        so <m>K = R^2(a-b) = <eval obj="coef"/></m>.
-        Nothing here depends on <m>x</m>, and the
-        piece of the cylinder at angle <m>\theta</m> has length
-        <m>c - R\sin\theta</m>, so
+      <me>
+        \oint_C = \iint_R y^2\,dx\,dy
+        = \int_0^{2\pi}\!\!\int_0^1 r^3\sin^2\theta\,dr\,d\theta
+        = \frac{\pi}{4} .
+      </me>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw8o-flux">
+    <title>Outward Flux Across the Unit Circle</title>
+    <statement>
+      <p>
+        For <m>\mathbf{F} = \left\langle x+y, -xy \right\rangle</m>:
+        the flux density <m>\nabla \cdot \mathbf{F}</m> of
+        <xref ref="eq-flux-density"/> equals
+        <m>1 - </m> <var width="6"/>, and the outward flux across the unit
+        circle is <var width="10"/>.
       </p>
-      <md component="hw9-solutions">
-        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
-        <mrow>&amp;= Kc\int_0^{2\pi}\sin\theta\cos\theta\, d\theta</mrow>
-        <mrow>&amp;\quad - KR\int_0^{2\pi}\sin^2\theta\cos\theta\, d\theta</mrow>
-        <mrow>&amp;= 0.</mrow>
-      </md>
-      <p component="hw9-solutions">
-        Both integrals vanish over a full turn, so the flux is <m>0</m> no
-        matter what <m>a</m>, <m>b</m>, <m>R</m> and <m>c</m> are. Reversing
-        the orientation only flips a sign, so that answer is <m>0</m> too.
+    </statement>
+    <setup>
+      <var case="insensitive">
+        <condition string="x">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+         <condition string=".*">
+     <feedback>
+           <p>Incorrect.</p>
+         </feedback>
+   </condition>
+ </var>
+      <var>
+        <condition number="3.142" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw9-solutions">
+      <p>
+        Here <m>\nabla\cdot\mathbf{F} = 1 - x</m>, so by the flux form
+        of Green's theorem, <xref ref="eq-green-normal"/>,
+      </p>
+      <me>
+        \oint_C \mathbf{F}\cdot\hat{\mathbf{n}}\,ds
+        = \iint_R (1-x)\,dA
+        = \int_0^1\!\!\int_0^{2\pi}\left(1-r\cos\theta\right)
+        r\,d\theta\,dr = \pi ,
+      </me>
+      <p>
+        since the <m>x</m>-term integrates to zero by symmetry and what is
+        left is the area of the disk.
       </p>
     </solution>
   </exercise>
 
-
-  <exercise xml:id="ex-hw9o-cone-flux">
-    <title>Flux Across a Cone Between Two Planes</title>
-    <setup>
-      <de-object name="z1" context="number">
-        <de-random distribution="discrete" min="1" max="3" by="1"/>
-      </de-object>
-      <de-object name="gap" context="number">
-        <de-random distribution="discrete" min="1" max="4" by="1"/>
-      </de-object>
-      <de-object name="a" context="number">
-        <de-random distribution="discrete" min="4" max="7" by="1"/>
-      </de-object>
-      <de-object name="u" context="number">
-        <de-random distribution="discrete" min="0" max="1" by="1"/>
-      </de-object>
-      <de-object name="d" context="number">
-        <de-random distribution="discrete" min="1" max="3" by="1"/>
-      </de-object>
-      <de-object name="z2" context="number">
-        <de-expression>z1+gap</de-expression>
-      </de-object>
-      <de-object name="b" context="number">
-        <de-expression>a+(2*u-1)*d</de-expression>
-      </de-object>
-      <de-object name="coef" context="number">
-        <de-expression>(2*u-1)*d</de-expression>
-      </de-object>
-      <de-object name="flux" context="number">
-        <de-expression>2*pi*(z2^3-z1^3)*(2*u-1)*d/3</de-expression>
-      </de-object>
-    </setup>
+  <exercise xml:id="ex-hw8o-rose">
+    <title>Green's Theorem on One Petal</title>
     <statement>
       <p>
-        Compute the flux
-        <m>\displaystyle\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,
-        d\sigma</m>, where
-      </p>
-      <me>
-        \mathbf{F} = \left\langle <eval obj="a"/>x,\ <eval obj="a"/>y,\
-        <eval obj="b"/>z \right\rangle
-      </me>
-      <p>
-        and <m>S</m> is the portion of the cone
-        <m>z = \sqrt{x^2+y^2}</m> lying between the planes
-        <m>z = <eval obj="z1"/></m> and <m>z = <eval obj="z2"/></m>, with
-        <m>\hat{\mathbf{n}}</m> pointing upward.
+        For <m>\displaystyle\oint_C \left(y^4-2y\right) dx
+        - \left(6x-4xy^3\right) dy</m> around one petal of
+        <m>r = \sin(2\theta)</m>:
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y}</m> equals <var width="6"/>.
       </p>
       <p>
-        Parametrize the cone by
-        <m>\mathbf{r}(x,y) = \left\langle x,\ y,\ \sqrt{x^2+y^2}
-        \right\rangle</m> and write <m>r = \sqrt{x^2+y^2}</m>. The normal
-        <m>\mathbf{n} = \mathbf{r}_x \times \mathbf{r}_y</m> already points
-        upward, and the integrand collapses to
-        <m>\mathbf{F} \cdot \mathbf{n} = C r</m>. The constant <m>C</m> is
-        <fillin name="b1" mode="number" ansobj="coef" width="12"/>.
-      </p>
-      <p>
-        The flux is
-        <fillin name="b2" mode="number" ansobj="flux" width="14"/>.
+        The area of the petal is <var width="8"/>, so the line integral is
+        <var width="10"/>.
       </p>
     </statement>
-    <evaluation>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="coef.value({})-Math.max(0.01,1e-4*Math.abs(coef.value({})))" max="coef.value({})+Math.max(0.01,1e-4*Math.abs(coef.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="flux.value({})-Math.max(0.01,1e-4*Math.abs(flux.value({})))" max="flux.value({})+Math.max(0.01,1e-4*Math.abs(flux.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-    </evaluation>
-    <solution include-automatic="no">
-      <p component="hw9-solutions">
-        Let <m>g(x,y) = \sqrt{x^2+y^2}</m>. The graph <m>z = g(x,y)</m>
-        has parametrization <m>\mathbf{r}(x,y) = \left\langle x,\ y,\ g
-        \right\rangle</m> gives
-      </p>
-      <md component="hw9-solutions">
-        <mrow>\mathbf{n} &amp;= \mathbf{r}_x \times \mathbf{r}_y</mrow>
-        <mrow>&amp;= \left\langle -g_x,\ -g_y,\ 1 \right\rangle</mrow>
-        <mrow>&amp;= \left\langle -\frac{x}{r},\ -\frac{y}{r},\ 1 \right\rangle,</mrow>
-      </md>
-      <p component="hw9-solutions">
-        whose <m>\mathbf{k}</m>-component is positive, so it is the upward
-        normal asked for. Writing <m>a = <eval obj="a"/></m> and
-        <m>b = <eval obj="b"/></m> for the two coefficients of
-        <m>\mathbf{F}</m>,
-      </p>
-      <md component="hw9-solutions">
-        <mrow>\mathbf{F} \cdot \mathbf{n}
-          &amp;= -\frac{a x^2}{r} - \frac{a y^2}{r} + b r</mrow>
-        <mrow>&amp;= -a r + b r</mrow>
-        <mrow>&amp;= (b-a)\,r,</mrow>
-      </md>
-      <p component="hw9-solutions">
-        so <m>C = b-a = <eval obj="coef"/></m>. On the cone
-        <m>z = r</m>, so the two planes cut it in the circles
-        <m>r = <eval obj="z1"/></m> and <m>r = <eval obj="z2"/></m>, and
-        <m>R</m> is that annulus in the <m>xy</m>-plane. By
-        <xref ref="eq-flux-param"/>, in polar coordinates,
-      </p>
-      <md component="hw9-solutions">
-        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
-        <mrow>&amp;= \iint_R (b-a)\,r\, dx\, dy</mrow>
-        <mrow>&amp;= (b-a)\int_0^{2\pi}\!\!\int_{<eval obj="z1"/>}^{<eval obj="z2"/>}
-            r^2\, dr\, d\theta</mrow>
-        <mrow>&amp;= \frac{2\pi (b-a)}{3}
-            \left(<eval obj="z2"/>^3 - <eval obj="z1"/>^3\right).</mrow>
-      </md>
-    </solution>
-  </exercise>
-
-  <exercise xml:id="ex-hw9o-disk-yz">
-    <title>Flux Through a Disk in the <m>yz</m>-Plane</title>
     <setup>
-      <de-object name="a" context="number">
-        <de-random distribution="discrete" min="2" max="9" by="1"/>
-      </de-object>
-      <de-object name="b" context="number">
-        <de-random distribution="discrete" min="3" max="9" by="1"/>
-      </de-object>
-      <de-object name="d" context="number">
-        <de-random distribution="discrete" min="2" max="9" by="1"/>
-      </de-object>
-      <de-object name="flux" context="number">
-        <de-expression>-pi*a*b^2</de-expression>
-      </de-object>
+      <var>
+        <condition number="-4" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+         <condition string=".*">
+     <feedback>
+           <p>Incorrect.</p>
+         </feedback>
+   </condition>
+ </var>
+      <var>
+        <condition number="0.3927" tolerance="0.002">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="-1.571" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
     </setup>
-    <statement>
+    <solution component="hw9-solutions">
       <p>
-        Compute the flux
-        <m>\displaystyle\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,
-        d\sigma</m> of
+        With <m>M = y^4-2y</m> and <m>N = -(6x-4xy^3)</m>,
+        <m>\frac{\partial N}{\partial x} = -6+4y^3</m> and
+        <m>\frac{\partial M}{\partial y} = 4y^3-2</m>, so their
+        difference is <m>-4</m>. The petal has area
       </p>
       <me>
-        \mathbf{F}(x,y,z) = \left\langle <eval obj="d"/>x + <eval obj="a"/>,
-        \ 0,\ 0 \right\rangle
+        \int_0^{\pi/2}\!\!\int_0^{\sin 2\theta} r\,dr\,d\theta
+        = \int_0^{\pi/2}\frac{\sin^2(2\theta)}{2}\,d\theta
+        = \frac{\pi}{8} ,
       </me>
       <p>
-        through the disk <m>S</m> of radius <m><eval obj="b"/></m> centred
-        at the origin in the <m>yz</m>-plane, oriented in the negative
-        <m>x</m>-direction.
+        so the integral is <m>(-4)\left(\frac{\pi}{8}\right)
+        = -\frac{\pi}{2}</m>. It is both the circulation of
+        <m>\mathbf{F}</m> around the petal and, read the other way, the
+        work done by <m>\mathbf{F}</m> on a particle going once around it.
       </p>
-      <p>
-        Every point of <m>S</m> has <m>x = 0</m>, so on <m>S</m> the field
-        is a constant vector; its <m>\mathbf{i}</m>-component is
-        <fillin name="b1" mode="number" ansobj="a" width="12"/>.
-      </p>
-      <p>
-        The flux is
-        <fillin name="b2" mode="number" ansobj="flux" width="14"/>.
-      </p>
-    </statement>
-    <evaluation>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="a.value({})-Math.max(0.01,1e-4*Math.abs(a.value({})))" max="a.value({})+Math.max(0.01,1e-4*Math.abs(a.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="flux.value({})-Math.max(0.01,1e-4*Math.abs(flux.value({})))" max="flux.value({})+Math.max(0.01,1e-4*Math.abs(flux.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-    </evaluation>
-    <solution include-automatic="no">
-      <p component="hw9-solutions">
-        The disk lies in the plane <m>x = 0</m>, so the <m>x</m> inside
-        <m>\mathbf{F}</m> is <m>0</m> at every point of <m>S</m> and the
-        field is the constant
-        <m>\mathbf{F} = \left\langle <eval obj="a"/>,\ 0,\ 0
-        \right\rangle</m> there. The stated orientation is
-        <m>\hat{\mathbf{n}} = -\mathbf{i}</m>, so
-        <m>\mathbf{F} \cdot \hat{\mathbf{n}} = -<eval obj="a"/></m> is
-        constant and
-      </p>
-      <md component="hw9-solutions">
-        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
-        <mrow>&amp;= -<eval obj="a"/> \iint_S d\sigma</mrow>
-        <mrow>&amp;= -<eval obj="a"/> \cdot \pi\,<eval obj="b"/>^2.</mrow>
-      </md>
-      <p component="hw9-solutions">
-        The coefficient <m><eval obj="d"/></m> never enters the answer:
-        it multiplies <m>x</m>, which vanishes on <m>S</m>.
-      </p>
-    </solution>
-  </exercise>
-
-  <exercise xml:id="ex-hw9o-square-plane">
-    <title>Flux Through a Square in a Plane</title>
-    <setup>
-      <de-object name="h" context="number">
-        <de-random distribution="discrete" min="1" max="4" by="1"/>
-      </de-object>
-      <de-object name="k" context="number">
-        <de-random distribution="discrete" min="1" max="3" by="1"/>
-      </de-object>
-      <de-object name="a" context="number">
-        <de-random distribution="discrete" min="2" max="9" by="1"/>
-      </de-object>
-      <de-object name="c" context="number">
-        <de-random distribution="discrete" min="2" max="5" by="1"/>
-      </de-object>
-      <de-object name="y0" context="number">
-        <de-random distribution="discrete" min="1" max="8" by="1"/>
-      </de-object>
-      <de-object name="side" context="number">
-        <de-expression>2*h</de-expression>
-      </de-object>
-      <de-object name="b" context="number">
-        <de-expression>3*k</de-expression>
-      </de-object>
-      <de-object name="inner" context="number">
-        <de-expression>2*k*h^3</de-expression>
-      </de-object>
-      <de-object name="flux" context="number">
-        <de-expression>4*k*h^4</de-expression>
-      </de-object>
-    </setup>
-    <statement>
-      <p>
-        Compute the flux
-        <m>\displaystyle\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,
-        d\sigma</m>, where
-      </p>
-      <me>
-        \mathbf{F} = \left\langle <eval obj="a"/>,\ <eval obj="b"/>x^2,\
-        -<eval obj="c"/> \right\rangle
-      </me>
-      <p>
-        and <m>S</m> is the square of side <m><eval obj="side"/></m> in the
-        plane <m>y = <eval obj="y0"/></m>, centred on the <m>y</m>-axis,
-        with sides parallel to the <m>x</m>- and <m>z</m>-axes, oriented in
-        the positive <m>y</m>-direction.
-      </p>
-      <p>
-        Only the <m>\mathbf{j}</m>-component of <m>\mathbf{F}</m>
-        contributes. The inner integral
-        <m>\displaystyle\int_{-<eval obj="h"/>}^{<eval obj="h"/>}
-        <eval obj="b"/>x^2\, dx</m> equals
-        <fillin name="b1" mode="number" ansobj="inner" width="12"/>.
-      </p>
-      <p>
-        The flux is
-        <fillin name="b2" mode="number" ansobj="flux" width="14"/>.
-      </p>
-    </statement>
-    <evaluation>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="inner.value({})-Math.max(0.01,1e-4*Math.abs(inner.value({})))" max="inner.value({})+Math.max(0.01,1e-4*Math.abs(inner.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="flux.value({})-Math.max(0.01,1e-4*Math.abs(flux.value({})))" max="flux.value({})+Math.max(0.01,1e-4*Math.abs(flux.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-    </evaluation>
-    <solution include-automatic="no">
-      <p component="hw9-solutions">
-        The square lies in a plane <m>y = \text{constant}</m> oriented in
-        the positive <m>y</m>-direction, so
-        <m>\hat{\mathbf{n}} = \mathbf{j}</m> and
-        <m>d\sigma = dx\, dz</m>. Only the middle component of
-        <m>\mathbf{F}</m> survives the dot product:
-        <m>\mathbf{F} \cdot \hat{\mathbf{n}} = <eval obj="b"/>x^2</m>.
-        Centred on the <m>y</m>-axis, the square is
-        <m>-<eval obj="h"/> \le x \le <eval obj="h"/></m>,
-        <m>-<eval obj="h"/> \le z \le <eval obj="h"/></m>, so
-      </p>
-      <md component="hw9-solutions">
-        <mrow>\int_{-<eval obj="h"/>}^{<eval obj="h"/>} <eval obj="b"/>x^2\, dx
-          &amp;= <eval obj="b"/>\,\frac{x^3}{3}
-            \bigg|_{-<eval obj="h"/>}^{<eval obj="h"/>}</mrow>
-        <mrow>&amp;= \frac{2 \cdot <eval obj="b"/> \cdot <eval obj="h"/>^3}{3}</mrow>
-        <mrow>&amp;= <eval obj="inner"/>.</mrow>
-      </md>
-      <p component="hw9-solutions">
-        Nothing depends on <m>z</m>, so the <m>z</m>-integration just
-        multiplies by the side length <m><eval obj="side"/></m>:
-      </p>
-      <md component="hw9-solutions">
-        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
-        <mrow>&amp;= <eval obj="inner"/> \cdot <eval obj="side"/></mrow>
-        <mrow>&amp;= <eval obj="flux"/>.</mrow>
-      </md>
-      <p component="hw9-solutions">
-        Neither <m><eval obj="a"/></m>, <m><eval obj="c"/></m>, nor the
-        plane <m>y = <eval obj="y0"/></m> affects the answer: the first and third
-        components are killed by the dot product, and the integrand does
-        not involve <m>y</m>.
-      </p>
-    </solution>
-  </exercise>
-
-  <exercise xml:id="ex-hw9o-exponential-graph">
-    <title>Flux Across the Surface <m>z = xe^y</m></title>
-    <setup>
-      <de-object name="k" context="number">
-        <de-random distribution="discrete" min="1" max="3" by="1"/>
-      </de-object>
-      <de-object name="t" context="number">
-        <de-random distribution="discrete" min="1" max="6" by="1"/>
-      </de-object>
-      <de-object name="u" context="number">
-        <de-random distribution="discrete" min="0" max="1" by="1"/>
-      </de-object>
-      <de-object name="a" context="number">
-        <de-expression>(2*u-1)*t</de-expression>
-      </de-object>
-      <de-object name="b" context="number">
-        <de-expression>4*k</de-expression>
-      </de-object>
-      <de-object name="coef" context="number">
-        <de-expression>-4*k</de-expression>
-      </de-object>
-      <de-object name="flux" context="number">
-        <de-expression>k*(1-exp(1))</de-expression>
-      </de-object>
-    </setup>
-    <statement>
-      <p>
-        Compute the flux
-        <m>\displaystyle\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,
-        d\sigma</m>, where
-      </p>
-      <me>
-        \mathbf{F} = \left\langle <eval obj="a"/>xy,\ <eval obj="b"/>x^2,\
-        <eval obj="a"/>yz \right\rangle
-      </me>
-      <p>
-        and <m>S</m> is the surface <m>z = xe^y</m> over
-        <m>0 \le x \le 1</m>, <m>0 \le y \le 1</m>, with
-        <m>\hat{\mathbf{n}}</m> pointing upward.
-      </p>
-      <p>
-        With <m>\mathbf{r}(x,y) = \left\langle x,\ y,\ xe^y
-        \right\rangle</m> and <m>\mathbf{n} = \mathbf{r}_x \times
-        \mathbf{r}_y</m>, the integrand
-        <m>\mathbf{F} \cdot \mathbf{n}</m> collapses to a single term
-        <m>K x^3 e^y</m>. The constant <m>K</m> is
-        <fillin name="b1" mode="number" ansobj="coef" width="12"/>.
-      </p>
-      <p>
-        The flux is
-        <fillin name="b2" mode="number" ansobj="flux" width="14"/>.
-      </p>
-    </statement>
-    <evaluation>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="coef.value({})-Math.max(0.01,1e-4*Math.abs(coef.value({})))" max="coef.value({})+Math.max(0.01,1e-4*Math.abs(coef.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-      <evaluate>
-        <test correct="yes">
-          <numcmp use-answer="yes" min="flux.value({})-Math.max(0.01,1e-4*Math.abs(flux.value({})))" max="flux.value({})+Math.max(0.01,1e-4*Math.abs(flux.value({})))"/>
-          <feedback><p>Correct.</p></feedback>
-        </test>
-        <test><numcmp min="-1000000000" max="1000000000"/><feedback><p>Incorrect.</p></feedback></test>
-      </evaluate>
-    </evaluation>
-    <solution include-automatic="no">
-      <p component="hw9-solutions">
-        For the graph <m>z = g(x,y) = xe^y</m> we have
-        <m>g_x = e^y</m> and <m>g_y = xe^y</m>, so the upward normal is
-        <m>\mathbf{n} = \mathbf{r}_x \times \mathbf{r}_y
-        = \left\langle -e^y,\ -xe^y,\ 1 \right\rangle</m>. Substituting
-        <m>z = xe^y</m> into <m>\mathbf{F}</m> and writing
-        <m>a = <eval obj="a"/></m> for the coefficient shared by the first
-        and third components,
-      </p>
-      <md component="hw9-solutions">
-        <mrow>\mathbf{F} \cdot \mathbf{n}
-          &amp;= -a xy e^y - <eval obj="b"/>x^3 e^y</mrow>
-        <mrow>&amp;\quad + a y\left(xe^y\right)</mrow>
-        <mrow>&amp;= -<eval obj="b"/> x^3 e^y,</mrow>
-      </md>
-      <p component="hw9-solutions">
-        so <m>K = <eval obj="coef"/></m>: the two <m>a</m>-terms cancel,
-        which is why the value of <m>a</m> never reaches the answer. The
-        parameter region <m>R</m> is the unit square, and by
-        <xref ref="eq-flux-param"/> the integral separates:
-      </p>
-      <md component="hw9-solutions">
-        <mrow>&amp;\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\, d\sigma</mrow>
-        <mrow>&amp;= -<eval obj="b"/> \int_0^1 x^3\, dx \int_0^1 e^y\, dy</mrow>
-        <mrow>&amp;= -<eval obj="b"/> \cdot \frac{1}{4} \cdot (e-1)</mrow>
-        <mrow>&amp;= <eval obj="k"/>\left(1 - e\right).</mrow>
-      </md>
     </solution>
   </exercise>
   </exercises>

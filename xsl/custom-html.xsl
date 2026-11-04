@@ -18,7 +18,7 @@
   <!--   * math-input-palette.js - equation-entry palette for the dynamic  -->
   <!--     exercises; targets specific exercises by id and is inert on     -->
   <!--     every other page.                                               -->
-  <!--   * dynamic-solutions.js - fills released HW9 solution blocks from  -->
+  <!--   * dynamic-solutions.js - fills released surface-integral solutions  -->
   <!--     the question's live values while keeping them below it.         -->
   <!--   * custom.js - the floating Socratic AI tutor of the assignment    -->
   <!--     pages; inert on every other page.  It must be a parser-blocking -->
@@ -87,8 +87,8 @@
       </xsl:apply-templates>
     </xsl:variable>
     <xsl:choose>
-      <!-- Keep HW9 solutions outside the question, in their original
-           position below the Runestone component. An inert template
+      <!-- Keep surface-integral solutions in their original position below
+           the Runestone component. An inert template
            prevents MathJax from typesetting unresolved <eval> tokens.
            dynamic-solutions.js fills these from the question's live
            variables, then typesets the separate solution block.
