@@ -11,19 +11,22 @@
                 version="1.0">
   <xsl:import href="./core/pretext-html.xsl"/>
 
-  <!-- Two extra scripts on every page, both living in assets/ and copied  -->
+  <!-- Extra scripts on every page, living in assets/ and copied           -->
   <!-- to output as external/.  $html.js.extra only takes ONE file, so the -->
   <!-- core's named template that emits it at the foot of each page is     -->
-  <!-- overridden below to emit both:                                      -->
+  <!-- overridden below to emit them:                                      -->
   <!--   * math-input-palette.js - equation-entry palette for the dynamic  -->
   <!--     exercises; targets specific exercises by id and is inert on     -->
   <!--     every other page.                                               -->
+  <!--   * dynamic-solutions.js - fills released HW9 solution blocks from  -->
+  <!--     the question's live values while keeping them below it.         -->
   <!--   * custom.js - the floating Socratic AI tutor of the assignment    -->
   <!--     pages; inert on every other page.  It must be a parser-blocking -->
   <!--     script (not deferred) so it can harvest the exercise statements -->
   <!--     while the DOM still holds raw LaTeX, before MathJax typesets.   -->
   <xsl:template name="extra-js-footer">
     <script src="external/math-input-palette.js"></script>
+    <script src="external/dynamic-solutions.js"></script>
     <script src="external/custom.js"></script>
   </xsl:template>
 
@@ -74,33 +77,31 @@
     <xsl:if test="$b-has-statement">
       <xsl:apply-templates select="." mode="runestone-to-interactive"/>
     </xsl:if>
-    <xsl:apply-templates select="." mode="solutions-div">
-      <xsl:with-param name="b-original" select="$b-original"/>
-      <xsl:with-param name="block-type" select="$block-type"/>
-      <xsl:with-param name="b-has-hint" select="$b-has-hint"/>
-      <xsl:with-param name="b-has-answer" select="$b-has-answer"/>
-      <xsl:with-param name="b-has-solution"
-                      select="$b-has-solution and not(starts-with(@xml:id, 'ex-hw9o-'))"/>
-    </xsl:apply-templates>
-  </xsl:template>
-
-  <!-- HW9 solutions contain <eval> values from the randomized question.
-       A solution printed outside Runestone's problemHtml keeps literal
-       [%= toTeX(...) %] templates: only problemHtml is interpolated and
-       typeset by the runtime. Append the released solution to the last
-       statement block so it shares the question's variables, seed and
-       MathJax pass. The exercise-components override above omits the
-       separate static copy. Publication component filtering has already
-       removed unreleased contents, so this does not release solutions. -->
-  <xsl:template match="exercise[@exercise-interactive = 'fillin']
-                                [starts-with(@xml:id, 'ex-hw9o-')]
-                                /statement/*[not(following-sibling::*)]">
-    <xsl:apply-imports/>
-    <xsl:if test="../../solution/*">
-      <div class="solutions">
-        <xsl:apply-templates select="../../solution"/>
-      </div>
-    </xsl:if>
+    <xsl:variable name="solutions">
+      <xsl:apply-templates select="." mode="solutions-div">
+        <xsl:with-param name="b-original" select="$b-original"/>
+        <xsl:with-param name="block-type" select="$block-type"/>
+        <xsl:with-param name="b-has-hint" select="$b-has-hint"/>
+        <xsl:with-param name="b-has-answer" select="$b-has-answer"/>
+        <xsl:with-param name="b-has-solution" select="$b-has-solution"/>
+      </xsl:apply-templates>
+    </xsl:variable>
+    <xsl:choose>
+      <!-- Keep HW9 solutions outside the question, in their original
+           position below the Runestone component. An inert template
+           prevents MathJax from typesetting unresolved <eval> tokens.
+           dynamic-solutions.js fills these from the question's live
+           variables, then typesets the separate solution block.
+           Component filtering has already removed unreleased contents. -->
+      <xsl:when test="starts-with(@xml:id, 'ex-hw9o-') and solution/*">
+        <template class="dynamic-solution-template" data-exercise="rs-{@xml:id}">
+          <xsl:copy-of select="$solutions"/>
+        </template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:copy-of select="$solutions"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- A PreFigure diagram carrying <annotations> is not emitted as an     -->
