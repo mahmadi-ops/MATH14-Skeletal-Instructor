@@ -7,12 +7,13 @@
 <!-- The animated companion of fig-sphere-patch in "Surface Integrals: Flux
      Through a Surface": the unit sphere swept out by r(theta, phi), a point
      on it with its two coordinate curves (the parallel, theta varying, and
-     the meridian, phi varying), the tangent vectors r_theta and r_phi, and
-     the small coordinate patch between theta, theta + dtheta and phi,
-     phi + dphi, with the parallelogram that approximates it: spanned by the
-     two edges r_phi dphi and r_theta dtheta, in the tangent plane at the
-     point, drawn in violet with its edges labelled ("Parallelogram" switches
-     it off and on).  "Zoom to patch" follows the patch in as it shrinks, so
+     the meridian, phi varying), and the small coordinate patch between
+     theta, theta + dtheta and phi, phi + dphi.  Its two edges are drawn as
+     the arrows r_theta dtheta and r_phi dphi (the tangent vectors scaled by
+     the steps; r_theta and r_phi themselves are not drawn), and the
+     parallelogram that approximates the patch, spanned by those two edges in
+     the tangent plane at the point, is drawn in violet ("Parallelogram"
+     switches it off and on).  "Zoom to patch" follows the patch in as it shrinks, so
      that it flattens onto that parallelogram.
 
      No numbers anywhere: the sliders have no scale and the card is
@@ -37,8 +38,8 @@
     --edge:      #262a36;
     --ink:       #ece6e2;
     --dim:       #9aa0ad;
-    --blue:      #58c4dd;   /* r_theta and the parallel */
-    --red:       #fc6255;   /* r_phi and the meridian */
+    --blue:      #58c4dd;   /* r_theta dtheta and the parallel */
+    --red:       #fc6255;   /* r_phi dphi and the meridian */
     --green:     #83c167;   /* the normal */
     --yellow:    #ffe14d;   /* the patch */
     --violet:    #caa3e8;
@@ -170,7 +171,7 @@
 
   // the slider ranges, in radians (never shown)
   var TH = [-20 * DEG, 100 * DEG], PH = [18 * DEG, 125 * DEG], SZ = [1.5 * DEG, 32 * DEG];
-  var VEC = 0.62;          // the drawn length scale of the tangent vectors
+  var VEC = 0.62;          // the drawn length scale of the normal
 
   // every animated quantity eases toward its target in frame()
   var S = {
@@ -354,14 +355,12 @@
   }
 
   var aT = makeArrow(BLUE_C, 0.011, false), aP = makeArrow(RED_C, 0.011, false), aN = makeArrow(GREEN_C, 0.013, false);
-  var lT = makeLabel([bold("r"), sub("θ")], "#58c4dd", 0.15);
-  var lP = makeLabel([bold("r"), sub("φ")], "#fc6255", 0.15);
+  var lT = makeLabel([bold("r"), sub("θ"), { t: " Δ" }, it("θ")], "#58c4dd", 0.15);
+  var lP = makeLabel([bold("r"), sub("φ"), { t: " Δ" }, it("φ")], "#fc6255", 0.15);
   var lN = SKELETAL ? makeLabel([{ t: "n", b: true, hat: true }], "#83c167", 0.15)
                     : makeLabel([bold("r"), sub("φ"), { t: " × " }, bold("r"), sub("θ")], "#83c167", 0.15);
   var lPt = makeLabel([bold("r"), { t: "(" }, it("θ"), { t: ", " }, it("φ"), { t: ")" }], "#ece6e2", 0.13);
-  var lEt = makeLabel([bold("r"), sub("θ"), { t: " Δ" }, it("θ")], "#58c4dd", 0.12);
-  var lEp = makeLabel([bold("r"), sub("φ"), { t: " Δ" }, it("φ")], "#fc6255", 0.12);
-  [lT, lP, lN, lPt, lEt, lEp].forEach(function (l) { scene.add(l.sprite); });
+  [lT, lP, lN, lPt].forEach(function (l) { scene.add(l.sprite); });
 
   function surfGeo(t0, t1, p0, p1, n, rad) {
     var pos = [];
@@ -416,26 +415,22 @@
     var sr = 0.0055 * ds;
     setSeg(planeSegs[0], c0, c1, sr); setSeg(planeSegs[1], c1, c2, sr);
     setSeg(planeSegs[2], c2, c3, sr); setSeg(planeSegs[3], c3, c0, sr);
-    // each edge is named on the far side, away from the arrows at the point:
-    // r_theta dtheta under the side parallel to r_theta, r_phi dphi beside the other
-    var oE = 0.075 * ds;
-    lEt.sprite.position.copy(c3).add(c2).multiplyScalar(0.5).add(B.clone().normalize().multiplyScalar(oE));
-    lEp.sprite.position.copy(c1).add(c2).multiplyScalar(0.5).add(A.clone().normalize().multiplyScalar(oE * 1.9));
-
-    // the tangent vectors (drawn VEC times their size) and the normal
+    // the two edges of the patch, r_theta dtheta and r_phi dphi, as arrows from its
+    // corner (the tangent vectors themselves are not drawn), and the normal
+    setArrow(aT, P, A, ds);
+    setArrow(aP, P, B, ds);
     var L = VEC * ds;
-    setArrow(aT, P, et.clone().multiplyScalar(L), ds);
-    setArrow(aP, P, ep.clone().multiplyScalar(L), ds);
     // completed: r_phi x r_theta = sin(phi) r, drawn on the same scale; skeletal: the unit normal
     var nv = SKELETAL ? P.clone().multiplyScalar(L) : ep.clone().cross(et).multiplyScalar(L);
     setArrow(aN, P, nv, ds);
 
     var off = 0.06 * ds;
-    lT.sprite.position.copy(P).addScaledVector(et, L).add(et.clone().normalize().multiplyScalar(off * 1.6));
-    lP.sprite.position.copy(P).addScaledVector(ep, L).add(ep.clone().normalize().multiplyScalar(off * 1.6));
+    // each label sits just past the tip of its arrow, clear of the head by half its own width
+    lT.sprite.position.copy(P).add(A).add(et.clone().normalize().multiplyScalar(off + 0.5 * lT.size * lT.aspect * ds));
+    lP.sprite.position.copy(P).add(B).add(ep.clone().normalize().multiplyScalar(off + 0.5 * lP.size * lP.aspect * ds));
     lN.sprite.position.copy(P).add(nv).add(P.clone().multiplyScalar(off * 1.4));
     lPt.sprite.position.copy(P).multiplyScalar(0.5).add(new THREE.Vector3(0, 0, -0.07 * ds));
-    [lT, lP, lN, lPt, lEt, lEp].forEach(function (l) { l.sprite.scale.set(l.size * l.aspect * ds, l.size * ds, 1); });
+    [lT, lP, lN, lPt].forEach(function (l) { l.sprite.scale.set(l.size * l.aspect * ds, l.size * ds, 1); });
   }
 
   function applyAlphas() {
@@ -445,7 +440,6 @@
     lT.sprite.visible = lP.sprite.visible = tg > 0.01;
     planeMat.opacity = PLANE_FILL * pl; segMat.opacity = pl; plane.visible = pl > 0.01;
     if (pl <= 0.01) planeSegs.forEach(function (m) { m.visible = false; });
-    lEt.sprite.material.opacity = lEp.sprite.material.opacity = pl; lEt.sprite.visible = lEp.sprite.visible = pl > 0.01;
     aN.mat.opacity = no; aN.g.visible = no > 0.01; lN.sprite.material.opacity = no; lN.sprite.visible = no > 0.01;
     var solid = pa > 0.999;
     if (patchMat.transparent === solid) { patchMat.transparent = !solid; patchMat.depthWrite = solid; patchMat.needsUpdate = true; }
@@ -460,6 +454,7 @@
   // ---------- the card ----------
   var V = function (s) { return '<span class="vec">' + s + "</span>"; };
   var rT = V("r") + "<sub>θ</sub>", rP = V("r") + "<sub>φ</sub>";
+  var rTd = rT + " Δ<i>θ</i>", rPd = rP + " Δ<i>φ</i>";
   var card = document.getElementById("eqcard");
   card.innerHTML =
     '<div class="line">' + V("r") + "(<i>θ</i>, <i>φ</i>) on the unit sphere</div>" +
@@ -575,14 +570,14 @@
     { say: "The unit sphere is swept out by " + M(V("r") + "(<i>θ</i>, <i>φ</i>)") + ": " + M("<i>θ</i>") +
            " turns around the " + M("<i>z</i>") + "-axis and " + M("<i>φ</i>") + " tilts down from the north pole.",
       st: { tang: 0, plane: 0, normal: 0, patch: 0, curves: 0, zoom: 0 }, go: { theta: 15 * DEG, phi: 70 * DEG }, hold: 3.4 },
-    { say: "Hold " + M("<i>φ</i>") + " fixed and let " + M("<i>θ</i>") + " vary: the point runs along a parallel, " +
-           "and its velocity is the tangent vector " + M('<span style="color:#58c4dd">' + rT + "</span>") + ".",
+    { say: "Hold " + M("<i>φ</i>") + " fixed and step " + M("<i>θ</i>") + " by " + M("Δ<i>θ</i>") +
+           ": the point moves along a parallel, by approximately " + M('<span style="color:#58c4dd">' + rTd + "</span>") + ".",
       st: { curves: 1, tang: 1 }, go: { theta: 45 * DEG, phi: 70 * DEG }, hold: 3.6 },
-    { say: "Hold " + M("<i>θ</i>") + " fixed and let " + M("<i>φ</i>") + " vary: the point runs down a meridian, " +
-           "with velocity " + M('<span style="color:#fc6255">' + rP + "</span>") + ".",
+    { say: "Hold " + M("<i>θ</i>") + " fixed and step " + M("<i>φ</i>") + " by " + M("Δ<i>φ</i>") +
+           ": the point moves down a meridian, by approximately " + M('<span style="color:#fc6255">' + rPd + "</span>") + ".",
       go: { theta: 35 * DEG, phi: 45 * DEG }, hold: 3.6 },
-    { say: "Step " + M("<i>θ</i>") + " by " + M("Δ<i>θ</i>") + " and " + M("<i>φ</i>") + " by " + M("Δ<i>φ</i>") +
-           ": a small coordinate patch. Its edges are approximately " + M(rP + " Δ<i>φ</i>") + " and " + M(rT + " Δ<i>θ</i>") + ".",
+    { say: "Both steps together cut out a small coordinate patch, whose edges are approximately " +
+           "those two vectors, " + M(rPd) + " and " + M(rTd) + ".",
       st: { patch: 1, plane: 1 }, go: { size: 20 * DEG }, hold: 4.2 },
     { say: "Shrink the patch and follow it in: it flattens onto the parallelogram spanned by its two edges.",
       st: { zoom: 1 }, go: { size: 3 * DEG }, hold: 5.2 },

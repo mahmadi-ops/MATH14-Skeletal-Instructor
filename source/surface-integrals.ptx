@@ -315,29 +315,31 @@ to the patch and the area of the patch:
 
 <figure xml:id="fig-sphere-patch">
 <caption>
-A small coordinate patch on the unit sphere. The tangent vectors
-<m>\mathbf{r}_\theta</m> and <m>\mathbf{r}_\phi</m> span the patch,
-and <m>\hat{\mathbf{n}}</m> is the unit normal.
+A small coordinate patch on the unit sphere. Its two edges are approximately
+the vectors <m>\mathbf{r}_\theta\,\Delta\theta</m> and
+<m>\mathbf{r}_\phi\,\Delta\phi</m>, and <m>\hat{\mathbf{n}}</m> is the unit normal.
 </caption>
 <image xml:id="image-sphere-patch" width="80%">
 <shortdescription>
-A wireframe piece of a sphere with two tangent vectors and the normal
-vector drawn at a point.
+A wireframe piece of a sphere with the two edge vectors of a small
+patch and the normal vector drawn at a point.
 </shortdescription>
 <description>
 <p>
 A wireframe octant of the unit sphere. At a point
-<m>\mathbf{r}(\theta,\phi)</m> on the surface, a blue tangent
-vector <m>\mathbf{r}_\theta</m> points east along a parallel, a red
-tangent vector <m>\mathbf{r}_\phi</m> points south along a
-meridian, a small shaded patch <m>\Delta\sigma</m> lies between them,
-and a magenta arrow <m>\hat{\mathbf{n}}</m> points radially outward,
+<m>\mathbf{r}(\theta,\phi)</m> on the surface, a blue vector
+<m>\mathbf{r}_\theta\,\Delta\theta</m> runs east along a parallel and
+a red vector <m>\mathbf{r}_\phi\,\Delta\phi</m> runs south along a
+meridian, the two edges of a small shaded patch <m>\Delta\sigma</m>
+between them, and a magenta arrow <m>\hat{\mathbf{n}}</m> points radially outward,
 perpendicular to both.
 </p>
 </description>
 <asymptote>
-<![CDATA[// A small coordinate patch on the unit sphere, with the tangent vectors
-// r_theta and r_phi and the outward unit normal n-hat at r(theta, phi).
+<![CDATA[// A small coordinate patch on the unit sphere, with its two edge vectors
+// r_theta dtheta and r_phi dphi (the tangent vectors scaled by the steps;
+// r_theta and r_phi themselves are not drawn) and the outward unit normal
+// n-hat at r(theta, phi).
 import graph3;
 
 size(12cm);
@@ -384,14 +386,16 @@ triple rt = sin(p0)*(-sin(t0), cos(t0), 0);            // r_theta
 triple rp = (cos(p0)*cos(t0), cos(p0)*sin(t0), -sin(p0));  // r_phi
 draw(O--r, gray(0.2) + linewidth(1.1pt), Arrow3(size=7));
 dot(r, linewidth(4pt));
-draw(r--r + 0.45*rt, oiblue + linewidth(1.5pt), Arrow3(size=8));
-draw(r--r + 0.45*rp, oivermillion + linewidth(1.5pt), Arrow3(size=8));
+// the two edges of the patch, r_theta dtheta and r_phi dphi, from its corner
+real dth = radians(20), dph = radians(20);
+draw(r--r + dth*rt, oiblue + linewidth(1.5pt), Arrow3(size=8));
+draw(r--r + dph*rp, oivermillion + linewidth(1.5pt), Arrow3(size=8));
 draw(r--1.55*r, oimagenta + linewidth(1.6pt), Arrow3(size=9));
 
 // labels
 label("$\mathbf{r}(\theta,\phi)$", 0.45*r, 2W, fontsize(14pt));
-label("$\mathbf{r}_\theta$", r + 0.45*rt, E, oiblue + fontsize(16pt));
-label("$\mathbf{r}_\phi$", r + 0.45*rp, SE, 0.85*oivermillion + fontsize(16pt));
+label("$\mathbf{r}_\theta\,\Delta\theta$", r + dth*rt, E, oiblue + fontsize(14pt));
+label("$\mathbf{r}_\phi\,\Delta\phi$", r + dph*rp, SE, 0.85*oivermillion + fontsize(14pt));
 label("$\hat{\mathbf{n}}$", 1.55*r, NE, oimagenta + fontsize(16pt));
 label("$\Delta\sigma$", 1.12*sph(radians(45), radians(55)), fontsize(14pt));
 
@@ -415,13 +419,12 @@ watch it flatten onto the parallelogram spanned by its two edges.
 <figure xml:id="fig-sphere-patch-manim">
 <caption>
 The coordinate patch of <xref ref="fig-sphere-patch"/>, animated. The
-point <m>\mathbf{r}(\theta,\phi)</m> sits on its parallel (blue), along
-which <m>\theta</m> varies with velocity <m>\mathbf{r}_\theta</m>, and
-on its meridian (red), along which <m>\phi</m> varies with velocity
-<m>\mathbf{r}_\phi</m>. The yellow patch is cut out by steps
-<m>\Delta\theta</m> and <m>\Delta\phi</m>; the violet parallelogram,
-spanned by its edges <m>\mathbf{r}_\phi\,\Delta\phi</m> and
-<m>\mathbf{r}_\theta\,\Delta\theta</m>, approximates it, and the green
+point <m>\mathbf{r}(\theta,\phi)</m> sits on its parallel (blue) and
+its meridian (red). Steps <m>\Delta\theta</m> and <m>\Delta\phi</m>
+cut out the yellow patch, whose edges are approximately the vectors
+<m>\mathbf{r}_\theta\,\Delta\theta</m> (blue) and
+<m>\mathbf{r}_\phi\,\Delta\phi</m> (red); the violet parallelogram
+they span approximates the patch, and the green
 arrow is the unit
 normal <m>\hat{\mathbf{n}}</m>.
 </caption>
