@@ -13,10 +13,18 @@
 <!-- eq-flux-density, eq-div-def, eq-curl-def, eq-green-normal,           -->
 <!-- eq-green-tangential and eq-component-test-3d.                        -->
 <!--                                                                       -->
+<!-- The subsection on the outward unit normal keeps its setup (the        -->
+<!-- velocity and the fact that n is perpendicular to it); the derivation  -->
+<!-- of n, the unit-circle example and the flux element F.n ds are boxes,  -->
+<!-- and eq-outward-unit-normal is restated in an assemblage after the     -->
+<!-- box that derives it, so the equation numbers match the completed     -->
+<!-- notes.                                                                -->
+<!--                                                                       -->
 <!-- Figures: all kept (the two small rectangles, the four field plots,   -->
-<!-- the proof region, the unit circle, the tilted square and every        -->
-<!-- video); each is the check on the box above it.  Captions that stated  -->
-<!-- a value or a substitution have been trimmed.                          -->
+<!-- the unit circle with T and n, the proof region, the unit circle, the  -->
+<!-- tilted square and every video); each is the check on the box above   -->
+<!-- it.  Captions that stated a value or a substitution have been        -->
+<!-- trimmed.                                                              -->
 <section xml:id="section-greens-theorem" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Green's Theorem in the Plane</title>
 
@@ -603,6 +611,217 @@ A rotational field circulating counterclockwise, arrows longer farther out.
 </image>
 </sidebyside>
 </figure>
+
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="sec-green-outward-normal">
+<title>The Outward Unit Normal of a Plane Curve</title>
+
+<p>
+The first form of Green's theorem in the next subsection measures how
+much of a field flows <em>across</em> a closed curve <m>C</m>, so it uses
+the <term>outward unit normal</term> <m>\mathbf{n}</m> of the curve
+rather than its unit tangent <m>\mathbf{T}</m>. Suppose <m>C</m> is
+traversed counterclockwise and parametrized by
+<m>\mathbf{r}(t) = x(t)\,\mathbf{i} + y(t)\,\mathbf{j}</m>. Its velocity,
+the tangent vector of <xref ref="eq-tangent-vector"/>, is
+<me>
+\mathbf{v} = \frac{d\mathbf{r}}{dt}
+= \left\langle \frac{dx}{dt},\ \frac{dy}{dt} \right\rangle.
+</me>
+</p>
+
+<p>
+Since <m>\mathbf{n}</m> is a unit normal to the curve, it is
+perpendicular to the tangent vector <m>\mathbf{v}</m>, so
+<m>\mathbf{n} \cdot \mathbf{v} = 0</m>.
+</p>
+
+<p>
+(Find a vector built from <m>\frac{dx}{dt}</m> and <m>\frac{dy}{dt}</m>
+whose dot product with <m>\mathbf{v}</m> is zero, and say which of the
+two such directions points out of <m>R</m> when <m>C</m> is traversed
+counterclockwise. Then divide it by its length, and compare that length
+with <m>\left\lVert\mathbf{v}\right\rVert</m>.)
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,11);
+\draw[gray!35] (0,7.5) -- (15,7.5);
+\draw[gray!35] (0,4) -- (15,4);
+\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {a vector perpendicular to $\mathbf v$, and its dot product with $\mathbf v$:};
+\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {which way it points, and why:};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {its length: \qquad\qquad\qquad $\mathbf n =$};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank box in three rows, for a vector perpendicular to the velocity with its dot product, for the direction it points, and for its length and the unit normal.</shortdescription>
+</image>
+</sidebyside>
+
+<assemblage>
+<title>The Outward Unit Normal</title>
+<p>
+For a closed curve <m>C</m> traversed counterclockwise with velocity
+<m>\mathbf{v} = \left\langle \frac{dx}{dt},\ \frac{dy}{dt} \right\rangle</m>,
+the outward unit normal is
+<men xml:id="eq-outward-unit-normal">
+\mathbf{n} = \frac{1}{\left\lVert\mathbf{v}\right\rVert}
+\left\langle \frac{dy}{dt},\ -\frac{dx}{dt} \right\rangle.
+</men>
+</p>
+</assemblage>
+
+<example xml:id="example-unit-normal-circle">
+<title>The Unit Normal to the Unit Circle</title>
+<statement>
+<p>
+Find the outward unit normal <m>\mathbf{n}</m> and the unit tangent
+<m>\mathbf{T}</m> of the unit circle <m>x^2 + y^2 = 1</m>, traversed
+counterclockwise.
+</p>
+<p>
+<em>Solution.</em>
+(Parametrize the circle counterclockwise, find <m>\mathbf{v}</m> and
+<m>\left\lVert\mathbf{v}\right\rVert</m>, and apply
+<xref ref="eq-outward-unit-normal"/> and <xref ref="eq-unit-tangent"/>.
+Say how <m>\mathbf{n}</m> is related to the position vector
+<m>\mathbf{r}(t)</m>, and check that <m>\mathbf{n}\cdot\mathbf{T} = 0</m>;
+compare with <xref ref="fig-unit-normal-circle"/>.)
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
+\draw[gray!35] (0,9.5) -- (15,9.5);
+\draw[gray!35] (0,6.5) -- (15,6.5);
+\draw[gray!35] (0,3.5) -- (15,3.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$\mathbf r(t) =$ \qquad\qquad $\mathbf v =$ \qquad\qquad $\left\lVert\mathbf v\right\rVert =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {$\mathbf n =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$\mathbf T =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {how $\mathbf n$ is related to $\mathbf r(t)$, and the check $\mathbf n\cdot\mathbf T = 0$:};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank box in four rows, for the parametrization with the velocity and speed, for the unit normal, for the unit tangent, and for how the normal is related to the position vector together with the perpendicularity check.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</example>
+
+<figure xml:id="fig-unit-normal-circle">
+<caption>
+The unit tangent <m>\mathbf{T}</m> (pink) and the outward unit normal
+<m>\mathbf{n}</m> (green) at three points of the unit circle <m>C</m>,
+traversed counterclockwise. At every point the two vectors are
+perpendicular, and <m>\mathbf{n}</m> points out of the disk <m>R</m>.
+</caption>
+<image width="55%">
+<shortdescription>
+The unit circle with a unit tangent vector and an outward unit normal vector drawn at three of its points.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-unit-normal-circle">
+<diagram dimensions="(300,300)" margins="10">
+<definition>r(t) = (cos(t), sin(t))</definition>
+<definition>T(t) = (-sin(t), cos(t))</definition>
+<definition>nn(t) = (cos(t), sin(t))</definition>
+<definition>tipT(t) = (cos(t) - sin(t), sin(t) + cos(t))</definition>
+<definition>tipN(t) = (2*cos(t), 2*sin(t))</definition>
+<coordinates bbox="(-2.3,-2.3,2.3,2.3)">
+<circle at="un-disk" center="(0,0)" radius="1" fill="#dff4f6"
+        stroke="#00b0c0" thickness="3"/>
+<axes at="un-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<!-- t = pi/6 -->
+<angle-marker at="un-right-1" p="r(pi/6)" p1="tipN(pi/6)" p2="tipT(pi/6)"
+              radius="9" stroke="#555555" thickness="1"/>
+<vector at="un-T-1" tail="r(pi/6)" v="T(pi/6)" stroke="#d02090" thickness="3"/>
+<vector at="un-n-1" tail="r(pi/6)" v="nn(pi/6)" stroke="#009E73" thickness="3"/>
+<point at="un-P-1" p="r(pi/6)" size="3" fill="black"/>
+<label at="un-T-1-label" anchor="tipT(pi/6)" alignment="n" color="#d02090"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{T}</m>
+</label>
+<label at="un-n-1-label" anchor="tipN(pi/6)" alignment="e" color="#009E73"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{n}</m>
+</label>
+<!-- t = 5 pi/6 -->
+<angle-marker at="un-right-2" p="r(5*pi/6)" p1="tipN(5*pi/6)" p2="tipT(5*pi/6)"
+              radius="9" stroke="#555555" thickness="1"/>
+<vector at="un-T-2" tail="r(5*pi/6)" v="T(5*pi/6)" stroke="#d02090" thickness="3"/>
+<vector at="un-n-2" tail="r(5*pi/6)" v="nn(5*pi/6)" stroke="#009E73" thickness="3"/>
+<point at="un-P-2" p="r(5*pi/6)" size="3" fill="black"/>
+<label at="un-T-2-label" anchor="tipT(5*pi/6)" alignment="s" color="#d02090"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{T}</m>
+</label>
+<label at="un-n-2-label" anchor="tipN(5*pi/6)" alignment="w" color="#009E73"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{n}</m>
+</label>
+<!-- t = 5 pi/3 -->
+<angle-marker at="un-right-3" p="r(5*pi/3)" p1="tipN(5*pi/3)" p2="tipT(5*pi/3)"
+              radius="9" stroke="#555555" thickness="1"/>
+<vector at="un-T-3" tail="r(5*pi/3)" v="T(5*pi/3)" stroke="#d02090" thickness="3"/>
+<vector at="un-n-3" tail="r(5*pi/3)" v="nn(5*pi/3)" stroke="#009E73" thickness="3"/>
+<point at="un-P-3" p="r(5*pi/3)" size="3" fill="black"/>
+<label at="un-T-3-label" anchor="tipT(5*pi/3)" alignment="e" color="#d02090"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{T}</m>
+</label>
+<label at="un-n-3-label" anchor="tipN(5*pi/3)" alignment="se" color="#009E73"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{n}</m>
+</label>
+<label at="un-C-label" anchor="(-0.74,-0.74)" alignment="sw" color="#00a0b0"
+       clear-background="yes" background-margin="2">
+<m>C</m>
+</label>
+<label at="un-R-label" anchor="(-0.42,-0.36)" alignment="c"
+       clear-background="yes" background-margin="2">
+<m>R</m>
+</label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The unit circle C drawn in teal around the shaded disk R. At three points of the circle a pink unit tangent vector T and a green unit normal vector n start from the same point; a small square marks the right angle between them. Every T points in the counterclockwise direction of travel, and every n points straight away from the center, out of the disk.">
+  <annotation ref="un-disk" text="The unit circle C, traversed counterclockwise, enclosing the disk R."/>
+  <annotation ref="un-T-1" text="At the point at angle pi over 6, the unit tangent T points up and to the left, along the direction of travel."/>
+  <annotation ref="un-n-1" text="At the same point, the outward unit normal n points away from the center, up and to the right."/>
+  <annotation ref="un-T-2" text="At the point at angle 5 pi over 6, the unit tangent T points down and to the left."/>
+  <annotation ref="un-n-2" text="At the same point, the outward unit normal n points away from the center, up and to the left."/>
+  <annotation ref="un-T-3" text="At the point at angle 5 pi over 3, the unit tangent T points up and to the right."/>
+  <annotation ref="un-n-3" text="At the same point, the outward unit normal n points away from the center, down and to the right."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<p>
+This is where the line integral <m>\oint_C M\,dy - N\,dx</m> in the
+normal form of Green's theorem, <xref ref="eq-green-normal"/>, comes
+from. (For <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>, write
+<m>\mathbf{F}\cdot\mathbf{n}\,ds</m> in terms of <m>t</m> with
+<xref ref="eq-outward-unit-normal"/> and the line element of
+<xref ref="eq-line-element-2d"/>, and simplify.)
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
+\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$\mathbf F\cdot\mathbf n\,ds =$};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank box in one row, for the flux element written in terms of t.</shortdescription>
+</image>
+</sidebyside>
 
 </subsection>
 
