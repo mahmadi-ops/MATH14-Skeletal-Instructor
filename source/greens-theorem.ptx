@@ -7,16 +7,28 @@
 <!-- two statements of Green's theorem, and the component test with the   -->
 <!-- curl determinant are kept; the flux and circulation computations     -->
 <!-- around the small rectangle, the proof of the tangential form, and the -->
-<!-- worked examples are replaced by blank workspace boxes, each          -->
-<!-- preceded by a one-line instruction.  The two forms of the theorem    -->
+<!-- worked examples are replaced by blank workspace boxes.  The two     -->
+<!-- forms of the theorem                                                 -->
 <!-- are separate subsections, each with its own unit-circle example.     -->
+<!--                                                                       -->
+<!-- No hints (Nov 2026, at the instructor's request): the boxes have no   -->
+<!-- instruction lines and no row labels that name a method; a solution    -->
+<!-- keeps only a pointer to the figure or video that checks it; captions, -->
+<!-- legends, figure labels and alt text that gave a step away were cut     -->
+<!-- (the dot-product legends of the two rectangles, the side lines and    -->
+<!-- the uv rectangle of the tilted square, the dy slice of the proof      -->
+<!-- region); titles that named the method were renamed; and the proof's  -->
+<!-- split into an M statement and an N statement (eq-green-two) went.     -->
+<!-- Wide displays are broken into rows so that none is wider than a      -->
+<!-- phone screen.                                                         -->
+<!--                                                                       -->
 <!-- File name and xml:ids are                                             -->
 <!-- unchanged, so the assignments and the later sections still cite       -->
 <!-- eq-flux-density, eq-div-def, eq-curl-def, eq-green-normal,           -->
 <!-- eq-green-tangential and eq-component-test-3d.                        -->
 <!--                                                                       -->
 <!-- The subsection on the outward unit normal keeps its setup (the        -->
-<!-- velocity and the fact that n is perpendicular to it); the derivation  -->
+<!-- velocity); the derivation                                             -->
 <!-- of n, the unit-circle example and the flux element F.n ds are boxes,  -->
 <!-- and eq-outward-unit-normal is restated in an assemblage after the     -->
 <!-- box that derives it, so the equation numbers match the completed     -->
@@ -25,6 +37,11 @@
 <!-- The closing Concept Check keeps its two statements and the ellipse    -->
 <!-- figure; each answer is a plain workspace box, as in the other Concept -->
 <!-- Checks of the book.                                                   -->
+<!--                                                                       -->
+<!-- Interactive: fig-div-curl-manim (assets/div-curl-manim.html, a 2D    -->
+<!-- canvas in the book's Manim style, added Nov 2026) closes the curl     -->
+<!-- subsection: flux and circulation over a small circle around P, and a -->
+<!-- paddle wheel, for fields that appear nowhere else in the book.       -->
 <!--                                                                       -->
 <!-- Figures: all kept (the two small rectangles, the four field plots,   -->
 <!-- the unit circle with T and n, the proof region, the unit circle, the  -->
@@ -59,12 +76,11 @@ gas through the boundaries of a rectangle shown in
 The flux of the field <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>
 through the four sides of a small rectangle with corner <m>(x,y)</m>,
 width <m>\Delta x</m>, and height <m>\Delta y</m>. Each side's outward
-component of <m>\mathbf{F}</m> is drawn in its own color, and the legend
-gives the dot product it represents.
+arrow is drawn in its own color.
 </caption>
 <image width="92%">
 <shortdescription>
-A rectangle in a vector field with a differently colored outward arrow through each of its four sides, and a legend naming the gray field arrows and pairing each color with its dot product.
+A rectangle in a vector field with a differently colored outward arrow through each of its four sides.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-div-flux">
 <diagram dimensions="(580,300)" margins="10">
@@ -99,34 +115,13 @@ A rectangle in a vector field with a differently colored outward arrow through e
       stroke="#009E73" thickness="3"/>
 <line at="df-left" p1="(1.2,2.1)" p2="(0.65,2.1)" arrows="1"
       stroke="#7b3294" thickness="3"/>
-<!-- Legend: first the field itself (the gray arrows), then one row   -->
-<!-- per side, a swatch arrow in the side's color paired with the dot  -->
-<!-- product it represents, in the order of the derivation (top,       -->
-<!-- bottom, right, left) in the text below the figure.               -->
+<!-- Legend: the field itself (the gray arrows).  The rows that paired -->
+<!-- each side's color with its dot product were cut: they gave the    -->
+<!-- derivation away.                                                  -->
 <line at="df-leg-field" p1="(-5.45,4.35)" p2="(-5.05,4.35)" arrows="1"
       stroke="#bbbbbb" thickness="2"/>
 <label at="df-leg-field-label" clear-background="yes" background-margin="4" anchor="(-4.95,4.35)" alignment="e">
 <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>
-</label>
-<line at="df-leg-top" p1="(-5.45,3.90)" p2="(-5.05,3.90)" arrows="1"
-      stroke="#D55E00" thickness="3"/>
-<label at="df-leg-top-label" clear-background="yes" background-margin="4" anchor="(-4.95,3.90)" alignment="e">
-<m>\mathbf{F}\cdot\mathbf{j}\gt 0</m>
-</label>
-<line at="df-leg-bottom" p1="(-5.45,3.45)" p2="(-5.05,3.45)" arrows="1"
-      stroke="#E69F00" thickness="3"/>
-<label at="df-leg-bottom-label" clear-background="yes" background-margin="4" anchor="(-4.95,3.45)" alignment="e">
-<m>\mathbf{F}\cdot(-\mathbf{j})\mathrel{\unicode{x3C}} 0</m>
-</label>
-<line at="df-leg-right" p1="(-5.45,3.00)" p2="(-5.05,3.00)" arrows="1"
-      stroke="#009E73" thickness="3"/>
-<label at="df-leg-right-label" clear-background="yes" background-margin="4" anchor="(-4.95,3.00)" alignment="e">
-<m>\mathbf{F}\cdot\mathbf{i}\gt 0</m>
-</label>
-<line at="df-leg-left" p1="(-5.45,2.55)" p2="(-5.05,2.55)" arrows="1"
-      stroke="#7b3294" thickness="3"/>
-<label at="df-leg-left-label" clear-background="yes" background-margin="4" anchor="(-4.95,2.55)" alignment="e">
-<m>\mathbf{F}\cdot(-\mathbf{i})\mathrel{\unicode{x3C}} 0</m>
 </label>
 <label at="df-A" clear-background="yes" background-margin="4" anchor="(3.0,2.35)" alignment="c">
 <m>A</m>
@@ -139,12 +134,12 @@ A rectangle in a vector field with a differently colored outward arrow through e
 </label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="A blue rectangle with corner x comma y, width delta x, and height delta y, sitting in a gray vector field that points up and to the right. An arrow at the middle of each side shows the outward component of the field in that side's own color, and a legend at the upper left names the gray arrows as the field F and pairs each color with its dot product: positive through the top and right sides, negative through the bottom and left sides.">
+<annotation ref="figure" text="A blue rectangle with corner x comma y, width delta x, and height delta y, sitting in a gray vector field that points up and to the right. An arrow at the middle of each side, in that side's own color, points out of the rectangle, and a legend at the upper left names the gray arrows as the field F.">
   <annotation ref="df-rect" text="The rectangle with area A equals delta x delta y through whose boundary we measure the net flux."/>
-  <annotation ref="df-top" text="On the top side, in vermillion, the outward direction is j, and F dot j is positive: fluid leaves through the top."/>
-  <annotation ref="df-right" text="On the right side, in green, the outward direction is i, and F dot i is positive: fluid leaves through the right."/>
-  <annotation ref="df-bottom" text="On the bottom side, in orange, the outward direction is negative j, and F dot negative j is negative: fluid enters through the bottom."/>
-  <annotation ref="df-left" text="On the left side, in purple, the outward direction is negative i, and F dot negative i is negative: fluid enters through the left."/>
+  <annotation ref="df-top" text="The top side, in vermillion, with its outward arrow."/>
+  <annotation ref="df-right" text="The right side, in green, with its outward arrow."/>
+  <annotation ref="df-bottom" text="The bottom side, in orange, with its outward arrow."/>
+  <annotation ref="df-left" text="The left side, in purple, with its outward arrow."/>
 </annotation>
 </annotations>
 </diagram>
@@ -153,15 +148,8 @@ A rectangle in a vector field with a differently colored outward arrow through e
 </figure>
 
 <p>
-Evaluate the flux through each side, assuming the field is nearly
-constant along each side: on each side take the outward component of
-<m>\mathbf{F}</m> times the length of the side, with <m>\mathbf{F}</m>
-evaluated at the side's corner shown in the figure. Then add the four
-contributions, pair the parallel sides, and use the linear
-approximations
-<m>M(x+\Delta x, y) - M(x,y) \approx \frac{\partial M}{\partial x}\,\Delta x</m>
-and <m>N(x, y+\Delta y) - N(x,y) \approx \frac{\partial N}{\partial y}\,\Delta y</m>
-to write the net flow rate.
+Find the net flow rate out of the rectangle, assuming the field is
+nearly constant along each side.
 </p>
 
 <sidebyside width="97%">
@@ -169,32 +157,31 @@ to write the net flow rate.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,11);
-\draw[gray!35] (0,7) -- (15,7);
 \draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {Top: \qquad Bottom: \qquad Right: \qquad Left:};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {top $+$ bottom $\approx$ \qquad\qquad right $+$ left $\approx$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,10.75) {workspace};
 \node[anchor=north west, font=\small\itshape] at (0.35,3.2) {net flow rate $\approx$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the flux through each of the four sides, for the sums over the two pairs of parallel sides, and for the net flow rate out of the rectangle.</shortdescription>
+<shortdescription>Blank workspace, with a last row for the net flow rate out of the rectangle.</shortdescription>
 </image>
 </sidebyside>
 
 <p>
 Note that this is an approximation, since we are assuming the velocity
 field has a constant value along each side of the rectangle. The
-<term>flux density</term> can be calculated as follows:
+<term>flux density</term> is
 </p>
 
-<men xml:id="eq-flux-density">
-\text{Flux density}
-= \frac{\text{net flux through the rectangle}}
-{\text{area of the rectangle}}
-= \frac{\left( \frac{\partial M}{\partial x}
-+ \frac{\partial N}{\partial y} \right) \Delta x \Delta y}
-{\Delta x \Delta y}
-= \frac{\partial M}{\partial x} + \frac{\partial N}{\partial y}.
-</men>
+<md>
+<mrow>
+\amp \text{Flux density}
+</mrow>
+<mrow xml:id="eq-flux-density" number="yes">
+\amp \quad = \frac{\text{net flux out of the rectangle}}
+{\text{area of the rectangle}}.
+</mrow>
+</md>
 
 <p>
 Note that, in the limit that <m>\Delta x</m> and <m>\Delta y</m>
@@ -264,9 +251,7 @@ physically.
 </p>
 <p>
 <em>Solution.</em>
-(Apply <xref ref="eq-div-def"/> to each field, and say what the sign
-of the result means for the gas at every point. The two fields are
-drawn in <xref ref="fig-div-fields"/>; does the picture agree?)
+(Compare with <xref ref="fig-div-fields"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -287,9 +272,8 @@ drawn in <xref ref="fig-div-fields"/>; does the picture agree?)
 
 <figure xml:id="fig-div-fields">
 <caption>
-Left: the field <m>2x\,\mathbf{i} + 2y\,\mathbf{j}</m>, which flows
-away from the origin. Right: the field <m>\dfrac{-y\,\mathbf{i} +
-x\,\mathbf{j}}{x^2+y^2}</m>, which circulates around the origin.
+Left: the field <m>2x\,\mathbf{i} + 2y\,\mathbf{j}</m>. Right: the
+field <m>\dfrac{-y\,\mathbf{i} + x\,\mathbf{j}}{x^2+y^2}</m>.
 Compare with the divergences you computed.
 </caption>
 <sidebyside widths="46% 46%" valign="middle">
@@ -361,14 +345,12 @@ circulation density at a point in the <m>xy</m>-plane.
 <figure xml:id="fig-curl-circulation">
 <caption>
 The counterclockwise circulation of
-<m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m> around the rectangle:
-along each side we take the component of <m>\mathbf{F}</m> in the
-direction of travel. Each side's component is drawn in its own color,
-and the legend gives the dot product it represents.
+<m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m> around the rectangle.
+Each side's direction of travel is drawn in its own color.
 </caption>
 <image width="92%">
 <shortdescription>
-A rectangle in a vector field with differently colored arrows tracing a counterclockwise loop along its sides, and a legend naming the gray field arrows and pairing each color with its dot product.
+A rectangle in a vector field with differently colored arrows tracing a counterclockwise loop along its sides.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-curl-circulation">
 <diagram dimensions="(580,300)" margins="10">
@@ -403,35 +385,15 @@ A rectangle in a vector field with differently colored arrows tracing a counterc
       stroke="#009E73" thickness="3"/>
 <line at="cf-left" p1="(1.2,2.3)" p2="(1.2,1.75)" arrows="1"
       stroke="#7b3294" thickness="3"/>
-<!-- Legend: first the field itself (the gray arrows), then one row   -->
-<!-- per side, a swatch arrow in the side's color paired with the dot  -->
-<!-- product it represents, in the order of the derivation (top,       -->
-<!-- bottom, right, left) in the text below the figure.               -->
-<!-- The side colors match the flux figure earlier in this section.    -->
+<!-- Legend: the field itself (the gray arrows).  The rows that paired -->
+<!-- each side's color with its dot product were cut: they gave the    -->
+<!-- derivation away.                                                  -->
+<!-- The side colors match the flux figure earlier in this section,   -->
+<!-- and as there the dot-product rows of the legend were cut.        -->
 <line at="cf-leg-field" p1="(-5.45,4.35)" p2="(-5.05,4.35)" arrows="1"
       stroke="#bbbbbb" thickness="2"/>
 <label at="cf-leg-field-label" clear-background="yes" background-margin="4" anchor="(-4.95,4.35)" alignment="e">
 <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>
-</label>
-<line at="cf-leg-top" p1="(-5.45,3.90)" p2="(-5.05,3.90)" arrows="1"
-      stroke="#D55E00" thickness="3"/>
-<label at="cf-leg-top-label" clear-background="yes" background-margin="4" anchor="(-4.95,3.90)" alignment="e">
-<m>\mathbf{F}\cdot(-\mathbf{i})\mathrel{\unicode{x3C}} 0</m>
-</label>
-<line at="cf-leg-bottom" p1="(-5.45,3.45)" p2="(-5.05,3.45)" arrows="1"
-      stroke="#E69F00" thickness="3"/>
-<label at="cf-leg-bottom-label" clear-background="yes" background-margin="4" anchor="(-4.95,3.45)" alignment="e">
-<m>\mathbf{F}\cdot\mathbf{i}\gt 0</m>
-</label>
-<line at="cf-leg-right" p1="(-5.45,3.00)" p2="(-5.05,3.00)" arrows="1"
-      stroke="#009E73" thickness="3"/>
-<label at="cf-leg-right-label" clear-background="yes" background-margin="4" anchor="(-4.95,3.00)" alignment="e">
-<m>\mathbf{F}\cdot\mathbf{j}\gt 0</m>
-</label>
-<line at="cf-leg-left" p1="(-5.45,2.55)" p2="(-5.05,2.55)" arrows="1"
-      stroke="#7b3294" thickness="3"/>
-<label at="cf-leg-left-label" clear-background="yes" background-margin="4" anchor="(-4.95,2.55)" alignment="e">
-<m>\mathbf{F}\cdot(-\mathbf{j})\mathrel{\unicode{x3C}} 0</m>
 </label>
 <label at="cf-A" clear-background="yes" background-margin="4" anchor="(3.0,2.35)" alignment="c">
 <m>A</m>
@@ -444,12 +406,12 @@ A rectangle in a vector field with differently colored arrows tracing a counterc
 </label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="The same blue rectangle in the same gray vector field, but now the arrows point along the sides, tracing a counterclockwise loop: rightward along the bottom, up the right side, leftward along the top, and down the left side. Each side's arrow has its own color, the same color as in the flux figure, and a legend at the upper left names the gray arrows as the field F and pairs each color with its dot product.">
+<annotation ref="figure" text="The same blue rectangle in the same gray vector field, but now the arrows point along the sides, tracing a counterclockwise loop: rightward along the bottom, up the right side, leftward along the top, and down the left side. Each side's arrow has its own color, the same color as in the flux figure, and a legend at the upper left names the gray arrows as the field F.">
   <annotation ref="cf-rect" text="The rectangle around which we measure the counterclockwise circulation."/>
-  <annotation ref="cf-bottom" text="Along the bottom, in orange, the direction of travel is i, and F dot i is positive: the field pushes with the loop."/>
-  <annotation ref="cf-right" text="Up the right side, in green, the direction of travel is j, and F dot j is positive."/>
-  <annotation ref="cf-top" text="Along the top, in vermillion, the direction of travel is negative i, and F dot negative i is negative: the field pushes against the loop."/>
-  <annotation ref="cf-left" text="Down the left side, in purple, the direction of travel is negative j, and F dot negative j is negative."/>
+  <annotation ref="cf-bottom" text="The bottom side, in orange, travelled to the right."/>
+  <annotation ref="cf-right" text="The right side, in green, travelled upward."/>
+  <annotation ref="cf-top" text="The top side, in vermillion, travelled to the left."/>
+  <annotation ref="cf-left" text="The left side, in purple, travelled downward."/>
 </annotation>
 </annotations>
 </diagram>
@@ -458,12 +420,8 @@ A rectangle in a vector field with differently colored arrows tracing a counterc
 </figure>
 
 <p>
-Compute the flow rate along each edge, taking the component of
-<m>\mathbf{F}</m> in the direction of travel (counterclockwise) times
-the length of the edge, with <m>\mathbf{F}</m> evaluated at the corner
-shown in the figure. Sum the flows along the two pairs of parallel
-edges, using the same linear approximations as for the divergence, and
-divide by the area of the rectangle to get the circulation density.
+Find the circulation density for the rectangle of
+<xref ref="fig-curl-circulation"/>.
 </p>
 
 <sidebyside width="97%">
@@ -471,14 +429,13 @@ divide by the area of the rectangle to get the circulation density.
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,11);
-\draw[gray!35] (0,7) -- (15,7);
 \draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {Top: \qquad Bottom: \qquad Right: \qquad Left:};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {top $+$ bottom $\approx$ \qquad\qquad right $+$ left $\approx$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\dfrac{\text{circulation around rectangle}}{\text{rectangle area}} \approx$};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,10.75) {workspace};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {circulation density $\approx$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the flow along each of the four edges, for the sums over the two pairs of parallel edges, and for the circulation density.</shortdescription>
+<shortdescription>Blank workspace, with a last row for the circulation density.</shortdescription>
 </image>
 </sidebyside>
 
@@ -547,9 +504,7 @@ Calculate the curl in each case and explain what it means physically.
 </p>
 <p>
 <em>Solution.</em>
-(Identify <m>M</m> and <m>N</m>, apply <xref ref="eq-curl-def"/>, and
-say what a paddle wheel placed in the fluid would do. The two fields
-are drawn in <xref ref="fig-curl-fields"/>.)
+(Compare with <xref ref="fig-curl-fields"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -558,8 +513,8 @@ are drawn in <xref ref="fig-curl-fields"/>.)
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,9);
 \draw[gray!35] (0,4.5) -- (15,4.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {A. $\operatorname{curl}\mathbf F\cdot\mathbf k =$ \qquad the paddle wheel:};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.2) {B. $\operatorname{curl}\mathbf F\cdot\mathbf k =$ \qquad the paddle wheel:};
+\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {A. $\operatorname{curl}\mathbf F\cdot\mathbf k =$ \qquad meaning:};
+\node[anchor=north west, font=\small\itshape] at (0.35,4.2) {B. $\operatorname{curl}\mathbf F\cdot\mathbf k =$ \qquad meaning:};
 \end{tikzpicture}
 </latex-image>
 <shortdescription>Blank box in two labelled rows, one for the k component of the curl of each field with its physical meaning.</shortdescription>
@@ -570,9 +525,9 @@ are drawn in <xref ref="fig-curl-fields"/>.)
 
 <figure xml:id="fig-curl-fields">
 <caption>
-Left: the radial field <m>2x\,\mathbf{i} + 2y\,\mathbf{j}</m>. Right:
-the rotational field <m>-2y\,\mathbf{i} + 2x\,\mathbf{j}</m>. Compare
-with the curls you computed: would a paddle wheel spin in each?
+Left: the field <m>2x\,\mathbf{i} + 2y\,\mathbf{j}</m>. Right: the
+field <m>-2y\,\mathbf{i} + 2x\,\mathbf{j}</m>. Compare with the curls
+you computed.
 </caption>
 <sidebyside widths="46% 46%" valign="middle">
 <image>
@@ -618,6 +573,38 @@ A rotational field circulating counterclockwise, arrows longer farther out.
 </sidebyside>
 </figure>
 
+<p>
+<xref ref="fig-div-curl-manim"/> puts the two ideas side by side, for
+fields of its own: a small circle around a point <m>P</m>, the flow of a
+fluid across it and along it, and a paddle wheel at <m>P</m>.
+</p>
+
+<figure xml:id="fig-div-curl-manim">
+<caption>
+Divergence and curl in a moving fluid, animated. The arrows are the
+field <m>\mathbf{F}</m> and the moving dots a fluid carried by it. On the
+circle around <m>P</m>, green arrows show fluid leaving and red arrows
+fluid entering; blue and orange arrows show the flow along the circle,
+with and against the counterclockwise direction. The card divides the
+outward flux and the circulation by the area of the circle: shrink the
+circle and compare the two ratios with the divergence and the
+<m>\mathbf{k}</m>-component of the curl you compute at <m>P</m>.
+</caption>
+<interactive xml:id="interactive-div-curl-manim"
+             iframe="div-curl-manim.html"
+             width="100%" aspect="1:1">
+<instructions>
+<p>
+Pick a field from the menu, and click or drag on the plane to move
+<m>P</m>; the <q>circle</q> slider shrinks or grows the circle.
+<q>Flow</q>, <q>Flux</q>, <q>Circulation</q> and <q>Paddle wheel</q>
+switch those layers off and on, <q>Play</q> runs a guided tour, and
+<q>Full screen</q> fills the screen with the figure.
+</p>
+</instructions>
+</interactive>
+</figure>
+
 </subsection>
 
 <!-- ================================================================ -->
@@ -639,17 +626,8 @@ the tangent vector of <xref ref="eq-tangent-vector"/>, is
 </p>
 
 <p>
-Since <m>\mathbf{n}</m> is a unit normal to the curve, it is
-perpendicular to the tangent vector <m>\mathbf{v}</m>, so
-<m>\mathbf{n} \cdot \mathbf{v} = 0</m>.
-</p>
-
-<p>
-(Find a vector built from <m>\frac{dx}{dt}</m> and <m>\frac{dy}{dt}</m>
-whose dot product with <m>\mathbf{v}</m> is zero, and say which of the
-two such directions points out of <m>R</m> when <m>C</m> is traversed
-counterclockwise. Then divide it by its length, and compare that length
-with <m>\left\lVert\mathbf{v}\right\rVert</m>.)
+Find the outward unit normal <m>\mathbf{n}</m> of <m>C</m> in terms of
+<m>\frac{dx}{dt}</m> and <m>\frac{dy}{dt}</m>.
 </p>
 
 <sidebyside width="97%">
@@ -657,14 +635,13 @@ with <m>\left\lVert\mathbf{v}\right\rVert</m>.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,11);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,10.7) {a vector perpendicular to $\mathbf v$, and its dot product with $\mathbf v$:};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {which way it points, and why:};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {its length: \qquad\qquad\qquad $\mathbf n =$};
+\draw[gray!35] (0,3.5) -- (15,3.5);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,10.75) {workspace};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\mathbf n =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for a vector perpendicular to the velocity with its dot product, for the direction it points, and for its length and the unit normal.</shortdescription>
+<shortdescription>Blank workspace, with a last row for the outward unit normal.</shortdescription>
 </image>
 </sidebyside>
 
@@ -691,29 +668,21 @@ counterclockwise.
 </p>
 <p>
 <em>Solution.</em>
-(Parametrize the circle counterclockwise, find <m>\mathbf{v}</m> and
-<m>\left\lVert\mathbf{v}\right\rVert</m>, and apply
-<xref ref="eq-outward-unit-normal"/> and <xref ref="eq-unit-tangent"/>.
-Say how <m>\mathbf{n}</m> is related to the position vector
-<m>\mathbf{r}(t)</m>, and check that <m>\mathbf{n}\cdot\mathbf{T} = 0</m>;
-compare with <xref ref="fig-unit-normal-circle"/>.)
+(Compare with <xref ref="fig-unit-normal-circle"/>.)
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,9.5) -- (15,9.5);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$\mathbf r(t) =$ \qquad\qquad $\mathbf v =$ \qquad\qquad $\left\lVert\mathbf v\right\rVert =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {$\mathbf n =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$\mathbf T =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {how $\mathbf n$ is related to $\mathbf r(t)$, and the check $\mathbf n\cdot\mathbf T = 0$:};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
+\draw[gray!35] (0,4) -- (15,4);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\mathbf n =$ \qquad\qquad\qquad\qquad\qquad\qquad $\mathbf T =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the parametrization with the velocity and speed, for the unit normal, for the unit tangent, and for how the normal is related to the position vector together with the perpendicularity check.</shortdescription>
+<shortdescription>Blank workspace, with a last row for the unit normal and the unit tangent.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -724,9 +693,7 @@ compare with <xref ref="fig-unit-normal-circle"/>.)
 The unit tangent <m>\mathbf{T}</m> (pink) and the outward unit normal
 <m>\mathbf{n}</m> (green) at three points of the unit circle <m>C</m>;
 the arrowheads on <m>C</m> show the direction of the path,
-counterclockwise. At every point the two vectors are perpendicular, and
-<m>\mathbf{n}</m> is on the right as we move along <m>C</m> in the
-direction of the path, so it points out of the disk <m>R</m>.
+counterclockwise. Compare with what you found.
 </caption>
 <image width="55%">
 <shortdescription>
@@ -819,12 +786,9 @@ The unit circle with a unit tangent vector and an outward unit normal vector dra
 </figure>
 
 <p>
-This is where the line integral <m>\oint_C M\,dy - N\,dx</m> in the
-normal form of Green's theorem, <xref ref="eq-green-normal"/>, comes
-from. (For <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>, write
-<m>\mathbf{F}\cdot\mathbf{n}\,ds</m> in terms of <m>t</m> with
-<xref ref="eq-outward-unit-normal"/> and the line element of
-<xref ref="eq-line-element-2d"/>, and simplify.)
+For <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>, write the flux
+element <m>\mathbf{F}\cdot\mathbf{n}\,ds</m> in terms of <m>dx</m>
+and <m>dy</m>.
 </p>
 
 <sidebyside width="97%">
@@ -870,13 +834,17 @@ in an open region containing <m>R</m>. Then the outward flux of
 by <m>C</m>:
 </p>
 
-<men xml:id="eq-green-normal">
-\underbrace{\oint_C \mathbf{F} \cdot \mathbf{n}\, ds
-= \oint_C M\, dy - N\, dx}_{\text{outward flux through the boundary}}
-= \underbrace{\iint_R \left( \frac{\partial M}{\partial x}
-+ \frac{\partial N}{\partial y} \right) dx\, dy}_{\text{double integral
-of divergence over } R}.
-</men>
+<md>
+<mrow>
+\amp \underbrace{\oint_C \mathbf{F} \cdot \mathbf{n}\, ds}_{\text{outward flux}}
+= \oint_C M\, dy - N\, dx
+</mrow>
+<mrow xml:id="eq-green-normal" number="yes">
+\amp \quad = \underbrace{\iint_R \left( \frac{\partial M}{\partial x}
++ \frac{\partial N}{\partial y} \right) dx\, dy}_{\substack{\text{integral of}
+\\ \operatorname{div}\mathbf{F} \text{ over } R}}.
+</mrow>
+</md>
 </statement>
 </theorem>
 
@@ -892,31 +860,20 @@ Convince yourself of the normal form of Green's theorem,
 </p>
 <p>
 <em>Solution.</em>
-(Parametrize the circle, write <m>M</m>, <m>N</m>, <m>dx</m> and
-<m>dy</m> in terms of <m>t</m>, and compute the two partial derivatives
-the divergence needs. Evaluate the line integral
-<m>\oint_C M\,dy - N\,dx</m> and the double integral of the divergence
-separately and compare; the double integral reduces to the area of the
-disk. Check that the line integral has the same integrand as
-<m>\mathbf{F}\cdot\mathbf{n}\,ds</m> with the <m>\mathbf{n}</m> you
-found in <xref ref="example-unit-normal-circle"/>.)
+(Compare with <xref ref="fig-green-circle-video"/>.)
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,11.5) -- (15,11.5);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {$\mathbf r(t) =$ \qquad $M =$ \quad $N =$ \quad $dx =$ \quad $dy =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {$\dfrac{\partial M}{\partial x} =$ \qquad $\dfrac{\partial N}{\partial y} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {normal form: $\displaystyle\oint_C M\,dy - N\,dx =$ \qquad $\displaystyle\iint_R \Big(\frac{\partial M}{\partial x} + \frac{\partial N}{\partial y}\Big)dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {the same integrand from $\mathbf F\cdot\mathbf n\,ds$:};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
+\draw[gray!35] (0,7) -- (15,7);
+\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {the outward flux, $\displaystyle\oint_C \mathbf F\cdot\mathbf n\,ds =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {the double integral of $\operatorname{div}\mathbf F$ over $R$:};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the parametrization with M, N, dx and dy, for the two partial derivatives of the divergence, for the two sides of the normal form, and for the integrand computed from the unit normal.</shortdescription>
+<shortdescription>Blank box in two rows, for the outward flux across the circle and for the double integral of the divergence over the disk.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -949,43 +906,26 @@ integral of <m>(\operatorname{curl} \mathbf{F}) \cdot \mathbf{k}</m>
 over <m>R</m>:
 </p>
 
-<men xml:id="eq-green-tangential">
-\underbrace{\oint_C \mathbf{F} \cdot \mathbf{T}\, ds
-= \oint_C M\, dx + N\, dy}_{\text{counterclockwise circulation}}
-= \underbrace{\iint_R \left( \frac{\partial N}{\partial x}
-- \frac{\partial M}{\partial y} \right) dx\, dy}_{\text{double integral
-of curl} \,\cdot\, \mathbf{k} \text{ over } R}.
-</men>
+<md>
+<mrow>
+\amp \underbrace{\oint_C \mathbf{F} \cdot \mathbf{T}\, ds}_{\text{circulation}}
+= \oint_C M\, dx + N\, dy
+</mrow>
+<mrow xml:id="eq-green-tangential" number="yes">
+\amp \quad = \underbrace{\iint_R \left( \frac{\partial N}{\partial x}
+- \frac{\partial M}{\partial y} \right) dx\, dy}_{\substack{\text{integral of}
+\\ \operatorname{curl}\mathbf{F}\cdot\mathbf{k} \text{ over } R}}.
+</mrow>
+</md>
 </statement>
 
 <proof xml:id="proof-green-tangential">
 <p>
-(Both sides of <xref ref="eq-green-tangential"/> split into a piece
-carrying <m>M</m> and a piece carrying <m>N</m>, so it is enough to
-prove the two statements
-<md>
-<mrow xml:id="eq-green-two" number="yes">
-\oint_C M\,dx \amp = -\iint_R \frac{\partial M}{\partial y}\,dA ,
-</mrow>
-<mrow>
-\oint_C N\,dy \amp = \iint_R \frac{\partial N}{\partial x}\,dA ,
-</mrow>
-</md>
-and add them. <em>Step 1</em>: for a region of the kind in
-<xref ref="sec-general-regions-case1"/>, shown in
-<xref ref="fig-green-proof-prefigure"/>, say why the vertical sides
-contribute nothing to <m>\oint_C M\,dx</m>, write the bottom and top
-contributions as integrals in <m>x</m> (mind the direction of travel
-along the top), and compare with the double integral done in the
-<m>y</m>-direction first, where the Fundamental Theorem of Calculus
-evaluates the inner integral. <em>Step 2</em>: read <m>R</m> the other
-way, as in <xref ref="sec-general-regions-case2"/>, and repeat for
-<m>N</m>; say why no minus sign appears this time. <em>Step 3</em>:
-say what to do with a region that cannot be described both ways, and
-why the cuts cancel; <xref ref="fig-green-proof-video"/> shows the
-idea. Finally, explain how <xref ref="thm-green-normal"/> follows by
-applying the tangential form to the field
-<m>\langle -N, M\rangle</m>.)
+Prove <xref ref="eq-green-tangential"/> for a region like the one in
+<xref ref="fig-green-proof-prefigure"/>, explain why it holds for a
+general region, and derive the normal form,
+<xref ref="thm-green-normal"/>, from it. Compare with
+<xref ref="fig-green-proof-video"/>.
 </p>
 
 <sidebyside width="97%">
@@ -993,18 +933,14 @@ applying the tangential form to the field
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,20);
-\draw[gray!35] (0,14) -- (15,14);
-\draw[gray!35] (0,9.5) -- (15,9.5);
-\draw[gray!35] (0,6) -- (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,19.7) {Step 1: $\displaystyle\oint_C M\,dx =$ \qquad and \qquad $\displaystyle\iint_R \frac{\partial M}{\partial y}\,dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {Step 2: $\displaystyle\oint_C N\,dy =$ \qquad and \qquad $\displaystyle\iint_R \frac{\partial N}{\partial x}\,dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {Step 3: general regions};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {the normal form from the tangential form, applied to $\langle -N, M\rangle$:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {};
+\draw[gray!35] (0,9) -- (15,9);
+\draw[gray!35] (0,4.5) -- (15,4.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,19.7) {for a region like the one in the figure:};
+\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {for a general region:};
+\node[anchor=north west, font=\small\itshape] at (0.35,4.2) {the normal form:};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the M statement on a region cut by vertical lines, for the N statement, for the extension to general regions, and for deriving the normal form from the tangential form.</shortdescription>
+<shortdescription>Blank box in three rows, for the proof on a region like the one in the figure, for a general region, and for the normal form.</shortdescription>
 </image>
 </sidebyside>
 </proof>
@@ -1012,12 +948,9 @@ applying the tangential form to the field
 
 <figure xml:id="fig-green-proof-prefigure">
 <caption>
-Step 1 of the proof of <xref ref="thm-green-tangential"/>: a region
-<m>R</m> cut by vertical lines, with <m>f_2(x) \le y \le f_1(x)</m> for
-<m>a \le x \le b</m>. Counterclockwise, the bottom curve is travelled left
-to right and the top curve right to left; on the two vertical sides
-<m>dx = 0</m>, so they contribute nothing to
-<m>\oint_C M\,dx</m>.
+A region <m>R</m> with <m>f_2(x) \le y \le f_1(x)</m> for
+<m>a \le x \le b</m>, and its boundary <m>C</m> traversed
+counterclockwise.
 </caption>
 <image width="72%">
 <shortdescription>
@@ -1056,19 +989,14 @@ A region between an upper and a lower curve with a counterclockwise boundary.
 <label at="gp-region-lab" anchor="(2.35,1.45)" alignment="center">
 <m>R</m>
 </label>
-<line at="gp-slice" endpoints="((2.9,0.379),(2.9,2.586))"
-    stroke="#009E73" thickness="2" dash="5 4"/>
-<label at="gp-slicelab" anchor="(2.96,1.48)" alignment="e"
-    color="#009E73"><m>dy</m></label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="A shaded region R in the plane lying between a lower curve y equals f two of x and an upper curve y equals f one of x, for x between a and b. The boundary is drawn in blue with an arrowhead on the lower curve pointing right and one on the upper curve pointing left, so the boundary is travelled counterclockwise. Short vertical sides close the region at x equals a and x equals b. A dashed green segment inside the region runs from the lower curve up to the upper curve, the inner integration in the y direction.">
+<annotation ref="figure" text="A shaded region R in the plane lying between a lower curve y equals f two of x and an upper curve y equals f one of x, for x between a and b. The boundary is drawn in blue with an arrowhead on the lower curve pointing right and one on the upper curve pointing left, so the boundary is travelled counterclockwise. Short vertical sides close the region at x equals a and x equals b.">
   <annotation ref="gp-region" text="The region R, between the two curves."/>
   <annotation ref="gp-bottom" text="The lower boundary curve y equals f two of x, travelled from left to right."/>
   <annotation ref="gp-top" text="The upper boundary curve y equals f one of x, travelled from right to left."/>
-  <annotation ref="gp-left" text="The vertical side at x equals a, on which dx is zero."/>
-  <annotation ref="gp-right" text="The vertical side at x equals b, on which dx is zero."/>
-  <annotation ref="gp-slice" text="A vertical slice: the inner integration in y, from the lower curve to the upper curve."/>
+  <annotation ref="gp-left" text="The vertical side at x equals a."/>
+  <annotation ref="gp-right" text="The vertical side at x equals b."/>
 </annotation>
 </annotations>
 </diagram>
@@ -1078,14 +1006,7 @@ A region between an upper and a lower curve with a counterclockwise boundary.
 
 <figure xml:id="fig-green-proof-video">
 <caption>
-The idea of the proof, without the algebra: the <m>\mathbf{k}</m>-component
-of the curl is circulation per unit area, so cover <m>R</m> with tiny
-rectangles and add the circulation around each one. Every interior edge is
-travelled twice, once in each direction, so the inside cancels in pairs and
-only a staircase hugging <m>C</m> is left. As the number of rectangles
-increases, less of their area sticks out of <m>R</m> and the
-approximation improves; in the limit the staircase becomes <m>C</m> and
-the sum becomes the double integral.
+The idea of the proof, animated. Compare with your argument.
 </caption>
 <video preview="play-button.png" xml:id="video-green-proof-idea"
        source="videos/green_circulation_proof_1080p.mp4"
@@ -1105,26 +1026,20 @@ by applying it to this example.
 </p>
 <p>
 <em>Solution.</em>
-(Reuse the parametrization and <m>M</m>, <m>N</m>, <m>dx</m>,
-<m>dy</m> from <xref ref="example-green-circle-normal"/>, and compute
-the other two partial derivatives. Evaluate the line integral
-<m>\oint_C M\,dx + N\,dy</m> and the double integral of the curl
-separately and compare. The field is shown in
-<xref ref="fig-green-circle"/>; compare with
-<xref ref="fig-green-circle-video"/>.)
+(Compare with <xref ref="fig-green-circle-video"/>.)
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\dfrac{\partial M}{\partial y} =$ \qquad $\dfrac{\partial N}{\partial x} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {tangential form: $\displaystyle\oint_C M\,dx + N\,dy =$ \qquad $\displaystyle\iint_R \Big(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\Big)dA =$};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
+\draw[gray!35] (0,7) -- (15,7);
+\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {the circulation, $\displaystyle\oint_C \mathbf F\cdot\mathbf T\,ds =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {the double integral of $\operatorname{curl}\mathbf F\cdot\mathbf k$ over $R$:};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, for the two partial derivatives of the curl, and for the two sides of the tangential form.</shortdescription>
+<shortdescription>Blank box in two rows, for the counterclockwise circulation around the circle and for the double integral of the curl over the disk.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1145,8 +1060,7 @@ outward flux and the counterclockwise circulation.
 <figure xml:id="fig-green-circle">
 <caption>
 The vector field <m>\mathbf{F}(x,y) = (x-y)\,\mathbf{i} +
-x\,\mathbf{j}</m> and the unit circle <m>C</m>. The field has a
-positive (counterclockwise) circulation around <m>C</m>.
+x\,\mathbf{j}</m> and the unit circle <m>C</m>.
 </caption>
 <image width="55%">
 <shortdescription>
@@ -1180,10 +1094,10 @@ A swirling field with the unit circle and two tangent vectors.
 </label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="The vector field x minus y comma x drawn as blue arrows swirling counterclockwise, with the unit circle C drawn in teal. Two pink tangent vectors T on the circle show the direction of travel; the field tends to point with them, giving a positive circulation.">
+<annotation ref="figure" text="The vector field x minus y comma x drawn as blue arrows swirling counterclockwise, with the unit circle C drawn in teal. Two pink tangent vectors T on the circle show the direction of travel.">
   <annotation ref="gc-field" text="The vector field x minus y comma x, which swirls counterclockwise around the plane."/>
   <annotation ref="gc-circle" text="The unit circle C, traversed counterclockwise."/>
-  <annotation ref="gc-T1" text="A unit tangent vector T on the circle; the field has a positive component along it."/>
+  <annotation ref="gc-T1" text="A unit tangent vector T on the circle."/>
 </annotation>
 </annotations>
 </diagram>
@@ -1192,7 +1106,7 @@ A swirling field with the unit circle and two tangent vectors.
 </figure>
 
 <example xml:id="example-green-diamond">
-<title>A Line Integral via Green's Theorem and Substitution</title>
+<title>A Line Integral Around a Tilted Square</title>
 <statement>
 <p>
 Evaluate the line integral
@@ -1205,21 +1119,11 @@ Evaluate the line integral
 <p>
 where <m>C</m> is the boundary of the square with vertices
 <m>(1,0)</m>, <m>(2,1)</m>, <m>(1,2)</m>, and <m>(0,1)</m>, shown in
-<xref ref="fig-green-diamond"/>. Make suitable substitutions in your
-integral to make the limits of integration numbers as opposed to
-functions.
+<xref ref="fig-green-diamond"/>.
 </p>
 <p>
 <em>Solution.</em>
-(Identify <m>M</m> and <m>N</m> and compute
-<m>\partial N/\partial x - \partial M/\partial y</m>. Use the
-tangential form <xref ref="eq-green-tangential"/> to turn the line
-integral into a double integral over the square <m>R</m>. Write the
-equations of the four sides of the square; they suggest the
-substitution <m>u</m>, <m>v</m> that turns <m>R</m> into a rectangle
-with constant limits, as in <xref ref="fig-green-diamond"/>. Solve for
-<m>x</m> and <m>y</m>, compute the Jacobian, and evaluate. Compare with
-<xref ref="fig-green-diamond-video"/>.)
+(Compare with <xref ref="fig-green-diamond-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -1227,18 +1131,11 @@ with constant limits, as in <xref ref="fig-green-diamond"/>. Solve for
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,16);
-\draw[gray!35] (0,13) -- (15,13);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\draw[gray!35] (0,5) -- (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,15.7) {$M =$ \quad $N =$ \qquad $\dfrac{\partial N}{\partial x} - \dfrac{\partial M}{\partial y} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$\displaystyle\oint_C M\,dx + N\,dy = \iint_R$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {the four sides: \qquad so $u =$ \quad $v =$ \qquad and $R$ becomes};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {$x =$ \quad $y =$ \qquad $\dfrac{\partial(x,y)}{\partial(u,v)} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {evaluate:};
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,15.75) {workspace};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in five rows, for M, N and the curl, for the double integral given by Green's theorem, for the substitution suggested by the sides, for the inverse and the Jacobian, and for the evaluation.</shortdescription>
+<shortdescription>Blank workspace for evaluating the line integral around the tilted square.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1246,9 +1143,8 @@ with constant limits, as in <xref ref="fig-green-diamond"/>. Solve for
 
 <figure xml:id="fig-green-diamond-video">
 <caption>
-Green's theorem turns the line integral around the tilted square into
-a double integral, and a substitution straightens the square into a
-rectangle with constant limits. Compare with your substitution.
+The line integral around the tilted square, computed step by step.
+Compare with your solution.
 </caption>
 <video preview="play-button.png" xml:id="video-green-diamond"
        source="videos/green_diamond_1080p.mp4"
@@ -1258,13 +1154,11 @@ rectangle with constant limits. Compare with your substitution.
 <figure xml:id="fig-green-diamond">
 <caption>
 The square <m>C</m> with vertices <m>(1,0)</m>, <m>(2,1)</m>,
-<m>(1,2)</m>, <m>(0,1)</m> (left) and the corresponding rectangle in
-the <m>uv</m>-plane (right).
+<m>(1,2)</m>, <m>(0,1)</m>, and the region <m>R</m> it encloses.
 </caption>
-<sidebyside widths="48% 44%" valign="middle">
-<image>
+<image width="48%">
 <shortdescription>
-A square rotated 45 degrees, shaded, with its four edge lines.
+A square rotated 45 degrees, shaded.
 </shortdescription>
 <prefigure xmlns="https://prefigure.org" label="prefigure-green-diamond">
 <diagram dimensions="(300,280)" margins="10">
@@ -1272,18 +1166,6 @@ A square rotated 45 degrees, shaded, with its four edge lines.
 <grid-axes at="gd-grid" xlabel="x" ylabel="y"/>
 <polygon closed="yes" at="gd-square" points="((1,0),(2,1),(1,2),(0,1))"
          fill="#9ecfff" stroke="#2b6cb0" thickness="2.5"/>
-<label at="gd-l1" anchor="(0.3,2.1)" alignment="nw" color="#2b6cb0">
-<m>y=x+1</m>
-</label>
-<label at="gd-l2" anchor="(1.95,1.7)" alignment="ne" color="#2b6cb0">
-<m>y=-x+3</m>
-</label>
-<label at="gd-l3" anchor="(0.12,0.3)" alignment="s" color="#2b6cb0">
-<m>y=-x+1</m>
-</label>
-<label at="gd-l4" anchor="(1.9,0.3)" alignment="s" color="#2b6cb0">
-<m>y=x-1</m>
-</label>
 <label at="gd-R" anchor="(1,1)" alignment="c">
 <m>R</m>
 </label>
@@ -1292,36 +1174,13 @@ A square rotated 45 degrees, shaded, with its four edge lines.
 </label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="A square rotated 45 degrees, with vertices at 1 comma 0, 2 comma 1, 1 comma 2, and 0 comma 1, shaded light blue. Its four edges lie on the lines y equals x plus 1, y equals minus x plus 3, y equals x minus 1, and y equals minus x plus 1.">
-  <annotation ref="gd-square" text="The region R enclosed by the tilted square C. On this region x plus y runs from 1 to 3, so the integrand is defined everywhere."/>
+<annotation ref="figure" text="A square rotated 45 degrees, with vertices at 1 comma 0, 2 comma 1, 1 comma 2, and 0 comma 1, shaded light blue.">
+  <annotation ref="gd-square" text="The region R enclosed by the tilted square C."/>
 </annotation>
 </annotations>
 </diagram>
 </prefigure>
 </image>
-<image>
-<shortdescription>
-The rectangle in the u v plane that is the image of the tilted square.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-green-diamond-R">
-<diagram dimensions="(280,280)" margins="10">
-<coordinates bbox="(-0.8,-2,3.9,2)">
-<grid-axes at="gr-grid" xlabel="u" ylabel="v"/>
-<polygon closed="yes" at="gr-rect" points="((1,-1),(3,-1),(3,1),(1,1))"
-         fill="#9ecfff" stroke="#2b6cb0" thickness="2.5"/>
-<label at="gr-R" anchor="(2,0)" alignment="c">
-<m>R'</m>
-</label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="The rectangle in the u v plane from u equals 1 to 3 and v equals negative 1 to 1, shaded light blue. It is the image of the tilted square under u equals x plus y, v equals y minus x.">
-  <annotation ref="gr-rect" text="The rectangle with constant limits, 1 to 3 in u and negative 1 to 1 in v."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</sidebyside>
 </figure>
 
 </subsection>
@@ -1344,12 +1203,18 @@ partial derivatives. Then <m>\mathbf{F}</m> is conservative if and only
 if
 </p>
 
-<men xml:id="eq-component-test-3d">
-\frac{\partial P}{\partial y} = \frac{\partial N}{\partial z}, \qquad
-\frac{\partial M}{\partial z} = \frac{\partial P}{\partial x},
-\qquad \text{and} \qquad
-\frac{\partial N}{\partial x} = \frac{\partial M}{\partial y}.
-</men>
+<md>
+<mrow>
+\frac{\partial P}{\partial y} \amp = \frac{\partial N}{\partial z},
+</mrow>
+<mrow>
+\frac{\partial M}{\partial z} \amp = \frac{\partial P}{\partial x},
+\quad \text{and}
+</mrow>
+<mrow xml:id="eq-component-test-3d" number="yes">
+\frac{\partial N}{\partial x} \amp = \frac{\partial M}{\partial y}.
+</mrow>
+</md>
 </assemblage>
 
 <p>
@@ -1358,21 +1223,29 @@ equivalent to
 <m>\nabla \times \mathbf{F} = \mathbf{0}</m>, since
 </p>
 
-<men xml:id="eq-curl-cross-product">
-\nabla \times \mathbf{F} =
+<md>
+<mrow>
+\nabla \times \mathbf{F} \amp =
 \begin{vmatrix}
 \mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\
 \dfrac{\partial}{\partial x} \amp \dfrac{\partial}{\partial y} \amp
 \dfrac{\partial}{\partial z} \\
 M \amp N \amp P
 \end{vmatrix}
-= \left( \frac{\partial P}{\partial y} - \frac{\partial N}{\partial z}
+</mrow>
+<mrow>
+\amp = \left( \frac{\partial P}{\partial y} - \frac{\partial N}{\partial z}
 \right) \mathbf{i}
-+ \left( \frac{\partial M}{\partial z} - \frac{\partial P}{\partial x}
+</mrow>
+<mrow>
+\amp \quad + \left( \frac{\partial M}{\partial z} - \frac{\partial P}{\partial x}
 \right) \mathbf{j}
-+ \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}
+</mrow>
+<mrow xml:id="eq-curl-cross-product" number="yes">
+\amp \quad + \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}
 \right) \mathbf{k}.
-</men>
+</mrow>
+</md>
 
 <p>
 So to check whether a vector field is conservative or not, we can check
@@ -1380,7 +1253,7 @@ whether its curl is zero or not.
 </p>
 
 <example xml:id="example-conservative-green">
-<title>Conservative Fields and Green's Theorem</title>
+<title>Is This Field Conservative?</title>
 <statement>
 <p>
 Consider the line integral
@@ -1411,13 +1284,7 @@ Using Green's theorem, confirm your answer to part B.
 </p>
 <p>
 <em>Solution.</em>
-(In <alert>A</alert>, read <m>M</m> and <m>N</m> off the differential
-form. In <alert>B</alert>, treat <m>\mathbf{F}</m> as a field in space
-with <m>P = 0</m> and compute the curl by
-<xref ref="eq-curl-cross-product"/>. In <alert>C</alert>, apply the
-tangential form <xref ref="eq-green-tangential"/> to any simple closed
-curve, and say what the result confirms. Compare with
-<xref ref="fig-conservative-video"/>.)
+(Compare with <xref ref="fig-conservative-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -1428,11 +1295,11 @@ curve, and say what the result confirms. Compare with
 \draw[gray!35] (0,9.5) -- (15,9.5);
 \draw[gray!35] (0,5) -- (15,5);
 \node[anchor=north west, font=\small\itshape] at (0.35,11.7) {A. $\mathbf F(x,y) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {B. $\nabla\times\mathbf F =$ \qquad so};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {C. $\displaystyle\oint_C 4x^3y\,dx + x^4\,dy = \iint_D$};
+\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {B.};
+\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {C.};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three labelled rows, for the vector field, for its curl and the conclusion of the component test, and for the circulation by Green's theorem.</shortdescription>
+<shortdescription>Blank box in three rows labelled A, B and C, one for each part.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1440,9 +1307,9 @@ curve, and say what the result confirms. Compare with
 
 <figure xml:id="fig-conservative-video">
 <caption>
-The conservative field <m>4x^3 y\,\mathbf{i} + x^4\,\mathbf{j} =
-\nabla(x^4 y)</m> has zero curl, so by Green's theorem its circulation
-around every closed curve is zero.
+The field <m>4x^3 y\,\mathbf{i} + x^4\,\mathbf{j}</m> and its
+circulation around closed curves. Compare with your answers to
+<alert>B</alert> and <alert>C</alert>.
 </caption>
 <video preview="play-button.png" xml:id="video-conservative"
        source="videos/conservative_zero_1080p.mp4"
@@ -1454,12 +1321,6 @@ around every closed curve is zero.
 <!-- ================================================================ -->
 <subsection xml:id="subsec-green-questions">
 <title>Concept Check</title>
-
-<p>
-Both problems use Green's theorem in reverse: a line integral around the
-boundary of a region computes a double integral over the region, here
-its area and its first moments.
-</p>
 
 <figure xml:id="fig-green-ellipse-area">
 <caption>
@@ -1509,7 +1370,7 @@ A shaded ellipse labeled E, with semi-axes a and b, and arrowheads on its bounda
 </figure>
 
 <exercise xml:id="q-green-ellipse-area">
-<title>The area of an ellipse from a line integral</title>
+<title>The area of an ellipse</title>
 <statement>
 <p>
 Compute the area of the region <m>E</m> enclosed by the ellipse
@@ -1534,17 +1395,21 @@ vector field around its boundary <m>C</m>, traversed counterclockwise.
 </exercise>
 
 <exercise xml:id="q-green-centroid">
-<title>The centroid from a line integral around the boundary</title>
+<title>The centroid of a lamina</title>
 <statement>
 <p>
 A lamina of constant density <m>\delta</m> occupies a region <m>R</m> in
 the <m>xy</m>-plane with boundary <m>C</m>, oriented counterclockwise.
 Show that its centroid (<xref ref="def-centroid"/>) has the coordinates
-<me>
-\bar{x} = \frac{1}{2A} \oint_C x^2\, dy
-\qquad \text{and} \qquad
-\bar{y} = -\frac{1}{2A} \oint_C y^2\, dx,
-</me>
+<md>
+<mrow>
+\bar{x} \amp = \frac{1}{2A} \oint_C x^2\, dy
+\quad \text{and}
+</mrow>
+<mrow>
+\bar{y} \amp = -\frac{1}{2A} \oint_C y^2\, dx,
+</mrow>
+</md>
 where <m>A</m> is the area of the region bounded by <m>C</m>.
 </p>
 
