@@ -608,8 +608,9 @@ by <m>C</m>:
 <p>
 Assume that the vector field
 <m>\mathbf{F}(x,y) = (x - y)\,\mathbf{i} + x\,\mathbf{j}</m> and the
-closed curve <m>C</m> is the unit circle centered at the origin.
-Convince yourself of the normal form of Green's theorem,
+closed curve <m>C</m> is the unit circle centered at the origin, drawn
+in <xref ref="fig-green-circle-normal"/>. Convince yourself of the normal
+form of Green's theorem,
 <xref ref="eq-green-normal"/>, by applying it to this example.
 </p>
 <p>
@@ -632,6 +633,56 @@ Convince yourself of the normal form of Green's theorem,
 </sidebyside>
 </statement>
 </example>
+
+<figure xml:id="fig-green-circle-normal">
+<caption>
+The vector field <m>\mathbf{F}(x,y) = (x-y)\,\mathbf{i} +
+x\,\mathbf{j}</m> and the unit circle <m>C</m>, with the outward unit
+normal <m>\mathbf{n}</m> at two of its points. Compare with the flux you found.
+</caption>
+<image width="55%">
+<shortdescription>
+A swirling field with the unit circle and two outward unit normal vectors.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-green-circle-normal">
+<diagram dimensions="(300,300)" margins="10">
+<definition>field(x,y) = (x - y, x)</definition>
+<definition>circ(t) = (cos(t), sin(t))</definition>
+<coordinates bbox="(-2.3,-2.3,2.3,2.3)">
+<axes at="gn-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<vector-field at="gn-field" function="field"
+              spacings="((-2,0.8,2),(-2,0.8,2))" stroke="#2b6cb0"/>
+<parametric-curve at="gn-circle" function="circ" domain="(0,2*pi)"
+                  closed="yes" stroke="#00b0c0" thickness="3"/>
+<line at="gn-n1" p1="(0.9,0.436)" p2="(1.53,0.741)" arrows="1"
+      stroke="#009E73" thickness="3"/>
+<line at="gn-n2" p1="(-0.9,-0.436)" p2="(-1.53,-0.741)" arrows="1"
+      stroke="#009E73" thickness="3"/>
+<label at="gn-n1-label" clear-background="yes" background-margin="4" anchor="(1.58,0.76)" alignment="ne"
+       color="#009E73">
+<m>\mathbf{n}</m>
+</label>
+<label at="gn-n2-label" clear-background="yes" background-margin="4" anchor="(-1.58,-0.76)" alignment="sw"
+       color="#009E73">
+<m>\mathbf{n}</m>
+</label>
+<label at="gn-C-label" clear-background="yes" background-margin="4" anchor="(0.62,-0.95)" alignment="se"
+       color="#00b0c0">
+<m>C</m>
+</label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The vector field x minus y comma x drawn as blue arrows swirling counterclockwise, with the unit circle C drawn in teal. Two green outward unit normal vectors n start on the circle and point straight away from the center.">
+  <annotation ref="gn-field" text="The vector field x minus y comma x, which swirls counterclockwise around the plane."/>
+  <annotation ref="gn-circle" text="The unit circle C, traversed counterclockwise."/>
+  <annotation ref="gn-n1" text="An outward unit normal vector n on the circle, pointing away from the center."/>
+  <annotation ref="gn-n2" text="The outward unit normal at the opposite point of the circle."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
 
 </subsubsection>
 
@@ -1261,11 +1312,11 @@ M \amp N \amp P
 \right) \mathbf{i}
 </mrow>
 <mrow>
-\amp \quad + \left( \frac{\partial M}{\partial z} - \frac{\partial P}{\partial x}
+\amp \quad {} + \left( \frac{\partial M}{\partial z} - \frac{\partial P}{\partial x}
 \right) \mathbf{j}
 </mrow>
 <mrow xml:id="eq-curl-cross-product" number="yes">
-\amp \quad + \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}
+\amp \quad {} + \left( \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}
 \right) \mathbf{k}.
 </mrow>
 </md>

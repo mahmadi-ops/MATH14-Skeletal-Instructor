@@ -35,15 +35,15 @@ in `publication/publication.ptx` (see the comment there). The skeletal
 sections cite ids in these files and vice versa; every `xml:id` was kept
 so that nothing had to be rewired.
 
-Section 3.1 (`greens-theorem.ptx`) differs from the student book
-(`mahmadi-ops/MATH14-Skeletal`) on purpose (Nov 2026, at the instructor's
-request): it is split into two subsections, *Flux and Divergence* and
+Section 3.1 (`greens-theorem.ptx`) has its own layout (Nov 2026, at the
+instructor's request): two subsections, *Flux and Divergence* and
 *Circulation and Curl*, each running from its operator through its line
 integral to its form of Green's theorem, with what uses both in the
-Concept Check, and it writes out the derivations of the outward unit
-normal and of the flux element as in the completed notes. The old
-subsection ids live on as subsubsections. Do not sync this file between
-the two books without asking.
+Concept Check, and the derivations of the outward unit normal and of the
+flux element written out as in the completed notes. The old subsection
+ids live on as subsubsections. The file is the same in this book and in
+the student book (`mahmadi-ops/MATH14-Skeletal`), and the completed notes
+(`MATH-14-Instructor`, `MATH-14`) share the layout; keep the four in step.
 
 `section-arc-length-old.ptx`, `cone-plane-arc-length.ptx`,
 `cylindrical-element-instructions.ptx` and `hw1-paragraphs.ptx` are not
