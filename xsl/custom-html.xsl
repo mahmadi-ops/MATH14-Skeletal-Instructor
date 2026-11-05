@@ -18,7 +18,7 @@
   <!--   * math-input-palette.js - equation-entry palette for the dynamic  -->
   <!--     exercises; targets specific exercises by id and is inert on     -->
   <!--     every other page.                                               -->
-  <!--   * dynamic-solutions.js - fills released surface-integral solutions  -->
+  <!--   * dynamic-solutions.js - fills released randomized solutions with -->
   <!--     the question's live values while keeping them below it.         -->
   <!--   * custom.js - the floating Socratic AI tutor of the assignment    -->
   <!--     pages; inert on every other page.  It must be a parser-blocking -->
@@ -87,13 +87,17 @@
       </xsl:apply-templates>
     </xsl:variable>
     <xsl:choose>
-      <!-- Keep surface-integral solutions in their original position below
-           the Runestone component. An inert template
-           prevents MathJax from typesetting unresolved <eval> tokens.
-           dynamic-solutions.js fills these from the question's live
-           variables, then typesets the separate solution block.
-           Component filtering has already removed unreleased contents. -->
-      <xsl:when test="starts-with(@xml:id, 'ex-hw9o-') and solution/*">
+      <!-- Keep every solution that quotes the problem's random values (an
+           <eval>, which becomes a [%= toTeX(name) %] token) in its original
+           position below the Runestone component, inside an inert template
+           so that MathJax never typesets the unresolved tokens.
+           dynamic-solutions.js fills it from the question's live variables,
+           then typesets the separate solution block, knowl or inline as the
+           page has it.  This began with the surface-integral problems
+           (ex-hw9o-*); without it the randomized solutions of the review sets
+           and assignments showed the raw tokens.  Component filtering has
+           already removed unreleased contents. -->
+      <xsl:when test="solution/* and (starts-with(@xml:id, 'ex-hw9o-') or solution//eval)">
         <template class="dynamic-solution-template" data-exercise="rs-{@xml:id}">
           <xsl:copy-of select="$solutions"/>
         </template>
