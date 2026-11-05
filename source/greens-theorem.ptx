@@ -38,6 +38,15 @@
 <!-- figure; each answer is a plain workspace box, as in the other Concept -->
 <!-- Checks of the book.                                                   -->
 <!--                                                                       -->
+<!-- Layout (Nov 2026, instructor copy only, at the instructor's request): -->
+<!-- two subsections, Flux and Divergence and Circulation and Curl, each   -->
+<!-- running from its operator through its line integral to its form of   -->
+<!-- Green's theorem; what uses both (the animation, the video of both     -->
+<!-- forms, deriving the normal form from the tangential one) is in the    -->
+<!-- Concept Check.  Here the derivations of n and of F.n ds are written   -->
+<!-- out as in the completed notes, not left as boxes.  The old            -->
+<!-- subsection ids are kept, now on subsubsections, so citations hold.    -->
+<!--                                                                       -->
 <!-- Interactive: fig-div-curl-manim (assets/div-curl-manim.html, a 2D    -->
 <!-- canvas in the book's Manim style, added Nov 2026) closes the curl     -->
 <!-- subsection: flux and circulation over a small circle around P, and a -->
@@ -53,14 +62,22 @@
 
 <introduction>
 <p>
-Before we learn about Green's theorem, we will need to learn about two
-operations on vector fields: <term>curl</term> and
-<term>divergence</term>. We begin by studying divergence.
+Green's theorem comes in two forms: one about how much of a vector field
+flows <em>across</em> a closed curve, and one about how much flows
+<em>along</em> it. Each needs an operation on vector fields of its own,
+<term>divergence</term> for the first and <term>curl</term> for the
+second. So the section has two halves. Each builds its operation, then
+the line integral it goes with, and then the form of Green's theorem that
+connects the two when the curve is closed; the Concept Check at the end
+uses both.
 </p>
 </introduction>
 
 <!-- ================================================================ -->
-<subsection xml:id="sec-divergence">
+<subsection xml:id="sec-green-flux">
+<title>Flux and Divergence</title>
+
+<subsubsection xml:id="sec-divergence">
 <title>Divergence</title>
 
 <p>
@@ -320,10 +337,311 @@ A rotational field circulating counterclockwise around the origin.
 </sidebyside>
 </figure>
 
+</subsubsection>
+
+<subsubsection xml:id="sec-green-outward-normal">
+<title>The Flux Across a Plane Curve</title>
+
+<p>
+The first form of Green's theorem, in <xref ref="sec-greens-theorem-forms"/>,
+measures how much of a field flows <em>across</em> a closed curve
+<m>C</m>: its <term>outward flux</term>
+<m>\oint_C \mathbf{F}\cdot\mathbf{n}\,ds</m>, the line integral of the
+component of <m>\mathbf{F}</m> along the <term>outward unit normal</term>
+<m>\mathbf{n}</m> of the curve. So it uses <m>\mathbf{n}</m> rather than
+the unit tangent <m>\mathbf{T}</m> of <xref ref="eq-unit-tangent"/>,
+introduced in <xref ref="sec-vector-fields"/>. Suppose <m>C</m> is
+traversed counterclockwise and parametrized by
+<m>\mathbf{r}(t) = x(t)\,\mathbf{i} + y(t)\,\mathbf{j}</m>. Its velocity,
+the tangent vector of <xref ref="eq-tangent-vector"/>, is
+<me>
+\mathbf{v} = \frac{d\mathbf{r}}{dt}
+= \left\langle \frac{dx}{dt},\ \frac{dy}{dt} \right\rangle.
+</me>
+</p>
+
+<p>
+Since <m>\mathbf{n}</m> is a unit normal to the curve, it is
+perpendicular to the tangent vector <m>\mathbf{v}</m>, so
+<m>\mathbf{n} \cdot \mathbf{v} = 0</m>.
+</p>
+
+<p>
+The vector
+<m>\left\langle \frac{dy}{dt},\ -\frac{dx}{dt} \right\rangle</m> has
+this property, because
+<md>
+<mrow>
+\amp \left\langle \frac{dy}{dt},\ -\frac{dx}{dt} \right\rangle \cdot
+\left\langle \frac{dx}{dt},\ \frac{dy}{dt} \right\rangle
+</mrow>
+<mrow>
+\amp \quad = \frac{dy}{dt}\,\frac{dx}{dt} - \frac{dx}{dt}\,\frac{dy}{dt} = 0.
+</mrow>
+</md>
+It is <m>\mathbf{v}</m> turned a quarter turn clockwise. Of the two
+directions perpendicular to <m>\mathbf{v}</m>, this is the one that
+points out of the region: as <m>C</m> is traversed counterclockwise, the
+region <m>R</m> it encloses stays on the left, so turning
+<m>\mathbf{v}</m> clockwise makes it point to the right, out of
+<m>R</m>. (The opposite vector,
+<m>\left\langle -\frac{dy}{dt},\ \frac{dx}{dt} \right\rangle</m>, points
+into <m>R</m>.) Therefore the outward normal is
+<me>
+\left\langle \frac{dy}{dt},\ -\frac{dx}{dt} \right\rangle.
+</me>
+</p>
+
+<p>
+To find the unit normal we divide this vector by its length. Its length
+is
+<m>\sqrt{\left(\frac{dy}{dt}\right)^2 + \left(\frac{dx}{dt}\right)^2}
+= \left\lVert\mathbf{v}\right\rVert</m>, the same as the length of
+<m>\mathbf{v}</m>, so
+<men xml:id="eq-outward-unit-normal">
+\mathbf{n} = \frac{1}{\left\lVert\mathbf{v}\right\rVert}
+\left\langle \frac{dy}{dt},\ -\frac{dx}{dt} \right\rangle.
+</men>
+Compare it with the unit tangent
+<m>\mathbf{T} = \frac{1}{\left\lVert\mathbf{v}\right\rVert}
+\left\langle \frac{dx}{dt},\ \frac{dy}{dt} \right\rangle</m> of
+<xref ref="eq-unit-tangent"/>: the two have the same components,
+swapped, with one sign changed.
+</p>
+
+<example xml:id="example-unit-normal-circle">
+<title>The Unit Normal to the Unit Circle</title>
+<statement>
+<p>
+Find the outward unit normal <m>\mathbf{n}</m> and the unit tangent
+<m>\mathbf{T}</m> of the unit circle <m>x^2 + y^2 = 1</m>, traversed
+counterclockwise.
+</p>
+<p>
+<em>Solution.</em>
+(Compare with <xref ref="fig-unit-normal-circle"/>.)
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
+\draw[gray!35] (0,4) -- (15,4);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,11.75) {workspace};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\mathbf n =$ \qquad\qquad\qquad\qquad\qquad\qquad $\mathbf T =$};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace, with a last row for the unit normal and the unit tangent.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</example>
+
+<figure xml:id="fig-unit-normal-circle">
+<caption>
+The unit tangent <m>\mathbf{T}</m> (pink) and the outward unit normal
+<m>\mathbf{n}</m> (green) at three points of the unit circle <m>C</m>;
+the arrowheads on <m>C</m> show the direction of the path,
+counterclockwise. Compare with what you found.
+</caption>
+<image width="55%">
+<shortdescription>
+The unit circle with a unit tangent vector and an outward unit normal vector drawn at three of its points.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-unit-normal-circle">
+<diagram dimensions="(300,300)" margins="10">
+<definition>r(t) = (cos(t), sin(t))</definition>
+<definition>T(t) = (-sin(t), cos(t))</definition>
+<definition>nn(t) = (cos(t), sin(t))</definition>
+<definition>tipT(t) = (cos(t) - sin(t), sin(t) + cos(t))</definition>
+<definition>tipN(t) = (2*cos(t), 2*sin(t))</definition>
+<coordinates bbox="(-2.3,-2.3,2.3,2.3)">
+<circle at="un-disk" center="(0,0)" radius="1" fill="#dff4f6"
+        stroke="#00b0c0" thickness="3"/>
+<axes at="un-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<!-- arrowheads on C showing the direction of the path -->
+<parametric-curve at="un-dir-1" function="r" domain="(1.5,1.745)"
+                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
+<parametric-curve at="un-dir-2" function="r" domain="(3.6,3.84)"
+                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
+<parametric-curve at="un-dir-3" function="r" domain="(5.78,6.021)"
+                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
+<!-- t = pi/6 -->
+<angle-marker at="un-right-1" p="r(pi/6)" p1="tipN(pi/6)" p2="tipT(pi/6)"
+              radius="9" stroke="#555555" thickness="1"/>
+<vector at="un-T-1" tail="r(pi/6)" v="T(pi/6)" stroke="#d02090" thickness="3"/>
+<vector at="un-n-1" tail="r(pi/6)" v="nn(pi/6)" stroke="#009E73" thickness="3"/>
+<point at="un-P-1" p="r(pi/6)" size="3" fill="black"/>
+<label at="un-T-1-label" anchor="tipT(pi/6)" alignment="n" color="#d02090"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{T}</m>
+</label>
+<label at="un-n-1-label" anchor="tipN(pi/6)" alignment="e" color="#009E73"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{n}</m>
+</label>
+<!-- t = 5 pi/6 -->
+<angle-marker at="un-right-2" p="r(5*pi/6)" p1="tipN(5*pi/6)" p2="tipT(5*pi/6)"
+              radius="9" stroke="#555555" thickness="1"/>
+<vector at="un-T-2" tail="r(5*pi/6)" v="T(5*pi/6)" stroke="#d02090" thickness="3"/>
+<vector at="un-n-2" tail="r(5*pi/6)" v="nn(5*pi/6)" stroke="#009E73" thickness="3"/>
+<point at="un-P-2" p="r(5*pi/6)" size="3" fill="black"/>
+<label at="un-T-2-label" anchor="tipT(5*pi/6)" alignment="s" color="#d02090"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{T}</m>
+</label>
+<label at="un-n-2-label" anchor="tipN(5*pi/6)" alignment="w" color="#009E73"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{n}</m>
+</label>
+<!-- t = 5 pi/3 -->
+<angle-marker at="un-right-3" p="r(5*pi/3)" p1="tipN(5*pi/3)" p2="tipT(5*pi/3)"
+              radius="9" stroke="#555555" thickness="1"/>
+<vector at="un-T-3" tail="r(5*pi/3)" v="T(5*pi/3)" stroke="#d02090" thickness="3"/>
+<vector at="un-n-3" tail="r(5*pi/3)" v="nn(5*pi/3)" stroke="#009E73" thickness="3"/>
+<point at="un-P-3" p="r(5*pi/3)" size="3" fill="black"/>
+<label at="un-T-3-label" anchor="tipT(5*pi/3)" alignment="e" color="#d02090"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{T}</m>
+</label>
+<label at="un-n-3-label" anchor="tipN(5*pi/3)" alignment="se" color="#009E73"
+       clear-background="yes" background-margin="2">
+<m>\mathbf{n}</m>
+</label>
+<label at="un-C-label" anchor="(-0.36,-1.02)" alignment="sw" color="#00a0b0"
+       clear-background="yes" background-margin="2">
+<m>C</m>
+</label>
+<label at="un-R-label" anchor="(-0.42,-0.36)" alignment="c"
+       clear-background="yes" background-margin="2">
+<m>R</m>
+</label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The unit circle C drawn in teal around the shaded disk R, with three arrowheads on it showing that the path runs counterclockwise. At three points of the circle a pink unit tangent vector T and a green unit normal vector n start from the same point; a small square marks the right angle between them. Every T points in the direction of travel, and every n is on the right of the direction of travel, pointing straight away from the center, out of the disk.">
+  <annotation ref="un-disk" text="The unit circle C, traversed counterclockwise, enclosing the disk R."/>
+  <annotation ref="un-dir-1" text="An arrowhead on the circle near the top, pointing to the left: the path runs counterclockwise."/>
+  <annotation ref="un-T-1" text="At the point at angle pi over 6, the unit tangent T points up and to the left, along the direction of travel."/>
+  <annotation ref="un-n-1" text="At the same point, the outward unit normal n points away from the center, up and to the right."/>
+  <annotation ref="un-T-2" text="At the point at angle 5 pi over 6, the unit tangent T points down and to the left."/>
+  <annotation ref="un-n-2" text="At the same point, the outward unit normal n points away from the center, up and to the left."/>
+  <annotation ref="un-T-3" text="At the point at angle 5 pi over 3, the unit tangent T points up and to the right."/>
+  <annotation ref="un-n-3" text="At the same point, the outward unit normal n points away from the center, down and to the right."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<p>
+This is where the line integral <m>\oint_C M\,dy - N\,dx</m> in the
+normal form of Green's theorem, <xref ref="eq-green-normal"/>, comes
+from. For <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>, the line
+element <m>ds = \left\lVert\mathbf{v}\right\rVert\,dt</m> of
+<xref ref="eq-line-element-2d"/> cancels the length in
+<xref ref="eq-outward-unit-normal"/>:
+<md>
+<mrow>
+\amp \mathbf{F}\cdot\mathbf{n}\,ds
+</mrow>
+<mrow>
+\amp \quad = \frac{1}{\left\lVert\mathbf{v}\right\rVert}
+\left( M\,\frac{dy}{dt} - N\,\frac{dx}{dt} \right)
+\left\lVert\mathbf{v}\right\rVert\,dt
+</mrow>
+<mrow>
+\amp \quad = M\,dy - N\,dx.
+</mrow>
+</md>
+</p>
+</subsubsection>
+
+<subsubsection xml:id="sec-greens-theorem-forms">
+<title>Green's Theorem: The Flux-Divergence (Normal) Form</title>
+
+<p>
+We can now state Green's theorem in 2D<fn>Note that we only cover Green's
+theorem in 2D; however, you should know that this theorem can be
+generalized to 3D, and in that case it is known as Stokes' theorem,
+which is <xref ref="section-stokes-theorem"/>.</fn>. It comes in two
+forms, and the first, the flux form, relates the outward flux
+across a simple<fn>A curve in the <m>xy</m>-plane is
+<term>simple</term> if it does not cross itself.</fn> closed curve
+<m>C</m> and the double integral of the divergence over the region
+<m>R</m> bounded by the curve <m>C</m>.
+</p>
+
+<theorem xml:id="thm-green-normal">
+<title>Green's Theorem (Flux-Divergence or Normal Form)</title>
+<statement>
+<p>
+Let <m>C</m> be a piecewise smooth, simple closed curve enclosing a
+region <m>R</m> in the plane. Let
+<m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m> be a vector field
+with <m>M</m> and <m>N</m> having continuous first partial derivatives
+in an open region containing <m>R</m>. Then the outward flux of
+<m>\mathbf{F}</m> across <m>C</m> equals the double integral of
+<m>\operatorname{div} \mathbf{F}</m> over the region <m>R</m> enclosed
+by <m>C</m>:
+</p>
+
+<md>
+<mrow>
+\amp \underbrace{\oint_C \mathbf{F} \cdot \mathbf{n}\, ds}_{\text{outward flux}}
+= \oint_C M\, dy - N\, dx
+</mrow>
+<mrow xml:id="eq-green-normal" number="yes">
+\amp \quad = \underbrace{\iint_R \left( \frac{\partial M}{\partial x}
++ \frac{\partial N}{\partial y} \right) dx\, dy}_{\substack{\text{integral of}
+\\ \operatorname{div}\mathbf{F} \text{ over } R}}.
+</mrow>
+</md>
+</statement>
+</theorem>
+
+<example xml:id="example-green-circle-normal">
+<title>Verifying the Normal Form on the Unit Circle</title>
+<statement>
+<p>
+Assume that the vector field
+<m>\mathbf{F}(x,y) = (x - y)\,\mathbf{i} + x\,\mathbf{j}</m> and the
+closed curve <m>C</m> is the unit circle centered at the origin.
+Convince yourself of the normal form of Green's theorem,
+<xref ref="eq-green-normal"/>, by applying it to this example.
+</p>
+<p>
+<em>Solution.</em>
+(Compare with <xref ref="fig-green-circle-video"/>.)
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
+\draw[gray!35] (0,7) -- (15,7);
+\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {the outward flux, $\displaystyle\oint_C \mathbf F\cdot\mathbf n\,ds =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {the double integral of $\operatorname{div}\mathbf F$ over $R$:};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank box in two rows, for the outward flux across the circle and for the double integral of the divergence over the disk.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</example>
+
+</subsubsection>
+
 </subsection>
 
 <!-- ================================================================ -->
-<subsection xml:id="sec-curl">
+<subsection xml:id="sec-green-circulation">
+<title>Circulation and Curl</title>
+
+<subsubsection xml:id="sec-curl">
 <title>Curl</title>
 
 <p>
@@ -572,317 +890,38 @@ A rotational field circulating counterclockwise, arrows longer farther out.
 </image>
 </sidebyside>
 </figure>
+</subsubsection>
+
+<subsubsection xml:id="sec-green-circulation-integral">
+<title>The Circulation Around a Plane Curve</title>
 
 <p>
-<xref ref="fig-div-curl-manim"/> puts the two ideas side by side, for
-fields of its own: a small circle around a point <m>P</m>, the flow of a
-fluid across it and along it, and a paddle wheel at <m>P</m>.
-</p>
-
-<figure xml:id="fig-div-curl-manim">
-<caption>
-Divergence and curl in a moving fluid, animated. The arrows are the
-field <m>\mathbf{F}</m> and the moving dots a fluid carried by it. On the
-circle around <m>P</m>, green arrows show fluid leaving and red arrows
-fluid entering; blue and orange arrows show the flow along the circle,
-with and against the counterclockwise direction. The card divides the
-outward flux and the circulation by the area of the circle: shrink the
-circle and compare the two ratios with the divergence and the
-<m>\mathbf{k}</m>-component of the curl you compute at <m>P</m>.
-</caption>
-<interactive xml:id="interactive-div-curl-manim"
-             iframe="div-curl-manim.html"
-             width="100%" aspect="1:1">
-<instructions>
-<p>
-Pick a field from the menu, and click or drag on the plane to move
-<m>P</m>; the <q>circle</q> slider shrinks or grows the circle.
-<q>Flow</q>, <q>Flux</q>, <q>Circulation</q> and <q>Paddle wheel</q>
-switch those layers off and on, <q>Play</q> runs a guided tour, and
-<q>Full screen</q> fills the screen with the figure.
-</p>
-</instructions>
-</interactive>
-</figure>
-
-</subsection>
-
-<!-- ================================================================ -->
-<subsection xml:id="sec-green-outward-normal">
-<title>The Outward Unit Normal of a Plane Curve</title>
-
-<p>
-The first form of Green's theorem in the next subsection measures how
-much of a field flows <em>across</em> a closed curve <m>C</m>, so it uses
-the <term>outward unit normal</term> <m>\mathbf{n}</m> of the curve
-rather than its unit tangent <m>\mathbf{T}</m>. Suppose <m>C</m> is
-traversed counterclockwise and parametrized by
-<m>\mathbf{r}(t) = x(t)\,\mathbf{i} + y(t)\,\mathbf{j}</m>. Its velocity,
-the tangent vector of <xref ref="eq-tangent-vector"/>, is
-<me>
-\mathbf{v} = \frac{d\mathbf{r}}{dt}
-= \left\langle \frac{dx}{dt},\ \frac{dy}{dt} \right\rangle.
-</me>
-</p>
-
-<p>
-Find the outward unit normal <m>\mathbf{n}</m> of <m>C</m> in terms of
-<m>\frac{dx}{dt}</m> and <m>\frac{dy}{dt}</m>.
-</p>
-
-<sidebyside width="97%">
-<image>
-<latex-image>
-\begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,11);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
-  at (0.25,10.75) {workspace};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\mathbf n =$};
-\end{tikzpicture}
-</latex-image>
-<shortdescription>Blank workspace, with a last row for the outward unit normal.</shortdescription>
-</image>
-</sidebyside>
-
-<assemblage>
-<title>The Outward Unit Normal</title>
-<p>
-For a closed curve <m>C</m> traversed counterclockwise with velocity
-<m>\mathbf{v} = \left\langle \frac{dx}{dt},\ \frac{dy}{dt} \right\rangle</m>,
-the outward unit normal is
-<men xml:id="eq-outward-unit-normal">
-\mathbf{n} = \frac{1}{\left\lVert\mathbf{v}\right\rVert}
-\left\langle \frac{dy}{dt},\ -\frac{dx}{dt} \right\rangle.
-</men>
-</p>
-</assemblage>
-
-<example xml:id="example-unit-normal-circle">
-<title>The Unit Normal to the Unit Circle</title>
-<statement>
-<p>
-Find the outward unit normal <m>\mathbf{n}</m> and the unit tangent
-<m>\mathbf{T}</m> of the unit circle <m>x^2 + y^2 = 1</m>, traversed
-counterclockwise.
-</p>
-<p>
-<em>Solution.</em>
-(Compare with <xref ref="fig-unit-normal-circle"/>.)
-</p>
-
-<sidebyside width="97%">
-<image>
-<latex-image>
-\begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
-  at (0.25,11.75) {workspace};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\mathbf n =$ \qquad\qquad\qquad\qquad\qquad\qquad $\mathbf T =$};
-\end{tikzpicture}
-</latex-image>
-<shortdescription>Blank workspace, with a last row for the unit normal and the unit tangent.</shortdescription>
-</image>
-</sidebyside>
-</statement>
-</example>
-
-<figure xml:id="fig-unit-normal-circle">
-<caption>
-The unit tangent <m>\mathbf{T}</m> (pink) and the outward unit normal
-<m>\mathbf{n}</m> (green) at three points of the unit circle <m>C</m>;
-the arrowheads on <m>C</m> show the direction of the path,
-counterclockwise. Compare with what you found.
-</caption>
-<image width="55%">
-<shortdescription>
-The unit circle with a unit tangent vector and an outward unit normal vector drawn at three of its points.
-</shortdescription>
-<prefigure xmlns="https://prefigure.org" label="prefigure-unit-normal-circle">
-<diagram dimensions="(300,300)" margins="10">
-<definition>r(t) = (cos(t), sin(t))</definition>
-<definition>T(t) = (-sin(t), cos(t))</definition>
-<definition>nn(t) = (cos(t), sin(t))</definition>
-<definition>tipT(t) = (cos(t) - sin(t), sin(t) + cos(t))</definition>
-<definition>tipN(t) = (2*cos(t), 2*sin(t))</definition>
-<coordinates bbox="(-2.3,-2.3,2.3,2.3)">
-<circle at="un-disk" center="(0,0)" radius="1" fill="#dff4f6"
-        stroke="#00b0c0" thickness="3"/>
-<axes at="un-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
-<!-- arrowheads on C showing the direction of the path -->
-<parametric-curve at="un-dir-1" function="r" domain="(1.5,1.745)"
-                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
-<parametric-curve at="un-dir-2" function="r" domain="(3.6,3.84)"
-                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
-<parametric-curve at="un-dir-3" function="r" domain="(5.78,6.021)"
-                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
-<!-- t = pi/6 -->
-<angle-marker at="un-right-1" p="r(pi/6)" p1="tipN(pi/6)" p2="tipT(pi/6)"
-              radius="9" stroke="#555555" thickness="1"/>
-<vector at="un-T-1" tail="r(pi/6)" v="T(pi/6)" stroke="#d02090" thickness="3"/>
-<vector at="un-n-1" tail="r(pi/6)" v="nn(pi/6)" stroke="#009E73" thickness="3"/>
-<point at="un-P-1" p="r(pi/6)" size="3" fill="black"/>
-<label at="un-T-1-label" anchor="tipT(pi/6)" alignment="n" color="#d02090"
-       clear-background="yes" background-margin="2">
-<m>\mathbf{T}</m>
-</label>
-<label at="un-n-1-label" anchor="tipN(pi/6)" alignment="e" color="#009E73"
-       clear-background="yes" background-margin="2">
-<m>\mathbf{n}</m>
-</label>
-<!-- t = 5 pi/6 -->
-<angle-marker at="un-right-2" p="r(5*pi/6)" p1="tipN(5*pi/6)" p2="tipT(5*pi/6)"
-              radius="9" stroke="#555555" thickness="1"/>
-<vector at="un-T-2" tail="r(5*pi/6)" v="T(5*pi/6)" stroke="#d02090" thickness="3"/>
-<vector at="un-n-2" tail="r(5*pi/6)" v="nn(5*pi/6)" stroke="#009E73" thickness="3"/>
-<point at="un-P-2" p="r(5*pi/6)" size="3" fill="black"/>
-<label at="un-T-2-label" anchor="tipT(5*pi/6)" alignment="s" color="#d02090"
-       clear-background="yes" background-margin="2">
-<m>\mathbf{T}</m>
-</label>
-<label at="un-n-2-label" anchor="tipN(5*pi/6)" alignment="w" color="#009E73"
-       clear-background="yes" background-margin="2">
-<m>\mathbf{n}</m>
-</label>
-<!-- t = 5 pi/3 -->
-<angle-marker at="un-right-3" p="r(5*pi/3)" p1="tipN(5*pi/3)" p2="tipT(5*pi/3)"
-              radius="9" stroke="#555555" thickness="1"/>
-<vector at="un-T-3" tail="r(5*pi/3)" v="T(5*pi/3)" stroke="#d02090" thickness="3"/>
-<vector at="un-n-3" tail="r(5*pi/3)" v="nn(5*pi/3)" stroke="#009E73" thickness="3"/>
-<point at="un-P-3" p="r(5*pi/3)" size="3" fill="black"/>
-<label at="un-T-3-label" anchor="tipT(5*pi/3)" alignment="e" color="#d02090"
-       clear-background="yes" background-margin="2">
-<m>\mathbf{T}</m>
-</label>
-<label at="un-n-3-label" anchor="tipN(5*pi/3)" alignment="se" color="#009E73"
-       clear-background="yes" background-margin="2">
-<m>\mathbf{n}</m>
-</label>
-<label at="un-C-label" anchor="(-0.36,-1.02)" alignment="sw" color="#00a0b0"
-       clear-background="yes" background-margin="2">
-<m>C</m>
-</label>
-<label at="un-R-label" anchor="(-0.42,-0.36)" alignment="c"
-       clear-background="yes" background-margin="2">
-<m>R</m>
-</label>
-</coordinates>
-<annotations>
-<annotation ref="figure" text="The unit circle C drawn in teal around the shaded disk R, with three arrowheads on it showing that the path runs counterclockwise. At three points of the circle a pink unit tangent vector T and a green unit normal vector n start from the same point; a small square marks the right angle between them. Every T points in the direction of travel, and every n is on the right of the direction of travel, pointing straight away from the center, out of the disk.">
-  <annotation ref="un-disk" text="The unit circle C, traversed counterclockwise, enclosing the disk R."/>
-  <annotation ref="un-dir-1" text="An arrowhead on the circle near the top, pointing to the left: the path runs counterclockwise."/>
-  <annotation ref="un-T-1" text="At the point at angle pi over 6, the unit tangent T points up and to the left, along the direction of travel."/>
-  <annotation ref="un-n-1" text="At the same point, the outward unit normal n points away from the center, up and to the right."/>
-  <annotation ref="un-T-2" text="At the point at angle 5 pi over 6, the unit tangent T points down and to the left."/>
-  <annotation ref="un-n-2" text="At the same point, the outward unit normal n points away from the center, up and to the left."/>
-  <annotation ref="un-T-3" text="At the point at angle 5 pi over 3, the unit tangent T points up and to the right."/>
-  <annotation ref="un-n-3" text="At the same point, the outward unit normal n points away from the center, down and to the right."/>
-</annotation>
-</annotations>
-</diagram>
-</prefigure>
-</image>
-</figure>
-
-<p>
-For <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>, write the flux
-element <m>\mathbf{F}\cdot\mathbf{n}\,ds</m> in terms of <m>dx</m>
-and <m>dy</m>.
-</p>
-
-<sidebyside width="97%">
-<image>
-<latex-image>
-\begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,5);
-\node[anchor=north west, font=\small\itshape] at (0.35,4.7) {$\mathbf F\cdot\mathbf n\,ds =$};
-\end{tikzpicture}
-</latex-image>
-<shortdescription>Blank box in one row, for the flux element written in terms of t.</shortdescription>
-</image>
-</sidebyside>
-
-</subsection>
-
-<!-- ================================================================ -->
-<subsection xml:id="sec-greens-theorem-forms">
-<title>Green's Theorem: The Flux-Divergence (Normal) Form</title>
-
-<p>
-Next we state Green's theorem in 2D<fn>Note that we only cover Green's
-theorem in 2D; however, you should know that this theorem can be
-generalized to 3D, and in that case it is known as Stokes' theorem,
-which is <xref ref="section-stokes-theorem"/>.</fn>, in two forms. The first form relates the outward flux
-across a simple<fn>A curve in the <m>xy</m>-plane is
-<term>simple</term> if it does not cross itself.</fn> closed curve
-<m>C</m> and the double integral of the divergence over the region
-<m>R</m> bounded by the curve <m>C</m>.
-</p>
-
-<theorem xml:id="thm-green-normal">
-<title>Green's Theorem (Flux-Divergence or Normal Form)</title>
-<statement>
-<p>
-Let <m>C</m> be a piecewise smooth, simple closed curve enclosing a
-region <m>R</m> in the plane. Let
-<m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m> be a vector field
-with <m>M</m> and <m>N</m> having continuous first partial derivatives
-in an open region containing <m>R</m>. Then the outward flux of
-<m>\mathbf{F}</m> across <m>C</m> equals the double integral of
-<m>\operatorname{div} \mathbf{F}</m> over the region <m>R</m> enclosed
-by <m>C</m>:
+The second form of Green's theorem, in <xref ref="sec-green-tangential-form"/>,
+measures how much of a field flows <em>along</em> a closed curve
+<m>C</m>, traversed counterclockwise. That is the line integral of a
+vector field from <xref ref="subsec-work-force-field"/>: the component of
+<m>\mathbf{F}</m> along the unit tangent <m>\mathbf{T}</m> of
+<xref ref="eq-unit-tangent"/>, integrated with respect to arc length.
+Around a closed curve it is called the <term>circulation</term> of
+<m>\mathbf{F}</m> around <m>C</m>. Since <m>\mathbf{T}\,ds = d\mathbf{r}</m>,
+for <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m> it is
 </p>
 
 <md>
 <mrow>
-\amp \underbrace{\oint_C \mathbf{F} \cdot \mathbf{n}\, ds}_{\text{outward flux}}
-= \oint_C M\, dy - N\, dx
+\oint_C \mathbf{F}\cdot\mathbf{T}\,ds \amp = \oint_C \mathbf{F}\cdot d\mathbf{r}
 </mrow>
-<mrow xml:id="eq-green-normal" number="yes">
-\amp \quad = \underbrace{\iint_R \left( \frac{\partial M}{\partial x}
-+ \frac{\partial N}{\partial y} \right) dx\, dy}_{\substack{\text{integral of}
-\\ \operatorname{div}\mathbf{F} \text{ over } R}}.
+<mrow>
+\amp = \oint_C M\,dx + N\,dy,
 </mrow>
 </md>
-</statement>
-</theorem>
 
-<example xml:id="example-green-circle-normal">
-<title>Verifying the Normal Form on the Unit Circle</title>
-<statement>
 <p>
-Assume that the vector field
-<m>\mathbf{F}(x,y) = (x - y)\,\mathbf{i} + x\,\mathbf{j}</m> and the
-closed curve <m>C</m> is the unit circle centered at the origin.
-Convince yourself of the normal form of Green's theorem,
-<xref ref="eq-green-normal"/>, by applying it to this example.
+the differential form of <xref ref="eq-work-differential"/>.
 </p>
-<p>
-<em>Solution.</em>
-(Compare with <xref ref="fig-green-circle-video"/>.)
-</p>
+</subsubsection>
 
-<sidebyside width="97%">
-<image>
-<latex-image>
-\begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
-\draw[gray!35] (0,7) -- (15,7);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {the outward flux, $\displaystyle\oint_C \mathbf F\cdot\mathbf n\,ds =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {the double integral of $\operatorname{div}\mathbf F$ over $R$:};
-\end{tikzpicture}
-</latex-image>
-<shortdescription>Blank box in two rows, for the outward flux across the circle and for the double integral of the divergence over the disk.</shortdescription>
-</image>
-</sidebyside>
-</statement>
-</example>
-
-</subsection>
-
-<!-- ================================================================ -->
-<subsection xml:id="sec-green-tangential-form">
+<subsubsection xml:id="sec-green-tangential-form">
 <title>Green's Theorem: The Circulation-Curl (Tangential) Form</title>
 
 <p>
@@ -922,10 +961,8 @@ over <m>R</m>:
 <proof xml:id="proof-green-tangential">
 <p>
 Prove <xref ref="eq-green-tangential"/> for a region like the one in
-<xref ref="fig-green-proof-prefigure"/>, explain why it holds for a
-general region, and derive the normal form,
-<xref ref="thm-green-normal"/>, from it. Compare with
-<xref ref="fig-green-proof-video"/>.
+<xref ref="fig-green-proof-prefigure"/>, and explain why it holds for a
+general region. Compare with <xref ref="fig-green-proof-video"/>.
 </p>
 
 <sidebyside width="97%">
@@ -933,14 +970,12 @@ general region, and derive the normal form,
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,20);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,4.5) -- (15,4.5);
+\draw[gray!35] (0,7) -- (15,7);
 \node[anchor=north west, font=\small\itshape] at (0.35,19.7) {for a region like the one in the figure:};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {for a general region:};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.2) {the normal form:};
+\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {for a general region:};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the proof on a region like the one in the figure, for a general region, and for the normal form.</shortdescription>
+<shortdescription>Blank box in two rows, for the proof on a region like the one in the figure and for a general region.</shortdescription>
 </image>
 </sidebyside>
 </proof>
@@ -1045,17 +1080,6 @@ by applying it to this example.
 </statement>
 </example>
 
-<figure xml:id="fig-green-circle-video">
-<caption>
-Both forms of Green's theorem for
-<m>\mathbf{F} = (x-y)\,\mathbf{i} + x\,\mathbf{j}</m> on the unit
-circle, computed side by side. Use it to check your values of the
-outward flux and the counterclockwise circulation.
-</caption>
-<video preview="play-button.png" xml:id="video-green-circle"
-       source="videos/green_unit_circle_1080p.mp4"
-       width="70%" aspect="16:9"/>
-</figure>
 
 <figure xml:id="fig-green-circle">
 <caption>
@@ -1183,10 +1207,9 @@ A square rotated 45 degrees, shaded.
 </image>
 </figure>
 
-</subsection>
+</subsubsection>
 
-<!-- ================================================================ -->
-<subsection xml:id="sec-component-test-alternative">
+<subsubsection xml:id="sec-component-test-alternative">
 <title>An Alternative Form of the Component Test for Conservative Fields</title>
 
 <p>
@@ -1316,11 +1339,88 @@ circulation around closed curves. Compare with your answers to
        width="70%" aspect="16:9"/>
 </figure>
 
+</subsubsection>
+
 </subsection>
 
 <!-- ================================================================ -->
 <subsection xml:id="subsec-green-questions">
 <title>Concept Check</title>
+
+<p>
+<xref ref="fig-div-curl-manim"/> puts the two halves of this section side
+by side, for fields of its own: a small circle around a point <m>P</m>, the flow of a
+fluid across it and along it, and a paddle wheel at <m>P</m>.
+</p>
+
+<figure xml:id="fig-div-curl-manim">
+<caption>
+Divergence and curl in a moving fluid, animated. The arrows are the
+field <m>\mathbf{F}</m> and the moving dots a fluid carried by it. On the
+circle around <m>P</m>, green arrows show fluid leaving and red arrows
+fluid entering; blue and orange arrows show the flow along the circle,
+with and against the counterclockwise direction. The card divides the
+outward flux and the circulation by the area of the circle: shrink the
+circle and compare the two ratios with the divergence and the
+<m>\mathbf{k}</m>-component of the curl you compute at <m>P</m>.
+</caption>
+<interactive xml:id="interactive-div-curl-manim"
+             iframe="div-curl-manim.html"
+             width="100%" aspect="1:1">
+<instructions>
+<p>
+Pick a field from the menu, and click or drag on the plane to move
+<m>P</m>; the <q>circle</q> slider shrinks or grows the circle.
+<q>Flow</q>, <q>Flux</q>, <q>Circulation</q> and <q>Paddle wheel</q>
+switch those layers off and on, <q>Play</q> runs a guided tour, and
+<q>Full screen</q> fills the screen with the figure.
+</p>
+</instructions>
+</interactive>
+</figure>
+
+<p>
+<xref ref="fig-green-circle-video"/> computes both forms of Green's
+theorem for the field and the circle of
+<xref ref="example-green-circle-normal"/> and
+<xref ref="example-green-circle-tangential"/>.
+</p>
+
+<figure xml:id="fig-green-circle-video">
+<caption>
+Both forms of Green's theorem for
+<m>\mathbf{F} = (x-y)\,\mathbf{i} + x\,\mathbf{j}</m> on the unit
+circle, computed side by side. Use it to check your values of the
+outward flux and the counterclockwise circulation.
+</caption>
+<video preview="play-button.png" xml:id="video-green-circle"
+       source="videos/green_unit_circle_1080p.mp4"
+       width="70%" aspect="16:9"/>
+</figure>
+
+<exercise xml:id="q-green-normal-from-tangential">
+<title>One form from the other</title>
+<statement>
+<p>
+Derive the normal form of Green's theorem, <xref ref="thm-green-normal"/>,
+from the tangential form, <xref ref="thm-green-tangential"/>.
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,9.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for deriving the normal form of Green's theorem from the tangential form.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</exercise>
+
 
 <figure xml:id="fig-green-ellipse-area">
 <caption>
