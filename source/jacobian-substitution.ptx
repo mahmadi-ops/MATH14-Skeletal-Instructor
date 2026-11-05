@@ -6,9 +6,13 @@
 <!-- Skeletal (fill-in) version of the section of the same name in the     -->
 <!-- completed MATH 14 notes.  The definition of the Jacobian, the two     -->
 <!-- substitution formulas and the comparison with one-variable            -->
-<!-- substitution are kept; the five worked examples and the activity      -->
+<!-- substitution are kept; the six worked examples and the activity       -->
 <!-- solution are replaced by blank workspace boxes, each preceded by a    -->
 <!-- one-line hint (gone).  File name and xml:ids are unchanged.           -->
+<!--                                                                       -->
+<!-- The sixth example, Volume Between a Paraboloid and a Plane (added    -->
+<!-- Nov 2026 at the end of Substitution in Triple Integrals), has no     -->
+<!-- figure; its solution is a plain workspace box like the others.       -->
 <!--                                                                       -->
 <!-- Figures: all kept (the two blobs, the rectangle, the parallelogram,   -->
 <!-- the curved region, the parallelepiped, the ellipsoid, the GeoGebra    -->
@@ -953,6 +957,34 @@ label("$E$", C - 2.0*right + (0, 0, -0.8), fontsize(17pt));
 </asymptote>
 </image>
 </figure>
+
+<example xml:id="example-paraboloid-plane-volume">
+<title>Volume Between a Paraboloid and a Plane</title>
+<statement>
+<p>
+Find the volume of the solid enclosed by <m>z = 9 - x^2 - 9y^2</m> and
+<m>z = 5</m>. Do so by converting the integral
+<m>\displaystyle\iiint dz\, dy\, dx</m> to another triple integral such
+that the limits of two of the variables are constants.
+</p>
+<p>
+<em>Solution.</em>
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,14.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for the example Volume Between a Paraboloid and a Plane.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</example>
 
 </subsection>
 
