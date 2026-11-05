@@ -1,32 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- MATH 14 - HW10: Stokes' theorem and the divergence theorem.  The auto-  -->
-<!-- graded version of the same problems, with randomized constants, is       -->
-<!-- hw10-online.ptx.                                                         -->
+<!-- MATH 14 - HW10: the divergence theorem.  Its three Stokes' theorem      -->
+<!-- problems moved to Assignment 9.  The auto-graded version, with           -->
+<!-- randomized constants, is hw10-online.ptx (which also carries "One Field, -->
+<!-- Three Theorems").                                                        -->
 <section xml:id="sec-exercises-hw10" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 10</title>
 
   <introduction>
     <p>
-      Sections: <xref ref="section-stokes-theorem" text="title"/> and
-      <xref ref="section-divergence-theorem" text="title"/>.
+      Section: <xref ref="section-divergence-theorem" text="title"/>.
     </p>
   </introduction>
 
   <exercises xml:id="exercises-hw10">
-
-  <exercise xml:id="ex-hw10-stokes-hemisphere">
-    <statement>
-      <p>
-        Compute
-        <m>\displaystyle\iint_S (\nabla \times \mathbf{F}) \cdot
-        \hat{\mathbf{n}}\, d\sigma</m>, where
-        <m>\mathbf{F} = \left\langle y,\ -x,\ yx^3 \right\rangle</m>
-        and <m>S</m> is the portion of the sphere of radius <m>4</m> with
-        <m>z \ge 0</m>, taken with <m>\hat{\mathbf{n}}</m> pointing
-        upward.
-      </p>
-    </statement>
-  </exercise>
 
   <exercise xml:id="ex-hw10-divergence-box">
     <statement>
@@ -39,36 +25,6 @@
         <m>-1 \le x \le 2</m>, <m>0 \le y \le 1</m>,
         <m>1 \le z \le 4</m>, with <m>\hat{\mathbf{n}}</m> pointing
         outward.
-      </p>
-    </statement>
-  </exercise>
-
-  <exercise xml:id="ex-hw10-verify-hemisphere">
-    <statement>
-      <p>
-        Verify Stokes' theorem for
-        <m>\mathbf{F} = \left\langle y,\ z,\ x \right\rangle</m> on
-        the hemisphere <m>x^2 + y^2 + z^2 = 1</m>, <m>y \ge 0</m>, with
-        <m>\hat{\mathbf{n}}</m> pointing outward: compute both
-        <m>\displaystyle\iint_S (\nabla \times \mathbf{F}) \cdot
-        \hat{\mathbf{n}}\, d\sigma</m> and
-        <m>\displaystyle\oint_C \mathbf{F} \cdot d\mathbf{r}</m>
-        around the boundary curve <m>C</m>, and check that they agree.
-      </p>
-    </statement>
-  </exercise>
-
-  <exercise xml:id="ex-hw10-verify-cone">
-    <statement>
-      <p>
-        Verify Stokes' theorem for
-        <m>\mathbf{F} = \left\langle -y,\ x,\ -2 \right\rangle</m> on
-        the cone <m>z^2 = x^2 + y^2</m>, <m>0 \le z \le 4</m>, with
-        <m>\hat{\mathbf{n}}</m> pointing upward: compute both
-        <m>\displaystyle\iint_S (\nabla \times \mathbf{F}) \cdot
-        \hat{\mathbf{n}}\, d\sigma</m> and
-        <m>\displaystyle\oint_C \mathbf{F} \cdot d\mathbf{r}</m>
-        around the boundary curve <m>C</m>, and check that they agree.
       </p>
     </statement>
   </exercise>

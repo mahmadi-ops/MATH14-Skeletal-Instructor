@@ -4,12 +4,15 @@
 <!-- The auto-graded version of the same problems, with randomized            -->
 <!-- constants, is hw8-online.ptx.                                            -->
 <!-- Renumbered as Assignment 8; existing xml:ids keep exercise links and saved answers stable. -->
+<!-- The Green's theorem problems (ex-hw8-*, with fig-hw8-staircase) moved   -->
+<!-- here from Assignment 9 under their old xml:ids.                         -->
 <section xml:id="sec-exercises-hw9" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 8</title>
 
   <introduction>
     <p>
-      Section: <xref ref="section-surface-integrals" text="title"/>.
+      Sections: <xref ref="section-surface-integrals" text="title"/> and
+      <xref ref="section-greens-theorem" text="title"/>.
     </p>
   </introduction>
 
@@ -87,5 +90,120 @@
     </statement>
   </exercise>
 
+
+  <exercise xml:id="ex-hw8-staircase">
+    <statement>
+      <p>
+        Compute the work done by the force field
+      </p>
+      <me>
+        \mathbf{F} = \left\langle x^3 e^{x^2} + xe^x - y,\
+        y^2 - e^y + x \right\rangle
+      </me>
+      <p>
+        along the path <m>C</m>, which is shown in
+        <xref ref="fig-hw8-staircase"/>. Assume that the object moves along
+        the path from <m>(0,0)</m> to <m>(10,10)</m> and then to
+        <m>(0,10)</m>.
+      </p>
+    </statement>
+  </exercise>
+
+  <figure xml:id="fig-hw8-staircase">
+    <caption>
+      The curve <m>C</m> of <xref ref="ex-hw8-staircase"/>: a staircase of
+      ten unit steps from <m>(0,0)</m> to <m>(10,10)</m>, followed by the
+      horizontal segment back to <m>(0,10)</m>.
+    </caption>
+    <image width="70%">
+      <shortdescription>
+      A staircase of ten unit steps from the origin to (10,10), returning along the top.
+      </shortdescription>
+      <prefigure xmlns="https://prefigure.org" label="prefigure-hw8-staircase">
+        <diagram dimensions="(360,340)" margins="10">
+          <coordinates bbox="(-1.6,-1.6,12.2,11.6)">
+            <axes at="hst-axes" xlabel="x" ylabel="y" decorations="no"
+                arrows="1"/>
+            <polygon at="hst-path" closed="no" stroke="#0072B2" thickness="2"
+                fill="none" points="((0,0),(1,0),(1,1),(2,1),(2,2),(3,2),(3,3),(4,3),(4,4),(5,4),(5,5),(6,5),(6,6),(7,6),(7,7),(8,7),(8,8),(9,8),(9,9),(10,9),(10,10),(0,10))"/>
+            <vector at="hst-a1" v="(0.9,0)" tail="(4.2,4)" stroke="#0072B2"
+                thickness="2"/>
+            <vector at="hst-a2" v="(-1.1,0)" tail="(5.6,10)" stroke="#0072B2"
+                thickness="2"/>
+            <point at="hst-start" p="(0,0)" fill="black" alignment="sw">
+              <m>(0,0)</m>
+            </point>
+            <point at="hst-corner" p="(10,10)" fill="black" alignment="se">
+              <m>(10,10)</m>
+            </point>
+            <point at="hst-end" p="(0,10)" fill="black" alignment="nw">
+              <m>(0,10)</m>
+            </point>
+          </coordinates>
+          <annotations>
+            <annotation ref="figure" text="A staircase path made of ten unit steps climbing from the origin to the point ten comma ten, each step going one unit to the right and then one unit up. From ten comma ten the path returns straight left along the line y equals ten to the point zero comma ten. Arrowheads show the direction of travel: rightward on the staircase and leftward on the top segment.">
+              <annotation ref="hst-path" text="The staircase path from the origin to ten comma ten and then back along y equals ten to zero comma ten."/>
+              <annotation ref="hst-a1" text="An arrowhead on the staircase pointing to the right, the direction of travel."/>
+              <annotation ref="hst-a2" text="An arrowhead on the top segment pointing to the left, the direction of travel back to zero comma ten."/>
+            </annotation>
+          </annotations>
+        </diagram>
+      </prefigure>
+    </image>
+  </figure>
+
+  <exercise xml:id="ex-hw8-circle">
+    <statement>
+      <p>
+        Calculate the line integral
+      </p>
+      <me>
+        \oint_C \sqrt{x^2+y^2}\,dx
+        + y\left[xy + \ln\left(x + \sqrt{x^2+y^2}\right)\right] dy ,
+      </me>
+      <p>
+        where <m>C</m> is the circle <m>x^2 + y^2 = 1</m>, with
+        counterclockwise orientation.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw8-flux">
+    <statement>
+      <p>
+        Calculate the outward flux of the vector field
+        <m>\mathbf{F} = \left\langle x+y,\ -xy \right\rangle</m>
+        across the unit circle.
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-hw8-rose">
+    <introduction>
+      <p>
+        Consider the line integral
+        <m>\displaystyle\oint_C \left(y^4 - 2y\right) dx
+        - \left(6x - 4xy^3\right) dy</m>, where the curve <m>C</m> is
+        <m>r = \sin(2\theta)</m>, <m>0 \le \theta \le \frac{\pi}{2}</m>,
+        oriented counterclockwise. Note that <m>(r,\theta)</m> are polar
+        coordinates.
+      </p>
+    </introduction>
+    <task xml:id="task-hw8-green">
+      <statement>
+        <p>
+          Use Green's theorem to calculate the line integral.
+        </p>
+      </statement>
+    </task>
+    <task xml:id="task-hw8-interpret">
+      <statement>
+        <p>
+          In physics, this line integral can be interpreted in two
+          different ways. Briefly explain.
+        </p>
+      </statement>
+    </task>
+  </exercise>
   </exercises>
 </section>

@@ -16,20 +16,30 @@
 <!-- carries include-automatic="no".  See the comment at the top of           -->
 <!-- source/review1-practice.ptx for why that matters.                        -->
 <!-- Renumbered as Assignment 8; existing xml:ids keep exercise links and saved answers stable. -->
+<!-- The Green's theorem problems (ex-hw8o-*, with fig-hw8o-staircase) were  -->
+<!-- moved here from Assignment 9 under their old xml:ids, so saved answers  -->
+<!-- stay; their solutions now carry component="hw8-solutions".  Those four  -->
+<!-- use the "fillin-basic" pattern of hw1-online.ptx: a <var/> per blank,   -->
+<!-- matched in order by a <var> in <setup>, whose first <condition> is the  -->
+<!-- correct answer, and their component sits on the <solution> itself.     -->
 <section xml:id="sec-exercises-hw9-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 8</title>
 
   <introduction>
     <p>
-      Section: <xref ref="section-surface-integrals" text="title"/>.
+      Sections: <xref ref="section-surface-integrals" text="title"/> and
+      <xref ref="section-greens-theorem" text="title"/>. Work each problem,
+      then type your answers into the boxes and have them checked here.
     </p>
     <p>
       Press <q>Check Me</q> to submit; you may check as often as you like.
     </p>
     <p>
-      <term>How to type your answers.</term> Give numbers as decimals to at
-      least three places, with no units and no <m>\pi</m>. A negative answer
-      needs its minus sign.
+      <term>How to type your answers.</term> Numbers: a decimal number and
+      nothing else<mdash/>no units, no <m>=</m> sign, no <m>\pi</m>; give at
+      least three decimals (for instance <c>18.850</c>, not <c>6pi</c>), and
+      a negative answer needs its minus sign. Answers are accepted within a
+      small tolerance. Words: type just the word asked for, in lower case.
     </p>
   </introduction>
 
@@ -559,6 +569,324 @@
         <mrow>&amp;= -<eval obj="b"/> \cdot \frac{1}{4} \cdot (e-1)</mrow>
         <mrow>&amp;= <eval obj="k"/>\left(1 - e\right).</mrow>
       </md>
+    </solution>
+  </exercise>
+
+  <figure xml:id="fig-hw8o-staircase">
+    <caption>
+      The curve <m>C</m> of <xref ref="ex-hw8o-staircase"/>: a staircase of
+      ten unit steps from <m>(0,0)</m> to <m>(10,10)</m>, followed by the
+      horizontal segment back to <m>(0,10)</m>.
+    </caption>
+    <image width="70%">
+      <shortdescription>
+      A staircase of ten unit steps from the origin to (10,10), returning along the top.
+      </shortdescription>
+      <prefigure xmlns="https://prefigure.org" label="prefigure-hw8o-staircase">
+        <diagram dimensions="(360,340)" margins="10">
+          <coordinates bbox="(-1.6,-1.6,12.2,11.6)">
+            <axes at="hst-axes" xlabel="x" ylabel="y" decorations="no"
+                arrows="1"/>
+            <polygon at="hst-path" closed="no" stroke="#0072B2" thickness="2"
+                fill="none" points="((0,0),(1,0),(1,1),(2,1),(2,2),(3,2),(3,3),(4,3),(4,4),(5,4),(5,5),(6,5),(6,6),(7,6),(7,7),(8,7),(8,8),(9,8),(9,9),(10,9),(10,10),(0,10))"/>
+            <vector at="hst-a1" v="(0.9,0)" tail="(4.2,4)" stroke="#0072B2"
+                thickness="2"/>
+            <vector at="hst-a2" v="(-1.1,0)" tail="(5.6,10)" stroke="#0072B2"
+                thickness="2"/>
+            <point at="hst-start" p="(0,0)" fill="black" alignment="sw">
+              <m>(0,0)</m>
+            </point>
+            <point at="hst-corner" p="(10,10)" fill="black" alignment="se">
+              <m>(10,10)</m>
+            </point>
+            <point at="hst-end" p="(0,10)" fill="black" alignment="nw">
+              <m>(0,10)</m>
+            </point>
+          </coordinates>
+          <annotations>
+            <annotation ref="figure" text="A staircase path made of ten unit steps climbing from the origin to the point ten comma ten, each step going one unit to the right and then one unit up. From ten comma ten the path returns straight left along the line y equals ten to the point zero comma ten. Arrowheads show the direction of travel: rightward on the staircase and leftward on the top segment.">
+              <annotation ref="hst-path" text="The staircase path from the origin to ten comma ten and then back along y equals ten to zero comma ten."/>
+              <annotation ref="hst-a1" text="An arrowhead on the staircase pointing to the right, the direction of travel."/>
+              <annotation ref="hst-a2" text="An arrowhead on the top segment pointing to the left, the direction of travel back to zero comma ten."/>
+            </annotation>
+          </annotations>
+        </diagram>
+      </prefigure>
+    </image>
+  </figure>
+
+  <exercise xml:id="ex-hw8o-staircase">
+    <title>Work Along a Staircase</title>
+    <statement>
+      <p>
+        For <m>\mathbf{F} = \left\langle x^3e^{x^2}+xe^x-y,\
+        y^2-e^y+x \right\rangle</m> along the path of
+        <xref ref="fig-hw8o-staircase"/>: the curl integrand
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y}</m> of <xref ref="eq-curl-def"/>
+        equals <var width="6"/>.
+      </p>
+      <p>
+        Closing the path into a simple closed curve encloses an area of
+        <var width="8"/>, so the integral around that closed curve is
+        <var width="8"/>.
+      </p>
+      <p>The work along the given path is <var width="14"/>.</p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="2" tolerance="0.01">
+          <feedback>
+   <p>Correct.</p>
+ </feedback>
+        </condition>
+        <condition string=".*">
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="55" tolerance="0.5">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="110" tolerance="0.5">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="-21582.1" tolerance="1">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw8-solutions">
+      <p>
+        Closing the path with the segment <m>C_3</m> down the
+        <m>y</m>-axis gives a simple closed curve, and
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y} = 1-(-1) = 2</m>, so by Green's
+        theorem, <xref ref="eq-green-tangential"/>, the closed loop
+        integral is <m>2 \times 55 = 110</m>,
+        where <m>55 = 50 + 10\left(\frac12\right)</m> is the enclosed
+        area.
+      </p>
+      <p>
+        On <m>C_3</m>, <m>x = 0</m> and <m>dx = 0</m>, so
+        <m>\int_{C_3}\mathbf{F}\cdot d\mathbf{r}
+        = \int_{10}^{0}\left(y^2-e^y\right) dy
+        = -\frac{1000}{3}-1+e^{10}</m>. Therefore
+      </p>
+      <me>
+        W = 110 + \frac{1000}{3} + 1 - e^{10}
+        = \frac{1333}{3} - e^{10} \approx -21582.1 .
+      </me>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw8o-circle">
+    <title>A Fierce-Looking Integral Around a Circle</title>
+    <statement>
+      <p>
+        For the integral of <xref ref="ex-hw8o-circle"/> around the unit
+        circle: after simplification
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y}</m> equals <var width="8"/> (in
+        terms of <m>y</m>), and the integral equals <var width="10"/>.
+      </p>
+    </statement>
+    <setup>
+      <var case="insensitive">
+        <condition string="y\s*\^\s*2">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+         <condition string=".*">
+     <feedback>
+           <p>Incorrect.</p>
+         </feedback>
+   </condition>
+ </var>
+      <var>
+        <condition number="0.785" tolerance="0.005">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw8-solutions">
+      <p>
+        Differentiating, <m>\frac{\partial M}{\partial y}
+        = \frac{y}{\sqrt{x^2+y^2}}</m> and
+        <m>\frac{\partial N}{\partial x} = y\left(y +
+        \frac{1}{\sqrt{x^2+y^2}}\right)</m>, so their difference is
+        <m>y^2</m>. By Green's theorem,
+        <xref ref="eq-green-tangential"/>,
+      </p>
+      <me>
+        \oint_C = \iint_R y^2\,dx\,dy
+        = \int_0^{2\pi}\!\!\int_0^1 r^3\sin^2\theta\,dr\,d\theta
+        = \frac{\pi}{4} .
+      </me>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw8o-flux">
+    <title>Outward Flux Across the Unit Circle</title>
+    <statement>
+      <p>
+        For <m>\mathbf{F} = \left\langle x+y, -xy \right\rangle</m>:
+        the flux density <m>\nabla \cdot \mathbf{F}</m> of
+        <xref ref="eq-flux-density"/> equals
+        <m>1 - </m> <var width="6"/>, and the outward flux across the unit
+        circle is <var width="10"/>.
+      </p>
+    </statement>
+    <setup>
+      <var case="insensitive">
+        <condition string="x">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+         <condition string=".*">
+     <feedback>
+           <p>Incorrect.</p>
+         </feedback>
+   </condition>
+ </var>
+      <var>
+        <condition number="3.142" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw8-solutions">
+      <p>
+        Here <m>\nabla\cdot\mathbf{F} = 1 - x</m>, so by the flux form
+        of Green's theorem, <xref ref="eq-green-normal"/>,
+      </p>
+      <me>
+        \oint_C \mathbf{F}\cdot\hat{\mathbf{n}}\,ds
+        = \iint_R (1-x)\,dA
+        = \int_0^1\!\!\int_0^{2\pi}\left(1-r\cos\theta\right)
+        r\,d\theta\,dr = \pi ,
+      </me>
+      <p>
+        since the <m>x</m>-term integrates to zero by symmetry and what is
+        left is the area of the disk.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="ex-hw8o-rose">
+    <title>Green's Theorem on One Petal</title>
+    <statement>
+      <p>
+        For <m>\displaystyle\oint_C \left(y^4-2y\right) dx
+        - \left(6x-4xy^3\right) dy</m> around one petal of
+        <m>r = \sin(2\theta)</m>:
+        <m>\frac{\partial N}{\partial x} -
+        \frac{\partial M}{\partial y}</m> equals <var width="6"/>.
+      </p>
+      <p>
+        The area of the petal is <var width="8"/>, so the line integral is
+        <var width="10"/>.
+      </p>
+    </statement>
+    <setup>
+      <var>
+        <condition number="-4" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+         <condition string=".*">
+     <feedback>
+           <p>Incorrect.</p>
+         </feedback>
+   </condition>
+ </var>
+      <var>
+        <condition number="0.3927" tolerance="0.002">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+      <var>
+        <condition number="-1.571" tolerance="0.01">
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </condition>
+              <condition string=".*">
+          <feedback>
+                <p>Incorrect.</p>
+              </feedback>
+        </condition>
+      </var>
+    </setup>
+    <solution component="hw8-solutions">
+      <p>
+        With <m>M = y^4-2y</m> and <m>N = -(6x-4xy^3)</m>,
+        <m>\frac{\partial N}{\partial x} = -6+4y^3</m> and
+        <m>\frac{\partial M}{\partial y} = 4y^3-2</m>, so their
+        difference is <m>-4</m>. The petal has area
+      </p>
+      <me>
+        \int_0^{\pi/2}\!\!\int_0^{\sin 2\theta} r\,dr\,d\theta
+        = \int_0^{\pi/2}\frac{\sin^2(2\theta)}{2}\,d\theta
+        = \frac{\pi}{8} ,
+      </me>
+      <p>
+        so the integral is <m>(-4)\left(\frac{\pi}{8}\right)
+        = -\frac{\pi}{2}</m>. It is both the circulation of
+        <m>\mathbf{F}</m> around the petal and, read the other way, the
+        work done by <m>\mathbf{F}</m> on a particle going once around it.
+      </p>
     </solution>
   </exercise>
   </exercises>
