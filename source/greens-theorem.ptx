@@ -7,8 +7,10 @@
 <!-- two statements of Green's theorem, and the component test with the   -->
 <!-- curl determinant are kept; the flux and circulation computations     -->
 <!-- around the small rectangle, the proof of the tangential form, and the -->
-<!-- four worked examples are replaced by blank workspace boxes, each      -->
-<!-- preceded by a one-line instruction.  File name and xml:ids are        -->
+<!-- worked examples are replaced by blank workspace boxes, each          -->
+<!-- preceded by a one-line instruction.  The two forms of the theorem    -->
+<!-- are separate subsections, each with its own unit-circle example.     -->
+<!-- File name and xml:ids are                                             -->
 <!-- unchanged, so the assignments and the later sections still cite       -->
 <!-- eq-flux-density, eq-div-def, eq-curl-def, eq-green-normal,           -->
 <!-- eq-green-tangential and eq-component-test-3d.                        -->
@@ -716,9 +718,11 @@ compare with <xref ref="fig-unit-normal-circle"/>.)
 <figure xml:id="fig-unit-normal-circle">
 <caption>
 The unit tangent <m>\mathbf{T}</m> (pink) and the outward unit normal
-<m>\mathbf{n}</m> (green) at three points of the unit circle <m>C</m>,
-traversed counterclockwise. At every point the two vectors are
-perpendicular, and <m>\mathbf{n}</m> points out of the disk <m>R</m>.
+<m>\mathbf{n}</m> (green) at three points of the unit circle <m>C</m>;
+the arrowheads on <m>C</m> show the direction of the path,
+counterclockwise. At every point the two vectors are perpendicular, and
+<m>\mathbf{n}</m> is on the right as we move along <m>C</m> in the
+direction of the path, so it points out of the disk <m>R</m>.
 </caption>
 <image width="55%">
 <shortdescription>
@@ -735,6 +739,13 @@ The unit circle with a unit tangent vector and an outward unit normal vector dra
 <circle at="un-disk" center="(0,0)" radius="1" fill="#dff4f6"
         stroke="#00b0c0" thickness="3"/>
 <axes at="un-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<!-- arrowheads on C showing the direction of the path -->
+<parametric-curve at="un-dir-1" function="r" domain="(1.5,1.745)"
+                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
+<parametric-curve at="un-dir-2" function="r" domain="(3.6,3.84)"
+                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
+<parametric-curve at="un-dir-3" function="r" domain="(5.78,6.021)"
+                  stroke="#00b0c0" thickness="3" arrows="1" arrow-width="5"/>
 <!-- t = pi/6 -->
 <angle-marker at="un-right-1" p="r(pi/6)" p1="tipN(pi/6)" p2="tipT(pi/6)"
               radius="9" stroke="#555555" thickness="1"/>
@@ -777,7 +788,7 @@ The unit circle with a unit tangent vector and an outward unit normal vector dra
        clear-background="yes" background-margin="2">
 <m>\mathbf{n}</m>
 </label>
-<label at="un-C-label" anchor="(-0.74,-0.74)" alignment="sw" color="#00a0b0"
+<label at="un-C-label" anchor="(-0.36,-1.02)" alignment="sw" color="#00a0b0"
        clear-background="yes" background-margin="2">
 <m>C</m>
 </label>
@@ -787,8 +798,9 @@ The unit circle with a unit tangent vector and an outward unit normal vector dra
 </label>
 </coordinates>
 <annotations>
-<annotation ref="figure" text="The unit circle C drawn in teal around the shaded disk R. At three points of the circle a pink unit tangent vector T and a green unit normal vector n start from the same point; a small square marks the right angle between them. Every T points in the counterclockwise direction of travel, and every n points straight away from the center, out of the disk.">
+<annotation ref="figure" text="The unit circle C drawn in teal around the shaded disk R, with three arrowheads on it showing that the path runs counterclockwise. At three points of the circle a pink unit tangent vector T and a green unit normal vector n start from the same point; a small square marks the right angle between them. Every T points in the direction of travel, and every n is on the right of the direction of travel, pointing straight away from the center, out of the disk.">
   <annotation ref="un-disk" text="The unit circle C, traversed counterclockwise, enclosing the disk R."/>
+  <annotation ref="un-dir-1" text="An arrowhead on the circle near the top, pointing to the left: the path runs counterclockwise."/>
   <annotation ref="un-T-1" text="At the point at angle pi over 6, the unit tangent T points up and to the left, along the direction of travel."/>
   <annotation ref="un-n-1" text="At the same point, the outward unit normal n points away from the center, up and to the right."/>
   <annotation ref="un-T-2" text="At the point at angle 5 pi over 6, the unit tangent T points down and to the left."/>
@@ -827,7 +839,7 @@ from. (For <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j}</m>, write
 
 <!-- ================================================================ -->
 <subsection xml:id="sec-greens-theorem-forms">
-<title>The Two Forms of Green's Theorem</title>
+<title>Green's Theorem: The Flux-Divergence (Normal) Form</title>
 
 <p>
 Next we state Green's theorem in 2D<fn>Note that we only cover Green's
@@ -863,6 +875,54 @@ of divergence over } R}.
 </men>
 </statement>
 </theorem>
+
+<example xml:id="example-green-circle-normal">
+<title>Verifying the Normal Form on the Unit Circle</title>
+<statement>
+<p>
+Assume that the vector field
+<m>\mathbf{F}(x,y) = (x - y)\,\mathbf{i} + x\,\mathbf{j}</m> and the
+closed curve <m>C</m> is the unit circle centered at the origin.
+Convince yourself of the normal form of Green's theorem,
+<xref ref="eq-green-normal"/>, by applying it to this example.
+</p>
+<p>
+<em>Solution.</em>
+(Parametrize the circle, write <m>M</m>, <m>N</m>, <m>dx</m> and
+<m>dy</m> in terms of <m>t</m>, and compute the two partial derivatives
+the divergence needs. Evaluate the line integral
+<m>\oint_C M\,dy - N\,dx</m> and the double integral of the divergence
+separately and compare; the double integral reduces to the area of the
+disk. Check that the line integral has the same integrand as
+<m>\mathbf{F}\cdot\mathbf{n}\,ds</m> with the <m>\mathbf{n}</m> you
+found in <xref ref="example-unit-normal-circle"/>.)
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
+\draw[gray!35] (0,11.5) -- (15,11.5);
+\draw[gray!35] (0,9) -- (15,9);
+\draw[gray!35] (0,3.5) -- (15,3.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {$\mathbf r(t) =$ \qquad $M =$ \quad $N =$ \quad $dx =$ \quad $dy =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {$\dfrac{\partial M}{\partial x} =$ \qquad $\dfrac{\partial N}{\partial y} =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {normal form: $\displaystyle\oint_C M\,dy - N\,dx =$ \qquad $\displaystyle\iint_R \Big(\frac{\partial M}{\partial x} + \frac{\partial N}{\partial y}\Big)dA =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {the same integrand from $\mathbf F\cdot\mathbf n\,ds$:};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank box in four rows, for the parametrization with M, N, dx and dy, for the two partial derivatives of the divergence, for the two sides of the normal form, and for the integrand computed from the unit normal.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</example>
+
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="sec-green-tangential-form">
+<title>Green's Theorem: The Circulation-Curl (Tangential) Form</title>
 
 <p>
 The second form of Green's theorem connects the counterclockwise
@@ -1028,26 +1088,24 @@ the sum becomes the double integral.
        width="70%" aspect="16:9"/>
 </figure>
 
-<example xml:id="example-green-circle">
-<title>Verifying Both Forms on the Unit Circle</title>
+<example xml:id="example-green-circle-tangential">
+<title>Verifying the Tangential Form on the Unit Circle</title>
 <statement>
 <p>
-Assume that the vector field
+For the same vector field
 <m>\mathbf{F}(x,y) = (x - y)\,\mathbf{i} + x\,\mathbf{j}</m> and the
-closed curve <m>C</m> is the unit circle centered at the origin.
-Convince yourself of the two forms of Green's theorem by applying them
-to this example.
+same unit circle <m>C</m> as in
+<xref ref="example-green-circle-normal"/>, convince yourself of the
+tangential form of Green's theorem, <xref ref="eq-green-tangential"/>,
+by applying it to this example.
 </p>
 <p>
 <em>Solution.</em>
-(Parametrize the circle, write <m>M</m>, <m>N</m>, <m>dx</m> and
-<m>dy</m> in terms of <m>t</m>, and compute the four partial
-derivatives. For the normal form <xref ref="eq-green-normal"/>,
-evaluate the line integral <m>\oint_C M\,dy - N\,dx</m> and the double
-integral of the divergence separately and compare; for the tangential
-form <xref ref="eq-green-tangential"/>, do the same with
-<m>\oint_C M\,dx + N\,dy</m> and the curl. Both double integrals reduce
-to the area of the disk. The field is shown in
+(Reuse the parametrization and <m>M</m>, <m>N</m>, <m>dx</m>,
+<m>dy</m> from <xref ref="example-green-circle-normal"/>, and compute
+the other two partial derivatives. Evaluate the line integral
+<m>\oint_C M\,dx + N\,dy</m> and the double integral of the curl
+separately and compare. The field is shown in
 <xref ref="fig-green-circle"/>; compare with
 <xref ref="fig-green-circle-video"/>.)
 </p>
@@ -1056,17 +1114,13 @@ to the area of the disk. The field is shown in
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,18);
-\draw[gray!35] (0,14.5) -- (15,14.5);
-\draw[gray!35] (0,12) -- (15,12);
-\draw[gray!35] (0,6) -- (15,6);
-\node[anchor=north west, font=\small\itshape] at (0.35,17.7) {$\mathbf r(t) =$ \qquad $M =$ \quad $N =$ \quad $dx =$ \quad $dy =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,14.2) {$\dfrac{\partial M}{\partial x} =$ \quad $\dfrac{\partial M}{\partial y} =$ \quad $\dfrac{\partial N}{\partial x} =$ \quad $\dfrac{\partial N}{\partial y} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {normal form: $\displaystyle\oint_C M\,dy - N\,dx =$ \qquad $\displaystyle\iint_R \Big(\frac{\partial M}{\partial x} + \frac{\partial N}{\partial y}\Big)dA =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {tangential form: $\displaystyle\oint_C M\,dx + N\,dy =$ \qquad $\displaystyle\iint_R \Big(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\Big)dA =$};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
+\draw[gray!35] (0,7.5) -- (15,7.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\dfrac{\partial M}{\partial y} =$ \qquad $\dfrac{\partial N}{\partial x} =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {tangential form: $\displaystyle\oint_C M\,dx + N\,dy =$ \qquad $\displaystyle\iint_R \Big(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\Big)dA =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the parametrization with M, N, dx and dy, for the four partial derivatives, for the two sides of the normal form, and for the two sides of the tangential form.</shortdescription>
+<shortdescription>Blank box in two rows, for the two partial derivatives of the curl, and for the two sides of the tangential form.</shortdescription>
 </image>
 </sidebyside>
 </statement>
