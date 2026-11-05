@@ -711,8 +711,16 @@
     <title>A Fierce-Looking Integral Around a Circle</title>
     <statement>
       <p>
-        For the integral of <xref ref="ex-hw8o-circle"/> around the unit
-        circle: after simplification
+        Calculate the line integral
+        <me>
+          \oint_C \sqrt{x^2+y^2}\,dx
+          + y\left[xy + \ln\left(x + \sqrt{x^2+y^2}\right)\right] dy ,
+        </me>
+        where <m>C</m> is the circle <m>x^2 + y^2 = 1</m>, with
+        counterclockwise orientation.
+      </p>
+      <p>
+        After simplification,
         <m>\frac{\partial N}{\partial x} -
         \frac{\partial M}{\partial y}</m> equals <var width="8"/> (in
         terms of <m>y</m>), and the integral equals <var width="10"/>.
