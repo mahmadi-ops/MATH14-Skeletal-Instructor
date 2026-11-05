@@ -22,6 +22,10 @@
 <!-- box that derives it, so the equation numbers match the completed     -->
 <!-- notes.                                                                -->
 <!--                                                                       -->
+<!-- The closing Concept Check keeps its two statements and the ellipse    -->
+<!-- figure; each answer is a plain workspace box, as in the other Concept -->
+<!-- Checks of the book.                                                   -->
+<!--                                                                       -->
 <!-- Figures: all kept (the two small rectangles, the four field plots,   -->
 <!-- the unit circle with T and n, the proof region, the unit circle, the  -->
 <!-- tilted square and every video); each is the check on the box above   -->
@@ -1444,6 +1448,120 @@ around every closed curve is zero.
        source="videos/conservative_zero_1080p.mp4"
        width="70%" aspect="16:9"/>
 </figure>
+
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="subsec-green-questions">
+<title>Concept Check</title>
+
+<p>
+Both problems use Green's theorem in reverse: a line integral around the
+boundary of a region computes a double integral over the region, here
+its area and its first moments.
+</p>
+
+<figure xml:id="fig-green-ellipse-area">
+<caption>
+The region <m>E</m> inside the ellipse
+<m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m>, with its boundary <m>C</m>
+traversed counterclockwise.
+</caption>
+<image width="55%">
+<shortdescription>
+A shaded ellipse labeled E, with semi-axes a and b, and arrowheads on its boundary C pointing counterclockwise.
+</shortdescription>
+<prefigure xmlns="https://prefigure.org" label="prefigure-green-ellipse-area">
+<diagram dimensions="(340,240)" margins="10">
+<definition>ell(t) = (2*cos(t), 1.2*sin(t))</definition>
+<coordinates bbox="(-2.8,-1.75,2.8,1.75)">
+<parametric-curve at="ge-E" function="ell" domain="(0,2*pi)" closed="yes"
+                  fill="#d9d9d9" stroke="#3c6fbf" thickness="3"/>
+<axes at="ge-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<!-- arrowheads on C showing the counterclockwise direction -->
+<parametric-curve at="ge-dir-1" function="ell" domain="(1.75,2.0)"
+                  stroke="#3c6fbf" thickness="3" arrows="1" arrow-width="5"/>
+<parametric-curve at="ge-dir-2" function="ell" domain="(4.9,5.15)"
+                  stroke="#3c6fbf" thickness="3" arrows="1" arrow-width="5"/>
+<point at="ge-a" p="(2,0)" size="3" fill="black" alignment="se">
+<m>a</m>
+</point>
+<point at="ge-b" p="(0,1.2)" size="3" fill="black" alignment="ne">
+<m>b</m>
+</point>
+<label at="ge-E-label" anchor="(-0.9,0.4)" alignment="c">
+<m>E</m>
+</label>
+<label at="ge-C-label" anchor="(1.72,0.72)" alignment="ne" color="#3c6fbf"
+       clear-background="yes" background-margin="2">
+<m>C</m>
+</label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="An ellipse centered at the origin, wider than it is tall, crossing the positive x-axis at a and the positive y-axis at b. The region E inside it is shaded gray, and two arrowheads on its boundary C show that C is traversed counterclockwise.">
+  <annotation ref="ge-E" text="The ellipse x squared over a squared plus y squared over b squared equals 1, enclosing the shaded region E."/>
+  <annotation ref="ge-dir-1" text="An arrowhead near the top of the ellipse, pointing to the left: C is traversed counterclockwise."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<exercise xml:id="q-green-ellipse-area">
+<title>The area of an ellipse from a line integral</title>
+<statement>
+<p>
+Compute the area of the region <m>E</m> enclosed by the ellipse
+<m>\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1</m>, shown in
+<xref ref="fig-green-ellipse-area"/>, using the line integral of a
+vector field around its boundary <m>C</m>, traversed counterclockwise.
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,14);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,13.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for the area of the ellipse computed from a line integral.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</exercise>
+
+<exercise xml:id="q-green-centroid">
+<title>The centroid from a line integral around the boundary</title>
+<statement>
+<p>
+A lamina of constant density <m>\delta</m> occupies a region <m>R</m> in
+the <m>xy</m>-plane with boundary <m>C</m>, oriented counterclockwise.
+Show that its centroid (<xref ref="def-centroid"/>) has the coordinates
+<me>
+\bar{x} = \frac{1}{2A} \oint_C x^2\, dy
+\qquad \text{and} \qquad
+\bar{y} = -\frac{1}{2A} \oint_C y^2\, dx,
+</me>
+where <m>A</m> is the area of the region bounded by <m>C</m>.
+</p>
+
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,18);
+\node[anchor=north west, text=gray!60, font=\footnotesize\itshape]
+  at (0.25,17.75) {workspace};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank workspace for showing the two line-integral formulas for the centroid.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</exercise>
 
 </subsection>
 
