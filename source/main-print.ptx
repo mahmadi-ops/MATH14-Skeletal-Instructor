@@ -40,7 +40,7 @@
       <xi:include href="divergence-theorem.ptx" />
     </chapter>
 
-    <!-- The fourth chapter, "Assignments and Review Problems", is web-only:
+    <!-- The fourth chapter, "Assignments, Review Problems, and Exams", is web-only:
          its problems are Runestone fill-in exercises whose print form shows
          the answer-matching patterns and the "Correct." feedback literally,
          and they are meant to be worked online (answer boxes, randomized

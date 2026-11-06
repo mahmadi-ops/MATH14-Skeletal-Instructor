@@ -38,7 +38,7 @@
     </chapter>
 
     <!-- The written assignments are hidden from the build.  The same       -->
-    <!-- problems are auto-graded in "Assignments and Review Problems",     -->
+    <!-- problems are auto-graded in "Assignments, Review Problems, and Exams",     -->
     <!-- which also carries the worked solutions.  To bring this chapter    -->
     <!-- back, delete the two marker lines around it.                       -->
     <!-- HIDDEN-CHAPTER-BEGIN
@@ -62,7 +62,7 @@
     <!-- The numbers are hidden by assets/unnumbered-chapter.css, wired in  -->
     <!-- through html.css.extra in xsl/custom-html.xsl.                     -->
     <chapter xml:id="ch-problems">
-      <title>Assignments and Review Problems</title>
+      <title>Assignments, Review Problems, and Exams</title>
       <introduction>
         <p>
           The ten assignments and the review problem sets, in one place.
@@ -78,6 +78,23 @@
           the due date of its assignment; solutions for the review sets are
           posted the same way.
         </p>
+      </introduction>
+      <xi:include href="hw1-online.ptx" />
+      <xi:include href="hw2-online.ptx" />
+      <xi:include href="hw3-online.ptx" />
+      <xi:include href="review1-practice.ptx" />
+      <xi:include href="hw4-online.ptx" />
+      <xi:include href="hw5-online.ptx" />
+      <xi:include href="hw6-online.ptx" />
+      <xi:include href="review2-practice.ptx" />
+      <xi:include href="hw7-online.ptx" />
+      <xi:include href="hw8-online.ptx" />
+      <xi:include href="hw9-online.ptx" />
+      <xi:include href="review3-practice.ptx" />
+      <xi:include href="sample-past-exam-3.ptx" />
+      <xi:include href="hw10-online.ptx" />
+      <xi:include href="review4-practice.ptx" />
+      <conclusion>
         <assemblage xml:id="assemblage-tutor-guide">
           <title>Using the AI Tutor</title>
           <p>
@@ -272,22 +289,7 @@
             right or wrong, earns nothing.
           </p>
         </assemblage>
-      </introduction>
-      <xi:include href="hw1-online.ptx" />
-      <xi:include href="hw2-online.ptx" />
-      <xi:include href="hw3-online.ptx" />
-      <xi:include href="review1-practice.ptx" />
-      <xi:include href="hw4-online.ptx" />
-      <xi:include href="hw5-online.ptx" />
-      <xi:include href="hw6-online.ptx" />
-      <xi:include href="review2-practice.ptx" />
-      <xi:include href="hw7-online.ptx" />
-      <xi:include href="hw8-online.ptx" />
-      <xi:include href="hw9-online.ptx" />
-      <xi:include href="review3-practice.ptx" />
-      <xi:include href="sample-past-exam-3.ptx" />
-      <xi:include href="hw10-online.ptx" />
-      <xi:include href="review4-practice.ptx" />
+      </conclusion>
     </chapter>
 
   </book>
