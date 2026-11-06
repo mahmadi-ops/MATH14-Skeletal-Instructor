@@ -125,6 +125,7 @@ projection.
 <![CDATA[// A point P(rho, theta, phi) in spherical coordinates.
 // P = (1.15, 1.2, 1.5): theta0 = atan(1.2/1.15) = 46.2 deg, phi0 = acos(1.5/|OP|) = 47.9 deg
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(11cm);
 // Same viewpoint as the pgfplots figure (view={125}{20}).

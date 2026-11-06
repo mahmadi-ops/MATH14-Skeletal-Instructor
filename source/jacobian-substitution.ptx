@@ -772,6 +772,7 @@ top face is the bottom face raised one unit and shifted one unit in
 // three edges there ending at (1,0,0), (0,3,0) and (0,1,1).  (Labelled by
 // its corners: the bounding planes are what the student finds.)
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(13.5cm);
 // Same viewpoint as the pgfplots figure (view={115}{18}).
@@ -896,6 +897,7 @@ and orange.
 // c = 1.05).  One scene: S at the origin and E beside it, to the right
 // as seen from the viewpoint.
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 usepackage("amsmath");
 
 size(16cm);

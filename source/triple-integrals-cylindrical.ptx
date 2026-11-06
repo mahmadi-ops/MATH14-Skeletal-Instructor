@@ -101,6 +101,7 @@ and a vertical segment of length z connects the projection to P.
 <![CDATA[// A point P(r, theta, z) in cylindrical coordinates.
 // P = (1.3, 1.35, 1.55): its projection (r, theta, 0) is (1.3, 1.35, 0).
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(11cm);
 // Same viewpoint as the pgfplots figure (view={125}{20}).
@@ -316,6 +317,7 @@ on the z axis and meets the cylinder wall at the x y plane.
 // z = 1 - x^2 - y^2 and below the plane z = 4.  (Labelled with the given
 // equations: their cylindrical forms are what the student finds.)
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(10.5cm);
 // Same viewpoint as the pgfplots figure (view={125}{16}).

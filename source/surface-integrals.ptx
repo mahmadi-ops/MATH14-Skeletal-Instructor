@@ -119,6 +119,7 @@ plate, makes an angle <m>\theta</m> with the velocity arrows.
 <![CDATA[// A tilted plate S of area A in a uniform flow v0, with its normal n and
 // the angle theta between n and v0.
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(11.5cm);
 // Same viewpoint as the pgfplots figure (view={115}{18}).
@@ -341,6 +342,7 @@ perpendicular to both.
 // r_theta and r_phi themselves are not drawn) and the outward unit normal
 // n-hat at r(theta, phi).
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(12cm);
 // Same viewpoint as the pgfplots figure (view={115}{18}).
@@ -574,6 +576,7 @@ the axis.
 <![CDATA[// The cylinder x^2 + y^2 = 1 with its two orientations at one point:
 // n1 away from the z-axis and n2 = -n1 toward it.
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(9.5cm);
 // Same viewpoint as the pgfplots figure (view={115}{18}).
@@ -805,6 +808,7 @@ give the closed surface its positive, outward orientation.
 // the cap S1 with upward-and-outward normals and the disk S2 with
 // downward normals.
 import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
 
 size(11.5cm);
 // Same viewpoint as the pgfplots figure (view={115}{18}).
