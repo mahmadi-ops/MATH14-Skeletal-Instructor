@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Sample Past Exam 3, with solutions.
+
+  Compiled at the instructor's request from two of the instructor's
+  annotated solutions PDFs, the Fall 2025 third exam
+  (MATH_14_Exam__3_Fall2025-Solutions.pdf) and the Fall 2025 final
+  (Final-MATH14-Fall_2025-Solutions.pdf): six questions, one of them true
+  or false, with at least one on each Exam #3 topic (sections 2.8, 2.9,
+  2.10 and 3.1).
+
+    1  Exam 3, Q3: setting up the center of mass of the lamina r = cos(theta)
+       with density r + 1 (section 2.8).
+    2  Exam 3, Q2: a triple integral turned into one with constant limits by
+       a linear change of variables, then computed (section 2.9).
+    3  Final, Q6: the integral of (x + y) sin(x - y) over a tilted rectangle
+       by u = x - y, v = x + y (section 2.9).
+    4  Final, Q7: the outward flux of x i through the closed surface of the
+       region between z = x^2 + y^2 and z = 1.  The final asked for it by
+       the Divergence Theorem, which comes after Exam #3, so the statement
+       here asks for the two surface integrals instead (section 2.10); the
+       answer, pi/2, is the final's.
+    5  Final, Q8: a circulation around r = sin(theta) by Green's theorem
+       (section 3.1); "counterclockwise" is added to the statement.
+    6  Exam 3, Q4 (the clockwise rectangle) recast as the true/false
+       question, in the format of Sample Past Exam 2: the statement is
+       Green's theorem with the orientation left out, and the exam's
+       rectangle is the counterexample.
+
+  The remaining questions of the two exams are on Exam #1 and #2 topics
+  (line integrals, the spherical and cylindrical rewrites, the signs
+  bonus) or on the Divergence Theorem, and are left out.  The two
+  handwritten slips corrected: in Q2 the Jacobian matrix's entry
+  du/dy is -1/2, not 1/2 (the determinant is unchanged), and in Q1 the
+  moment about the x-axis is noted to vanish by symmetry.
+
+  Built like sample-past-exam-2.ptx: no point values, one exercise per
+  question, a task per part, a solution under each, figures where the key
+  drew one, and the "sec-exercises-" id prefix.  Included right after
+  Review Problems #3, in the skeletal book (MATH14-Skeletal) and in the
+  completed instructor book (MATH-14-Instructor); the two copies are
+  identical.
+-->
+<worksheet xml:id="sec-exercises-sample-past-exam-3" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Sample Past Exam 3</title>
+
+  <introduction>
+    <p>
+      A sample exam made of questions from past exams, with worked
+      solutions. Treat it as a closed-book exam of 65 minutes: no aids of
+      one's own (formula sheets, notes, phones, tablets, smart watches or
+      similar) are permitted, and you should write your work in a neat and
+      organized format and fully justify every step. Try the exam under the
+      same conditions before you look at the solutions. Its topics are those
+      of Exam #3, with links to the notes:
+    </p>
+    <p>
+      <ul>
+        <li><p><xref ref="section-mass-center-of-mass" text="title"/></p></li>
+        <li><p><xref ref="section-jacobian-substitution" text="title"/></p></li>
+        <li><p><xref ref="section-surface-integrals" text="title"/></p></li>
+        <li><p><xref ref="section-greens-theorem" text="title"/></p></li>
+      </ul>
+    </p>
+  </introduction>
+
+  <!-- ===================== Question 1 ===================== -->
+  <exercise xml:id="spe3-q1">
+    <statement>
+      <p>
+        A two-dimensional object has the shape given by
+        <m>r = \cos\theta</m> and density <m>\delta(r,\theta) = r + 1</m>.
+        Set up (do not evaluate) all the integrals required to compute the
+        center of mass of this object.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The curve <m>r = \cos\theta</m> is a circle: multiplying by
+        <m>r</m> gives <m>r^2 = r\cos\theta</m>, that is,
+        <md>
+          <mrow>
+            \amp x^2 + y^2 = x
+          </mrow>
+          <mrow>
+            \amp \quad\Longleftrightarrow\quad \left(x - \tfrac12\right)^2 + y^2 = \tfrac14 ,
+          </mrow>
+        </md>
+        the circle of radius <m>\frac12</m> centered at
+        <m>\left(\frac12, 0\right)</m> (<xref ref="fig-spe3-q1-disk"/>).
+        The object is the disk it bounds, swept out by
+        <me>
+          0 \le r \le \cos\theta, \qquad -\frac{\pi}{2} \le \theta \le \frac{\pi}{2} .
+        </me>
+      </p>
+      <figure xml:id="fig-spe3-q1-disk">
+        <caption>
+          The object of <xref ref="spe3-q1"/>: the disk bounded by <m>r = \cos\theta</m>, the circle of radius <m>\frac12</m> centered at <m>\left(\frac12,0\right)</m>. A ray at angle <m>\theta</m> leaves it at <m>r = \cos\theta</m>; the rays that meet it have <m>-\frac{\pi}{2} \le \theta \le \frac{\pi}{2}</m>.
+        </caption>
+        <image width="42%">
+          <shortdescription>
+          A shaded disk of radius one half centered at the point one half comma zero, touching the y axis at the origin, with a ray from the origin at angle theta ending on its boundary.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and y. A disk of radius one half, centered at the point one half comma zero on the x axis, is shaded tan; its boundary circle passes through the origin and the point one comma zero. A green ray from the origin at an angle theta above the x axis ends on the circle, where r equals cosine theta.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-spe3-q1-disk">
+            <diagram dimensions="(300,270)" margins="10">
+              <definition>circ(t) = (0.5 + 0.5*cos(t), 0.5*sin(t))</definition>
+              <coordinates bbox="(-0.35,-0.72,1.32,0.78)">
+              <circle at="q1-disk" center="(0.5,0)" radius="0.5" fill="#fbe3d0" stroke="none"/>
+              <axes at="q1-axes" xlabel="x" ylabel="y" hlabels="(0.5,0.5,1)" vlabels="(-0.5,1,0.5)" arrows="1"/>
+              <parametric-curve at="q1-circle" function="circ" domain="(0,2*pi)" stroke="#0072B2" thickness="3"/>
+              <line at="q1-ray" endpoints="((0,0),(0.75,0.433))" stroke="#009E73" thickness="2.5"/>
+              <point at="q1-center" p="(0.5,0)" fill="black" size="3.5"/>
+              <point at="q1-end" p="(0.75,0.433)" fill="#009E73" size="3.5"/>
+              <label at="q1-rlab" anchor="(0.75,0.433)" alignment="ne" offset="(4,2)" color="#009E73"><m>r = \cos\theta</m></label>
+              <label at="q1-thetalab" anchor="(0.2,0.04)" alignment="ne" color="#009E73"><m>\theta</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The disk of radius one half centered at one half comma zero, the object.">
+                <annotation ref="q1-disk" text="The shaded disk."/>
+                <annotation ref="q1-circle" text="Its boundary circle, r equals cosine theta in polar coordinates." sonify="yes"/>
+                <annotation ref="q1-ray" text="A ray from the origin at angle theta, which leaves the disk at r equals cosine theta."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+        In polar coordinates <m>dA = r\,dr\,d\theta</m>,
+        <m>x = r\cos\theta</m> and <m>y = r\sin\theta</m>. The mass and the
+        two moments are
+      </p>
+      <md>
+        <mrow>
+          \amp M = \int_{-\pi/2}^{\pi/2}\!\int_0^{\cos\theta} (r+1)\,r\,dr\,d\theta,
+        </mrow>
+        <mrow>
+          \amp M_y = \int_{-\pi/2}^{\pi/2}\!\int_0^{\cos\theta} r\cos\theta\,(r+1)\,r\,dr\,d\theta,
+        </mrow>
+        <mrow>
+          \amp M_x = \int_{-\pi/2}^{\pi/2}\!\int_0^{\cos\theta} r\sin\theta\,(r+1)\,r\,dr\,d\theta,
+        </mrow>
+      </md>
+      <p>
+        and the center of mass is
+        <me>
+          \bar x = \frac{M_y}{M}, \qquad \bar y = \frac{M_x}{M} .
+        </me>
+        (Since the disk is symmetric about the <m>x</m>-axis and the density
+        depends on <m>r</m> alone, the integrand of <m>M_x</m> is odd in
+        <m>\theta</m>: <m>M_x = 0</m> and <m>\bar y = 0</m>.)
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Question 2 ===================== -->
+  <exercise xml:id="spe3-q2">
+    <introduction>
+      <p>
+        Consider the integral
+      </p>
+      <me>
+        \int_0^3\!\!\int_0^4\!\!\int_{y/2}^{(y/2)+1}
+        \left(\frac{2x-y}{2} + \frac{z}{3}\right) dx\,dy\,dz .
+      </me>
+    </introduction>
+
+    <task xml:id="spe3-q2-a">
+      <statement>
+        <p>
+          Rewrite this integral in such a way that the limits of
+          integration are all constants (as opposed to functions).
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The inner limits say
+          <m>\frac{y}{2} \le x \le \frac{y}{2} + 1</m>, that is,
+          <m>0 \le x - \frac{y}{2} \le 1</m>. So set
+          <me>
+            u = x - \frac{y}{2}, \qquad v = y, \qquad w = \frac{z}{3},
+          </me>
+          which turns the region into the box
+          <me>
+            0 \le u \le 1, \quad 0 \le v \le 4, \quad 0 \le w \le 1 .
+          </me>
+          The Jacobian of the map from <m>(x,y,z)</m> to <m>(u,v,w)</m> is
+        </p>
+        <md>
+          <mrow>
+            \amp \frac{\partial(u,v,w)}{\partial(x,y,z)}
+            = \begin{vmatrix}
+                1 &amp; -\frac12 &amp; 0 \\
+                0 &amp; 1 &amp; 0 \\
+                0 &amp; 0 &amp; \frac13
+              \end{vmatrix} = \frac13,
+          </mrow>
+          <mrow>
+            \amp \text{so}\quad \frac{\partial(x,y,z)}{\partial(u,v,w)} = 3 .
+          </mrow>
+        </md>
+        <p>
+          The integrand is <m>\frac{2x-y}{2} + \frac{z}{3} = u + w</m>, and
+          therefore
+        </p>
+        <md>
+          <mrow>
+            \amp \int_0^3\!\!\int_0^4\!\!\int_{y/2}^{(y/2)+1}
+            \left(\frac{2x-y}{2} + \frac{z}{3}\right) dx\,dy\,dz
+          </mrow>
+          <mrow>
+            \amp \qquad = \int_0^1\!\!\int_0^4\!\!\int_0^1 (u + w)\,(3)\,du\,dv\,dw .
+          </mrow>
+        </md>
+      </solution>
+    </task>
+
+    <task xml:id="spe3-q2-b">
+      <statement>
+        <p>
+          Compute the integral.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The integrand does not involve <m>v</m>, so the <m>v</m>-integral
+          gives a factor of <m>4</m>:
+        </p>
+        <md>
+          <mrow>
+            \amp \int_0^1\!\!\int_0^4\!\!\int_0^1 3(u + w)\,du\,dv\,dw
+          </mrow>
+          <mrow>
+            \amp \quad = 12\int_0^1 \left[\frac{u^2}{2} + uw\right]_{u=0}^{u=1} dw
+          </mrow>
+          <mrow>
+            \amp \quad = 12\int_0^1 \left(\frac12 + w\right) dw
+          </mrow>
+          <mrow>
+            \amp \quad = 12\left(\frac12 + \frac12\right) = 12 .
+          </mrow>
+        </md>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ===================== Question 3 ===================== -->
+  <exercise xml:id="spe3-q3">
+    <statement>
+      <p>
+        Use appropriate substitutions to calculate
+      </p>
+      <me>
+        \iint_R (x + y)\sin(x - y)\,dx\,dy ,
+      </me>
+      <p>
+        where <m>R</m> is the interior of the region enclosed by
+        <m>y = x</m>, <m>y = x - 2</m>, <m>y = -x</m>, and
+        <m>y = -x + 1</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The four lines are <m>x - y = 0</m>, <m>x - y = 2</m>,
+        <m>x + y = 0</m> and <m>x + y = 1</m>, so take
+        <me>
+          u = x - y, \qquad v = x + y .
+        </me>
+        The region <m>R</m> becomes the rectangle
+        <m>S : 0 \le u \le 2,\ 0 \le v \le 1</m>
+        (<xref ref="fig-spe3-q3-regions"/>). Solving for <m>x</m> and
+        <m>y</m>,
+        <me>
+          x = \frac{u + v}{2}, \qquad y = \frac{v - u}{2},
+        </me>
+        and
+      </p>
+      <me>
+        \frac{\partial(x,y)}{\partial(u,v)}
+        = \begin{vmatrix} \frac12 &amp; \frac12 \\ -\frac12 &amp; \frac12 \end{vmatrix}
+        = \frac14 + \frac14 = \frac12 .
+      </me>
+      <figure xml:id="fig-spe3-q3-regions">
+        <caption>
+          The region <m>R</m> of <xref ref="spe3-q3"/>, bounded by the lines <m>x - y = 0</m>, <m>x - y = 2</m>, <m>x + y = 0</m> and <m>x + y = 1</m> (left), and its image <m>S</m>, the rectangle <m>0 \le u \le 2</m>, <m>0 \le v \le 1</m>, under <m>u = x - y</m>, <m>v = x + y</m> (right).
+        </caption>
+        <sidebyside widths="48% 48%" margins="0%">
+          <image>
+            <shortdescription>
+            A tilted rectangle in the x y plane with corners at the origin, one half comma one half, three halves comma minus one half, and one comma minus one.
+            </shortdescription>
+            <description>
+              <p>
+              Coordinate axes x and y. The region R is a tilted rectangle shaded tan, with corners at the origin, at one half comma one half, at three halves comma minus one half, and at one comma minus one. Its two red sides lie on the lines y equals x and y equals x minus two, and its two green sides on the lines y equals minus x and y equals minus x plus one.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-spe3-q3-R">
+              <diagram dimensions="(260,250)" margins="10">
+                <coordinates bbox="(-0.5,-1.4,2.0,1.0)">
+                <polygon at="q3-R" points="((0,0),(0.5,0.5),(1.5,-0.5),(1,-1))" fill="#fbe3d0" stroke="none" closed="yes"/>
+                <axes at="q3-axes" xlabel="x" ylabel="y" hlabels="(1,1,1)" vlabels="(-1,2,1)" arrows="1"/>
+                <line at="q3-l1" endpoints="((0,0),(0.5,0.5))" stroke="#D55E00" thickness="3"/>
+                <line at="q3-l2" endpoints="((1,-1),(1.5,-0.5))" stroke="#D55E00" thickness="3"/>
+                <line at="q3-l3" endpoints="((0,0),(1,-1))" stroke="#009E73" thickness="3"/>
+                <line at="q3-l4" endpoints="((0.5,0.5),(1.5,-0.5))" stroke="#009E73" thickness="3"/>
+                <label at="q3-Rlab" anchor="(0.75,-0.25)"><m>R</m></label>
+                <label at="q3-l1lab" anchor="(0.25,0.25)" alignment="nw" offset="(-2,2)" color="#D55E00"><m>y = x</m></label>
+                <label at="q3-l2lab" anchor="(1.25,-0.75)" alignment="se" offset="(2,-2)" color="#D55E00"><m>y = x - 2</m></label>
+                <label at="q3-l4lab" anchor="(1.0,0.0)" alignment="ne" offset="(4,2)" color="#009E73"><m>y = -x + 1</m></label>
+                <label at="q3-l3lab" anchor="(0.5,-0.5)" alignment="sw" offset="(-2,-2)" color="#009E73"><m>y = -x</m></label>
+                </coordinates>
+                <annotations>
+                <annotation ref="figure" text="The tilted rectangle R in the x y plane.">
+                  <annotation ref="q3-R" text="The region R, with corners at the origin, one half comma one half, three halves comma minus one half, and one comma minus one."/>
+                  <annotation ref="q3-l1" text="The side on y equals x."/>
+                  <annotation ref="q3-l2" text="The side on y equals x minus two."/>
+                  <annotation ref="q3-l3" text="The side on y equals minus x."/>
+                  <annotation ref="q3-l4" text="The side on y equals minus x plus one."/>
+                </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+          <image>
+            <shortdescription>
+            The rectangle in the u v plane with u from zero to two and v from zero to one.
+            </shortdescription>
+            <description>
+              <p>
+              Coordinate axes u and v. The region S is the rectangle shaded tan with u from zero to two and v from zero to one. Its red sides are u equals zero and u equals two, and its green sides v equals zero and v equals one.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-spe3-q3-S">
+              <diagram dimensions="(300,190)" margins="10">
+                <coordinates bbox="(-0.4,-0.4,2.6,1.5)">
+                <polygon at="q3-S" points="((0,0),(2,0),(2,1),(0,1))" fill="#fbe3d0" stroke="none" closed="yes"/>
+                <axes at="q3s-axes" xlabel="u" ylabel="v" hlabels="(1,1,2)" vlabels="(1,1,1)" arrows="1"/>
+                <line at="q3-s1" endpoints="((0,0),(0,1))" stroke="#D55E00" thickness="3"/>
+                <line at="q3-s2" endpoints="((2,0),(2,1))" stroke="#D55E00" thickness="3"/>
+                <line at="q3-s3" endpoints="((0,0),(2,0))" stroke="#009E73" thickness="3"/>
+                <line at="q3-s4" endpoints="((0,1),(2,1))" stroke="#009E73" thickness="3"/>
+                <label at="q3-Slab" anchor="(1,0.5)"><m>S</m></label>
+                </coordinates>
+                <annotations>
+                <annotation ref="figure" text="The rectangle S in the u v plane.">
+                  <annotation ref="q3-S" text="The rectangle S, with u from zero to two and v from zero to one."/>
+                </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </sidebyside>
+      </figure>
+      <p>
+        In the new variables the integrand is <m>v\sin u</m>, so
+      </p>
+      <md>
+        <mrow>
+          \amp \iint_R (x + y)\sin(x - y)\,dx\,dy
+        </mrow>
+        <mrow>
+          \amp \quad = \iint_S v\sin u\,\left|\frac{\partial(x,y)}{\partial(u,v)}\right| du\,dv
+        </mrow>
+        <mrow>
+          \amp \quad = \frac12\left(\int_0^2 \sin u\,du\right)\left(\int_0^1 v\,dv\right)
+        </mrow>
+        <mrow>
+          \amp \quad = \frac12\bigl(1 - \cos 2\bigr)\left(\frac12\right)
+        </mrow>
+        <mrow>
+          \amp \quad = \frac14\bigl(1 - \cos 2\bigr) .
+        </mrow>
+      </md>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Question 4 ===================== -->
+  <exercise xml:id="spe3-q4">
+    <statement>
+      <p>
+        Evaluate the <alert>outward flux</alert> of the vector field
+        <m>\mathbf{F} = x\,\mathbf{i}</m> through the <alert>closed</alert>
+        surface <m>S</m> of the region bounded by <m>z = x^2 + y^2</m> and
+        <m>z = 1</m>, by computing the flux through each of the two pieces
+        of <m>S</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The surface <m>S</m> consists of the flat disk <m>S_1</m> on top,
+        where <m>z = 1</m> and <m>x^2 + y^2 \le 1</m>, and the piece
+        <m>S_2</m> of the paraboloid <m>z = x^2 + y^2</m> below it, over the
+        same unit disk <m>D</m> (<xref ref="fig-spe3-q4-solid"/>).
+      </p>
+      <p>
+        <em>The top <m>S_1</m>.</em> The outward normal is
+        <m>\hat{\mathbf n} = \mathbf{k}</m>, and
+        <m>\mathbf{F}\cdot\mathbf{k} = 0</m>, so the flux through
+        <m>S_1</m> is <m>0</m>.
+      </p>
+      <p>
+        <em>The paraboloid <m>S_2</m>.</em> For the graph
+        <m>z = g(x,y) = x^2 + y^2</m> the upward normal is
+        <m>\hat{\mathbf n}\,d\sigma = \langle -g_x, -g_y, 1\rangle\,dA
+        = \langle -2x, -2y, 1\rangle\,dA</m>. The region lies above
+        <m>S_2</m>, so the outward normal there points down:
+      </p>
+      <md>
+        <mrow>
+          \amp \hat{\mathbf n}\,d\sigma = \langle 2x,\ 2y,\ -1\rangle\,dA,
+        </mrow>
+        <mrow>
+          \amp \mathbf{F}\cdot\hat{\mathbf n}\,d\sigma = \langle x, 0, 0\rangle\cdot\langle 2x, 2y, -1\rangle\,dA
+        </mrow>
+        <mrow>
+          \amp \quad = 2x^2\,dA .
+        </mrow>
+      </md>
+      <p>
+        In polar coordinates over <m>D</m>,
+      </p>
+      <md>
+        <mrow>
+          \amp \iint_{S_2} \mathbf{F}\cdot\hat{\mathbf n}\,d\sigma
+        </mrow>
+        <mrow>
+          \amp \quad = \int_0^{2\pi}\!\!\int_0^1 2r^2\cos^2\theta\; r\,dr\,d\theta
+        </mrow>
+        <mrow>
+          \amp \quad = 2\left(\int_0^{2\pi}\cos^2\theta\,d\theta\right)\left(\int_0^1 r^3\,dr\right)
+        </mrow>
+        <mrow>
+          \amp \quad = 2\,(\pi)\left(\frac14\right) = \frac{\pi}{2} .
+        </mrow>
+      </md>
+      <p>
+        The outward flux through <m>S</m> is therefore
+        <m>0 + \frac{\pi}{2} = \frac{\pi}{2}</m>.
+      </p>
+      <figure xml:id="fig-spe3-q4-solid">
+        <caption>
+          The closed surface of <xref ref="spe3-q4"/>: the paraboloid <m>z = x^2 + y^2</m> (blue) capped by the disk <m>z = 1</m> (orange), with an outward normal on each piece. On the cap the normal is <m>\mathbf{k}</m>; on the paraboloid it points down and away from the <m>z</m>-axis.
+        </caption>
+        <image width="55%">
+          <shortdescription>
+          A bowl-shaped paraboloid opening upward from the origin, capped at height one by a flat disk, with an upward normal arrow on the cap and an outward, downward-slanting normal arrow on the side of the bowl.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x, y and z. A translucent blue paraboloid z equals x squared plus y squared rises from the origin to height one, where an orange disk of radius one closes it. A green arrow points straight up from the center of the disk. A second green arrow starts on the side of the bowl and points down and away from the z axis.
+            </p>
+          </description>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
+                      \definecolor{oiblue}{RGB}{0,114,178}
+                      \definecolor{oiorange}{RGB}{213,94,0}
+                      \definecolor{oigreen}{RGB}{0,158,115}
+                      \begin{axis}[
+                          view={40}{22},
+                          width=10cm,
+                          axis lines=center,
+                          axis line style={-latex, black!70, line width=0.7pt},
+                          xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+                          label style={font=\large},
+                          ticks=none,
+                          xmin=-1.5, xmax=1.6, ymin=-1.5, ymax=1.6, zmin=0, zmax=1.7,
+                          clip=false,
+                          unit vector ratio=1 1 1,
+                        ]
+                        % the paraboloid z = r^2, 0 <= r <= 1
+                        \addplot3[surf, shader=faceted, faceted color=oiblue!30,
+                                  colormap={wallspe3}{color=(oiblue!12!white) color=(oiblue!50!white)},
+                                  opacity=0.6, fill opacity=0.6,
+                                  domain=0:1, samples=10, y domain=0:360, samples y=28,
+                                  z buffer=sort, forget plot]
+                          ({x*cos(y)}, {x*sin(y)}, {x^2});
+                        % the cap z = 1
+                        \addplot3[surf, shader=flat, color=oiorange!25, opacity=0.55, fill opacity=0.55,
+                                  domain=0:1, samples=4, y domain=0:360, samples y=28,
+                                  z buffer=sort, forget plot]
+                          ({x*cos(y)}, {x*sin(y)}, 1);
+                        \addplot3[oiorange, thick, domain=0:360, samples=72]
+                          ({cos(x)}, {sin(x)}, 1);
+                        % outward normals
+                        \draw[-latex, oigreen, line width=1.4pt] (axis cs:0,0,1) -- (axis cs:0,0,1.55);
+                        \node[oigreen, anchor=west] at (axis cs:0.05,0,1.5) {$\mathbf{k}$};
+                        \draw[-latex, oigreen, line width=1.4pt] (axis cs:0,0.7,0.49) -- (axis cs:0,1.08,0.22);
+                        \node[oigreen, anchor=north west] at (axis cs:0,1.08,0.22) {$\hat{\mathbf n}$};
+                        \node[oiblue, font=\large, anchor=east] at (axis cs:0,-0.95,0.75) {$S_2$};
+                        \node[oiorange, font=\large, anchor=south] at (axis cs:0.6,-0.6,1.02) {$S_1$};
+                      \end{axis}
+                    \end{tikzpicture}]]>
+          </latex-image>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Question 5 ===================== -->
+  <exercise xml:id="spe3-q5">
+    <statement>
+      <p>
+        Use Green's theorem to calculate the line integral
+      </p>
+      <me>
+        \oint_C -y\,dx + x\,dy ,
+      </me>
+      <p>
+        where <m>C</m> is the curve <m>r = \sin\theta</m>, traversed
+        counterclockwise.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Multiplying <m>r = \sin\theta</m> by <m>r</m> gives
+        <m>r^2 = r\sin\theta</m>, that is,
+        <md>
+          <mrow>
+            \amp x^2 + y^2 = y
+          </mrow>
+          <mrow>
+            \amp \quad\Longleftrightarrow\quad x^2 + \left(y - \tfrac12\right)^2 = \left(\tfrac12\right)^2 ,
+          </mrow>
+        </md>
+        the circle of radius <m>\frac12</m> centered at
+        <m>\left(0, \frac12\right)</m>
+        (<xref ref="fig-spe3-q5-circle"/>). Let <m>R</m> be the disk it
+        encloses. With <m>M = -y</m> and <m>N = x</m>,
+        <m>\dfrac{\partial N}{\partial x} = 1</m> and
+        <m>\dfrac{\partial M}{\partial y} = -1</m>, so by Green's theorem
+      </p>
+      <md>
+        <mrow>
+          \amp \oint_C M\,dx + N\,dy
+        </mrow>
+        <mrow>
+          \amp \quad = \iint_R \left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right) dA
+        </mrow>
+        <mrow>
+          \amp \quad = \iint_R (1 + 1)\,dA = 2\,\bigl(\text{area of } R\bigr)
+        </mrow>
+        <mrow>
+          \amp \quad = 2\,\pi\left(\frac12\right)^2 = \frac{\pi}{2} .
+        </mrow>
+      </md>
+      <figure xml:id="fig-spe3-q5-circle">
+        <caption>
+          The curve <m>C</m> of <xref ref="spe3-q5"/>: <m>r = \sin\theta</m> is the circle of radius <m>\frac12</m> centered at <m>\left(0,\frac12\right)</m>, and <m>R</m> is the disk it encloses.
+        </caption>
+        <image width="38%">
+          <shortdescription>
+          A shaded disk of radius one half centered at the point zero comma one half, touching the x axis at the origin.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and y. A disk of radius one half, centered at the point zero comma one half on the y axis, is shaded tan; its boundary circle, drawn in blue, passes through the origin and the point zero comma one.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-spe3-q5-circle">
+            <diagram dimensions="(260,240)" margins="10">
+              <definition>circ(t) = (0.5*cos(t), 0.5 + 0.5*sin(t))</definition>
+              <coordinates bbox="(-0.8,-0.28,0.8,1.2)">
+              <circle at="q5-disk" center="(0,0.5)" radius="0.5" fill="#fbe3d0" stroke="none"/>
+              <axes at="q5-axes" xlabel="x" ylabel="y" hlabels="(-0.5,1,0.5)" vlabels="(0.5,0.5,1)" arrows="1"/>
+              <parametric-curve at="q5-circle" function="circ" domain="(0,2*pi)" stroke="#0072B2" thickness="3"/>
+              <point at="q5-center" p="(0,0.5)" fill="black" size="3.5"/>
+              <label at="q5-Rlab" anchor="(-0.22,0.62)"><m>R</m></label>
+              <label at="q5-clab" anchor="(0.354,0.854)" alignment="ne" offset="(3,3)" color="#0072B2"><m>r = \sin\theta</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The disk of radius one half centered at zero comma one half.">
+                <annotation ref="q5-disk" text="The shaded disk R."/>
+                <annotation ref="q5-circle" text="Its boundary circle C, r equals sine theta in polar coordinates." sonify="yes"/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Question 6 ===================== -->
+  <!-- Question 4 of the Fall 2025 third exam, recast as true or false. -->
+  <exercise xml:id="spe3-q6">
+    <statement>
+      <p>
+        <alert>True or False?</alert> If the statement is true, prove it;
+        if it is false, give a counterexample.
+      </p>
+      <p>
+        Let <m>C</m> be a simple closed curve that bounds a region <m>R</m>,
+        and let <m>M</m> and <m>N</m> have continuous first partial
+        derivatives on an open region containing <m>R</m>. Then
+      </p>
+      <md>
+        <mrow>
+          \amp \oint_C M\,dx + N\,dy
+        </mrow>
+        <mrow>
+          \amp \quad = \iint_R \left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right) dA ,
+        </mrow>
+      </md>
+      <p>
+        whichever direction <m>C</m> is traversed in.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <alert>False.</alert> Green's theorem holds when <m>C</m> is
+        traversed <em>counterclockwise</em>, with <m>R</m> on the left;
+        reversing the direction changes the sign of the line integral but
+        not of the double integral. A counterexample: let <m>C</m> be the
+        rectangle with vertices <m>(1,1)</m>, <m>(3,1)</m>, <m>(3,4)</m> and
+        <m>(1,4)</m>, traversed <alert>clockwise</alert>
+        (<xref ref="fig-spe3-q6-rectangle"/>), with
+        <m>M = \ln x + y</m> and <m>N = -x^2</m>.
+      </p>
+      <p>
+        Here
+        <m>\dfrac{\partial N}{\partial x} - \dfrac{\partial M}{\partial y}
+        = -2x - 1 = -(2x + 1)</m>, so the right-hand side is
+      </p>
+      <md>
+        <mrow>
+          \amp \iint_R \left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right) dA
+        </mrow>
+        <mrow>
+          \amp \quad = -\int_1^3\!\!\int_1^4 (2x + 1)\,dy\,dx
+        </mrow>
+        <mrow>
+          \amp \quad = -3\left[x^2 + x\right]_{x=1}^{x=3}
+        </mrow>
+        <mrow>
+          \amp \quad = -3\,(12 - 2) = -30 .
+        </mrow>
+      </md>
+      <p>
+        By Green's theorem this is the integral around the rectangle
+        <em>counterclockwise</em>, which we write <m>-C</m>. Our <m>C</m>
+        runs the other way, so
+      </p>
+      <md>
+        <mrow>
+          \amp \oint_{C} M\,dx + N\,dy = -\oint_{-C} M\,dx + N\,dy
+        </mrow>
+        <mrow>
+          \amp \quad = -(-30) = 30 \ne -30 .
+        </mrow>
+      </md>
+      <figure xml:id="fig-spe3-q6-rectangle">
+        <caption>
+          The counterexample of <xref ref="spe3-q6"/>: the rectangle with vertices <m>(1,1)</m>, <m>(3,1)</m>, <m>(3,4)</m> and <m>(1,4)</m>, traversed clockwise, so that the region <m>R</m> is on the right.
+        </caption>
+        <image width="34%">
+          <shortdescription>
+          A shaded rectangle from x equals one to three and y equals one to four, its sides drawn with arrows going clockwise.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and y. The rectangle R with corners one comma one, three comma one, three comma four and one comma four is shaded tan. Its four sides are drawn in blue with arrowheads showing clockwise travel: up the left side, right along the top, down the right side, and left along the bottom.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-spe3-q6-rectangle">
+            <diagram dimensions="(240,290)" margins="10">
+              <coordinates bbox="(-0.4,-0.4,4.0,4.9)">
+              <polygon at="q6-R" points="((1,1),(3,1),(3,4),(1,4))" fill="#fbe3d0" stroke="none" closed="yes"/>
+              <axes at="q6-axes" xlabel="x" ylabel="y" hlabels="(1,1,3)" vlabels="(1,1,4)" arrows="1"/>
+              <line at="q6-left" endpoints="((1,1),(1,4))" stroke="#0072B2" thickness="3" arrows="1"/>
+              <line at="q6-top" endpoints="((1,4),(3,4))" stroke="#0072B2" thickness="3" arrows="1"/>
+              <line at="q6-right" endpoints="((3,4),(3,1))" stroke="#0072B2" thickness="3" arrows="1"/>
+              <line at="q6-bottom" endpoints="((3,1),(1,1))" stroke="#0072B2" thickness="3" arrows="1"/>
+              <label at="q6-Rlab" anchor="(2,2.5)"><m>R</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The rectangle R, traversed clockwise.">
+                <annotation ref="q6-R" text="The rectangle with corners one comma one, three comma one, three comma four and one comma four."/>
+                <annotation ref="q6-left" text="Up the left side, from one comma one to one comma four."/>
+                <annotation ref="q6-top" text="Right along the top, to three comma four."/>
+                <annotation ref="q6-right" text="Down the right side, to three comma one."/>
+                <annotation ref="q6-bottom" text="Left along the bottom, back to one comma one."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </solution>
+  </exercise>
+</worksheet>
