@@ -16,8 +16,9 @@
 
   <p>
     Sections: <xref ref="section-mass-center-of-mass" text="title"/>, <xref ref="section-jacobian-substitution" text="title"/>,
-    <xref ref="section-surface-integrals" text="title"/>, and
-    <xref ref="section-greens-theorem" text="title"/>.
+    <xref ref="section-surface-integrals" text="title"/>,
+    <xref ref="section-greens-theorem" text="title"/>, and
+    <xref ref="section-stokes-theorem" text="title"/>.
   </p>
 
   <p>
@@ -62,13 +63,14 @@
         <m>u = 9</m>, <m>v = 1</m>, <m>v = 36</m>,
         so <m>D</m> becomes a rectangle and
       </p>
-      <me>
-        \text{Area}
-        = \int_1^{36}\!\!\int_1^{9}
-          \frac{1}{v}\,du\,dv
-        = \left(9 - 1\right)
-          \ln\!\left(36\right).
-      </me>
+      <md>
+        <mrow>
+          \text{Area} \amp = \int_1^{36}\!\!\int_1^{9} \frac{1}{v}\,du\,dv
+        </mrow>
+        <mrow>
+          \amp = \left(9 - 1\right)\ln\!\left(36\right).
+        </mrow>
+      </md>
       <p>
         Here the four curves are <m>u = 1</m>, <m>u = 9</m>, <m>v = 1</m> and
 <m>v = 36</m>, so the area is
@@ -231,10 +233,14 @@
         symmetry of <m>W</m> and of <m>\rho</m> in <m>x</m> and <m>y</m>.
         Dividing,
       </p>
-      <me>
-        \left(x_{\mathrm{CM}}, y_{\mathrm{CM}}, z_{\mathrm{CM}}\right)
-        = \left(\frac29, \frac29, \frac13\right),
-      </me>
+      <md>
+        <mrow>
+          \amp \left(x_{\mathrm{CM}}, y_{\mathrm{CM}}, z_{\mathrm{CM}}\right)
+        </mrow>
+        <mrow>
+          \amp \quad = \left(\frac29, \frac29, \frac13\right),
+        </mrow>
+      </md>
       <p>
         independently of the constant <m>6</m>, which cancels
         from every ratio.
@@ -261,11 +267,17 @@
       <p>
         Over the rectangle <m>R</m>,
       </p>
-      <me>
-        m = \int_0^{2}\!\!\int_0^{3}
-        \left(4x + 5y + 6\right)
-        dy\,dx = 105 ,
-      </me>
+      <md>
+        <mrow>
+          m \amp = \int_0^{2}\!\!\int_0^{3}
+        </mrow>
+        <mrow>
+          \amp \qquad \left(4x + 5y + 6\right) dy\,dx
+        </mrow>
+        <mrow>
+          \amp = 105 ,
+        </mrow>
+      </md>
       <p>
         and the two moments are
         <m>\iint_R x\rho\,dA = 113</m> and
@@ -534,10 +546,14 @@ three integrals <m>\tfrac{88}{3} \approx 29.33</m>, <m>30.48</m> and
         where <m>a</m> is the coefficient in <m>\mathbf{F}</m>. In polar
         coordinates,
       </p>
-      <me>
-        \text{Flux} = \int_0^{2\pi}\!\!\int_0^{R} 2a\,r^3\,dr\,d\theta
-        = \pi a R^4.
-      </me>
+      <md>
+        <mrow>
+          \text{Flux} \amp = \int_0^{2\pi}\!\!\int_0^{R} 2a\,r^3\,dr\,d\theta
+        </mrow>
+        <mrow>
+          \amp = \pi a R^4.
+        </mrow>
+      </md>
       <p>
         Here <m>a = 2</m> and <m>R = 3</m>, so the flux is
 <m>\pi(2)\left(3^4\right) = 162\pi \approx 508.94</m>.
@@ -765,9 +781,14 @@ line integrals are <m>0</m>, <m>-6\pi \approx -18.85</m>, and <m>0</m>.
         a segment of the same length <m>\Delta z = z_1 - z_0</m>, so the
         band has area <m>2\pi R\,\Delta z</m>, and
       </p>
-      <me>
-        \text{Flux} = R\cdot 2\pi R\,\Delta z = 2\pi R^2\,\Delta z.
-      </me>
+      <md>
+        <mrow>
+          \text{Flux} \amp = R\cdot 2\pi R\,\Delta z
+        </mrow>
+        <mrow>
+          \amp = 2\pi R^2\,\Delta z.
+        </mrow>
+      </md>
       <p>
         Here <m>R = 2</m> and <m>\Delta z = 4 - 1 = 3</m>, so the flux is
 <m>2\pi\left(2^2\right)(3) = 24\pi \approx 75.40</m>.

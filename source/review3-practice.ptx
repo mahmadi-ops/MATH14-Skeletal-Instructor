@@ -11,8 +11,9 @@
   <introduction>
     <p>
       Sections: <xref ref="section-mass-center-of-mass" text="title"/>, <xref ref="section-jacobian-substitution" text="title"/>,
-      <xref ref="section-surface-integrals" text="title"/>, and
-      <xref ref="section-greens-theorem" text="title"/>. Work each
+      <xref ref="section-surface-integrals" text="title"/>,
+      <xref ref="section-greens-theorem" text="title"/>, and
+      <xref ref="section-stokes-theorem" text="title"/>. Work each
       problem, then type your answers into the boxes and have them checked
       here.
     </p>
@@ -396,13 +397,14 @@
         <m>u = 9</m>, <m>v = 1</m>, <m>v = 36</m>,
         so <m>D</m> becomes a rectangle and
       </p>
-      <me>
-        \text{Area}
-        = \int_1^{36}\!\!\int_1^{9}
-          \frac{1}{v}\,du\,dv
-        = \left(9 - 1\right)
-          \ln\!\left(36\right).
-      </me>
+      <md>
+        <mrow>
+          \text{Area} \amp = \int_1^{36}\!\!\int_1^{9} \frac{1}{v}\,du\,dv
+        </mrow>
+        <mrow>
+          \amp = \left(9 - 1\right)\ln\!\left(36\right).
+        </mrow>
+      </md>
       <p>
         Here the four curves are <m>u = 1</m>, <m>u = 9</m>, <m>v = 1</m> and
 <m>v = 36</m>, so the area is
@@ -545,7 +547,10 @@
           \amp x^2 + 6xy + 10y^2
         </mrow>
         <mrow>
-          \amp \quad = \left(s - 3t\right)^2 + 6\left(s - 3t\right)t + 10t^2
+          \amp \quad = \left(s - 3t\right)^2 + 6\left(s - 3t\right)t
+        </mrow>
+        <mrow>
+          \amp \qquad {} + 10t^2
         </mrow>
         <mrow>
           \amp \quad = s^2 + t^2 ,
@@ -806,7 +811,10 @@
           \amp \iint_R x\,dx\,dy = \iint_T \frac{1}{2}\,ds\,dt
         </mrow>
         <mrow>
-          \amp \quad = \frac{1}{2}\,\text{Area}(T) = \frac{\left(4\right)\left(9\right)}{2} = 18 .
+          \amp \quad = \frac{1}{2}\,\text{Area}(T)
+        </mrow>
+        <mrow>
+          \amp \quad = \frac{\left(4\right)\left(9\right)}{2} = 18 .
         </mrow>
       </md>
       <p>
@@ -919,7 +927,10 @@
           \amp \iiint_E \left(\frac{x^2}{2^2} + \frac{y^2}{3^2} + \frac{z^2}{4^2}\right) dV
         </mrow>
         <mrow>
-          \amp \quad = 24\int_0^{2\pi}\!\!\int_0^{\pi}\!\!\int_0^{1} \rho^4 \sin\phi \,d\rho\,d\phi\,d\theta
+          \amp \quad = 24\int_0^{2\pi}\!\!\int_0^{\pi}\!\!\int_0^{1}
+        </mrow>
+        <mrow>
+          \amp \qquad \rho^4 \sin\phi \,d\rho\,d\phi\,d\theta
         </mrow>
         <mrow>
           \amp \quad = \frac{4\,\pi\,24}{5} .
@@ -1060,10 +1071,14 @@
         symmetry of <m>W</m> and of <m>\rho</m> in <m>x</m> and <m>y</m>.
         Dividing,
       </p>
-      <me>
-        \left(x_{\mathrm{CM}}, y_{\mathrm{CM}}, z_{\mathrm{CM}}\right)
-        = \left(\frac29, \frac29, \frac13\right),
-      </me>
+      <md>
+        <mrow>
+          \amp \left(x_{\mathrm{CM}}, y_{\mathrm{CM}}, z_{\mathrm{CM}}\right)
+        </mrow>
+        <mrow>
+          \amp \quad = \left(\frac29, \frac29, \frac13\right),
+        </mrow>
+      </md>
       <p>
         independently of the constant <m>6</m>, which cancels
         from every ratio.
@@ -1188,11 +1203,17 @@
       <p>
         Over the rectangle <m>R</m>,
       </p>
-      <me>
-        m = \int_0^{2}\!\!\int_0^{3}
-        \left(4x + 5y + 6\right)
-        dy\,dx = 105 ,
-      </me>
+      <md>
+        <mrow>
+          m \amp = \int_0^{2}\!\!\int_0^{3}
+        </mrow>
+        <mrow>
+          \amp \qquad \left(4x + 5y + 6\right) dy\,dx
+        </mrow>
+        <mrow>
+          \amp = 105 ,
+        </mrow>
+      </md>
       <p>
         and the two moments are
         <m>\iint_R x\rho\,dA = 113</m> and
@@ -1476,7 +1497,10 @@
       </p>
       <md>
         <mrow>
-          \amp \sqrt{x^2+y^2} = \sqrt{\left(u^2+v^2\right)^2} = u^2+v^2,
+          \amp \sqrt{x^2+y^2} = \sqrt{\left(u^2+v^2\right)^2}
+        </mrow>
+        <mrow>
+          \amp \quad = u^2+v^2,
         </mrow>
         <mrow>
           \amp \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} 2u &amp; -2v \\ 2v &amp; 2u \end{vmatrix}
@@ -1493,10 +1517,16 @@
           \amp \iint_D \sqrt{x^2+y^2}\,dx\,dy
         </mrow>
         <mrow>
-          \amp \quad = 4\int_0^{2}\!\!\int_0^{u} \left(u^4 + 2u^2v^2 + v^4\right) dv\,du
+          \amp \quad = 4\int_0^{2}\!\!\int_0^{u}
         </mrow>
         <mrow>
-          \amp \quad = 4\int_0^{2} \frac{28}{15}u^5\,du = \frac{56\left(2\right)^6}{45} .
+          \amp \quad \left(u^4 + 2u^2v^2 + v^4\right) dv\,du
+        </mrow>
+        <mrow>
+          \amp \quad = 4\int_0^{2} \frac{28}{15}u^5\,du
+        </mrow>
+        <mrow>
+          \amp \quad = \frac{56\left(2\right)^6}{45} .
         </mrow>
       </md>
       <p>
@@ -1948,7 +1978,10 @@ three integrals <m>\tfrac{88}{3} \approx 29.33</m>, <m>30.48</m> and
           \amp \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma
         </mrow>
         <mrow>
-          \amp \quad = c\int_0^1\!\!\int_0^{\pi}\left(\sin u - \cos u + v\right) du\,dv
+          \amp \quad = c\int_0^1\!\!\int_0^{\pi}
+        </mrow>
+        <mrow>
+          \amp \quad \left(\sin u - \cos u + v\right) du\,dv
         </mrow>
         <mrow>
           \amp \quad = c\left(2 + \frac{\pi}{2}\right).
@@ -2047,10 +2080,14 @@ three integrals <m>\tfrac{88}{3} \approx 29.33</m>, <m>30.48</m> and
         where <m>a</m> is the coefficient in <m>\mathbf{F}</m>. In polar
         coordinates,
       </p>
-      <me>
-        \text{Flux} = \int_0^{2\pi}\!\!\int_0^{R} 2a\,r^3\,dr\,d\theta
-        = \pi a R^4.
-      </me>
+      <md>
+        <mrow>
+          \text{Flux} \amp = \int_0^{2\pi}\!\!\int_0^{R} 2a\,r^3\,dr\,d\theta
+        </mrow>
+        <mrow>
+          \amp = \pi a R^4.
+        </mrow>
+      </md>
       <p>
         Here <m>a = 2</m> and <m>R = 3</m>, so the flux is
 <m>\pi(2)\left(3^4\right) = 162\pi \approx 508.94</m>.
@@ -2561,7 +2598,10 @@ line integrals are <m>0</m>, <m>-6\pi \approx -18.85</m>, and <m>0</m>.
       </p>
       <md>
         <mrow>
-          \amp \oint_C \mathbf{F}\cdot d\mathbf{r} = \int_0^{x_0}\!\!\int_0^{y_0} (-ax)\,dy\,dx
+          \amp \oint_C \mathbf{F}\cdot d\mathbf{r}
+        </mrow>
+        <mrow>
+          \amp \quad = \int_0^{x_0}\!\!\int_0^{y_0} (-ax)\,dy\,dx
         </mrow>
         <mrow>
           \amp \quad = -\frac{a\,x_0^2\,y_0}{2}.
@@ -2762,9 +2802,14 @@ line integrals are <m>0</m>, <m>-6\pi \approx -18.85</m>, and <m>0</m>.
         a segment of the same length <m>\Delta z = z_1 - z_0</m>, so the
         band has area <m>2\pi R\,\Delta z</m>, and
       </p>
-      <me>
-        \text{Flux} = R\cdot 2\pi R\,\Delta z = 2\pi R^2\,\Delta z.
-      </me>
+      <md>
+        <mrow>
+          \text{Flux} \amp = R\cdot 2\pi R\,\Delta z
+        </mrow>
+        <mrow>
+          \amp = 2\pi R^2\,\Delta z.
+        </mrow>
+      </md>
       <p>
         Here <m>R = 2</m> and <m>\Delta z = 4 - 1 = 3</m>, so the flux is
 <m>2\pi\left(2^2\right)(3) = 24\pi \approx 75.40</m>.
