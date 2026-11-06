@@ -7,7 +7,8 @@
   (MATH_14_Exam__3_Fall2025-Solutions.pdf) and the Fall 2025 final
   (Final-MATH14-Fall_2025-Solutions.pdf): six questions, one of them true
   or false, with at least one on each Exam #3 topic (sections 2.8, 2.9,
-  2.10 and 3.1).
+  2.10 and 3.1).  A seventh, on Stokes' theorem (section 3.2), was added
+  later at the instructor's request (Nov 2026); see question 6 below.
 
     1  Exam 3, Q3: setting up the center of mass of the lamina r = cos(theta)
        with density r + 1 (section 2.8).
@@ -22,7 +23,13 @@
        answer, pi/2, is the final's.
     5  Final, Q8: a circulation around r = sin(theta) by Green's theorem
        (section 3.1); "counterclockwise" is added to the statement.
-    6  Exam 3, Q4 (the clockwise rectangle) recast as the true/false
+    6  Written for this sample exam at the instructor's request, since
+       neither source exam had a Stokes question: the flux of the curl of
+       F = yz i - xz j + xy e^z k through the cap of x^2+y^2+z^2 = 25 above
+       z = 3, by Stokes' theorem; the answer, -96 pi, is checked through
+       the flat disk and was verified numerically.  Its id is
+       spe3-q-stokes, so the other ids are unchanged.
+    7  Exam 3, Q4 (the clockwise rectangle) recast as the true/false
        question, in the format of Sample Past Exam 2: the statement is
        Green's theorem with the orientation left out, and the exam's
        rectangle is the counterexample.
@@ -46,8 +53,8 @@
 
   <introduction>
     <p>
-      A sample exam made of questions from past exams, with worked
-      solutions. Treat it as a closed-book exam of 65 minutes: no aids of
+      A sample exam made of questions from past exams, plus one new
+      question on Stokes' theorem, with worked solutions. Treat it as a closed-book exam of 65 minutes: no aids of
       one's own (formula sheets, notes, phones, tablets, smart watches or
       similar) are permitted, and you should write your work in a neat and
       organized format and fully justify every step. Try the exam under the
@@ -60,6 +67,7 @@
         <li><p><xref ref="section-jacobian-substitution" text="title"/></p></li>
         <li><p><xref ref="section-surface-integrals" text="title"/></p></li>
         <li><p><xref ref="section-greens-theorem" text="title"/></p></li>
+        <li><p><xref ref="section-stokes-theorem" text="title"/></p></li>
       </ul>
     </p>
   </introduction>
@@ -586,6 +594,107 @@
   </exercise>
 
   <!-- ===================== Question 6 ===================== -->
+  <!-- Written for this sample exam (no Stokes question on the two source exams). -->
+  <exercise xml:id="spe3-q-stokes">
+    <statement>
+      <p>
+        Let
+      </p>
+      <me>
+        \mathbf{F} = yz\,\mathbf{i} - xz\,\mathbf{j} + xy\,e^{z}\,\mathbf{k} ,
+      </me>
+      <p>
+        and let <m>S</m> be the part of the sphere
+        <m>x^2 + y^2 + z^2 = 25</m> with <m>z \ge 3</m>, oriented by its
+        upward unit normal <m>\hat{\mathbf{n}}</m>. Use Stokes' theorem to
+        evaluate
+      </p>
+      <me>
+        \iint_S \left(\nabla \times \mathbf{F}\right) \cdot \hat{\mathbf{n}}\, d\sigma .
+      </me>
+    </statement>
+    <solution>
+      <p>
+        By Stokes' theorem (<xref ref="thm-stokes"/>), the flux of the curl
+        through <m>S</m> equals the circulation of <m>\mathbf{F}</m> around
+        the boundary <m>C</m> of <m>S</m>. The cap ends where the sphere meets
+        the plane <m>z = 3</m>: there <m>x^2 + y^2 = 25 - 9 = 16</m>, so
+        <m>C</m> is the circle of radius <m>4</m> centered at
+        <m>(0,0,3)</m> in the plane <m>z = 3</m>. The upward normal pairs
+        with the counterclockwise direction when <m>C</m> is seen from above,
+        so
+      </p>
+      <md>
+        <mrow>
+          \amp \mathbf{r}(t) = \left\langle 4\cos t,\ 4\sin t,\ 3 \right\rangle,
+        </mrow>
+        <mrow>
+          \amp \quad 0 \le t \le 2\pi .
+        </mrow>
+      </md>
+      <p>
+        Along <m>C</m>, <m>dz = 0</m>, so the <m>\mathbf{k}</m>-component of
+        <m>\mathbf{F}</m> (with its <m>e^{z}</m>) never enters. With
+        <m>x = 4\cos t</m>, <m>y = 4\sin t</m>, <m>z = 3</m>,
+      </p>
+      <md>
+        <mrow>
+          \amp \mathbf{F}\cdot\frac{d\mathbf{r}}{dt}
+        </mrow>
+        <mrow>
+          \amp \quad = (3y)(-4\sin t)
+        </mrow>
+        <mrow>
+          \amp \qquad {} + (-3x)(4\cos t)
+        </mrow>
+        <mrow>
+          \amp \quad = -48\sin^2 t - 48\cos^2 t
+        </mrow>
+        <mrow>
+          \amp \quad = -48 ,
+        </mrow>
+      </md>
+      <p>
+        and therefore
+      </p>
+      <md>
+        <mrow>
+          \amp \iint_S \left(\nabla \times \mathbf{F}\right) \cdot \hat{\mathbf{n}}\, d\sigma
+        </mrow>
+        <mrow>
+          \amp \quad = \oint_C \mathbf{F}\cdot d\mathbf{r}
+        </mrow>
+        <mrow>
+          \amp \quad = \int_0^{2\pi} (-48)\,dt = -96\pi .
+        </mrow>
+      </md>
+      <p>
+        Check, with a different surface bounded by the same <m>C</m>: by
+        <xref ref="eq-curl-3d"/>,
+      </p>
+      <md>
+        <mrow>
+          \amp \nabla \times \mathbf{F}
+        </mrow>
+        <mrow>
+          \amp \quad = x\left(e^{z} + 1\right)\mathbf{i}
+        </mrow>
+        <mrow>
+          \amp \qquad {} + y\left(1 - e^{z}\right)\mathbf{j} - 2z\,\mathbf{k} .
+        </mrow>
+      </md>
+      <p>
+        On the flat disk <m>x^2 + y^2 \le 16</m>, <m>z = 3</m>, with upward
+        normal <m>\mathbf{k}</m>, the integrand is the constant
+        <m>-2z = -6</m>, and the disk has area <m>16\pi</m>, so its flux is
+        <m>-6\,(16\pi) = -96\pi</m>, the same. Computing the flux through
+        the curved cap directly would be much harder; Stokes' theorem lets
+        either the circle or the disk stand in for it.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Question 7 ===================== -->
   <!-- Question 4 of the Fall 2025 third exam, recast as true or false. -->
   <exercise xml:id="spe3-q6">
     <statement>
