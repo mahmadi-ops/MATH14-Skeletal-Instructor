@@ -225,3 +225,28 @@ article.note.remark-like > .heading .codenumber,
 article.note.remark-like > .heading .space {
     display: none;
 }
+
+/* Keep the card bank and ordered answer side by side for horizontal dragging.
+   Narrow screens scroll the board instead of stacking the two areas. */
+#rs-check-flux-param-parsons .sortable-code-container {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    overflow-x: auto;
+}
+#rs-check-flux-param-parsons .sortable-code {
+    flex: 1 0 280px;
+    float: none;
+    min-width: 280px;
+    margin-inline: 0;
+}
+#rs-check-flux-param-parsons .source,
+#rs-check-flux-param-parsons .answer {
+    width: 100% !important;
+    box-sizing: border-box;
+}
+#rs-check-flux-param-parsons .block {
+    max-width: calc(100% - 22px);
+}

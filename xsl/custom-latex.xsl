@@ -5,4 +5,12 @@
 
   <xsl:template match="exercises" mode="serial-number"/>
   <xsl:template match="exercises" mode="number"/>
+
+  <!-- The surface-flux Parsons concept check prints its cards in a        -->
+  <!-- scrambled order (block/@order), and PreTeXt's static version would  -->
+  <!-- add a Solution listing them in the solved order, which is the       -->
+  <!-- worked computation a skeletal PDF leaves to the student. Leave out  -->
+  <!-- that Solution and its separator for this one exercise.              -->
+  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons']" mode="present-exercise-solutions"/>
+  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons']" mode="exercise-component-separator"/>
 </xsl:stylesheet>

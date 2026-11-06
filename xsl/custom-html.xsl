@@ -39,6 +39,12 @@
   <xsl:template match="exercises" mode="serial-number"/>
   <xsl:template match="exercises" mode="number"/>
 
+  <!-- The card-ordering concept check is visible when the section loads. -->
+  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons']"
+                mode="is-hidden">
+    <xsl:value-of select="false()"/>
+  </xsl:template>
+
   <!-- In "Assignments and Review Problems" a posted solution is printed     -->
   <!-- straight below its problem instead of being hidden behind a knowl.    -->
   <!-- PreTeXt has a publisher switch for this (knowl/@example-solution),    -->

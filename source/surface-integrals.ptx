@@ -865,4 +865,94 @@ dot((0, 0, 1.95), invisible);
 
 </subsection>
 
+<!-- ================================================================ -->
+<subsection xml:id="sec-surface-integrals-concept-check">
+<title>Concept Check</title>
+
+<!-- The cards carry @order only for the printed PDF, which lists the   -->
+<!-- cards in @order (without it, in the solved order).  On the web     -->
+<!-- they are still shuffled, since @order there is read only when      -->
+<!-- blocks/@randomize is "no".                                         -->
+<exercise xml:id="check-flux-param-parsons" language="natural">
+<title>From a Surface to a Double Integral</title>
+<statement>
+<p>
+Let <m>S</m> be the part of the plane <m>z = 1 + x + 2y</m> above
+<m>0 \le x \le 1</m>, <m>0 \le y \le 2</m>, oriented upward, and let
+<m>\mathbf{F}(x,y,z) = x\,\mathbf{i} + z\,\mathbf{k}</m>.
+Arrange all the cards to compute the flux of <m>\mathbf{F}</m> through
+<m>S</m> using <xref ref="remark-flux-param"/>.
+</p>
+<p>
+Build the calculation from the parametrization through the partial
+derivatives, cross product and dot product, then finish the integration
+with the parameter bounds. Use every card once, and check your order.
+</p>
+</statement>
+
+<blocks>
+<block order="5">
+<p>Parametrize the surface:</p>
+<p><m>\mathbf{r}(u,v) = \langle u,v,1+u+2v\rangle</m>.</p>
+<p>
+The parameter region is <m>R</m>, with <m>0 \le u \le 1</m> and
+<m>0 \le v \le 2</m>.
+</p>
+</block>
+
+<block order="2">
+<p>Take the two partial derivatives:</p>
+<p><m>\mathbf{r}_u = \langle 1,0,1\rangle</m> and
+<m>\mathbf{r}_v = \langle 0,1,2\rangle</m>.</p>
+</block>
+
+<block order="7">
+<p>Form the cross product:</p>
+<p><m>\mathbf{n} = \mathbf{r}_u \times \mathbf{r}_v = \langle -1,-2,1\rangle</m>.</p>
+<p>Its positive <m>z</m>-component gives the required upward orientation.</p>
+</block>
+
+<block order="1">
+<p>
+Since <m>\lVert\mathbf{n}\rVert = \sqrt6</m>, the unit normal and
+surface area element are
+</p>
+<p><m>\hat{\mathbf{n}} = \mathbf{n}/\sqrt6</m> and
+<m>d\sigma = \sqrt6\,du\,dv</m>.</p>
+</block>
+
+<block order="8">
+<p>On <m>S</m>, substitute <m>x=u</m> and <m>z=1+u+2v</m> into the field:</p>
+<p><m>\mathbf{F} = u\,\mathbf{i} + (1+u+2v)\,\mathbf{k}</m>.</p>
+<p>Take its dot product with the unit normal:</p>
+<p><m>\mathbf{F}\cdot\hat{\mathbf{n}} = \dfrac{1+2v}{\sqrt6}</m>.</p>
+</block>
+
+<block order="3">
+<p>Multiply the normal component by the surface area element:</p>
+<p><m>\mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma = (1+2v)\,du\,dv</m>.</p>
+<p>
+The factor <m>\sqrt6</m> from <m>d\sigma</m> cancels the normalizing
+length in <m>\hat{\mathbf{n}}</m>, as in the parametrized flux formula.
+</p>
+</block>
+
+<block order="6">
+<p>Use the two parameter bounds to write the flux as an iterated integral:</p>
+<p><m>\displaystyle \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma</m></p>
+<p><m>\displaystyle = \iint_R \mathbf{F}\cdot (\mathbf{r}_u\times\mathbf{r}_v)\,du\,dv</m></p>
+<p><m>\displaystyle = \int_0^2\!\int_0^1 (1+2v)\,du\,dv</m>.</p>
+</block>
+
+<block order="4">
+<p>Integrating first with respect to <m>u</m> leaves</p>
+<p><m>\displaystyle \int_0^2 (1+2v)\,dv</m>.</p>
+<p>Then integrate with respect to <m>v</m>:</p>
+<p><m>[v+v^2]_0^2 = 6</m>.</p>
+</block>
+</blocks>
+</exercise>
+
+</subsection>
+
 </section>
