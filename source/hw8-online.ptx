@@ -16,6 +16,15 @@
 <!-- carries include-automatic="no".  See the comment at the top of           -->
 <!-- source/review1-practice.ptx for why that matters.                        -->
 <!-- Renumbered as Assignment 8; existing xml:ids keep exercise links and saved answers stable. -->
+<!-- Each solution ends with a figure (fig-hw8o-sol-*): Asymptote for the  -->
+<!-- five surfaces, PreFigure for the four Green's theorem regions.  In the -->
+<!-- surface problems the figure is a child of the solution carrying        -->
+<!-- component="hw8-solutions" like its other children, so it is shown only -->
+<!-- once the solutions are released; being generic (letters, not the       -->
+<!-- random numbers), it needs no values from dynamic-solutions.js, and it  -->
+<!-- has no PreFigure annotations, which diagcess could not reach inside the -->
+<!-- inert template.  In the Green's theorem problems the figure sits inside -->
+<!-- the solution, which carries the component itself.                       -->
 <!-- The Green's theorem problems (ex-hw8o-*, with fig-hw8o-staircase) were  -->
 <!-- moved here from Assignment 9 under their old xml:ids, so saved answers  -->
 <!-- stay; their solutions now carry component="hw8-solutions".  Those four  -->
@@ -158,6 +167,59 @@
         matter what <m>a</m>, <m>b</m>, <m>R</m> and <m>c</m> are. Reversing
         the orientation only flips a sign, so that answer is <m>0</m> too.
       </p>
+      <figure xml:id="fig-hw8o-sol-cylinder" component="hw8-solutions">
+      <caption>
+      The piece <m>S</m> of the cylinder <m>y^2 + z^2 = R^2</m> between the
+      planes <m>x = 0</m> and <m>x = c - z</m> (drawn with <m>R = 2</m>,
+      <m>c = 4</m>), with outward normals. The normal has no
+      <m>x</m>-component, so only the <m>\mathbf{j}</m>- and
+      <m>\mathbf{k}</m>-components of <m>\mathbf{F}</m> contribute.
+      </caption>
+      <image xml:id="image-hw8o-sol-cylinder" width="80%">
+        <shortdescription>A slanted piece of a cylinder lying along the x-axis, cut by the plane x equals 0 and by the slanted plane x equals c minus z, with outward normal arrows.</shortdescription>
+        <asymptote>
+<![CDATA[// The piece of the cylinder y^2 + z^2 = R^2 between the plane x = 0 and the
+// slanted plane x = c - z (drawn with R = 2, c = 4), with outward normals.
+import graph3;
+size(13cm);
+currentprojection = orthographic((5, 2.6, 1.9));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+real R = 2, c = 4;
+// (theta, s) -> the point at angle theta, a fraction s of the way from x = 0
+triple cyl(pair q) {
+  real t = q.x, s = q.y;
+  return (s*(c - R*sin(t)), R*cos(t), R*sin(t));
+}
+draw(surface(cyl, (0, 0), (2pi, 1), 24, 4, Spline),
+     surfacepen=material(oiblue + opacity(0.35), emissivepen=0.35*oiblue,
+                         specularpen=gray(0.05)));
+// the two boundary curves
+path3 back = graph(new triple(real t) { return (0, R*cos(t), R*sin(t)); }, 0, 2pi, 80)..cycle;
+path3 front = graph(new triple(real t) { return (c - R*sin(t), R*cos(t), R*sin(t)); }, 0, 2pi, 80)..cycle;
+draw(back, oiblue + linewidth(1.2pt));
+draw(front, oiver + linewidth(1.4pt));
+// outward normals (radial in the yz-plane) at a few points
+for (int k = 0; k < 8; ++k) {
+  real t = 2pi*k/8 + pi/8;
+  triple p = (0.5*(c - R*sin(t)), R*cos(t), R*sin(t));
+  triple n = (0, cos(t), sin(t));
+  draw(p--p + 0.9*n, oimag + linewidth(1.3pt), Arrow3(size=7));
+}
+label("$\hat{\mathbf{n}}$", (0.5*(c - R*sin(3pi/8)), 1.45*R*cos(3pi/8), 1.45*R*sin(3pi/8)), N, oimag + fontsize(18pt));
+label("$x = 0$", (0, -1.05*R, -0.6*R), W, oiblue + fontsize(16pt));
+label("$x = c - z$", (c + R*0.5, -0.5*R, -R*1.05), S, oiver + fontsize(16pt));
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(16pt)), O--(c + R + 1.6)*X, axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(16pt)), O--(R + 1.3)*Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(16pt)), O--(R + 1.3)*Z, axispen, Arrow3(size=8));
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -277,6 +339,64 @@
         <mrow>&amp;= \frac{2\pi (b-a)}{3}
             \left(<eval obj="z2"/>^3 - <eval obj="z1"/>^3\right).</mrow>
       </md>
+      <figure xml:id="fig-hw8o-sol-cone" component="hw8-solutions">
+      <caption>
+      The band <m>S</m> of the cone <m>z = \sqrt{x^2+y^2}</m> between the
+      planes <m>z = z_1</m> and <m>z = z_2</m>, its upward normals, and the
+      annulus <m>R</m>, <m>z_1 \le r \le z_2</m>, that it lies over in the
+      <m>xy</m>-plane, where the flux integral is computed in polar
+      coordinates.
+      </caption>
+      <image xml:id="image-hw8o-sol-cone" width="80%">
+        <shortdescription>A band of a cone opening upward, between two horizontal circles, with upward-and-inward normal arrows, above a shaded annulus in the xy-plane.</shortdescription>
+        <asymptote>
+<![CDATA[// The band of the cone z = sqrt(x^2 + y^2) between the planes z = z1 and
+// z = z2 (drawn with z1 = 1, z2 = 2), its upward normals, and the annulus R
+// it lies over in the xy-plane.
+import graph3;
+size(12cm);
+currentprojection = orthographic((5, 3, 2.4));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigreen = rgb(0/255, 158/255, 115/255);
+real z1 = 1, z2 = 2;
+triple cone(pair q) { return (q.y*cos(q.x), q.y*sin(q.x), q.y); }   // (theta, r)
+// the rest of the cone, faint
+draw(surface(cone, (0, 0), (2pi, z2 + 0.5), 24, 3, Spline),
+     surfacepen=material(gray(0.85) + opacity(0.15), emissivepen=gray(0.4), specularpen=gray(0.05)));
+// the band S
+draw(surface(cone, (0, z1), (2pi, z2), 24, 2, Spline),
+     surfacepen=material(oiblue + opacity(0.5), emissivepen=0.35*oiblue, specularpen=gray(0.05)));
+draw(circle((0, 0, z1), z1), oiblue + linewidth(1.2pt));
+draw(circle((0, 0, z2), z2), oiblue + linewidth(1.2pt));
+// the annulus R in the xy-plane
+triple ann(pair q) { return (q.y*cos(q.x), q.y*sin(q.x), 0); }
+draw(surface(ann, (0, z1), (2pi, z2), 24, 2, Spline),
+     surfacepen=material(oigreen + opacity(0.35), emissivepen=0.4*oigreen, specularpen=gray(0.05)));
+draw(circle(O, z1), oigreen + linewidth(1pt));
+draw(circle(O, z2), oigreen + linewidth(1pt));
+// upward normals <-x/r, -y/r, 1> at a few points of S
+for (int k = 0; k < 6; ++k) {
+  real t = 2pi*k/6 + 0.3, r = 0.5*(z1 + z2);
+  triple p = (r*cos(t), r*sin(t), r);
+  triple n = (-cos(t), -sin(t), 1)/sqrt(2);
+  draw(p--p + 0.8*n, oimag + linewidth(1.3pt), Arrow3(size=7));
+}
+label("$\hat{\mathbf{n}}$", (1.0, 0.2, 2.25), N, oimag + fontsize(18pt));
+label("$z = z_2$", (z2*cos(-1.2), z2*sin(-1.2), z2), E, oiblue + fontsize(16pt));
+label("$z = z_1$", (z1*cos(-1.2), z1*sin(-1.2), z1), E, oiblue + fontsize(16pt));
+label("$R$", (0.5*(z1 + z2)*cos(-0.9), 0.5*(z1 + z2)*sin(-0.9), 0), oigreen + fontsize(18pt));
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(16pt)), O--(z2 + 1.2)*X, axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(16pt)), O--(z2 + 1.2)*Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(16pt)), O--(z2 + 1.3)*Z, axispen, Arrow3(size=8));
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -357,6 +477,51 @@
         The coefficient <m><eval obj="d"/></m> never enters the answer:
         it multiplies <m>x</m>, which vanishes on <m>S</m>.
       </p>
+      <figure xml:id="fig-hw8o-sol-disk" component="hw8-solutions">
+      <caption>
+      The disk <m>S</m> in the <m>yz</m>-plane with its normal
+      <m>\hat{\mathbf{n}} = -\mathbf{i}</m>. On <m>S</m> the field is the
+      constant vector <m>\langle a, 0, 0\rangle</m>, pointing the other way,
+      so <m>\mathbf{F} \cdot \hat{\mathbf{n}} = -a</m> at every point.
+      </caption>
+      <image xml:id="image-hw8o-sol-disk" width="80%">
+        <shortdescription>A disk standing in the yz-plane, crossed by parallel field arrows in the positive x-direction, with its normal arrow pointing in the negative x-direction.</shortdescription>
+        <asymptote>
+<![CDATA[// The disk S of radius b in the yz-plane (drawn with b = 2), the constant
+// field F = <a, 0, 0> crossing it, and the normal n = -i of its orientation.
+import graph3;
+size(12cm);
+currentprojection = orthographic((1.6, 4.5, 1.7));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigray = gray(0.35);
+real b = 2;
+triple disk(pair q) { return (0, q.y*cos(q.x), q.y*sin(q.x)); }
+draw(surface(disk, (0, 0), (2pi, b), 24, 2, Spline),
+     surfacepen=material(oiblue + opacity(0.45), emissivepen=0.35*oiblue, specularpen=gray(0.05)));
+draw(circle(O, b, X), oiblue + linewidth(1.3pt));
+// the field: the same arrow <a, 0, 0> at every point of S
+for (int i = -1; i <= 1; ++i)
+  for (int j = -1; j <= 1; ++j) {
+    triple p = (-0.9, 0.9*i, 0.9*j);
+    if (abs(i) + abs(j) == 2) p = (-0.9, 0.7*i, 0.7*j);
+    draw(p--p + (1.8, 0, 0), oigray + linewidth(1.1pt), Arrow3(size=6));
+  }
+// the normal of the orientation, -i
+draw((0, 0.05, 0.05)--(-1.6, 0.05, 0.05), oimag + linewidth(1.7pt), Arrow3(size=9));
+label("$\hat{\mathbf{n}} = -\mathbf{i}$", (-1.6, 0, 0), W, oimag + fontsize(17pt));
+label("$\mathbf{F} = \langle a, 0, 0\rangle$", (0.9, 0.9, 0.9), NE, oigray + fontsize(16pt));
+label("$S$", (0, 1.4, -1.1), oiblue + fontsize(18pt));
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(16pt)), (-2.4, 0, 0)--2.6X, axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(16pt)), O--(b + 1)*Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(16pt)), O--(b + 1)*Z, axispen, Arrow3(size=8));
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -469,6 +634,52 @@
         components are killed by the dot product, and the integrand does
         not involve <m>y</m>.
       </p>
+      <figure xml:id="fig-hw8o-sol-square" component="hw8-solutions">
+      <caption>
+      The square <m>S</m> in the plane <m>y = y_0</m> with its normal
+      <m>\hat{\mathbf{n}} = \mathbf{j}</m>. Only the <m>\mathbf{j}</m>-component
+      <m>b\,x^2</m> of <m>\mathbf{F}</m> crosses <m>S</m>: it vanishes on the
+      line <m>x = 0</m> and grows toward the edges <m>x = \pm h</m>.
+      </caption>
+      <image xml:id="image-hw8o-sol-square" width="80%">
+        <shortdescription>A square standing in a plane parallel to the xz-plane, its normal pointing in the positive y-direction, with arrows in the y-direction whose lengths grow with the square of x.</shortdescription>
+        <asymptote>
+<![CDATA[// The square S of side 2h in the plane y = y0 (drawn with h = 1.5, y0 = 2),
+// its normal j, and the j-component b x^2 of F at points along x.
+import graph3;
+size(12cm);
+currentprojection = orthographic((4.5, 2.4, 1.9));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+real h = 1.5, y0 = 2;
+triple sq(pair q) { return (q.x, y0, q.y); }
+draw(surface(sq, (-h, -h), (h, h), 2, 2),
+     surfacepen=material(oiblue + opacity(0.4), emissivepen=0.35*oiblue, specularpen=gray(0.05)));
+draw((-h, y0, -h)--(h, y0, -h)--(h, y0, h)--(-h, y0, h)--cycle, oiblue + linewidth(1.3pt));
+// the normal j at the centre
+draw((0, y0, 0)--(0, y0 + 1.4, 0), oimag + linewidth(1.7pt), Arrow3(size=9));
+label("$\hat{\mathbf{n}} = \mathbf{j}$", (0, y0 + 1.4, 0), N, oimag + fontsize(17pt));
+// the j-component of F, b x^2, at points across the square (scaled)
+for (int k = -3; k <= 3; ++k) {
+  if (k == 0) continue;
+  real x = h*k/3;
+  real len = 0.45*x^2;
+  draw((x, y0, -0.6*h)--(x, y0 + len, -0.6*h), oiver + linewidth(1.2pt), Arrow3(size=6));
+}
+label("$b\,x^2\,\mathbf{j}$", (h, y0 + 0.45*h^2, -0.6*h), E, oiver + fontsize(16pt));
+label("$S$", (-0.7*h, y0, 0.7*h), oiblue + fontsize(18pt));
+label("$y = y_0$", (h, y0, h), NE, oiblue + fontsize(16pt));
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(16pt)), (-h - 0.8, 0, 0)--(h + 1.2)*X, axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(16pt)), O--(y0 + 2)*Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(16pt)), O--(h + 1)*Z, axispen, Arrow3(size=8));
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -569,6 +780,50 @@
         <mrow>&amp;= -<eval obj="b"/> \cdot \frac{1}{4} \cdot (e-1)</mrow>
         <mrow>&amp;= <eval obj="k"/>\left(1 - e\right).</mrow>
       </md>
+      <figure xml:id="fig-hw8o-sol-expgraph" component="hw8-solutions">
+      <caption>
+      The surface <m>z = xe^y</m> over the unit square <m>R</m>, with
+      upward normals in the direction of
+      <m>\langle -e^y,\ -xe^y,\ 1\rangle</m>.
+      </caption>
+      <image xml:id="image-hw8o-sol-expgraph" width="55%">
+        <shortdescription>A curved surface rising steeply over the unit square in the xy-plane, with normal arrows leaning back from it.</shortdescription>
+        <asymptote>
+<![CDATA[// The surface z = x e^y over the unit square R, with upward normals.
+import graph3;
+size(12cm);
+currentprojection = orthographic((3.5, -2.6, 2.4));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigreen = rgb(0/255, 158/255, 115/255);
+triple g(pair q) { return (q.x, q.y, q.x*exp(q.y)); }
+draw(surface(g, (0, 0), (1, 1), 8, 8, Spline),
+     surfacepen=material(oiblue + opacity(0.55), emissivepen=0.35*oiblue, specularpen=gray(0.05)),
+     meshpen=oiblue + linewidth(0.3pt));
+// the parameter square R in the xy-plane
+draw(surface((0, 0, 0)--(1, 0, 0)--(1, 1, 0)--(0, 1, 0)--cycle),
+     surfacepen=material(oigreen + opacity(0.35), emissivepen=0.4*oigreen, specularpen=gray(0.05)));
+draw((0, 0, 0)--(1, 0, 0)--(1, 1, 0)--(0, 1, 0)--cycle, oigreen + linewidth(1pt));
+// upward normals <-e^y, -x e^y, 1>, normalized
+for (real x : new real[] {0.3, 0.8})
+  for (real y : new real[] {0.25, 0.75}) {
+    triple p = g((x, y));
+    triple n = unit((-exp(y), -x*exp(y), 1));
+    draw(p--p + 0.6*n, oimag + linewidth(1.3pt), Arrow3(size=7));
+  }
+label("$\hat{\mathbf{n}}$", g((0.8, 0.75)) + 0.6*unit((-exp(0.75), -0.8*exp(0.75), 1)), N, oimag + fontsize(18pt));
+label("$z = x e^{y}$", g((1, 1)), E, oiblue + fontsize(16pt));
+label("$R$", (0.6, 0.45, 0), S, oigreen + fontsize(18pt));
+pen axispen = gray(0.25) + linewidth(0.7pt);
+draw(Label("$x$", EndPoint, fontsize(16pt)), O--1.5X, axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(16pt)), O--1.5Y, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(16pt)), O--3.1Z, axispen, Arrow3(size=8));
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -704,6 +959,41 @@
         W = 110 + \frac{1000}{3} + 1 - e^{10}
         = \frac{1333}{3} - e^{10} \approx -21582.1 .
       </me>
+      <figure xml:id="fig-hw8o-sol-staircase">
+      <caption>
+      The staircase path closed by the segment <m>C_3</m> down the
+      <m>y</m>-axis. The closed curve runs counterclockwise around the shaded
+      region <m>R</m>, whose area is <m>50 + 10\left(\frac12\right) = 55</m>.
+      </caption>
+      <image width="60%">
+        <shortdescription>The staircase path closed by a segment down the y-axis, around a shaded region of area 55.</shortdescription>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-hw8o-sol-staircase">
+          <diagram dimensions="(360,340)" margins="10">
+            <coordinates bbox="(-1.8,-1.6,12.2,11.6)">
+              <polygon at="hss-region" closed="yes" stroke="none" fill="#cfe0f5" points="((0,0),(1,0),(1,1),(2,1),(2,2),(3,2),(3,3),(4,3),(4,4),(5,4),(5,5),(6,5),(6,6),(7,6),(7,7),(8,7),(8,8),(9,8),(9,9),(10,9),(10,10),(0,10))"/>
+              <axes at="hss-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <polygon at="hss-stairs" closed="no" stroke="#0072B2" thickness="2" fill="none" points="((0,0),(1,0),(1,1),(2,1),(2,2),(3,2),(3,3),(4,3),(4,4),(5,4),(5,5),(6,5),(6,6),(7,6),(7,7),(8,7),(8,8),(9,8),(9,9),(10,9),(10,10),(0,10))"/>
+              <line at="hss-c3" p1="(0,10)" p2="(0,0)" stroke="#D55E00" thickness="3"/>
+              <vector at="hss-c3-arrow" tail="(0,6.2)" v="(0,-1.1)" stroke="#D55E00" thickness="3"/>
+              <vector at="hss-a1" v="(0.9,0)" tail="(4.2,4)" stroke="#0072B2" thickness="2"/>
+              <vector at="hss-a2" v="(-1.1,0)" tail="(5.6,10)" stroke="#0072B2" thickness="2"/>
+              <label at="hss-c3-label" anchor="(0,5)" alignment="w" color="#D55E00" clear-background="yes" background-margin="2"><m>C_3</m></label>
+              <label at="hss-R-label" anchor="(3,7.2)" alignment="c" clear-background="yes" background-margin="2"><m>R</m></label>
+              <label at="hss-area" anchor="(3,6.4)" alignment="s" clear-background="yes" background-margin="2"><m>\text{area } 55</m></label>
+              <point at="hss-corner" p="(10,10)" fill="black" alignment="se"><m>(10,10)</m></point>
+              <point at="hss-end" p="(0,10)" fill="black" alignment="nw"><m>(0,10)</m></point>
+            </coordinates>
+            <annotations>
+              <annotation ref="figure" text="The staircase path of the problem, ten unit steps from the origin to ten comma ten and back along the top to zero comma ten, closed by the segment C 3 down the y-axis from zero comma ten to the origin. The closed curve runs counterclockwise around the shaded region R above the staircase, whose area is 55: the triangle of area 50 plus ten half-squares.">
+                <annotation ref="hss-region" text="The region R between the staircase and the top segment, of area 55."/>
+                <annotation ref="hss-c3" text="The closing segment C 3, down the y-axis from zero comma ten to the origin."/>
+                <annotation ref="hss-stairs" text="The given path: the staircase and the top segment."/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -766,6 +1056,39 @@
         = \int_0^{2\pi}\!\!\int_0^1 r^3\sin^2\theta\,dr\,d\theta
         = \frac{\pi}{4} .
       </me>
+      <figure xml:id="fig-hw8o-sol-circle">
+      <caption>
+      The unit disk <m>R</m> inside <m>C</m>, traversed counterclockwise,
+      in the polar coordinates <m>r</m>, <m>\theta</m> of the integral
+      <m>\iint_R y^2\,dA</m>.
+      </caption>
+      <image width="60%">
+        <shortdescription>The shaded unit disk with its counterclockwise boundary and a radius at an angle theta.</shortdescription>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-hw8o-sol-circle">
+          <diagram dimensions="(300,300)" margins="10">
+            <definition>circ(t) = (cos(t), sin(t))</definition>
+            <coordinates bbox="(-1.6,-1.6,1.6,1.6)">
+              <circle at="hci-disk" center="(0,0)" radius="1" fill="#cfe0f5" stroke="#0072B2" thickness="2.5"/>
+              <axes at="hci-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <parametric-curve at="hci-dir-1" function="circ" domain="(1.9,2.15)" stroke="#0072B2" thickness="3" arrows="1"/>
+              <parametric-curve at="hci-dir-2" function="circ" domain="(5.05,5.3)" stroke="#0072B2" thickness="3" arrows="1"/>
+              <line at="hci-radius" p1="(0,0)" p2="(0.643,0.766)" stroke="#D55E00" thickness="2.5"/>
+              <angle-marker at="hci-theta" p="(0,0)" p1="(1,0)" p2="(0.643,0.766)" radius="22" stroke="#D55E00" thickness="1"/>
+              <label at="hci-r" anchor="(0.25,0.48)" alignment="nw" color="#D55E00"><m>r</m></label>
+              <label at="hci-th" anchor="(0.28,0.1)" alignment="ne" color="#D55E00"><m>\theta</m></label>
+              <label at="hci-R" anchor="(-0.45,-0.4)" alignment="c" clear-background="yes" background-margin="2"><m>R</m></label>
+              <label at="hci-C" anchor="(-0.8,0.8)" alignment="nw" color="#0072B2" clear-background="yes" background-margin="2"><m>C</m></label>
+            </coordinates>
+            <annotations>
+              <annotation ref="figure" text="The unit circle C, traversed counterclockwise, around the shaded unit disk R. A radius of length r at angle theta from the positive x-axis shows the polar coordinates in which the double integral of y squared over R is computed, with r from 0 to 1 and theta from 0 to 2 pi.">
+                <annotation ref="hci-disk" text="The unit disk R bounded by C."/>
+                <annotation ref="hci-radius" text="A radius of length r at angle theta."/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -821,6 +1144,39 @@
         since the <m>x</m>-term integrates to zero by symmetry and what is
         left is the area of the disk.
       </p>
+      <figure xml:id="fig-hw8o-sol-flux">
+      <caption>
+      The field <m>\mathbf{F} = \langle x+y,\ -xy\rangle</m>, the unit disk
+      <m>R</m> and outward unit normals <m>\hat{\mathbf{n}}</m> on its
+      boundary circle.
+      </caption>
+      <image width="60%">
+        <shortdescription>A vector field with the unit circle and four outward normal arrows.</shortdescription>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-hw8o-sol-flux">
+          <diagram dimensions="(320,320)" margins="10">
+            <definition>field(x,y) = (x + y, -x*y)</definition>
+            <coordinates bbox="(-2.2,-2.2,2.2,2.2)">
+              <circle at="hfl-disk" center="(0,0)" radius="1" fill="#e4eef8" stroke="#0072B2" thickness="2.5"/>
+              <axes at="hfl-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <vector-field at="hfl-field" function="field" spacings="((-2,0.5,2),(-2,0.5,2))" scale="0.1" stroke="#9a9a9a"/>
+              <vector at="hfl-n1" tail="(1,0)" v="(0.55,0)" stroke="#CC0077" thickness="3"/>
+              <vector at="hfl-n2" tail="(0,1)" v="(0,0.55)" stroke="#CC0077" thickness="3"/>
+              <vector at="hfl-n3" tail="(-1,0)" v="(-0.55,0)" stroke="#CC0077" thickness="3"/>
+              <vector at="hfl-n4" tail="(0,-1)" v="(0,-0.55)" stroke="#CC0077" thickness="3"/>
+              <label at="hfl-n-label" anchor="(1.55,0)" alignment="ne" color="#CC0077" clear-background="yes" background-margin="2"><m>\hat{\mathbf{n}}</m></label>
+              <label at="hfl-R" anchor="(-0.45,0.4)" alignment="c" clear-background="yes" background-margin="2"><m>R</m></label>
+            </coordinates>
+            <annotations>
+              <annotation ref="figure" text="The vector field x plus y comma minus x y drawn as gray arrows, the unit circle bounding the lightly shaded disk R, and four magenta outward unit normals on the circle, at the points where it crosses the axes. The outward flux is the double integral over R of the divergence 1 minus x; the x-term cancels by symmetry, leaving the area pi.">
+                <annotation ref="hfl-field" text="The vector field x plus y comma minus x y."/>
+                <annotation ref="hfl-disk" text="The unit disk R and its boundary circle."/>
+                <annotation ref="hfl-n1" text="An outward unit normal on the circle."/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -895,6 +1251,36 @@
         <m>\mathbf{F}</m> around the petal and, read the other way, the
         work done by <m>\mathbf{F}</m> on a particle going once around it.
       </p>
+      <figure xml:id="fig-hw8o-sol-rose">
+      <caption>
+      The petal <m>R</m> of <m>r = \sin(2\theta)</m> for
+      <m>0 \le \theta \le \pi/2</m>, with its boundary <m>C</m> traversed
+      counterclockwise; the other three petals are in gray.
+      </caption>
+      <image width="60%">
+        <shortdescription>A four-petal rose with the first-quadrant petal shaded and its boundary arrow counterclockwise.</shortdescription>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-hw8o-sol-rose">
+          <diagram dimensions="(320,320)" margins="10">
+            <definition>rose(t) = (sin(2*t)*cos(t), sin(2*t)*sin(t))</definition>
+            <coordinates bbox="(-1.05,-1.05,1.05,1.05)">
+              <parametric-curve at="hro-all" function="rose" domain="(0,2*pi)" N="300" stroke="#9a9a9a" thickness="1.5" closed="yes"/>
+              <parametric-curve at="hro-petal" function="rose" domain="(0,pi/2)" N="120" stroke="#0072B2" fill="#cfe0f5" thickness="2.5" closed="yes"/>
+              <axes at="hro-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <parametric-curve at="hro-dir" function="rose" domain="(1.0,1.2)" stroke="#0072B2" thickness="3" arrows="1"/>
+              <label at="hro-C" anchor="(0.78,0.5)" alignment="e" color="#0072B2" clear-background="yes" background-margin="2"><m>C</m></label>
+              <label at="hro-eq" anchor="(-0.95,0.95)" alignment="se" clear-background="yes" background-margin="2"><m>r = \sin(2\theta)</m></label>
+              <label at="hro-R" anchor="(0.32,0.3)" alignment="c"><m>R</m></label>
+            </coordinates>
+            <annotations>
+              <annotation ref="figure" text="The four-petal rose r equals sine of 2 theta in gray, with its petal in the first quadrant shaded and outlined in blue. That petal, traced for theta from 0 to pi over 2, is the region R, and an arrowhead shows its boundary C running counterclockwise. Its area is pi over 8.">
+                <annotation ref="hro-petal" text="The first-quadrant petal R, for theta from 0 to pi over 2."/>
+                <annotation ref="hro-all" text="The whole four-petal rose."/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+      </figure>
     </solution>
   </exercise>
   </exercises>
