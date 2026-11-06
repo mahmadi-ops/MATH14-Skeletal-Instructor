@@ -514,11 +514,14 @@ where it equals <m>2\left(4^2\right)\left(12^2\right) = 4608</m>.
         \rho^4\sin\phi\,d\rho\,d\phi\,d\theta = \frac{4\pi R^5}{15}</m>.
         Hence
       </p>
-      <me>
-        \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma
-        = \iiint_W 3\left(x^2 + z^2\right)dV
-        = 6\cdot\frac{4\pi R^5}{15} = \frac{8\pi R^5}{5}.
-      </me>
+      <md>
+        <mrow>
+          \amp \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma = \iiint_W 3\left(x^2 + z^2\right)dV
+        </mrow>
+        <mrow>
+          \amp \quad = 6\cdot\frac{4\pi R^5}{15} = \frac{8\pi R^5}{5}.
+        </mrow>
+      </md>
       <p>
         Here <m>R = 3</m>, so the flux is
 <m>\dfrac{8\pi\left(3^5\right)}{5} = \dfrac{1944\pi}{5} \approx 1221.45</m>.
@@ -813,6 +816,109 @@ positive; for <m>A = -5 \lt -2</m> it is negative.
 
   </exercise>
 
+  <!-- =================================================================== -->
+  <!-- 10.  Flux through a paraboloid cap  (moved from RP3 #11)           -->
+  <!-- =================================================================== -->
+  <exercise xml:id="ex-r4p-paraboloid-cap">
+    <title>Flux Through a Paraboloid Cap</title>
+    <setup>
+      <de-object name="a" context="number">
+        <de-random distribution="discrete" min="1" max="2" by="1"/>
+      </de-object>
+      <de-object name="u" context="number">
+        <de-random distribution="discrete" min="0" max="1" by="1"/>
+      </de-object>
+      <de-object name="t" context="number">
+        <de-random distribution="discrete" min="1" max="4" by="1"/>
+      </de-object>
+      <de-object name="b" context="number">
+        <de-expression>(2*u-1)*t</de-expression>
+      </de-object>
+      <de-object name="h" context="number">
+        <de-expression>1+a^2</de-expression>
+      </de-object>
+      <de-object name="flux" context="number">
+        <de-expression>b*(a^4/2+a^2)*pi</de-expression>
+      </de-object>
+    </setup>
+    <statement>
+      <p>
+        Let
+        <m>\mathbf{F}(x,y,z) = z\tan\!\left(y^2\right)\mathbf{i}
+        + z^3\ln\!\left(x^2+1\right)\mathbf{j}
+        + <eval obj="b"/>z\,\mathbf{k}</m>. Use the Divergence Theorem to
+        find the flux of <m>\mathbf{F}</m> across the part of the
+        paraboloid <m>x^2 + y^2 + z = <eval obj="h"/></m> that lies above
+        the plane <m>z = 1</m> and is oriented upward.
+      </p>
+      <p>
+        <m>\nabla \cdot \mathbf{F} =</m>
+        <fillin name="b1" mode="math" ansobj="b" width="6"/>
+        (a number)
+      </p>
+      <p>
+        <m>\displaystyle\iint_{S} \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma =</m>
+        <fillin name="b2" mode="math" ansobj="flux" width="12"/>
+      </p>
+    </statement>
+    <evaluation>
+      <evaluate>
+        <test correct="yes">
+          <mathcmp use-answer="yes"/>
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </test>
+        <test>
+          <numcmp min="-1000000000" max="1000000000"/>
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <mathcmp use-answer="yes"/>
+          <feedback>
+          <p>Correct.</p>
+        </feedback>
+        </test>
+        <test>
+          <numcmp min="-1000000000" max="1000000000"/>
+          <feedback>
+          <p>Incorrect.</p>
+        </feedback>
+        </test>
+      </evaluate>
+    </evaluation>
+      <solution component="review4-solutions">
+      <p>
+        Write <m>b</m> for the coefficient of <m>z\,\mathbf{k}</m> and
+        <m>a^2 = h - 1</m>, so the paraboloid meets the plane <m>z=1</m>
+        in the circle of radius <m>a</m>. Then
+        <m>\nabla \cdot \mathbf{F} = b</m>. Close the surface with the
+        disk <m>S_1</m> of radius <m>a</m> at <m>z = 1</m>, oriented
+        downward; there <m>\mathbf{F}\cdot(-\mathbf{k}) = -b</m>, so
+        <m>\iint_{S_1} = -b\pi a^2</m>. The enclosed volume is
+        <m>\int_0^{2\pi}\!\!\int_0^{a}\left(a^2 - r^2\right)r\,dr\,d\theta
+        = \tfrac{\pi a^4}{2}</m>, so the closed-surface flux is
+        <m>b\,\tfrac{\pi a^4}{2}</m>, and
+      </p>
+      <md>
+        <mrow>
+          \amp \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma = b\,\frac{\pi a^4}{2} - \left(-b\pi a^2\right)
+        </mrow>
+        <mrow>
+          \amp \quad = b\left(\frac{a^4}{2} + a^2\right)\pi.
+        </mrow>
+      </md>
+      <p>
+        Here <m>b = 3</m> and <m>a^2 = 5 - 1 = 4</m>, so the flux is
+<m>3\left(\tfrac{2^4}{2} + 2^2\right)\pi = 36\pi \approx 113.10</m>.
+      </p>
+    </solution>
+
+  </exercise>
 
 
   </exercises>

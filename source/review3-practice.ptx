@@ -120,10 +120,14 @@
         Compute the area of the region <m>D</m> in the first quadrant of the
         <m>xy</m>-plane bounded by
       </p>
-      <me>
-        xy = 1, \qquad xy = <eval obj="aa"/>, \qquad
-        xy^2 = 1, \qquad xy^2 = <eval obj="bb"/>.
-      </me>
+      <md>
+        <mrow>
+          \amp xy = 1, \qquad xy = <eval obj="aa"/>,
+        </mrow>
+        <mrow>
+          \amp xy^2 = 1, \qquad xy^2 = <eval obj="bb"/>.
+        </mrow>
+      </md>
       <p>
         <term>Part A.</term> Sketch the region <m>D</m>. (Nothing to submit
         for this part<mdash/>the sketch is for your own use in the parts
@@ -376,12 +380,17 @@
         <m>x_u = 2u/v</m>, <m>x_v = -u^2/v^2</m>, <m>y_u = -v/u^2</m>,
         <m>y_v = 1/u</m>, so
       </p>
-      <me>
-        \frac{\partial(x,y)}{\partial(u,v)}
-        = \frac{2u}{v}\cdot\frac{1}{u}
-        - \left(-\frac{u^2}{v^2}\right)\left(-\frac{v}{u^2}\right)
-        = \frac{2}{v} - \frac{1}{v} = \frac{1}{v}.
-      </me>
+      <md>
+        <mrow>
+          \amp \frac{\partial(x,y)}{\partial(u,v)} = \frac{2u}{v}\cdot\frac{1}{u}
+        </mrow>
+        <mrow>
+          \amp \quad {} - \left(-\frac{u^2}{v^2}\right)\left(-\frac{v}{u^2}\right)
+        </mrow>
+        <mrow>
+          \amp \quad = \frac{2}{v} - \frac{1}{v} = \frac{1}{v}.
+        </mrow>
+      </md>
       <p>
         The four bounding curves are exactly <m>u = 1</m>,
         <m>u = 9</m>, <m>v = 1</m>, <m>v = 36</m>,
@@ -531,13 +540,17 @@
         \end{pmatrix}</m> with determinant <m>1</m>, and
         <m>dx\,dy = ds\,dt</m>. Completing the substitution,
       </p>
-      <me>
-        x^2 + 6xy + 10y^2
-        = \left(s - 3t\right)^2
-        + 6\left(s - 3t\right)t
-        + 10t^2
-        = s^2 + t^2 ,
-      </me>
+      <md>
+        <mrow>
+          \amp x^2 + 6xy + 10y^2
+        </mrow>
+        <mrow>
+          \amp \quad = \left(s - 3t\right)^2 + 6\left(s - 3t\right)t + 10t^2
+        </mrow>
+        <mrow>
+          \amp \quad = s^2 + t^2 ,
+        </mrow>
+      </md>
       <p>
         so the region is the unit disc <m>T</m> and
         <m>\iint_R dx\,dy = \iint_T ds\,dt = \text{Area}(T) = \pi</m>.
@@ -772,14 +785,14 @@
       <p>
         Inverting gives <m>x = \sqrt{s-t}</m> and <m>y = s</m>, so
       </p>
-      <me>
-        \frac{\partial(x,y)}{\partial(s,t)}
-        = \begin{vmatrix}
-          \frac{1}{2\sqrt{s-t}} &amp; -\frac{1}{2\sqrt{s-t}} \\
-          1 &amp; 0
-          \end{vmatrix}
-        = \frac{1}{2\sqrt{s-t}} .
-      </me>
+      <md>
+        <mrow>
+          \amp \frac{\partial(x,y)}{\partial(s,t)} = \begin{vmatrix} \frac{1}{2\sqrt{s-t}} &amp; -\frac{1}{2\sqrt{s-t}} \\ 1 &amp; 0 \end{vmatrix}
+        </mrow>
+        <mrow>
+          \amp \quad = \frac{1}{2\sqrt{s-t}} .
+        </mrow>
+      </md>
       <p>
         The boundaries <m>y = x^2</m> and <m>y = x^2 - 4</m>
         become <m>t = 0</m> and <m>t = -4</m>, while
@@ -788,13 +801,14 @@
         collapses to <m>\sqrt{s-t}\cdot\frac{1}{2\sqrt{s-t}}
         = \frac{1}{2}</m>, so
       </p>
-      <me>
-        \iint_R x\,dx\,dy
-        = \iint_T \frac{1}{2}\,ds\,dt
-        = \frac{1}{2}\,\text{Area}(T)
-        = \frac{\left(4\right)\left(9\right)}{2}
-        = 18 .
-      </me>
+      <md>
+        <mrow>
+          \amp \iint_R x\,dx\,dy = \iint_T \frac{1}{2}\,ds\,dt
+        </mrow>
+        <mrow>
+          \amp \quad = \frac{1}{2}\,\text{Area}(T) = \frac{\left(4\right)\left(9\right)}{2} = 18 .
+        </mrow>
+      </md>
       <p>
         Here <m>a = 4</m> and <m>b^2 = 9</m>, so the rectangle <m>T</m> is
 <m>4 \times 9</m> and the integral equals
@@ -900,14 +914,17 @@
         has Jacobian <m>24</m>, while the integrand becomes
         <m>u^2+v^2+w^2 = \rho^2</m>. Hence
       </p>
-      <me>
-        \iiint_E \left(\frac{x^2}{2^2}
-        + \frac{y^2}{3^2}
-        + \frac{z^2}{4^2}\right) dV
-        = 24\int_0^{2\pi}\!\!\int_0^{\pi}\!\!\int_0^{1}
-          \rho^4 \sin\phi \,d\rho\,d\phi\,d\theta
-        = \frac{4\,\pi\,24}{5} .
-      </me>
+      <md>
+        <mrow>
+          \amp \iiint_E \left(\frac{x^2}{2^2} + \frac{y^2}{3^2} + \frac{z^2}{4^2}\right) dV
+        </mrow>
+        <mrow>
+          \amp \quad = 24\int_0^{2\pi}\!\!\int_0^{\pi}\!\!\int_0^{1} \rho^4 \sin\phi \,d\rho\,d\phi\,d\theta
+        </mrow>
+        <mrow>
+          \amp \quad = \frac{4\,\pi\,24}{5} .
+        </mrow>
+      </md>
       <p>
         Here the Jacobian is <m>(2)(3)(4) = 24</m>, so the integral is
 <m>\dfrac{4\pi(24)}{5} = \dfrac{96\pi}{5} \approx 60.32</m>.
@@ -1027,14 +1044,17 @@
         Describe <m>W</m> by <m>0 \le x \le 1</m>, <m>0 \le y \le 1-x</m>,
         <m>0 \le z \le 1-x-y</m>. Then
       </p>
-      <me>
-        \iiint_W 6\sqrt{z}\,dV
-        = \frac{8\left(6\right)}{105}, \qquad
-        \iiint_W 6x\sqrt{z}\,dV
-        = \frac{16\left(6\right)}{945}, \qquad
-        \iiint_W 6z\sqrt{z}\,dV
-        = \frac{8\left(6\right)}{315},
-      </me>
+      <md>
+        <mrow>
+          \amp \iiint_W 6\sqrt{z}\,dV = \frac{8\left(6\right)}{105},
+        </mrow>
+        <mrow>
+          \amp \iiint_W 6x\sqrt{z}\,dV = \frac{16\left(6\right)}{945},
+        </mrow>
+        <mrow>
+          \amp \iiint_W 6z\sqrt{z}\,dV = \frac{8\left(6\right)}{315},
+        </mrow>
+      </md>
       <p>
         and the <m>y</m>-numerator equals the <m>x</m>-numerator by the
         symmetry of <m>W</m> and of <m>\rho</m> in <m>x</m> and <m>y</m>.
@@ -1333,16 +1353,14 @@
         For a linear transformation the partial derivatives are just the
         coefficients, so
       </p>
-      <me>
-        \mathrm{Jac}(T) = \frac{\partial(x,y)}{\partial(u,v)}
-        = \begin{vmatrix}
-          7 &amp; 2 \\
-          3 &amp; 8
-          \end{vmatrix}
-        = \left(7\right)\left(8\right)
-        - \left(2\right)\left(3\right)
-        = 50 ,
-      </me>
+      <md>
+        <mrow>
+          \amp \mathrm{Jac}(T) = \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} 7 &amp; 2 \\ 3 &amp; 8 \end{vmatrix}
+        </mrow>
+        <mrow>
+          \amp \quad = \left(7\right)\left(8\right) - \left(2\right)\left(3\right) = 50 ,
+        </mrow>
+      </md>
       <p>
         a constant: a linear map scales every area by the same factor.
       </p>
@@ -1456,23 +1474,31 @@
       <p>
         Since <m>x = u^2-v^2</m> and <m>y = 2uv</m>,
       </p>
-      <me>
-        \sqrt{x^2+y^2}
-        = \sqrt{\left(u^2+v^2\right)^2} = u^2+v^2, \qquad
-        \frac{\partial(x,y)}{\partial(u,v)}
-        = \begin{vmatrix} 2u &amp; -2v \\ 2v &amp; 2u \end{vmatrix}
-        = 4\left(u^2+v^2\right).
-      </me>
+      <md>
+        <mrow>
+          \amp \sqrt{x^2+y^2} = \sqrt{\left(u^2+v^2\right)^2} = u^2+v^2,
+        </mrow>
+        <mrow>
+          \amp \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} 2u &amp; -2v \\ 2v &amp; 2u \end{vmatrix}
+        </mrow>
+        <mrow>
+          \amp \quad = 4\left(u^2+v^2\right).
+        </mrow>
+      </md>
       <p>
         Therefore
       </p>
-      <me>
-        \iint_D \sqrt{x^2+y^2}\,dx\,dy
-        = 4\int_0^{2}\!\!\int_0^{u}
-          \left(u^4 + 2u^2v^2 + v^4\right) dv\,du
-        = 4\int_0^{2} \frac{28}{15}u^5\,du
-        = \frac{56\left(2\right)^6}{45} .
-      </me>
+      <md>
+        <mrow>
+          \amp \iint_D \sqrt{x^2+y^2}\,dx\,dy
+        </mrow>
+        <mrow>
+          \amp \quad = 4\int_0^{2}\!\!\int_0^{u} \left(u^4 + 2u^2v^2 + v^4\right) dv\,du
+        </mrow>
+        <mrow>
+          \amp \quad = 4\int_0^{2} \frac{28}{15}u^5\,du = \frac{56\left(2\right)^6}{45} .
+        </mrow>
+      </md>
       <p>
         Here <m>a = 2</m>, so the integral equals
 <m>\dfrac{56\left(2^6\right)}{45} = \dfrac{3584}{45} \approx 79.64</m>.
@@ -1710,12 +1736,14 @@
         region gives <m>\tfrac{88}{3}</m>, <m>30.476</m>,
         and <m>142.933</m> respectively, so
       </p>
-      <me>
-        \overline{x} = \frac{30.476}{\tfrac{88}{3}}
-        \approx 1.039, \qquad
-        \overline{y} = \frac{142.933}{\tfrac{88}{3}}
-        \approx 4.873 .
-      </me>
+      <md>
+        <mrow>
+          \amp \overline{x} = \frac{30.476}{\tfrac{88}{3}} \approx 1.039,
+        </mrow>
+        <mrow>
+          \amp \overline{y} = \frac{142.933}{\tfrac{88}{3}} \approx 4.873 .
+        </mrow>
+      </md>
       <p>
         Here <m>m = 2</m> and <m>b = 8</m>, so <m>x^{*} = 2</m> exactly, giving
 <m>c = 0</m>, <m>d = 2</m>, <m>p(x) = 2x</m>, <m>q(x) = 8 - x^2</m>, the
@@ -1794,16 +1822,17 @@ three integrals <m>\tfrac{88}{3} \approx 29.33</m>, <m>30.48</m> and
         that line, so <m>\overline{x} = \overline{y}</m>. Computing
         <m>\overline{x}</m>,
       </p>
-      <me>
-        \overline{x}
-        = \frac{\displaystyle\int_0^{3}
-          x\sqrt{\left(3\right)^2-x^2}\,dx}
-          {\displaystyle\frac{\pi\left(3\right)^2}{4}}
-        = \frac{\left(3\right)^3/3}
-          {\pi\left(3\right)^2/4}
-        = \frac{4\left(3\right)}{3\pi}
-        \approx \tfrac{4}{\pi} \approx 1.273 ,
-      </me>
+      <md>
+        <mrow>
+          \amp \overline{x} = \frac{\displaystyle\int_0^{3} x\sqrt{\left(3\right)^2-x^2}\,dx}{\displaystyle\frac{\pi\left(3\right)^2}{4}}
+        </mrow>
+        <mrow>
+          \amp \quad = \frac{\left(3\right)^3/3}{\pi\left(3\right)^2/4} = \frac{4\left(3\right)}{3\pi}
+        </mrow>
+        <mrow>
+          \amp \quad \approx \tfrac{4}{\pi} \approx 1.273 ,
+        </mrow>
+      </md>
       <p>
         and <m>\overline{y}</m> has the same value.
       </p>
@@ -1811,107 +1840,6 @@ three integrals <m>\tfrac{88}{3} \approx 29.33</m>, <m>30.48</m> and
         Here <m>r = 3</m>, so
 <m>\overline{x} = \overline{y} = \dfrac{4(3)}{3\pi} = \dfrac{4}{\pi}
 \approx 1.273</m>.
-      </p>
-    </solution>
-
-  </exercise>
-
-  <!-- =================================================================== -->
-  <!-- 11.  Flux through a paraboloid cap  (RP3 #11)                        -->
-  <!-- =================================================================== -->
-  <exercise xml:id="ex-r3p-paraboloid-cap">
-    <title>Flux Through a Paraboloid Cap</title>
-    <setup>
-      <de-object name="a" context="number">
-        <de-random distribution="discrete" min="1" max="2" by="1"/>
-      </de-object>
-      <de-object name="u" context="number">
-        <de-random distribution="discrete" min="0" max="1" by="1"/>
-      </de-object>
-      <de-object name="t" context="number">
-        <de-random distribution="discrete" min="1" max="4" by="1"/>
-      </de-object>
-      <de-object name="b" context="number">
-        <de-expression>(2*u-1)*t</de-expression>
-      </de-object>
-      <de-object name="h" context="number">
-        <de-expression>1+a^2</de-expression>
-      </de-object>
-      <de-object name="flux" context="number">
-        <de-expression>b*(a^4/2+a^2)*pi</de-expression>
-      </de-object>
-    </setup>
-    <statement>
-      <p>
-        Let
-        <m>\mathbf{F}(x,y,z) = z\tan\!\left(y^2\right)\mathbf{i}
-        + z^3\ln\!\left(x^2+1\right)\mathbf{j}
-        + <eval obj="b"/>z\,\mathbf{k}</m>. Use the Divergence Theorem to
-        find the flux of <m>\mathbf{F}</m> across the part of the
-        paraboloid <m>x^2 + y^2 + z = <eval obj="h"/></m> that lies above
-        the plane <m>z = 1</m> and is oriented upward.
-      </p>
-      <p>
-        <m>\nabla \cdot \mathbf{F} =</m>
-        <fillin name="b1" mode="math" ansobj="b" width="6"/>
-        (a number)
-      </p>
-      <p>
-        <m>\displaystyle\iint_{S} \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma =</m>
-        <fillin name="b2" mode="math" ansobj="flux" width="12"/>
-      </p>
-    </statement>
-    <evaluation>
-      <evaluate>
-        <test correct="yes">
-          <mathcmp use-answer="yes"/>
-          <feedback>
-          <p>Correct.</p>
-        </feedback>
-        </test>
-        <test>
-          <numcmp min="-1000000000" max="1000000000"/>
-          <feedback>
-          <p>Incorrect.</p>
-        </feedback>
-        </test>
-      </evaluate>
-      <evaluate>
-        <test correct="yes">
-          <mathcmp use-answer="yes"/>
-          <feedback>
-          <p>Correct.</p>
-        </feedback>
-        </test>
-        <test>
-          <numcmp min="-1000000000" max="1000000000"/>
-          <feedback>
-          <p>Incorrect.</p>
-        </feedback>
-        </test>
-      </evaluate>
-    </evaluation>
-      <solution component="review3-solutions">
-      <p>
-        Write <m>b</m> for the coefficient of <m>z\,\mathbf{k}</m> and
-        <m>a^2 = h - 1</m>, so the paraboloid meets the plane <m>z=1</m>
-        in the circle of radius <m>a</m>. Then
-        <m>\nabla \cdot \mathbf{F} = b</m>. Close the surface with the
-        disk <m>S_1</m> of radius <m>a</m> at <m>z = 1</m>, oriented
-        downward; there <m>\mathbf{F}\cdot(-\mathbf{k}) = -b</m>, so
-        <m>\iint_{S_1} = -b\pi a^2</m>. The enclosed volume is
-        <m>\int_0^{2\pi}\!\!\int_0^{a}\left(a^2 - r^2\right)r\,dr\,d\theta
-        = \tfrac{\pi a^4}{2}</m>, so the closed-surface flux is
-        <m>b\,\tfrac{\pi a^4}{2}</m>, and
-      </p>
-      <me>
-        \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma
-        = b\,\frac{\pi a^4}{2} - \left(-b\pi a^2\right)
-        = b\left(\frac{a^4}{2} + a^2\right)\pi.
-      </me>
-      <p>
-        Here <m>b = 3</m> and <m>a^2 = 5 - 1 = 4</m>, so the flux is
-<m>3\left(\tfrac{2^4}{2} + 2^2\right)\pi = 36\pi \approx 113.10</m>.
       </p>
     </solution>
 
@@ -1948,10 +1876,14 @@ three integrals <m>\tfrac{88}{3} \approx 29.33</m>, <m>30.48</m> and
         + <eval obj="c"/>\,\mathbf{j} + <eval obj="c"/>\,\mathbf{k}</m>
         and the parametrized surface <m>S</m> is the helicoid
       </p>
-      <me>
-        \mathbf{r}(u,v) = \left(v\cos u,\ v\sin u,\ u\right),
-        \qquad 0 \le u \le \pi, \quad 0 \le v \le 1,
-      </me>
+      <md>
+        <mrow>
+          \amp \mathbf{r}(u,v) = \left(v\cos u,\ v\sin u,\ u\right),
+        </mrow>
+        <mrow>
+          \amp 0 \le u \le \pi, \quad 0 \le v \le 1,
+        </mrow>
+      </md>
       <p>
         oriented upward.
       </p>
@@ -2011,11 +1943,17 @@ three integrals <m>\tfrac{88}{3} \approx 29.33</m>, <m>30.48</m> and
         = \sin u\,\mathbf{i} - \cos u\,\mathbf{j} + v\,\mathbf{k}</m>.
         Writing <m>c</m> for the common component of <m>\mathbf{F}</m>,
       </p>
-      <me>
-        \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma
-        = c\int_0^1\!\!\int_0^{\pi}\left(\sin u - \cos u + v\right)
-        du\,dv = c\left(2 + \frac{\pi}{2}\right).
-      </me>
+      <md>
+        <mrow>
+          \amp \iint_S \mathbf{F}\cdot\hat{\mathbf{n}}\,d\sigma
+        </mrow>
+        <mrow>
+          \amp \quad = c\int_0^1\!\!\int_0^{\pi}\left(\sin u - \cos u + v\right) du\,dv
+        </mrow>
+        <mrow>
+          \amp \quad = c\left(2 + \frac{\pi}{2}\right).
+        </mrow>
+      </md>
       <p>
         Here <m>c = 1</m>, so the flux is
 <m>2 + \dfrac{\pi}{2} \approx 3.57</m>.
@@ -2621,11 +2559,14 @@ line integrals are <m>0</m>, <m>-6\pi \approx -18.85</m>, and <m>0</m>.
         With <m>M = axy</m> and <m>N = 0</m>,
         <m>N_x - M_y = -ax</m>, so by Green's Theorem
       </p>
-      <me>
-        \oint_C \mathbf{F}\cdot d\mathbf{r}
-        = \int_0^{x_0}\!\!\int_0^{y_0} (-ax)\,dy\,dx
-        = -\frac{a\,x_0^2\,y_0}{2}.
-      </me>
+      <md>
+        <mrow>
+          \amp \oint_C \mathbf{F}\cdot d\mathbf{r} = \int_0^{x_0}\!\!\int_0^{y_0} (-ax)\,dy\,dx
+        </mrow>
+        <mrow>
+          \amp \quad = -\frac{a\,x_0^2\,y_0}{2}.
+        </mrow>
+      </md>
       <p>
         Here <m>a = 2</m>, <m>x_0 = 4</m> and <m>y_0 = 3</m>, so the circulation is
 <m>-\dfrac{2\left(4^2\right)(3)}{2} = -48</m>.
