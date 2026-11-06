@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-hw3o-field-figure" width="400" height="340" viewBox="0 0 400 340">
+  <defs>
+    <clipPath id="prefigure-hw3o-field-__clipPath-0">
+      <rect x="10.0" y="10.0" width="380.0" height="320.0"/>
+    </clipPath>
+    <clipPath id="prefigure-hw3o-field-__clipPath-1">
+      <rect x="10.0" y="10.0" width="380.0" height="320.0"/>
+    </clipPath>
+    <marker id="prefigure-hw3o-field-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-end-3_None_24_60-h0072B2" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#0072B2" stroke="none"/>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-end-3_None_24_60-h0072B2-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-start-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="2.5" refY="4.0">
+      <g transform="rotate(180, 4.5, 4.0)">
+        <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-start-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="4.5" refY="6.0">
+      <g transform="rotate(180, 6.5, 6.0)">
+        <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-start-2_None_24_60-h009E73" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="2.5" refY="4.0">
+      <g transform="rotate(180, 4.5, 4.0)">
+        <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-start-2_None_24_60-h009E73-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="4.5" refY="6.0">
+      <g transform="rotate(180, 6.5, 6.0)">
+        <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-start-3_None_24_60-h0072B2" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="3.6999999999999993" refY="6.0">
+      <g transform="rotate(180, 6.75, 6.0)">
+        <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#0072B2" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-hw3o-field-arrow-head-start-3_None_24_60-h0072B2-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="5.699999999999999" refY="8.0">
+      <g transform="rotate(180, 8.75, 8.0)">
+        <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="prefigure-hw3o-field-hf-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-hw3o-field-__line-0" x1="10.0" y1="296.1" x2="390.0" y2="296.1" stroke="black" stroke-width="2" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-hw3o-field-__line-1" x1="45.9" y1="330.0" x2="45.9" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-hw3o-field-__label-0" transform="translate(384.0,290.1) translate(-10.4,-8.2)">
+    <g id="prefigure-hw3o-field-__g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-hw3o-field-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-hw3o-field-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-hw3o-field-__label-1" transform="translate(51.9,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-hw3o-field-__g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-hw3o-field-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-hw3o-field-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-hw3o-field-hf-cols">
+    <g id="prefigure-hw3o-field-__group-0-i_0">
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_0-j_0" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 61.4 286.4 L 64.2 313.0"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_0-j_1" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 61.4 237.9 L 78.5 264.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_0-j_2" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 61.4 189.4 L 93.4 216.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_0-j_3" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 61.4 140.9 L 108.5 168.8"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_0-j_4" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 61.4 92.4 L 123.8 120.5"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_0-j_5" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 61.4 43.9 L 139.2 72.2"/>
+    </g>
+    <g id="prefigure-hw3o-field-__group-1-i_1">
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_1-j_0" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 107.6 286.4 L 110.4 313.0"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_1-j_1" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 107.6 237.9 L 124.7 264.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_1-j_2" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 107.6 189.4 L 139.6 216.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_1-j_3" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 107.6 140.9 L 154.8 168.8"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_1-j_4" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 107.6 92.4 L 170.0 120.5"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_1-j_5" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 107.6 43.9 L 185.4 72.2"/>
+    </g>
+    <g id="prefigure-hw3o-field-__group-2-i_2">
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_2-j_0" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 153.8 286.4 L 156.6 313.0"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_2-j_1" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 153.8 237.9 L 171.0 264.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_2-j_2" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 153.8 189.4 L 185.8 216.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_2-j_3" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 153.8 140.9 L 201.0 168.8"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_2-j_4" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 153.8 92.4 L 216.3 120.5"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_2-j_5" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 153.8 43.9 L 231.6 72.2"/>
+    </g>
+    <g id="prefigure-hw3o-field-__group-3-i_3">
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_3-j_0" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 200.0 286.4 L 202.8 313.0"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_3-j_1" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 200.0 237.9 L 217.2 264.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_3-j_2" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 200.0 189.4 L 232.0 216.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_3-j_3" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 200.0 140.9 L 247.2 168.8"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_3-j_4" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 200.0 92.4 L 262.5 120.5"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_3-j_5" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 200.0 43.9 L 277.8 72.2"/>
+    </g>
+    <g id="prefigure-hw3o-field-__group-4-i_4">
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_4-j_0" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 246.2 286.4 L 249.0 313.0"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_4-j_1" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 246.2 237.9 L 263.4 264.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_4-j_2" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 246.2 189.4 L 278.3 216.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_4-j_3" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 246.2 140.9 L 293.4 168.8"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_4-j_4" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 246.2 92.4 L 308.7 120.5"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_4-j_5" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 246.2 43.9 L 324.0 72.2"/>
+    </g>
+    <g id="prefigure-hw3o-field-__group-5-i_5">
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_5-j_0" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 292.4 286.4 L 295.3 313.0"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_5-j_1" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 292.4 237.9 L 309.6 264.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_5-j_2" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 292.4 189.4 L 324.5 216.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_5-j_3" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 292.4 140.9 L 339.6 168.8"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_5-j_4" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 292.4 92.4 L 354.9 120.5"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_5-j_5" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 292.4 43.9 L 370.2 72.2"/>
+    </g>
+    <g id="prefigure-hw3o-field-__group-6-i_6">
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_6-j_0" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 338.6 286.4 L 341.5 313.0"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_6-j_1" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 338.6 237.9 L 355.8 264.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_6-j_2" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 338.6 189.4 L 370.7 216.9"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_6-j_3" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 338.6 140.9 L 385.8 168.8"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_6-j_4" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 338.6 92.4 L 401.1 120.5"/>
+      <path id="prefigure-hw3o-field-hf-v-ppiqq-ppjqq-i_6-j_5" stroke="#009E73" stroke-width="2" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-2_None_24_60-h009E73)" d="M 338.6 43.9 L 416.5 72.2"/>
+    </g>
+  </g>
+  <path id="prefigure-hw3o-field-hf-C" d="M 307.8 165.2 L 307.8 162.0 L 307.6 158.8 L 307.4 155.6 L 307.0 152.4 L 306.5 149.2 L 305.9 146.1 L 305.2 142.9 L 304.4 139.8 L 303.6 136.7 L 302.6 133.7 L 301.5 130.7 L 300.3 127.7 L 299.0 124.7 L 297.6 121.8 L 296.1 118.9 L 294.5 116.1 L 292.8 113.3 L 291.1 110.6 L 289.2 107.9 L 287.2 105.3 L 285.2 102.7 L 283.1 100.3 L 280.9 97.8 L 278.6 95.5 L 276.3 93.2 L 273.8 90.9 L 271.3 88.8 L 268.7 86.7 L 266.1 84.7 L 263.4 82.8 L 260.6 80.9 L 257.8 79.2 L 254.9 77.5 L 252.0 75.9 L 249.0 74.4 L 245.9 73.0 L 242.8 71.7 L 239.7 70.5 L 236.5 69.4 L 233.3 68.3 L 230.1 67.4 L 226.8 66.5 L 223.5 65.8 L 220.2 65.1 L 216.9 64.6 L 213.5 64.1 L 210.1 63.8 L 206.8 63.5 L 203.4 63.4 L 200.0 63.3 L 196.6 63.4 L 193.2 63.5 L 189.9 63.8 L 186.5 64.1 L 183.1 64.6 L 179.8 65.1 L 176.5 65.8 L 173.2 66.5 L 169.9 67.4 L 166.7 68.3 L 163.5 69.4 L 160.3 70.5 L 157.2 71.7 L 154.1 73.0 L 151.0 74.4 L 148.0 75.9 L 145.1 77.5 L 142.2 79.2 L 139.4 80.9 L 136.6 82.8 L 133.9 84.7 L 131.3 86.7 L 128.7 88.8 L 126.2 90.9 L 123.7 93.2 L 121.4 95.5 L 119.1 97.8 L 116.9 100.3 L 114.8 102.7 L 112.8 105.3 L 110.8 107.9 L 108.9 110.6 L 107.2 113.3 L 105.5 116.1 L 103.9 118.9 L 102.4 121.8 L 101.0 124.7 L 99.7 127.7 L 98.5 130.7 L 97.4 133.7 L 96.4 136.7 L 95.6 139.8 L 94.8 142.9 L 94.1 146.1 L 93.5 149.2 L 93.0 152.4 L 92.6 155.6 L 92.4 158.8 L 92.2 162.0 L 92.2 165.2 L 92.2 168.3 L 92.4 171.5 L 92.6 174.7 L 93.0 177.9 L 93.5 181.1 L 94.1 184.2 L 94.8 187.4 L 95.6 190.5 L 96.4 193.6 L 97.4 196.6 L 98.5 199.6 L 99.7 202.6 L 101.0 205.6 L 102.4 208.5 L 103.9 211.4 L 105.5 214.2 L 107.2 217.0 L 108.9 219.7 L 110.8 222.4 L 112.8 225.0 L 114.8 227.6 L 116.9 230.1 L 119.1 232.5 L 121.4 234.9 L 123.7 237.1 L 126.2 239.4 L 128.7 241.5 L 131.3 243.6 L 133.9 245.6 L 136.6 247.5 L 139.4 249.4 L 142.2 251.1 L 145.1 252.8 L 148.0 254.4 L 151.0 255.9 L 154.1 257.3 L 157.2 258.6 L 160.3 259.8 L 163.5 261.0 L 166.7 262.0 L 169.9 262.9 L 173.2 263.8 L 176.5 264.5 L 179.8 265.2 L 183.1 265.7 L 186.5 266.2 L 189.9 266.5 L 193.2 266.8 L 196.6 266.9 L 200.0 267.0 L 203.4 266.9 L 206.8 266.8 L 210.1 266.5 L 213.5 266.2 L 216.9 265.7 L 220.2 265.2 L 223.5 264.5 L 226.8 263.8 L 230.1 262.9 L 233.3 262.0 L 236.5 261.0 L 239.7 259.8 L 242.8 258.6 L 245.9 257.3 L 249.0 255.9 L 252.0 254.4 L 254.9 252.8 L 257.8 251.1 L 260.6 249.4 L 263.4 247.5 L 266.1 245.6 L 268.7 243.6 L 271.3 241.5 L 273.8 239.4 L 276.3 237.1 L 278.6 234.9 L 280.9 232.5 L 283.1 230.1 L 285.2 227.6 L 287.2 225.0 L 289.2 222.4 L 291.1 219.7 L 292.8 217.0 L 294.5 214.2 L 296.1 211.4 L 297.6 208.5 L 299.0 205.6 L 300.3 202.6 L 301.5 199.6 L 302.6 196.6 L 303.6 193.6 L 304.4 190.5 L 305.2 187.4 L 305.9 184.2 L 306.5 181.1 L 307.0 177.9 L 307.4 174.7 L 307.6 171.5 L 307.8 168.3 L 307.8 165.2" stroke="#0072B2" stroke-width="3" fill="none" clip-path="url(#prefigure-hw3o-field-__clipPath-1)"/>
+  <path id="prefigure-hw3o-field-hf-Cdir" stroke="#0072B2" stroke-width="3" fill="none" marker-end="url(#prefigure-hw3o-field-arrow-head-end-3_None_24_60-h0072B2)" d="M 306.8 184.5 L 308.6 159.1"/>
+  <g id="prefigure-hw3o-field-hf-Clabel" transform="translate(200.0,165.2) translate(-6.9,-6.6)">
+    <g id="prefigure-hw3o-field-__g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px; color:#0072B2" width="13.752px" height="13.160px" role="img" focusable="false" viewBox="0 -705 760 727" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-hw3o-field-MJX-4-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper C">
+              <use data-c="1D436" xlink:href="#prefigure-hw3o-field-MJX-4-TEX-I-1D436"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-hw3o-field-hf-Flabel" transform="translate(332.4,34.2) translate(0.0,-6.2)">
+    <g id="prefigure-hw3o-field-__g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:#009E73" width="13.104px" height="12.304px" role="img" focusable="false" viewBox="0 -680 724 680" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-hw3o-field-MJX-5-TEX-B-1D405" d="M425 0L228 3Q63 3 51 0H39V62H147V618H39V680H644V676Q647 670 659 552T675 428V424H613Q613 433 605 477Q599 511 589 535T562 574T530 599T488 612T441 617T387 618H368H304V371H333Q389 373 411 390T437 468V488H499V192H437V212Q436 244 430 263T408 292T378 305T333 309H304V62H439V0H425Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="TeXAtom" data-mjx-texclass="ORD">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="bold" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-attributes="texclass:ORD" data-semantic-speech="bold upper F">
+                <use data-c="1D405" xlink:href="#prefigure-hw3o-field-MJX-5-TEX-B-1D405"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

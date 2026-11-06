@@ -1,0 +1,21 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-spe3-q3-S-figure" speech2="The rectangle S in the u v plane.">
+      <grouped>prefigure-spe3-q3-S-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-spe3-q3-S-q3-S</active>
+      </children>
+      <components>
+        <active>prefigure-spe3-q3-S-q3-S</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-spe3-q3-S-q3-S" speech2="The rectangle S, with u from zero to two and v from zero to one.">
+      <active>prefigure-spe3-q3-S-q3-S</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-spe3-q3-S-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

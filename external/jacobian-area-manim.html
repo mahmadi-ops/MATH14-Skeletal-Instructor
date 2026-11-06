@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Jacobian as a local ratio of areas</title>
+<!-- The animated companion of fig-curved-region-video in "Substitution in
+     Multiple Integrals and the Jacobian Determinant": the substitution
+     u = x^2 - y^2, v = xy of the curved-region example, with T, its
+     inverse, carrying the rectangle R = [-3,3] x [1,4] of the uv-plane
+     (left) onto the region D between the four hyperbolas (right).  D is
+     small next to R, so the xy-plane is drawn K times larger (its box as
+     tall as R's, K about 1.9), and says so; areas are compared in the
+     card, not by eye.
+
+     The grid cuts R into N x N cells, du = 6/N by dv = 3/N, and the small
+     rectangle (yellow) is always one of its cells, so T carries it to one
+     cell of the curved grid in D, between the hyperbolas through its
+     corners, and the two vectors T_u du and T_v dv at T(u, v) match the
+     drawn divisions of D; the violet parallelogram they span approximates
+     the patch.  The rectangle slider refines or coarsens the grid
+     (N = 3, 6, 12, ..., 384), and clicking or dragging picks the cell.  The card divides the
+     area of the patch (by the shoelace formula on its sampled boundary)
+     by du dv and, in the completed notes, gives |J| = 1/(2(x^2 + y^2)) at
+     the corner: as the rectangle shrinks the two agree.  "Zoom to patch"
+     follows the rectangle and its image in, D still K times larger.
+
+     The sliders carry no scale; the only numbers are the ratio and |J|
+     in the card, which are the point of the figure.
+
+     SKELETAL (below) is false in the completed books and true in the
+     skeletal ones, where Part A asks for the substitution and Part B for
+     the Jacobian: there neither is named, and the card shows the measured
+     ratio only, as the check on the student's Jacobian.
+
+     Same stage, palette and controls as sphere-patch-manim.html and the
+     other animated figures, drawn on a 2D canvas instead of three.js. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+  :root {
+    --bg:        #06070a;
+    --panel:     #101218;
+    --edge:      #262a36;
+    --ink:       #ece6e2;
+    --dim:       #9aa0ad;
+    --blue:      #58c4dd;   /* u varies: the lines v = const and T_u */
+    --red:       #fc6255;   /* v varies: the lines u = const and T_v */
+    --green:     #83c167;   /* |J| */
+    --yellow:    #ffe14d;   /* the rectangle and its patch */
+    --violet:    #caa3e8;   /* the parallelogram */
+    --sans:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "PT Serif", "Times New Roman", Times, serif;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); }
+  body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  #app { width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
+
+  #stage { position: relative; width: 100%; background: var(--bg); flex: 1 1 auto; min-height: 0; overflow: hidden; }
+  canvas { display: block; cursor: crosshair; touch-action: none; }
+  .overlay { position: absolute; pointer-events: none; }
+
+  #eqcard {
+    top: 12px; left: 14px;
+    padding: 9px 13px 10px 13px;
+    background: rgba(16,18,24,0.72);
+    border: 1px solid var(--edge);
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    line-height: 1.5;
+  }
+  .math { font-family: var(--serif); font-size: 17px; }
+  .math i { font-style: italic; }
+  .math sub { font-size: 72%; vertical-align: -0.28em; line-height: 0; }
+  .math sup { font-size: 72%; vertical-align: 0.5em; line-height: 0; }
+  .num { font-variant-numeric: tabular-nums; display: inline-block; min-width: 3.6em; }
+  #eqcard .line { white-space: nowrap; }
+  #eqcard .note { font-family: var(--sans); font-size: 12.5px; color: var(--dim); }
+
+  #caption {
+    left: 50%; transform: translateX(-50%);
+    bottom: 14px; max-width: 78%;
+    text-align: center; font-size: 15px; line-height: 1.45;
+    background: rgba(6,7,10,0.84);
+    padding: 7px 14px; border-radius: 6px;
+    opacity: 0; transition: opacity .45s ease;
+  }
+  #caption.show { opacity: 1; }
+  #caption .m { font-family: var(--serif); font-size: 16px; }
+
+  #panel { flex: 0 0 auto; border-top: 1px solid var(--edge); background: var(--panel);
+           padding: 9px 12px 11px 12px; box-sizing: border-box; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .row + .row { margin-top: 9px; }
+  .slider { display: inline-flex; align-items: center; gap: 6px; flex: 1 1 150px; min-width: 120px; }
+  .slider span { font-family: var(--serif); font-size: 15px; white-space: nowrap; }
+  input[type=range] { -webkit-appearance: none; appearance: none; flex: 1 1 auto; min-width: 60px;
+                      height: 4px; border-radius: 2px; background: #2a2f3c; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px;
+                      border-radius: 50%; background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 13px; height: 13px; border-radius: 50%;
+                      background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+
+  button { font: inherit; font-size: 13.5px; padding: 5px 12px; border-radius: 999px;
+           color: var(--ink); background: #1a1d26; border: 1px solid var(--edge);
+           cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
+  button:hover { background: #232734; }
+  #btnTour.running { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
+  #btnPara.active  { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
+  #btnGrid.active  { background: var(--blue);   border-color: var(--blue);   color: #06070a; font-weight: 600; }
+  #btnZoom.active  { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
+  #btnFull.active  { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
+
+  @media (max-width: 560px) {
+    #eqcard { position: static; padding: 7px 12px 8px 12px; border: none; border-bottom: 1px solid var(--edge);
+              border-radius: 0; background: var(--panel); line-height: 1.35; }
+    .math { font-size: 15px; }
+    #eqcard .note { display: none; }
+    #panel { padding: 7px 10px 8px 10px; }
+    .row + .row { margin-top: 7px; }
+    .long { display: none; }
+    button { font-size: 13px; padding: 4px 10px; }
+    #caption { font-size: 13px; max-width: 92%; bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="eqcard" class="overlay math"></div>
+    <canvas id="cv" aria-label="Left, the rectangle R in the u v plane with a small yellow rectangle; right, the curved region D in the x y plane with the small curved patch that the rectangle is carried to, and the parallelogram that approximates it."></canvas>
+    <div id="caption" class="overlay"></div>
+  </div>
+
+  <div id="panel">
+    <div class="row">
+      <label class="slider" title="Move the small rectangle across R, cell by cell, in the u-direction">
+        <span><i>u</i></span><input id="sU" type="range" min="0" max="1000" style="--c:#58c4dd"></label>
+      <label class="slider" title="Move the small rectangle across R, cell by cell, in the v-direction">
+        <span><i>v</i></span><input id="sV" type="range" min="0" max="1000" style="--c:#fc6255"></label>
+      <label class="slider" title="The size of the small rectangle: one cell of a coarser or finer grid">
+        <span>rectangle</span><input id="sSize" type="range" min="0" max="7" step="1" style="--c:#ffe14d"></label>
+    </div>
+    <div class="row">
+      <button id="btnTour" aria-label="Play the guided tour" title="A guided tour of the rectangle and its image">&#9654;<span class="long">&nbsp;Play</span></button>
+      <button id="btnPara" class="active" title="The parallelogram spanned by T_u Δu and T_v Δv, which approximates the patch">Parallelogram</button>
+      <button id="btnGrid" class="active" title="The lines u = const and v = const, and the hyperbolas they become">Grid</button>
+      <button id="btnZoom" title="Follow the rectangle and its image in">Zoom to patch</button>
+      <span style="flex:1"></span>
+      <button id="btnFull" aria-label="Full screen" title="Show the figure full screen">&#x26F6;<span class="long">&nbsp;Full screen</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // false in the completed notes; true in the skeletal notes, where the
+  // substitution and the Jacobian are left for the student (see the top)
+  var SKELETAL = true;
+
+  var BLUE = "#58c4dd", RED = "#fc6255", GREEN = "#83c167", YELLOW = "#ffe14d", VIOLET = "#caa3e8",
+      INK = "#ece6e2", BG = "#06070a", AXIS = "rgba(236,230,226,0.5)";
+
+  // ---------- the substitution u = x^2 - y^2, v = xy and T, its inverse ----------
+  function T(u, v) {
+    var s = Math.sqrt(u * u + 4 * v * v);
+    return [Math.sqrt(Math.max(0, (s + u) / 2)), Math.sqrt(Math.max(0, (s - u) / 2))];
+  }
+  function Tinv(x, y) { return [x * x - y * y, x * y]; }
+  // the partial derivatives T_u, T_v and the Jacobian d(x,y)/d(u,v) = 1/(2(x^2 + y^2))
+  function partials(u, v) {
+    var p = T(u, v), x = p[0], y = p[1], r2 = x * x + y * y;
+    return { P: p, Tu: [x / (2 * r2), -y / (2 * r2)], Tv: [y / r2, x / r2], J: 1 / (2 * r2) };
+  }
+
+  var UR = [-3, 3], VR = [1, 4];                 // the rectangle R
+  // R is cut into N x N cells, du = 6/N by dv = 3/N; the small rectangle is always one of them
+  var LEVELS = [3, 6, 12, 24, 48, 96, 192, 384];
+  var lev = 1;                                   // N = 6: du = 1, dv = 1/2
+  var ASPECT = (VR[1] - VR[0]) / (UR[1] - UR[0]); // dv / du
+  function DU(l) { return (UR[1] - UR[0]) / LEVELS[l]; }
+  function DV(l) { return (VR[1] - VR[0]) / LEVELS[l]; }
+  // the lower left corner of the cell of level l that contains (u, v)
+  function snap(u, v, l) {
+    var n = LEVELS[l], du = DU(l), dv = DV(l);
+    var i = Math.min(n - 1, Math.max(0, Math.floor((u - UR[0]) / du + 1e-9)));
+    var j = Math.min(n - 1, Math.max(0, Math.floor((v - VR[0]) / dv + 1e-9)));
+    return [UR[0] + i * du, VR[0] + j * dv];
+  }
+  // the level whose cells are closest in size to the rectangle as drawn (it eases between levels)
+  function shownLevel(ls) {
+    var best = 0;
+    LEVELS.forEach(function (n, l) { if (Math.abs(Math.log(DU(l)) - ls) < Math.abs(Math.log(DU(best)) - ls)) best = l; });
+    return best;
+  }
+
+  // every animated quantity eases toward its target in frame()
+  var S = {
+    pu:    { v: -2, t: -2, k: 9 },
+    pv:    { v: 2,  t: 2,  k: 9 },
+    ls:    { v: 0, t: 0, k: 2.6 },                 // log du
+    zoom:  { v: 0, t: 0, k: 2.4 },
+    para:  { v: 1, t: 1, k: 5 },
+    grid:  { v: 1, t: 1, k: 5 },
+    patch: { v: 1, t: 1, k: 5 }
+  };
+
+  // ---------- fixed geometry: R, its grid, and their images ----------
+  function segment(a, b, n) {
+    var pts = [];
+    for (var i = 0; i <= n; i++) { var s = i / n; pts.push([a[0] + s * (b[0] - a[0]), a[1] + s * (b[1] - a[1])]); }
+    return pts;
+  }
+  function mapPts(pts) { return pts.map(function (p) { return T(p[0], p[1]); }); }
+  var R_EDGES = [                                   // ccw, coloured by which coordinate varies along them
+    { pts: segment([-3, 1], [3, 1], 120), c: BLUE }, { pts: segment([3, 1], [3, 4], 120), c: RED },
+    { pts: segment([3, 4], [-3, 4], 120), c: BLUE }, { pts: segment([-3, 4], [-3, 1], 120), c: RED }
+  ];
+  R_EDGES.forEach(function (e) { e.img = mapPts(e.pts); });
+  // the cut lines of level l (u = const red, v = const blue) inside the window
+  // [ua, ub] x [va, vb] of the uv-plane, each sampled at n + 1 points
+  function gridLines(l, win, n) {
+    var du = DU(l), dv = DV(l), N = LEVELS[l], out = [], eps = 1e-9;
+    var ua = Math.max(UR[0], win[0]), ub = Math.min(UR[1], win[1]), va = Math.max(VR[0], win[2]), vb = Math.min(VR[1], win[3]);
+    if (ua >= ub || va >= vb) return out;
+    var i1 = Math.min(N - 1, Math.floor((ub - UR[0]) / du + eps)), j1 = Math.min(N - 1, Math.floor((vb - VR[0]) / dv + eps));
+    for (var i = Math.max(1, Math.ceil((ua - UR[0]) / du - eps)); i <= i1; i++)
+      out.push({ pts: segment([UR[0] + i * du, va], [UR[0] + i * du, vb], n), c: RED });
+    for (var j = Math.max(1, Math.ceil((va - VR[0]) / dv - eps)); j <= j1; j++)
+      out.push({ pts: segment([ua, VR[0] + j * dv], [ub, VR[0] + j * dv], n), c: BLUE });
+    return out;
+  }
+
+  // the small rectangle with corner (u, v) and sides du, dv, its four edges ccw
+  function rectEdges(u, v, du, dv, n) {
+    return [segment([u, v], [u + du, v], n), segment([u + du, v], [u + du, v + dv], n),
+            segment([u + du, v + dv], [u, v + dv], n), segment([u, v + dv], [u, v], n)];
+  }
+  function shoelace(pts) {
+    var a = 0;
+    for (var i = 0; i < pts.length; i++) { var p = pts[i], q = pts[(i + 1) % pts.length]; a += p[0] * q[1] - q[0] * p[1]; }
+    return Math.abs(a) / 2;
+  }
+  function patchArea(edgesXY) {
+    var ring = [];
+    edgesXY.forEach(function (e) { for (var i = 0; i < e.length - 1; i++) ring.push(e[i]); });
+    // measured relative to the first corner, so that tiny patches keep their digits
+    var o = ring[0];
+    return shoelace(ring.map(function (p) { return [p[0] - o[0], p[1] - o[1]]; }));
+  }
+
+  // ---------- canvas and layout ----------
+  var stage = document.getElementById("stage"), card = document.getElementById("eqcard");
+  var cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+  var W = 0, Hc = 0, DPR = 1, LY = null, VW = null;
+  // the world boxes the two pictures need, and the gap between them for the arrow T
+  var BOX_UV = { x0: -3.75, x1: 3.75, y0: -0.55, y1: 4.7 }, BOX_XY = { x0: -0.1, x1: 2.6, y0: -0.1, y1: 2.6 }, GAP = 1.3;
+  // D is small next to R, so the xy-plane is drawn K times larger, its box as tall as R's
+  var K = (BOX_UV.y1 - BOX_UV.y0) / (BOX_XY.y1 - BOX_XY.y0);
+
+  function layout() {
+    var stacked = window.getComputedStyle(card).position === "static";
+    var topPad = stacked ? 8 : card.offsetTop + card.offsetHeight + 10, botPad = 8, side = 10;
+    var availW = W - 2 * side, availH = Math.max(60, Hc - topPad - botPad);
+    var wUV = BOX_UV.x1 - BOX_UV.x0, wXY = K * (BOX_XY.x1 - BOX_XY.x0), hAll = BOX_UV.y1 - BOX_UV.y0;
+    var s0 = Math.min(availW / (wUV + GAP + wXY), availH / hAll);
+    var left = side + (availW - s0 * (wUV + GAP + wXY)) / 2;
+    var top = topPad + (availH - s0 * hAll) / 2;
+    var uv = { x: left, y: topPad, w: s0 * wUV, h: availH, s0: s0, ax0: left - s0 * BOX_UV.x0, ay0: top + s0 * BOX_UV.y1 };
+    var xl = left + s0 * (wUV + GAP), sx = K * s0;
+    var xy = { x: xl, y: topPad, w: s0 * wXY, h: availH, s0: sx, ax0: xl - sx * BOX_XY.x0, ay0: top + sx * BOX_XY.y1 };
+    LY = { s0: s0, uv: uv, xy: xy, top: top };
+  }
+
+  // the two views: unzoomed, the fixed layout; zoomed, both follow the patch in, D still K times larger
+  function views() {
+    var du = Math.exp(S.ls.v), dv = ASPECT * du, z = S.zoom.v;
+    var cu = [S.pu.v + du / 2, S.pv.v + dv / 2], cx = T(cu[0], cu[1]);
+    var sZ = 0.4 * Math.min(LY.uv.w, LY.uv.h) / du;
+    var s = Math.exp(Math.log(LY.s0) + z * (Math.log(Math.max(sZ, LY.s0)) - Math.log(LY.s0)));
+    function one(P, c, f) {
+      var p0x = P.ax0 + P.s0 * c[0], p0y = P.ay0 - P.s0 * c[1];
+      var tx = p0x + z * (P.x + P.w / 2 - p0x), ty = p0y + z * (P.y + P.h / 2 - p0y);
+      return { s: s * f, ax: tx - s * f * c[0], ay: ty + s * f * c[1] };
+    }
+    return { uv: one(LY.uv, cu, 1), xy: one(LY.xy, cx, K) };
+  }
+  function sc(vw, p) { return [vw.ax + vw.s * p[0], vw.ay - vw.s * p[1]]; }
+
+  // ---------- drawing helpers ----------
+  function path(vw, pts, close) {
+    ctx.beginPath();
+    pts.forEach(function (p, i) { var q = sc(vw, p); if (i) ctx.lineTo(q[0], q[1]); else ctx.moveTo(q[0], q[1]); });
+    if (close) ctx.closePath();
+  }
+  function stroke(vw, pts, color, width, alpha, dash) {
+    if (alpha <= 0.005) return;
+    ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.lineWidth = width;
+    ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.setLineDash(dash || []);
+    path(vw, pts, false); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  }
+  function fill(vw, pts, color, alpha) {
+    if (alpha <= 0.005) return;
+    ctx.globalAlpha = alpha; ctx.fillStyle = color; path(vw, pts, true); ctx.fill(); ctx.globalAlpha = 1;
+  }
+  function arrowS(x0, y0, x1, y1, color, width, head, alpha) {
+    var dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy);
+    if (L < 2 || alpha <= 0.005) return;
+    head = Math.min(head || 11, 0.45 * L);
+    var ux = dx / L, uy = dy / L, bx = x1 - ux * head, by = y1 - uy * head;
+    ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(bx, by); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x1, y1);
+    ctx.lineTo(bx - uy * head * 0.42, by + ux * head * 0.42); ctx.lineTo(bx + uy * head * 0.42, by - ux * head * 0.42);
+    ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+  }
+  function arrowW(vw, from, vec, color, width, alpha) {
+    var a = sc(vw, from), b = sc(vw, [from[0] + vec[0], from[1] + vec[1]]);
+    arrowS(a[0], a[1], b[0], b[1], color, width, 11, alpha);
+  }
+  function dot(vw, p, r, alpha) {
+    var q = sc(vw, p);
+    ctx.globalAlpha = alpha; ctx.fillStyle = INK; ctx.strokeStyle = BG; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(q[0], q[1], r, 0, 2 * Math.PI); ctx.fill(); ctx.stroke(); ctx.globalAlpha = 1;
+  }
+  // a label in math type: segs are [text, kind], kind "i" italic, "r" roman, "s" an italic subscript
+  function label(x, y, segs, color, align, size, alpha) {
+    if (alpha !== undefined && alpha <= 0.005) return;
+    size = size || 17;
+    var parts = segs.map(function (g) {
+      var k = g[1] || "i", fs = k === "s" ? Math.round(size * 0.72) : size;
+      var font = (k === "r" ? "" : "italic ") + fs + "px 'PT Serif', 'Times New Roman', serif";
+      ctx.font = font;
+      return { t: g[0], font: font, w: ctx.measureText(g[0]).width, dy: k === "s" ? size * 0.3 : 0 };
+    });
+    var w = parts.reduce(function (a, p) { return a + p.w; }, 0);
+    var x0 = align === "center" ? x - w / 2 : align === "right" ? x - w : x;
+    ctx.globalAlpha = alpha === undefined ? 1 : alpha; ctx.textBaseline = "middle";
+    ctx.lineJoin = "round"; ctx.lineWidth = 4; ctx.strokeStyle = BG; ctx.fillStyle = color;
+    parts.forEach(function (p) { ctx.font = p.font; ctx.strokeText(p.t, x0, y + p.dy); ctx.fillText(p.t, x0, y + p.dy); x0 += p.w; });
+    ctx.globalAlpha = 1;
+  }
+  function clip(P) { ctx.save(); ctx.beginPath(); ctx.rect(P.x, P.y, P.w, P.h); ctx.clip(); }
+
+  // ---------- the picture ----------
+  var lastRatio = 0, lastJ = 0;
+  function draw() {
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.fillStyle = BG; ctx.fillRect(0, 0, W, Hc);
+    VW = views();
+    var vu = VW.uv, vx = VW.xy, z = S.zoom.v, g = S.grid.v * (1 - 0.6 * z), pa = S.patch.v, pl = S.para.v;
+    var du = Math.exp(S.ls.v), dv = ASPECT * du, u0 = S.pu.v, v0 = S.pv.v;
+    var E = rectEdges(u0, v0, du, dv, 48), EX = E.map(mapPts), Q = partials(u0, v0);
+    lastRatio = patchArea(EX) / (du * dv); lastJ = Q.J;
+    var gl = shownLevel(S.ls.v), gdu = DU(gl), gdv = DV(gl);
+    var A = [Q.Tu[0] * du, Q.Tu[1] * du], B = [Q.Tv[0] * dv, Q.Tv[1] * dv];
+    // the grid fades as its cells get too small to see
+    var gU = 0.3 * g * Math.min(1, vu.s * gdv / 9);
+    var gX = 0.3 * g * Math.min(1, vx.s * Math.min(Math.hypot(Q.Tu[0], Q.Tu[1]) * gdu, Math.hypot(Q.Tv[0], Q.Tv[1]) * gdv) / 9);
+    var wU = [(LY.uv.x - vu.ax) / vu.s, (LY.uv.x + LY.uv.w - vu.ax) / vu.s,
+              (vu.ay - LY.uv.y - LY.uv.h) / vu.s, (vu.ay - LY.uv.y) / vu.s];
+    // the visible part of the xy-plane, as a window of the uv-plane: for x, y >= 0,
+    // u = x^2 - y^2 grows with x and falls with y, and v = xy grows with both
+    var xa = Math.max(0, (LY.xy.x - vx.ax) / vx.s), xb = Math.max(0, (LY.xy.x + LY.xy.w - vx.ax) / vx.s),
+        ya = Math.max(0, (vx.ay - LY.xy.y - LY.xy.h) / vx.s), yb = Math.max(0, (vx.ay - LY.xy.y) / vx.s);
+    var wX = [xa * xa - yb * yb, xb * xb - ya * ya, xa * ya, xb * yb];
+    var lab = 1 - z;                                 // the plane labels fade out as we zoom in
+
+    // ---- the uv-plane ----
+    clip(LY.uv);
+    if (gU > 0.01) gridLines(gl, wU, 1).forEach(function (ln) { stroke(vu, ln.pts, ln.c, 1.2, gU); });
+    fill(vu, [[-3, 1], [3, 1], [3, 4], [-3, 4]], INK, 0.07);
+    R_EDGES.forEach(function (e) { stroke(vu, e.pts, e.c, 2.6, 0.95); });
+    var o = sc(vu, [0, 0]);
+    arrowS(sc(vu, [BOX_UV.x0 + 0.1, 0])[0], o[1], sc(vu, [BOX_UV.x1 - 0.05, 0])[0], o[1], AXIS, 1.5, 9, lab);
+    arrowS(o[0], sc(vu, [0, BOX_UV.y0 + 0.1])[1], o[0], sc(vu, [0, BOX_UV.y1 - 0.05])[1], AXIS, 1.5, 9, lab);
+    label(sc(vu, [BOX_UV.x1 - 0.05, 0])[0] - 2, o[1] + 14, [["u"]], INK, "right", 17, lab);
+    label(o[0] + 9, sc(vu, [0, BOX_UV.y1 - 0.05])[1] + 4, [["v"]], INK, "left", 17, lab);
+    var rl = sc(vu, [-3, 4]);
+    label(rl[0] - 6, rl[1] - 14, [["R"]], INK, "right", 19, lab);
+    // the small rectangle: yellow, its edges coloured like the grid, with the corner marked
+    fill(vu, E[0].concat(E[1], E[2], E[3]), YELLOW, 0.32 * pa);
+    E.forEach(function (e, i) { stroke(vu, e, i % 2 ? RED : BLUE, 2.4, pa); });
+    var a0 = sc(vu, [u0, v0]), aU = sc(vu, [u0 + du, v0]), aV = sc(vu, [u0, v0 + dv]);
+    arrowS(a0[0], a0[1], aU[0], aU[1], BLUE, 2.6, 10, pa);
+    arrowS(a0[0], a0[1], aV[0], aV[1], RED, 2.6, 10, pa);
+    if (vu.s * dv > 24) {
+      label((a0[0] + aU[0]) / 2, a0[1] + 14, [["Δ", "r"], ["u"]], BLUE, "center", 16, pa);
+      label(a0[0] - 7, (a0[1] + aV[1]) / 2, [["Δ", "r"], ["v"]], RED, "right", 16, pa);
+    }
+    dot(vu, [u0, v0], 4.5, 1);
+    ctx.restore();
+
+    // ---- the xy-plane ----
+    clip(LY.xy);
+    if (gX > 0.01) gridLines(gl, wX, 40).forEach(function (ln) { stroke(vx, mapPts(ln.pts), ln.c, 1.2, gX); });
+    var ring = []; R_EDGES.forEach(function (e) { ring = ring.concat(e.img); });
+    fill(vx, ring, INK, 0.07);
+    R_EDGES.forEach(function (e) { stroke(vx, e.img, e.c, 2.6, 0.95); });
+    var ox = sc(vx, [0, 0]);
+    arrowS(sc(vx, [BOX_XY.x0 + 0.05, 0])[0], ox[1], sc(vx, [BOX_XY.x1 - 0.05, 0])[0], ox[1], AXIS, 1.5, 9, lab);
+    arrowS(ox[0], sc(vx, [0, BOX_XY.y0 + 0.05])[1], ox[0], sc(vx, [0, BOX_XY.y1 - 0.05])[1], AXIS, 1.5, 9, lab);
+    label(sc(vx, [BOX_XY.x1 - 0.05, 0])[0] - 2, ox[1] + 14, [["x"]], INK, "right", 17, lab);
+    label(ox[0] + 9, sc(vx, [0, BOX_XY.y1 - 0.05])[1] + 4, [["y"]], INK, "left", 17, lab);
+    var dl = sc(vx, T(-3, 1));                      // left of D's left corner, where no patch reaches
+    label(dl[0] - 10, dl[1], [["D"]], INK, "right", 19, lab);
+    // the patch, then the parallelogram spanned by T_u du and T_v dv
+    fill(vx, EX[0].concat(EX[1], EX[2], EX[3]), YELLOW, 0.32 * pa);
+    EX.forEach(function (e, i) { stroke(vx, e, i % 2 ? RED : BLUE, 2.4, pa); });
+    var P = Q.P;
+    var par = [P, [P[0] + A[0], P[1] + A[1]], [P[0] + A[0] + B[0], P[1] + A[1] + B[1]], [P[0] + B[0], P[1] + B[1]]];
+    fill(vx, par, VIOLET, 0.26 * pl);
+    stroke(vx, par.concat([P]), VIOLET, 1.6, pl, [6, 5]);
+    arrowW(vx, P, A, BLUE, 2.6, pl);
+    arrowW(vx, P, B, RED, 2.6, pl);
+    var la = vx.s * Math.hypot(A[0], A[1]), lb = vx.s * Math.hypot(B[0], B[1]);
+    if (Math.min(la, lb) > 24) {
+      var tA = sc(vx, [P[0] + A[0], P[1] + A[1]]), tB = sc(vx, [P[0] + B[0], P[1] + B[1]]);
+      label(tA[0] + 6, tA[1] + 13, [["T"], ["u", "s"], [" Δ", "r"], ["u"]], BLUE, "left", 16, pl);
+      label(tB[0] - 8, tB[1] - 2, [["T"], ["v", "s"], [" Δ", "r"], ["v"]], RED, "right", 16, pl);
+    }
+    dot(vx, P, 4.5, 1);
+    ctx.restore();
+    ctx.font = "12.5px 'Open Sans', 'Helvetica Neue', Arial, sans-serif"; ctx.textBaseline = "top";
+    var note = "D drawn enlarged", nw = ctx.measureText(note).width, nx = LY.xy.x + LY.xy.w - nw - 8, ny = LY.xy.y + 3;
+    ctx.fillStyle = "rgba(6,7,10,0.85)"; ctx.fillRect(nx - 4, ny - 1, nw + 8, 19);
+    ctx.fillStyle = "#9aa0ad"; ctx.fillText(note, nx, ny + 1);
+
+    // ---- frames round the two views while zoomed ----
+    if (z > 0.01) {
+      ctx.globalAlpha = 0.9 * z; ctx.strokeStyle = "#262a36"; ctx.lineWidth = 1.5;
+      [LY.uv, LY.xy].forEach(function (P) { ctx.strokeRect(P.x + 0.5, P.y + 0.5, P.w - 1, P.h - 1); });
+      ctx.globalAlpha = 1;
+    }
+
+    // ---- the arrow T between the planes ----
+    var gx0 = LY.uv.x + LY.uv.w + 0.12 * LY.s0, gx1 = LY.xy.x - 0.12 * LY.s0, gy = LY.top + 2.1 * LY.s0;
+    if (gx1 - gx0 > 18) {
+      // a quadratic arc from (gx0, gy) to its tip (gx1, gy), its head along the arc's own direction there
+      var mx = (gx0 + gx1) / 2, cy = gy - 0.42 * LY.s0, head = 11;
+      var bez = function (t) { var a = (1 - t) * (1 - t), b2 = 2 * (1 - t) * t, c = t * t;
+                               return [a * gx0 + b2 * mx + c * gx1, a * gy + b2 * cy + c * gy]; };
+      var lo = 0, hi = 1;                          // where the shaft stops, just inside the head
+      for (var it = 0; it < 30; it++) { var tm = (lo + hi) / 2, q = bez(tm);
+        if (Math.hypot(gx1 - q[0], gy - q[1]) > 0.7 * head) lo = tm; else hi = tm; }
+      ctx.globalAlpha = 0.85; ctx.strokeStyle = INK; ctx.lineWidth = 1.8; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(gx0, gy);
+      for (var k = 1; k <= 40; k++) { var r = bez(lo * k / 40); ctx.lineTo(r[0], r[1]); }
+      ctx.stroke();
+      var hx = gx1 - mx, hy = gy - cy, hn = Math.hypot(hx, hy); hx /= hn; hy /= hn;
+      var bx = gx1 - hx * head, by = gy - hy * head;
+      ctx.fillStyle = INK; ctx.beginPath(); ctx.moveTo(gx1, gy);
+      ctx.lineTo(bx - hy * head * 0.42, by + hx * head * 0.42); ctx.lineTo(bx + hy * head * 0.42, by - hx * head * 0.42);
+      ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+      label(mx, (gy + cy) / 2 - 14, [["T"]], INK, "center", 19);
+    }
+    updateCard();
+  }
+
+  // ---------- the card ----------
+  var V = function (s) { return "<i>" + s + "</i>"; };
+  var dU = "Δ" + V("u"), dV = "Δ" + V("v");
+  card.innerHTML =
+    (SKELETAL
+      ? '<div class="line">' + V("T") + " carries " + V("R") + " onto " + V("D") + ": &nbsp;(" + V("u") + ", " + V("v") + ") ↦ (" + V("x") + ", " + V("y") + ")</div>"
+      : '<div class="line">' + V("u") + " = " + V("x") + "<sup>2</sup> − " + V("y") + "<sup>2</sup>, &nbsp;" + V("v") + " = " + V("xy") +
+        "; &nbsp;" + V("T") + ": (" + V("u") + ", " + V("v") + ") ↦ (" + V("x") + ", " + V("y") + ")</div>") +
+    '<div class="line"><span style="color:#ffe14d">rectangle ' + dU + " " + dV + "</span> ↦ " +
+      '<span style="color:#ffe14d">patch</span> ≈ <span style="color:#caa3e8">parallelogram</span></div>' +
+    '<div class="line" style="color:#ffe14d">area of patch ÷ ' + dU + " " + dV + ' = <span id="vRatio" class="num"></span></div>' +
+    (SKELETAL
+      ? '<div class="note">Make the grid finer: the ratio settles on |' + V("J") + "| at the corner. Check it against your Jacobian.</div>"
+      : '<div class="line" style="color:#83c167">|' + V("J") + "| = 1 / (2(" + V("x") + "<sup>2</sup> + " + V("y") + '<sup>2</sup>)) = <span id="vJ" class="num"></span></div>' +
+        '<div class="note">Make the grid finer: the ratio closes in on |' + V("J") + "| at the corner.</div>");
+  var elRatio = document.getElementById("vRatio"), elJ = document.getElementById("vJ");
+  function updateCard() {
+    elRatio.textContent = lastRatio.toFixed(4);
+    if (elJ) elJ.textContent = lastJ.toFixed(4);
+  }
+
+  // ---------- render loop ----------
+  var rafId = null, lastT = 0, needsDraw = false;
+  function frame(now) {
+    rafId = requestAnimationFrame(frame);
+    var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0; lastT = now;
+    var busy = false;
+    Object.keys(S).forEach(function (key) {
+      var q = S[key];
+      if (Math.abs(q.v - q.t) > 1e-6) {
+        q.v += (q.t - q.v) * (1 - Math.exp(-q.k * dt));
+        if (Math.abs(q.v - q.t) < 1e-5) q.v = q.t;
+        busy = true;
+      }
+    });
+    if (busy || tour.running || needsDraw) { needsDraw = false; draw(); syncSliders(); }
+    if (!busy && !tour.running) { cancelAnimationFrame(rafId); rafId = null; lastT = 0; }
+  }
+  function ensureLoop() { if (rafId === null) { lastT = 0; rafId = requestAnimationFrame(frame); } }
+  function set(key, val) { S[key].t = val; ensureLoop(); }
+  // the rectangle is the cell of the current level that contains (u, v)
+  function setPoint(u, v) {
+    var c = snap(u, v, lev);
+    S.pu.t = c[0]; S.pv.t = c[1];
+    needsDraw = true; ensureLoop();
+  }
+  // a coarser or finer grid: the rectangle shrinks or grows to one of its cells, keeping its corner
+  function setLevel(l) {
+    lev = Math.max(0, Math.min(LEVELS.length - 1, l));
+    S.ls.t = Math.log(DU(lev));
+    setPoint(S.pu.t + 1e-7, S.pv.t + 1e-7);
+  }
+
+  // ---------- sliders (no scale on them) ----------
+  var sU = document.getElementById("sU"), sV = document.getElementById("sV"), sSize = document.getElementById("sSize");
+  function toSl(x, r) { return Math.round(1000 * (x - r[0]) / (r[1] - r[0])); }
+  function fromSl(x, r) { return r[0] + (r[1] - r[0]) * x / 1000; }
+  var userSliding = false;
+  function syncSliders() {
+    if (userSliding) return;
+    sU.value = toSl(S.pu.v, UR); sV.value = toSl(S.pv.v, VR); sSize.value = LEVELS.length - 1 - lev;
+  }
+  sU.addEventListener("input", function () { if (tour.running) stopTour(); userSliding = true; setPoint(fromSl(+sU.value, UR), S.pv.t); });
+  sV.addEventListener("input", function () { if (tour.running) stopTour(); userSliding = true; setPoint(S.pu.t, fromSl(+sV.value, VR)); });
+  sSize.addEventListener("input", function () {
+    if (tour.running) stopTour();
+    setLevel(LEVELS.length - 1 - (+sSize.value));
+  });
+  [sU, sV, sSize].forEach(function (s) { s.addEventListener("change", function () { userSliding = false; syncSliders(); }); });
+
+  // ---------- toggles ----------
+  var btnPara = document.getElementById("btnPara"), btnGrid = document.getElementById("btnGrid"),
+      btnZoom = document.getElementById("btnZoom");
+  function setPara(on) { set("para", on ? 1 : 0); btnPara.classList.toggle("active", on); }
+  function setGrid(on) { set("grid", on ? 1 : 0); btnGrid.classList.toggle("active", on); }
+  function setZoom(on) { set("zoom", on ? 1 : 0); btnZoom.classList.toggle("active", on); }
+  btnPara.addEventListener("click", function () { if (tour.running) stopTour(); setPara(S.para.t < 0.5); });
+  btnGrid.addEventListener("click", function () { if (tour.running) stopTour(); setGrid(S.grid.t < 0.5); });
+  btnZoom.addEventListener("click", function () { if (tour.running) stopTour(); setZoom(S.zoom.t < 0.5); });
+
+  // ---------- dragging the corner, in either plane ----------
+  var drag = null;
+  function local(e) { var r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; }
+  function inRect(P, p) { return p[0] >= P.x && p[0] <= P.x + P.w && p[1] >= P.y && p[1] <= P.y + P.h; }
+  function world(vw, p) { return [(p[0] - vw.ax) / vw.s, (vw.ay - p[1]) / vw.s]; }
+  function jumpTo(which, p) {             // unzoomed: the rectangle becomes the cell under the pointer
+    var w = world(VW[which], p);
+    if (which === "xy") w = Tinv(Math.max(w[0], 0), Math.max(w[1], 0.001));
+    setPoint(w[0], w[1]);
+  }
+  function panBy(which, dx, dy) {         // zoomed: drag the plane under the patch, which steps from cell to cell
+    var s = VW[which].s;
+    drag.w[0] -= dx / s; drag.w[1] += dy / s;
+    var w = which === "uv" ? drag.w : Tinv(Math.max(drag.w[0], 0), Math.max(drag.w[1], 0.001));
+    setPoint(w[0], w[1]);
+  }
+  cv.addEventListener("pointerdown", function (e) {
+    var p = local(e), which = inRect(LY.uv, p) ? "uv" : inRect(LY.xy, p) ? "xy" : null;
+    if (!which) return;
+    if (tour.running) stopTour();
+    var du = DU(lev), mid = [S.pu.t + du / 2, S.pv.t + ASPECT * du / 2];
+    drag = { which: which, x: p[0], y: p[1], w: which === "uv" ? mid : T(mid[0], mid[1]) };
+    try { cv.setPointerCapture(e.pointerId); } catch (err) { /* older browsers */ }
+    if (S.zoom.t < 0.5) jumpTo(which, p);
+    e.preventDefault();
+  });
+  cv.addEventListener("pointermove", function (e) {
+    if (!drag) return;
+    var p = local(e);
+    if (S.zoom.t < 0.5) jumpTo(drag.which, p); else panBy(drag.which, p[0] - drag.x, p[1] - drag.y);
+    drag.x = p[0]; drag.y = p[1];
+  });
+  function endDrag() { drag = null; }
+  cv.addEventListener("pointerup", endDrag);
+  cv.addEventListener("pointercancel", endDrag);
+
+  // ---------- the guided tour ----------
+  var elCaption = document.getElementById("caption");
+  function say(html) {
+    elCaption.classList.remove("show");
+    window.setTimeout(function () { elCaption.innerHTML = html; if (html) elCaption.classList.add("show"); }, html ? 160 : 0);
+  }
+  var M = function (s) { return '<span class="m">' + s + "</span>"; };
+  var C = function (col, s) { return '<span style="color:' + col + '">' + s + "</span>"; };
+  var TuD = V("T") + "<sub>" + V("u") + "</sub> " + dU, TvD = V("T") + "<sub>" + V("v") + "</sub> " + dV;
+  var STORY = [
+    { say: (SKELETAL ? "A substitution" : "The substitution " + M(V("u") + " = " + V("x") + "<sup>2</sup> − " + V("y") +
+           "<sup>2</sup>, " + V("v") + " = " + V("xy"))) + " carries the curved region " + M(V("D")) +
+           " onto the rectangle " + M(V("R")) + ", and " + M(V("T")) + " takes each point " + M("(" + V("u") + ", " + V("v") + ")") +
+           " of " + M(V("R")) + " back to its point " + M("(" + V("x") + ", " + V("y") + ")") + " of " + M(V("D")) + ".",
+      st: { patch: 0, para: 0, zoom: 0, grid: 1 }, go: { lev: 1, at: [-2, 2] }, hold: 5.2 },
+    { say: (SKELETAL ? "The lines that grid " + M(V("R")) + " become the curves that grid "
+                     : "The lines " + C(RED, M(V("u") + " = const")) + " and " + C(BLUE, M(V("v") + " = const")) + " that grid " +
+                       M(V("R")) + " become the hyperbolas that grid ") +
+           M(V("D")) + ". The picture of " + M(V("D")) + " is enlarged, so compare areas with the card, not by eye.", hold: 4.8 },
+    { say: "Take one cell of the grid of " + M(V("R")) + ": a small rectangle with corner " + M("(" + V("u") + ", " + V("v") + ")") +
+           " and sides " + C(BLUE, M(dU)) + " and " + C(RED, M(dV)) + ". " + M(V("T")) + " carries it to one cell of the curved grid of " +
+           M(V("D")) + ", a small curved patch.",
+      st: { patch: 1 }, hold: 4.6 },
+    { say: "Close to the corner " + M(V("T")) + " is nearly linear, so the patch is nearly the " + C(VIOLET, "parallelogram") +
+           " spanned by " + C(BLUE, M(TuD)) + " and " + C(RED, M(TvD)) + ".",
+      st: { para: 1 }, hold: 4.6 },
+    { say: "The card divides the area of the patch by the area " + M(dU + " " + dV) + " of the rectangle: how much " +
+           M(V("T")) + " scales area there.", hold: 4.0 },
+    { say: "Refine the grid and follow one cell in: the patch flattens onto the parallelogram, and the ratio settles on " +
+           (SKELETAL ? "one number, " + M("|" + V("J") + "|") + " at the corner."
+                     : M("|" + V("J") + "| = |∂(" + V("x") + ", " + V("y") + ")/∂(" + V("u") + ", " + V("v") + ")|") + " at the corner."),
+      st: { zoom: 1 }, go: { lev: 6 }, hold: 7.0 },
+    SKELETAL
+      ? { say: "Move the corner: the ratio changes from place to place. Check it against the Jacobian you found in Part B.",
+          st: { zoom: 0 }, go: { lev: 2, at: [2.1, 3.3] }, hold: 5.0 }
+      : { say: "Here " + M("|" + V("J") + "| = 1/(2(" + V("x") + "<sup>2</sup> + " + V("y") + "<sup>2</sup>))") +
+               ": the farther the patch lies from the origin, the more " + M(V("T")) + " shrinks it.",
+          st: { zoom: 0 }, go: { lev: 2, at: [2.1, 3.3] }, hold: 5.0 },
+    { say: "Your turn: pick a cell in either plane, make the grid finer or coarser, or zoom in.", hold: 1.8 }
+  ];
+
+  var tour = { running: false, i: 0, timer: null };
+  var btnTour = document.getElementById("btnTour");
+  function tourStep() {
+    if (!tour.running) return;
+    if (tour.i >= STORY.length) { stopTour(); return; }
+    var beat = STORY[tour.i++];
+    if (beat.st) Object.keys(beat.st).forEach(function (k) {
+      var on = beat.st[k] > 0.5;
+      if (k === "para") setPara(on); else if (k === "grid") setGrid(on); else if (k === "zoom") setZoom(on); else set(k, beat.st[k]);
+    });
+    if (beat.go) {
+      if (beat.go.lev !== undefined) setLevel(beat.go.lev);
+      if (beat.go.at) setPoint(beat.go.at[0], beat.go.at[1]);
+    }
+    say(beat.say);
+    tour.timer = window.setTimeout(tourStep, beat.hold * 1000);
+  }
+  function startTour() {
+    tour.running = true; tour.i = 0;
+    btnTour.innerHTML = "&#10074;&#10074;<span class=\"long\">&nbsp;Stop</span>"; btnTour.classList.add("running");
+    ensureLoop(); tourStep();
+  }
+  function stopTour() {
+    tour.running = false;
+    if (tour.timer) { window.clearTimeout(tour.timer); tour.timer = null; }
+    btnTour.innerHTML = "&#9654;<span class=\"long\">&nbsp;Play</span>"; btnTour.classList.remove("running");
+    set("patch", 1);
+    say(""); ensureLoop();
+  }
+  btnTour.addEventListener("click", function () { tour.running ? stopTour() : startTour(); });
+
+  // ---------- full screen ----------
+  var btnFull = document.getElementById("btnFull"), docEl = document.documentElement;
+  function fsElement() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+  function openStandalone() { window.open(window.location.href, "_blank", "noopener"); }
+  btnFull.addEventListener("click", function () {
+    if (fsElement()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    var req = docEl.requestFullscreen || docEl.webkitRequestFullscreen;
+    if (!req) { openStandalone(); return; }
+    try { var p = req.call(docEl); if (p && p.catch) p.catch(openStandalone); } catch (e) { openStandalone(); }
+  });
+  function onFs() {
+    var on = !!fsElement(); btnFull.classList.toggle("active", on);
+    btnFull.innerHTML = on ? "&#x26F6;<span class=\"long\">&nbsp;Exit full screen</span>" : "&#x26F6;<span class=\"long\">&nbsp;Full screen</span>";
+    window.setTimeout(resize, 50);
+  }
+  document.addEventListener("fullscreenchange", onFs);
+  document.addEventListener("webkitfullscreenchange", onFs);
+
+  // ---------- sizing ----------
+  function resize() {
+    var stacked = window.getComputedStyle(card).position === "static";
+    W = stage.clientWidth;
+    Hc = Math.max(120, stage.clientHeight - (stacked ? card.offsetHeight : 0));
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(W * DPR); cv.height = Math.round(Hc * DPR);
+    cv.style.width = W + "px"; cv.style.height = Hc + "px";
+    layout(); draw();
+  }
+  window.addEventListener("resize", resize);
+
+  syncSliders();
+  resize();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { resize(); });
+})();
+</script>
+</body>
+</html>

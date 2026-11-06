@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-polar-cartesian-figure" speech2="Cartesian axes with a gray circle centered at the common origin of the two coordinate systems. A point P in the first quadrant is labeled both P of x and y and P of r and theta. A reddish purple segment of length r joins the origin to P, and orange segments of lengths x and y form the legs of the right triangle. A small arc marks the angle theta at the origin.">
+      <grouped>prefigure-polar-cartesian-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-polar-cartesian-pc-r</active>
+        <active>prefigure-polar-cartesian-pc-x</active>
+        <active>prefigure-polar-cartesian-pc-y</active>
+        <active>prefigure-polar-cartesian-pc-arc</active>
+      </children>
+      <components>
+        <active>prefigure-polar-cartesian-pc-r</active>
+        <active>prefigure-polar-cartesian-pc-x</active>
+        <active>prefigure-polar-cartesian-pc-y</active>
+        <active>prefigure-polar-cartesian-pc-arc</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-polar-cartesian-pc-r" speech2="The hypotenuse of the right triangle: the polar distance r from the common origin to P.">
+      <active>prefigure-polar-cartesian-pc-r</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-polar-cartesian-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-cartesian-pc-x" speech2="The horizontal leg: the Cartesian coordinate x, equal to r cosine theta.">
+      <active>prefigure-polar-cartesian-pc-x</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-polar-cartesian-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-cartesian-pc-y" speech2="The vertical leg: the Cartesian coordinate y, equal to r sine theta.">
+      <active>prefigure-polar-cartesian-pc-y</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-polar-cartesian-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-cartesian-pc-arc" speech2="The angle theta between the initial ray and the segment from the origin to P.">
+      <active>prefigure-polar-cartesian-pc-arc</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-polar-cartesian-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
