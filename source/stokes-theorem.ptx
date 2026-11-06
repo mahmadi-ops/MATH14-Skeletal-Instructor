@@ -7,13 +7,21 @@
 <!-- of Stokes' theorem with its orientation rule, the idea of the proof,  -->
 <!-- and the surface-independence principle are kept; the eight worked    -->
 <!-- examples and the conceptual exercise are replaced by blank workspace  -->
-<!-- boxes, each preceded by a one-line instruction.  File name and        -->
+<!-- boxes.  File name and                                                 -->
 <!-- xml:ids are unchanged.                                                -->
 <!--                                                                       -->
 <!-- Figures: all kept (the paddle wheel, the orientation picture, the    -->
 <!-- proof video, and the seven surfaces and curves of the examples); each -->
 <!-- is the check on the box above it.  Captions that stated a curl or a  -->
 <!-- normal vector have been trimmed.                                      -->
+<!--                                                                       -->
+<!-- No hints (Nov 2026, at the instructor's request): the instruction   -->
+<!-- parentheticals after each Solution are gone, the boxes carry only   -->
+<!-- the quantity asked for, four titles that named the method were      -->
+<!-- renamed, and the linking paragraphs and captions that said which    -->
+<!-- surface or route to take were cut.  The two Concept Check true or   -->
+<!-- false problems at the end replace the paragraph on the two facts    -->
+<!-- about the curl and the extension questions.                         -->
 <section xml:id="section-stokes-theorem" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Stokes' Theorem</title>
 
@@ -33,7 +41,7 @@ the flux of the curl of <m>\mathbf{F}</m> through <m>S</m>. That is
 </p>
 
 <p>
-It completes the family. <xref ref="section-divergence-theorem"/> turned a
+It completes the family. Section 3.3, The Divergence Theorem, turns a
 flux integral over a <em>closed</em> surface into a triple integral of the
 divergence; Stokes' theorem turns a line integral around the
 <em>boundary</em> of an open surface into a surface integral of the curl.
@@ -102,9 +110,7 @@ Find <m>\nabla \times \mathbf{F}</m> for
 </p>
 <p>
 <em>Solution.</em>
-(Identify <m>M</m>, <m>N</m>, <m>P</m> and take the three components
-of <xref ref="eq-curl-3d"/> in turn. Then evaluate your curl at
-<m>P(1,1,1)</m> and compare with <xref ref="fig-curl-paddle-tikz"/>.)
+(Compare with <xref ref="fig-curl-paddle-tikz"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -112,12 +118,10 @@ of <xref ref="eq-curl-3d"/> in turn. Then evaluate your curl at
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,9);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$\mathbf i$-component: \qquad $\mathbf j$-component: \qquad $\mathbf k$-component:};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\nabla\times\mathbf F =$ \qquad at $P(1,1,1)$:};
+\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$\nabla\times\mathbf F =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the three components of the curl and one for the curl and its value at the point P.</shortdescription>
+<shortdescription>Blank box for the work and the answer.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -190,18 +194,6 @@ arrow, with an arrowhead showing which way it turns.
 </latex-image>
 </image>
 </figure>
-
-<p>
-Two facts about the curl are worth recording, both of which we have
-already met in disguise. First, a field is conservative exactly when its
-curl vanishes: if <m>\mathbf{F} = \nabla f</m> then
-<m>\nabla \times \mathbf{F} = \mathbf{0}</m>, which is the component
-test <xref ref="eq-component-test-3d"/> for the conservative fields of
-<xref ref="section-conservative-fields"/>. Second,
-<m>\nabla \cdot (\nabla \times \mathbf{F}) = 0</m>: a curl field has no
-divergence, so by <xref ref="thm-divergence"/> its flux through any closed
-surface is zero. We will use that second fact at the end of this section.
-</p>
 </subsection>
 
 <!-- ================================================================ -->
@@ -364,11 +356,7 @@ recovers Green's theorem, as in <xref ref="remark-stokes-green"/>.
 
 <p>
 The theorem is most useful when one of the two sides is much easier than
-the other. Reading it from left to right replaces an awkward line
-integral by a flux integral, as in <xref ref="example-stokes-cylinder"/>;
-reading it from right to left replaces an awkward surface integral by a
-line integral around the boundary, as in
-<xref ref="example-stokes-paraboloid"/>.
+the other, and it can be read in either direction.
 </p>
 
 <example xml:id="example-stokes-hemisphere">
@@ -382,15 +370,6 @@ upward unit normal.
 </p>
 <p>
 <em>Solution.</em>
-(The boundary of <m>S</m> is the unit circle in the <m>xy</m>-plane;
-use the right-hand rule to decide its direction, parametrize it, and
-compute the circulation. For the other side, compute
-<m>\nabla\times\mathbf F</m> by <xref ref="eq-curl-3d"/>; on the
-hemisphere the outward unit normal is <xref ref="eq-sphere-unit-normal"/>
-and, by <xref ref="eq-sphere-cross"/>,
-<m>d\sigma = \sin\phi\,d\phi\,d\theta</m>. Integrate over the upper
-hemisphere and compare. The surface is shown in
-<xref ref="fig-stokes-hemisphere-tikz"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -398,16 +377,12 @@ hemisphere and compare. The surface is shown in
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,15);
-\draw[gray!35] (0,11.5) -- (15,11.5);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,4.5) -- (15,4.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {$C$: $\mathbf r(t) =$ \qquad direction: \qquad $\mathbf F(\mathbf r(t))\cdot\mathbf r'(t) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$\nabla\times\mathbf F =$ \qquad $\hat{\mathbf n} =$ \qquad $(\nabla\times\mathbf F)\cdot\hat{\mathbf n} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,4.2) {$\displaystyle\iint_S (\nabla\times\mathbf F)\cdot\hat{\mathbf n}\,d\sigma =$};
+\draw[gray!35] (0,7.5) -- (15,7.5);
+\node[anchor=north west, font=\small\itshape] at (0.35,14.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {$\displaystyle\iint_S (\nabla\times\mathbf F)\cdot\hat{\mathbf n}\,d\sigma =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the parametrized boundary and the integrand, for the circulation, for the curl and the normal, and for the flux of the curl.</shortdescription>
+<shortdescription>Blank box in two rows, one for the circulation and one for the flux of the curl.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -418,9 +393,7 @@ hemisphere and compare. The surface is shown in
 The surface and boundary of <xref ref="example-stokes-hemisphere"/>:
 the upper hemisphere <m>S</m> of <m>x^2+y^2+z^2=1</m> with its upward
 normal, and the unit circle <m>C</m> in the <m>xy</m>-plane, counterclockwise
-seen from above. The field <m>\mathbf{F} = -y\,\mathbf{i} + x\,\mathbf{j}</m>
-runs tangent to <m>C</m> all the way round, which is why the circulation is
-as large as it can be.
+seen from above.
 </caption>
 <image xml:id="image-stokes-hemisphere" width="62%">
 <shortdescription>
@@ -484,7 +457,7 @@ top of the hemisphere.
 </figure>
 
 <example xml:id="example-stokes-cylinder">
-<title>A Circulation That Is Easier as a Flux</title>
+<title>A Plane Cutting a Cylinder</title>
 <statement>
 <p>
 Evaluate <m>\oint_C \mathbf{F} \cdot d\mathbf{r}</m> for
@@ -496,15 +469,6 @@ above. The curve is drawn in
 </p>
 <p>
 <em>Solution.</em>
-(Parametrizing <m>C</m> directly is possible but unpleasant. Instead
-take <m>S</m> to be the flat region that <m>C</m> bounds in the plane,
-the graph of <m>z = 2 - y</m> over the unit disk <m>R</m>, shown in
-<xref ref="fig-stokes-cylinder-tikz"/>. For a graph <m>z = g(x,y)</m>
-with an upward normal, <xref ref="eq-flux-param"/> gives
-<m>\hat{\mathbf n}\,d\sigma = \langle -g_x, -g_y, 1\rangle\,dx\,dy</m>;
-check that upward is what the right-hand rule pairs with a
-counterclockwise <m>C</m>. Compute the curl, dot, and integrate over
-the disk; one term vanishes by symmetry.)
 </p>
 
 <sidebyside width="97%">
@@ -512,14 +476,10 @@ the disk; one term vanishes by symmetry.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,6) -- (15,6);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {$S$: \qquad $\hat{\mathbf n}\,d\sigma =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$\nabla\times\mathbf F =$ \qquad $(\nabla\times\mathbf F)\cdot\hat{\mathbf n}\,d\sigma =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r = \iint_R$};
+\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the surface and its normal, for the curl and the integrand, and for the double integral over the disk.</shortdescription>
+<shortdescription>Blank box for the work and the answer.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -529,8 +489,6 @@ the disk; one term vanishes by symmetry.)
 <caption>
 The curve <m>C</m> of <xref ref="example-stokes-cylinder"/>: the plane
 <m>y + z = 2</m> cuts the cylinder <m>x^2 + y^2 = 1</m> in an ellipse.
-The shaded elliptical region is the surface <m>S</m> used in the
-solution, and its shadow is the unit disk <m>R</m>.
 </caption>
 <image xml:id="image-stokes-cylinder" width="62%">
 <shortdescription>
@@ -607,14 +565,8 @@ it the unit disk in the x y plane is shaded gray as its shadow.
 <!-- CLP-4 Vector Calculus, Section 4.4 (Feldman, Rechnitzer, Yeager),  -->
 <!-- with different fields, curves, and numbers.                        -->
 
-<p>
-The next example shows the theorem at its most merciless: one term of
-the field cannot be integrated in closed form at all, and Stokes'
-theorem simply erases it.
-</p>
-
 <example xml:id="example-stokes-flat-disk">
-<title>A Term That Cannot Be Integrated</title>
+<title>A Circle at Height Two</title>
 <statement>
 <p>
 Evaluate <m>\oint_C \mathbf{F} \cdot d\mathbf{r}</m> for
@@ -627,13 +579,6 @@ traversed counterclockwise when seen from above.
 </p>
 <p>
 <em>Solution.</em>
-(The term <m>\cos(x^{100})</m> makes a direct evaluation hopeless, but
-Stokes' theorem only ever sees the field through its curl: compute it
-by <xref ref="eq-curl-3d"/> and watch the monster disappear. Take the
-cheapest surface with boundary <m>C</m>, the flat disk of
-<xref ref="fig-stokes-flat-disk-tikz"/>; which unit normal does the
-right-hand rule pair with the counterclockwise orientation? The
-integrand is then a constant.)
 </p>
 
 <sidebyside width="97%">
@@ -641,14 +586,10 @@ integrand is then a constant.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\nabla\times\mathbf F =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$S =$ \qquad $\hat{\mathbf n} =$ \qquad $(\nabla\times\mathbf F)\cdot\hat{\mathbf n} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the curl, for the flat surface with its normal and the integrand, and for the circulation.</shortdescription>
+<shortdescription>Blank box for the work and the answer.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -656,9 +597,8 @@ integrand is then a constant.)
 
 <figure xml:id="fig-stokes-flat-disk-tikz">
 <caption>
-The cheapest surface for <xref ref="example-stokes-flat-disk"/>: the
-flat disk <m>S</m> of radius <m>3</m> in the plane <m>z=2</m>, whose
-boundary is the given circle <m>C</m>.
+The circle <m>C</m> of <xref ref="example-stokes-flat-disk"/>, of radius
+<m>3</m> in the plane <m>z=2</m>. Compare with what you found.
 </caption>
 <image xml:id="image-stokes-flat-disk" width="62%">
 <shortdescription>
@@ -669,7 +609,7 @@ A flat disk floating at height two, with its boundary circle and an upward norma
 A translucent blue disk of radius three lies in the horizontal plane at
 height two above the origin. Its boundary circle is drawn in vermillion with
 arrowheads pointing counterclockwise seen from above, and a green arrow
-labelled n hat equals k rises from the centre of the disk.
+rises from the centre of the disk.
 </p>
 </description>
 <latex-image>
@@ -719,11 +659,6 @@ labelled n hat equals k rises from the centre of the disk.
 </image>
 </figure>
 
-<p>
-The same trick works when the curve is tilted<mdash/>the flat surface it
-bounds just tilts with it.
-</p>
-
 <example xml:id="example-stokes-tilted-circle">
 <title>A Tilted Circle</title>
 <statement>
@@ -739,16 +674,6 @@ counterclockwise when seen from above.
 </p>
 <p>
 <em>Solution.</em>
-(Where is the centre of the sphere relative to the plane, and so what
-kind of circle is <m>C</m>, with what radius? The
-<m>\ln(1+x^8)</m> again rules out a direct attack and again dies under
-the curl. Take <m>S</m> to be the flat disk that <m>C</m> bounds in the
-plane <m>z = x</m>, shown in <xref ref="fig-stokes-tilted-tikz"/>; a
-normal to the plane is the gradient of <m>z - x</m>, and the right-hand
-rule picks the upward one. The integrand is constant, so the flux is
-that constant times the area of the disk. As a check, redo it with the
-graph protocol <m>\hat{\mathbf n}\,d\sigma = \langle -f_x, -f_y, 1\rangle\,dx\,dy</m>
-over the shadow of <m>S</m>, which is an ellipse.)
 </p>
 
 <sidebyside width="97%">
@@ -756,16 +681,10 @@ over the shadow of <m>S</m>, which is an ellipse.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,13);
-\draw[gray!35] (0,10.5) -- (15,10.5);
-\draw[gray!35] (0,7.5) -- (15,7.5);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$C$ is \qquad radius \qquad $\nabla\times\mathbf F =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,10.2) {$\hat{\mathbf n} =$ \qquad $(\nabla\times\mathbf F)\cdot\hat{\mathbf n} =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,7.2) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {check by the graph protocol: shadow $=$ \qquad $\displaystyle\iint$};
+\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four rows, for the description of the curve and the curl, for the unit normal and the integrand, for the circulation, and for the check by the graph protocol.</shortdescription>
+<shortdescription>Blank box for the work and the answer.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -775,8 +694,7 @@ over the shadow of <m>S</m>, which is an ellipse.)
 <caption>
 The curve of <xref ref="example-stokes-tilted-circle"/>: the plane
 <m>z=x</m> cuts the sphere <m>x^2+y^2+z^2=9</m> in the circle
-<m>C</m>, and the surface <m>S</m> is the flat disk that <m>C</m>
-bounds in that plane, tilted at <m>45^\circ</m>.
+<m>C</m>. Compare with what you found.
 </caption>
 <image xml:id="image-stokes-tilted" width="62%">
 <shortdescription>
@@ -840,13 +758,6 @@ points up and toward the negative x direction.
 </image>
 </figure>
 
-<p>
-When the boundary is made of straight segments, both sides of
-<xref ref="eq-stokes"/> are computable, and the comparison is
-instructive: the direct route costs three parametrizations, the Stokes
-route one double integral.
-</p>
-
 <example xml:id="example-stokes-triangle">
 <title>Around a Triangle, Twice</title>
 <statement>
@@ -863,16 +774,6 @@ directly, and by Stokes' theorem.
 </p>
 <p>
 <em>Solution.</em>
-(<em>Directly</em>: parametrize each of the three segments on
-<m>0 \le t \le 1</m>, compute <m>\mathbf F(\mathbf r(t))\cdot\mathbf r'(t)</m>,
-integrate, and add. <em>By Stokes' theorem</em>: compute the curl by
-<xref ref="eq-curl-3d"/>; the triangle lies in the plane through the
-three vertices, which is the graph of some <m>z = 4 - 2x - 2y</m> over
-a shadow triangle <m>R</m> in the <m>xy</m>-plane. Decide which normal
-the given traversal pairs with, write
-<m>\hat{\mathbf n}\,d\sigma</m> for the graph, dot with the curl, and
-integrate over <m>R</m>. Compare the two answers; see
-<xref ref="fig-stokes-triangle-tikz"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -880,20 +781,12 @@ integrate over <m>R</m>. Compare the two answers; see
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,20);
-\draw[gray!35] (0,16.5) -- (15,16.5);
-\draw[gray!35] (0,13) -- (15,13);
-\draw[gray!35] (0,9.5) -- (15,9.5);
-\draw[gray!35] (0,7) -- (15,7);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,19.7) {$C_1$: $\mathbf r(t) =$ \qquad $\displaystyle\int_{C_1} \mathbf F\cdot d\mathbf r =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,16.2) {$C_2$: $\mathbf r(t) =$ \qquad $\displaystyle\int_{C_2} \mathbf F\cdot d\mathbf r =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,12.7) {$C_3$: $\mathbf r(t) =$ \qquad $\displaystyle\int_{C_3} \mathbf F\cdot d\mathbf r =$ \qquad total:};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.2) {$\nabla\times\mathbf F =$ \qquad the plane: $z =$ \qquad $R =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.7) {$\hat{\mathbf n}\,d\sigma =$ \qquad $(\nabla\times\mathbf F)\cdot\hat{\mathbf n}\,d\sigma =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r = \iint_R$};
+\draw[gray!35] (0,10) -- (15,10);
+\node[anchor=north west, font=\small\itshape] at (0.35,19.7) {directly:};
+\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {by Stokes' theorem:};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in six rows: three for the direct computation along the three segments with the total, and three for the curl with the plane and shadow, the normal and integrand, and the double integral.</shortdescription>
+<shortdescription>Blank box in two rows, one for the direct computation and one for the computation by Stokes' theorem.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -902,10 +795,7 @@ integrate over <m>R</m>. Compare the two answers; see
 <figure xml:id="fig-stokes-triangle-tikz">
 <caption>
 The oriented triangle of <xref ref="example-stokes-triangle"/>: from
-<m>(2,0,0)</m> to <m>(0,2,0)</m> to <m>(0,0,4)</m> and back, bounding a
-piece of the plane <m>\frac{x}{2} + \frac{y}{2} + \frac{z}{4} = 1</m>.
-The traversal is counterclockwise seen from above, pairing with the
-upward normal by the right-hand rule.
+<m>(2,0,0)</m> to <m>(0,2,0)</m> to <m>(0,0,4)</m> and back, counterclockwise seen from above.
 </caption>
 <image xml:id="image-stokes-triangle" width="62%">
 <shortdescription>
@@ -973,13 +863,8 @@ seen from above.
 </image>
 </figure>
 
-<p>
-Finally, before reaching for Stokes' theorem at all, it pays to glance
-at the curl: if it vanishes, no surface is needed.
-</p>
-
 <example xml:id="example-stokes-conservative">
-<title>The Curve Nobody Can Parametrize</title>
+<title>A Loop on an Ellipsoid</title>
 <statement>
 <p>
 Evaluate <m>\oint_C \mathbf{F} \cdot d\mathbf{r}</m> for
@@ -993,12 +878,6 @@ where <m>C</m> is the intersection of the ellipsoid
 </p>
 <p>
 <em>Solution.</em>
-(Parametrizing this loop, or any surface it bounds, would be
-miserable. Compute the curl by <xref ref="eq-curl-3d"/> first. What
-does the component test <xref ref="eq-component-test-3d"/> then say
-about <m>\mathbf F</m>, and what does Stokes' theorem give for the
-circulation, whichever surface the loop bounds? Can you name a
-potential function?)
 </p>
 
 <sidebyside width="97%">
@@ -1006,14 +885,10 @@ potential function?)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,9);
-\draw[gray!35] (0,6) -- (15,6);
-\draw[gray!35] (0,3) -- (15,3);
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$\nabla\times\mathbf F =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {so $\mathbf F$ is \qquad with potential $f =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the curl, for the conclusion about the field with a potential function, and for the circulation.</shortdescription>
+<shortdescription>Blank box for the work and the answer.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1024,7 +899,6 @@ potential function?)
 The curve of <xref ref="example-stokes-conservative"/>: the paraboloid
 <m>z = 2x^2+y^2</m> meets the ellipsoid
 <m>x^2+\frac{y^2}{4}+\frac{z^2}{9}=1</m> in a warped loop <m>C</m>.
-Does anything about its shape matter?
 </caption>
 <image xml:id="image-stokes-warped-loop" width="62%">
 <shortdescription>
@@ -1106,16 +980,11 @@ d\sigma .
 This is the surface analogue of the path independence of
 <xref ref="section-conservative-fields"/>, and it has the same practical
 use: when a surface is unpleasant, trade it for any other surface with
-the same boundary. It also explains the identity
-<m>\nabla \cdot (\nabla \times \mathbf{F}) = 0</m> noted earlier. Gluing
-<m>S_1</m> and <m>S_2</m> along <m>C</m> makes a closed surface; the two
-flux integrals appear with opposite signs once both normals point
-outward, so the total flux of <m>\nabla \times \mathbf{F}</m> through any
-closed surface is zero.
+the same boundary.
 </p>
 
 <example xml:id="example-stokes-paraboloid">
-<title>Trading a Paraboloid for a Disk</title>
+<title>The Curl Through a Paraboloid</title>
 <statement>
 <p>
 Evaluate
@@ -1127,13 +996,6 @@ where <m>S</m> is the part of the paraboloid
 </p>
 <p>
 <em>Solution.</em>
-(Find the boundary of <m>S</m> and the direction the upward orientation
-gives it. By <xref ref="eq-stokes-independence"/> you may replace the
-paraboloid by any surface with the same boundary and compatible
-orientation: the flat disk of <xref ref="fig-stokes-paraboloid-tikz"/>
-is the easy one. Compute the curl, dot with the disk's normal, and
-integrate. As a check, parametrize the boundary circle and compute the
-circulation directly.)
 </p>
 
 <sidebyside width="97%">
@@ -1141,14 +1003,10 @@ circulation directly.)
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,12);
-\draw[gray!35] (0,9) -- (15,9);
-\draw[gray!35] (0,5.5) -- (15,5.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {boundary $C$: \qquad direction: \qquad replacement surface $S_2$ and $\hat{\mathbf n}$:};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$\nabla\times\mathbf F =$ \qquad $\displaystyle\iint_S (\nabla\times\mathbf F)\cdot\hat{\mathbf n}\,d\sigma = \iint_{S_2}$};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.2) {check: $\mathbf r(t) =$ \qquad $\displaystyle\oint_C \mathbf F\cdot d\mathbf r =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,11.7) {$\displaystyle\iint_S (\nabla\times\mathbf F)\cdot\hat{\mathbf n}\,d\sigma =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the boundary and the replacement surface, for the curl and the flux through the disk, and for the direct check of the circulation.</shortdescription>
+<shortdescription>Blank box for the work and the answer.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -1159,8 +1017,7 @@ circulation directly.)
 The two surfaces of <xref ref="example-stokes-paraboloid"/>: the
 paraboloid <m>S</m> and the flat disk <m>S_2</m>, which share the boundary
 circle <m>C</m> and carry orientations that give the same direction on it.
-By <xref ref="eq-stokes-independence"/> the flux of the curl through them is
-the same, and the disk is the easy one.
+Compare with what you found.
 </caption>
 <image xml:id="image-stokes-paraboloid" width="62%">
 <shortdescription>
@@ -1234,12 +1091,11 @@ arrow rises from the top of the paraboloid and another from the disk.
 <p>
 The following problem uses no computation at all. It tests whether you
 can see what Stokes' theorem is really saying about circulation, curl,
-and<mdash/>as the extension questions bring out<mdash/>the role played
-by the domain of the vector field.
+and the role played by the domain of the vector field.
 </p>
 
 <exercise xml:id="ex-stokes-conceptual">
-<title>Equal Curls, Equal Circulations</title>
+<title>Curls and Circulations</title>
 <statement>
 <p>
 Let <m>\mathbf{F}</m> and <m>\mathbf{G}</m> be continuously
@@ -1262,78 +1118,72 @@ is true for every smooth simple closed curve <m>C</m> in <m>\R^3</m>.
 If the statement is true, prove it using Stokes' theorem,
 <xref ref="thm-stokes"/>. If it is false, provide a counterexample.
 </p>
-<p>
-(Consider <m>\mathbf H = \mathbf F - \mathbf G</m>. Check, component by
-component, that the curl distributes over subtraction, so that
-<m>\nabla\times\mathbf H</m> is known. Then take any oriented surface
-<m>S</m> bounded by <m>C</m> <mdash/> why does such a surface lie in
-the domain of the fields? <mdash/> and apply <xref ref="thm-stokes"/>
-to <m>\mathbf H</m>. Finish with the linearity of the line integral.
-Say where the hypothesis that the domain is all of <m>\R^3</m> was
-used, and give a second argument through conservative fields and the
-loop property of <xref ref="section-conservative-fields"/>.)
-</p>
-
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
 \draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,16);
-\draw[gray!35] (0,12.5) -- (15,12.5);
-\draw[gray!35] (0,8.5) -- (15,8.5);
-\draw[gray!35] (0,5.5) -- (15,5.5);
-\draw[gray!35] (0,2.5) -- (15,2.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,15.7) {true or false? \qquad $\nabla\times(\mathbf F - \mathbf G) =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,12.2) {Stokes' theorem applied to $\mathbf H$ on a surface $S$ bounded by $C$:};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.2) {by linearity of the line integral:};
-\node[anchor=north west, font=\small\itshape] at (0.35,5.2) {where the domain mattered:};
-\node[anchor=north west, font=\small\itshape] at (0.35,2.2) {the same conclusion via conservative fields:};
+\node[anchor=north west, font=\small\itshape] at (0.35,15.7) {true or false, and why:};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in five rows, for the verdict and the curl of the difference, for the application of Stokes' theorem, for the linearity step, for the role of the domain, and for the alternative argument through conservative fields.</shortdescription>
+<shortdescription>Blank box for the work and the answer.</shortdescription>
 </image>
 </sidebyside>
 </statement>
 </exercise>
 
-<exercise xml:id="ex-stokes-conceptual-extensions">
-<title>Extension Questions</title>
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="sec-stokes-concept-check">
+<title>Concept Check</title>
+
+<exercise xml:id="check-stokes-curl-conservative">
+<title>True or False</title>
 <statement>
 <p>
-<ol marker="(a)">
-<li>
-<p>
-Does the conclusion remain valid if the common domain is an arbitrary
-open subset of <m>\R^3</m>?
+Decide whether the statement is true or false, and justify your answer.
 </p>
-</li>
-<li>
 <p>
-Which hypothesis of Stokes' theorem is essential in the proof?
-</p>
-</li>
-<li>
-<p>
-How is the result related to conservative vector fields and the
-Fundamental Theorem for line integrals of
-<xref ref="sec-ftli" text="title"/>?
-</p>
-</li>
-</ol>
+A vector field <m>\mathbf{F}</m> whose components have continuous first
+partial derivatives on all of <m>\R^3</m> is conservative exactly when
+<m>\nabla \times \mathbf{F} = \mathbf{0}</m> everywhere.
 </p>
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {(a)};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {(b)};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {(c)};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
+\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {true or false, and why:};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three labelled rows, one for each extension question.</shortdescription>
+<shortdescription>Blank box for the verdict and the reason.</shortdescription>
+</image>
+</sidebyside>
+</statement>
+</exercise>
+
+<exercise xml:id="check-stokes-curl-flux">
+<title>True or False</title>
+<statement>
+<p>
+Decide whether the statement is true or false, and justify your answer.
+</p>
+<p>
+There is a vector field <m>\mathbf{F}</m>, whose components have
+continuous second partial derivatives on all of <m>\R^3</m>, such that
+the flux of <m>\nabla \times \mathbf{F}</m> outward through the unit
+sphere is not zero.
+</p>
+<sidebyside width="97%">
+<image>
+<latex-image>
+\begin{tikzpicture}
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
+\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {true or false, and why:};
+\end{tikzpicture}
+</latex-image>
+<shortdescription>Blank box for the verdict and the reason.</shortdescription>
 </image>
 </sidebyside>
 </statement>
