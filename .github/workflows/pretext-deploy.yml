@@ -45,6 +45,25 @@ jobs:
       - name: install deps
         run: pip install -r requirements.txt --break-system-packages
 
+      # Runestone's services file (runestone.academy/cdn/runestone/latest/
+      # webpack_static_imports.xml) started carrying an encoding="utf-8"
+      # declaration on 6 Nov 2026, and every PreTeXt release up to 2.56.1
+      # parses it as a text string, which lxml refuses ("Unicode strings with
+      # encoding declaration are not supported"), so the build stopped before
+      # touching the book. This hands the two parse calls bytes instead. It
+      # patches nothing once PreTeXt changes those lines, and can then go.
+      - name: work around the Runestone services XML declaration
+        run: |
+          python3 - <<'PY'
+          import importlib.util, pathlib
+          p = pathlib.Path(importlib.util.find_spec("pretext").submodule_search_locations[0]) / "core" / "pretext.py"
+          s = p.read_text()
+          old = "services = ET.fromstring(services_xml)"
+          new = "services = ET.fromstring(services_xml.encode('utf-8') if isinstance(services_xml, str) else services_xml)"
+          print(f"Runestone services workaround: patched {s.count(old)} call(s) in {p}")
+          p.write_text(s.replace(old, new))
+          PY
+
       - name: initialize prefigure
         run: prefig init
 
