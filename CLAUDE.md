@@ -133,7 +133,7 @@ Every `<video>` in the sections carries `preview="play-button.png"`
 (`assets/play-button.png`, a plain play-button still): PreTeXt prints a
 local-file video as its preview image plus a QR code, and without a
 preview it prints "BUG: PREVIEW NOT HANDLED". (`preview="generic"` needs
-a play-button asset that this pretext version, 2.37.1, does not ship.) Interactives get
+a play-button asset that pretext 2.37.1 did not ship.) Interactives get
 an automatic screenshot plus a QR code. Both QR codes are absolute links
 built from `<baseurl>` in the publication files, which must be the deployed
 site's address. A new video needs the attribute too.

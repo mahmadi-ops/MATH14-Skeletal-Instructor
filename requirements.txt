@@ -1,2 +1,7 @@
-# This file was automatically generated with PreTeXt 2.37.1.
-pretext == 2.37.1
+# This file was automatically generated with PreTeXt 2.44.0.
+pretext == 2.44.0
+
+# Needed to generate the prefigure diagrams. Without it CI emits plain SVGs
+# and no -diagcess variants, which are the ones the HTML actually references.
+# Pinned to the version used by the devcontainer image.
+prefig == 0.6.7
