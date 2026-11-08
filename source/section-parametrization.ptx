@@ -863,7 +863,9 @@
       </mrow>
       <mrow xml:id="eq-vector-function" number="yes">
         \amp = f(t)\,\mathbf{i} + g(t)\,\mathbf{j} + h(t)\,\mathbf{k},
-               \qquad t \in [t_i,t_f].
+      </mrow>
+      <mrow>
+        \amp \qquad t \in [t_i,t_f].
       </mrow>
     </md>
     </p>
@@ -913,7 +915,10 @@
 
         <md>
           <mrow>
-            x \amp = \cos(2t), \qquad y = \sin(2t),
+            x \amp = \cos(2t),
+          </mrow>
+          <mrow>
+            y \amp = \sin(2t),
           </mrow>
           <mrow xml:id="eq-helix-param-space" number="yes">
             z \amp = t, \qquad t \in [0,\pi].

@@ -250,3 +250,12 @@ article.note.remark-like > .heading .space {
 #rs-check-flux-param-parsons .block {
     max-width: calc(100% - 22px);
 }
+
+/* Let mobile equations in the reflowed sections (see custom.js) use
+   part of a knowl's inner horizontal padding. */
+@media (max-width: 640px) {
+    .responsive-math .knowl__content .displaymath {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+}
