@@ -2,32 +2,38 @@
 """Render, with Manim, the animation explaining the idea behind the proof of
 Green's theorem in its circulation-curl (tangential) form,
 
-    oint_C M dx + N dy  =  iint_R (dN/dx - dM/dy) dA.
+    oint_C F . T ds  =  oint_C M dx + N dy  =  iint_R (dN/dx - dM/dy) dA.
 
 The video argues the theorem, it does not compute it, in the manner of
-scripts/make_stokes_proof_idea_video.py.  The chain of ideas:
+scripts/make_stokes_proof_idea_video.py, and in the same order as its
+companion scripts/make_green_flux_proof_video.py: the computation with the
+unit tangent T first, then the curl, then the form of Green's theorem.
 
-  1.  the statement: the counterclockwise circulation of F = <M, N> around
-      C against the integral of (curl F) . k over the region R inside;
-  2.  one tiny rectangle: its bottom and top edges together give
-      -(dM/dy) dA (the top is travelled backwards, which is where the minus
-      sign comes from), its right and left edges give (dN/dx) dA, so
-      (curl F) . k is circulation per unit area;
-  3.  cover R with such rectangles; along C some of them stick out of R;
-  4.  add the circulation around every rectangle;
-  5.  every interior edge is travelled twice, once in each direction, so
-      the inside cancels in pairs, and only a staircase hugging C is left;
-  6.  so the circulation around C is approximately the sum over the
-      rectangles; as their number increases, less sticks out of R and the
-      approximation improves; in the limit the staircase becomes C, the
-      sum becomes the double integral, and the theorem follows;
-  7.  on a curved surface the same argument is Stokes' theorem.
+  1.  the question: how much does F = <M, N> circulate around C?  The unit
+      tangent T measures it: the circulation is oint F . T ds;
+  2.  one tiny rectangle, computed with T: along the bottom T = i and along
+      the top T = -i, so those edges give M(x, y) dx - M(x, y+dy) dx, about
+      -(dM/dy) dA; up the right side T = j and down the left T = -j, which
+      give about (dN/dx) dA;
+  3.  the curl: dN/dx - dM/dy = (curl F) . k is the circulation per unit
+      area, so the circulation around a tiny rectangle is about
+      ((curl F) . k) dA;
+  4.  cover R with such rectangles; along C some of them stick out of R;
+  5.  add the circulation around every rectangle;
+  6.  every interior edge is travelled twice, once in each direction (the
+      two rectangles' tangents on it are opposite), so the inside cancels
+      in pairs, and only a staircase hugging C is left;
+  7.  as the number of rectangles increases, less sticks out of R; in the
+      limit the staircase becomes C and the sum becomes the double integral,
+      which is Green's theorem in its circulation-curl form;
+  8.  on a curved surface the same argument is Stokes' theorem.
 
 No numbers appear: the region, the rectangles and the field are generic.
 
 Styling follows the other videos in the book: black background, Computer
 Modern text in white, blue boundary, orange and purple for the M- and
-N-parts, red field, gold for what sticks out of R.
+N-parts, green for the unit vector T, red field, gold for what sticks out
+of R.
 
 Output: assets/videos/green_circulation_proof_1080p.mp4 (1920x1080, 30 fps,
 silent).
@@ -54,8 +60,9 @@ CURVE = "#2e9aff"          # the boundary curve C
 REGION = "#1d5e8c"         # the region R
 REGION_SOLID = "#10344d"   # REGION at 55% on black, opaque so that what lies behind R is hidden
 STICK = "#e0b84a"          # the parts of the rectangles sticking out of R
-MCOL = "#ff862f"           # the M-part: horizontal edges
-NCOL = "#c77dff"           # the N-part: vertical edges
+MCOL = "#ff862f"           # the M-part: horizontal edges, where T = +-i
+NCOL = "#c77dff"           # the N-part: vertical edges, where T = +-j
+TANGENT = "#83c167"        # the unit tangent T
 FIELD = "#fc6255"          # the field F
 GRIDC = "#7fb8e6"          # the rectangles
 DIM = "#5a5a5a"
@@ -70,6 +77,12 @@ def blob(t):
     """The boundary C of R, counterclockwise as t increases."""
     r = 2.05 + 0.26 * np.sin(2 * t + 0.6) + 0.13 * np.cos(3 * t)
     return CENTER + np.array([1.3 * r * np.cos(t), 0.86 * r * np.sin(t), 0.0])
+
+
+def unit_tangent(t, eps=1e-4):
+    """The unit tangent to C at blob(t), in the counterclockwise direction."""
+    d = (blob(t + eps) - blob(t - eps)) / (2 * eps)
+    return d / np.linalg.norm(d)
 
 
 TS = np.linspace(0, 2 * np.pi, 400, endpoint=False)
@@ -216,19 +229,21 @@ class GreenCirculationProof(Scene):
 
     def construct(self):
         self.camera.background_color = "#000000"
-        for name, beat in (("statement", self.beat_statement),
+        for name, beat in (("question", self.beat_question),
                            ("cell", self.beat_one_cell),
+                           ("curl", self.beat_curl),
                            ("chop", self.beat_chop),
                            ("add", self.beat_add),
                            ("cancel", self.beat_cancel),
                            ("limit", self.beat_limit),
+                           ("form", self.beat_form),
                            ("stokes", self.beat_stokes)):
             beat()
             if self.only == name:
                 return
 
     # 1 ---------------------------------------------------------------------
-    def beat_statement(self):
+    def beat_question(self):
         self.region = region_polygon(fill_color=REGION_SOLID, fill_opacity=1,
                                      stroke_width=0)
         self.C = oriented_C().set_z_index(5)
@@ -259,95 +274,145 @@ class GreenCirculationProof(Scene):
                         font_size=42, color=FIELD).move_to([5.5, 2.25, 0])
         f_lab.add_background_rectangle(opacity=0.85, buff=0.08)
         self.play(FadeIn(field, lag_ratio=0.02), FadeIn(f_lab), run_time=1.4)
-        self.wait(1.0)
-        self.clear(title)
+        self.wait(0.8)
 
-        eq = self.formula(
-            r"\oint_C M\,dx+N\,dy\;=\;\iint_R\left(\frac{\partial N}{\partial x}"
-            r"-\frac{\partial M}{\partial y}\right)dA",
-            edge=UP, buff=0.4, size=46)
-        self.play(Write(eq), run_time=2.0)
-        ask = self.caption(r"Circulation around $C$ on the left, the curl inside $R$ on the right.",
-                           r"Why should they be equal?", edge=DOWN, size=38)
-        self.play(FadeIn(ask))
+        ask = self.caption(r"How much does $\mathbf{F}$ circulate around $C$?",
+                           edge=DOWN, size=40)
+        self.play(FadeOut(title), FadeIn(ask))
+        self.wait(1.6)
+
+        # the unit tangent T, at a few points of C
+        tangents = VGroup()
+        for t0 in (0.15, 1.05, 1.95, 2.85, 3.75, 4.65, 5.55):
+            p = blob(t0)
+            tangents.add(Arrow(p, p + 0.8 * unit_tangent(t0), buff=0, color=TANGENT,
+                               stroke_width=6, max_tip_length_to_length_ratio=0.3).set_z_index(6))
+        t_lab = MathTex(r"\mathbf{T}", tex_template=TPL, font_size=46, color=TANGENT) \
+            .move_to(blob(1.95) + 0.8 * unit_tangent(1.95) + [-0.1, 0.35, 0])
+        ask2 = self.caption(r"Measure it with the unit tangent $\mathbf{T}$:",
+                            r"the circulation is $\displaystyle\oint_C \mathbf{F}\cdot\mathbf{T}\,ds$.",
+                            edge=DOWN, buff=0.3, size=38)
+        self.play(FadeOut(ask), LaggedStart(*[GrowArrow(a) for a in tangents], lag_ratio=0.15),
+                  FadeIn(t_lab), run_time=1.6)
+        self.play(FadeIn(ask2))
         self.wait(2.6)
-        self.clear(ask, eq, field, f_lab, r_lab, c_lab)
-        self.labels = None
+        self.clear(ask2, field, f_lab, r_lab, c_lab, tangents, t_lab)
 
     # 2 ---------------------------------------------------------------------
     def beat_one_cell(self):
-        """What one tiny rectangle says: (curl F).k is circulation per unit area."""
-        head = self.caption(r"Idea 1: the circulation around one tiny rectangle", size=44)
+        """The circulation around one tiny rectangle, computed with T."""
+        head = self.caption(r"Idea 1: the circulation around one tiny rectangle, using $\mathbf{T}$", size=44)
         self.play(FadeIn(head), FadeOut(self.region), FadeOut(self.C))
 
         # the rectangle, on the left of the screen
-        w, hgt = 2.6, 2.1
-        o = np.array([-6.1, -1.2, 0])                     # its corner (x, y)
+        w, hgt = 2.0, 1.7
+        o = np.array([-5.3, -1.2, 0])                     # its corner (x, y)
         bl, br, tr, tl = o, o + [w, 0, 0], o + [w, hgt, 0], o + [0, hgt, 0]
         cell = Polygon(bl, br, tr, tl, stroke_width=0, fill_color=REGION, fill_opacity=0.6)
-        bottom = Arrow(bl, br, buff=0.05, color=MCOL, stroke_width=6, max_tip_length_to_length_ratio=0.12)
-        top = Arrow(tr, tl, buff=0.05, color=MCOL, stroke_width=6, max_tip_length_to_length_ratio=0.12)
-        right = Arrow(br, tr, buff=0.05, color=NCOL, stroke_width=6, max_tip_length_to_length_ratio=0.16)
-        left = Arrow(tl, bl, buff=0.05, color=NCOL, stroke_width=6, max_tip_length_to_length_ratio=0.16)
-        corner = Dot(bl, color=INK, radius=0.06)
-        lab_o = MathTex("(x,y)", tex_template=TPL, font_size=34, color=INK).next_to(bl, DOWN, buff=0.15)
-        lab_dx = MathTex(r"\Delta x", tex_template=TPL, font_size=36, color=INK).next_to(bottom, DOWN, buff=0.12).shift(RIGHT * 0.5)
-        lab_dy = MathTex(r"\Delta y", tex_template=TPL, font_size=36, color=INK).next_to(left, LEFT, buff=0.12)
-        self.play(FadeIn(cell), FadeIn(corner), FadeIn(lab_o), FadeIn(lab_dx), FadeIn(lab_dy))
+        bottom = Arrow(bl, br, buff=0.05, color=MCOL, stroke_width=6, max_tip_length_to_length_ratio=0.14)
+        top = Arrow(tr, tl, buff=0.05, color=MCOL, stroke_width=6, max_tip_length_to_length_ratio=0.14)
+        right = Arrow(br, tr, buff=0.05, color=NCOL, stroke_width=6, max_tip_length_to_length_ratio=0.17)
+        left = Arrow(tl, bl, buff=0.05, color=NCOL, stroke_width=6, max_tip_length_to_length_ratio=0.17)
+        lk = dict(tex_template=TPL, font_size=32, color=TANGENT)
+        lab_b = MathTex(r"\mathbf{T}=\mathbf{i}", **lk).next_to(bottom, DOWN, buff=0.12).shift(RIGHT * 0.35)
+        lab_t = MathTex(r"\mathbf{T}=-\mathbf{i}", **lk).next_to(top, UP, buff=0.12)
+        lab_r = MathTex(r"\mathbf{T}=\mathbf{j}", **lk).next_to(right, RIGHT, buff=0.12)
+        lab_l = MathTex(r"\mathbf{T}=-\mathbf{j}", **lk).next_to(left, LEFT, buff=0.12)
+        dot = Dot(bl, color=INK, radius=0.06)
+        lab_o = MathTex("(x,y)", tex_template=TPL, font_size=32, color=INK).next_to(bl, DL, buff=0.08)
+        lab_dx = MathTex(r"\Delta x", tex_template=TPL, font_size=34, color=INK) \
+            .move_to((bl + br) / 2 + [-0.45, 0.3, 0])
+        lab_dy = MathTex(r"\Delta y", tex_template=TPL, font_size=34, color=INK) \
+            .move_to((br + tr) / 2 + [-0.4, 0.15, 0])
+        self.play(FadeIn(cell), FadeIn(dot), FadeIn(lab_o), FadeIn(lab_dx), FadeIn(lab_dy))
 
         col = dict(tex_template=TPL, font_size=38)
-        x0 = -2.6
-        # bottom and top: the M-part
+        x0 = -1.75
+        # bottom and top: T = +-i, the M-part
         m1 = MathTex(r"M(x,y)\,\Delta x", color=MCOL, **col)
         m2 = MathTex(r"-\,M(x,y+\Delta y)\,\Delta x", color=MCOL, **col)
         m3 = MathTex(r"\approx\;-\frac{\partial M}{\partial y}\,\Delta A", color=MCOL, **col)
-        row1 = VGroup(m1, m2, m3).arrange(RIGHT, buff=0.22).move_to([0, 1.25, 0], aligned_edge=LEFT).shift(RIGHT * x0)
+        row1 = VGroup(m1, m2, m3).arrange(RIGHT, buff=0.22).move_to([x0, 1.25, 0], aligned_edge=LEFT)
+        # right and left: T = +-j, the N-part
         n1 = MathTex(r"N(x+\Delta x,y)\,\Delta y", color=NCOL, **col)
         n2 = MathTex(r"-\,N(x,y)\,\Delta y", color=NCOL, **col)
         n3 = MathTex(r"\approx\;\frac{\partial N}{\partial x}\,\Delta A", color=NCOL, **col)
-        row2 = VGroup(n1, n2, n3).arrange(RIGHT, buff=0.22).move_to([0, -0.35, 0], aligned_edge=LEFT).shift(RIGHT * x0)
+        row2 = VGroup(n1, n2, n3).arrange(RIGHT, buff=0.22).move_to([x0, -0.35, 0], aligned_edge=LEFT)
 
-        note = self.caption(r"Along the bottom, $\mathbf{F}\cdot d\mathbf{r}\approx M\,\Delta x$.",
-                            edge=DOWN, size=36)
-        self.play(GrowArrow(bottom), FadeIn(note))
+        note = self.caption(r"Along the bottom $\mathbf{T}=\mathbf{i}$, so $\mathbf{F}\cdot\mathbf{T}=M$:"
+                            r" the bottom gives about $M\,\Delta x$.", edge=DOWN, size=36)
+        self.play(GrowArrow(bottom), FadeIn(lab_b), FadeIn(note))
         self.play(Write(m1), run_time=1.0)
-        self.wait(0.8)
-        note2 = self.caption(r"The top is travelled backwards, from right to left:",
+        self.wait(1.0)
+        note2 = self.caption(r"Along the top $\mathbf{T}=-\mathbf{i}$, so $\mathbf{F}\cdot\mathbf{T}=-M$:",
                              r"that is where the minus sign comes from.", edge=DOWN, size=36)
-        self.play(GrowArrow(top), FadeOut(note), FadeIn(note2))
+        self.play(GrowArrow(top), FadeIn(lab_t), FadeOut(note), FadeIn(note2))
         self.play(Write(m2), run_time=1.2)
         self.wait(1.6)
         self.play(Write(m3), run_time=1.2)
         self.wait(1.0)
-        note3 = self.caption(r"Up the right side and down the left, $\mathbf{F}\cdot d\mathbf{r}\approx \pm N\,\Delta y$.",
-                             edge=DOWN, size=36)
-        self.play(GrowArrow(right), GrowArrow(left), FadeOut(note2), FadeIn(note3))
+        note3 = self.caption(r"Up the right side $\mathbf{T}=\mathbf{j}$ and down the left $\mathbf{T}=-\mathbf{j}$,"
+                             r" so $\mathbf{F}\cdot\mathbf{T}=\pm N$.", edge=DOWN, size=36)
+        self.play(GrowArrow(right), GrowArrow(left), FadeIn(lab_r), FadeIn(lab_l),
+                  FadeOut(note2), FadeIn(note3))
         self.play(Write(n1), run_time=1.0)
         self.play(Write(n2), run_time=1.0)
         self.wait(0.8)
         self.play(Write(n3), run_time=1.2)
         self.wait(1.2)
 
-        total = MathTex(r"\oint_{\text{rectangle}}\mathbf{F}\cdot d\mathbf{r}\;\approx\;"
+        total = MathTex(r"\oint_{\text{rectangle}}\mathbf{F}\cdot\mathbf{T}\,ds\;\approx\;"
                         r"\left(\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\right)\Delta A",
                         tex_template=TPL, font_size=42, color=INK)
-        total.move_to([0, -1.95, 0], aligned_edge=LEFT).shift(RIGHT * x0)
+        total.move_to([x0, -1.95, 0], aligned_edge=LEFT)
         box = SurroundingRectangle(total, color=INK, buff=0.15, stroke_width=2)
         self.play(FadeOut(note3))
         self.play(Write(total), run_time=1.6)
         self.play(Create(box))
-        note4 = self.caption(r"$\dfrac{\partial N}{\partial x}-\dfrac{\partial M}{\partial y}=(\operatorname{curl}\mathbf{F})\cdot\mathbf{k}$"
-                             r" is circulation per unit area \quad ($\Delta A=\Delta x\,\Delta y$).",
-                             edge=DOWN, buff=0.35, size=34)
+        note4 = self.caption(r"Add the four sides \quad ($\Delta A=\Delta x\,\Delta y$).",
+                             edge=DOWN, buff=0.35, size=36)
         self.play(FadeIn(note4))
-        self.wait(3.0)
-        self.clear(head, note4, cell, bottom, top, right, left, corner, lab_o, lab_dx, lab_dy,
-                   row1, row2, total, box)
-        self.play(FadeIn(self.region), FadeIn(self.C))
+        self.wait(2.4)
+        self.cell_total = VGroup(total, box)
+        self.clear(head, note4, cell, bottom, top, right, left, lab_b, lab_t, lab_r, lab_l,
+                   dot, lab_o, lab_dx, lab_dy, row1, row2)
 
     # 3 ---------------------------------------------------------------------
+    def beat_curl(self):
+        """dN/dx - dM/dy is the k-component of the curl: circulation per unit area."""
+        head = self.caption(r"Idea 2: the curl is circulation per unit area", size=46)
+        self.play(FadeIn(head), self.cell_total.animate.move_to([0, 1.2, 0]))
+        curl = MathTex(r"(\operatorname{curl}\mathbf{F})\cdot\mathbf{k}", r"\;=\;",
+                       r"\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}",
+                       r"\;\approx\;",
+                       r"\frac{\text{circulation around the rectangle}}{\Delta A}",
+                       tex_template=TPL, font_size=44, color=INK).move_to([0, -0.6, 0])
+        curl[0].set_color(TANGENT)
+        self.play(Write(curl[:3]), run_time=1.6)
+        self.wait(0.8)
+        self.play(Write(curl[3:]), run_time=1.6)
+        note = self.caption(r"The curl measures how much $\mathbf{F}$ circulates, per unit area,",
+                            r"and the smaller the rectangle, the better the approximation.",
+                            edge=DOWN, size=36)
+        self.play(FadeIn(note))
+        self.wait(2.8)
+        short = MathTex(r"\oint_{\text{rectangle}}\mathbf{F}\cdot\mathbf{T}\,ds\;\approx\;"
+                        r"(\operatorname{curl}\mathbf{F})\cdot\mathbf{k}\,\Delta A",
+                        tex_template=TPL, font_size=46, color=INK).move_to([0, -0.6, 0])
+        short_box = SurroundingRectangle(short, color=TANGENT, buff=0.15, stroke_width=3)
+        note2 = self.caption(r"So the circulation around a tiny rectangle is about"
+                             r" $(\operatorname{curl}\mathbf{F})\cdot\mathbf{k}\,\Delta A$.",
+                             edge=DOWN, size=38)
+        self.play(FadeOut(self.cell_total), FadeOut(note), FadeTransform(curl, short), FadeIn(note2),
+                  run_time=1.4)
+        self.play(Create(short_box))
+        self.wait(2.4)
+        self.clear(head, note2, short, short_box)
+        self.play(FadeIn(self.region), FadeIn(self.C))
+
+    # 4 ---------------------------------------------------------------------
     def beat_chop(self):
-        head = self.caption(r"Idea 2: cover $R$ with tiny rectangles", size=46)
+        head = self.caption(r"Idea 3: cover $R$ with tiny rectangles", size=46)
         self.play(FadeIn(head))
         self.h = 0.62
         self.cells = cover(self.h)
@@ -360,33 +425,33 @@ class GreenCirculationProof(Scene):
         self.wait(2.4)
         self.clear(note, head)
 
-    # 4 ---------------------------------------------------------------------
+    # 5 ---------------------------------------------------------------------
     def beat_add(self):
-        head = self.caption(r"Idea 3: add up the circulation around every rectangle", size=44)
+        head = self.caption(r"Idea 4: add up the circulation around every rectangle", size=44)
         self.play(FadeIn(head))
         self.sw = swirls(self.h, self.cells)
         self.play(LaggedStart(*[Create(a) for a in self.sw], lag_ratio=0.015, run_time=2.6))
         self.summ = self.formula(
-            r"\sum_k \oint_{\partial R_k}\mathbf{F}\cdot d\mathbf{r}\;\approx\;"
-            r"\sum_k\left(\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\right)\Delta A_k",
+            r"\sum_k \oint_{\partial R_k}\mathbf{F}\cdot\mathbf{T}\,ds\;\approx\;"
+            r"\sum_k(\operatorname{curl}\mathbf{F})\cdot\mathbf{k}\,\Delta A_k",
             edge=DOWN, buff=0.4, size=42)
         self.play(Write(self.summ), run_time=2.0)
         self.wait(2.0)
         self.clear(head)
 
-    # 5 ---------------------------------------------------------------------
+    # 6 ---------------------------------------------------------------------
     def beat_cancel(self):
-        head = self.caption(r"Idea 4: the inside cancels", size=46)
+        head = self.caption(r"Idea 5: the inside cancels", size=46)
         self.play(FadeIn(head), FadeOut(self.summ))
 
         # two neighbouring rectangles, enlarged in a card
         card = self.two_cell_card()
         card["card"].move_to([0, -0.2, 0]).set_z_index(10)
         self.play(FadeIn(card["card"]), run_time=0.9)
-        note = self.caption(r"Two rectangles share an edge,",
-                            r"and each one travels it the opposite way.", edge=DOWN, size=38)
+        note = self.caption(r"Two rectangles share an edge, and their tangents on it",
+                            r"are opposite: each one travels it the other way.", edge=DOWN, size=36)
         self.play(FadeIn(note))
-        self.wait(1.4)
+        self.wait(2.0)
         self.play(Indicate(card["shared"], color=INK, scale_factor=1.15), run_time=1.2)
         self.clear(note, run_time=0.5)
         self.play(FadeOut(card["shared"], scale=0.4), run_time=1.2)
@@ -439,23 +504,23 @@ class GreenCirculationProof(Scene):
         inner = VGroup(left, right, shared, labs)
         return {"card": VGroup(box, inner), "shared": shared}
 
-    # 6 ---------------------------------------------------------------------
+    # 7 ---------------------------------------------------------------------
     def beat_limit(self):
         head = self.caption(r"So the sum over the rectangles is the circulation around the staircase",
                             size=40)
         self.play(FadeIn(head))
-        chain = self.formula(r"\sum_k\oint_{\partial R_k}\mathbf{F}\cdot d\mathbf{r}\;=\;"
-                             r"\oint_{\text{staircase}}\mathbf{F}\cdot d\mathbf{r}",
+        chain = self.formula(r"\sum_k\oint_{\partial R_k}\mathbf{F}\cdot\mathbf{T}\,ds\;=\;"
+                             r"\oint_{\text{staircase}}\mathbf{F}\cdot\mathbf{T}\,ds",
                              edge=DOWN, buff=0.45, size=44)
         self.play(Write(chain), run_time=1.6)
         self.wait(2.2)
 
-        # the staircase hugs C, and with Idea 3: the circulation around C is
+        # the staircase hugs C, and with Idea 4: the circulation around C is
         # approximately a sum over the rectangles
-        dfrac = r"\left(\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\right)"
-        approx = MathTex(r"\oint_C M\,dx+N\,dy", r"\;\approx\;", r"\sum_k" + dfrac + r"\Delta A_k",
+        approx = MathTex(r"\oint_C \mathbf{F}\cdot\mathbf{T}\,ds", r"\;\approx\;",
+                         r"\sum_k(\operatorname{curl}\mathbf{F})\cdot\mathbf{k}\,\Delta A_k",
                          tex_template=TPL, font_size=44, color=INK).to_edge(DOWN, buff=0.45)
-        head_b = self.caption(r"The staircase hugs $C$, so by Idea 3 the circulation around $C$",
+        head_b = self.caption(r"The staircase hugs $C$, so by Idea 4 the circulation around $C$",
                               r"is approximately a sum over the rectangles.", size=40)
         self.play(FadeOut(head), FadeIn(head_b), FadeOut(chain, shift=UP * 0.3),
                   FadeIn(approx, shift=UP * 0.3), run_time=1.2)
@@ -500,27 +565,47 @@ class GreenCirculationProof(Scene):
                              r"and the sum becomes the double integral.", size=40)
         self.play(FadeOut(head2), FadeIn(head3))
         self.play(FadeOut(layers[-1]), level.animate.set_value(0.0), run_time=1.6)
-        final = MathTex(r"\oint_C M\,dx+N\,dy", r"\;=\;", r"\iint_R" + dfrac + r"dA",
+        final = MathTex(r"\oint_C \mathbf{F}\cdot\mathbf{T}\,ds", r"\;=\;",
+                        r"\iint_R (\operatorname{curl}\mathbf{F})\cdot\mathbf{k}\,dA",
                         tex_template=TPL, font_size=44, color=INK).to_edge(DOWN, buff=0.45)
         self.play(ReplacementTransform(approx[0], final[0]), ReplacementTransform(approx[1], final[1]),
                   FadeTransform(approx[2], final[2]), run_time=1.8)
         self.wait(2.0)
         bar.clear_updaters()
-        self.play(FadeOut(head3), FadeOut(track), FadeOut(bar), FadeOut(g_lab),
-                  final.animate.scale(48 / 44).to_edge(UP, buff=0.4), run_time=1.4)
-        frame = SurroundingRectangle(final, color=CURVE, buff=0.18, stroke_width=3)
-        self.play(Create(frame))
-        self.wait(2.0)
-        self.final = VGroup(final, frame)
+        self.play(FadeOut(head3), FadeOut(track), FadeOut(bar), FadeOut(g_lab), run_time=1.0)
+        self.limit_eq = final
 
-    # 7 ---------------------------------------------------------------------
+    # 8 ---------------------------------------------------------------------
+    def beat_form(self):
+        """Write both sides in terms of M and N: the circulation-curl form."""
+        head = self.caption(r"In terms of $M$ and $N$: on $C$, $\mathbf{T}\,ds=\langle dx,dy\rangle$,",
+                            r"and $(\operatorname{curl}\mathbf{F})\cdot\mathbf{k}=\dfrac{\partial N}{\partial x}-\dfrac{\partial M}{\partial y}$.",
+                            size=38)
+        self.play(FadeIn(head), FadeOut(self.region), FadeOut(self.C),
+                  self.limit_eq.animate.move_to([0, 0.1, 0]), run_time=1.2)
+        self.wait(2.6)
+        full = MathTex(r"\oint_C \mathbf{F}\cdot\mathbf{T}\,ds", r"\;=\;", r"\oint_C M\,dx+N\,dy",
+                       r"\;=\;",
+                       r"\iint_R\left(\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\right)dA",
+                       tex_template=TPL, font_size=44, color=INK).move_to([0, 0.1, 0])
+        self.play(ReplacementTransform(self.limit_eq[0], full[0]),
+                  ReplacementTransform(self.limit_eq[1], full[1]),
+                  FadeIn(full[2:4], shift=DOWN * 0.2),
+                  FadeTransform(self.limit_eq[2], full[4]), run_time=2.0)
+        self.wait(1.4)
+        title = self.caption(r"Green's Theorem (circulation--curl form)", size=46)
+        frame = SurroundingRectangle(full, color=CURVE, buff=0.2, stroke_width=3)
+        self.play(FadeOut(head), FadeIn(title), Create(frame))
+        self.wait(3.0)
+        self.final = VGroup(title, full, frame)
+
+    # 9 ---------------------------------------------------------------------
     def beat_stokes(self):
         note = self.caption(r"On a curved surface the same argument, patch by patch,",
                             r"is Stokes' theorem.", edge=DOWN, size=40)
         self.play(FadeIn(note))
         self.wait(2.8)
-        self.play(FadeOut(note), FadeOut(self.final), FadeOut(self.region), FadeOut(self.C),
-                  run_time=1.2)
+        self.play(FadeOut(note), FadeOut(self.final), run_time=1.2)
         self.wait(0.4)
 
 

@@ -602,6 +602,17 @@ by <m>C</m>:
 </statement>
 </theorem>
 
+<figure xml:id="fig-green-flux-proof-video">
+<caption>
+The idea of the proof of the normal form, animated: the flux out of one
+tiny rectangle computed with <m>\mathbf{n}</m>, the divergence as flux per
+unit area, and then the theorem.
+</caption>
+<video preview="play-button.png" xml:id="video-green-flux-proof-idea"
+       source="videos/green_flux_proof_1080p.mp4"
+       width="70%" aspect="16:9"/>
+</figure>
+
 <example xml:id="example-green-circle-normal">
 <title>Verifying the Normal Form on the Unit Circle</title>
 <statement>
