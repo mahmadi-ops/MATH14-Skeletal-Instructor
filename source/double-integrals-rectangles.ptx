@@ -337,13 +337,12 @@ surface at a sample point.)
 <p>
 The result of the above limit is defined as <term>the double integral
 over a rectangular region</term> and is denoted as
-</p>
-
 <men xml:id="eq-double-integral-def">
 \iint_R f(x,y)\,dA
 \quad\text{or}\quad
 \iint_R f(x,y)\,dx\,dy.
 </men>
+</p>
 </assemblage>
 
 <p>
