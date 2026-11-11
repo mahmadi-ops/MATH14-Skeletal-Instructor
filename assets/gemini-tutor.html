@@ -284,10 +284,14 @@ const MODELS = [
     candidates: ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-flash-latest"] },
 ];
 const MODEL_STORE = "math14-tutor-model";
+// The family a student gets until they pick one (November 2026, at the
+// instructor's request: Quick, which answers faster). A student who has
+// already chosen in the picker keeps that choice.
+const DEFAULT_MODEL = "quick";
 // How far down each family's chain we have permanently fallen (retirements
 // only; a quota rejection is temporary and never written here).
 // A stored preference naming a family that no longer exists (the old "pro")
-// falls back to the first entry in currentModel(), so nothing needs migrating.
+// falls back to DEFAULT_MODEL in currentModel(), so nothing needs migrating.
 const modelIndex = { careful: 0, quick: 0 };
 // The concrete model id that produced the most recent reply, reported with
 // feedback so a note can be attributed to the model that actually answered.
@@ -296,7 +300,8 @@ let lastModelUsed = "";
 function currentModel() {
   let id = "";
   try { id = localStorage.getItem(MODEL_STORE) || ""; } catch (e) {}
-  return MODELS.find(m => m.id === id) || MODELS[0];
+  return MODELS.find(m => m.id === id)
+    || MODELS.find(m => m.id === DEFAULT_MODEL) || MODELS[0];
 }
 
 function setModel(id) {
