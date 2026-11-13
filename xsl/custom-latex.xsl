@@ -11,6 +11,14 @@
   <!-- add a Solution listing them in the solved order, which is the       -->
   <!-- worked computation a skeletal PDF leaves to the student. Leave out  -->
   <!-- that Solution and its separator for this one exercise.              -->
-  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons']" mode="present-exercise-solutions"/>
-  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons']" mode="exercise-component-separator"/>
+  <!-- The same holds for the two checks added after it: the true/false   -->
+  <!-- claim about the area element of a graph (its static version prints -->
+  <!-- "True." and the derivation) and the card-ordering check on the     -->
+  <!-- tilt of the surface.                                               -->
+  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons'
+                                or @xml:id = 'check-graph-area-element-tf'
+                                or @xml:id = 'check-surface-tilt-parsons']" mode="present-exercise-solutions"/>
+  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons'
+                                or @xml:id = 'check-graph-area-element-tf'
+                                or @xml:id = 'check-surface-tilt-parsons']" mode="exercise-component-separator"/>
 </xsl:stylesheet>

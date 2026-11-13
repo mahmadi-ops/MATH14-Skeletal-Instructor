@@ -39,8 +39,12 @@
   <xsl:template match="exercises" mode="serial-number"/>
   <xsl:template match="exercises" mode="number"/>
 
-  <!-- The card-ordering concept check is visible when the section loads. -->
-  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons']"
+  <!-- The interactive concept checks of the surface integrals section    -->
+  <!-- (two card-ordering checks and a true/false one) are visible when   -->
+  <!-- the section loads.                                                 -->
+  <xsl:template match="exercise[@xml:id = 'check-flux-param-parsons'
+                                or @xml:id = 'check-graph-area-element-tf'
+                                or @xml:id = 'check-surface-tilt-parsons']"
                 mode="is-hidden">
     <xsl:value-of select="false()"/>
   </xsl:template>

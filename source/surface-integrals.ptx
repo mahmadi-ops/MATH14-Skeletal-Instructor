@@ -953,6 +953,164 @@ length in <m>\hat{\mathbf{n}}</m>, as in the parametrized flux formula.
 </blocks>
 </exercise>
 
+<exercise xml:id="check-graph-area-element-tf">
+<title>True or False: The Surface Area Element of a Graph</title>
+<statement correct="yes">
+<p>
+Let <m>S</m> be the graph of a function <m>z = f(x,y)</m> with
+continuous first partial derivatives, lying over a region <m>D</m> of
+the <m>xy</m>-plane. Then the area element of <m>S</m> and the area
+element <m>dA = dx\,dy</m> of <m>D</m> are related by
+<me>
+d\sigma = \sqrt{1 + f_x^2 + f_y^2}\; dA,
+</me>
+so that
+<md>
+<mrow>
+\amp \iint_S g\, d\sigma
+</mrow>
+<mrow>
+\amp \quad = \iint_D g\bigl(x, y, f(x,y)\bigr) \sqrt{1 + f_x^2 + f_y^2}\; dA.
+</mrow>
+</md>
+</p>
+</statement>
+<feedback>
+<p>
+True. This is not a new formula to memorize separately. It is the
+general formula
+<m>d\sigma = \lVert \mathbf{r}_u \times \mathbf{r}_v \rVert\, du\, dv</m>
+for a parametrized surface <m>\mathbf{r}(u,v)</m>, from
+<xref ref="remark-flux-param"/> and <xref ref="eq-normal-patch"/>,
+applied to the simplest parametrization a graph has.
+</p>
+<p>
+A point of <m>S</m> is determined by the point <m>(x,y)</m> of
+<m>D</m> below it, so we may use <m>x</m> and <m>y</m> themselves as
+the two parameters, as for the paraboloid in
+<xref ref="example-paraboloid-flux"/>:
+<me>
+\mathbf{r}(x,y) = \langle x,\ y,\ f(x,y) \rangle, \qquad (x,y) \in D.
+</me>
+Differentiate with respect to each parameter, holding the other fixed:
+<me>
+\mathbf{r}_x = \langle 1,\ 0,\ f_x \rangle, \qquad
+\mathbf{r}_y = \langle 0,\ 1,\ f_y \rangle.
+</me>
+By the determinant formula for the cross product,
+<md>
+<mrow>
+\mathbf{r}_x \times \mathbf{r}_y \amp =
+\begin{vmatrix}
+\mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\
+1 \amp 0 \amp f_x \\
+0 \amp 1 \amp f_y
+\end{vmatrix}
+</mrow>
+<mrow>
+\amp = \langle -f_x,\ -f_y,\ 1 \rangle,
+</mrow>
+</md>
+and the length of this vector is
+<md>
+<mrow>
+\lVert \mathbf{r}_x \times \mathbf{r}_y \rVert \amp = \sqrt{(-f_x)^2 + (-f_y)^2 + 1^2}
+</mrow>
+<mrow>
+\amp = \sqrt{1 + f_x^2 + f_y^2}.
+</mrow>
+</md>
+With <m>u = x</m> and <m>v = y</m> the general formula therefore reads
+<md>
+<mrow>
+d\sigma \amp = \sqrt{1 + f_x^2 + f_y^2}\; dx\, dy
+</mrow>
+<mrow>
+\amp = \sqrt{1 + f_x^2 + f_y^2}\; dA,
+</mrow>
+</md>
+which is the claim.
+</p>
+</feedback>
+</exercise>
+
+<!-- As for check-flux-param-parsons: @order is only for the printed   -->
+<!-- PDF, which would otherwise list the cards in the solved order.    -->
+
+<exercise xml:id="check-surface-tilt-parsons" language="natural">
+<title>What the Factor Means: The Tilt of the Surface</title>
+<statement>
+<p>
+The claim in <xref ref="check-graph-area-element-tf"/> compares the area
+element <m>d\sigma</m> of the graph <m>z = f(x,y)</m> with the area
+element <m>dA</m> of the region below it, through the factor
+<m>\sqrt{1 + f_x^2 + f_y^2}</m>. Arrange all the cards to find what that
+factor means.
+</p>
+<p>
+The argument starts from the normal vector of
+<xref ref="sec-surface-normal"/>, for the graph parametrization
+<m>\mathbf{r}(x,y) = \langle x,\ y,\ f(x,y) \rangle</m>, and ends by
+comparing a patch of the surface with its shadow in the
+<m>xy</m>-plane. Use every card once, and check your order.
+</p>
+</statement>
+
+<blocks>
+<block order="3">
+<p>
+Start from the cross product of the two tangent vectors of the graph:
+</p>
+<p><m>\mathbf{r}_x \times \mathbf{r}_y = \langle -f_x,\ -f_y,\ 1 \rangle</m>.</p>
+<p>
+It is perpendicular to both tangent vectors, so it is normal to
+<m>S</m>.
+</p>
+</block>
+
+<block order="5">
+<p>
+Its <m>\mathbf{k}</m>-component is <m>+1</m>, so it is the upward
+normal.
+</p>
+<p>
+Let <m>\gamma</m> be the angle between this normal and the vertical
+direction <m>\mathbf{k}</m>.
+</p>
+</block>
+
+<block order="1">
+<p>Then, by the dot product,</p>
+<p><m>\cos\gamma = \dfrac{\langle -f_x,\ -f_y,\ 1 \rangle \cdot \mathbf{k}}{\lVert \langle -f_x,\ -f_y,\ 1 \rangle \rVert\, \lVert \mathbf{k} \rVert}</m>.</p>
+</block>
+
+<block order="6">
+<p>Evaluating the dot product and the two lengths gives</p>
+<p><m>\cos\gamma = \dfrac{1}{\sqrt{1 + f_x^2 + f_y^2}}</m>.</p>
+</block>
+
+<block order="2">
+<p>
+So the factor in <m>d\sigma = \sqrt{1 + f_x^2 + f_y^2}\; dA</m> is
+<m>1/\cos\gamma</m>:
+</p>
+<p><m>d\sigma = \dfrac{dA}{\cos\gamma}</m>.</p>
+</block>
+
+<block order="4">
+<p>
+The angle between the normal and the vertical is the same as the angle
+by which the tangent plane is tilted away from the horizontal.
+</p>
+<p>
+So the formula says: a tilted patch is larger than its shadow, by the
+factor <m>1/\cos\gamma</m>.
+</p>
+</block>
+
+</blocks>
+</exercise>
+
 </subsection>
 
 </section>
