@@ -24,6 +24,17 @@
 <!-- solutions were rewritten in this file's pattern (bare                  -->
 <!-- <solution include-automatic="no">, children carrying                   -->
 <!-- component="hw10-solutions").                                           -->
+<!-- Each solution ends with a figure (fig-hw10o-sol-*), as in Assignments 8  -->
+<!-- and 9: an Asymptote drawing of the solid or surface with its normals,    -->
+<!-- and PreFigure diagrams for the cone's limits and for the unit disk of    -->
+<!-- "One Field, Three Theorems".  Each is a child of its solution carrying   -->
+<!-- component="hw10-solutions".  Only the last PreFigure diagram has         -->
+<!-- annotations: its solution has no <eval>, so it is not put in the inert   -->
+<!-- template of a randomized solution, where diagcess could not reach them.  -->
+<!-- The cylinder, tetrahedron and cone solutions used to end by quoting one  -->
+<!-- fixed set of numbers ("Here A = 3 and h = 2 ..."), which was wrong for   -->
+<!-- every student who drew other numbers; those lines now use the problem's  -->
+<!-- own values through <eval>.                                               -->
 <section xml:id="sec-exercises-hw10-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 10</title>
 
@@ -156,6 +167,85 @@
         = w\int_{z_0}^{z_1} 3z\, dz
         = \frac{3w}{2}\left(z_1^2 - z_0^2\right).
       </me>
+      <figure xml:id="fig-hw10o-sol-box" component="hw10-solutions">
+      <caption>
+      The box, with the outward normal on the three faces that face the
+      viewer: <m>\mathbf{i}</m> on <m>x = x_1</m>, <m>\mathbf{j}</m> on
+      <m>y = 1</m> and <m>\mathbf{k}</m> on <m>z = z_1</m>. The three hidden
+      faces have the opposite normals. The divergence theorem replaces the
+      six flux integrals by one triple integral over the box, whose width in
+      <m>x</m> is <m>w = x_1 - x_0</m>.
+      </caption>
+      <image xml:id="image-hw10o-sol-box" width="80%">
+        <shortdescription>A rectangular box above the xy-plane with an outward arrow on each of its three visible faces, and dashed lines dropping to its shadow in the xy-plane.</shortdescription>
+        <asymptote>
+<![CDATA[// The box x0 <= x <= x1, 0 <= y <= 1, z0 <= z <= z1 (drawn with x0 = 0.7,
+// x1 = 2.7, z0 = 0.8, z1 = 2.0), with the outward normal on each visible face.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+size(12cm);
+currentprojection = orthographic((5, 3, 2.4));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigreen = rgb(0/255, 158/255, 115/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=10));
+}
+void axes(real ax, real ay, real az) {
+  draw(Label("$x$", EndPoint, fontsize(16pt)), O--ax*X, axispen, Arrow3(size=8));
+  draw(Label("$y$", EndPoint, fontsize(16pt)), O--ay*Y, axispen, Arrow3(size=8));
+  draw(Label("$z$", EndPoint, fontsize(16pt)), O--az*Z, axispen, Arrow3(size=8));
+}
+material soft(pen c, real op) { return material(c + opacity(op), emissivepen=0.35*c, specularpen=gray(0.05)); }
+// directions on the screen for this viewpoint: to the left and upward
+triple camdir = (5, 3, 2.4);
+triple sleft = unit(cross(camdir, Z)), sup = unit(cross(sleft, camdir));
+pair leftxy = unit((sleft.x, sleft.y));
+real aleft = atan2(leftxy.y, leftxy.x), afront = atan2(3, 5);
+pen dkgreen = 0.6*oigreen, dkblue = 0.75*oiblue;
+real x0 = 0.7, x1 = 2.7, y0 = 0, y1 = 1.3, z0 = 0.8, z1 = 2.0;
+path3[] faces = {
+  (x0,y0,z0)--(x1,y0,z0)--(x1,y1,z0)--(x0,y1,z0)--cycle,
+  (x0,y0,z1)--(x1,y0,z1)--(x1,y1,z1)--(x0,y1,z1)--cycle,
+  (x0,y0,z0)--(x1,y0,z0)--(x1,y0,z1)--(x0,y0,z1)--cycle,
+  (x0,y1,z0)--(x1,y1,z0)--(x1,y1,z1)--(x0,y1,z1)--cycle,
+  (x0,y0,z0)--(x0,y1,z0)--(x0,y1,z1)--(x0,y0,z1)--cycle,
+  (x1,y0,z0)--(x1,y1,z0)--(x1,y1,z1)--(x1,y0,z1)--cycle };
+for (path3 f : faces) {
+  draw(surface(f), surfacepen=soft(oiblue, 0.28));
+  draw(f, oiblue + linewidth(1pt));
+}
+// the shadow of the box in the xy-plane, and the guides that give the labels
+pen guide = gray(0.5) + linewidth(0.6pt) + linetype("4 3");
+path3 shadow = (x0,y0,0)--(x1,y0,0)--(x1,y1,0)--(x0,y1,0)--cycle;
+draw(shadow, guide);
+draw((x0,y0,0)--(x0,y0,z0), guide); draw((x1,y0,0)--(x1,y0,z0), guide);
+draw((x1,y1,0)--(x1,y1,z0), guide); draw((x0,y1,0)--(x0,y1,z0), guide);
+draw((x0,y1,0)--(0,y1,0), guide);
+label("$x_0$", (x0, 0, 0), NW, fontsize(15pt));
+label("$x_1$", (x1, 0, 0), NW, fontsize(15pt));
+label("$1$", (0, y1, 0), N, fontsize(15pt));
+label("$z = z_0$", (x1, y0, z0), W, fontsize(15pt));
+label("$z = z_1$", (x1, y0, z1), W, fontsize(15pt));
+// outward normals on the three faces that face the viewer
+real L = 0.8;
+triple cx = (x1, 0.5*(y0+y1), 0.5*(z0+z1)), cy = (0.5*(x0+x1), y1, 0.5*(z0+z1)), cz = (0.5*(x0+x1), 0.5*(y0+y1), z1);
+draw(cx--cx + L*X, oimag + linewidth(1.4pt), Arrow3(size=8));
+draw(cy--cy + L*Y, oimag + linewidth(1.4pt), Arrow3(size=8));
+draw(cz--cz + L*Z, oimag + linewidth(1.4pt), Arrow3(size=8));
+label("$\mathbf{i}$", cx + L*X, S, oimag + fontsize(17pt));
+label("$\mathbf{j}$", cy + L*Y, N, oimag + fontsize(17pt));
+label("$\mathbf{k}$", cz + L*Z, NE, oimag + fontsize(17pt));
+axes(x1 + 1.5, y1 + 1.6, z1 + 1.2);
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
@@ -179,6 +269,9 @@
       </de-object>
       <de-object name="both" context="number">
         <de-expression>A*h*pi</de-expression>
+      </de-object>
+      <de-object name="Ah" context="number">
+        <de-expression>A*h</de-expression>
       </de-object>
     </setup>
     <statement>
@@ -246,9 +339,78 @@
         <m>A h \pi</m>, verifying the theorem.
       </p>
       <p component="hw10-solutions">
-        Here <m>A = 3</m> and <m>h = 2</m>, so both sides equal
-<m>3(2)\pi = 6\pi \approx 18.85</m>.
+        Here <m>A = <eval obj="A"/></m> and <m>h = <eval obj="h"/></m>, so
+        both sides equal
+        <m><eval obj="A"/>\left(<eval obj="h"/>\right)\pi
+        = <eval obj="Ah"/>\pi</m>.
       </p>
+      <figure xml:id="fig-hw10o-sol-cylinder" component="hw10-solutions">
+      <caption>
+      The solid cylinder <m>W</m> and the outward normal on the three
+      pieces of its surface:
+      <m>\left\langle \cos\theta,\ \sin\theta,\ 0 \right\rangle</m> on the
+      side, <m>\mathbf{k}</m> on the top disk <m>z = h</m>, and
+      <m>-\mathbf{k}</m> on the bottom disk <m>z = 0</m>.
+      </caption>
+      <image xml:id="image-hw10o-sol-cylinder" width="80%">
+        <shortdescription>A vertical cylinder standing on the xy-plane, with horizontal arrows pointing out of its side, an arrow pointing up from its top and an arrow pointing down from its bottom.</shortdescription>
+        <asymptote>
+<![CDATA[// The solid cylinder W: x^2 + y^2 <= 1, 0 <= z <= h (drawn with h = 2), and the
+// outward normal on each of the three pieces of its surface.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+size(12cm);
+currentprojection = orthographic((5, 3, 2.4));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigreen = rgb(0/255, 158/255, 115/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=10));
+}
+void axes(real ax, real ay, real az) {
+  draw(Label("$x$", EndPoint, fontsize(16pt)), O--ax*X, axispen, Arrow3(size=8));
+  draw(Label("$y$", EndPoint, fontsize(16pt)), O--ay*Y, axispen, Arrow3(size=8));
+  draw(Label("$z$", EndPoint, fontsize(16pt)), O--az*Z, axispen, Arrow3(size=8));
+}
+material soft(pen c, real op) { return material(c + opacity(op), emissivepen=0.35*c, specularpen=gray(0.05)); }
+// directions on the screen for this viewpoint: to the left and upward
+triple camdir = (5, 3, 2.4);
+triple sleft = unit(cross(camdir, Z)), sup = unit(cross(sleft, camdir));
+pair leftxy = unit((sleft.x, sleft.y));
+real aleft = atan2(leftxy.y, leftxy.x), afront = atan2(3, 5);
+pen dkgreen = 0.6*oigreen, dkblue = 0.75*oiblue;
+real h = 2;
+triple side(pair q) { return (cos(q.x), sin(q.x), q.y); }
+triple top(pair q) { return (q.y*cos(q.x), q.y*sin(q.x), h); }
+triple bot(pair q) { return (q.y*cos(q.x), q.y*sin(q.x), 0); }
+draw(surface(bot, (0, 0.01), (2pi, 1), 24, 2, Spline), surfacepen=soft(oigreen, 0.4));
+draw(surface(side, (0, 0), (2pi, h), 24, 2, Spline), surfacepen=soft(oiblue, 0.34));
+draw(surface(top, (0, 0.01), (2pi, 1), 24, 2, Spline), surfacepen=soft(oigreen, 0.4));
+draw(circle((0, 0, h), 1), oiblue + linewidth(1.2pt));
+draw(circle(O, 1), oiblue + linewidth(1.2pt));
+for (int k = 0; k < 6; ++k) {
+  real t = 2pi*k/6 + 0.25;
+  triple p = (cos(t), sin(t), 0.5*h);
+  draw(p--p + 0.75*(cos(t), sin(t), 0), oimag + linewidth(1.3pt), Arrow3(size=7));
+}
+draw((0.3, 0.2, h)--(0.3, 0.2, h + 0.85), oimag + linewidth(1.4pt), Arrow3(size=8));
+draw((0.3, -0.35, 0)--(0.3, -0.35, -0.85), oimag + linewidth(1.4pt), Arrow3(size=8));
+label("$\hat{\mathbf{n}} = \mathbf{k}$", (0.3, 0.2, h + 0.85), E, oimag + fontsize(16pt));
+label("$\hat{\mathbf{n}} = -\mathbf{k}$", (0.3, -0.35, -0.85), E, oimag + fontsize(16pt));
+real tr = 2pi/6 + 0.25;
+label("$\hat{\mathbf{n}} = \langle\cos\theta, \sin\theta, 0\rangle$", (cos(tr), sin(tr), 0.5*h) + 0.75*(cos(tr), sin(tr), 0), E, oimag + fontsize(15pt));
+label("$z = h$", (cos(aleft), sin(aleft), h), W, dkblue + fontsize(15pt));
+label("$W$", (0, 0, 0.5*h), fontsize(18pt));
+axes(2.4, 2.3, h + 1.4);
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
 
   </exercise>
@@ -276,6 +438,9 @@
       </de-object>
       <de-object name="vol" context="number">
         <de-expression>a*b*c/6</de-expression>
+      </de-object>
+      <de-object name="fluxnum" context="number">
+        <de-expression>a*b*c*(a+4)</de-expression>
       </de-object>
     </setup>
     <statement>
@@ -353,9 +518,79 @@
         = \tfrac{a}{3} + \tfrac{a^2}{12} = \tfrac{a(a+4)}{12}</m>.
       </p>
       <p component="hw10-solutions">
-        Here <m>a = 3</m>, <m>b = 2</m> and <m>c = 4</m>, so the flux is
-<m>\dfrac{(3)(2)(4)(3+4)}{24} = 7</m>.
+        Here <m>a = <eval obj="a"/></m>, <m>b = <eval obj="b"/></m> and
+        <m>c = <eval obj="c"/></m>, so the flux is
+        <m>\dfrac{\left(<eval obj="a"/>\right)\left(<eval obj="b"/>\right)\left(<eval obj="c"/>\right)\left(<eval obj="a"/>+4\right)}{24}
+        = \dfrac{<eval obj="fluxnum"/>}{24}</m>.
       </p>
+      <figure xml:id="fig-hw10o-sol-tetrahedron" component="hw10-solutions">
+      <caption>
+      The tetrahedron <m>E</m>, with vertices <m>(0,0,0)</m>,
+      <m>(a,0,0)</m>, <m>(0,b,0)</m> and <m>(0,0,c)</m>. Its cross-section
+      at a fixed <m>x</m> is a right triangle with legs
+      <m>b\left(1-\frac{x}{a}\right)</m> and
+      <m>c\left(1-\frac{x}{a}\right)</m>, of area
+      <m>\frac{bc}{2}\left(1-\frac{x}{a}\right)^2</m>, which is the factor
+      in the integral over <m>x</m>.
+      </caption>
+      <image xml:id="image-hw10o-sol-tetrahedron" width="80%">
+        <shortdescription>A tetrahedron in the first octant with one vertex on each coordinate axis, and a shaded triangular cross-section perpendicular to the x-axis.</shortdescription>
+        <asymptote>
+<![CDATA[// The tetrahedron E cut off by the plane x/a + y/b + z/c = 1 (drawn with
+// a = 3, b = 2, c = 2.5), and its cross-section at a fixed x: a right triangle
+// with legs b(1 - x/a) and c(1 - x/a).
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+size(12cm);
+currentprojection = orthographic((5, 3, 2.4));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigreen = rgb(0/255, 158/255, 115/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=10));
+}
+void axes(real ax, real ay, real az) {
+  draw(Label("$x$", EndPoint, fontsize(16pt)), O--ax*X, axispen, Arrow3(size=8));
+  draw(Label("$y$", EndPoint, fontsize(16pt)), O--ay*Y, axispen, Arrow3(size=8));
+  draw(Label("$z$", EndPoint, fontsize(16pt)), O--az*Z, axispen, Arrow3(size=8));
+}
+material soft(pen c, real op) { return material(c + opacity(op), emissivepen=0.35*c, specularpen=gray(0.05)); }
+// directions on the screen for this viewpoint: to the left and upward
+triple camdir = (5, 3, 2.4);
+triple sleft = unit(cross(camdir, Z)), sup = unit(cross(sleft, camdir));
+pair leftxy = unit((sleft.x, sleft.y));
+real aleft = atan2(leftxy.y, leftxy.x), afront = atan2(3, 5);
+pen dkgreen = 0.6*oigreen, dkblue = 0.75*oiblue;
+real a = 3, b = 2, c = 2.5, xs = 1.2, s = 1 - xs/a;
+triple A = (a, 0, 0), B = (0, b, 0), Cc = (0, 0, c);
+draw(surface(O--A--B--cycle), surfacepen=soft(oiblue, 0.18));
+draw(surface(O--B--Cc--cycle), surfacepen=soft(oiblue, 0.18));
+draw(surface(O--A--Cc--cycle), surfacepen=soft(oiblue, 0.18));
+draw(surface(A--B--Cc--cycle), surfacepen=soft(oiblue, 0.3));
+draw(A--B--Cc--cycle, oiblue + linewidth(1.3pt));
+draw(O--A, oiblue + linewidth(0.8pt)); draw(O--B, oiblue + linewidth(0.8pt)); draw(O--Cc, oiblue + linewidth(0.8pt));
+// the slice at x = xs
+triple P = (xs, 0, 0), Q = (xs, b*s, 0), Rr = (xs, 0, c*s);
+draw(surface(P--Q--Rr--cycle), surfacepen=soft(oiver, 0.6));
+draw(P--Q--Rr--cycle, oiver + linewidth(1.5pt));
+label("$x$", P, NW, oiver + fontsize(16pt));
+label("$b\left(1-\frac{x}{a}\right)$", 0.5*(P + Q), S, oiver + fontsize(13pt));
+label("$c\left(1-\frac{x}{a}\right)$", 0.5*(P + Rr), W, oiver + fontsize(13pt));
+dot(A, oiblue); dot(B, oiblue); dot(Cc, oiblue);
+label("$(a,0,0)$", A, NW, dkblue + fontsize(15pt));
+label("$(0,b,0)$", B, SE, dkblue + fontsize(15pt));
+label("$(0,0,c)$", Cc, E, dkblue + fontsize(15pt));
+label("$E$", (0.35, 1.0, 0.75), fontsize(18pt));
+axes(a + 1.3, b + 1.3, c + 1.1);
+]]>
+        </asymptote>
+      </image>
+      </figure>
     </solution>
 
   </exercise>
@@ -383,6 +618,9 @@
       </de-object>
       <de-object name="flux" context="number">
         <de-expression>a*r^4*pi/2</de-expression>
+      </de-object>
+      <de-object name="fluxnum" context="number">
+        <de-expression>a*r*r*r*r</de-expression>
       </de-object>
     </setup>
     <statement>
@@ -445,9 +683,105 @@
         = 2\pi\int_0^{r} a y^3\,dy = \frac{a r^4 \pi}{2}.
       </me>
       <p component="hw10-solutions">
-        Here <m>a = 3</m> and <m>r = 2</m>, so the flux is
-<m>\dfrac{3\left(2^4\right)\pi}{2} = 24\pi \approx 75.40</m>.
+        Here <m>a = <eval obj="a"/></m> and <m>r = <eval obj="r"/></m>, so
+        the flux is
+        <m>\dfrac{<eval obj="a"/>\left(<eval obj="r"/>\right)^4\pi}{2}
+        = \dfrac{<eval obj="fluxnum"/>\,\pi}{2}</m>.
       </p>
+      <figure xml:id="fig-hw10o-sol-cone" component="hw10-solutions">
+      <caption>
+      The closed cone, whose axis is the <m>y</m>-axis: the cone
+      <m>y = \sqrt{x^2+z^2}</m> and its lid, the disk <m>y = r</m>, with
+      their outward normals. The cross-section at a fixed <m>y</m> is the
+      disk <m>\rho \le y</m>, where <m>\rho = \sqrt{x^2+z^2}</m> is the
+      distance from the <m>y</m>-axis.
+      </caption>
+      <image xml:id="image-hw10o-sol-cone" width="80%">
+        <shortdescription>A cone lying on its side, opening along the positive y-axis and closed by a disk, with a shaded circular cross-section and outward arrows on the cone and on the lid.</shortdescription>
+        <asymptote>
+<![CDATA[// The closed cone y = sqrt(x^2 + z^2), 0 <= y <= r (drawn with r = 2): its axis is
+// the y-axis.  The lid is the disk y = r; the cross-section at a fixed y is the
+// disk rho <= y, where rho is the distance from the y-axis.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+size(12cm);
+currentprojection = orthographic((5, 3, 2.4));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigreen = rgb(0/255, 158/255, 115/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=10));
+}
+void axes(real ax, real ay, real az) {
+  draw(Label("$x$", EndPoint, fontsize(16pt)), O--ax*X, axispen, Arrow3(size=8));
+  draw(Label("$y$", EndPoint, fontsize(16pt)), O--ay*Y, axispen, Arrow3(size=8));
+  draw(Label("$z$", EndPoint, fontsize(16pt)), O--az*Z, axispen, Arrow3(size=8));
+}
+material soft(pen c, real op) { return material(c + opacity(op), emissivepen=0.35*c, specularpen=gray(0.05)); }
+// directions on the screen for this viewpoint: to the left and upward
+triple camdir = (5, 3, 2.4);
+triple sleft = unit(cross(camdir, Z)), sup = unit(cross(sleft, camdir));
+pair leftxy = unit((sleft.x, sleft.y));
+real aleft = atan2(leftxy.y, leftxy.x), afront = atan2(3, 5);
+pen dkgreen = 0.6*oigreen, dkblue = 0.75*oiblue;
+real r = 2, y0 = 1.25;
+triple cone(pair q) { return (q.y*cos(q.x), q.y, q.y*sin(q.x)); }                  // (angle, rho)
+triple lid(pair q) { return (q.y*cos(q.x), r, q.y*sin(q.x)); }
+triple slice(pair q) { return (q.y*cos(q.x), y0, q.y*sin(q.x)); }
+draw(surface(slice, (0, 0.01), (2pi, y0), 24, 2, Spline), surfacepen=soft(oiver, 0.55));
+draw(surface(cone, (0, 0.01), (2pi, r), 24, 4, Spline), surfacepen=soft(oiblue, 0.34));
+draw(surface(lid, (0, 0.01), (2pi, r), 24, 2, Spline), surfacepen=soft(oigreen, 0.32));
+triple rim(real t) { return (r*cos(t), r, r*sin(t)); }
+triple ring(real t) { return (y0*cos(t), y0, y0*sin(t)); }
+draw(graph(rim, 0, 2pi, 120), oiblue + linewidth(1.3pt));
+draw(graph(ring, 0, 2pi, 120), oiver + linewidth(1.3pt));
+// outward normals: j on the lid, and away from the axis and back toward the vertex on the cone
+draw((0.4, r, 0.5)--(0.4, r + 0.9, 0.5), oimag + linewidth(1.4pt), Arrow3(size=8));
+label("$\hat{\mathbf{n}} = \mathbf{j}$", (0.4, r + 0.9, 0.5), N, oimag + fontsize(16pt));
+for (int k = 0; k < 3; ++k) {
+  real t = 1.3 + 1.7*k, u = 0.75;
+  triple p = (u*cos(t), u, u*sin(t));
+  draw(p--p + 0.75*(cos(t), -1, sin(t))/sqrt(2), oimag + linewidth(1.3pt), Arrow3(size=7));
+}
+// rho on the slice
+draw((0, y0, 0)--(0, y0, y0), oiver + linewidth(1.2pt) + linetype("4 3"));
+label("$\rho = y$", (0, y0, y0), NW, oiver + fontsize(15pt));
+label("$y = r$", rim(1.9), N, dkblue + fontsize(15pt));
+axes(r + 1.2, r + 1.9, r + 0.9);
+]]>
+        </asymptote>
+      </image>
+      </figure>
+      <figure xml:id="fig-hw10o-sol-cone-region" component="hw10-solutions">
+      <caption>
+      The limits in the cylindrical coordinates around the <m>y</m>-axis:
+      for each <m>y</m> between <m>0</m> and <m>r</m>, the distance
+      <m>\rho</m> from the axis runs from <m>0</m> to <m>y</m>. Revolving
+      this triangle about the <m>y</m>-axis gives the cone.
+      </caption>
+      <image width="55%">
+        <shortdescription>A right triangle under the line rho equals y, between y equals 0 and y equals r, with a vertical strip from the y-axis up to the line.</shortdescription>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-hw10o-sol-cone-region">
+          <diagram dimensions="(320,300)" margins="10">
+            <coordinates bbox="(-0.45,-0.45,2.75,2.55)">
+              <polygon at="hcr-region" points="((0,0),(2,0),(2,2))" fill="#cfe0f5" stroke="#0072B2" thickness="2.5"/>
+              <axes at="hcr-axes" xlabel="y" ylabel="\rho" decorations="no" arrows="1"/>
+              <line at="hcr-strip" endpoints="((0.9,0),(0.9,0.9))" stroke="#D55E00" thickness="3"/>
+              <label at="hcr-line" anchor="(1.3,1.4)" alignment="nw" color="#0072B2"><m>\rho = y</m></label>
+              <label at="hcr-lid" anchor="(2.03,1.1)" alignment="e" color="#0072B2"><m>y = r</m></label>
+              <label at="hcr-r" anchor="(2,0)" alignment="s"><m>r</m></label>
+              <label at="hcr-y" anchor="(0.9,0)" alignment="s" color="#D55E00"><m>y</m></label>
+              <label at="hcr-lim" anchor="(0.97,0.4)" alignment="e" color="#D55E00"><m>0 \le \rho \le y</m></label>
+            </coordinates>
+          </diagram>
+        </prefigure>
+      </image>
+      </figure>
     </solution>
 
   </exercise>
@@ -690,6 +1024,106 @@
         flux-type quantities depend on the surface itself<mdash/>precisely
         because curls are divergence-free and general fields are not.
       </p>
+      <figure xml:id="fig-hw10o-sol-three" component="hw10-solutions">
+      <caption>
+      The paraboloid <m>S</m> with its upward normal
+      <m>\hat{\mathbf{n}}</m>, the unit disk <m>D</m>, their common boundary
+      <m>C</m>, counterclockwise seen from above, and the solid <m>E</m>
+      between them. For the closed surface <m>S \cup D</m> of part (c) the
+      outward normal on <m>D</m> is <m>-\mathbf{k}</m>.
+      </caption>
+      <image xml:id="image-hw10o-sol-three" width="80%">
+        <shortdescription>A dome-shaped paraboloid over the unit disk in the xy-plane, with arrows pointing out of the dome, a downward arrow below the disk, and arrowheads running counterclockwise around the rim.</shortdescription>
+        <asymptote>
+<![CDATA[// The paraboloid S: z = 1 - x^2 - y^2, z >= 0, with its upward normals; the unit
+// disk D below it, with the outward normal -k of the closed surface; their
+// common boundary C; and the solid E between them.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+size(12cm);
+currentprojection = orthographic((5, 3, 2.4));
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oimag  = rgb(204/255, 0/255, 119/255);
+pen oigreen = rgb(0/255, 158/255, 115/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=10));
+}
+void axes(real ax, real ay, real az) {
+  draw(Label("$x$", EndPoint, fontsize(16pt)), O--ax*X, axispen, Arrow3(size=8));
+  draw(Label("$y$", EndPoint, fontsize(16pt)), O--ay*Y, axispen, Arrow3(size=8));
+  draw(Label("$z$", EndPoint, fontsize(16pt)), O--az*Z, axispen, Arrow3(size=8));
+}
+material soft(pen c, real op) { return material(c + opacity(op), emissivepen=0.35*c, specularpen=gray(0.05)); }
+// directions on the screen for this viewpoint: to the left and upward
+triple camdir = (5, 3, 2.4);
+triple sleft = unit(cross(camdir, Z)), sup = unit(cross(sleft, camdir));
+pair leftxy = unit((sleft.x, sleft.y));
+real aleft = atan2(leftxy.y, leftxy.x), afront = atan2(3, 5);
+pen dkgreen = 0.6*oigreen, dkblue = 0.75*oiblue;
+size(13cm);
+triple par(pair q) { return (q.y*cos(q.x), q.y*sin(q.x), 1 - q.y^2); }             // (theta, r)
+triple disk(pair q) { return (q.y*cos(q.x), q.y*sin(q.x), 0); }
+draw(surface(disk, (0, 0.01), (2pi, 1), 24, 2, Spline), surfacepen=soft(oigreen, 0.42));
+draw(surface(par, (0, 0.01), (2pi, 1), 24, 5, Spline), surfacepen=soft(oiblue, 0.38));
+triple C(real t) { return (cos(t), sin(t), 0); }
+draw(graph(C, 0, 2pi, 120), oiver + linewidth(1.8pt));
+heads(C, new real[] {0.2, 2.3, 4.4}, oiver + linewidth(1.8pt), 0.3);
+for (int k = 0; k < 5; ++k) {
+  real t = 2pi*k/5 + 0.4, r = 0.6;
+  triple p = (r*cos(t), r*sin(t), 1 - r^2);
+  draw(p--p + 0.42*unit((2*r*cos(t), 2*r*sin(t), 1)), oimag + linewidth(1.3pt), Arrow3(size=7));
+}
+draw((0, 0, 1)--(0, 0, 1.42), oimag + linewidth(1.3pt), Arrow3(size=7));
+draw((0.35, -0.3, 0)--(0.35, -0.3, -0.45), oigreen + linewidth(1.5pt), Arrow3(size=8));
+label("$-\mathbf{k}$", (0.35, -0.3, -0.45), E, dkgreen + fontsize(16pt));
+label("$\hat{\mathbf{n}}$", (0, 0, 1.42), E, oimag + fontsize(17pt));
+label("$S$", par((aleft, 0.72)), NW, dkblue + fontsize(18pt));
+label("$D$", (0.7, 0.15, 0), dkgreen + fontsize(17pt));
+label("$C$", C(afront), S, oiver + fontsize(18pt));
+label("$E$", (-0.15, 0.3, 0.28), fontsize(17pt));
+axes(1.75, 1.65, 1.85);
+]]>
+        </asymptote>
+      </image>
+      </figure>
+      <figure xml:id="fig-hw10o-sol-three-disk" component="hw10-solutions">
+      <caption>
+      The unit disk <m>D</m> inside <m>C</m>, in the polar coordinates of
+      part (a), where the integrand of Green's theorem is
+      <m>3\left(x^2+y^2\right) = 3r^2</m>.
+      </caption>
+      <image width="55%">
+        <shortdescription>The shaded unit disk with its counterclockwise boundary and a radius at an angle theta.</shortdescription>
+        <prefigure xmlns="https://prefigure.org" label="prefigure-hw10o-sol-three-disk">
+          <diagram dimensions="(300,300)" margins="10">
+            <definition>circ(t) = (cos(t), sin(t))</definition>
+            <coordinates bbox="(-1.6,-1.6,1.6,1.6)">
+              <circle at="htd-disk" center="(0,0)" radius="1" fill="#cfe0f5" stroke="#0072B2" thickness="2.5"/>
+              <axes at="htd-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <parametric-curve at="htd-dir-1" function="circ" domain="(1.9,2.15)" stroke="#0072B2" thickness="3" arrows="1"/>
+              <parametric-curve at="htd-dir-2" function="circ" domain="(5.05,5.3)" stroke="#0072B2" thickness="3" arrows="1"/>
+              <line at="htd-radius" p1="(0,0)" p2="(0.643,0.766)" stroke="#D55E00" thickness="2.5"/>
+              <angle-marker at="htd-theta" p="(0,0)" p1="(1,0)" p2="(0.643,0.766)" radius="22" stroke="#D55E00" thickness="1"/>
+              <label at="htd-r" anchor="(0.25,0.48)" alignment="nw" color="#D55E00"><m>r</m></label>
+              <label at="htd-th" anchor="(0.28,0.1)" alignment="ne" color="#D55E00"><m>\theta</m></label>
+              <label at="htd-D" anchor="(-0.45,-0.4)" alignment="c" clear-background="yes" background-margin="2"><m>D</m></label>
+              <label at="htd-C" anchor="(-0.8,0.8)" alignment="nw" color="#0072B2" clear-background="yes" background-margin="2"><m>C</m></label>
+            </coordinates>
+            <annotations>
+              <annotation ref="figure" text="The unit circle C, traversed counterclockwise, around the shaded unit disk D. A radius of length r at angle theta from the positive x-axis shows the polar coordinates in which the double integral of 3 times x squared plus y squared over D is computed, with r from 0 to 1 and theta from 0 to 2 pi.">
+                <annotation ref="htd-disk" text="The unit disk D bounded by C."/>
+                <annotation ref="htd-radius" text="A radius of length r at angle theta."/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+      </figure>
     </solution>
   </exercise>
 
