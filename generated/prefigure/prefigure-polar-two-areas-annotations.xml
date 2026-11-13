@@ -1,0 +1,84 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-polar-two-areas-figure" speech2="Two concentric semicircles of radius one and two centered at the origin, the line y equals the square root of three times x, and the vertical lines x equals one and x equals two. Between the two circles and below the line, region one is shaded red: it lies between the unit circle and the line x equals one. Region two is shaded blue: it lies between the line x equals one and the circle of radius two, above the x axis. The line through the origin meets the vertical line x equals one at the point one, square root of three, which is also on the outer circle.">
+      <grouped>prefigure-polar-two-areas-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-polar-two-areas-pa-red</active>
+        <active>prefigure-polar-two-areas-pa-blue</active>
+        <active>prefigure-polar-two-areas-pa-inner</active>
+        <active>prefigure-polar-two-areas-pa-outer</active>
+        <active>prefigure-polar-two-areas-pa-ray</active>
+        <active>prefigure-polar-two-areas-pa-x1</active>
+        <active>prefigure-polar-two-areas-pa-x2</active>
+        <active>prefigure-polar-two-areas-pa-A</active>
+      </children>
+      <components>
+        <active>prefigure-polar-two-areas-pa-red</active>
+        <active>prefigure-polar-two-areas-pa-blue</active>
+        <active>prefigure-polar-two-areas-pa-inner</active>
+        <active>prefigure-polar-two-areas-pa-outer</active>
+        <active>prefigure-polar-two-areas-pa-ray</active>
+        <active>prefigure-polar-two-areas-pa-x1</active>
+        <active>prefigure-polar-two-areas-pa-x2</active>
+        <active>prefigure-polar-two-areas-pa-A</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-red" speech2="Region one, shaded red, bounded by the unit circle on the inside, the vertical line x equals one on the outside, the x axis below and the line y equals root three x above.">
+      <active>prefigure-polar-two-areas-pa-red</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-blue" speech2="Region two, shaded blue, bounded by the vertical line x equals one on the inside, the circle of radius two on the outside, and the x axis below.">
+      <active>prefigure-polar-two-areas-pa-blue</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-inner" speech2="The circle r equals one.">
+      <active>prefigure-polar-two-areas-pa-inner</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-outer" speech2="The circle r equals two.">
+      <active>prefigure-polar-two-areas-pa-outer</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-ray" speech2="The line y equals root three x, that is the ray theta equals pi over three.">
+      <active>prefigure-polar-two-areas-pa-ray</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-x1" speech2="The vertical line x equals one, which in polar coordinates is r equals secant theta.">
+      <active>prefigure-polar-two-areas-pa-x1</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-x2" speech2="The vertical line x equals two.">
+      <active>prefigure-polar-two-areas-pa-x2</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-two-areas-pa-A" speech2="The point one, square root of three, where the ray, the line x equals one and the outer circle all meet.">
+      <active>prefigure-polar-two-areas-pa-A</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-polar-two-areas-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

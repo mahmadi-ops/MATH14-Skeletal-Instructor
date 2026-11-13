@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-polar-grid-figure" speech2="The same washer slice region divided by circular arcs and rays into a grid of small polar rectangles. One polar rectangle R i j is highlighted in vermillion, with its center point r i star comma theta j star marked.">
+      <grouped>prefigure-polar-grid-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-polar-grid-pg-cell</active>
+        <active>prefigure-polar-grid-pg-center</active>
+      </children>
+      <components>
+        <active>prefigure-polar-grid-pg-cell</active>
+        <active>prefigure-polar-grid-pg-center</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-polar-grid-pg-cell" speech2="A typical polar rectangle R i j, bounded by two nearby arcs and two nearby rays. Its area is r i star times delta r times delta theta.">
+      <active>prefigure-polar-grid-pg-cell</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-polar-grid-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-grid-pg-center" speech2="The center of the polar rectangle, with polar coordinates r i star comma theta j star.">
+      <active>prefigure-polar-grid-pg-center</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-polar-grid-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

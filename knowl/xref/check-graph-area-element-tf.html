@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h2 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2.10.18</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">True or False: The Surface Area Element of a Graph.</span>
+</h2>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section"><ul data-component="multiplechoice" data-multipleanswers="false" id="rs-check-graph-area-element-tf">
+<div class="para logical" id="check-graph-area-element-tf-2-1">
+<div class="para">Let <span class="process-math">\(S\)</span> be the graph of a function <span class="process-math">\(z = f(x,y)\)</span> with continuous first partial derivatives, lying over a region <span class="process-math">\(D\)</span> of the <span class="process-math">\(xy\)</span>-plane. Then the area element of <span class="process-math">\(S\)</span> and the area element <span class="process-math">\(dA = dx\,dy\)</span> of <span class="process-math">\(D\)</span> are related by</div>
+<div class="displaymath process-math" id="check-graph-area-element-tf-2-1-8">
+\begin{equation*}
+d\sigma = \sqrt{1 + f_x^2 + f_y^2}\; dA,
+\end{equation*}
+</div>
+<div class="para">so that</div>
+<div class="displaymath process-math" id="check-graph-area-element-tf-2-1-9">
+\begin{align*}
+\amp \iint_S g\, d\sigma\\
+\amp \quad = \iint_D g\bigl(x, y, f(x,y)\bigr) \sqrt{1 + f_x^2 + f_y^2}\; dA.
+\end{align*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-graph-area-element-tf-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<li data-component="answer" id="rs-check-graph-area-element-tf_opt_t" data-correct=""><p>True.</p></li>
+<li data-component="feedback" id="rs-check-graph-area-element-tf_opt_t">
+<div class="para" id="check-graph-area-element-tf-3-1">True. This is not a new formula to memorize separately. It is the general formula <span class="process-math">\(d\sigma = \lVert \mathbf{r}_u \times \mathbf{r}_v \rVert\, du\, dv\)</span> for a parametrized surface <span class="process-math">\(\mathbf{r}(u,v)\text{,}\)</span> from <a href="section-surface-integrals.html#remark-flux-param" class="xref" data-knowl="./knowl/xref/remark-flux-param.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 2.10.11">Remark 2.10.11</a> and <a href="section-surface-integrals.html#sec-surface-normal-7" class="xref" data-knowl="./knowl/xref/eq-normal-patch.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.10.2">(2.10.2)</a>, applied to the simplest parametrization a graph has.</div> 
+<div class="para logical" id="check-graph-area-element-tf-3-2">
+<div class="para">A point of <span class="process-math">\(S\)</span> is determined by the point <span class="process-math">\((x,y)\)</span> of <span class="process-math">\(D\)</span> below it, so we may use <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> themselves as the two parameters, as for the paraboloid in <a href="section-surface-integrals.html#example-paraboloid-flux" class="xref" data-knowl="./knowl/xref/example-paraboloid-flux.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.10.14: Flux Across a Closed Surface">Example 2.10.14</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-7">
+\begin{equation*}
+\mathbf{r}(x,y) = \langle x,\ y,\ f(x,y) \rangle, \qquad (x,y) \in D.
+\end{equation*}
+</div>
+<div class="para">Differentiate with respect to each parameter, holding the other fixed:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-8">
+\begin{equation*}
+\mathbf{r}_x = \langle 1,\ 0,\ f_x \rangle, \qquad
+\mathbf{r}_y = \langle 0,\ 1,\ f_y \rangle.
+\end{equation*}
+</div>
+<div class="para">By the determinant formula for the cross product,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-9">
+\begin{align*}
+\mathbf{r}_x \times \mathbf{r}_y \amp =
+\begin{vmatrix}
+\mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\
+1 \amp 0 \amp f_x \\
+0 \amp 1 \amp f_y
+\end{vmatrix}\\
+\amp = \langle -f_x,\ -f_y,\ 1 \rangle,
+\end{align*}
+</div>
+<div class="para">and the length of this vector is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-10">
+\begin{align*}
+\lVert \mathbf{r}_x \times \mathbf{r}_y \rVert \amp = \sqrt{(-f_x)^2 + (-f_y)^2 + 1^2}\\
+\amp = \sqrt{1 + f_x^2 + f_y^2}.
+\end{align*}
+</div>
+<div class="para">With <span class="process-math">\(u = x\)</span> and <span class="process-math">\(v = y\)</span> the general formula therefore reads</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-13">
+\begin{align*}
+d\sigma \amp = \sqrt{1 + f_x^2 + f_y^2}\; dx\, dy\\
+\amp = \sqrt{1 + f_x^2 + f_y^2}\; dA,
+\end{align*}
+</div>
+<div class="para">which is the claim.</div>
+</div>
+</li>
+<li data-component="answer" id="rs-check-graph-area-element-tf_opt_f"><p>False.</p></li>
+<li data-component="feedback" id="rs-check-graph-area-element-tf_opt_f">
+<div class="para" id="check-graph-area-element-tf-3-1">True. This is not a new formula to memorize separately. It is the general formula <span class="process-math">\(d\sigma = \lVert \mathbf{r}_u \times \mathbf{r}_v \rVert\, du\, dv\)</span> for a parametrized surface <span class="process-math">\(\mathbf{r}(u,v)\text{,}\)</span> from <a href="section-surface-integrals.html#remark-flux-param" class="xref" data-knowl="./knowl/xref/remark-flux-param.html" data-reveal-label="Reveal" data-close-label="Close" title="Remark 2.10.11">Remark 2.10.11</a> and <a href="section-surface-integrals.html#sec-surface-normal-7" class="xref" data-knowl="./knowl/xref/eq-normal-patch.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.10.2">(2.10.2)</a>, applied to the simplest parametrization a graph has.</div> 
+<div class="para logical" id="check-graph-area-element-tf-3-2">
+<div class="para">A point of <span class="process-math">\(S\)</span> is determined by the point <span class="process-math">\((x,y)\)</span> of <span class="process-math">\(D\)</span> below it, so we may use <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> themselves as the two parameters, as for the paraboloid in <a href="section-surface-integrals.html#example-paraboloid-flux" class="xref" data-knowl="./knowl/xref/example-paraboloid-flux.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 2.10.14: Flux Across a Closed Surface">Example 2.10.14</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-7">
+\begin{equation*}
+\mathbf{r}(x,y) = \langle x,\ y,\ f(x,y) \rangle, \qquad (x,y) \in D.
+\end{equation*}
+</div>
+<div class="para">Differentiate with respect to each parameter, holding the other fixed:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-8">
+\begin{equation*}
+\mathbf{r}_x = \langle 1,\ 0,\ f_x \rangle, \qquad
+\mathbf{r}_y = \langle 0,\ 1,\ f_y \rangle.
+\end{equation*}
+</div>
+<div class="para">By the determinant formula for the cross product,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-9">
+\begin{align*}
+\mathbf{r}_x \times \mathbf{r}_y \amp =
+\begin{vmatrix}
+\mathbf{i} \amp \mathbf{j} \amp \mathbf{k} \\
+1 \amp 0 \amp f_x \\
+0 \amp 1 \amp f_y
+\end{vmatrix}\\
+\amp = \langle -f_x,\ -f_y,\ 1 \rangle,
+\end{align*}
+</div>
+<div class="para">and the length of this vector is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-10">
+\begin{align*}
+\lVert \mathbf{r}_x \times \mathbf{r}_y \rVert \amp = \sqrt{(-f_x)^2 + (-f_y)^2 + 1^2}\\
+\amp = \sqrt{1 + f_x^2 + f_y^2}.
+\end{align*}
+</div>
+<div class="para">With <span class="process-math">\(u = x\)</span> and <span class="process-math">\(v = y\)</span> the general formula therefore reads</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/example-paraboloid-flux.html" id="check-graph-area-element-tf-3-2-13">
+\begin{align*}
+d\sigma \amp = \sqrt{1 + f_x^2 + f_y^2}\; dx\, dy\\
+\amp = \sqrt{1 + f_x^2 + f_y^2}\; dA,
+\end{align*}
+</div>
+<div class="para">which is the claim.</div>
+</div>
+</li>
+</ul></div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 2.10.18: True or False: The Surface Area Element of a Graph"><a tabindex="-1" href="#check-graph-area-element-tf" title="Copy heading and permalink for Checkpoint 2.10.18: True or False: The Surface Area Element of a Graph" aria-label="Copy heading and permalink for Checkpoint 2.10.18: True or False: The Surface Area Element of a Graph">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="section-surface-integrals.html#check-graph-area-element-tf">In Context</a></span>
+</body>
+</html>

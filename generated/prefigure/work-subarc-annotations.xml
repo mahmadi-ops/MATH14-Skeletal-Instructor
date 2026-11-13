@@ -1,0 +1,60 @@
+<diagram>
+  <annotations>
+    <annotation id="work-subarc-figure" speech2="A curved trajectory with one short subarc                                 highlighted, carrying the force vector and the                                 unit tangent vector at a sample point">
+      <grouped>work-subarc-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>work-subarc-ax</active>
+        <active>work-subarc-curve</active>
+        <active>work-subarc-ends</active>
+        <active>work-subarc-subarc</active>
+        <active>work-subarc-vectors</active>
+      </children>
+      <components>
+        <active>work-subarc-ax</active>
+        <active>work-subarc-curve</active>
+        <active>work-subarc-ends</active>
+        <active>work-subarc-subarc</active>
+        <active>work-subarc-vectors</active>
+      </components>
+    </annotation>
+    <annotation id="work-subarc-ax" speech2="The coordinate axes">
+      <active>work-subarc-ax</active>
+      <position>1</position>
+      <parents>
+        <grouped>work-subarc-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="work-subarc-curve" speech2="The trajectory of the object" sonify="yes">
+      <active>work-subarc-curve</active>
+      <position>2</position>
+      <parents>
+        <grouped>work-subarc-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>work-subarc-curve</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="work-subarc-ends" speech2="The initial and final points of the                                   trajectory">
+      <active>work-subarc-ends</active>
+      <position>3</position>
+      <parents>
+        <grouped>work-subarc-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="work-subarc-subarc" speech2="The kth subarc, of length delta s sub k,                                   drawn in blue">
+      <active>work-subarc-subarc</active>
+      <position>4</position>
+      <parents>
+        <grouped>work-subarc-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="work-subarc-vectors" speech2="At a sample point of that subarc, the force                                   F of x sub k, y sub k and the unit tangent                                   vector T sub k, which gives the direction of                                   motion">
+      <active>work-subarc-vectors</active>
+      <position>5</position>
+      <parents>
+        <grouped>work-subarc-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
