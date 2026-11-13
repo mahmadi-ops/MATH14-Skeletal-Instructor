@@ -34,7 +34,7 @@
 <!-- The cylinder, tetrahedron and cone solutions used to end by quoting one  -->
 <!-- fixed set of numbers ("Here A = 3 and h = 2 ..."), which was wrong for   -->
 <!-- every student who drew other numbers; those lines now use the problem's  -->
-<!-- own values through <eval>.                                               -->
+<!-- own values through <eval>, with a few <de-object>s for the products.     -->
 <section xml:id="sec-exercises-hw10-online" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Assignment 10</title>
 
@@ -521,7 +521,7 @@ axes(2.4, 2.3, h + 1.4);
         Here <m>a = <eval obj="a"/></m>, <m>b = <eval obj="b"/></m> and
         <m>c = <eval obj="c"/></m>, so the flux is
         <m>\dfrac{\left(<eval obj="a"/>\right)\left(<eval obj="b"/>\right)\left(<eval obj="c"/>\right)\left(<eval obj="a"/>+4\right)}{24}
-        = \dfrac{<eval obj="fluxnum"/>}{24}</m>.
+        = \dfrac{<eval obj="fluxnum"/>}{24} = <eval obj="flux"/></m>.
       </p>
       <figure xml:id="fig-hw10o-sol-tetrahedron" component="hw10-solutions">
       <caption>
@@ -619,8 +619,8 @@ axes(a + 1.3, b + 1.3, c + 1.1);
       <de-object name="flux" context="number">
         <de-expression>a*r^4*pi/2</de-expression>
       </de-object>
-      <de-object name="fluxnum" context="number">
-        <de-expression>a*r*r*r*r</de-expression>
+      <de-object name="fluxcoef" context="number">
+        <de-expression>a*r*r*r*r/2</de-expression>
       </de-object>
     </setup>
     <statement>
@@ -686,7 +686,7 @@ axes(a + 1.3, b + 1.3, c + 1.1);
         Here <m>a = <eval obj="a"/></m> and <m>r = <eval obj="r"/></m>, so
         the flux is
         <m>\dfrac{<eval obj="a"/>\left(<eval obj="r"/>\right)^4\pi}{2}
-        = \dfrac{<eval obj="fluxnum"/>\,\pi}{2}</m>.
+        = <eval obj="fluxcoef"/>\,\pi</m>.
       </p>
       <figure xml:id="fig-hw10o-sol-cone" component="hw10-solutions">
       <caption>
