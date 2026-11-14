@@ -147,75 +147,115 @@ which points radially outward. Right: the field
 <m>-y\,\mathbf{i} + x\,\mathbf{j}</m>, which rotates about the
 <m>z</m>-axis.
 </caption>
-<image xml:id="image-div3d-fields" width="97%">
+<sidebyside widths="48% 48%" valign="top">
+<image xml:id="image-div3d-radial">
 <shortdescription>
-Two 3D vector field plots: one with arrows radiating from the origin,
-one with arrows circulating around the vertical axis.
+A 3D vector field plot with arrows radiating from the origin.
 </shortdescription>
 <description>
 <p>
-Two three-dimensional coordinate boxes. In the left box, blue arrows
-point away from the origin in every direction, growing longer with
-distance: the field <m>x\,\mathbf{i} + y\,\mathbf{j} +
-z\,\mathbf{k}</m>. In the right box, blue arrows lie in horizontal
-planes and circulate counterclockwise around the <m>z</m>-axis: the
-field <m>-y\,\mathbf{i} + x\,\mathbf{j}</m>.
+Three-dimensional coordinate axes. Blue arrows start at the points of a
+three by three by three grid around the origin and point away from the
+origin in every direction, growing longer with distance: the field
+<m>x\,\mathbf{i} + y\,\mathbf{j} + z\,\mathbf{k}</m>.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oiblue}{RGB}{0,114,178}
-  % ---- left: radial field ----
-  \begin{axis}[
-      at={(0,0)}, anchor=south west,
-      view={115}{18},
-      width=8cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.6pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\small},
-      ticks=none,
-      xmin=-1.7, xmax=1.7, ymin=-1.7, ymax=1.7, zmin=-1.5, zmax=1.6,
-      clip=false,
-    ]
-    \foreach \px in {-1,0,1}{
-      \foreach \py in {-1,0,1}{
-        \foreach \pz in {-1,0,1}{
-          \edef\tmp{\noexpand\draw[-latex, oiblue, line width=0.8pt]
-            (axis cs:\px,\py,\pz)
-            -- (axis cs:{\px*1.38},{\py*1.38},{\pz*1.38});}\tmp}}}
-    \node[lbl, font=\small, text=oiblue, anchor=south] at (axis cs:0,0,1.85)
-      {$\mathbf{F} = x\,\mathbf{i} + y\,\mathbf{j} + z\,\mathbf{k}$};
-    \node[lbl, font=\small, anchor=north] at (axis cs:0,0,-1.8)
-      {$\nabla \cdot \mathbf{F} = 3$};
-  \end{axis}
-  % ---- right: rotational field ----
-  \begin{axis}[
-      at={(8.3cm,0)}, anchor=south west,
-      view={115}{18},
-      width=8cm,
-      axis lines=center,
-      axis line style={-latex, black!75, line width=0.6pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\small},
-      ticks=none,
-      xmin=-1.7, xmax=1.7, ymin=-1.7, ymax=1.7, zmin=-1.5, zmax=1.6,
-      clip=false,
-    ]
-    \foreach \pz in {-1,0,1}{
-      \foreach \aa in {0,45,...,315}{
-        \edef\tmp{\noexpand\draw[-latex, oiblue, line width=0.8pt]
-          (axis cs:{cos(\aa)},{sin(\aa)},\pz)
-          -- (axis cs:{cos(\aa)-0.42*sin(\aa)},{sin(\aa)+0.42*cos(\aa)},\pz);}\tmp}}
-    \node[lbl, font=\small, text=oiblue, anchor=south] at (axis cs:0,0,1.85)
-      {$\mathbf{F} = -y\,\mathbf{i} + x\,\mathbf{j}$};
-    \node[lbl, font=\small, anchor=north] at (axis cs:0,0,-1.8)
-      {$\nabla \cdot \mathbf{F} = 0$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The field F = <x, y, z> on a 3 x 3 x 3 grid of points: every arrow points away from the
+// origin and grows with the distance from it, so the gas expands.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(8cm);
+// The viewpoint of the pgfplots figure this replaces (view={115}{18}).
+triple cam = (0.8619, 0.4019, 0.3090);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(15pt)), (-1.9, 0, 0)--(2.1, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(15pt)), (0, -1.9, 0)--(0, 2.1, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(15pt)), (0, 0, -1.7)--(0, 0, 1.9), axispen, Arrow3(size=8));
+
+// F at the 26 grid points other than the origin (F = 0 there), drawn at 0.38 of its length
+pen fieldpen = oiblue + linewidth(1.1pt);
+for (int i = -1; i <= 1; ++i)
+  for (int j = -1; j <= 1; ++j)
+    for (int k = -1; k <= 1; ++k) {
+      triple p = (i, j, k);
+      if (abs(p) > 0) draw(p--1.38*p, fieldpen, Arrow3(size=7));
+    }
+dot(O, linewidth(3.5pt));
+
+label("$\mathbf{F}=x\,\mathbf{i}+y\,\mathbf{j}+z\,\mathbf{k}$", (0, 0, 2.7), oiblue + fontsize(13pt));
+]]>
+</asymptote>
 </image>
+<image xml:id="image-div3d-rotational">
+<shortdescription>
+A 3D vector field plot with arrows circulating around the vertical axis.
+</shortdescription>
+<description>
+<p>
+Three-dimensional coordinate axes with three gray horizontal circles
+around the <m>z</m>-axis, at heights negative one, zero and one. On each
+circle eight blue arrows lie tangent to it and point counterclockwise
+seen from above: the field <m>-y\,\mathbf{i} + x\,\mathbf{j}</m>.
+</p>
+</description>
+<asymptote>
+<![CDATA[// The field F = <-y, x, 0> at eight points of the unit circle on three levels: the arrows
+// run round the z-axis, tangent to the circles, and the gas neither expands nor compresses.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(8cm);
+// The viewpoint of the pgfplots figure this replaces (view={115}{18}).
+triple cam = (0.8619, 0.4019, 0.3090);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(15pt)), (-1.9, 0, 0)--(2.1, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(15pt)), (0, -1.9, 0)--(0, 2.1, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(15pt)), (0, 0, -1.7)--(0, 0, 1.9), axispen, Arrow3(size=8));
+
+// the circles the gas runs round, on the levels z = -1, 0, 1
+for (int k = -1; k <= 1; ++k)
+  draw(graph(new triple(real t) { return (cos(t), sin(t), k); }, 0, 2pi, 72), gray(0.7) + linewidth(0.5pt));
+
+// F at eight points of each circle, drawn at 0.45 of its length
+pen fieldpen = oiblue + linewidth(1.1pt);
+for (int k = -1; k <= 1; ++k)
+  for (int m = 0; m < 8; ++m) {
+    real a = m*pi/4;
+    triple p = (cos(a), sin(a), k);
+    draw(p--p + 0.45*(-sin(a), cos(a), 0), fieldpen, Arrow3(size=7));
+  }
+
+label("$\mathbf{F}=-y\,\mathbf{i}+x\,\mathbf{j}$", (0, 0, 2.7), oiblue + fontsize(13pt));
+]]>
+</asymptote>
+</image>
+</sidebyside>
 </figure>
 
 </subsection>
@@ -315,7 +355,10 @@ The solid of Step 1 of the proof of <xref ref="thm-divergence"/>: a solid
 <m>D</m> that is simple in the <m>z</m>-direction. Its boundary is the cap
 <m>S_2</m> where <m>z = u_2(x,y)</m>, the floor <m>S_1</m> where
 <m>z = u_1(x,y)</m>, and the vertical wall <m>S_3</m> over the boundary of
-the shadow <m>R</m>. On the wall <m>\mathbf{k}</m> is tangent, so
+the shadow <m>R</m>. Each piece carries its outward unit normal
+<m>\hat{\mathbf{n}}</m>: upward on the cap, downward on the floor, and
+horizontal on the wall. On the wall <m>\mathbf{k}</m> (purple) is tangent
+and meets <m>\hat{\mathbf{n}}</m> at a right angle, so
 <m>\mathbf{k}\cdot\hat{\mathbf{n}} = 0</m>.
 </caption>
 <image xml:id="image-divthm-proof" width="65%">
@@ -325,77 +368,114 @@ plane, with outward normals drawn on the top, the bottom and the side.
 </shortdescription>
 <description>
 <p>
-A solid sits above a shaded region R in the horizontal plane. Its floor
-is a gently curved surface and its cap is a higher curved surface; a
-vertical wall joins them around the edge. A green arrow points upward
-and outward from the cap, another points downward and outward from the
-floor, and a third points horizontally outward from the wall,
-perpendicular to the vertical direction.
+A solid labelled D sits above a shaded region R in the horizontal plane,
+with four dashed vertical lines joining the edge of R to the solid. Its
+floor, labelled S 1, is a gently curved surface and its cap, labelled S 2,
+is a higher curved surface; a vertical wall, labelled S 3, joins them
+around the edge. A green arrow labelled n hat points upward and outward
+from the cap, another points downward and outward from the floor, and a
+third points horizontally outward from the wall. At the foot of that
+third arrow a purple arrow labelled k points straight up along the wall,
+and a small square marks the right angle between the two.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={120}{20},
-      width=11.5cm,
-      axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.7, xmax=1.7, ymin=-1.7, ymax=1.7, zmin=0, zmax=2.9,
-      clip=false,
-    ]
-    % ---- the shadow R in the xy-plane ----
-    \addplot3[surf, shader=flat, draw=black!30, fill=black!14,
-              opacity=0.6, fill opacity=0.6,
-              domain=0:1, samples=12, y domain=0:360, samples y=40,
-              forget plot]
-      ({x*cos(y)}, {x*sin(y)}, 0);
-    % ---- the wall S_3 ----
-    \addplot3[surf, shader=faceted, faceted color=oiblue!25,
-              colormap={wall}{color=(oiblue!10!white) color=(oiblue!30!white)},
-              opacity=0.55, fill opacity=0.55,
-              domain=0:360, samples=42, y domain=0:1, samples y=10,
-              z buffer=sort, forget plot]
-      ({cos(x)}, {sin(x)},
-       {(0.55 + 0.12*cos(2*x)) + y*((2.05 - 0.3*cos(x)) - (0.55 + 0.12*cos(2*x)))});
-    % ---- the floor S_1: z = u_1(x,y) ----
-    \addplot3[surf, shader=faceted, faceted color=oiblue!30,
-              colormap={flo}{color=(oiblue!16!white) color=(oiblue!40!white)},
-              opacity=0.75, fill opacity=0.75,
-              domain=0:1, samples=18, y domain=0:360, samples y=42,
-              z buffer=sort, forget plot]
-      ({x*cos(y)}, {x*sin(y)}, {0.55 + 0.12*x^2*cos(2*y)});
-    % ---- the cap S_2: z = u_2(x,y) ----
-    \addplot3[surf, shader=faceted, faceted color=oiblue!35,
-              colormap={cap}{color=(oiblue!22!white) color=(oiblue!52!white)},
-              opacity=0.8, fill opacity=0.8,
-              domain=0:1, samples=18, y domain=0:360, samples y=42,
-              z buffer=sort, forget plot]
-      ({x*cos(y)}, {x*sin(y)}, {2.05 - 0.3*x^2*cos(y)});
-    % ---- outward normals ----
-    \draw[-{Latex[length=2.6mm]}, oigreen, line width=1.2pt]
-      (axis cs:0.30,0.20,2.03) -- (axis cs:0.44,0.29,2.60);
-    \draw[-{Latex[length=2.6mm]}, oigreen, line width=1.2pt]
-      (axis cs:0.30,0.20,0.56) -- (axis cs:0.36,0.24,0.06);
-    % on the near side of the wall, where it is not hidden by the surface
-    \draw[-{Latex[length=2.6mm]}, oigreen, line width=1.2pt]
-      (axis cs:0.766,-0.643,1.25) -- (axis cs:1.226,-1.029,1.25);
-    % ---- labels ----
-    \node[oiblue, font=\large] at (axis cs:-1.05,0.60,2.42) {$S_2$};
-    \node[oiblue, font=\large] at (axis cs:-1.10,0.62,0.30) {$S_1$};
-    \node[oiblue, font=\large] at (axis cs:0.35,1.30,1.55) {$S_3$};
-    \node[font=\large] at (axis cs:0.10,0.75,-0.30) {$R$};
-    \node[oigreen, font=\large, anchor=west]
-      at (axis cs:0.50,0.33,2.66) {$\hat{\mathbf{n}}$};
-    \node[oigreen, font=\large, anchor=north west]
-      at (axis cs:1.24,-1.05,1.24) {$\hat{\mathbf{n}}$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// A solid D that is simple in the z-direction: the floor S1 (z = u1), the cap S2 (z = u2) and
+// the vertical wall S3 over the boundary of the shadow R, each with its outward unit normal.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11.5cm);
+// The viewpoint of the pgfplots figure this replaces (view={120}{20}).
+triple cam = (0.8138, 0.4698, 0.3420);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.7, 0, 0)--(1.9, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -1.7, 0)--(0, 1.9, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 3.1), axispen, Arrow3(size=8));
+
+real u1(real x, real y) { return 0.55 + 0.12*(x^2 - y^2); }          // the floor
+real u2(real x, real y) { return 2.05 - 0.3*x*sqrt(x^2 + y^2); }      // the cap
+
+// the shadow R in the xy-plane
+triple shadow(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 0); }
+draw(surface(shadow, (0.01, 0), (1, 2pi), 2, 24, Spline),
+     surfacepen=material(gray(0.8) + opacity(0.6), emissivepen=gray(0.25)));
+draw(graph(new triple(real t) { return (cos(t), sin(t), 0); }, 0, 2pi, 72), gray(0.5) + linewidth(0.6pt));
+// four verticals from the edge of R up to the solid
+pen guide = gray(0.5) + linewidth(0.6pt) + linetype("4 3");
+for (int k = 0; k < 4; ++k) {
+  real a = pi/4 + k*pi/2;
+  draw((cos(a), sin(a), 0)--(cos(a), sin(a), u1(cos(a), sin(a))), guide);
+}
+
+// the floor S1 and the cap S2, on a polar grid with a pinhole at the centre
+triple floorS(pair q) { real x = q.x*cos(q.y), y = q.x*sin(q.y); return (x, y, u1(x, y)); }
+triple capS(pair q)   { real x = q.x*cos(q.y), y = q.x*sin(q.y); return (x, y, u2(x, y)); }
+draw(surface(floorS, (0.01, 0), (1, 2pi), 4, 24, Spline),
+     surfacepen=material(0.45*oiblue + 0.55*white + opacity(0.6),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+// the wall S3 over the unit circle, from the floor up to the cap
+triple wall(pair q) {
+  real x = cos(q.x), y = sin(q.x);
+  return (x, y, u1(x, y) + q.y*(u2(x, y) - u1(x, y)));
+}
+draw(surface(wall, (0, 0), (2pi, 1), 24, 1, Spline),
+     surfacepen=material(0.3*oiblue + 0.7*white + opacity(0.35),
+                         emissivepen=0.25*oiblue, specularpen=gray(0.05)));
+draw(surface(capS, (0.01, 0), (1, 2pi), 4, 24, Spline),
+     surfacepen=material(0.5*oiblue + 0.5*white + opacity(0.6),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+pen rim = 0.7*oiblue + 0.3*white + linewidth(0.8pt);
+draw(graph(new triple(real t) { return wall((t, 0)); }, 0, 2pi, 90), rim);
+draw(graph(new triple(real t) { return wall((t, 1)); }, 0, 2pi, 90), rim);
+
+// the outward unit normals: up from the cap, down from the floor, level from the wall
+pen normalpen = oigreen + linewidth(1.6pt);
+real px = -0.22, py = 0.42;                       // a point seen in profile, off the z-axis
+real e = 1e-4;
+triple pc = (px, py, u2(px, py));
+triple nc = unit((-(u2(px + e, py) - u2(px - e, py))/(2e), -(u2(px, py + e) - u2(px, py - e))/(2e), 1));
+draw(pc--pc + 0.62*nc, normalpen, Arrow3(size=10));
+dot(pc, oigreen + linewidth(4pt));
+label("$\hat{\mathbf{n}}$", pc + 0.62*nc, E, oigreen + fontsize(18pt));
+triple pf = (px, py, u1(px, py));
+triple nf = unit((0.24*px, -0.24*py, -1));        // minus the upward normal <-u1_x, -u1_y, 1>
+draw(pf--pf + 0.42*nf, normalpen, Arrow3(size=10));
+dot(pf, oigreen + linewidth(4pt));
+label("$\hat{\mathbf{n}}$", pf + 0.42*nf, E, oigreen + fontsize(18pt));
+real aw = -0.95;                                  // on the near side of the wall
+triple pw = (cos(aw), sin(aw), 1.25);
+draw(pw--pw + 0.62*(cos(aw), sin(aw), 0), normalpen, Arrow3(size=10));
+dot(pw, oigreen + linewidth(4pt));
+label("$\hat{\mathbf{n}}$", pw + 0.62*(cos(aw), sin(aw), 0), S, oigreen + fontsize(18pt));
+// k at the same point of the wall: tangent to the wall, at a right angle to n-hat
+// (drawn a hair outside the wall, so that the wall does not hide it)
+triple pk = pw + 0.04*(cos(aw), sin(aw), 0);
+draw(pk--pk + 0.6*Z, 0.85*oipurple + linewidth(1.8pt), Arrow3(size=10));
+label("$\mathbf{k}$", pk + 0.6*Z, W, 0.85*oipurple + fontsize(16pt));
+real m = 0.11;
+draw((pw + m*(cos(aw), sin(aw), 0))--(pw + m*(cos(aw), sin(aw), 0) + m*Z)--(pw + m*Z), gray(0.2) + linewidth(0.6pt));
+
+// names
+label("$S_2$", capS((0.75, 4.4)) + toviewer, oiblue + fontsize(18pt));
+label("$S_3$", wall((0.95, 0.72)) + 2*toviewer, oiblue + fontsize(18pt));
+label("$S_1$", wall((4.4, 0)), 2*W + S, oiblue + fontsize(18pt));
+label("$D$", (0.25, -0.2, 1.3), 0.6*oiblue + fontsize(18pt));
+label("$R$", (0.55, 0.25, 0) + toviewer, gray(0.2) + fontsize(18pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -457,55 +537,61 @@ A sphere with arrows radiating outward through its surface.
 </shortdescription>
 <description>
 <p>
-A translucent gray unit sphere centered at the origin. Vermillion
-arrows pierce the surface from inside, pointing radially outward in
-every direction and growing with distance from the origin.
+A translucent gray unit sphere centered at the origin. Twenty-six
+vermillion arrows pierce the surface from inside, pointing radially
+outward in every direction, and a dot marks the point where each one
+crosses the sphere.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \tikzset{lbl/.style={fill=white, fill opacity=0.82, text opacity=1, inner sep=2.5pt, rounded corners=2pt}}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \begin{axis}[
-      view={115}{18},
-      width=10.5cm,
-      axis lines=center,
-      axis equal image,
-      axis line style={-latex, black!75, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.9, xmax=1.9, ymin=-1.9, ymax=1.9, zmin=-1.6, zmax=1.7,
-      clip=false,
-    ]
-    % translucent sphere
-    \addplot3[surf, shader=interp,
-              point meta={z},
-              colormap={softgr}{color=(black!8!white) color=(black!28!white)},
-              opacity=0.5, fill opacity=0.5,
-              domain=0:360, samples=41,
-              y domain=0:180, samples y=21,
-              z buffer=sort, forget plot]
-      ({cos(x)*sin(y)}, {sin(x)*sin(y)}, {cos(y)});
-    \addplot3[black!35, line width=0.4pt, domain=0:360, samples=73,
-        samples y=0, forget plot] ({cos(x)}, {sin(x)}, {0});
-    % radial arrows through the surface
-    \foreach \tt in {0,45,...,315}{
-      \foreach \pp in {45,90,135}{
-        \edef\tmp{\noexpand\draw[-latex, oivermillion, line width=0.9pt]
-          (axis cs:{0.75*sin(\pp)*cos(\tt)},{0.75*sin(\pp)*sin(\tt)},{0.75*cos(\pp)})
-          -- (axis cs:{1.35*sin(\pp)*cos(\tt)},{1.35*sin(\pp)*sin(\tt)},{1.35*cos(\pp)});}\tmp}}
-    % poles
-    \draw[-latex, oivermillion, line width=0.9pt]
-      (axis cs:0,0,0.75) -- (axis cs:0,0,1.35);
-    \draw[-latex, oivermillion, line width=0.9pt]
-      (axis cs:0,0,-0.75) -- (axis cs:0,0,-1.35);
-    \node[lbl, font=\normalsize, text=oivermillion, anchor=west]
-      at (axis cs:1.35,1.3,0.9)
-      {$\mathbf{F} = x\,\mathbf{i} + y\,\mathbf{j} + z\,\mathbf{k}$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The radial field F = <x, y, z> crossing the unit sphere: 26 arrows, each from 0.75 to 1.35 of
+// the way out along a radius, so that every one pierces the sphere.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(10.5cm);
+// The viewpoint of the pgfplots figure this replaces (view={115}{18}).
+triple cam = (0.8619, 0.4019, 0.3090);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.7, 0, 0)--(1.9, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -1.7, 0)--(0, 1.9, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, -1.6)--(0, 0, 1.8), axispen, Arrow3(size=8));
+
+// the unit sphere, translucent
+triple sph(pair q) { return (sin(q.x)*cos(q.y), sin(q.x)*sin(q.y), cos(q.x)); }
+draw(surface(sph, (0, 0), (pi, 2pi), 12, 24, Spline),
+     surfacepen=material(gray(0.8) + opacity(0.35), emissivepen=gray(0.3), specularpen=gray(0.05)));
+pen mesh = gray(0.6) + linewidth(0.4pt);
+draw(graph(new triple(real t) { return sph((pi/2, t)); }, 0, 2pi, 72), mesh);
+draw(graph(new triple(real t) { return sph((t, 0)); }, 0, 2pi, 72), mesh);
+draw(graph(new triple(real t) { return sph((t, pi/2)); }, 0, 2pi, 72), mesh);
+
+// the field along 26 radii: eight longitudes on three latitudes, and the two poles
+pen fieldpen = oivermillion + linewidth(1.2pt);
+void radial(triple u) {
+  draw(0.75*u--1.35*u, fieldpen, Arrow3(size=10));
+  dot(u, oivermillion + linewidth(3pt));           // where the arrow crosses the sphere
+}
+for (int m = 0; m < 8; ++m)
+  for (int k = 1; k <= 3; ++k) radial(sph((k*pi/4, m*pi/4)));
+radial(Z); radial(-Z);
+
+label("$\mathbf{F}=x\,\mathbf{i}+y\,\mathbf{j}+z\,\mathbf{k}$", (0, 0, -1.95), oivermillion + fontsize(14pt));
+label("$x^2+y^2+z^2=1$", 1.45*sph((0.8, -1.75)), W, gray(0.3) + fontsize(14pt));
+]]>
+</asymptote>
 </image>
 </figure>
 

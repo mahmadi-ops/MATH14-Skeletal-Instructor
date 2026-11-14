@@ -140,58 +140,74 @@ A vector at a point in space with a small paddle wheel turning about it.
 </shortdescription>
 <description>
 <p>
-At the point P equals one, one, one, a green arrow points in the
-direction of the curl, up and back toward the negative x direction. A small
-vermillion circle with four blades sits in the plane perpendicular to that
-arrow, with an arrowhead showing which way it turns.
+At the point P equals one, one, one, located by dashed guide lines from
+the x and y axes, a green arrow points in the direction of the curl, up and
+back toward the negative x direction. A small vermillion disc with four
+blades, the paddle wheel, sits in the plane perpendicular to that arrow, and
+a curved vermillion arrow beside its rim shows which way it turns:
+counterclockwise as seen from the tip of the green arrow.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={118}{20}, width=11cm, axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large}, ticks=none,
-      xmin=-1.2, xmax=2.4, ymin=-0.6, ymax=2.6, zmin=0, zmax=2.6,
-      clip=false,
-    ]
-    % the point P = (1,1,1)
-    \addplot3[only marks, mark=*, mark size=1.9pt, color=black, forget plot]
-      coordinates {(1,1,1)};
-    \node[anchor=north east, font=\small] at (axis cs:1,1,0.94) {$P$};
-    % the curl vector at P, the axis the paddle wheel turns about
-    \draw[-{Latex[length=3mm]}, oigreen, line width=1.5pt]
-      (axis cs:1,1,1) -- (axis cs:-0.176,1.392,1.392);
-    \node[oigreen, font=\large, anchor=south east]
-      at (axis cs:-0.20,1.40,1.42) {$\nabla\times\mathbf{F}$};
-    % the paddle wheel: a circle in the plane perpendicular to the curl
-    \addplot3[oivermillion, line width=1.3pt, samples=80, samples y=0,
-              domain=0:360, forget plot]
-      ({1 + 0.55*(0.316*cos(x) - 0.286*sin(x))},
-       {1 + 0.55*(0.949*cos(x) + 0.095*sin(x))},
-       {1 + 0.55*(-0.953*sin(x))});
-    % four blades
-    \foreach \s in {0,90,180,270} {}
-    \draw[oivermillion, line width=1.1pt]
-      (axis cs:1,1,1) -- (axis cs:1.174,1.522,1);
-    \draw[oivermillion, line width=1.1pt]
-      (axis cs:1,1,1) -- (axis cs:0.843,1.052,0.476);
-    \draw[oivermillion, line width=1.1pt]
-      (axis cs:1,1,1) -- (axis cs:0.826,0.478,1);
-    \draw[oivermillion, line width=1.1pt]
-      (axis cs:1,1,1) -- (axis cs:1.157,0.948,1.524);
-    % which way it turns
-    \draw[-{Latex[length=2.2mm]}, oivermillion, line width=1.3pt]
-      (axis cs:1.150,1.386,0.795) -- (axis cs:1.174,1.522,1.000);
-    \node[oivermillion, font=\small, anchor=west]
-      at (axis cs:1.20,1.55,0.95) {paddle wheel};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The curl of F = <xz, xyz, -y^2> at P(1,1,1), which is <-3, 1, 1>, as the axis of a
+// paddle wheel; the wheel turns counterclockwise seen from the tip of the curl.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11cm);
+// The viewpoint of the pgfplots figure this replaces (view={118}{20}).
+triple cam = (0.8297, 0.4412, 0.3420);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.2, 0, 0)--(2.4, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -0.6, 0)--(0, 2.6, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 2.6), axispen, Arrow3(size=8));
+
+triple P = (1, 1, 1);
+triple n = unit((-3, 1, 1));             // the direction of the curl
+// e1, e2 span the plane of the wheel, with e1 x e2 = n (right-handed about n)
+triple e1 = unit(cross(n, Z)), e2 = cross(n, e1);
+real R = 0.6;
+
+// where P is: dashed guides from the axes
+pen guide = gray(0.55) + linewidth(0.6pt) + linetype("4 3");
+draw((1, 0, 0)--(1, 1, 0)--(0, 1, 0), guide);
+draw((1, 1, 0)--P, guide);
+
+// the paddle wheel: a disc in the plane perpendicular to the curl, with four blades
+triple wheel(real t) { return P + R*(cos(t)*e1 + sin(t)*e2); }
+path3 rim = graph(wheel, 0, 2pi, 72) & cycle;
+draw(surface(rim), surfacepen=material(0.3*oivermillion + 0.7*white + opacity(0.45),
+                                       emissivepen=0.25*oivermillion, specularpen=gray(0.05)));
+draw(rim, oivermillion + linewidth(1.3pt));
+for (int k = 0; k < 4; ++k) draw(P--wheel(pi/4 + k*pi/2), oivermillion + linewidth(1.2pt));
+
+// the way it turns: from e1 towards e2, the right-hand rule about the curl
+triple turn(real t) { return P + 1.28*R*(cos(t)*e1 + sin(t)*e2); }
+draw(graph(turn, 2.0, 3.6, 24), oivermillion + linewidth(1.5pt), Arrow3(size=12));
+label("paddle wheel", wheel(0.55) + 0.25*e1, E, oivermillion + fontsize(13pt));
+
+// the curl, the axis of the wheel
+draw(P--P + 1.45*n, oigreen + linewidth(1.7pt), Arrow3(size=10));
+label("$\nabla\times\mathbf{F}$", P + 1.45*n, N, oigreen + fontsize(16pt));
+dot(P, linewidth(4.5pt));
+// its name stands beside the wheel, joined to P by a thin leader, so that the wheel cannot hide it
+triple L = P + (0.55, -0.85, -0.1);
+draw(L--P, gray(0.4) + linewidth(0.5pt));
+label("$P(1,1,1)$", L, W, fontsize(13pt));
+]]>
+</asymptote>
 </image>
 </figure>
 </subsection>
@@ -253,6 +269,8 @@ The orientation in <xref ref="thm-stokes"/>. The unit normal
 <m>\hat{\mathbf{n}}</m> and the direction of travel along the boundary
 <m>C</m> are related by the right-hand rule: with the thumb along
 <m>\hat{\mathbf{n}}</m>, the fingers curl the way <m>C</m> is traversed.
+The small arrow circling <m>\hat{\mathbf{n}}</m> shows that curl of the
+fingers.
 </caption>
 <image xml:id="image-stokes-orientation" width="62%">
 <shortdescription>
@@ -264,65 +282,76 @@ along the boundary, and a normal vector standing on the cap.
 A translucent blue cap, like a piece of a sphere, sits above the
 horizontal plane. Its boundary is a closed curve drawn in vermillion
 with arrowheads showing the direction of travel, counterclockwise seen
-from above. A green arrow labeled n hat rises from the middle of the
-cap at a point off the axis, perpendicular to the cap there. With the
-right thumb along that normal, the fingers curl the way the boundary
-arrows point.
+from above. A green arrow labeled n hat rises from a point of the cap
+off the axis, perpendicular to the cap there, and a small green arrow
+circles it counterclockwise. With the right thumb along that normal, the
+fingers curl the way the small arrow and the boundary arrows point.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={120}{24},
-      width=11.5cm,
-      axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.6, xmax=1.6, ymin=-1.6, ymax=1.6, zmin=0, zmax=2.0,
-      clip=false,
-    ]
-    % ---- the cap: z = 1.35 - 0.45(x^2 + y^2) over the unit disk ----
-    \addplot3[surf, shader=faceted, faceted color=black!35,
-              point meta={z},
-              colormap={capz}{color=(oiblue!12!white) color=(oiblue!45!white)},
-              opacity=0.72, fill opacity=0.72,
-              domain=0:1, samples=22,
-              y domain=0:360, samples y=42,
-              z buffer=sort, forget plot]
-      ({x*cos(y)}, {x*sin(y)}, {1.35 - 0.45*x^2});
-    % ---- the boundary curve C ----
-    \addplot3[oivermillion, line width=1.5pt, samples=120, samples y=0,
-              domain=0:360, forget plot]
-      ({cos(x)}, {sin(x)}, {0.9});
-    % arrowheads along C, pointing counterclockwise seen from above
-    % arrowheads written out: a \foreach variable is out of scope when
-    % pgfplots processes the collected path at \end{axis}
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:0.9703,0.2419,0.9) -- (axis cs:0.8988,0.4384,0.9);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.6947,0.7193,0.9) -- (axis cs:-0.8290,0.5592,0.9);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.2756,-0.9613,0.9) -- (axis cs:-0.0698,-0.9976,0.9);
-    \node[oivermillion, font=\large] at (axis cs:1.30,0.62,0.72) {$C$};
-    % ---- the unit normal, planted off the axis so that it is not
-    %      confused with the z-axis; it is perpendicular to the cap ----
-    \draw[-{Latex[length=3mm]}, oigreen, line width=1.3pt]
-      (axis cs:0.45,0.30,1.2184) -- (axis cs:0.6750,0.4500,1.7740);
-    \node[oigreen, font=\large, anchor=south west]
-      at (axis cs:0.7100,0.4700,1.7900) {$\hat{\mathbf{n}}$};
-    \addplot3[only marks, mark=*, mark size=1.1pt, color=oigreen,
-        forget plot] coordinates {(0.45,0.30,1.2184)};
-    % ---- labels ----
-    \node[oiblue, font=\large] at (axis cs:-0.95,0.62,1.28) {$S$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The orientation in the Stokes theorem: a cap S, its boundary C traversed counterclockwise
+// seen from above, and the unit normal n-hat that the right-hand rule pairs with it.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11.5cm);
+// The viewpoint of the pgfplots figure this replaces (view={120}{24}).
+triple cam = (0.7912, 0.4568, 0.4067);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=13));
+}
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.6, 0, 0)--(1.6, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -1.6, 0)--(0, 1.6, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 2.0), axispen, Arrow3(size=8));
+
+// the cap z = 1.35 - 0.45 (x^2 + y^2) over the unit disk
+triple cap(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 1.35 - 0.45*q.x^2); }
+draw(surface(cap, (0, 0), (1, 2pi), 6, 24, Spline),
+     surfacepen=material(0.4*oiblue + 0.6*white + opacity(0.6),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+pen mesh = 0.5*oiblue + 0.5*white + linewidth(0.4pt);
+for (real r : new real[] {1/3, 2/3})
+  draw(graph(new triple(real t) { return cap((r, t)); }, 0, 2pi, 60), mesh);
+for (int k = 0; k < 8; ++k)
+  draw(graph(new triple(real r) { return cap((r, k*pi/4)); }, 0, 1, 12), mesh);
+
+// the boundary C, counterclockwise seen from above
+triple C(real t) { return (cos(t), sin(t), 0.9); }
+draw(graph(C, 0, 2pi, 120), oivermillion + linewidth(1.6pt));
+heads(C, new real[] {0.45, 2.55, 4.65}, oivermillion + linewidth(1.6pt));
+label("$C$", C(0.95) + 0.22*(cos(0.95), sin(0.95), 0), oivermillion + fontsize(18pt));
+
+// the unit normal, planted off the axis so that it is not taken for the z-axis
+// (on the side of the cap that the viewer sees in profile)
+real br = 0.6, bt = 1.95;
+triple base = cap((br, bt));
+triple n = unit((0.9*br*cos(bt), 0.9*br*sin(bt), 1));
+draw(base--base + 0.8*n, oigreen + linewidth(1.6pt), Arrow3(size=10));
+dot(base, oigreen + linewidth(4pt));
+label("$\hat{\mathbf{n}}$", base + 0.8*n, NE, oigreen + fontsize(18pt));
+// the way the fingers curl about the thumb n-hat: the same way C is traversed
+triple e1 = unit(cross(n, X)), e2 = cross(n, e1);
+triple curlarc(real t) { return base + 0.42*n + 0.17*(cos(t)*e1 + sin(t)*e2); }
+draw(graph(curlarc, 0.6, 5.6, 40), oigreen + linewidth(1.1pt), Arrow3(size=7));
+
+label("$S$", cap((0.6, -0.9)) + toviewer, oiblue + fontsize(18pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -391,8 +420,7 @@ upward unit normal.
 <figure xml:id="fig-stokes-hemisphere-tikz">
 <caption>
 The surface and boundary of <xref ref="example-stokes-hemisphere"/>:
-the upper hemisphere <m>S</m> of <m>x^2+y^2+z^2=1</m> with its upward
-normal, and the unit circle <m>C</m> in the <m>xy</m>-plane, counterclockwise
+the upper hemisphere <m>S</m> of <m>x^2+y^2+z^2=1</m> with its upward unit normal <m>\hat{\mathbf{n}}</m>, drawn at the top and at a point on the side, and the unit circle <m>C</m> in the <m>xy</m>-plane, counterclockwise
 seen from above.
 </caption>
 <image xml:id="image-stokes-hemisphere" width="62%">
@@ -403,56 +431,80 @@ A hemisphere with an upward normal, its boundary circle, and a field tangent to 
 <p>
 A translucent blue hemisphere sits on the horizontal plane. Its rim is
 the unit circle, drawn in vermillion with arrowheads pointing
-counterclockwise seen from above, and shorter vermillion arrows along the
-circle show the field running tangent to it. A green arrow rises from the
-top of the hemisphere.
+counterclockwise seen from above, and eight short purple arrows just
+outside the circle show the field running tangent to it. A green arrow
+rises from the top of the hemisphere, and a second green arrow points
+straight out of the hemisphere from a point on its side.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={120}{20}, width=11cm, axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large}, ticks=none,
-      xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5, zmin=0, zmax=1.7,
-      clip=false,
-    ]
-    % the hemisphere S
-    \addplot3[surf, shader=faceted, faceted color=oiblue!25,
-              colormap={hem}{color=(oiblue!14!white) color=(oiblue!45!white)},
-              opacity=0.62, fill opacity=0.62,
-              domain=0:1, samples=18, y domain=0:360, samples y=44,
-              z buffer=sort, forget plot]
-      ({x*cos(y)}, {x*sin(y)}, {sqrt(max(0,1-x^2))});
-    % the boundary circle C, counterclockwise seen from above
-    \addplot3[oivermillion, line width=1.5pt, samples=120, samples y=0,
-              domain=0:360, forget plot]
-      ({cos(x)}, {sin(x)}, 0);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:0.9945,-0.1045,0) -- (axis cs:0.9945,0.1045,0);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.3746,0.9272,0) -- (axis cs:-0.5446,0.8387,0);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.4384,-0.8988,0) -- (axis cs:-0.2419,-0.9703,0);
-    % the field F = <-y, x, 0>, tangent to C
-    \addplot3[-{Latex[length=2mm]}, oivermillion!55, forget plot,
-              quiver={u={-y}, v={x}, w=0, scale arrows=0.45},
-              samples=8, samples y=0, domain=0:315]
-      ({cos(x)}, {sin(x)}, 0);
-    % the upward normal
-    \draw[-{Latex[length=3mm]}, oigreen, line width=1.4pt]
-      (axis cs:0,0,1) -- (axis cs:0,0,1.45);
-    \node[oigreen, font=\large, anchor=west]
-      at (axis cs:0.10,0,1.34) {$\hat{\mathbf{n}}$};
-    \node[oiblue, font=\large] at (axis cs:-0.95,0.62,0.72) {$S$};
-    \node[oivermillion, font=\large] at (axis cs:1.18,0.62,0.12) {$C$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The upper hemisphere S of the unit sphere with its outward (upward) unit normal, its
+// boundary circle C counterclockwise seen from above, and the field F = <-y, x, 0> tangent to C.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11cm);
+// The viewpoint of the pgfplots figure this replaces (view={120}{20}).
+triple cam = (0.8138, 0.4698, 0.3420);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=13));
+}
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.5, 0, 0)--(1.5, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -1.5, 0)--(0, 1.5, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 1.7), axispen, Arrow3(size=8));
+
+// the hemisphere, by colatitude phi and longitude theta
+triple hem(pair q) { return (sin(q.x)*cos(q.y), sin(q.x)*sin(q.y), cos(q.x)); }
+draw(surface(hem, (0, 0), (pi/2, 2pi), 6, 24, Spline),
+     surfacepen=material(0.4*oiblue + 0.6*white + opacity(0.38),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+pen mesh = 0.5*oiblue + 0.5*white + linewidth(0.4pt);
+for (real ph : new real[] {pi/6, pi/3})
+  draw(graph(new triple(real t) { return hem((ph, t)); }, 0, 2pi, 60), mesh);
+for (int k = 0; k < 8; ++k)
+  draw(graph(new triple(real ph) { return hem((ph, k*pi/4)); }, 0, pi/2, 16), mesh);
+
+// the boundary circle C
+triple C(real t) { return (cos(t), sin(t), 0); }
+draw(graph(C, 0, 2pi, 120), oivermillion + linewidth(1.6pt));
+heads(C, new real[] {0.25, 2.35, 4.45}, oivermillion + linewidth(1.6pt));
+label("$C$", 1.2*C(0.75), oivermillion + fontsize(18pt));
+
+// the field F = <-y, x, 0> at eight points of C: tangent to C all the way round
+// (drawn just outside C, so that the arrows are not hidden by the curve)
+pen fieldpen = 0.85*oipurple + linewidth(1.3pt);
+for (int k = 0; k < 8; ++k) {
+  real t = pi/8 + k*pi/4;
+  draw(1.07*C(t)--1.07*C(t) + 0.45*(-sin(t), cos(t), 0), fieldpen, Arrow3(size=8));
+}
+label("$\mathbf{F}$", 1.07*C(pi/8) + 0.5*(-sin(pi/8), cos(pi/8), 0), E, 0.85*oipurple + fontsize(16pt));
+
+// the unit normal n-hat = <x, y, z>, at the top and at a point on the side
+draw(Z--1.5*Z, oigreen + linewidth(1.6pt), Arrow3(size=10));
+label("$\hat{\mathbf{n}}$", 1.5*Z, E, oigreen + fontsize(18pt));
+triple q = hem((0.95, 2.0));
+draw(q--1.45*q, oigreen + linewidth(1.6pt), Arrow3(size=10));
+dot(q, oigreen + linewidth(4pt));
+label("$\hat{\mathbf{n}}$", 1.45*q, E, oigreen + fontsize(18pt));
+
+label("$S$", hem((0.95, 4.55)), 2*W, oiblue + fontsize(18pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -498,66 +550,84 @@ intersection and its shadow on the horizontal plane.
 <description>
 <p>
 A translucent vertical cylinder of radius one stands on the horizontal
-plane. A slanted plane cuts it in an ellipse drawn in vermillion, with
-arrowheads showing counterclockwise travel seen from above. The
-elliptical region inside the curve is shaded blue, and directly below
-it the unit disk in the x y plane is shaded gray as its shadow.
+plane. A slanted plane, drawn as a faint sheet a little wider than the
+cylinder and labelled y plus z equals 2, cuts it in an ellipse drawn in
+vermillion, with arrowheads showing counterclockwise travel seen from
+above. The elliptical region inside the curve is shaded blue. Directly below, the unit disk in the x y plane is shaded gray as
+the shadow of the region, and four dashed vertical lines on the cylinder
+join the curve to the rim of the disk.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \begin{axis}[
-      view={115}{18},
-      width=11.5cm,
-      axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=-1.5, xmax=1.5, ymin=-1.5, ymax=1.5, zmin=0, zmax=3.4,
-      clip=false,
-    ]
-    % ---- the unit disk R in the xy-plane (the shadow) ----
-    \addplot3[surf, shader=flat, draw=black!30, fill=black!12,
-              opacity=0.55, fill opacity=0.55,
-              domain=0:1, samples=14, y domain=0:360, samples y=40,
-              forget plot]
-      ({x*cos(y)}, {x*sin(y)}, 0);
-    % ---- the cylinder wall, up to the cutting plane ----
-    \addplot3[surf, shader=faceted, faceted color=black!25,
-              colormap={cylz}{color=(black!6!white) color=(black!18!white)},
-              opacity=0.35, fill opacity=0.35,
-              domain=0:360, samples=42, y domain=0:1, samples y=12,
-              z buffer=sort, forget plot]
-      ({cos(x)}, {sin(x)}, {y*(2 - sin(x))});
-    % ---- the elliptical region S in the plane y + z = 2 ----
-    \addplot3[surf, shader=flat, draw=oiblue!45, fill=oiblue!22,
-              opacity=0.75, fill opacity=0.75,
-              domain=0:1, samples=14, y domain=0:360, samples y=40,
-              forget plot]
-      ({x*cos(y)}, {x*sin(y)}, {2 - x*sin(y)});
-    % ---- the curve C ----
-    \addplot3[oivermillion, line width=1.5pt, samples=140, samples y=0,
-              domain=0:360, forget plot]
-      ({cos(x)}, {sin(x)}, {2 - sin(x)});
-    % arrowheads written out, as in fig-stokes-orientation-tikz
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:0.9135,0.4067,1.5933) -- (axis cs:0.8090,0.5878,1.4122);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.8090,0.5878,1.4122) -- (axis cs:-0.9135,0.4067,1.5933);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.1045,-0.9945,2.9945) -- (axis cs:0.1045,-0.9945,2.9945);
-    % ---- labels ----
-    \node[oivermillion, font=\large] at (axis cs:1.16,0.95,2.35) {$C$};
-    \node[oiblue, font=\large] at (axis cs:0,0,2.35) {$S$};
-    \node[font=\large, anchor=north] at (axis cs:0.15,0.95,-0.12) {$R$};
-    \node[font=\large, anchor=north west] at (axis description cs:0.0,0.99)
-      {$y + z = 2$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The plane y + z = 2 cuts the cylinder x^2 + y^2 = 1 in the ellipse C; S is the elliptical
+// region it bounds in the plane, and R is its shadow.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11.5cm);
+// The viewpoint of the pgfplots figure this replaces (view={115}{18}).
+triple cam = (0.8619, 0.4019, 0.3090);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=13));
+}
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.5, 0, 0)--(1.9, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -1.9, 0)--(0, 1.9, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 3.9), axispen, Arrow3(size=8));
+
+// the unit disk R in the xy-plane, the shadow of S
+path3 unitcircle = graph(new triple(real t) { return (cos(t), sin(t), 0); }, 0, 2pi, 72) & cycle;
+triple floor(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 0); }
+draw(surface(floor, (0.01, 0), (1, 2pi), 2, 24, Spline),
+     surfacepen=material(gray(0.8) + opacity(0.55), emissivepen=gray(0.25)));
+draw(unitcircle, gray(0.5) + linewidth(0.6pt));
+
+// the cutting plane y + z = 2, a little beyond the cylinder
+path3 plane = (-1.45, -1.45, 3.45)--(1.45, -1.45, 3.45)--(1.45, 1.45, 0.55)--(-1.45, 1.45, 0.55)--cycle;
+draw(surface(plane), surfacepen=material(gray(0.7) + opacity(0.16), emissivepen=gray(0.3)));
+draw(plane, gray(0.55) + linewidth(0.5pt));
+label("$y+z=2$", (-1.45, -1.45, 3.45), N, gray(0.3) + fontsize(15pt));
+
+// the cylinder wall, from the xy-plane up to the cut
+triple wall(pair q) { return (cos(q.x), sin(q.x), q.y*(2 - sin(q.x))); }
+draw(surface(wall, (0, 0), (2pi, 1), 24, 1, Spline),
+     surfacepen=material(gray(0.75) + opacity(0.25), emissivepen=gray(0.3), specularpen=gray(0.05)));
+// four generators, to tie C to its shadow
+pen guide = gray(0.5) + linewidth(0.6pt) + linetype("4 3");
+for (int k = 0; k < 4; ++k) draw(wall((k*pi/2, 0))--wall((k*pi/2, 1)), guide);
+
+// the elliptical region S in the plane
+// (a polar grid with a pinhole at the centre, which keeps every patch non-degenerate)
+triple ell(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 2 - q.x*sin(q.y)); }
+draw(surface(ell, (0.01, 0), (1, 2pi), 2, 24, Spline),
+     surfacepen=material(0.4*oiblue + 0.6*white + opacity(0.7),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+
+// the curve C, counterclockwise seen from above
+triple C(real t) { return (cos(t), sin(t), 2 - sin(t)); }
+draw(graph(C, 0, 2pi, 140), oivermillion + linewidth(1.6pt));
+heads(C, new real[] {0.6, 2.7, 4.75}, oivermillion + linewidth(1.6pt));
+label("$C$", C(1.15) + 0.25*(cos(1.15), sin(1.15), 0), oivermillion + fontsize(18pt));
+
+
+label("$S$", ell((0.55, 3.6)) + toviewer, oiblue + fontsize(18pt));
+label("$R$", (0.45, -0.35, 0) + toviewer, gray(0.2) + fontsize(18pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -609,53 +679,65 @@ A flat disk floating at height two, with its boundary circle and an upward norma
 A translucent blue disk of radius three lies in the horizontal plane at
 height two above the origin. Its boundary circle is drawn in vermillion with
 arrowheads pointing counterclockwise seen from above, and a green arrow
-rises from the centre of the disk.
+labelled n hat rises from the centre of the disk.  A dashed line marks the radius 3 on
+the x axis and a tick marks the height 2 on the z axis.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={118}{18}, width=11cm, axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large}, ticks=none,
-      xmin=-4, xmax=4, ymin=-4, ymax=4, zmin=0, zmax=3.6,
-      clip=false,
-    ]
-    % the flat disk S at height 2
-    \addplot3[surf, shader=flat, draw=oiblue!45, fill=oiblue!22,
-              opacity=0.72, fill opacity=0.72,
-              domain=0:3, samples=14, y domain=0:360, samples y=44,
-              forget plot]
-      ({x*cos(y)}, {x*sin(y)}, 2);
-    % its boundary C
-    \addplot3[oivermillion, line width=1.5pt, samples=120, samples y=0,
-              domain=0:360, forget plot]
-      ({3*cos(x)}, {3*sin(x)}, 2);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:2.984,-0.314,2) -- (axis cs:2.984,0.314,2);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-1.124,2.782,2) -- (axis cs:-1.634,2.516,2);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-1.315,-2.696,2) -- (axis cs:-0.726,-2.911,2);
-    % the normal
-    \draw[-{Latex[length=3mm]}, oigreen, line width=1.4pt]
-      (axis cs:0,0,2) -- (axis cs:0,0,3.05);
-    \node[oigreen, font=\large, anchor=west]
-      at (axis cs:0.14,0,2.90) {$\hat{\mathbf{n}} = \mathbf{k}$};
-    \node[oiblue, font=\large] at (axis cs:-2.1,1.6,2.0) {$S$};
-    \node[oivermillion, font=\large] at (axis cs:3.35,1.5,2.0) {$C$};
-    \draw[black!45, dashed, line width=0.7pt]
-      (axis cs:3,0,0) -- (axis cs:3,0,2);
-    \node[anchor=north, font=\small] at (axis cs:3,0,-0.08) {$3$};
-    \draw[black!55, line width=0.6pt] (axis cs:0,0,2) -- (axis cs:0.14,0,2);
-    \node[anchor=east, font=\small] at (axis cs:0,0,2) {$2$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The flat disk S of radius 3 in the plane z = 2, its boundary circle C and its unit normal.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11cm);
+// The viewpoint of the pgfplots figure this replaces (view={118}{18}).
+triple cam = (0.8397, 0.4465, 0.3090);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=13));
+}
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-4, 0, 0)--(4.4, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -4, 0)--(0, 4.4, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 3.9), axispen, Arrow3(size=8));
+
+// the disk S at height 2
+triple C(real t) { return (3*cos(t), 3*sin(t), 2); }
+path3 circ = graph(C, 0, 2pi, 120) & cycle;
+// (a polar grid with a pinhole at the centre, which keeps every patch non-degenerate)
+triple disk(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 2); }
+draw(surface(disk, (0.02, 0), (3, 2pi), 2, 24, Spline),
+     surfacepen=material(0.3*oiblue + 0.7*white + opacity(0.6),
+                         emissivepen=0.35*oiblue + 0.35*white, specularpen=gray(0.05)));
+draw(circ, oivermillion + linewidth(1.6pt));
+heads(C, new real[] {0.2, 2.3, 4.4}, oivermillion + linewidth(1.6pt), 0.16);
+label("$C$", (3.4*cos(0.75), 3.4*sin(0.75), 2), oivermillion + fontsize(18pt));
+label("$S$", (-1.4, 1.5, 2) + toviewer, oiblue + fontsize(18pt));
+
+// its radius and its height
+pen guide = gray(0.5) + linewidth(0.6pt) + linetype("4 3");
+draw((3, 0, 0)--(3, 0, 2), guide);
+label("$3$", (3, 0, 0), S, fontsize(13pt));
+draw((0, -0.1, 2)--(0, 0.1, 2), gray(0.25) + linewidth(0.7pt));
+label("$2$", (0, -0.1, 2), W, fontsize(13pt));
+
+// the unit normal the right-hand rule pairs with C
+draw((0, 0, 2)--(0, 0, 3.15), oigreen + linewidth(1.6pt), Arrow3(size=10));
+label("$\hat{\mathbf{n}}$", (0, 0, 3.15), E, oigreen + fontsize(16pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -706,55 +788,69 @@ A faint grey sphere of radius three is cut through its centre by a
 slanted plane. The circle of intersection is drawn in vermillion with
 arrowheads showing counterclockwise travel seen from above, the flat disk
 inside it is shaded blue, and a green arrow perpendicular to that disk
-points up and toward the negative x direction.
+points up and toward the negative x direction. 
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={118}{16}, width=11cm, axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large}, ticks=none,
-      xmin=-4, xmax=4, ymin=-4, ymax=4, zmin=-3.6, zmax=3.6,
-      clip=false,
-    ]
-    % the sphere of radius 3
-    \addplot3[surf, shader=faceted, faceted color=black!12,
-              colormap={sph}{color=(black!6!white) color=(black!16!white)},
-              opacity=0.22, fill opacity=0.22,
-              domain=0:360, samples=40, y domain=0:180, samples y=24,
-              z buffer=sort, forget plot]
-      ({3*cos(x)*sin(y)}, {3*sin(x)*sin(y)}, {3*cos(y)});
-    % the disk S cut out by the plane z = x, spanned by (1,0,1)/sqrt2 and (0,1,0)
-    \addplot3[surf, shader=flat, draw=oiblue!45, fill=oiblue!24,
-              opacity=0.7, fill opacity=0.7,
-              domain=0:3, samples=14, y domain=0:360, samples y=44,
-              forget plot]
-      ({x*cos(y)*0.7071}, {x*sin(y)}, {x*cos(y)*0.7071});
-    % the great circle C
-    \addplot3[oivermillion, line width=1.5pt, samples=140, samples y=0,
-              domain=0:360, forget plot]
-      ({3*cos(x)*0.7071}, {3*sin(x)}, {3*cos(x)*0.7071});
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:2.110,-0.314,2.110) -- (axis cs:2.110,0.314,2.110);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.795,2.782,-0.795) -- (axis cs:-1.155,2.516,-1.155);
-    % the unit normal (-i + k)/sqrt 2
-    \draw[-{Latex[length=3mm]}, oigreen, line width=1.4pt]
-      (axis cs:0,0,0) -- (axis cs:-1.06,0,1.06);
-    \node[oigreen, font=\large, anchor=south east]
-      at (axis cs:-1.08,0,1.10) {$\hat{\mathbf{n}}$};
-    \node[oiblue, font=\large] at (axis cs:0.9,1.9,0.9) {$S$};
-    \node[oivermillion, font=\large] at (axis cs:2.35,1.9,2.35) {$C$};
-    \node[black!55, font=\large] at (axis cs:-2.2,-2.2,2.3)
-      {$x^2+y^2+z^2=9$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The plane z = x cuts the sphere of radius 3 in a great circle C; S is the flat disk it
+// bounds, and n-hat its upward unit normal.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11cm);
+// The viewpoint of the pgfplots figure this replaces (view={118}{16}).
+triple cam = (0.8487, 0.4513, 0.2756);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=13));
+}
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-4, 0, 0)--(4.6, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -4, 0)--(0, 4.4, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, -3.6)--(0, 0, 3.9), axispen, Arrow3(size=8));
+
+// the sphere of radius 3, faint
+triple sph(pair q) { return 3*(sin(q.x)*cos(q.y), sin(q.x)*sin(q.y), cos(q.x)); }
+draw(surface(sph, (0, 0), (pi, 2pi), 12, 24, Spline),
+     surfacepen=material(gray(0.8) + opacity(0.14), emissivepen=gray(0.3), specularpen=gray(0.05)));
+draw(graph(new triple(real t) { return 3*(cos(t), sin(t), 0); }, 0, 2pi, 90), gray(0.7) + linewidth(0.4pt));
+label("$x^2+y^2+z^2=9$", sph((0.75, -2.0)), W, gray(0.35) + fontsize(14pt));
+
+// the disk S in the plane z = x, spanned by (1,0,1)/sqrt 2 and (0,1,0)
+real h = sqrt(0.5);
+triple C(real t) { return 3*(h*cos(t), sin(t), h*cos(t)); }
+path3 circ = graph(C, 0, 2pi, 140) & cycle;
+// (a polar grid with a pinhole at the centre, which keeps every patch non-degenerate)
+// (the angle runs backwards so that the side facing the viewer is the lit one)
+triple disk(pair q) { return q.x*(h*cos(q.y), -sin(q.y), h*cos(q.y)); }
+draw(surface(disk, (0.02, 0), (3, 2pi), 2, 24, Spline),
+     surfacepen=material(0.3*oiblue + 0.7*white + opacity(0.6),
+                         emissivepen=0.35*oiblue + 0.35*white, specularpen=gray(0.05)));
+draw(circ, oivermillion + linewidth(1.6pt));
+heads(C, new real[] {0.2, 2.3, 4.4}, oivermillion + linewidth(1.6pt), 0.16);
+label("$C$", 1.13*C(0.8), oivermillion + fontsize(18pt));
+label("$S$", 0.55*C(1.25) + toviewer, oiblue + fontsize(18pt));
+label("plane $z=x$", 1.05*C(2.25), E, oiblue + fontsize(14pt));
+
+// the upward unit normal of S, drawn from the centre
+triple n = (-h, 0, h);
+draw(O--1.6*n, oigreen + linewidth(1.6pt), Arrow3(size=10));
+label("$\hat{\mathbf{n}}$", 1.6*n, N, oigreen + fontsize(18pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -795,7 +891,7 @@ directly, and by Stokes' theorem.
 <figure xml:id="fig-stokes-triangle-tikz">
 <caption>
 The oriented triangle of <xref ref="example-stokes-triangle"/>: from
-<m>(2,0,0)</m> to <m>(0,2,0)</m> to <m>(0,0,4)</m> and back, counterclockwise seen from above.
+<m>(2,0,0)</m> to <m>(0,2,0)</m> to <m>(0,0,4)</m> and back, counterclockwise seen from above. The three edges are the segments <m>C_1</m>, <m>C_2</m>, <m>C_3</m>.
 </caption>
 <image xml:id="image-stokes-triangle" width="62%">
 <shortdescription>
@@ -808,58 +904,64 @@ from above.
 Coordinate axes in three dimensions. A blue triangular plate has its
 corners on the positive x axis at 2, the positive y axis at 2, and the
 positive z axis at 4. Vermillion arrows run along its edges from the x
-axis corner to the y axis corner, then up to the z axis corner, then
-back down to the x axis corner, a circuit that is counterclockwise when
-seen from above.
+axis corner to the y axis corner, labelled C 1, then up to the z axis
+corner, labelled C 2, then back down to the x axis corner, labelled C 3, a
+circuit that is counterclockwise when seen from above. 
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  % Okabe-Ito colorblind-safe palette
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \begin{axis}[
-      view={120}{24},
-      width=10.5cm,
-      axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large},
-      ticks=none,
-      xmin=0, xmax=2.6, ymin=0, ymax=2.6, zmin=0, zmax=4.4,
-      clip=false,
-    ]
-    % ---- the triangular plate ----
-    \addplot3[patch, patch type=triangle, shader=flat,
-              draw=oiblue!60, fill=oiblue!22, opacity=0.75,
-              fill opacity=0.75, forget plot]
-      coordinates {(2,0,0) (0,2,0) (0,0,4)};
-    % ---- the oriented edges ----
-    \draw[-{Latex[length=2.8mm]}, oivermillion, line width=1.5pt]
-      (axis cs:2,0,0) -- (axis cs:1,1,0);
-    \draw[oivermillion, line width=1.5pt]
-      (axis cs:1,1,0) -- (axis cs:0,2,0);
-    \draw[-{Latex[length=2.8mm]}, oivermillion, line width=1.5pt]
-      (axis cs:0,2,0) -- (axis cs:0,1,2);
-    \draw[oivermillion, line width=1.5pt]
-      (axis cs:0,1,2) -- (axis cs:0,0,4);
-    \draw[-{Latex[length=2.8mm]}, oivermillion, line width=1.5pt]
-      (axis cs:0,0,4) -- (axis cs:1,0,2);
-    \draw[oivermillion, line width=1.5pt]
-      (axis cs:1,0,2) -- (axis cs:2,0,0);
-    % ---- vertex labels ----
-    \node[font=\small, anchor=north west] at (axis cs:2,0,0)
-      {$(2,0,0)$};
-    \node[font=\small, anchor=north east] at (axis cs:0,2,0)
-      {$(0,2,0)$};
-    \node[font=\small, anchor=south east] at (axis cs:0,0,4)
-      {$(0,0,4)$};
-    % ---- labels ----
-    \node[oivermillion, font=\large] at (axis cs:1.15,1.15,0.45) {$C$};
-    \node[oiblue, font=\large] at (axis cs:0.45,0.45,1.15) {$S$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The oriented triangle (2,0,0) -> (0,2,0) -> (0,0,4) -> (2,0,0): its three edges C1, C2, C3,
+// and the plate S they bound.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(10.5cm);
+// The viewpoint of the pgfplots figure this replaces (view={103}{14}).
+triple cam = (0.9454, 0.2183, 0.2419);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (0, 0, 0)--(3.2, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 2.9, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 5.1), axispen, Arrow3(size=8));
+
+triple A = (2, 0, 0), B = (0, 2, 0), D = (0, 0, 4);
+
+
+// the triangular plate S
+path3 plate = A--B--D--cycle;
+draw(surface(plate), surfacepen=material(0.4*oiblue + 0.6*white + opacity(0.6),
+                                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+
+// the three oriented edges, each with a head at its midpoint
+pen edge = oivermillion + linewidth(1.6pt);
+void side(triple p, triple q) {
+  draw(p--q, edge);
+  draw(p--(0.58*q + 0.42*p), edge, Arrow3(size=13));
+}
+side(A, B); side(B, D); side(D, A);
+label("$C_1$", (A + B)/2 + toviewer, 2*S, oivermillion + fontsize(16pt));
+label("$C_2$", (B + D)/2, 2*E, oivermillion + fontsize(16pt));
+label("$C_3$", (D + A)/2, 2*W, oivermillion + fontsize(16pt));
+
+dot(A, linewidth(4pt)); dot(B, linewidth(4pt)); dot(D, linewidth(4pt));
+label("$(2,0,0)$", A, 2*W, fontsize(13pt));
+label("$(0,2,0)$", B, 2*S + E, fontsize(13pt));
+label("$(0,0,4)$", D, 2*W, fontsize(13pt));
+
+label("$S$", (0.25*A + 0.3*B + 0.45*D) + toviewer, oiblue + fontsize(18pt));
+]]>
+</asymptote>
 </image>
 </figure>
 
@@ -912,47 +1014,71 @@ arrowheads showing counterclockwise travel seen from above. The loop is not
 flat: it rises and falls as it goes round.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={122}{18}, width=11cm, axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large}, ticks=none,
-      xmin=-2.2, xmax=2.2, ymin=-2.6, ymax=2.6, zmin=0, zmax=3.4,
-      clip=false,
-    ]
-    % the paraboloid z = 2x^2 + y^2
-    \addplot3[surf, shader=faceted, faceted color=oiblue!20,
-              colormap={pb}{color=(oiblue!10!white) color=(oiblue!34!white)},
-              opacity=0.45, fill opacity=0.45,
-              domain=0:1.5, samples=18, y domain=0:360, samples y=44,
-              z buffer=sort, forget plot]
-      ({x*cos(y)}, {x*sin(y)}, {2*(x*cos(y))^2 + (x*sin(y))^2});
-    % the ellipsoid x^2 + y^2/4 + z^2/9 = 1, upper half
-    \addplot3[surf, shader=faceted, faceted color=black!12,
-              colormap={el}{color=(black!5!white) color=(black!14!white)},
-              opacity=0.20, fill opacity=0.20,
-              domain=0:360, samples=40, y domain=0:90, samples y=18,
-              z buffer=sort, forget plot]
-      ({cos(x)*sin(y)}, {2*sin(x)*sin(y)}, {3*cos(y)});
-    % the curve of intersection
-    \addplot3[oivermillion, line width=1.7pt, forget plot] coordinates {(0.866,0.000,1.500) (0.865,0.076,1.502) (0.861,0.152,1.507) (0.855,0.229,1.516) (0.847,0.308,1.528) (0.835,0.389,1.545) (0.819,0.473,1.567) (0.800,0.560,1.593) (0.775,0.650,1.625) (0.744,0.744,1.663) (0.706,0.842,1.707) (0.660,0.942,1.757) (0.602,1.043,1.813) (0.533,1.143,1.873) (0.450,1.236,1.933) (0.353,1.319,1.990) (0.244,1.385,2.037) (0.125,1.427,2.068) (0.000,1.442,2.079) (-0.125,1.427,2.068) (-0.244,1.385,2.037) (-0.353,1.319,1.990) (-0.450,1.236,1.933) (-0.533,1.143,1.873) (-0.602,1.043,1.813) (-0.660,0.942,1.757) (-0.706,0.842,1.707) (-0.744,0.744,1.663) (-0.775,0.650,1.625) (-0.800,0.560,1.593) (-0.819,0.473,1.567) (-0.835,0.389,1.545) (-0.847,0.308,1.528) (-0.855,0.229,1.516) (-0.861,0.152,1.507) (-0.865,0.076,1.502) (-0.866,0.000,1.500) (-0.865,-0.076,1.502) (-0.861,-0.152,1.507) (-0.855,-0.229,1.516) (-0.847,-0.308,1.528) (-0.835,-0.389,1.545) (-0.819,-0.473,1.567) (-0.800,-0.560,1.593) (-0.775,-0.650,1.625) (-0.744,-0.744,1.663) (-0.706,-0.842,1.707) (-0.660,-0.942,1.757) (-0.602,-1.043,1.813) (-0.533,-1.143,1.873) (-0.450,-1.236,1.933) (-0.353,-1.319,1.990) (-0.244,-1.385,2.037) (-0.125,-1.427,2.068) (-0.000,-1.442,2.079) (0.125,-1.427,2.068) (0.244,-1.385,2.037) (0.353,-1.319,1.990) (0.450,-1.236,1.933) (0.533,-1.143,1.873) (0.602,-1.043,1.813) (0.660,-0.942,1.757) (0.706,-0.842,1.707) (0.744,-0.744,1.663) (0.775,-0.650,1.625) (0.800,-0.560,1.593) (0.819,-0.473,1.567) (0.835,-0.389,1.545) (0.847,-0.308,1.528) (0.855,-0.229,1.516) (0.861,-0.152,1.507) (0.865,-0.076,1.502) (0.866,-0.000,1.500)};
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.7pt]
-      (axis cs:0.775,0.650,1.625) -- (axis cs:0.744,0.744,1.663);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.7pt]
-      (axis cs:-0.775,0.650,1.625) -- (axis cs:-0.847,0.520,1.605);
-    \node[oivermillion, font=\large] at (axis cs:0.15,1.95,2.35) {$C$};
-    \node[oiblue, font=\large, anchor=west]
-      at (axis cs:1.15,-1.15,2.60) {$z = 2x^2+y^2$};
-    \node[black!55, font=\large, anchor=west]
-      at (axis cs:-2.1,-1.6,3.15) {$x^2+\tfrac{y^2}{4}+\tfrac{z^2}{9}=1$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// The paraboloid z = 2x^2 + y^2 meets the ellipsoid x^2 + y^2/4 + z^2/9 = 1 in a warped loop C,
+// traversed counterclockwise seen from above.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11cm);
+// The viewpoint of the pgfplots figure this replaces (view={122}{18}).
+triple cam = (0.8065, 0.5040, 0.3090);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=13));
+}
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-2.2, 0, 0)--(2.4, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -2.6, 0)--(0, 2.8, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 3.6), axispen, Arrow3(size=8));
+
+// the ellipsoid, upper half, faint
+triple ell(pair q) { return (sin(q.x)*cos(q.y), 2*sin(q.x)*sin(q.y), 3*cos(q.x)); }
+draw(surface(ell, (0, 0), (pi/2, 2pi), 8, 24, Spline),
+     surfacepen=material(gray(0.8) + opacity(0.2), emissivepen=gray(0.3), specularpen=gray(0.05)));
+draw(graph(new triple(real t) { return ell((pi/2, t)); }, 0, 2pi, 90), gray(0.65) + linewidth(0.4pt));
+
+// the paraboloid z = 2x^2 + y^2, up to the height 2.7
+real top = 2.7;
+triple par(pair q) {
+  real r = q.x*sqrt(top/(2*cos(q.y)^2 + sin(q.y)^2));
+  real x = r*cos(q.y), y = r*sin(q.y);
+  return (x, y, 2*x^2 + y^2);
+}
+draw(surface(par, (0, 0), (1, 2pi), 8, 24, Spline),
+     surfacepen=material(0.4*oiblue + 0.6*white + opacity(0.4),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+draw(graph(new triple(real t) { return par((1, t)); }, 0, 2pi, 90), 0.5*oiblue + 0.5*white + linewidth(0.5pt));
+
+// the loop C: on the ray at angle t, x^2 + y^2 = s solves
+//   s (cos^2 t + sin^2 t / 4) + s^2 (2 cos^2 t + sin^2 t)^2 / 9 = 1
+triple C(real t) {
+  real a = cos(t)^2 + sin(t)^2/4, b = (2*cos(t)^2 + sin(t)^2)^2/9;
+  real s = (-a + sqrt(a^2 + 4*b))/(2*b);
+  real x = sqrt(s)*cos(t), y = sqrt(s)*sin(t);
+  return (x, y, 2*x^2 + y^2);
+}
+draw(graph(C, 0, 2pi, 160), oivermillion + linewidth(1.8pt));
+heads(C, new real[] {0.75, 2.6, 4.45}, oivermillion + linewidth(1.8pt));
+label("$C$", C(1.57) + (0, 0.42, 0.05), oivermillion + fontsize(18pt));
+
+label("$z=2x^2+y^2$", par((0.45, 1.5)), 3*E, oiblue + fontsize(14pt));
+label("$x^2+\frac{y^2}{4}+\frac{z^2}{9}=1$", ell((1.25, -1.9)), W, gray(0.35) + fontsize(14pt));
+]]>
+</asymptote>
 </image>
 </figure>
 </subsection>
@@ -1028,59 +1154,83 @@ A paraboloid and a flat disk sharing the same boundary circle.
 A translucent blue paraboloid opens downward from height four to the
 horizontal plane, where its rim is a circle of radius two drawn in
 vermillion with arrowheads pointing counterclockwise seen from above. The
-flat green disk bounded by that same circle lies in the plane. An upward
-arrow rises from the top of the paraboloid and another from the disk.
+flat green disk bounded by that same circle lies in the plane. A blue
+arrow labelled n hat points up and out of the paraboloid from a point on its
+side, and a green arrow labelled n hat rises straight up from the
+disk.
 </p>
 </description>
-<latex-image>
-<![CDATA[\begin{tikzpicture}[line join=round, line cap=round]
-  \definecolor{oiblue}{RGB}{0,114,178}
-  \definecolor{oivermillion}{RGB}{213,94,0}
-  \definecolor{oigreen}{RGB}{0,158,115}
-  \begin{axis}[
-      view={118}{20}, width=11cm, axis lines=center,
-      axis line style={-latex, black!70, line width=0.7pt},
-      xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-      label style={font=\large}, ticks=none,
-      xmin=-3, xmax=3, ymin=-3, ymax=3, zmin=0, zmax=5,
-      clip=false,
-    ]
-    % the paraboloid S: z = 4 - x^2 - y^2 above the plane
-    \addplot3[surf, shader=faceted, faceted color=oiblue!25,
-              colormap={par}{color=(oiblue!14!white) color=(oiblue!45!white)},
-              opacity=0.6, fill opacity=0.6,
-              domain=0:2, samples=18, y domain=0:360, samples y=44,
-              z buffer=sort, forget plot]
-      ({x*cos(y)}, {x*sin(y)}, {4 - x^2});
-    % the flat disk S_2, the cheaper surface with the same boundary
-    \addplot3[surf, shader=flat, draw=oigreen!45, fill=oigreen!22,
-              opacity=0.55, fill opacity=0.55,
-              domain=0:2, samples=12, y domain=0:360, samples y=44,
-              forget plot]
-      ({x*cos(y)}, {x*sin(y)}, 0);
-    % the shared boundary C
-    \addplot3[oivermillion, line width=1.5pt, samples=120, samples y=0,
-              domain=0:360, forget plot]
-      ({2*cos(x)}, {2*sin(x)}, 0);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:1.989,-0.209,0) -- (axis cs:1.989,0.209,0);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.749,1.855,0) -- (axis cs:-1.089,1.677,0);
-    \draw[-{Latex[length=2.6mm]}, oivermillion, line width=1.5pt]
-      (axis cs:-0.877,-1.797,0) -- (axis cs:-0.484,-1.941,0);
-    % the two upward normals
-    \draw[-{Latex[length=3mm]}, oiblue, line width=1.3pt]
-      (axis cs:0.75,0.75,2.875) -- (axis cs:1.20,1.20,3.35);
-    \draw[-{Latex[length=3mm]}, oigreen, line width=1.3pt]
-      (axis cs:0.9,0.5,0) -- (axis cs:0.9,0.5,0.85);
-    \node[oiblue, font=\large, anchor=west]
-      at (axis cs:1.24,1.24,3.38) {$S$};
-    \node[oigreen, font=\large, anchor=west]
-      at (axis cs:1.0,0.55,0.85) {$S_2$};
-    \node[oivermillion, font=\large] at (axis cs:2.25,1.25,0.10) {$C$};
-  \end{axis}
-\end{tikzpicture}]]>
-</latex-image>
+<asymptote>
+<![CDATA[// Two surfaces with the same boundary circle C: the paraboloid S (z = 4 - x^2 - y^2 above the
+// xy-plane) and the flat disk S2, each with its upward unit normal.
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+
+size(11cm);
+// The viewpoint of the pgfplots figure this replaces (view={118}{20}).
+triple cam = (0.8297, 0.4412, 0.3420);
+currentprojection = orthographic(cam);
+currentlight = Headlamp;
+currentlight.background = white;
+
+// Okabe-Ito colorblind-safe palette
+pen oiblue       = rgb(0/255, 114/255, 178/255);
+pen oivermillion = rgb(213/255, 94/255, 0/255);
+pen oigreen      = rgb(0/255, 158/255, 115/255);
+pen oipurple     = rgb(204/255, 121/255, 167/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+triple toviewer = 0.08*unit(cam);
+
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=13));
+}
+
+// axes
+draw(Label("$x$", EndPoint, fontsize(18pt)), (-3, 0, 0)--(3.3, 0, 0), axispen, Arrow3(size=8));
+draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -3, 0)--(0, 3.3, 0), axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 5.2), axispen, Arrow3(size=8));
+
+// the flat disk S2 in the xy-plane
+triple C(real t) { return (2*cos(t), 2*sin(t), 0); }
+path3 circ = graph(C, 0, 2pi, 120) & cycle;
+// (a polar grid with a pinhole at the centre, which keeps every patch non-degenerate)
+triple disk(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 0); }
+draw(surface(disk, (0.02, 0), (2, 2pi), 2, 24, Spline),
+     surfacepen=material(0.4*oigreen + 0.6*white + opacity(0.55),
+                         emissivepen=0.3*oigreen, specularpen=gray(0.05)));
+
+// the paraboloid S
+triple par(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 4 - q.x^2); }
+draw(surface(par, (0, 0), (2, 2pi), 8, 24, Spline),
+     surfacepen=material(0.4*oiblue + 0.6*white + opacity(0.3),
+                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
+pen mesh = 0.5*oiblue + 0.5*white + linewidth(0.4pt);
+for (real r : new real[] {0.67, 1.33})
+  draw(graph(new triple(real t) { return par((r, t)); }, 0, 2pi, 60), mesh);
+for (int k = 0; k < 8; ++k)
+  draw(graph(new triple(real r) { return par((r, k*pi/4)); }, 0, 2, 16), mesh);
+
+// the shared boundary C, counterclockwise seen from above
+draw(circ, oivermillion + linewidth(1.6pt));
+heads(C, new real[] {0.2, 2.3, 4.4}, oivermillion + linewidth(1.6pt), 0.2);
+label("$C$", 1.18*C(0.75), oivermillion + fontsize(18pt));
+
+// the upward unit normal of each surface
+triple p = par((1.1, 2.0));                       // on the side seen in profile
+triple n = unit((2*p.x, 2*p.y, 1));
+draw(p--p + 0.95*n, oiblue + linewidth(1.6pt), Arrow3(size=10));
+dot(p, oiblue + linewidth(4pt));
+label("$\hat{\mathbf{n}}$", p + 0.95*n, E, oiblue + fontsize(18pt));
+triple q = (0.3, -1.25, 0);
+draw(q--q + 0.9*Z, 0.8*oigreen + linewidth(1.6pt), Arrow3(size=10));
+dot(q, 0.8*oigreen + linewidth(4pt));
+label("$\hat{\mathbf{n}}$", q + 0.9*Z, N, 0.8*oigreen + fontsize(16pt));
+
+label("$S$", par((1.45, 4.5)), 2*W, oiblue + fontsize(18pt));
+label("$S_2$", (0.9, 0.9, 0) + toviewer, 0.75*oigreen + fontsize(18pt));
+]]>
+</asymptote>
 </image>
 </figure>
 </subsection>
