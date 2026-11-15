@@ -285,9 +285,9 @@ the surface:
 
 <men xml:id="eq-divergence-theorem">
 \underbrace{\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,
-d\sigma}_{\text{outward flux through the boundary } S}
+d\sigma}_{\substack{\text{outward flux through}\\ \text{the boundary } S}}
 = \underbrace{\iiint_D \nabla \cdot \mathbf{F}\,
-dV}_{\text{triple integral of the divergence over } D}.
+dV}_{\substack{\text{triple integral of the}\\ \text{divergence over } D}}.
 </men>
 </statement>
 
@@ -296,20 +296,16 @@ dV}_{\text{triple integral of the divergence over } D}.
 (Write <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j} + P\,\mathbf{k}</m>.
 Both sides of <xref ref="eq-divergence-theorem"/> break into three
 pieces along the three components, so it is enough to prove
-<md>
-<mrow xml:id="eq-divthm-three" number="yes">
-\iint_S M\,\mathbf{i} \cdot \hat{\mathbf{n}}\, d\sigma
-\amp = \iiint_D \frac{\partial M}{\partial x}\, dV ,
-</mrow>
-<mrow>
-\iint_S N\,\mathbf{j} \cdot \hat{\mathbf{n}}\, d\sigma
-\amp = \iiint_D \frac{\partial N}{\partial y}\, dV ,
-</mrow>
-<mrow>
-\iint_S P\,\mathbf{k} \cdot \hat{\mathbf{n}}\, d\sigma
-\amp = \iiint_D \frac{\partial P}{\partial z}\, dV ,
-</mrow>
-</md>
+<men xml:id="eq-divthm-three">
+\begin{aligned}
+\amp \iint_S M\,\mathbf{i} \cdot \hat{\mathbf{n}}\, d\sigma
+\\ \amp \quad = \iiint_D \frac{\partial M}{\partial x}\, dV ,\\
+\amp \iint_S N\,\mathbf{j} \cdot \hat{\mathbf{n}}\, d\sigma
+\\ \amp \quad = \iiint_D \frac{\partial N}{\partial y}\, dV ,\\
+\amp \iint_S P\,\mathbf{k} \cdot \hat{\mathbf{n}}\, d\sigma
+\\ \amp \quad = \iiint_D \frac{\partial P}{\partial z}\, dV ,
+\end{aligned}
+</men>
 and add them; prove the third, the other two being the same argument
 with the axes renamed. <em>Step 1</em>: suppose <m>D</m> is simple in
 the <m>z</m>-direction, as in <xref ref="sec-triple-case1"/>, with

@@ -318,8 +318,9 @@
 })();
 
 /* ------------------------------------------------------------------ *
- * Reflow equations in Section 1.1 (Parametrization) as the reading    *
- * column changes (Nov 2026, as the MATH 13 books do).                  *
+ * Reflow equations in Section 1.1 (Parametrization) and Section 3.3  *
+ * (the Divergence Theorem) as the reading column changes (Nov 2026,  *
+ * as the MATH 13 books do).                                          *
  * MathJax 4 centres a numbered display and keeps room for its number   *
  * on both sides, so on a phone even a short one overflows a solution.  *
  * Below 600px this aligns displays left and lets MathJax 4 break long  *
@@ -329,7 +330,7 @@
  * it the same treatment.                                               *
  * ------------------------------------------------------------------ */
 (function () {
-    var scope = document.querySelector("#sec-parametrization");
+    var scope = document.querySelector("#sec-parametrization, #section-divergence-theorem");
     if (!scope) return;
     var content = document.getElementById("ptx-content") || scope;
     content.classList.add("responsive-math");
