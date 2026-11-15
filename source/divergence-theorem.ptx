@@ -3,15 +3,23 @@
 <!-- Section: The Divergence Theorem                                       -->
 <!--                                                                       -->
 <!-- Skeletal (fill-in) version of the section of the same name in the     -->
-<!-- completed MATH 14 notes.  The definition of divergence in 3D and the  -->
-<!-- statement of the divergence theorem are kept; the proof and the four  -->
-<!-- worked examples are replaced by blank workspace boxes, each preceded  -->
-<!-- by a one-line instruction.  File name and xml:ids are unchanged.      -->
+<!-- completed MATH 14 notes.  The definition of divergence in 3D, the     -->
+<!-- statement of the divergence theorem and the video of the idea of its  -->
+<!-- proof are kept; the four worked examples are replaced by blank        -->
+<!-- workspace boxes.  File name and xml:ids are unchanged.                -->
 <!--                                                                       -->
-<!-- Figures: all kept (the two field plots, the proof solid, the radial   -->
-<!-- field on the sphere, and every video); each is the check on the box   -->
-<!-- above it.  Captions that stated a divergence or a flux have been      -->
-<!-- trimmed.                                                              -->
+<!-- Figures: the two field plots, the radial field on the sphere and      -->
+<!-- every video are kept; each is the check on the box above it.          -->
+<!-- Captions that stated a divergence or a flux have been trimmed.        -->
+<!--                                                                       -->
+<!-- No hints (Nov 2026, at the instructor's request, as in Stokes'       -->
+<!-- theorem): the instruction parentheticals after each Solution are     -->
+<!-- gone, the boxes carry only the quantity asked for, the two titles    -->
+<!-- that said "the Easy Way" are shortened, the field captions no longer  -->
+<!-- say expanding, compressing or rotating, and the flux of z i + y j +   -->
+<!-- x k is no longer quoted in the statement that asks for it.  The       -->
+<!-- proof of the theorem and the figure of its Step 1 solid are removed;  -->
+<!-- only the proof-idea video stays.                                      -->
 <section xml:id="section-divergence-theorem" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>The Divergence Theorem</title>
 
@@ -102,12 +110,6 @@ determine whether the gas is expanding or compressing.
 </p>
 <p>
 <em>Solution.</em>
-(Compute the divergence of each field with <xref ref="eq-div-3d"/> and
-read off the sign. Two of the fields are drawn in
-<xref ref="fig-div3d-fields"/>. In <alert>D</alert>, write
-<m>\rho^2 = x^2 + y^2 + z^2</m> and use the quotient rule; the three
-terms combine. What does the answer say about a field whose arrows all
-point outward? Compare with <xref ref="fig-div3d-video"/>.)
 </p>
 
 <sidebyside width="97%">
@@ -118,13 +120,13 @@ point outward? Compare with <xref ref="fig-div3d-video"/>.)
 \draw[gray!35] (0,11.5) -- (15,11.5);
 \draw[gray!35] (0,9) -- (15,9);
 \draw[gray!35] (0,6.5) -- (15,6.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {A. $\nabla\cdot\mathbf F =$ \qquad so the gas is};
-\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {B. $\nabla\cdot\mathbf F =$ \qquad so the gas is};
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {C. $\nabla\cdot\mathbf F =$ \qquad so the gas is};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {D. $\nabla\cdot\mathbf F =$};
+\node[anchor=north west, font=\small\itshape] at (0.35,13.7) {A.};
+\node[anchor=north west, font=\small\itshape] at (0.35,11.2) {B.};
+\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {C.};
+\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {D.};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in four labelled rows, one for the divergence of each field with its interpretation.</shortdescription>
+<shortdescription>Blank box in four rows labelled A to D, one for each field.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -132,8 +134,8 @@ point outward? Compare with <xref ref="fig-div3d-video"/>.)
 
 <figure xml:id="fig-div3d-video">
 <caption>
-Four velocity fields: expanding, compressing, rotating, and the
-inverse-square field. Compare with the divergences you computed.
+The four velocity fields of <xref ref="example-divergence-3d"/>.
+Compare with what you found.
 </caption>
 <video preview="play-button.png" xml:id="video-div3d"
        source="videos/divergence_3d_1080p.mp4"
@@ -142,10 +144,8 @@ inverse-square field. Compare with the divergences you computed.
 
 <figure xml:id="fig-div3d-fields">
 <caption>
-Left: the field <m>x\,\mathbf{i} + y\,\mathbf{j} + z\,\mathbf{k}</m>,
-which points radially outward. Right: the field
-<m>-y\,\mathbf{i} + x\,\mathbf{j}</m>, which rotates about the
-<m>z</m>-axis.
+Left: the field <m>x\,\mathbf{i} + y\,\mathbf{j} + z\,\mathbf{k}</m>.
+Right: the field <m>-y\,\mathbf{i} + x\,\mathbf{j}</m>.
 </caption>
 <sidebyside widths="48% 48%" valign="top">
 <image xml:id="image-div3d-radial">
@@ -291,189 +291,7 @@ dV}_{\substack{\text{triple integral of the}\\ \text{divergence over } D}}.
 </men>
 </statement>
 
-<proof xml:id="proof-divergence">
-<p>
-(Write <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j} + P\,\mathbf{k}</m>.
-Both sides of <xref ref="eq-divergence-theorem"/> break into three
-pieces along the three components, so it is enough to prove
-<men xml:id="eq-divthm-three">
-\begin{aligned}
-\amp \iint_S M\,\mathbf{i} \cdot \hat{\mathbf{n}}\, d\sigma
-\\ \amp \quad = \iiint_D \frac{\partial M}{\partial x}\, dV ,\\
-\amp \iint_S N\,\mathbf{j} \cdot \hat{\mathbf{n}}\, d\sigma
-\\ \amp \quad = \iiint_D \frac{\partial N}{\partial y}\, dV ,\\
-\amp \iint_S P\,\mathbf{k} \cdot \hat{\mathbf{n}}\, d\sigma
-\\ \amp \quad = \iiint_D \frac{\partial P}{\partial z}\, dV ,
-\end{aligned}
-</men>
-and add them; prove the third, the other two being the same argument
-with the axes renamed. <em>Step 1</em>: suppose <m>D</m> is simple in
-the <m>z</m>-direction, as in <xref ref="sec-triple-case1"/>, with
-floor <m>z = u_1(x,y)</m>, cap <m>z = u_2(x,y)</m> and shadow
-<m>R</m>, so that its boundary is the cap <m>S_2</m>, the floor
-<m>S_1</m> and the vertical wall <m>S_3</m> of
-<xref ref="fig-divthm-proof-tikz"/>. Say why the wall contributes
-nothing. On the cap, use <xref ref="eq-flux-param"/> for a graph to
-find <m>\mathbf{k}\cdot\hat{\mathbf{n}}\,d\sigma</m>; on the floor the
-outward normal points the other way. Write the flux as two double
-integrals over <m>R</m>. <em>Step 2</em>: evaluate the triple integral
-of <m>\partial P/\partial z</m> by integrating in <m>z</m> first, as in
-<xref ref="eq-triple-iterated"/>, with the Fundamental Theorem of
-Calculus on the inner integral, and compare. <em>Step 3</em>: say what
-to do with a solid that is not simple in all three directions, and why
-the cut surfaces cancel; <xref ref="fig-divthm-proof-video"/> shows
-the idea.)
-</p>
-
-<sidebyside width="97%">
-<image>
-<latex-image>
-\begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,20);
-\draw[gray!35] (0,16.5) -- (15,16.5);
-\draw[gray!35] (0,10) -- (15,10);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,19.7) {Step 1: on the wall $S_3$, \qquad on the cap $S_2$, $\mathbf k\cdot\hat{\mathbf n}\,d\sigma =$ \qquad on the floor $S_1$, $\mathbf k\cdot\hat{\mathbf n}\,d\sigma =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,16.2) {$\displaystyle\iint_S P\,\mathbf k\cdot\hat{\mathbf n}\,d\sigma =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {Step 2: $\displaystyle\iiint_D \frac{\partial P}{\partial z}\,dV =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {Step 3: general solids};
-\end{tikzpicture}
-</latex-image>
-<shortdescription>Blank box in four rows, for the contributions of the wall, cap and floor, for the flux of P k written as double integrals over the shadow, for the triple integral done in the z direction first, and for the extension to general solids.</shortdescription>
-</image>
-</sidebyside>
-</proof>
 </theorem>
-
-<figure xml:id="fig-divthm-proof-tikz">
-<caption>
-The solid of Step 1 of the proof of <xref ref="thm-divergence"/>: a solid
-<m>D</m> that is simple in the <m>z</m>-direction. Its boundary is the cap
-<m>S_2</m> where <m>z = u_2(x,y)</m>, the floor <m>S_1</m> where
-<m>z = u_1(x,y)</m>, and the vertical wall <m>S_3</m> over the boundary of
-the shadow <m>R</m>. Each piece carries its outward unit normal
-<m>\hat{\mathbf{n}}</m>: upward on the cap, downward on the floor, and
-horizontal on the wall. On the wall <m>\mathbf{k}</m> (purple) is tangent
-and meets <m>\hat{\mathbf{n}}</m> at a right angle, so
-<m>\mathbf{k}\cdot\hat{\mathbf{n}} = 0</m>.
-</caption>
-<image xml:id="image-divthm-proof" width="65%">
-<shortdescription>
-A solid between two curved surfaces over a region in the horizontal
-plane, with outward normals drawn on the top, the bottom and the side.
-</shortdescription>
-<description>
-<p>
-A solid labelled D sits above a shaded region R in the horizontal plane,
-with four dashed vertical lines joining the edge of R to the solid. Its
-floor, labelled S 1, is a gently curved surface and its cap, labelled S 2,
-is a higher curved surface; a vertical wall, labelled S 3, joins them
-around the edge. A green arrow labelled n hat points upward and outward
-from the cap, another points downward and outward from the floor, and a
-third points horizontally outward from the wall. At the foot of that
-third arrow a purple arrow labelled k points straight up along the wall,
-and a small square marks the right angle between the two.
-</p>
-</description>
-<asymptote>
-<![CDATA[// A solid D that is simple in the z-direction: the floor S1 (z = u1), the cap S2 (z = u2) and
-// the vertical wall S3 over the boundary of the shadow R, each with its outward unit normal.
-import graph3;
-if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
-
-size(11.5cm);
-// The viewpoint of the pgfplots figure this replaces (view={120}{20}).
-triple cam = (0.8138, 0.4698, 0.3420);
-currentprojection = orthographic(cam);
-currentlight = Headlamp;
-currentlight.background = white;
-
-// Okabe-Ito colorblind-safe palette
-pen oiblue       = rgb(0/255, 114/255, 178/255);
-pen oivermillion = rgb(213/255, 94/255, 0/255);
-pen oigreen      = rgb(0/255, 158/255, 115/255);
-pen oipurple     = rgb(204/255, 121/255, 167/255);
-pen axispen = gray(0.25) + linewidth(0.7pt);
-triple toviewer = 0.08*unit(cam);
-
-// axes
-draw(Label("$x$", EndPoint, fontsize(18pt)), (-1.7, 0, 0)--(1.9, 0, 0), axispen, Arrow3(size=8));
-draw(Label("$y$", EndPoint, fontsize(18pt)), (0, -1.7, 0)--(0, 1.9, 0), axispen, Arrow3(size=8));
-draw(Label("$z$", EndPoint, fontsize(18pt)), (0, 0, 0)--(0, 0, 3.1), axispen, Arrow3(size=8));
-
-real u1(real x, real y) { return 0.55 + 0.12*(x^2 - y^2); }          // the floor
-real u2(real x, real y) { return 2.05 - 0.3*x*sqrt(x^2 + y^2); }      // the cap
-
-// the shadow R in the xy-plane
-triple shadow(pair q) { return (q.x*cos(q.y), q.x*sin(q.y), 0); }
-draw(surface(shadow, (0.01, 0), (1, 2pi), 2, 24, Spline),
-     surfacepen=material(gray(0.8) + opacity(0.6), emissivepen=gray(0.25)));
-draw(graph(new triple(real t) { return (cos(t), sin(t), 0); }, 0, 2pi, 72), gray(0.5) + linewidth(0.6pt));
-// four verticals from the edge of R up to the solid
-pen guide = gray(0.5) + linewidth(0.6pt) + linetype("4 3");
-for (int k = 0; k < 4; ++k) {
-  real a = pi/4 + k*pi/2;
-  draw((cos(a), sin(a), 0)--(cos(a), sin(a), u1(cos(a), sin(a))), guide);
-}
-
-// the floor S1 and the cap S2, on a polar grid with a pinhole at the centre
-triple floorS(pair q) { real x = q.x*cos(q.y), y = q.x*sin(q.y); return (x, y, u1(x, y)); }
-triple capS(pair q)   { real x = q.x*cos(q.y), y = q.x*sin(q.y); return (x, y, u2(x, y)); }
-draw(surface(floorS, (0.01, 0), (1, 2pi), 4, 24, Spline),
-     surfacepen=material(0.45*oiblue + 0.55*white + opacity(0.6),
-                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
-// the wall S3 over the unit circle, from the floor up to the cap
-triple wall(pair q) {
-  real x = cos(q.x), y = sin(q.x);
-  return (x, y, u1(x, y) + q.y*(u2(x, y) - u1(x, y)));
-}
-draw(surface(wall, (0, 0), (2pi, 1), 24, 1, Spline),
-     surfacepen=material(0.3*oiblue + 0.7*white + opacity(0.35),
-                         emissivepen=0.25*oiblue, specularpen=gray(0.05)));
-draw(surface(capS, (0.01, 0), (1, 2pi), 4, 24, Spline),
-     surfacepen=material(0.5*oiblue + 0.5*white + opacity(0.6),
-                         emissivepen=0.3*oiblue, specularpen=gray(0.05)));
-pen rim = 0.7*oiblue + 0.3*white + linewidth(0.8pt);
-draw(graph(new triple(real t) { return wall((t, 0)); }, 0, 2pi, 90), rim);
-draw(graph(new triple(real t) { return wall((t, 1)); }, 0, 2pi, 90), rim);
-
-// the outward unit normals: up from the cap, down from the floor, level from the wall
-pen normalpen = oigreen + linewidth(1.6pt);
-real px = -0.22, py = 0.42;                       // a point seen in profile, off the z-axis
-real e = 1e-4;
-triple pc = (px, py, u2(px, py));
-triple nc = unit((-(u2(px + e, py) - u2(px - e, py))/(2e), -(u2(px, py + e) - u2(px, py - e))/(2e), 1));
-draw(pc--pc + 0.62*nc, normalpen, Arrow3(size=10));
-dot(pc, oigreen + linewidth(4pt));
-label("$\hat{\mathbf{n}}$", pc + 0.62*nc, E, oigreen + fontsize(18pt));
-triple pf = (px, py, u1(px, py));
-triple nf = unit((0.24*px, -0.24*py, -1));        // minus the upward normal <-u1_x, -u1_y, 1>
-draw(pf--pf + 0.42*nf, normalpen, Arrow3(size=10));
-dot(pf, oigreen + linewidth(4pt));
-label("$\hat{\mathbf{n}}$", pf + 0.42*nf, E, oigreen + fontsize(18pt));
-real aw = -0.95;                                  // on the near side of the wall
-triple pw = (cos(aw), sin(aw), 1.25);
-draw(pw--pw + 0.62*(cos(aw), sin(aw), 0), normalpen, Arrow3(size=10));
-dot(pw, oigreen + linewidth(4pt));
-label("$\hat{\mathbf{n}}$", pw + 0.62*(cos(aw), sin(aw), 0), S, oigreen + fontsize(18pt));
-// k at the same point of the wall: tangent to the wall, at a right angle to n-hat
-// (drawn a hair outside the wall, so that the wall does not hide it)
-triple pk = pw + 0.04*(cos(aw), sin(aw), 0);
-draw(pk--pk + 0.6*Z, 0.85*oipurple + linewidth(1.8pt), Arrow3(size=10));
-label("$\mathbf{k}$", pk + 0.6*Z, W, 0.85*oipurple + fontsize(16pt));
-real m = 0.11;
-draw((pw + m*(cos(aw), sin(aw), 0))--(pw + m*(cos(aw), sin(aw), 0) + m*Z)--(pw + m*Z), gray(0.2) + linewidth(0.6pt));
-
-// names
-label("$S_2$", capS((0.75, 4.4)) + toviewer, oiblue + fontsize(18pt));
-label("$S_3$", wall((0.95, 0.72)) + 2*toviewer, oiblue + fontsize(18pt));
-label("$S_1$", wall((4.4, 0)), 2*W + S, oiblue + fontsize(18pt));
-label("$D$", (0.25, -0.2, 1.3), 0.6*oiblue + fontsize(18pt));
-label("$R$", (0.55, 0.25, 0) + toviewer, gray(0.2) + fontsize(18pt));
-]]>
-</asymptote>
-</image>
-</figure>
 
 <figure xml:id="fig-divthm-proof-video">
 <caption>
@@ -488,10 +306,8 @@ outward normals, so the inside cancels in pairs and only the flux through
        width="70%" aspect="16:9"/>
 </figure>
 
-
-
 <example xml:id="example-divthm-sphere">
-<title>Flux Through a Sphere, the Easy Way</title>
+<title>Flux Through a Sphere</title>
 <statement>
 <p>
 Use the divergence theorem to compute the flux of the vector field
@@ -500,22 +316,17 @@ through the sphere <m>x^2 + y^2 + z^2 = 1</m>.
 </p>
 <p>
 <em>Solution.</em>
-(Compute <m>\nabla\cdot\mathbf F</m>, and then the right-hand side of
-<xref ref="eq-divergence-theorem"/> is a constant times a volume you
-know. The field is shown in <xref ref="fig-divthm-sphere"/>.)
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$\nabla\cdot\mathbf F =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\displaystyle\iint_S \mathbf F\cdot\hat{\mathbf n}\,d\sigma = \iiint_D \nabla\cdot\mathbf F\,dV =$};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
+\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\iint_S \mathbf F\cdot\hat{\mathbf n}\,d\sigma =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the divergence and one for the flux as a triple integral.</shortdescription>
+<shortdescription>Blank box for the flux.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -599,28 +410,22 @@ In <xref ref="example-sphere-flux"/> we found the flux of
 <m>\mathbf{F}(x,y,z) = z\,\mathbf{i} + y\,\mathbf{j} +
 x\,\mathbf{k}</m> across the unit sphere by parametrizing the surface,
 computing <m>\mathbf{r}_\phi \times \mathbf{r}_\theta</m>, and
-integrating<mdash/>a full page of work that produced
-<m>\tfrac{4\pi}{3}</m>. Recompute this flux using the divergence
-theorem.
+integrating<mdash/>a full page of work. Recompute this flux using the
+divergence theorem.
 </p>
 <p>
 <em>Solution.</em>
-(Compute the divergence; then <xref ref="eq-divergence-theorem"/>
-with <m>D</m> the unit ball reduces the flux to a volume. Compare with
-the long computation, and with <xref ref="fig-divthm-sphere-video"/>.)
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,6);
-\draw[gray!35] (0,3.5) -- (15,3.5);
-\node[anchor=north west, font=\small\itshape] at (0.35,5.7) {$\nabla\cdot\mathbf F =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.2) {$\displaystyle\iint_S \mathbf F\cdot\hat{\mathbf n}\,d\sigma = \iiint_D \nabla\cdot\mathbf F\,dV =$};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,8);
+\node[anchor=north west, font=\small\itshape] at (0.35,7.7) {$\displaystyle\iint_S \mathbf F\cdot\hat{\mathbf n}\,d\sigma =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in two rows, one for the divergence and one for the flux as a triple integral.</shortdescription>
+<shortdescription>Blank box for the flux.</shortdescription>
 </image>
 </sidebyside>
 </statement>
@@ -639,7 +444,7 @@ sphere into triple integrals. Use it to check both of your answers.
 </figure>
 
 <example xml:id="example-divthm-paraboloid">
-<title>Revisiting the Paraboloid, the Easy Way</title>
+<title>Revisiting the Paraboloid</title>
 <statement>
 <p>
 Evaluate the surface integral
@@ -653,26 +458,17 @@ the divergence theorem.
 </p>
 <p>
 <em>Solution.</em>
-(In <xref ref="example-paraboloid-flux"/> this flux took two surface
-integrals. Compute the divergence, then apply
-<xref ref="eq-divergence-theorem"/> with the solid <m>E</m> described
-in cylindrical coordinates. Compare with the two-piece computation, and
-with <xref ref="fig-divthm-paraboloid-video"/>.)
 </p>
 
 <sidebyside width="97%">
 <image>
 <latex-image>
 \begin{tikzpicture}
-\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,9);
-\draw[gray!35] (0,6.5) -- (15,6.5);
-\draw[gray!35] (0,4) -- (15,4);
-\node[anchor=north west, font=\small\itshape] at (0.35,8.7) {$\nabla\cdot\mathbf F =$};
-\node[anchor=north west, font=\small\itshape] at (0.35,6.2) {$E$ in cylindrical coordinates:};
-\node[anchor=north west, font=\small\itshape] at (0.35,3.7) {$\displaystyle\iint_S \mathbf F\cdot\hat{\mathbf n}\,d\sigma = \iiint_E \nabla\cdot\mathbf F\,dV =$};
+\draw[rounded corners=8pt, draw=gray!55, thick] (0,0) rectangle (15,10);
+\node[anchor=north west, font=\small\itshape] at (0.35,9.7) {$\displaystyle\iint_S \mathbf F\cdot\hat{\mathbf n}\,d\sigma =$};
 \end{tikzpicture}
 </latex-image>
-<shortdescription>Blank box in three rows, for the divergence, for the cylindrical description of the solid, and for the flux as a triple integral.</shortdescription>
+<shortdescription>Blank box for the flux.</shortdescription>
 </image>
 </sidebyside>
 </statement>
