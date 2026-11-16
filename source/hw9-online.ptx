@@ -103,11 +103,16 @@
         upward <m>\hat{\mathbf{n}}</m>. On <m>C</m> we have <m>z = 0</m>, so
         the third component of <m>\mathbf{F}</m> never contributes:
       </p>
-      <me component="hw9-solutions">
-        \iint_S (\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}}\, d\sigma
-        = \oint_C \mathbf{F} \cdot d\mathbf{r}
-        = \oint_C a\,y\, dx - a\,x\, dy .
-      </me>
+      <md component="hw9-solutions">
+        <mrow>
+          \amp \iint_S (\nabla \times \mathbf{F}) \cdot
+          \hat{\mathbf{n}}\, d\sigma
+        </mrow>
+        <mrow>
+          \amp \quad = \oint_C \mathbf{F} \cdot d\mathbf{r}
+          = \oint_C a\,y\, dx - a\,x\, dy .
+        </mrow>
+      </md>
       <p component="hw9-solutions">
         With <m>\mathbf{r}(t) = \left\langle R\cos t,\ R\sin t,\ 0
         \right\rangle</m> the integrand is
@@ -115,9 +120,54 @@
         integral is <m>-2\pi aR^2</m>.
       </p>
       <p component="hw9-solutions">
-        Green's theorem gives the same thing in one step:
-        <m>\oint_C a\,y\, dx - a\,x\, dy = \iint_D (-2a)\, dA
-        = -2a\pi R^2</m>.
+        <term>Green's theorem, with <m>\hat{\mathbf{n}} = \mathbf{k}</m>.</term>
+        The cap is not the only surface with boundary <m>C</m>: so is the
+        flat disk <m>D</m>, <m>x^2 + y^2 \le R^2</m> in the plane
+        <m>z = 0</m>. Take its normal to be <m>\hat{\mathbf{n}} =
+        \mathbf{k}</m>, pointing up, which gives <m>C</m> the same
+        counterclockwise direction as the cap does. By
+        <xref ref="eq-stokes"/> both fluxes of the curl equal
+        <m>\oint_C \mathbf{F} \cdot d\mathbf{r}</m>, so they are equal
+        (see <xref ref="sec-stokes-surface-independence"/>), and we may
+        integrate over <m>D</m> instead of the cap. On <m>D</m>,
+        <m>d\sigma = dA</m>, and dotting with <m>\mathbf{k}</m> keeps only
+        the <m>\mathbf{k}</m>-component of the curl. Writing
+        <m>\mathbf{F} = M\,\mathbf{i} + N\,\mathbf{j} + P\,\mathbf{k}</m>
+        with <m>M = a\,y</m> and <m>N = -a\,x</m>,
+      </p>
+      <md component="hw9-solutions">
+        <mrow>
+          (\nabla \times \mathbf{F}) \cdot \mathbf{k}
+          \amp = \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}
+        </mrow>
+        <mrow>
+          \amp = -a - a = -2a .
+        </mrow>
+      </md>
+      <p component="hw9-solutions">
+        This is exactly the integrand of the circulation form of Green's
+        theorem, <xref ref="thm-green-tangential"/>: Green's theorem is
+        Stokes' theorem for a flat surface with
+        <m>\hat{\mathbf{n}} = \mathbf{k}</m>. The term
+        <m>yx^3</m> drops out, since it only feeds the
+        <m>\mathbf{i}</m>- and <m>\mathbf{j}</m>-components of the
+        curl. Since <m>D</m> has area <m>\pi R^2</m>,
+      </p>
+      <md component="hw9-solutions">
+        <mrow>
+          \amp \iint_S (\nabla \times \mathbf{F}) \cdot
+          \hat{\mathbf{n}}\, d\sigma
+        </mrow>
+        <mrow>
+          \amp \quad = \iint_D (\nabla \times \mathbf{F}) \cdot
+          \mathbf{k}\, dA
+        </mrow>
+        <mrow>
+          \amp \quad = \iint_D (-2a)\, dA = -2a\pi R^2 ,
+        </mrow>
+      </md>
+      <p component="hw9-solutions">
+        the same answer as the line integral, with no parametrization at all.
       </p>
       <figure xml:id="fig-hw9o-sol-cap" component="hw9-solutions">
       <caption>
