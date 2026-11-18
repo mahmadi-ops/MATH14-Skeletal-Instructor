@@ -94,6 +94,8 @@
       <xi:include href="sample-past-exam-3.ptx" />
       <xi:include href="hw10-online.ptx" />
       <xi:include href="review4-practice.ptx" />
+      <xi:include href="exam3-review-session.ptx" />
+      <xi:include href="final-review-session.ptx" />
       <conclusion>
         <assemblage xml:id="assemblage-tutor-guide">
           <title>Using the AI Tutor</title>

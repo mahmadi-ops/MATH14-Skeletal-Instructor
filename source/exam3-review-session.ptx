@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Exam 3 Review Session: the slides of the in-class review, with their
+  worked solutions.
+
+  The deck is the instructor's own HTML file (math14-exam3-review-slides,
+  Nov 2026), unchanged, at assets/exam3-review-slides.html; it is served
+  from the external directory and embedded here in an iframe, the way
+  subsec-brain-map.ptx embeds the brain map, with a link to open it full
+  size.  Six problems (substitution and the Jacobian, mass and center of
+  mass, Green's theorem, flux through a surface, Stokes' theorem, and
+  reasoning without computing), each followed by its solution slides.
+  The solutions are posted, so the full deck is the same in every book.
+
+  The "sec-exercises-" id prefix lets assets/unnumbered-chapter.css hide
+  its number like the rest of the chapter.  Included at the end of the
+  assignments chapter of the skeletal book (MATH14-Skeletal), the
+  skeletal instructor book and the completed instructor book; the three
+  copies are identical.
+-->
+<section xml:id="sec-exercises-exam3-review-session" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Exam 3 Review Session</title>
+
+  <p>
+    The slides of the Exam 3 review session, with worked solutions. Six
+    problems: substitution and the Jacobian, mass and center of mass,
+    Green's theorem, flux through a surface, Stokes' theorem, and a
+    question to answer without computing. Sections:
+    <xref ref="section-mass-center-of-mass" text="title"/>,
+    <xref ref="section-jacobian-substitution" text="title"/>,
+    <xref ref="section-surface-integrals" text="title"/>,
+    <xref ref="section-greens-theorem" text="title"/>, and
+    <xref ref="section-stokes-theorem" text="title"/>.
+  </p>
+  <p>
+    Try each problem before you look at its solution. In the slides,
+    <q>Next</q> (or the right arrow key) reveals a solution one step at a
+    time, and <q>Read all</q> shows every slide on one scrolling page.
+    For comfortable reading,
+    <url href="external/exam3-review-slides.html" visual="">open the slides full size in a new tab</url>.
+  </p>
+
+  <interactive xml:id="interactive-exam3-review-slides" iframe="exam3-review-slides.html" width="100%" aspect="4:3">
+    <instructions>
+      <p>
+        One problem per slide, followed by its solution. <q>Next</q> and
+        <q>Back</q> move through the slides and the steps of a solution;
+        <q>Read all</q> stacks every slide on one page.
+      </p>
+    </instructions>
+    <static>
+      <p>Slides of the Exam 3 review session (view in the HTML version).</p>
+    </static>
+  </interactive>
+
+</section>

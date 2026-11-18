@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Final Exam Review: the slides of the two in-class review sessions.
+
+  The deck is the instructor's own HTML file (math14-final-review-slides,
+  Nov 2026), at assets/final-review-slides.html; it is served from the
+  external directory and embedded here in an iframe, the way
+  subsec-brain-map.ptx embeds the brain map, with a link to open it full
+  size.  Two sessions of six problems each, every problem followed by its
+  solution slides.
+
+  This repository carries the full deck, with solutions.  The student
+  skeletal site (MATH14-Skeletal) has a problems-only copy until the
+  solutions are released; see the comment in its copy of this file.
+
+  The "sec-exercises-" id prefix lets assets/unnumbered-chapter.css hide
+  its number like the rest of the chapter.  Included at the end of the
+  assignments chapter, after the Exam 3 Review Session.
+-->
+<section xml:id="sec-exercises-final-review-session" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Final Exam Review</title>
+
+  <p>
+    The slides of the final exam review, in two sessions of six problems
+    each: Session 1 (Problems 1 to 6) on curves, line integrals and
+    multiple integrals, and Session 2 (Problems 7 to 12) on applications
+    and the big theorems.
+  </p>
+  <p>
+    Try each problem before you look at its solution. In the slides, <q>Next</q> (or the right arrow key) moves on
+    one slide or one step at a time, and <q>Read all</q> shows every slide
+    on one scrolling page. For comfortable reading,
+    <url href="external/final-review-slides.html" visual="">open the slides full size in a new tab</url>.
+  </p>
+
+  <interactive xml:id="interactive-final-review-slides" iframe="final-review-slides.html" width="100%" aspect="4:3">
+    <instructions>
+      <p>
+        One problem per slide. <q>Next</q> and <q>Back</q> move through
+        the slides; <q>Read all</q> stacks every slide on one page.
+      </p>
+    </instructions>
+    <static>
+      <p>Slides of the final exam review (view in the HTML version).</p>
+    </static>
+  </interactive>
+
+</section>
