@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-polar-negative-r-figure" speech2="A ray from the origin at angle theta with the point r comma theta marked on it, and the dashed opposite ray at angle theta plus pi with the point negative r comma theta marked on it. Two reddish purple arcs mark the angles theta and theta plus pi.">
+      <grouped>prefigure-polar-negative-r-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-polar-negative-r-nr-ray</active>
+        <active>prefigure-polar-negative-r-nr-opposite</active>
+      </children>
+      <components>
+        <active>prefigure-polar-negative-r-nr-ray</active>
+        <active>prefigure-polar-negative-r-nr-opposite</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-polar-negative-r-nr-ray" speech2="The ray at angle theta, containing the point with positive first coordinate r.">
+      <active>prefigure-polar-negative-r-nr-ray</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-polar-negative-r-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-negative-r-nr-opposite" speech2="The dashed opposite ray, at angle theta plus pi. The point negative r comma theta lies on this ray, at distance r from the origin.">
+      <active>prefigure-polar-negative-r-nr-opposite</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-polar-negative-r-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

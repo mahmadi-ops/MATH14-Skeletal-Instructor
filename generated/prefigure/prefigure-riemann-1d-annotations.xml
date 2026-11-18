@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-riemann-1d-figure" speech2="The graph of a wavy function y equals f of x above the interval from a to b on the x axis. The area under the curve is approximated by eight tan rectangles of equal width delta x, whose tops nearly follow the curve. In one typical rectangle, the sample point x i star is marked on the x axis and a dashed green segment of length f of x i star rises from it to the top of the rectangle, showing that f of x i star is the height of the rectangle.">
+      <grouped>prefigure-riemann-1d-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-riemann-1d-r1-curve</active>
+        <active>prefigure-riemann-1d-r1-rect4</active>
+        <active>prefigure-riemann-1d-r1-xi</active>
+        <active>prefigure-riemann-1d-r1-height</active>
+        <active>prefigure-riemann-1d-r1-a</active>
+        <active>prefigure-riemann-1d-r1-b</active>
+      </children>
+      <components>
+        <active>prefigure-riemann-1d-r1-curve</active>
+        <active>prefigure-riemann-1d-r1-rect4</active>
+        <active>prefigure-riemann-1d-r1-xi</active>
+        <active>prefigure-riemann-1d-r1-height</active>
+        <active>prefigure-riemann-1d-r1-a</active>
+        <active>prefigure-riemann-1d-r1-b</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-riemann-1d-r1-curve" speech2="The curve y equals f of x, drawn in vermillion.">
+      <active>prefigure-riemann-1d-r1-curve</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-riemann-1d-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-riemann-1d-r1-rect4" speech2="A typical rectangle. Its width is delta x and its height is f of x i star, the value of f at the sample point x i star.">
+      <active>prefigure-riemann-1d-r1-rect4</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-riemann-1d-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-riemann-1d-r1-xi" speech2="The sample point x i star, marked on the x axis inside the i-th subinterval.">
+      <active>prefigure-riemann-1d-r1-xi</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-riemann-1d-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-riemann-1d-r1-height" speech2="A dashed green segment from x i star on the x axis up to the top of the rectangle. Its length, f of x i star, is the height of the rectangle.">
+      <active>prefigure-riemann-1d-r1-height</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-riemann-1d-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-riemann-1d-r1-a" speech2="The left endpoint a of the interval.">
+      <active>prefigure-riemann-1d-r1-a</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-riemann-1d-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-riemann-1d-r1-b" speech2="The right endpoint b of the interval.">
+      <active>prefigure-riemann-1d-r1-b</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-riemann-1d-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

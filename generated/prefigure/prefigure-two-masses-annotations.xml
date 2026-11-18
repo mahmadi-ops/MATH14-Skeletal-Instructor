@@ -1,0 +1,75 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-two-masses-figure" speech2="Coordinate axes with two masses: m one, a vermillion dot in the upper left, and m two, a larger blue dot to its lower right. Dotted arrows from the origin to each mass are the position vectors r one and r two, and a thick arrow pointing straight down from each mass is the net force on it, F one and F two. A maroon dot on the dashed segment joining the two masses, closer to m two, is the center of mass.">
+      <grouped>prefigure-two-masses-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-two-masses-tm-m1</active>
+        <active>prefigure-two-masses-tm-m2</active>
+        <active>prefigure-two-masses-tm-r1</active>
+        <active>prefigure-two-masses-tm-r2</active>
+        <active>prefigure-two-masses-tm-F1</active>
+        <active>prefigure-two-masses-tm-F2</active>
+        <active>prefigure-two-masses-tm-cm</active>
+      </children>
+      <components>
+        <active>prefigure-two-masses-tm-m1</active>
+        <active>prefigure-two-masses-tm-m2</active>
+        <active>prefigure-two-masses-tm-r1</active>
+        <active>prefigure-two-masses-tm-r2</active>
+        <active>prefigure-two-masses-tm-F1</active>
+        <active>prefigure-two-masses-tm-F2</active>
+        <active>prefigure-two-masses-tm-cm</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-two-masses-tm-m1" speech2="The mass m one at the point r one.">
+      <active>prefigure-two-masses-tm-m1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-two-masses-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-two-masses-tm-m2" speech2="The mass m two, twice as heavy as m one, at the point r two.">
+      <active>prefigure-two-masses-tm-m2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-two-masses-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-two-masses-tm-r1" speech2="The position vector r one, drawn dotted from the origin to m one.">
+      <active>prefigure-two-masses-tm-r1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-two-masses-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-two-masses-tm-r2" speech2="The position vector r two, drawn dotted from the origin to m two.">
+      <active>prefigure-two-masses-tm-r2</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-two-masses-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-two-masses-tm-F1" speech2="The net force F one on m one, an arrow pointing straight down.">
+      <active>prefigure-two-masses-tm-F1</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-two-masses-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-two-masses-tm-F2" speech2="The net force F two on m two, an arrow pointing straight down.">
+      <active>prefigure-two-masses-tm-F2</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-two-masses-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-two-masses-tm-cm" speech2="The center of mass, a maroon dot on the segment between the two masses, two thirds of the way from m one to m two.">
+      <active>prefigure-two-masses-tm-cm</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-two-masses-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

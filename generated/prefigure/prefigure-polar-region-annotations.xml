@@ -1,0 +1,39 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-polar-region-figure" speech2="A region R in the first quadrant bounded by two circular arcs of radii a and b and two rays at angles alpha and beta. The region looks like a slice of a washer and is shaded tan.">
+      <grouped>prefigure-polar-region-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-polar-region-pr-region</active>
+        <active>prefigure-polar-region-pr-outer</active>
+        <active>prefigure-polar-region-pr-inner</active>
+      </children>
+      <components>
+        <active>prefigure-polar-region-pr-region</active>
+        <active>prefigure-polar-region-pr-outer</active>
+        <active>prefigure-polar-region-pr-inner</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-polar-region-pr-region" speech2="The polar region R, bounded by the arcs r equals a and r equals b and the rays theta equals alpha and theta equals beta.">
+      <active>prefigure-polar-region-pr-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-polar-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-region-pr-outer" speech2="The outer arc r equals b.">
+      <active>prefigure-polar-region-pr-outer</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-polar-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-polar-region-pr-inner" speech2="The inner arc r equals a.">
+      <active>prefigure-polar-region-pr-inner</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-polar-region-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

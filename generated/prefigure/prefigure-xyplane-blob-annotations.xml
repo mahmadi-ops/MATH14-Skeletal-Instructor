@@ -1,0 +1,30 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-xyplane-blob-figure" speech2="A blob-shaped region R, shaded blue, in the x y plane. A point labeled x 1 comma y 1 is marked inside the region. It is the image of the region S under the transformation T.">
+      <grouped>prefigure-xyplane-blob-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-xyplane-blob-xy-blob</active>
+        <active>prefigure-xyplane-blob-xy-point</active>
+      </children>
+      <components>
+        <active>prefigure-xyplane-blob-xy-blob</active>
+        <active>prefigure-xyplane-blob-xy-point</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-xyplane-blob-xy-blob" speech2="The region R in the x y plane, the image of S under the transformation T.">
+      <active>prefigure-xyplane-blob-xy-blob</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-xyplane-blob-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-xyplane-blob-xy-point" speech2="The image point x 1 comma y 1, corresponding to u 1 comma v 1.">
+      <active>prefigure-xyplane-blob-xy-point</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-xyplane-blob-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,84 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-unit-normal-circle-figure" speech2="The unit circle C drawn in teal around the shaded disk R, with three arrowheads on it showing that the path runs counterclockwise. At three points of the circle a pink unit tangent vector T and a green unit normal vector n start from the same point; a small square marks the right angle between them. Every T points in the direction of travel, and every n is on the right of the direction of travel, pointing straight away from the center, out of the disk.">
+      <grouped>prefigure-unit-normal-circle-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-unit-normal-circle-un-disk</active>
+        <active>prefigure-unit-normal-circle-un-dir-1</active>
+        <active>prefigure-unit-normal-circle-un-T-1</active>
+        <active>prefigure-unit-normal-circle-un-n-1</active>
+        <active>prefigure-unit-normal-circle-un-T-2</active>
+        <active>prefigure-unit-normal-circle-un-n-2</active>
+        <active>prefigure-unit-normal-circle-un-T-3</active>
+        <active>prefigure-unit-normal-circle-un-n-3</active>
+      </children>
+      <components>
+        <active>prefigure-unit-normal-circle-un-disk</active>
+        <active>prefigure-unit-normal-circle-un-dir-1</active>
+        <active>prefigure-unit-normal-circle-un-T-1</active>
+        <active>prefigure-unit-normal-circle-un-n-1</active>
+        <active>prefigure-unit-normal-circle-un-T-2</active>
+        <active>prefigure-unit-normal-circle-un-n-2</active>
+        <active>prefigure-unit-normal-circle-un-T-3</active>
+        <active>prefigure-unit-normal-circle-un-n-3</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-disk" speech2="The unit circle C, traversed counterclockwise, enclosing the disk R.">
+      <active>prefigure-unit-normal-circle-un-disk</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-dir-1" speech2="An arrowhead on the circle near the top, pointing to the left: the path runs counterclockwise.">
+      <active>prefigure-unit-normal-circle-un-dir-1</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-T-1" speech2="At the point at angle pi over 6, the unit tangent T points up and to the left, along the direction of travel.">
+      <active>prefigure-unit-normal-circle-un-T-1</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-n-1" speech2="At the same point, the outward unit normal n points away from the center, up and to the right.">
+      <active>prefigure-unit-normal-circle-un-n-1</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-T-2" speech2="At the point at angle 5 pi over 6, the unit tangent T points down and to the left.">
+      <active>prefigure-unit-normal-circle-un-T-2</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-n-2" speech2="At the same point, the outward unit normal n points away from the center, up and to the left.">
+      <active>prefigure-unit-normal-circle-un-n-2</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-T-3" speech2="At the point at angle 5 pi over 3, the unit tangent T points up and to the right.">
+      <active>prefigure-unit-normal-circle-un-T-3</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-unit-normal-circle-un-n-3" speech2="At the same point, the outward unit normal n points away from the center, down and to the right.">
+      <active>prefigure-unit-normal-circle-un-n-3</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-unit-normal-circle-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

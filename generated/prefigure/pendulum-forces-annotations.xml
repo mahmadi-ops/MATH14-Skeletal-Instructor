@@ -1,0 +1,78 @@
+<diagram>
+  <annotations>
+    <annotation id="pendulum-forces-figure" speech2="A pendulum bob of mass m on a cord of length ell,                                     pulled aside by a horizontal force. The bob moves                                     along a circular arc from its lowest point A to the                                     point B where the cord makes the angle theta zero                                     with the vertical">
+      <grouped>pendulum-forces-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>pendulum-forces-support</active>
+        <active>pendulum-forces-axes</active>
+        <active>pendulum-forces-swing</active>
+        <active>pendulum-forces-path</active>
+        <active>pendulum-forces-cord</active>
+        <active>pendulum-forces-forces</active>
+        <active>pendulum-forces-bob</active>
+      </children>
+      <components>
+        <active>pendulum-forces-support</active>
+        <active>pendulum-forces-axes</active>
+        <active>pendulum-forces-swing</active>
+        <active>pendulum-forces-path</active>
+        <active>pendulum-forces-cord</active>
+        <active>pendulum-forces-forces</active>
+        <active>pendulum-forces-bob</active>
+      </components>
+    </annotation>
+    <annotation id="pendulum-forces-support" speech2="The ceiling, with the pivot of the cord and a dashed                                       vertical line hanging from it">
+      <active>pendulum-forces-support</active>
+      <position>1</position>
+      <parents>
+        <grouped>pendulum-forces-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="pendulum-forces-axes" speech2="The x axis pointing right and the y axis pointing                                       up, with the origin at the lowest position A of the                                       bob">
+      <active>pendulum-forces-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>pendulum-forces-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="pendulum-forces-swing" speech2="A dashed arc of the circle of radius ell about the                                       pivot, on which the bob must stay">
+      <active>pendulum-forces-swing</active>
+      <position>3</position>
+      <parents>
+        <grouped>pendulum-forces-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="pendulum-forces-path" speech2="The path C, the part of that arc from A, where theta                                       is zero, up to B, where theta is theta zero, with an                                       arrowhead showing the direction of motion" sonify="yes">
+      <active>pendulum-forces-path</active>
+      <position>4</position>
+      <parents>
+        <grouped>pendulum-forces-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>pendulum-forces-path</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="pendulum-forces-cord" speech2="The cord of length ell from the pivot to the bob,                                       making the angle theta with the vertical">
+      <active>pendulum-forces-cord</active>
+      <position>5</position>
+      <parents>
+        <grouped>pendulum-forces-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="pendulum-forces-forces" speech2="The three forces on the bob: the horizontal force F                                       pointing right, the gravitational force F G pointing                                       straight down, and the force F T of the cord,                                       pointing along the cord toward the pivot">
+      <active>pendulum-forces-forces</active>
+      <position>6</position>
+      <parents>
+        <grouped>pendulum-forces-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="pendulum-forces-bob" speech2="The bob, partway along the path">
+      <active>pendulum-forces-bob</active>
+      <position>7</position>
+      <parents>
+        <grouped>pendulum-forces-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

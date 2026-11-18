@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-simply-connected-figure" width="320" height="280" viewBox="0 0 320 280">
+  <defs>
+    <clipPath id="prefigure-simply-connected-__clipPath-0">
+      <rect x="10.0" y="10.0" width="300.0" height="260.0"/>
+    </clipPath>
+    <clipPath id="prefigure-simply-connected-__clipPath-1">
+      <rect x="10.0" y="10.0" width="300.0" height="260.0"/>
+    </clipPath>
+    <marker id="prefigure-simply-connected-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-simply-connected-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-simply-connected-arrow-head-start-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="2.5" refY="4.0">
+      <g transform="rotate(180, 4.5, 4.0)">
+        <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-simply-connected-arrow-head-start-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="4.5" refY="6.0">
+      <g transform="rotate(180, 6.5, 6.0)">
+        <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="prefigure-simply-connected-sc-axes" stroke="black" stroke-width="2">
+    <line id="prefigure-simply-connected-__line-0" x1="10.0" y1="155.6" x2="310.0" y2="155.6" stroke="black" stroke-width="2" marker-end="url(#prefigure-simply-connected-arrow-head-end-2_None_24_60-black)"/>
+    <line id="prefigure-simply-connected-__line-1" x1="160.0" y1="270.0" x2="160.0" y2="10.0" stroke="black" stroke-width="2" marker-end="url(#prefigure-simply-connected-arrow-head-end-2_None_24_60-black)"/>
+  </g>
+  <g id="prefigure-simply-connected-__label-0" transform="translate(304.0,149.6) translate(-10.4,-8.2)">
+    <g id="prefigure-simply-connected-__g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px" width="10.352px" height="8.200px" role="img" focusable="false" viewBox="0 -442 572 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-simply-connected-MJX-2-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="x">
+              <use data-c="1D465" xlink:href="#prefigure-simply-connected-MJX-2-TEX-I-1D465"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-simply-connected-__label-1" transform="translate(166.0,16.0) translate(0.0,-0.0)">
+    <g id="prefigure-simply-connected-__g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -3.712px" width="8.872px" height="11.712px" role="img" focusable="false" viewBox="0 -442 490 647" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-simply-connected-MJX-3-TEX-I-1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="y">
+              <use data-c="1D466" xlink:href="#prefigure-simply-connected-MJX-3-TEX-I-1D466"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <path id="prefigure-simply-connected-sc-region" d="M 263.4 134.8 L 265.1 132.1 L 266.5 129.3 L 267.7 126.4 L 268.7 123.5 L 269.3 120.6 L 269.7 117.7 L 269.8 114.8 L 269.7 112.0 L 269.3 109.2 L 268.7 106.4 L 267.8 103.8 L 266.7 101.2 L 265.4 98.8 L 263.9 96.5 L 262.1 94.4 L 260.2 92.4 L 258.2 90.7 L 255.9 89.1 L 253.6 87.8 L 251.1 86.6 L 248.6 85.7 L 245.9 85.0 L 243.2 84.5 L 240.4 84.2 L 237.6 84.2 L 234.7 84.3 L 231.8 84.7 L 228.9 85.3 L 226.1 86.0 L 223.2 86.9 L 220.3 88.0 L 217.5 89.2 L 214.6 90.4 L 211.8 91.8 L 209.1 93.3 L 206.3 94.8 L 203.6 96.3 L 200.9 97.8 L 198.2 99.3 L 195.6 100.7 L 193.0 102.1 L 190.4 103.4 L 187.8 104.6 L 185.3 105.7 L 182.8 106.6 L 180.2 107.4 L 177.7 108.0 L 175.3 108.4 L 170.3 108.8 L 165.5 108.4 L 160.8 107.4 L 156.2 105.7 L 151.8 103.4 L 147.7 100.7 L 143.8 97.8 L 140.2 94.8 L 137.1 91.8 L 134.3 89.2 L 132.0 86.9 L 130.0 85.3 L 128.5 84.3 L 127.3 84.2 L 126.3 85.0 L 125.6 86.6 L 124.9 89.1 L 124.3 92.4 L 123.5 96.5 L 122.5 101.2 L 121.8 103.8 L 121.1 106.4 L 120.3 109.2 L 119.4 112.0 L 118.4 114.8 L 117.3 117.7 L 116.1 120.6 L 114.7 123.5 L 113.2 126.4 L 111.7 129.3 L 110.0 132.1 L 108.3 134.8 L 106.5 137.5 L 104.6 140.0 L 102.6 142.5 L 100.7 144.9 L 98.7 147.1 L 96.7 149.3 L 94.8 151.3 L 92.9 153.2 L 89.3 156.7 L 86.2 159.7 L 83.8 162.4 L 82.2 164.7 L 81.5 166.7 L 81.8 168.5 L 83.3 170.1 L 85.9 171.7 L 89.6 173.2 L 91.9 173.9 L 94.4 174.7 L 97.2 175.4 L 100.2 176.2 L 103.4 176.9 L 106.7 177.7 L 110.3 178.5 L 113.9 179.2 L 117.7 180.0 L 121.6 180.7 L 125.5 181.4 L 129.4 182.1 L 133.4 182.8 L 137.3 183.4 L 141.2 184.0 L 145.0 184.6 L 148.7 185.1 L 152.3 185.5 L 155.7 185.9 L 159.0 186.2 L 162.1 186.5 L 165.1 186.7 L 167.8 186.8 L 170.3 186.8 L 174.8 186.7 L 178.5 186.2 L 181.4 185.5 L 183.6 184.6 L 185.3 183.4 L 186.6 182.1 L 187.6 180.7 L 188.7 179.2 L 189.9 177.7 L 191.4 176.2 L 193.3 174.7 L 195.8 173.2 L 199.0 171.7 L 202.8 170.1 L 207.3 168.5 L 209.8 167.6 L 212.5 166.7 L 215.2 165.7 L 218.1 164.7 L 221.1 163.5 L 224.2 162.4 L 227.3 161.1 L 230.5 159.7 L 233.7 158.3 L 236.9 156.7 L 240.1 155.0 L 243.2 153.2 L 246.2 151.3 L 249.1 149.3 L 251.9 147.1 L 254.6 144.9 L 257.1 142.5 L 259.4 140.0 L 261.5 137.5 L 263.4 134.8 Z" stroke="#56B4E9" stroke-width="2" fill="#f4e3c1" clip-path="url(#prefigure-simply-connected-__clipPath-1)"/>
+  <g id="prefigure-simply-connected-sc-label" transform="translate(237.6,250.6) translate(-62.6,-0.0)">
+    <g id="prefigure-simply-connected-__g-2">
+      <text font-family="sans-serif" font-size="14" x="0.0" y="10.6">Simply connected</text>
+    </g>
+  </g>
+</svg>

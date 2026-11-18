@@ -1,0 +1,52 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-rect-R-figure" speech2="The unit square R, shaded blue, with corners at the origin and 1 comma 1 in the x y plane.">
+      <grouped>prefigure-rect-R-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rect-R-grid-axes</active>
+        <active>prefigure-rect-R-rr-square</active>
+      </children>
+      <components>
+        <active>prefigure-rect-R-grid-axes</active>
+        <active>prefigure-rect-R-rr-square</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-rect-R-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>prefigure-rect-R-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rect-R-grid</active>
+        <active>prefigure-rect-R-axes</active>
+      </children>
+      <components>
+        <active>prefigure-rect-R-grid</active>
+        <active>prefigure-rect-R-axes</active>
+      </components>
+      <parents>
+        <grouped>prefigure-rect-R-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rect-R-grid" speech2="The coordinate grid">
+      <active>prefigure-rect-R-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-rect-R-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rect-R-axes" speech2="The coordinate axes">
+      <active>prefigure-rect-R-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rect-R-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rect-R-rr-square" speech2="The unit square R, the image of the rectangle S under the transformation.">
+      <active>prefigure-rect-R-rr-square</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rect-R-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

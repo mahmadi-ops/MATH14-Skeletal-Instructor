@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limits of integration for the ice cream cone</title>
+<!-- The animated companion of fig-icecream-tikz in "Triple Integrals in
+     Spherical Coordinates" (Example III): the ice cream cone D inside the
+     sphere rho = 1 and above the cone phi = pi/3, built the way the
+     iterated integral
+         V = int_0^{2 pi} int_0^{pi/3} int_0^1 rho^2 sin(phi) drho dphi dtheta
+     sweeps it, from the inside out.
+
+       rho   (yellow) a ray at fixed theta and phi runs from 0 at the
+             origin out to 1 on the sphere;
+       phi   (red)    the ray tilts from 0 on the z-axis down to pi/3 on
+             the cone, and the rays fill a flat fan;
+       theta (blue)   the fan turns from 0 to 2 pi about the z-axis and
+             sweeps out the solid.
+
+     The three sliders are the sweep's progress, in the order of the
+     integral: everything with theta below the theta slider is drawn as
+     solid, the fan at that theta is drawn for phi below the phi slider,
+     and the ray at that theta and phi is drawn out to the rho slider.  The
+     card shows the integral with each pair of limits in its sweep's
+     colour.  Faint lines show the two bounding surfaces throughout.
+
+     SKELETAL (below) is false in the completed books and true in the
+     skeletal ones, where Example III's solution is the student's: there
+     the card shows the integral with empty boxes for the limits and
+     describes each sweep in words, and the tour never states a limit.
+
+     Same three.js stage, palette and controls as sphere-patch-manim.html,
+     tetrahedron-manim.html and wall-area-manim.html. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+  :root {
+    --bg:        #06070a;
+    --panel:     #101218;
+    --edge:      #262a36;
+    --ink:       #ece6e2;
+    --dim:       #9aa0ad;
+    --blue:      #58c4dd;   /* theta */
+    --red:       #fc6255;   /* phi */
+    --green:     #83c167;   /* the cone */
+    --yellow:    #ffe14d;   /* rho */
+    --violet:    #caa3e8;
+    --sans:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "PT Serif", "Times New Roman", Times, serif;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); }
+  body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  #app { width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
+
+  #stage { position: relative; width: 100%; background: var(--bg); flex: 1 1 auto; min-height: 0; overflow: hidden; }
+  canvas { display: block; cursor: grab; }
+  canvas:active { cursor: grabbing; }
+  .overlay { position: absolute; pointer-events: none; }
+
+  #eqcard {
+    top: 12px; left: 14px;
+    padding: 8px 13px 9px 13px;
+    background: rgba(16,18,24,0.72);
+    border: 1px solid var(--edge);
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    line-height: 1.45;
+  }
+  .math { font-family: var(--serif); font-size: 18.5px; }
+  .math i { font-style: italic; }
+  .math sup { font-size: 72%; vertical-align: 0.5em; line-height: 0; }
+  #eqcard .line { white-space: nowrap; }
+  #eqcard .note { font-family: var(--sans); font-size: 12.5px; color: var(--dim); }
+  /* skeletal: an empty box where a limit goes */
+  .blank { display: inline-block; width: 1.5em; height: 0.95em; border: 1px dashed currentColor; border-radius: 2px;
+           vertical-align: middle; opacity: 0.85; margin: 1px 0; }
+  /* an integral sign with its limits stacked on it */
+  .int { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle;
+         margin: 0 1px; padding: 0 2px; border-radius: 4px; transition: background .3s, opacity .3s; }
+  .int .lim { font-size: 13.5px; line-height: 1.05; }
+  .int .sym { font-size: 27px; line-height: 0.95; font-style: normal; }
+  .int.on { background: rgba(236,230,226,0.10); }
+  .sweep { transition: opacity .3s; }
+  .sweep.off, .int.off { opacity: 0.5; }
+
+  #caption {
+    left: 50%; transform: translateX(-50%);
+    bottom: 14px; max-width: 76%;
+    text-align: center; font-size: 16px; line-height: 1.45;
+    background: rgba(6,7,10,0.84);
+    padding: 7px 14px; border-radius: 6px;
+    opacity: 0; transition: opacity .45s ease;
+  }
+  #caption.show { opacity: 1; }
+  #caption .m { font-family: var(--serif); font-size: 17px; }
+
+  #panel { flex: 0 0 auto; border-top: 1px solid var(--edge); background: var(--panel);
+           padding: 9px 12px 11px 12px; box-sizing: border-box; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .row + .row { margin-top: 9px; }
+  .slider { display: inline-flex; align-items: center; gap: 6px; flex: 1 1 150px; min-width: 120px; }
+  .slider span { font-family: var(--serif); font-size: 15px; white-space: nowrap; }
+  input[type=range] { -webkit-appearance: none; appearance: none; flex: 1 1 auto; min-width: 60px;
+                      height: 4px; border-radius: 2px; background: #2a2f3c; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px;
+                      border-radius: 50%; background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 13px; height: 13px; border-radius: 50%;
+                      background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+
+  button { font: inherit; font-size: 13.5px; padding: 5px 12px; border-radius: 999px;
+           color: var(--ink); background: #1a1d26; border: 1px solid var(--edge);
+           cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
+  button:hover { background: #232734; }
+  #btnTour.running { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
+  #btnBounds.active { background: var(--green);  border-color: var(--green);  color: #06070a; font-weight: 600; }
+  #btnAngles.active { background: var(--red);    border-color: var(--red);    color: #06070a; font-weight: 600; }
+  #btnSpin.active   { background: var(--blue);   border-color: var(--blue);   color: #06070a; font-weight: 600; }
+  #btnFull.active   { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
+
+  @media (max-width: 560px) {
+    #eqcard { position: static; padding: 6px 12px 7px 12px; border: none; border-bottom: 1px solid var(--edge);
+              border-radius: 0; background: var(--panel); line-height: 1.3; }
+    .math { font-size: 15.5px; }
+    #eqcard .note { display: none; }
+    #panel { padding: 7px 10px 8px 10px; }
+    .row + .row { margin-top: 7px; }
+    .long { display: none; }
+    button { font-size: 13px; padding: 4px 10px; }
+    #caption { font-size: 13px; max-width: 92%; bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="eqcard" class="overlay math"></div>
+    <div id="caption" class="overlay"></div>
+  </div>
+
+  <div id="panel">
+    <div class="row">
+      <label class="slider" title="The inner sweep: how far the ray runs out from the origin">
+        <span><i>ρ</i></span><input id="sRho" type="range" min="0" max="1000" style="--c:#ffe14d"></label>
+      <label class="slider" title="The middle sweep: how far the ray has tilted down from the z-axis">
+        <span><i>φ</i></span><input id="sPhi" type="range" min="0" max="1000" style="--c:#fc6255"></label>
+      <label class="slider" title="The outer sweep: how far the fan has turned about the z-axis">
+        <span><i>θ</i></span><input id="sTheta" type="range" min="0" max="1000" style="--c:#58c4dd"></label>
+    </div>
+    <div class="row">
+      <button id="btnTour" aria-label="Play the guided tour" title="Build the ice cream cone one sweep at a time">&#9654;<span class="long">&nbsp;Play</span></button>
+      <button id="btnBounds" class="active" title="The sphere and the cone that bound the solid">Surfaces</button>
+      <button id="btnAngles" class="active" title="The angles φ and θ of the ray">Angles</button>
+      <button id="btnSpin">Spin</button>
+      <span style="flex:1"></span>
+      <button id="btnFull" aria-label="Full screen" title="Show the figure full screen">&#x26F6;<span class="long">&nbsp;Full screen</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // false in the completed notes; true in the skeletal notes, where the limits are left for the
+  // student (see the top)
+  var SKELETAL = true;
+
+  var BLUE_C = 0x58c4dd, RED_C = 0xfc6255, GREEN_C = 0x83c167, YELLOW_C = 0xffe14d, GREY = 0x8a8f9c, INK_C = 0xece6e2;
+  var PHI_MAX = Math.PI / 3, TAU = 2 * Math.PI;
+
+  function U(t, p) { return new THREE.Vector3(Math.sin(p) * Math.cos(t), Math.sin(p) * Math.sin(t), Math.cos(p)); }
+
+  // every animated quantity moves toward its target in frame(); the three sweeps
+  // at a capped speed, so that the tour's sweeps run evenly
+  var S = {
+    rho:    { v: 1, t: 1, k: 6, max: 0.6 },
+    phi:    { v: PHI_MAX, t: PHI_MAX, k: 6, max: 0.45 },
+    theta:  { v: 1.25 * Math.PI, t: 1.25 * Math.PI, k: 6, max: 1.45 },
+    solid:  { v: 1, t: 1, k: 5 },
+    fan:    { v: 1, t: 1, k: 5 },
+    ray:    { v: 1, t: 1, k: 5 },
+    bounds: { v: 1, t: 1, k: 5 },
+    angles: { v: 1, t: 1, k: 5 }
+  };
+
+  // ---------- renderer / scene ----------
+  var stage = document.getElementById("stage");
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  stage.appendChild(renderer.domElement);
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x06070a);
+  var camera = new THREE.PerspectiveCamera(32, 1, 0.01, 100);
+  camera.up.set(0, 0, 1);
+  scene.add(camera);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.62));
+  var key = new THREE.DirectionalLight(0xffffff, 0.55); key.position.set(0.4, 0.6, 1); camera.add(key);
+
+  var camTheta = -1.18, camPhi = 1.27;          // looking into the cut-away, a little from above
+  var TARGET = new THREE.Vector3(0, 0, 0.42);
+  var band = 1, aspect = 1, padPx = 0, canvasH = 1;
+
+  // ---------- text sprites ----------
+  var FONT = '"PT Serif", "Times New Roman", Times, serif';
+  var LABELS = [];
+  function paintLabel(rec) {
+    var s = 128, pad = 16, cv = document.createElement("canvas"), g = cv.getContext("2d");
+    function font(r) { return (r.i ? "italic " : "") + (r.b ? "700 " : "") + (r.sub ? "54px " : "80px ") + FONT; }
+    var w = 0;
+    rec.runs.forEach(function (r) { g.font = font(r); w += g.measureText(r.t).width + (r.sub ? 2 : 0); });
+    cv.width = Math.ceil(w) + 2 * pad; cv.height = s;
+    g = cv.getContext("2d"); g.textBaseline = "middle";
+    var x = pad;
+    rec.runs.forEach(function (r) {
+      g.font = font(r);
+      var y = r.sub ? s / 2 + 20 : r.sup ? s / 2 - 22 : s / 2, tw = g.measureText(r.t).width;
+      g.lineWidth = 14; g.strokeStyle = "rgba(6,7,10,0.85)"; g.lineJoin = "round"; g.strokeText(r.t, x, y);
+      g.fillStyle = rec.color; g.fillText(r.t, x, y);
+      x += tw + (r.sub ? 2 : 0);
+    });
+    var tex = new THREE.CanvasTexture(cv); tex.minFilter = THREE.LinearFilter;
+    if (rec.sprite.material.map) rec.sprite.material.map.dispose();
+    rec.sprite.material.map = tex; rec.sprite.material.needsUpdate = true;
+    rec.aspect = cv.width / s;
+    rec.sprite.scale.set(rec.size * rec.aspect, rec.size, 1);
+  }
+  function makeLabel(runs, color, size) {
+    var sp = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthTest: false }));
+    sp.renderOrder = 30;
+    var rec = { sprite: sp, runs: runs, color: color, size: size || 0.12, aspect: 1 };
+    LABELS.push(rec); paintLabel(rec); scene.add(sp);
+    return rec;
+  }
+  var it = function (t) { return { t: t, i: true }; };
+  var rm = function (t) { return { t: t }; };
+
+  // ---------- axes ----------
+  (function buildAxes() {
+    var mat = new THREE.LineBasicMaterial({ color: GREY, transparent: true, opacity: 0.75 });
+    var tipMat = new THREE.MeshBasicMaterial({ color: GREY });
+    [{ v: [1, 0, 0], r: [0, 0, -Math.PI / 2], t: "x", L: 1.18 }, { v: [0, 1, 0], r: [0, 0, 0], t: "y", L: 1.18 },
+     { v: [0, 0, 1], r: [Math.PI / 2, 0, 0], t: "z", L: 1.28 }].forEach(function (d) {
+      var v = new THREE.Vector3(d.v[0], d.v[1], d.v[2]);
+      scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), v.clone().multiplyScalar(d.L)]), mat));
+      var tip = new THREE.Mesh(new THREE.ConeGeometry(0.028, 0.09, 14), tipMat);
+      tip.position.copy(v.clone().multiplyScalar(d.L)); tip.rotation.set(d.r[0], d.r[1], d.r[2]); scene.add(tip);
+      var lab = makeLabel([it(d.t)], "#9aa0ad", 0.2);
+      lab.sprite.position.copy(v.clone().multiplyScalar(d.L + 0.15));
+    });
+  })();
+
+  // ---------- the bounding surfaces, faint: the sphere rho = 1 over the cap, and the cone phi = pi/3 ----------
+  var boundMats = [];
+  function ghostLine(pts, hex, op) {
+    var m = new THREE.LineBasicMaterial({ color: hex, transparent: true, opacity: op, depthWrite: false });
+    boundMats.push({ m: m, base: op });
+    var l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), m); l.renderOrder = 3; scene.add(l);
+  }
+  (function buildBounds() {
+    var k, j;
+    for (j = 0; j < 12; j++) {                       // meridians of the cap, and generators of the cone
+      var t = TAU * j / 12, cap = [], gen = [];
+      for (k = 0; k <= 20; k++) cap.push(U(t, PHI_MAX * k / 20).multiplyScalar(1.002));
+      ghostLine(cap, BLUE_C, 0.32);
+      gen.push(new THREE.Vector3(), U(t, PHI_MAX));
+      ghostLine(gen, GREEN_C, 0.32);
+    }
+    [PHI_MAX / 2].forEach(function (p) {
+      var par = []; for (k = 0; k <= 96; k++) par.push(U(TAU * k / 96, p).multiplyScalar(1.002)); ghostLine(par, BLUE_C, 0.32);
+    });
+    [0.5].forEach(function (r) {
+      var c = []; for (k = 0; k <= 96; k++) c.push(U(TAU * k / 96, PHI_MAX).multiplyScalar(r)); ghostLine(c, GREEN_C, 0.32);
+    });
+    var rim = []; for (k = 0; k <= 120; k++) rim.push(U(TAU * k / 120, PHI_MAX).multiplyScalar(1.003));
+    ghostLine(rim, INK_C, 0.55);
+  })();
+  var lSphere = makeLabel([it("ρ"), rm(" = 1")], "#58c4dd", 0.19);
+  var lCone = makeLabel([it("φ"), rm(" = π/3")], "#83c167", 0.19);
+  // both are placed on the screen in layoutLabels: the sphere's outside the cap's upper right
+  // outline, the cone's below the cone on the side facing the viewer
+
+  // ---------- the swept solid, the fan and the ray ----------
+  // translucent, as in the static figure, so that the cone shows through the cap
+  var SOLID_OP = { cap: 0.5, cone: 0.62, cut: 0.5 };
+  function lambert(hex, op) {
+    return new THREE.MeshLambertMaterial({ color: hex, side: THREE.DoubleSide, transparent: true, opacity: op, depthWrite: false });
+  }
+  var coneMat = lambert(GREEN_C, SOLID_OP.cone), cutMat = lambert(0x3a8fa6, SOLID_OP.cut), capMat = lambert(BLUE_C, SOLID_OP.cap);
+  var cone = new THREE.Mesh(new THREE.BufferGeometry(), coneMat), cut = new THREE.Mesh(new THREE.BufferGeometry(), cutMat),
+      cap = new THREE.Mesh(new THREE.BufferGeometry(), capMat);
+  cone.renderOrder = 3; cut.renderOrder = 4; cap.renderOrder = 5;
+  [cone, cut, cap].forEach(function (m) { scene.add(m); });
+  var rimLine = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: INK_C, transparent: true, opacity: 0.9 }));
+  rimLine.renderOrder = 6; scene.add(rimLine);
+  var fanMat = new THREE.MeshBasicMaterial({ color: RED_C, side: THREE.DoubleSide, transparent: true, opacity: 0.78,
+    depthWrite: false, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 });
+  var fan = new THREE.Mesh(new THREE.BufferGeometry(), fanMat); fan.renderOrder = 6; scene.add(fan);
+  var fanEdge = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: RED_C, transparent: true, opacity: 1 }));
+  fanEdge.renderOrder = 7; scene.add(fanEdge);
+
+  var _y = new THREE.Vector3(0, 1, 0);
+  var rayMat = new THREE.MeshBasicMaterial({ color: YELLOW_C, transparent: true, opacity: 1, depthTest: false });
+  var ray = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 1, 12), rayMat); ray.renderOrder = 20; scene.add(ray);
+  var rayTip = new THREE.Mesh(new THREE.SphereGeometry(1, 18, 18), rayMat); rayTip.renderOrder = 21; scene.add(rayTip);
+  var origin = new THREE.Mesh(new THREE.SphereGeometry(0.022, 16, 16), new THREE.MeshBasicMaterial({ color: INK_C, depthTest: false }));
+  origin.renderOrder = 21; scene.add(origin);
+  var lRho = makeLabel([it("ρ")], "#ffe14d", 0.21);
+
+  // the angles: phi from the z-axis to the ray, theta from the x-axis to its shadow in the xy-plane
+  var angMat = { phi: new THREE.LineBasicMaterial({ color: RED_C, transparent: true, opacity: 1, depthTest: false }),
+                 theta: new THREE.LineBasicMaterial({ color: BLUE_C, transparent: true, opacity: 1, depthTest: false }),
+                 shadow: new THREE.LineDashedMaterial({ color: INK_C, dashSize: 0.035, gapSize: 0.03, transparent: true, opacity: 0.6, depthTest: false }) };
+  var arcPhi = new THREE.Line(new THREE.BufferGeometry(), angMat.phi), arcTheta = new THREE.Line(new THREE.BufferGeometry(), angMat.theta),
+      shadow = new THREE.Line(new THREE.BufferGeometry(), angMat.shadow);
+  [arcPhi, arcTheta, shadow].forEach(function (l) { l.renderOrder = 22; scene.add(l); });
+  var lPhi = makeLabel([it("φ")], "#fc6255", 0.21), lTheta = makeLabel([it("θ")], "#58c4dd", 0.21);
+  var AXIS_LABELS = LABELS.slice(0, 3);
+  var R_PHI = 0.42, R_THETA = 0.42;              // the radii of the two angle arcs
+
+  function meshFrom(tris) {
+    var g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(tris, 3)); g.computeVertexNormals(); return g;
+  }
+  function quad(out, a, b, c, d) { [a, b, c, a, c, d].forEach(function (v) { out.push(v.x, v.y, v.z); }); }
+  function setGeo(obj, geo) { obj.geometry.dispose(); obj.geometry = geo; }
+
+  function rebuild() {
+    var th = S.theta.v, ph = S.phi.v, rh = S.rho.v, i, j;
+    // the solid: theta in [0, th], phi in [0, pi/3], rho in [0, 1]
+    var capT = [], coneT = [], cutT = [];
+    if (th > 1e-4) {
+      var nT = Math.max(2, Math.ceil(64 * th / TAU)), nP = 14, nR = 8;
+      for (i = 0; i < nT; i++) {
+        var t0 = th * i / nT, t1 = th * (i + 1) / nT;
+        for (j = 0; j < nP; j++) {
+          var p0 = PHI_MAX * j / nP, p1 = PHI_MAX * (j + 1) / nP;
+          quad(capT, U(t0, p0), U(t1, p0), U(t1, p1), U(t0, p1));
+        }
+        for (j = 0; j < nR; j++) {
+          var r0 = j / nR, r1 = (j + 1) / nR;
+          quad(coneT, U(t0, PHI_MAX).multiplyScalar(r0), U(t0, PHI_MAX).multiplyScalar(r1),
+                      U(t1, PHI_MAX).multiplyScalar(r1), U(t1, PHI_MAX).multiplyScalar(r0));
+        }
+      }
+      if (th < TAU - 1e-3) [0, th].forEach(function (t) {     // the two cut faces
+        for (j = 0; j < 16; j++) {
+          var a = U(t, PHI_MAX * j / 16), b = U(t, PHI_MAX * (j + 1) / 16), o = new THREE.Vector3();
+          [o, a, b].forEach(function (v) { cutT.push(v.x, v.y, v.z); });
+        }
+      });
+    }
+    setGeo(cap, meshFrom(capT)); setGeo(cone, meshFrom(coneT)); setGeo(cut, meshFrom(cutT));
+    var rimP = []; for (i = 0; i <= 64; i++) rimP.push(U(th * i / 64, PHI_MAX).multiplyScalar(1.004));
+    rimLine.geometry.dispose(); rimLine.geometry = new THREE.BufferGeometry().setFromPoints(th > 1e-4 ? rimP : []);
+
+    // the fan at theta = th: phi in [0, ph], each ray out to the sphere
+    var fanT = [], edge = [new THREE.Vector3()];
+    var nF = Math.max(1, Math.ceil(24 * ph / PHI_MAX));
+    for (j = 0; j < nF; j++) {
+      var fa = U(th, ph * j / nF), fb = U(th, ph * (j + 1) / nF), o2 = new THREE.Vector3();
+      [o2, fa, fb].forEach(function (v) { fanT.push(v.x, v.y, v.z); });
+    }
+    for (j = 0; j <= nF; j++) edge.push(U(th, ph * j / nF));
+    edge.push(new THREE.Vector3());
+    setGeo(fan, meshFrom(ph > 1e-4 ? fanT : []));
+    fanEdge.geometry.dispose(); fanEdge.geometry = new THREE.BufferGeometry().setFromPoints(ph > 1e-4 ? edge : []);
+
+    // the ray at (th, ph), out to rh
+    var dir = U(th, ph), L = Math.max(rh, 1e-4);
+    ray.quaternion.setFromUnitVectors(_y, dir);
+    ray.position.copy(dir).multiplyScalar(L / 2); ray.scale.set(0.012, L, 0.012);
+    rayTip.position.copy(dir).multiplyScalar(L); rayTip.scale.setScalar(0.03);
+
+    // the angles
+    var ap = [], at = [], k;
+    for (k = 0; k <= 30; k++) ap.push(U(th, ph * k / 30).multiplyScalar(R_PHI));
+    for (k = 0; k <= 48; k++) at.push(new THREE.Vector3(Math.cos(th * k / 48), Math.sin(th * k / 48), 0).multiplyScalar(R_THETA));
+    arcPhi.geometry.dispose(); arcPhi.geometry = new THREE.BufferGeometry().setFromPoints(ap);
+    arcTheta.geometry.dispose(); arcTheta.geometry = new THREE.BufferGeometry().setFromPoints(at);
+    var sh = new THREE.Vector3(Math.cos(th), Math.sin(th), 0).multiplyScalar(Math.max(0.45, Math.sin(ph) * L));
+    shadow.geometry.dispose(); shadow.geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), sh]);
+    shadow.computeLineDistances();
+  }
+
+  // ---------- the labels of the ray and of the two angles, placed on the screen ----------
+  // Each is set off from what it names by a few pixels (rho beside the ray, on the side away from
+  // the z-axis; phi and theta outside their arcs) and then pushed clear of every other label, so
+  // that they stay apart and legible from any view.
+  var CW = 1, CH = 1, _p = new THREE.Vector3(), _upv = new THREE.Vector3();
+  function toScreen(v) { _p.copy(v).project(camera); return { x: (_p.x + 1) / 2 * CW, y: (1 - _p.y) / 2 * CH, z: _p.z }; }
+  function toWorld(x, y, z) { return new THREE.Vector3(x / CW * 2 - 1, 1 - y / CH * 2, z).unproject(camera); }
+  function textBox(rec, at) {         // the label's text, in pixels, if its sprite stood at the world point at
+    _upv.setFromMatrixColumn(camera.matrixWorld, 1);
+    var c = toScreen(at), t = toScreen(at.clone().addScaledVector(_upv, rec.size)), h = Math.abs(t.y - c.y);
+    return { w: h * Math.max(0.4, rec.aspect - 0.25), h: h * 0.62 };
+  }
+  function boxOf(rec) {
+    var c = toScreen(rec.sprite.position), b = textBox(rec, rec.sprite.position);
+    return { x: c.x, y: c.y, w: b.w, h: b.h };
+  }
+  function overlap(a, b, m) {
+    var dx = (a.w + b.w) / 2 + m - Math.abs(a.x - b.x), dy = (a.h + b.h) / 2 + m - Math.abs(a.y - b.y);
+    return dx > 0 && dy > 0 ? { dx: dx, dy: dy } : null;
+  }
+  function setOff(rec, anchor, ux, uy, gap, fixed) {
+    var a = toScreen(anchor), b = textBox(rec, anchor), n = Math.hypot(ux, uy) || 1;
+    ux /= n; uy /= n;
+    var ext = Math.abs(ux) * b.w / 2 + Math.abs(uy) * b.h / 2;
+    var box = { x: a.x + ux * (gap + ext), y: a.y + uy * (gap + ext), w: b.w, h: b.h };
+    for (var it2 = 0; it2 < 10; it2++) {             // clear of the other labels, smallest push first
+      var moved = false;
+      fixed.forEach(function (o) {
+        var ov = overlap(box, o, 6);
+        if (!ov) return;
+        if (ov.dx < ov.dy) box.x += (box.x >= o.x ? 1 : -1) * ov.dx; else box.y += (box.y >= o.y ? 1 : -1) * ov.dy;
+        moved = true;
+      });
+      if (!moved) break;
+    }
+    rec.sprite.position.copy(toWorld(box.x, box.y, a.z));
+    return box;
+  }
+  function layoutLabels() {
+    camera.updateMatrixWorld();
+    CW = renderer.domElement.clientWidth || 1; CH = renderer.domElement.clientHeight || 1;
+    var th = S.theta.v, ph = S.phi.v, L = Math.max(S.rho.v, 1e-4), O = toScreen(new THREE.Vector3());
+    var fixed = AXIS_LABELS.filter(function (r) { return r.sprite.visible; }).map(boxOf);
+    // the two bounding surfaces: rho = 1 outside the cap's upper right outline, phi = pi/3 below
+    // the cone where it faces the viewer, well out from the origin
+    var best = null, bestS = -Infinity;            // the cap's upper right outline, in this view
+    for (var i = 0; i < 24; i++) for (var j = 0; j <= 4; j++) {
+      var q = U(TAU * i / 24, PHI_MAX * j / 4), sq = toScreen(q), sc2 = sq.x - sq.y;
+      if (sc2 > bestS) { bestS = sc2; best = q; }
+    }
+    var sB = setOff(lSphere, best, 1, -1, 6, fixed);
+    if (lSphere.sprite.visible) fixed.push(sB);
+    var cB = setOff(lCone, U(camTheta + 0.45, PHI_MAX).multiplyScalar(0.85), 0.35, 1, 10, fixed);
+    if (lCone.sprite.visible) fixed.push(cB);
+    // rho: beside the middle of the ray, on the side away from the z-axis
+    var dir = U(th, ph), mid = dir.clone().multiplyScalar(0.55 * L), m = toScreen(mid), tip = toScreen(dir.clone().multiplyScalar(L));
+    var rx = tip.x - O.x, ry = tip.y - O.y, rn = Math.hypot(rx, ry), nx = 1, ny = 0;
+    if (rn > 6) {
+      nx = -ry / rn; ny = rx / rn;
+      var zp = toScreen(new THREE.Vector3(0, 0, mid.z));
+      if (nx * (m.x - zp.x) + ny * (m.y - zp.y) < 0) { nx = -nx; ny = -ny; }
+    }
+    fixed.push(setOff(lRho, mid, nx, ny, 5, fixed));
+    // phi: outside the middle of its arc, away from the origin
+    var aP = U(th, ph / 2).multiplyScalar(R_PHI), sP = toScreen(aP);
+    fixed.push(setOff(lPhi, aP, sP.x - O.x, sP.y - O.y, 4, fixed));
+    // theta: outside the middle of its arc in the xy-plane
+    var aT = new THREE.Vector3(Math.cos(th / 2), Math.sin(th / 2), 0).multiplyScalar(R_THETA), sT = toScreen(aT);
+    setOff(lTheta, aT, sT.x - O.x, sT.y - O.y, 4, fixed);
+  }
+
+  function applyAlphas() {
+    var so = S.solid.v, fa = S.fan.v, ra = S.ray.v, bo = S.bounds.v, an = S.angles.v;
+    capMat.opacity = SOLID_OP.cap * so; coneMat.opacity = SOLID_OP.cone * so; cutMat.opacity = SOLID_OP.cut * so;
+    rimLine.material.opacity = 0.9 * so;
+    cap.visible = cone.visible = cut.visible = rimLine.visible = so > 0.01;
+    fanMat.opacity = 0.78 * fa; fanEdge.material.opacity = fa; fan.visible = fanEdge.visible = fa > 0.01;
+    rayMat.opacity = ra; ray.visible = rayTip.visible = ra > 0.01;
+    lRho.sprite.material.opacity = ra; lRho.sprite.visible = ra > 0.01 && S.rho.v > 0.18;
+    boundMats.forEach(function (r) { r.m.opacity = r.base * bo; });
+    [lSphere, lCone].forEach(function (l) { l.sprite.material.opacity = bo; l.sprite.visible = bo > 0.01; });
+    var showPhi = an * Math.min(1, S.phi.v / 0.12), showTheta = an * Math.min(1, S.theta.v / 0.2);
+    angMat.phi.opacity = showPhi; arcPhi.visible = showPhi > 0.01;
+    angMat.theta.opacity = showTheta; arcTheta.visible = showTheta > 0.01;
+    angMat.shadow.opacity = 0.6 * an; shadow.visible = an > 0.01;
+    lPhi.sprite.material.opacity = showPhi; lPhi.sprite.visible = showPhi > 0.01;
+    lTheta.sprite.material.opacity = showTheta; lTheta.sprite.visible = showTheta > 0.01;
+  }
+
+  // ---------- the card ----------
+  var V = function (s) { return "<i>" + s + "</i>"; };
+  function INT(id, lo, hi, col) {
+    if (SKELETAL) lo = hi = '<span class="blank"></span>';
+    return '<span class="int" id="' + id + '" style="color:' + col + '"><span class="lim">' + hi + '</span><span class="sym">∫</span><span class="lim">' + lo + "</span></span>";
+  }
+  var card = document.getElementById("eqcard");
+  card.innerHTML =
+    '<div class="line">' + V("D") + ": inside the sphere " + V("ρ") + " = 1, above the cone " + V("φ") + " = π/3</div>" +
+    '<div class="line">' + V("V") + " = " + INT("iT", "0", "2π", "#58c4dd") + INT("iP", "0", "π/3", "#fc6255") + INT("iR", "0", "1", "#ffe14d") +
+      " " + V("ρ") + "<sup>2</sup> sin " + V("φ") + " &thinsp;" +
+      '<span style="color:#ffe14d">d' + V("ρ") + '</span> <span style="color:#fc6255">d' + V("φ") + '</span> <span style="color:#58c4dd">d' + V("θ") + "</span></div>" +
+    (SKELETAL
+      ? '<div class="line sweep" id="wR" style="color:#ffe14d">' + V("ρ") + ": from the origin out to the sphere</div>" +
+        '<div class="line sweep" id="wP" style="color:#fc6255">' + V("φ") + ": from the <i>z</i>-axis down to the cone</div>" +
+        '<div class="line sweep" id="wT" style="color:#58c4dd">' + V("θ") + ": once around the <i>z</i>-axis</div>" +
+        '<div class="note">Each sweep gives one pair of limits: fill in the boxes.</div>'
+      : '<div class="line sweep" id="wR" style="color:#ffe14d">' + V("ρ") + ": 0 to 1, &nbsp;the origin out to the sphere</div>" +
+        '<div class="line sweep" id="wP" style="color:#fc6255">' + V("φ") + ": 0 to π/3, &nbsp;the <i>z</i>-axis down to the cone</div>" +
+        '<div class="line sweep" id="wT" style="color:#58c4dd">' + V("θ") + ": 0 to 2π, &nbsp;once around the <i>z</i>-axis</div>");
+  var HL = { rho: ["iR", "wR"], phi: ["iP", "wP"], theta: ["iT", "wT"] };
+  function highlight(which) {          // which: "rho", "phi", "theta", or null for all
+    Object.keys(HL).forEach(function (k) {
+      var on = !which || which === k;
+      HL[k].forEach(function (id) { var e = document.getElementById(id); e.classList.toggle("off", !on); e.classList.toggle("on", !!which && on); });
+    });
+  }
+
+  // ---------- camera ----------
+  var FIT = [];
+  (function fitCloud() {
+    for (var i = 0; i < 24; i++) { FIT.push(U(TAU * i / 24, PHI_MAX)); FIT.push(U(TAU * i / 24, PHI_MAX / 2)); }
+    [[1.3, 0, 0], [0, 1.3, 0], [0, 0, 1.4], [0, 0, -0.08]].forEach(function (v) { FIT.push(new THREE.Vector3(v[0], v[1], v[2])); });
+  })();
+  var _e = new THREE.Vector3(), _u = new THREE.Vector3(), _r = new THREE.Vector3();
+  function placeCamera() {
+    _e.set(Math.sin(camPhi) * Math.cos(camTheta), Math.sin(camPhi) * Math.sin(camTheta), Math.cos(camPhi));
+    _u.set(0, 0, 1).addScaledVector(_e, -_e.z); if (_u.lengthSq() < 1e-9) _u.set(0, 1, 0); else _u.normalize();
+    _r.crossVectors(_u, _e).normalize();
+    var th = Math.tan(camera.fov * Math.PI / 360), tv = th * band, tw = th * aspect, rr = 1;
+    FIT.forEach(function (p) {
+      var d = p.clone().sub(TARGET);
+      rr = Math.max(rr, d.dot(_e) + Math.abs(d.dot(_u)) / tv, d.dot(_e) + Math.abs(d.dot(_r)) / tw);
+    });
+    var dist = 1.04 * rr;
+    var up = _u.clone().multiplyScalar(padPx * 2 * dist * th / canvasH);
+    camera.position.copy(TARGET).addScaledVector(_e, dist).add(up);
+    var look = TARGET.clone().add(up);
+    camera.lookAt(look.x, look.y, look.z);
+    camera.updateProjectionMatrix();
+  }
+
+  // ---------- render loop ----------
+  var spinning = false, rafId = null, lastT = 0, needsDraw = false;
+  function render() { renderer.render(scene, camera); }
+  function frame(now) {
+    rafId = requestAnimationFrame(frame);
+    var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0; lastT = now;
+    var busy = false;
+    Object.keys(S).forEach(function (k) {
+      var q = S[k];
+      if (Math.abs(q.v - q.t) > 1e-5) {
+        var dv = (q.t - q.v) * (1 - Math.exp(-q.k * dt));
+        if (q.max) dv = Math.max(-q.max * dt, Math.min(q.max * dt, dv));
+        q.v += dv;
+        if (Math.abs(q.v - q.t) < 1e-4) q.v = q.t;
+        busy = true;
+      }
+    });
+    if (spinning) { camTheta += 0.22 * dt; busy = true; }
+    if (busy || tour.running || needsDraw) { needsDraw = false; rebuild(); applyAlphas(); placeCamera(); layoutLabels(); render(); syncSliders(); }
+    if (!busy && !spinning && !tour.running) { cancelAnimationFrame(rafId); rafId = null; lastT = 0; }
+  }
+  function ensureLoop() { if (rafId === null) { lastT = 0; rafId = requestAnimationFrame(frame); } }
+  function set(k, val) { S[k].t = val; ensureLoop(); }
+
+  // ---------- sliders (the progress of each sweep) ----------
+  var RANGES = { rho: [0, 1], phi: [0, PHI_MAX], theta: [0, TAU] };
+  var SL = { rho: document.getElementById("sRho"), phi: document.getElementById("sPhi"), theta: document.getElementById("sTheta") };
+  var userSliding = false;
+  function syncSliders() {
+    if (userSliding) return;
+    Object.keys(SL).forEach(function (k) { var r = RANGES[k]; SL[k].value = Math.round(1000 * (S[k].v - r[0]) / (r[1] - r[0])); });
+  }
+  Object.keys(SL).forEach(function (k) {
+    SL[k].addEventListener("input", function () {
+      if (tour.running) stopTour();
+      userSliding = true;
+      var r = RANGES[k]; S[k].t = S[k].v = r[0] + (r[1] - r[0]) * (+SL[k].value) / 1000;
+      highlight(k); needsDraw = true; ensureLoop();
+    });
+    SL[k].addEventListener("change", function () { userSliding = false; });
+  });
+
+  // ---------- toggles ----------
+  var btnBounds = document.getElementById("btnBounds"), btnAngles = document.getElementById("btnAngles"),
+      btnSpin = document.getElementById("btnSpin");
+  function setBounds(on) { set("bounds", on ? 1 : 0); btnBounds.classList.toggle("active", on); }
+  function setAngles(on) { set("angles", on ? 1 : 0); btnAngles.classList.toggle("active", on); }
+  btnBounds.addEventListener("click", function () { if (tour.running) stopTour(); setBounds(S.bounds.t < 0.5); });
+  btnAngles.addEventListener("click", function () { if (tour.running) stopTour(); setAngles(S.angles.t < 0.5); });
+  btnSpin.addEventListener("click", function () {
+    spinning = !spinning; btnSpin.classList.toggle("active", spinning); needsDraw = true; ensureLoop();
+  });
+
+  // ---------- the guided tour ----------
+  var elCaption = document.getElementById("caption");
+  function say(html) {
+    elCaption.classList.remove("show");
+    window.setTimeout(function () { elCaption.innerHTML = html; if (html) elCaption.classList.add("show"); }, html ? 160 : 0);
+  }
+  var M = function (s) { return '<span class="m">' + s + "</span>"; };
+  var C = function (col, s) { return '<span style="color:' + col + '">' + s + "</span>"; };
+  var STORY = [
+    { say: "The ice cream cone " + M(V("D")) + " lies inside the sphere " + C("#58c4dd", M(V("ρ") + " = 1")) + " and above the cone " +
+           C("#83c167", M(V("φ") + " = π/3")) + ". The limits of integration describe it as a sweep, from the inside out.",
+      st: { solid: 0, fan: 0, ray: 0, bounds: 1, angles: 1 }, jump: { theta: 0.35, phi: 0.62, rho: 0 }, hl: null, hold: 5.6 },
+    { say: "Innermost, " + C("#ffe14d", M("d" + V("ρ"))) + ": hold " + M(V("θ")) + " and " + M(V("φ")) + " fixed. Along the ray, " +
+           C("#ffe14d", M(V("ρ"))) + (SKELETAL ? " runs from the origin out to the sphere." : " runs from 0 at the origin out to 1 on the sphere."),
+      st: { ray: 1 }, go: { rho: 1 }, hl: "rho", hold: 5.6 },
+    { say: "Next, " + C("#fc6255", M("d" + V("φ"))) + ": let " + C("#fc6255", M(V("φ"))) + (SKELETAL ? " run from the " : " run from 0 on the ") + M(V("z")) +
+           (SKELETAL ? "-axis down to the cone." : "-axis down to π/3 on the cone.") + " Each ray still reaches the sphere, and together they fill a flat fan.",
+      st: { fan: 1 }, jump: { phi: 0 }, go: { phi: PHI_MAX }, hl: "phi", hold: 6.2 },
+    { say: "Outermost, " + C("#58c4dd", M("d" + V("θ"))) + ": " + (SKELETAL ? "the fan turns once " : C("#58c4dd", M(V("θ"))) + " runs from 0 to 2π. The fan turns once ") +
+           "around the " + M(V("z")) + "-axis and sweeps out all of " + M(V("D")) + ".",
+      st: { solid: 1 }, jump: { theta: 0 }, go: { theta: TAU }, hl: "theta", hold: 7.4 },
+    SKELETAL
+      ? { say: "Each sweep gives one pair of limits, from the inside out. Write them in the boxes on the card: that is the blank in the notes.",
+          go: { theta: 1.25 * Math.PI }, hl: null, hold: 6.0 }
+      : { say: "So " + M("0 ≤ " + V("ρ") + " ≤ 1") + ", " + M("0 ≤ " + V("φ") + " ≤ π/3") + ", " + M("0 ≤ " + V("θ") + " ≤ 2π") +
+               ": constant limits, because " + M(V("D")) + " is a box in spherical coordinates. The card shows the volume integral.",
+          go: { theta: 1.25 * Math.PI }, hl: null, hold: 6.0 },
+    { say: "Your turn: drag the sliders to rebuild " + M(V("D")) + ", sweep by sweep, or drag the figure to look from anywhere.", hold: 2.0 }
+  ];
+  var tour = { running: false, i: 0, timer: null };
+  var btnTour = document.getElementById("btnTour");
+  function tourStep() {
+    if (!tour.running) return;
+    if (tour.i >= STORY.length) { stopTour(); return; }
+    var beat = STORY[tour.i++];
+    if (beat.st) Object.keys(beat.st).forEach(function (k) {
+      var on = beat.st[k] > 0.5;
+      if (k === "bounds") setBounds(on); else if (k === "angles") setAngles(on); else set(k, beat.st[k]);
+    });
+    if (beat.jump) Object.keys(beat.jump).forEach(function (k) { S[k].v = S[k].t = beat.jump[k]; });
+    if (beat.go) Object.keys(beat.go).forEach(function (k) { set(k, beat.go[k]); });
+    if ("hl" in beat) highlight(beat.hl);
+    say(beat.say); needsDraw = true; ensureLoop();
+    tour.timer = window.setTimeout(tourStep, beat.hold * 1000);
+  }
+  function startTour() {
+    tour.running = true; tour.i = 0;
+    if (spinning) { spinning = false; btnSpin.classList.remove("active"); }
+    btnTour.innerHTML = "&#10074;&#10074;<span class=\"long\">&nbsp;Stop</span>"; btnTour.classList.add("running");
+    ensureLoop(); tourStep();
+  }
+  function stopTour() {
+    tour.running = false;
+    if (tour.timer) { window.clearTimeout(tour.timer); tour.timer = null; }
+    btnTour.innerHTML = "&#9654;<span class=\"long\">&nbsp;Play</span>"; btnTour.classList.remove("running");
+    set("solid", 1); set("fan", 1); set("ray", 1); highlight(null);
+    say(""); ensureLoop();
+  }
+  btnTour.addEventListener("click", function () { tour.running ? stopTour() : startTour(); });
+
+  // ---------- drag to orbit ----------
+  var dragging = false, lastX = 0, lastY = 0, el = renderer.domElement;
+  function startDrag(x, y) { dragging = true; lastX = x; lastY = y; }
+  function moveDrag(x, y) {
+    if (!dragging) return;
+    camTheta -= (x - lastX) * 0.008;
+    camPhi = Math.min(Math.PI - 0.05, Math.max(0.05, camPhi - (y - lastY) * 0.008));
+    lastX = x; lastY = y; placeCamera(); layoutLabels(); render();
+  }
+  el.addEventListener("mousedown", function (e) { startDrag(e.clientX, e.clientY); });
+  window.addEventListener("mousemove", function (e) { moveDrag(e.clientX, e.clientY); });
+  window.addEventListener("mouseup", function () { dragging = false; });
+  el.addEventListener("touchstart", function (e) { if (e.touches.length === 1) { startDrag(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  el.addEventListener("touchmove", function (e) { if (e.touches.length === 1) { moveDrag(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  window.addEventListener("touchend", function () { dragging = false; });
+
+  // ---------- full screen ----------
+  var btnFull = document.getElementById("btnFull"), docEl = document.documentElement;
+  function fsElement() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+  function openStandalone() { window.open(window.location.href, "_blank", "noopener"); }
+  btnFull.addEventListener("click", function () {
+    if (fsElement()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    var req = docEl.requestFullscreen || docEl.webkitRequestFullscreen;
+    if (!req) { openStandalone(); return; }
+    try { var p = req.call(docEl); if (p && p.catch) p.catch(openStandalone); } catch (e) { openStandalone(); }
+  });
+  function onFs() {
+    var on = !!fsElement(); btnFull.classList.toggle("active", on);
+    btnFull.innerHTML = on ? "&#x26F6;<span class=\"long\">&nbsp;Exit full screen</span>" : "&#x26F6;<span class=\"long\">&nbsp;Full screen</span>";
+    window.setTimeout(resize, 50);
+  }
+  document.addEventListener("fullscreenchange", onFs);
+  document.addEventListener("webkitfullscreenchange", onFs);
+
+  // ---------- sizing ----------
+  function resize() {
+    var w = document.getElementById("app").clientWidth, h = stage.clientHeight;
+    var stacked = window.getComputedStyle(card).position === "static";
+    var cardH = stacked ? card.offsetHeight : 0, ch = Math.max(120, h - cardH);
+    renderer.setSize(w, ch); camera.aspect = w / ch; aspect = camera.aspect;
+    var reach = Math.min(1, card.offsetWidth / (0.45 * w));
+    var topPad = stacked ? 0 : (card.offsetHeight + 16) * reach, botPad = 10;
+    band = Math.max(0.45, (ch - topPad - botPad) / ch);
+    padPx = 0.5 * (topPad - botPad); canvasH = ch;
+    rebuild(); applyAlphas(); placeCamera(); layoutLabels(); render();
+  }
+  window.addEventListener("resize", resize);
+
+  highlight(null);
+  syncSliders();
+  resize();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { LABELS.forEach(paintLabel); resize(); });
+  }
+})();
+</script>
+</body>
+</html>

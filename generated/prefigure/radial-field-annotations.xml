@@ -1,0 +1,79 @@
+<diagram>
+  <annotations>
+    <annotation id="radial-field-figure" speech2="The vector field F of x and y equals the                                 vector x, y: at every point of a grid an                                 arrow points straight away from the origin,                                 growing longer with the distance from it">
+      <grouped>radial-field-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>radial-field-grid-axes</active>
+        <active>radial-field-grid</active>
+        <active>radial-field-axes</active>
+        <active>radial-field-field</active>
+        <active>radial-field-origin</active>
+      </children>
+      <components>
+        <active>radial-field-grid-axes</active>
+        <active>radial-field-grid</active>
+        <active>radial-field-axes</active>
+        <active>radial-field-field</active>
+        <active>radial-field-origin</active>
+      </components>
+    </annotation>
+    <annotation id="radial-field-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>radial-field-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>radial-field-grid</active>
+        <active>radial-field-axes</active>
+      </children>
+      <components>
+        <active>radial-field-grid</active>
+        <active>radial-field-axes</active>
+      </components>
+      <parents>
+        <grouped>radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="radial-field-grid" speech2="The coordinate grid">
+      <active>radial-field-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>radial-field-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="radial-field-axes" speech2="The coordinate axes">
+      <active>radial-field-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>radial-field-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="radial-field-grid" speech2="The coordinate grid">
+      <active>radial-field-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="radial-field-axes" speech2="The coordinate axes">
+      <active>radial-field-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="radial-field-field" speech2="The grid of field vectors, each pointing                                   radially outward with length equal to the                                   distance from the origin">
+      <active>radial-field-field</active>
+      <position>4</position>
+      <parents>
+        <grouped>radial-field-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="radial-field-origin" speech2="The origin, where the field is the zero                                   vector">
+      <active>radial-field-origin</active>
+      <position>5</position>
+      <parents>
+        <grouped>radial-field-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

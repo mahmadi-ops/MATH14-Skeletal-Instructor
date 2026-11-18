@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example V in cylindrical coordinates: the limits as sweeps</title>
+<!-- One of the two animated companions of fig-cone-plane-tikz in "Triple
+     Integrals in Spherical Coordinates" (Example V): the solid E over the
+     lower half disk y <= 0, x^2 + y^2 <= 1, between the cone
+     z = sqrt(x^2 + y^2) and the plane z = 1, built the way an iterated
+     integral sweeps it, from the inside out.  The same file serves both
+     forms of the example; MODE (below) picks one.
+
+     MODE "cyl", int_pi^{2pi} int_0^1 int_r^1 r^2 r dz dr dtheta:
+       z     (yellow) a vertical segment at fixed r and theta runs from the
+             cone z = r up to the plane z = 1;
+       r     (red)    r runs from 0 on the z-axis out to 1, and the segments
+             fill a flat triangle;
+       theta (blue)   the shadow is the half disk, so theta runs from pi to
+             2 pi and the triangle turns half way around the z-axis.
+
+     MODE "sph", int_pi^{2pi} int_0^{pi/4} int_0^{sec phi} (rho^2 sin^2 phi)
+                 rho^2 sin phi drho dphi dtheta:
+       rho   (yellow) a ray at fixed theta and phi runs from the origin to
+             the plane z = 1, where rho = sec phi;
+       phi   (red)    phi runs from 0 on the z-axis down to pi/4 on the cone,
+             and the rays fill the same triangle;
+       theta (blue)   as above.
+
+     The three sliders are the sweep's progress, in the order of the
+     integral: the solid is drawn for the values of theta already swept,
+     the triangle at that theta for the values of the middle variable
+     already swept, and the segment or ray out to the inner slider.  Faint
+     lines show the cone, the plane and the half disk in the xy-plane.
+
+     SKELETAL (below) is false in the completed books and true in the
+     skeletal ones, where Example V's solution is the student's: there the
+     surfaces are named only as the problem gives them (z = sqrt(x^2 + y^2)
+     and z = 1), the card shows the integral with empty boxes for the
+     limits and the integrand and describes each sweep in words, and the
+     tour never states a limit.
+
+     Stage, palette, controls and on-screen label placement as in
+     icecream-limits-manim.html. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+  :root {
+    --bg:        #06070a;
+    --panel:     #101218;
+    --edge:      #262a36;
+    --ink:       #ece6e2;
+    --dim:       #9aa0ad;
+    --blue:      #58c4dd;   /* theta */
+    --red:       #fc6255;   /* the middle variable */
+    --green:     #83c167;   /* the cone */
+    --yellow:    #ffe14d;   /* the inner variable */
+    --violet:    #caa3e8;
+    --sans:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "PT Serif", "Times New Roman", Times, serif;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); }
+  body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  #app { width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
+
+  #stage { position: relative; width: 100%; background: var(--bg); flex: 1 1 auto; min-height: 0; overflow: hidden; }
+  canvas { display: block; cursor: grab; }
+  canvas:active { cursor: grabbing; }
+  .overlay { position: absolute; pointer-events: none; }
+
+  #eqcard {
+    top: 12px; left: 14px;
+    padding: 8px 13px 9px 13px;
+    background: rgba(16,18,24,0.72);
+    border: 1px solid var(--edge);
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    line-height: 1.45;
+  }
+  .math { font-family: var(--serif); font-size: 18.5px; }
+  .math i { font-style: italic; }
+  .math sup { font-size: 72%; vertical-align: 0.5em; line-height: 0; }
+  #eqcard .line { white-space: nowrap; }
+  #eqcard .note { font-family: var(--sans); font-size: 12.5px; color: var(--dim); }
+  /* skeletal: an empty box where a limit or the integrand goes */
+  .blank { display: inline-block; width: 1.5em; height: 0.95em; border: 1px dashed currentColor; border-radius: 2px;
+           vertical-align: middle; opacity: 0.85; margin: 1px 0; }
+  .blank.wide { width: 4.2em; height: 1.2em; margin: 0 4px; }
+  /* an integral sign with its limits stacked on it */
+  .int { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle;
+         margin: 0 1px; padding: 0 2px; border-radius: 4px; transition: background .3s, opacity .3s; }
+  .int .lim { font-size: 13.5px; line-height: 1.05; }
+  .int .sym { font-size: 27px; line-height: 0.95; font-style: normal; }
+  .int.on { background: rgba(236,230,226,0.10); }
+  .sweep { transition: opacity .3s; }
+  .sweep.off, .int.off { opacity: 0.5; }
+
+  #caption {
+    left: 50%; transform: translateX(-50%);
+    bottom: 14px; max-width: 76%;
+    text-align: center; font-size: 16px; line-height: 1.45;
+    background: rgba(6,7,10,0.84);
+    padding: 7px 14px; border-radius: 6px;
+    opacity: 0; transition: opacity .45s ease;
+  }
+  #caption.show { opacity: 1; }
+  #caption .m { font-family: var(--serif); font-size: 17px; }
+
+  #panel { flex: 0 0 auto; border-top: 1px solid var(--edge); background: var(--panel);
+           padding: 9px 12px 11px 12px; box-sizing: border-box; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .row + .row { margin-top: 9px; }
+  .slider { display: inline-flex; align-items: center; gap: 6px; flex: 1 1 150px; min-width: 120px; }
+  .slider span { font-family: var(--serif); font-size: 15px; white-space: nowrap; }
+  input[type=range] { -webkit-appearance: none; appearance: none; flex: 1 1 auto; min-width: 60px;
+                      height: 4px; border-radius: 2px; background: #2a2f3c; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px;
+                      border-radius: 50%; background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 13px; height: 13px; border-radius: 50%;
+                      background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+
+  button { font: inherit; font-size: 13.5px; padding: 5px 12px; border-radius: 999px;
+           color: var(--ink); background: #1a1d26; border: 1px solid var(--edge);
+           cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
+  button:hover { background: #232734; }
+  #btnTour.running { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
+  #btnBounds.active { background: var(--green);  border-color: var(--green);  color: #06070a; font-weight: 600; }
+  #btnAngles.active { background: var(--red);    border-color: var(--red);    color: #06070a; font-weight: 600; }
+  #btnSpin.active   { background: var(--blue);   border-color: var(--blue);   color: #06070a; font-weight: 600; }
+  #btnFull.active   { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
+
+  @media (max-width: 560px) {
+    #eqcard { position: static; padding: 6px 12px 7px 12px; border: none; border-bottom: 1px solid var(--edge);
+              border-radius: 0; background: var(--panel); line-height: 1.3; }
+    .math { font-size: 15px; }
+    #eqcard .note { display: none; }
+    .int .lim { font-size: 11.5px; }
+    .int .sym { font-size: 22px; }
+    #panel { padding: 7px 10px 8px 10px; }
+    .row + .row { margin-top: 7px; }
+    .long { display: none; }
+    button { font-size: 13px; padding: 4px 10px; }
+    #caption { font-size: 13px; max-width: 92%; bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="eqcard" class="overlay math"></div>
+    <div id="caption" class="overlay"></div>
+  </div>
+
+  <div id="panel">
+    <div class="row">
+      <label class="slider" id="lbInner"><span id="nmInner"></span><input id="sInner" type="range" min="0" max="1000" style="--c:#ffe14d"></label>
+      <label class="slider" id="lbMid"><span id="nmMid"></span><input id="sMid" type="range" min="0" max="1000" style="--c:#fc6255"></label>
+      <label class="slider" title="The outer sweep: how far the triangle has turned about the z-axis">
+        <span><i>θ</i></span><input id="sTheta" type="range" min="0" max="1000" style="--c:#58c4dd"></label>
+    </div>
+    <div class="row">
+      <button id="btnTour" aria-label="Play the guided tour" title="Build the solid one sweep at a time">&#9654;<span class="long">&nbsp;Play</span></button>
+      <button id="btnBounds" class="active" title="The cone, the plane and the half disk that bound the solid">Surfaces</button>
+      <button id="btnAngles" class="active" title="The coordinates of the moving segment">Coordinates</button>
+      <button id="btnSpin">Spin</button>
+      <span style="flex:1"></span>
+      <button id="btnFull" aria-label="Full screen" title="Show the figure full screen">&#x26F6;<span class="long">&nbsp;Full screen</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  // "cyl": the cylindrical form, dz dr dtheta; "sph": the spherical form, drho dphi dtheta
+  var MODE = "cyl";
+  var CYL = MODE === "cyl";
+  // false in the completed notes; true in the skeletal notes, where the limits are left for the
+  // student (see the top)
+  var SKELETAL = true;
+
+  var BLUE_C = 0x58c4dd, RED_C = 0xfc6255, GREEN_C = 0x83c167, YELLOW_C = 0xffe14d, GREY = 0x8a8f9c, INK_C = 0xece6e2;
+  var PI = Math.PI, TAU = 2 * Math.PI, PHI_MAX = PI / 4;
+
+  function U(t, p) { return new THREE.Vector3(Math.sin(p) * Math.cos(t), Math.sin(p) * Math.sin(t), Math.cos(p)); }
+  function C(r, t, z) { return new THREE.Vector3(r * Math.cos(t), r * Math.sin(t), z); }
+
+  // the sweeps: inner (z between the cone and the plane, or rho out to the plane), as a fraction
+  // of the way; mid (r, or phi); theta.  Each moves toward its target at a capped speed.
+  var MID_MAX = CYL ? 1 : PHI_MAX;
+  var S = {
+    inner:  { v: 1, t: 1, k: 6, max: 0.6 },
+    mid:    { v: CYL ? 0.65 : 0.5, t: CYL ? 0.65 : 0.5, k: 6, max: CYL ? 0.5 : 0.4 },   // mid-sweep, so all three show
+    theta:  { v: 1.8 * PI, t: 1.8 * PI, k: 6, max: 0.8 },
+    solid:  { v: 1, t: 1, k: 5 },
+    fan:    { v: 1, t: 1, k: 5 },
+    seg:    { v: 1, t: 1, k: 5 },
+    bounds: { v: 1, t: 1, k: 5 },
+    coords: { v: 1, t: 1, k: 5 }
+  };
+
+  // ---------- renderer / scene ----------
+  var stage = document.getElementById("stage");
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  stage.appendChild(renderer.domElement);
+  var scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x06070a);
+  var camera = new THREE.PerspectiveCamera(32, 1, 0.01, 100);
+  camera.up.set(0, 0, 1);
+  scene.add(camera);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.62));
+  var key = new THREE.DirectionalLight(0xffffff, 0.55); key.position.set(0.4, 0.6, 1); camera.add(key);
+
+  var camTheta = -1.4, camPhi = 1.12;           // from the side y < 0, a little to the right and above
+  var TARGET = new THREE.Vector3(0, -0.3, 0.45);
+  var band = 1, aspect = 1, padPx = 0, canvasH = 1;
+
+  // ---------- text sprites ----------
+  var FONT = '"PT Serif", "Times New Roman", Times, serif';
+  var LABELS = [];
+  function paintLabel(rec) {
+    var s = 128, pad = 16, cv = document.createElement("canvas"), g = cv.getContext("2d");
+    function font(r) { return (r.i ? "italic " : "") + "80px " + FONT; }
+    var w = 0;
+    rec.runs.forEach(function (r) { g.font = font(r); w += g.measureText(r.t).width; });
+    cv.width = Math.ceil(w) + 2 * pad; cv.height = s;
+    g = cv.getContext("2d"); g.textBaseline = "middle";
+    var x = pad;
+    rec.runs.forEach(function (r) {
+      g.font = font(r);
+      var tw = g.measureText(r.t).width;
+      g.lineWidth = 14; g.strokeStyle = "rgba(6,7,10,0.85)"; g.lineJoin = "round"; g.strokeText(r.t, x, s / 2);
+      g.fillStyle = rec.color; g.fillText(r.t, x, s / 2);
+      x += tw;
+    });
+    var tex = new THREE.CanvasTexture(cv); tex.minFilter = THREE.LinearFilter;
+    if (rec.sprite.material.map) rec.sprite.material.map.dispose();
+    rec.sprite.material.map = tex; rec.sprite.material.needsUpdate = true;
+    rec.aspect = cv.width / s;
+    rec.sprite.scale.set(rec.size * rec.aspect, rec.size, 1);
+  }
+  function makeLabel(runs, color, size) {
+    var sp = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthTest: false }));
+    sp.renderOrder = 30;
+    var rec = { sprite: sp, runs: runs, color: color, size: size, aspect: 1 };
+    LABELS.push(rec); paintLabel(rec); scene.add(sp);
+    return rec;
+  }
+  var it = function (t) { return { t: t, i: true }; };
+  var rm = function (t) { return { t: t }; };
+
+  // ---------- axes: through the origin, the negative halves fainter ----------
+  (function buildAxes() {
+    var mat = new THREE.LineBasicMaterial({ color: GREY, transparent: true, opacity: 0.75 });
+    var neg = new THREE.LineBasicMaterial({ color: GREY, transparent: true, opacity: 0.35 });
+    var tipMat = new THREE.MeshBasicMaterial({ color: GREY });
+    [{ v: [1, 0, 0], r: [0, 0, -PI / 2], t: "x", L: 1.3, N: 1.25 }, { v: [0, 1, 0], r: [0, 0, 0], t: "y", L: 0.75, N: 1.3 },
+     { v: [0, 0, 1], r: [PI / 2, 0, 0], t: "z", L: 1.38, N: 0 }].forEach(function (d) {
+      var v = new THREE.Vector3(d.v[0], d.v[1], d.v[2]);
+      scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), v.clone().multiplyScalar(d.L)]), mat));
+      if (d.N) scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), v.clone().multiplyScalar(-d.N)]), neg));
+      var tip = new THREE.Mesh(new THREE.ConeGeometry(0.028, 0.09, 14), tipMat);
+      tip.position.copy(v.clone().multiplyScalar(d.L)); tip.rotation.set(d.r[0], d.r[1], d.r[2]); scene.add(tip);
+      var lab = makeLabel([it(d.t)], "#9aa0ad", 0.2);
+      lab.sprite.position.copy(v.clone().multiplyScalar(d.L + 0.15));
+    });
+  })();
+  var AXIS_LABELS = LABELS.slice(0, 3);
+
+  // ---------- the bounding surfaces, faint: the half cone, the half disk z = 1, its shadow ----------
+  var boundMats = [];
+  function ghost(obj, op) { boundMats.push({ m: obj.material, base: op }); obj.renderOrder = 2; scene.add(obj); }
+  function ghostLine(pts, hex, op) {
+    ghost(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),
+      new THREE.LineBasicMaterial({ color: hex, transparent: true, opacity: op, depthWrite: false })), op);
+  }
+  (function buildBounds() {
+    var k, j;
+    for (j = 0; j <= 12; j++) {
+      var t = PI + PI * j / 12;
+      ghostLine([new THREE.Vector3(), C(1, t, 1)], GREEN_C, 0.34);          // the cone's generators
+      ghostLine([C(0, t, 1), C(1, t, 1)], BLUE_C, 0.3);                     // the plane's radii
+    }
+    [0.5, 1].forEach(function (z) {
+      var c = []; for (k = 0; k <= 60; k++) c.push(C(z, PI + PI * k / 60, z)); ghostLine(c, GREEN_C, 0.34);
+    });
+    var top = []; for (k = 0; k <= 60; k++) top.push(C(1, PI + PI * k / 60, 1.002)); ghostLine(top, INK_C, 0.55);
+    ghostLine([C(1, PI, 1.002), C(1, 0, 1.002)], INK_C, 0.55);
+    // the shadow in the xy-plane: the lower half disk
+    var sh = [new THREE.Vector3()]; for (k = 0; k <= 60; k++) sh.push(C(1, PI + PI * k / 60, 0));
+    var tri = []; for (k = 1; k < sh.length - 1; k++) tri.push(sh[0].x, sh[0].y, 0, sh[k].x, sh[k].y, 0, sh[k + 1].x, sh[k + 1].y, 0);
+    var g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(tri, 3));
+    ghost(new THREE.Mesh(g, new THREE.MeshBasicMaterial({ color: 0x9aa0ad, transparent: true, opacity: 0.13,
+      side: THREE.DoubleSide, depthWrite: false })), 0.13);
+    var rim = []; for (k = 0; k <= 60; k++) rim.push(C(1, PI + PI * k / 60, 0)); ghostLine(rim, 0x9aa0ad, 0.5);
+  })();
+  var lPlane = makeLabel(CYL || SKELETAL ? [it("z"), rm(" = 1")] : [it("ρ"), rm(" = sec "), it("φ")], "#58c4dd", 0.19);
+  var lCone = makeLabel(SKELETAL ? [it("z"), rm(" = √("), it("x"), rm("² + "), it("y"), rm("²)")]
+                        : CYL ? [it("z"), rm(" = "), it("r")] : [it("φ"), rm(" = π/4")], "#83c167", 0.19);
+
+  // ---------- the swept solid, the triangle and the segment ----------
+  var SOLID_OP = { cone: 0.6, top: 0.5, cut: 0.5 };
+  function lambert(hex, op) {
+    return new THREE.MeshLambertMaterial({ color: hex, side: THREE.DoubleSide, transparent: true, opacity: op, depthWrite: false });
+  }
+  var coneMat = lambert(GREEN_C, SOLID_OP.cone), cutMat = lambert(0x3a8fa6, SOLID_OP.cut), topMat = lambert(BLUE_C, SOLID_OP.top);
+  var cone = new THREE.Mesh(new THREE.BufferGeometry(), coneMat), cut = new THREE.Mesh(new THREE.BufferGeometry(), cutMat),
+      top = new THREE.Mesh(new THREE.BufferGeometry(), topMat);
+  cone.renderOrder = 3; cut.renderOrder = 4; top.renderOrder = 5;
+  [cone, cut, top].forEach(function (m) { scene.add(m); });
+  var rimLine = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: INK_C, transparent: true, opacity: 0.9 }));
+  rimLine.renderOrder = 6; scene.add(rimLine);
+  var fanMat = new THREE.MeshBasicMaterial({ color: RED_C, side: THREE.DoubleSide, transparent: true, opacity: 0.78,
+    depthWrite: false, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3 });
+  var fan = new THREE.Mesh(new THREE.BufferGeometry(), fanMat); fan.renderOrder = 7; scene.add(fan);
+  var fanEdge = new THREE.Line(new THREE.BufferGeometry(), new THREE.LineBasicMaterial({ color: RED_C, transparent: true, opacity: 1 }));
+  fanEdge.renderOrder = 8; scene.add(fanEdge);
+
+  var _y = new THREE.Vector3(0, 1, 0);
+  var segMat = new THREE.MeshBasicMaterial({ color: YELLOW_C, transparent: true, opacity: 1, depthTest: false });
+  var seg = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 1, 12), segMat); seg.renderOrder = 20; scene.add(seg);
+  var segTip = new THREE.Mesh(new THREE.SphereGeometry(1, 18, 18), segMat); segTip.renderOrder = 21; scene.add(segTip);
+  var segBase = new THREE.Mesh(new THREE.SphereGeometry(1, 18, 18), segMat); segBase.renderOrder = 21; scene.add(segBase);
+  var origin = new THREE.Mesh(new THREE.SphereGeometry(0.022, 16, 16), new THREE.MeshBasicMaterial({ color: INK_C, depthTest: false }));
+  origin.renderOrder = 21; scene.add(origin);
+  var lInner = makeLabel([it(CYL ? "z" : "ρ")], "#ffe14d", 0.21);
+
+  // the coordinates of the segment: theta in the xy-plane, and r (cyl) or phi (sph)
+  var cMat = { mid: new THREE.LineBasicMaterial({ color: RED_C, transparent: true, opacity: 1, depthTest: false }),
+               theta: new THREE.LineBasicMaterial({ color: BLUE_C, transparent: true, opacity: 1, depthTest: false }),
+               dash: new THREE.LineDashedMaterial({ color: INK_C, dashSize: 0.035, gapSize: 0.03, transparent: true, opacity: 0.6, depthTest: false }) };
+  var midLine = new THREE.Line(new THREE.BufferGeometry(), cMat.mid), arcTheta = new THREE.Line(new THREE.BufferGeometry(), cMat.theta),
+      dash = new THREE.Line(new THREE.BufferGeometry(), cMat.dash);
+  [midLine, arcTheta, dash].forEach(function (l) { l.renderOrder = 22; scene.add(l); });
+  var lMid = makeLabel([it(CYL ? "r" : "φ")], "#fc6255", 0.21), lTheta = makeLabel([it("θ")], "#58c4dd", 0.21);
+  var R_THETA = 0.42, R_PHI = 0.42;
+
+  function meshFrom(tris) {
+    var g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(tris, 3)); g.computeVertexNormals(); return g;
+  }
+  function pushTri(out, a, b, c) { [a, b, c].forEach(function (v) { out.push(v.x, v.y, v.z); }); }
+  function quad(out, a, b, c, d) { pushTri(out, a, b, c); pushTri(out, a, c, d); }
+  function setGeo(obj, geo) { obj.geometry.dispose(); obj.geometry = geo; }
+  function setLine(obj, pts) { obj.geometry.dispose(); obj.geometry = new THREE.BufferGeometry().setFromPoints(pts); }
+
+  // the triangle cut by the half-plane theta = t from the region swept so far by the middle
+  // variable: cyl, 0 <= r <= m with r <= z <= 1; sph, 0 <= phi <= m with rho <= sec phi
+  function triangle(t, m) {
+    var rr = CYL ? m : Math.tan(m), O = new THREE.Vector3(), Z = new THREE.Vector3(0, 0, 1);
+    return CYL ? [O, C(rr, t, rr), C(rr, t, 1), Z] : [O, C(rr, t, 1), Z];
+  }
+
+  function rebuild() {
+    var th = S.theta.v, m = S.mid.v, f = S.inner.v, i, j;
+    // the solid: theta in [pi, th]
+    var coneT = [], topT = [], cutT = [], rimP = [];
+    if (th > PI + 1e-4) {
+      var nT = Math.max(2, Math.ceil(40 * (th - PI) / PI));
+      for (i = 0; i < nT; i++) {
+        var t0 = PI + (th - PI) * i / nT, t1 = PI + (th - PI) * (i + 1) / nT;
+        for (j = 0; j < 8; j++) {
+          var r0 = j / 8, r1 = (j + 1) / 8;
+          quad(coneT, C(r0, t0, r0), C(r1, t0, r1), C(r1, t1, r1), C(r0, t1, r0));
+          quad(topT, C(r0, t0, 1), C(r1, t0, 1), C(r1, t1, 1), C(r0, t1, 1));
+        }
+      }
+      [PI, th].forEach(function (t) { var q = triangle(t, MID_MAX); pushTri(cutT, q[0], q[1], q[2]); if (q[3]) pushTri(cutT, q[0], q[2], q[3]); });
+      for (i = 0; i <= 48; i++) rimP.push(C(1, PI + (th - PI) * i / 48, 1.004));
+    }
+    setGeo(cone, meshFrom(coneT)); setGeo(top, meshFrom(topT)); setGeo(cut, meshFrom(cutT)); setLine(rimLine, rimP);
+
+    // the triangle at theta = th, swept by the middle variable up to m
+    var fanT = [], q2 = triangle(th, m);
+    if (m > 1e-4) { pushTri(fanT, q2[0], q2[1], q2[2]); if (q2[3]) pushTri(fanT, q2[0], q2[2], q2[3]); }
+    setGeo(fan, meshFrom(fanT)); setLine(fanEdge, m > 1e-4 ? q2.concat([q2[0]]) : []);
+
+    // the segment: cyl, at (r, theta) = (m, th) from the cone up toward the plane;
+    // sph, along the ray (theta, phi) = (th, m) from the origin toward the plane
+    var a, b;
+    if (CYL) { a = C(m, th, m); b = C(m, th, m + f * (1 - m)); }
+    else { a = new THREE.Vector3(); b = U(th, m).multiplyScalar(f / Math.cos(m)); }
+    var L = Math.max(a.distanceTo(b), 1e-4), d = b.clone().sub(a);
+    if (d.lengthSq() < 1e-12) d.set(0, 0, 1);
+    seg.quaternion.setFromUnitVectors(_y, d.normalize());
+    seg.position.copy(a).add(b).multiplyScalar(0.5); seg.scale.set(0.012, L, 0.012);
+    segTip.position.copy(b); segTip.scale.setScalar(0.03);
+    segBase.position.copy(a); segBase.scale.setScalar(CYL ? 0.026 : 0.001);
+    segEnds = [a, b];
+
+    // the coordinates
+    var at = [], k;
+    for (k = 0; k <= 48; k++) at.push(C(R_THETA, PI + (th - PI) * k / 48, 0));
+    setLine(arcTheta, at);
+    if (CYL) {                 // r along the xy-plane, then the dashed drop from the segment's foot
+      setLine(midLine, [new THREE.Vector3(), C(m, th, 0)]);
+      setLine(dash, [C(m, th, 0), C(m, th, m)]);
+    } else {                   // phi from the z-axis, and the ray's shadow in the xy-plane
+      var ap = []; for (k = 0; k <= 30; k++) ap.push(U(th, m * k / 30).multiplyScalar(R_PHI));
+      setLine(midLine, ap);
+      setLine(dash, [new THREE.Vector3(), C(Math.max(0.5, Math.tan(m) * f), th, 0)]);
+    }
+    dash.computeLineDistances();
+  }
+  var segEnds = [new THREE.Vector3(), new THREE.Vector3()];
+
+  function applyAlphas() {
+    var so = S.solid.v, fa = S.fan.v, sa = S.seg.v, bo = S.bounds.v, co = S.coords.v;
+    coneMat.opacity = SOLID_OP.cone * so; topMat.opacity = SOLID_OP.top * so; cutMat.opacity = SOLID_OP.cut * so;
+    rimLine.material.opacity = 0.9 * so;
+    cone.visible = top.visible = cut.visible = rimLine.visible = so > 0.01;
+    fanMat.opacity = 0.78 * fa; fanEdge.material.opacity = fa; fan.visible = fanEdge.visible = fa > 0.01;
+    segMat.opacity = sa; seg.visible = segTip.visible = segBase.visible = sa > 0.01;
+    lInner.sprite.material.opacity = sa; lInner.sprite.visible = sa > 0.01 && segEnds[0].distanceTo(segEnds[1]) > 0.16;
+    boundMats.forEach(function (r) { r.m.opacity = r.base * bo; });
+    [lPlane, lCone].forEach(function (l) { l.sprite.material.opacity = bo; l.sprite.visible = bo > 0.01; });
+    var showMid = co * Math.min(1, S.mid.v / 0.08), showTheta = co * Math.min(1, (S.theta.v - PI) / 0.15);
+    cMat.mid.opacity = showMid; midLine.visible = showMid > 0.01;
+    cMat.theta.opacity = showTheta; arcTheta.visible = showTheta > 0.01;
+    cMat.dash.opacity = 0.6 * co; dash.visible = co > 0.01;
+    lMid.sprite.material.opacity = showMid; lMid.sprite.visible = showMid > 0.01;
+    lTheta.sprite.material.opacity = showTheta; lTheta.sprite.visible = showTheta > 0.01;
+  }
+
+  // ---------- the labels, placed on the screen ----------
+  // Each label is set off from what it names by a few pixels and pushed clear of the labels
+  // already placed, so that they stay apart and off each other from any view.
+  var CW = 1, CH = 1, _p = new THREE.Vector3(), _upv = new THREE.Vector3();
+  function toScreen(v) { _p.copy(v).project(camera); return { x: (_p.x + 1) / 2 * CW, y: (1 - _p.y) / 2 * CH, z: _p.z }; }
+  function toWorld(x, y, z) { return new THREE.Vector3(x / CW * 2 - 1, 1 - y / CH * 2, z).unproject(camera); }
+  function textBox(rec, at2) {
+    _upv.setFromMatrixColumn(camera.matrixWorld, 1);
+    var c = toScreen(at2), t = toScreen(at2.clone().addScaledVector(_upv, rec.size)), h = Math.abs(t.y - c.y);
+    return { w: h * Math.max(0.4, rec.aspect - 0.25), h: h * 0.62 };
+  }
+  function boxOf(rec) { var c = toScreen(rec.sprite.position), b = textBox(rec, rec.sprite.position); return { x: c.x, y: c.y, w: b.w, h: b.h }; }
+  function overlap(a, b, mg) {
+    var dx = (a.w + b.w) / 2 + mg - Math.abs(a.x - b.x), dy = (a.h + b.h) / 2 + mg - Math.abs(a.y - b.y);
+    return dx > 0 && dy > 0 ? { dx: dx, dy: dy } : null;
+  }
+  function setOff(rec, anchor, ux, uy, gap, fixed) {
+    var a = toScreen(anchor), b = textBox(rec, anchor), n = Math.hypot(ux, uy) || 1;
+    ux /= n; uy /= n;
+    var ext = Math.abs(ux) * b.w / 2 + Math.abs(uy) * b.h / 2;
+    var box = { x: a.x + ux * (gap + ext), y: a.y + uy * (gap + ext), w: b.w, h: b.h };
+    for (var it2 = 0; it2 < 10; it2++) {
+      var moved = false;
+      fixed.forEach(function (o) {
+        var ov = overlap(box, o, 6);
+        if (!ov) return;
+        if (ov.dx < ov.dy) box.x += (box.x >= o.x ? 1 : -1) * ov.dx; else box.y += (box.y >= o.y ? 1 : -1) * ov.dy;
+        moved = true;
+      });
+      if (!moved) break;
+    }
+    rec.sprite.position.copy(toWorld(box.x, box.y, a.z));
+    return box;
+  }
+  function outline(points, score) {      // the point of a set whose screen position scores highest
+    var best = points[0], bs = -Infinity;
+    points.forEach(function (q) { var s = toScreen(q), v = score(s); if (v > bs) { bs = v; best = q; } });
+    return best;
+  }
+  var TOP_PTS = [], CONE_PTS = [];
+  (function () {
+    for (var i = 0; i <= 24; i++) for (var j = 0; j <= 4; j++) {
+      var t = PI + PI * i / 24;
+      TOP_PTS.push(C(j / 4, t, 1));
+      CONE_PTS.push(C(0.28 + 0.14 * j / 4, t, 0.28 + 0.14 * j / 4));  // a band a third of the way up the cone
+    }
+  })();
+  function layoutLabels() {
+    camera.updateMatrixWorld();
+    CW = renderer.domElement.clientWidth || 1; CH = renderer.domElement.clientHeight || 1;
+    var th = S.theta.v, m = S.mid.v, O = toScreen(new THREE.Vector3());
+    var fixed = AXIS_LABELS.filter(function (r) { return r.sprite.visible; }).map(boxOf);
+    // the dots at the ends of the segment and at the origin are obstacles too
+    [segEnds[0], segEnds[1], new THREE.Vector3()].forEach(function (q) { var sq = toScreen(q); fixed.push({ x: sq.x, y: sq.y, w: 12, h: 12 }); });
+    // the plane's label outside the upper right of the top; the cone's beside its right slant, low down
+    var pB = setOff(lPlane, outline(TOP_PTS, function (s) { return s.x - s.y; }), 1, -1, 6, fixed);
+    if (lPlane.sprite.visible) fixed.push(pB);
+    var cB = setOff(lCone, outline(CONE_PTS, function (s) { return s.x; }), 1, 0.15, 10, fixed);
+    if (lCone.sprite.visible) fixed.push(cB);
+    // the segment's label beside its middle, on the side away from the z-axis
+    var a = toScreen(segEnds[0]), b = toScreen(segEnds[1]), mid = segEnds[0].clone().add(segEnds[1]).multiplyScalar(0.5), ms = toScreen(mid);
+    var rx = b.x - a.x, ry = b.y - a.y, rn = Math.hypot(rx, ry), nx = 1, ny = 0;
+    if (rn > 6) {
+      nx = -ry / rn; ny = rx / rn;
+      var zp = toScreen(new THREE.Vector3(0, 0, mid.z));
+      if (nx * (ms.x - zp.x) + ny * (ms.y - zp.y) < 0) { nx = -nx; ny = -ny; }
+    }
+    fixed.push(setOff(lInner, mid, nx, ny, 5, fixed));
+    // the middle variable: r beside the middle of its segment in the xy-plane (away from the
+    // theta arc), phi outside the middle of its arc
+    if (CYL) {
+      var rm2 = C(m * 0.62, th, 0), s1 = toScreen(rm2), e = toScreen(C(m, th, 0));
+      var ex = e.x - O.x, ey = e.y - O.y, en = Math.hypot(ex, ey) || 1, px = ey / en, py = -ex / en;
+      var am = toScreen(C(R_THETA, (PI + th) / 2, 0));       // keep off the side the theta arc is on
+      if (px * (s1.x - am.x) + py * (s1.y - am.y) < 0) { px = -px; py = -py; }
+      fixed.push(setOff(lMid, rm2, px, py, 5, fixed));
+    } else {
+      var aP = U(th, m / 2).multiplyScalar(R_PHI), sP = toScreen(aP);
+      fixed.push(setOff(lMid, aP, sP.x - O.x, sP.y - O.y, 4, fixed));
+    }
+    // theta outside the middle of its arc
+    var aT = C(R_THETA, (PI + th) / 2, 0), sT = toScreen(aT);
+    setOff(lTheta, aT, sT.x - O.x, sT.y - O.y, 4, fixed);
+  }
+
+  // ---------- the card ----------
+  var V = function (s) { return "<i>" + s + "</i>"; };
+  function INT(id, lo, hi, col) {
+    if (SKELETAL) lo = hi = '<span class="blank"></span>';
+    return '<span class="int" id="' + id + '" style="color:' + col + '"><span class="lim">' + hi + '</span><span class="sym">∫</span><span class="lim">' + lo + "</span></span>";
+  }
+  var YC = "#ffe14d", RC = "#fc6255", BC = "#58c4dd";
+  var card = document.getElementById("eqcard");
+  var dI = CYL ? V("z") : V("ρ"), dM = CYL ? V("r") : V("φ");
+  card.innerHTML = SKELETAL
+    ? '<div class="line">' + V("E") + ": above " + V("z") + " = √(" + V("x") + "<sup>2</sup> + " + V("y") + "<sup>2</sup>), below " + V("z") + " = 1, where " + V("y") + " ≤ 0</div>" +
+      '<div class="line">' + INT("iT", "", "", BC) + INT("iM", "", "", RC) + INT("iI", "", "", YC) + '<span class="blank wide"></span>' +
+        '<span style="color:' + YC + '">d' + dI + '</span> <span style="color:' + RC + '">d' + dM + '</span> <span style="color:' + BC + '">d' + V("θ") + "</span></div>" +
+      (CYL
+        ? '<div class="line sweep" id="wI" style="color:' + YC + '">' + V("z") + ": from the cone up to the plane</div>" +
+          '<div class="line sweep" id="wM" style="color:' + RC + '">' + V("r") + ": from the " + V("z") + "-axis out to the rim</div>" +
+          '<div class="line sweep" id="wT" style="color:' + BC + '">' + V("θ") + ": across the half disk " + V("y") + " ≤ 0</div>"
+        : '<div class="line sweep" id="wI" style="color:' + YC + '">' + V("ρ") + ": from the origin out to the plane</div>" +
+          '<div class="line sweep" id="wM" style="color:' + RC + '">' + V("φ") + ": from the " + V("z") + "-axis down to the cone</div>" +
+          '<div class="line sweep" id="wT" style="color:' + BC + '">' + V("θ") + ": across the half " + V("y") + " ≤ 0</div>") +
+      '<div class="note">Each sweep gives one pair of limits: fill in the boxes, and the integrand.</div>'
+    : CYL
+    ? '<div class="line">' + V("E") + ": above the cone " + V("z") + " = " + V("r") + ", below " + V("z") + " = 1, where " + V("y") + " ≤ 0</div>" +
+      '<div class="line">' + INT("iT", "π", "2π", BC) + INT("iM", "0", "1", RC) + INT("iI", V("r"), "1", YC) +
+        " " + V("r") + "<sup>2</sup> · " + V("r") + " &thinsp;" +
+        '<span style="color:' + YC + '">d' + V("z") + '</span> <span style="color:' + RC + '">d' + V("r") + '</span> <span style="color:' + BC + '">d' + V("θ") + "</span></div>" +
+      '<div class="line sweep" id="wI" style="color:' + YC + '">' + V("z") + ": " + V("r") + " to 1, &nbsp;the cone up to the plane</div>" +
+      '<div class="line sweep" id="wM" style="color:' + RC + '">' + V("r") + ": 0 to 1, &nbsp;the " + V("z") + "-axis out to the rim</div>" +
+      '<div class="line sweep" id="wT" style="color:' + BC + '">' + V("θ") + ": π to 2π, &nbsp;the half disk " + V("y") + " ≤ 0</div>"
+    : '<div class="line">' + V("E") + ": inside the cone " + V("φ") + " = π/4, below " + V("z") + " = 1, where " + V("y") + " ≤ 0</div>" +
+      '<div class="line">' + INT("iT", "π", "2π", BC) + INT("iM", "0", "π/4", RC) + INT("iI", "0", "sec " + V("φ"), YC) +
+        " (" + V("ρ") + "<sup>2</sup> sin<sup>2</sup> " + V("φ") + ") " + V("ρ") + "<sup>2</sup> sin " + V("φ") + " &thinsp;" +
+        '<span style="color:' + YC + '">d' + V("ρ") + '</span> <span style="color:' + RC + '">d' + V("φ") + '</span> <span style="color:' + BC + '">d' + V("θ") + "</span></div>" +
+      '<div class="line sweep" id="wI" style="color:' + YC + '">' + V("ρ") + ": 0 to sec " + V("φ") + ", &nbsp;the origin out to the plane</div>" +
+      '<div class="line sweep" id="wM" style="color:' + RC + '">' + V("φ") + ": 0 to π/4, &nbsp;the " + V("z") + "-axis down to the cone</div>" +
+      '<div class="line sweep" id="wT" style="color:' + BC + '">' + V("θ") + ": π to 2π, &nbsp;the half " + V("y") + " ≤ 0</div>";
+  var HL = { inner: ["iI", "wI"], mid: ["iM", "wM"], theta: ["iT", "wT"] };
+  function highlight(which) {
+    Object.keys(HL).forEach(function (k) {
+      var on = !which || which === k;
+      HL[k].forEach(function (id) { var e = document.getElementById(id); e.classList.toggle("off", !on); e.classList.toggle("on", !!which && on); });
+    });
+  }
+  document.getElementById("nmInner").innerHTML = V(CYL ? "z" : "ρ");
+  document.getElementById("nmMid").innerHTML = V(CYL ? "r" : "φ");
+  document.getElementById("lbInner").title = CYL ? "The inner sweep: how far the segment has run up from the cone toward the plane"
+                                                 : "The inner sweep: how far the ray has run out from the origin toward the plane";
+  document.getElementById("lbMid").title = CYL ? "The middle sweep: how far r has run out from the z-axis"
+                                               : "The middle sweep: how far the ray has tilted down from the z-axis";
+
+  // ---------- camera ----------
+  var FIT = [];
+  (function fitCloud() {
+    for (var i = 0; i <= 12; i++) { FIT.push(C(1, PI + PI * i / 12, 1)); FIT.push(C(1, PI + PI * i / 12, 0)); }
+    [[1.3, 0, 0], [-1.25, 0, 0], [0, 0.75, 0], [0, -1.3, 0], [0, 0, 1.45], [0, 0, -0.06]].forEach(function (v) { FIT.push(new THREE.Vector3(v[0], v[1], v[2])); });
+  })();
+  var _e = new THREE.Vector3(), _u = new THREE.Vector3(), _r = new THREE.Vector3();
+  function placeCamera() {
+    _e.set(Math.sin(camPhi) * Math.cos(camTheta), Math.sin(camPhi) * Math.sin(camTheta), Math.cos(camPhi));
+    _u.set(0, 0, 1).addScaledVector(_e, -_e.z); if (_u.lengthSq() < 1e-9) _u.set(0, 1, 0); else _u.normalize();
+    _r.crossVectors(_u, _e).normalize();
+    var th = Math.tan(camera.fov * Math.PI / 360), tv = th * band, tw = th * aspect, rr = 1;
+    FIT.forEach(function (p) {
+      var d = p.clone().sub(TARGET);
+      rr = Math.max(rr, d.dot(_e) + Math.abs(d.dot(_u)) / tv, d.dot(_e) + Math.abs(d.dot(_r)) / tw);
+    });
+    var dist = 1.04 * rr;
+    var up = _u.clone().multiplyScalar(padPx * 2 * dist * th / canvasH);
+    camera.position.copy(TARGET).addScaledVector(_e, dist).add(up);
+    var look = TARGET.clone().add(up);
+    camera.lookAt(look.x, look.y, look.z);
+    camera.updateProjectionMatrix();
+  }
+
+  // ---------- render loop ----------
+  var spinning = false, rafId = null, lastT = 0, needsDraw = false;
+  function render() { renderer.render(scene, camera); }
+  function frame(now) {
+    rafId = requestAnimationFrame(frame);
+    var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0; lastT = now;
+    var busy = false;
+    Object.keys(S).forEach(function (k) {
+      var q = S[k];
+      if (Math.abs(q.v - q.t) > 1e-5) {
+        var dv = (q.t - q.v) * (1 - Math.exp(-q.k * dt));
+        if (q.max) dv = Math.max(-q.max * dt, Math.min(q.max * dt, dv));
+        q.v += dv;
+        if (Math.abs(q.v - q.t) < 1e-4) q.v = q.t;
+        busy = true;
+      }
+    });
+    if (spinning) { camTheta += 0.22 * dt; busy = true; }
+    if (busy || tour.running || needsDraw) { needsDraw = false; rebuild(); applyAlphas(); placeCamera(); layoutLabels(); render(); syncSliders(); }
+    if (!busy && !spinning && !tour.running) { cancelAnimationFrame(rafId); rafId = null; lastT = 0; }
+  }
+  function ensureLoop() { if (rafId === null) { lastT = 0; rafId = requestAnimationFrame(frame); } }
+  function set(k, val) { S[k].t = val; ensureLoop(); }
+
+  // ---------- sliders (the progress of each sweep) ----------
+  var RANGES = { inner: [0, 1], mid: [0, MID_MAX], theta: [PI, TAU] };
+  var SL = { inner: document.getElementById("sInner"), mid: document.getElementById("sMid"), theta: document.getElementById("sTheta") };
+  var userSliding = false;
+  function syncSliders() {
+    if (userSliding) return;
+    Object.keys(SL).forEach(function (k) { var r = RANGES[k]; SL[k].value = Math.round(1000 * (S[k].v - r[0]) / (r[1] - r[0])); });
+  }
+  Object.keys(SL).forEach(function (k) {
+    SL[k].addEventListener("input", function () {
+      if (tour.running) stopTour();
+      userSliding = true;
+      var r = RANGES[k]; S[k].t = S[k].v = r[0] + (r[1] - r[0]) * (+SL[k].value) / 1000;
+      highlight(k); needsDraw = true; ensureLoop();
+    });
+    SL[k].addEventListener("change", function () { userSliding = false; });
+  });
+
+  // ---------- toggles ----------
+  var btnBounds = document.getElementById("btnBounds"), btnAngles = document.getElementById("btnAngles"),
+      btnSpin = document.getElementById("btnSpin");
+  function setBounds(on) { set("bounds", on ? 1 : 0); btnBounds.classList.toggle("active", on); }
+  function setCoords(on) { set("coords", on ? 1 : 0); btnAngles.classList.toggle("active", on); }
+  btnBounds.addEventListener("click", function () { if (tour.running) stopTour(); setBounds(S.bounds.t < 0.5); });
+  btnAngles.addEventListener("click", function () { if (tour.running) stopTour(); setCoords(S.coords.t < 0.5); });
+  btnSpin.addEventListener("click", function () {
+    spinning = !spinning; btnSpin.classList.toggle("active", spinning); needsDraw = true; ensureLoop();
+  });
+
+  // ---------- the guided tour ----------
+  var elCaption = document.getElementById("caption");
+  function say(html) {
+    elCaption.classList.remove("show");
+    window.setTimeout(function () { elCaption.innerHTML = html; if (html) elCaption.classList.add("show"); }, html ? 160 : 0);
+  }
+  var M = function (s) { return '<span class="m">' + s + "</span>"; };
+  var K = function (col, s) { return '<span style="color:' + col + '">' + s + "</span>"; };
+  var START = { theta: 1.25 * PI };
+  var CONE_RECT = K("#83c167", M(V("z") + " = √(" + V("x") + "<sup>2</sup> + " + V("y") + "<sup>2</sup>)"));
+  var LAST = { say: "Each sweep gives one pair of limits, from the inside out. Write them, and the integrand, in the boxes on the card: " +
+                    "that is the blank in the notes.", go: { theta: 1.8 * PI }, hl: null, hold: 6.4 };
+  var YOURS = { say: "Your turn: drag the sliders to rebuild " + M(V("E")) + ", sweep by sweep, or drag the figure to look from anywhere.", hold: 2.0 };
+  var STORY = SKELETAL ? (CYL ? [
+    { say: "The solid " + M(V("E")) + " lies above the cone " + CONE_RECT + " and below the plane " + K(BC, M(V("z") + " = 1")) +
+           ", on the side " + M(V("y") + " ≤ 0") + ". In cylindrical coordinates its limits are a sweep, from the inside out.",
+      st: { solid: 0, fan: 0, seg: 0, bounds: 1, coords: 1 }, jump: { theta: START.theta, mid: 0.55, inner: 0 }, hl: null, hold: 6.0 },
+    { say: "Innermost, " + K(YC, M("d" + V("z"))) + ": hold " + M(V("r")) + " and " + M(V("θ")) + " fixed. The vertical segment runs from the cone up to the plane.",
+      st: { seg: 1 }, go: { inner: 1 }, hl: "inner", hold: 5.8 },
+    { say: "Next, " + K(RC, M("d" + V("r"))) + ": let " + K(RC, M(V("r"))) + " run out from the " + M(V("z")) +
+           "-axis to where the cone meets the plane. The segments fill a flat triangle.",
+      st: { fan: 1 }, jump: { mid: 0 }, go: { mid: 1 }, hl: "mid", hold: 6.0 },
+    { say: "Outermost, " + K(BC, M("d" + V("θ"))) + ": " + K(BC, M(V("θ"))) + " runs across the half disk " + M(V("y") + " ≤ 0") +
+           " under the solid, and the triangle turns half way around the " + M(V("z")) + "-axis, sweeping out " + M(V("E")) + ".",
+      st: { solid: 1 }, jump: { theta: PI }, go: { theta: TAU }, hl: "theta", hold: 6.8 },
+    LAST, YOURS
+  ] : [
+    { say: "The same solid " + M(V("E")) + ": above the cone " + CONE_RECT + ", below the plane " + K(BC, M(V("z") + " = 1")) +
+           ", on the side " + M(V("y") + " ≤ 0") + ". In spherical coordinates its limits are a different sweep.",
+      st: { solid: 0, fan: 0, seg: 0, bounds: 1, coords: 1 }, jump: { theta: START.theta, mid: 0.48, inner: 0 }, hl: null, hold: 6.0 },
+    { say: "Innermost, " + K(YC, M("d" + V("ρ"))) + ": hold " + M(V("θ")) + " and " + M(V("φ")) + " fixed. Along the ray, " + K(YC, M(V("ρ"))) +
+           " runs from the origin out to the plane " + M(V("z") + " = 1") + ".",
+      st: { seg: 1 }, go: { inner: 1 }, hl: "inner", hold: 6.0 },
+    { say: "Next, " + K(RC, M("d" + V("φ"))) + ": " + K(RC, M(V("φ"))) + " runs from the " + M(V("z")) + "-axis down to the cone. " +
+           "The rays, each ending on the plane, fill the same flat triangle.",
+      st: { fan: 1 }, jump: { mid: 0 }, go: { mid: PHI_MAX }, hl: "mid", hold: 6.0 },
+    { say: "Outermost, " + K(BC, M("d" + V("θ"))) + ": " + K(BC, M(V("θ"))) + " runs across the half " + M(V("y") + " ≤ 0") +
+           ", and the triangle turns half way around the " + M(V("z")) + "-axis, sweeping out " + M(V("E")) + ".",
+      st: { solid: 1 }, jump: { theta: PI }, go: { theta: TAU }, hl: "theta", hold: 6.8 },
+    LAST, YOURS
+  ]) : CYL ? [
+    { say: "The solid " + M(V("E")) + " lies above the cone " + K("#83c167", M(V("z") + " = √(" + V("x") + "<sup>2</sup> + " + V("y") + "<sup>2</sup>) = " + V("r"))) +
+           " and below the plane " + K(BC, M(V("z") + " = 1")) + ", over the half disk " + M(V("y") + " ≤ 0") +
+           ". In cylindrical coordinates its limits are a sweep, from the inside out.",
+      st: { solid: 0, fan: 0, seg: 0, bounds: 1, coords: 1 }, jump: { theta: START.theta, mid: 0.55, inner: 0 }, hl: null, hold: 6.0 },
+    { say: "Innermost, " + K(YC, M("d" + V("z"))) + ": hold " + M(V("r")) + " and " + M(V("θ")) + " fixed. The vertical segment runs from " +
+           M(V("z") + " = " + V("r")) + " on the cone up to " + M(V("z") + " = 1") + " on the plane.",
+      st: { seg: 1 }, go: { inner: 1 }, hl: "inner", hold: 5.8 },
+    { say: "Next, " + K(RC, M("d" + V("r"))) + ": let " + K(RC, M(V("r"))) + " run from 0 on the " + M(V("z")) +
+           "-axis out to 1, where the cone meets the plane. The segments fill a flat triangle.",
+      st: { fan: 1 }, jump: { mid: 0 }, go: { mid: 1 }, hl: "mid", hold: 6.0 },
+    { say: "Outermost, " + K(BC, M("d" + V("θ"))) + ": the shadow is the half disk " + M(V("y") + " ≤ 0") + ", so " + K(BC, M(V("θ"))) +
+           " runs from π to 2π, and the triangle turns half way around the " + M(V("z")) + "-axis, sweeping out " + M(V("E")) + ".",
+      st: { solid: 1 }, jump: { theta: PI }, go: { theta: TAU }, hl: "theta", hold: 6.8 },
+    { say: "So " + M("π ≤ " + V("θ") + " ≤ 2π") + ", " + M("0 ≤ " + V("r") + " ≤ 1") + ", " + M(V("r") + " ≤ " + V("z") + " ≤ 1") + "; with " +
+           M(V("x") + "<sup>2</sup> + " + V("y") + "<sup>2</sup> = " + V("r") + "<sup>2</sup>") + " and " +
+           M(V("dV") + " = " + V("r") + " " + V("dz") + " " + V("dr") + " " + V("dθ")) + " the integral is the one in the card.",
+      go: { theta: 1.8 * PI }, hl: null, hold: 6.4 },
+    { say: "Your turn: drag the sliders to rebuild " + M(V("E")) + ", sweep by sweep, or drag the figure to look from anywhere.", hold: 2.0 }
+  ] : [
+    { say: "The solid " + M(V("E")) + " lies inside the cone " + K("#83c167", M(V("φ") + " = π/4")) + " and below the plane " +
+           K(BC, M(V("z") + " = 1")) + ", on the side " + M(V("y") + " ≤ 0") + ". In spherical coordinates its limits are a different sweep.",
+      st: { solid: 0, fan: 0, seg: 0, bounds: 1, coords: 1 }, jump: { theta: START.theta, mid: 0.48, inner: 0 }, hl: null, hold: 6.0 },
+    { say: "Innermost, " + K(YC, M("d" + V("ρ"))) + ": hold " + M(V("θ")) + " and " + M(V("φ")) + " fixed. Along the ray, " + K(YC, M(V("ρ"))) +
+           " runs from 0 at the origin to the plane " + M(V("z") + " = 1") + ", where " + M(V("ρ") + " cos " + V("φ") + " = 1") +
+           ", that is, " + M(V("ρ") + " = sec " + V("φ")) + ".",
+      st: { seg: 1 }, go: { inner: 1 }, hl: "inner", hold: 6.4 },
+    { say: "Next, " + K(RC, M("d" + V("φ"))) + ": " + K(RC, M(V("φ"))) + " runs from 0 on the " + M(V("z")) + "-axis down to π/4 on the cone. " +
+           "The rays, each ending on the plane, fill the same flat triangle.",
+      st: { fan: 1 }, jump: { mid: 0 }, go: { mid: PHI_MAX }, hl: "mid", hold: 6.0 },
+    { say: "Outermost, " + K(BC, M("d" + V("θ"))) + ": " + K(BC, M(V("θ"))) + " runs from π to 2π, and the triangle turns half way around the " +
+           M(V("z")) + "-axis, sweeping out " + M(V("E")) + ".",
+      st: { solid: 1 }, jump: { theta: PI }, go: { theta: TAU }, hl: "theta", hold: 6.8 },
+    { say: "So " + M("π ≤ " + V("θ") + " ≤ 2π") + ", " + M("0 ≤ " + V("φ") + " ≤ π/4") + ", " + M("0 ≤ " + V("ρ") + " ≤ sec " + V("φ")) + "; with " +
+           M(V("x") + "<sup>2</sup> + " + V("y") + "<sup>2</sup> = " + V("ρ") + "<sup>2</sup> sin<sup>2</sup> " + V("φ")) + " and " +
+           M(V("dV") + " = " + V("ρ") + "<sup>2</sup> sin " + V("φ") + " " + V("dρ") + " " + V("dφ") + " " + V("dθ")) + " the integral is the one in the card.",
+      go: { theta: 1.8 * PI }, hl: null, hold: 6.8 },
+    { say: "Your turn: drag the sliders to rebuild " + M(V("E")) + ", sweep by sweep, or drag the figure to look from anywhere.", hold: 2.0 }
+  ];
+  var tour = { running: false, i: 0, timer: null };
+  var btnTour = document.getElementById("btnTour");
+  function tourStep() {
+    if (!tour.running) return;
+    if (tour.i >= STORY.length) { stopTour(); return; }
+    var beat = STORY[tour.i++];
+    if (beat.st) Object.keys(beat.st).forEach(function (k) {
+      var on = beat.st[k] > 0.5;
+      if (k === "bounds") setBounds(on); else if (k === "coords") setCoords(on); else set(k, beat.st[k]);
+    });
+    if (beat.jump) Object.keys(beat.jump).forEach(function (k) { S[k].v = S[k].t = beat.jump[k]; });
+    if (beat.go) Object.keys(beat.go).forEach(function (k) { set(k, beat.go[k]); });
+    if ("hl" in beat) highlight(beat.hl);
+    say(beat.say); needsDraw = true; ensureLoop();
+    tour.timer = window.setTimeout(tourStep, beat.hold * 1000);
+  }
+  function startTour() {
+    tour.running = true; tour.i = 0;
+    if (spinning) { spinning = false; btnSpin.classList.remove("active"); }
+    btnTour.innerHTML = "&#10074;&#10074;<span class=\"long\">&nbsp;Stop</span>"; btnTour.classList.add("running");
+    ensureLoop(); tourStep();
+  }
+  function stopTour() {
+    tour.running = false;
+    if (tour.timer) { window.clearTimeout(tour.timer); tour.timer = null; }
+    btnTour.innerHTML = "&#9654;<span class=\"long\">&nbsp;Play</span>"; btnTour.classList.remove("running");
+    set("solid", 1); set("fan", 1); set("seg", 1); highlight(null);
+    say(""); ensureLoop();
+  }
+  btnTour.addEventListener("click", function () { tour.running ? stopTour() : startTour(); });
+
+  // ---------- drag to orbit ----------
+  var dragging = false, lastX = 0, lastY = 0, el = renderer.domElement;
+  function startDrag(x, y) { dragging = true; lastX = x; lastY = y; }
+  function moveDrag(x, y) {
+    if (!dragging) return;
+    camTheta -= (x - lastX) * 0.008;
+    camPhi = Math.min(PI - 0.05, Math.max(0.05, camPhi - (y - lastY) * 0.008));
+    lastX = x; lastY = y; placeCamera(); layoutLabels(); render();
+  }
+  el.addEventListener("mousedown", function (e) { startDrag(e.clientX, e.clientY); });
+  window.addEventListener("mousemove", function (e) { moveDrag(e.clientX, e.clientY); });
+  window.addEventListener("mouseup", function () { dragging = false; });
+  el.addEventListener("touchstart", function (e) { if (e.touches.length === 1) { startDrag(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  el.addEventListener("touchmove", function (e) { if (e.touches.length === 1) { moveDrag(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); } }, { passive: false });
+  window.addEventListener("touchend", function () { dragging = false; });
+
+  // ---------- full screen ----------
+  var btnFull = document.getElementById("btnFull"), docEl = document.documentElement;
+  function fsElement() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+  function openStandalone() { window.open(window.location.href, "_blank", "noopener"); }
+  btnFull.addEventListener("click", function () {
+    if (fsElement()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    var req = docEl.requestFullscreen || docEl.webkitRequestFullscreen;
+    if (!req) { openStandalone(); return; }
+    try { var p = req.call(docEl); if (p && p.catch) p.catch(openStandalone); } catch (e) { openStandalone(); }
+  });
+  function onFs() {
+    var on = !!fsElement(); btnFull.classList.toggle("active", on);
+    btnFull.innerHTML = on ? "&#x26F6;<span class=\"long\">&nbsp;Exit full screen</span>" : "&#x26F6;<span class=\"long\">&nbsp;Full screen</span>";
+    window.setTimeout(resize, 50);
+  }
+  document.addEventListener("fullscreenchange", onFs);
+  document.addEventListener("webkitfullscreenchange", onFs);
+
+  // ---------- sizing ----------
+  function resize() {
+    var w = document.getElementById("app").clientWidth, h = stage.clientHeight;
+    var stacked = window.getComputedStyle(card).position === "static";
+    var cardH = stacked ? card.offsetHeight : 0, ch = Math.max(120, h - cardH);
+    renderer.setSize(w, ch); camera.aspect = w / ch; aspect = camera.aspect;
+    var reach = Math.min(1, card.offsetWidth / (0.45 * w));
+    var topPad = stacked ? 0 : (card.offsetHeight + 16) * reach, botPad = 10;
+    band = Math.max(0.45, (ch - topPad - botPad) / ch);
+    padPx = 0.5 * (topPad - botPad); canvasH = ch;
+    rebuild(); applyAlphas(); placeCamera(); layoutLabels(); render();
+  }
+  window.addEventListener("resize", resize);
+
+  highlight(null);
+  syncSliders();
+  resize();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { LABELS.forEach(paintLabel); resize(); });
+  }
+})();
+</script>
+</body>
+</html>

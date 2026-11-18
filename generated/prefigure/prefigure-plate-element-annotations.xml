@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-plate-element-figure" speech2="A blob-shaped region R, shaded light blue, lying over a grid of small squares in the first quadrant. One square inside the region is highlighted in purple; a dot at its center is the point x sub i comma y sub j, and a leader line labels the mass of the square, delta m sub i j equals delta of x sub i comma y sub j times delta A sub i j. Its width and height are labeled delta x sub i and delta y sub j.">
+      <grouped>prefigure-plate-element-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-plate-element-pe-region</active>
+        <active>prefigure-plate-element-pe-grid</active>
+        <active>prefigure-plate-element-pe-cell</active>
+        <active>prefigure-plate-element-pe-pt</active>
+      </children>
+      <components>
+        <active>prefigure-plate-element-pe-region</active>
+        <active>prefigure-plate-element-pe-grid</active>
+        <active>prefigure-plate-element-pe-cell</active>
+        <active>prefigure-plate-element-pe-pt</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-plate-element-pe-region" speech2="The plate, a blob-shaped region R shaded light blue.">
+      <active>prefigure-plate-element-pe-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-plate-element-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-plate-element-pe-grid" speech2="The grid of lines x equals x sub i and y equals y sub j that cuts the plane, and the plate, into small rectangles.">
+      <active>prefigure-plate-element-pe-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-plate-element-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-plate-element-pe-cell" speech2="One small rectangle inside R, highlighted in purple, with width delta x sub i and height delta y sub j.">
+      <active>prefigure-plate-element-pe-cell</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-plate-element-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-plate-element-pe-pt" speech2="The point x sub i comma y sub j chosen inside the highlighted rectangle.">
+      <active>prefigure-plate-element-pe-pt</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-plate-element-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
