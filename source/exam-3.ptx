@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Exam 3, with solutions.
+
+  Transcribed from the instructor's solutions of the Fall 2026 third exam
+  (MATH14-Exam3-Fall2026-Solutions.pdf): the five problems and the bonus
+  problem with their point values, the solutions of the key, and its
+  grading notes, which close each solution.  The key has no cover page,
+  so the introduction says only what the key does (five problems, 20
+  points, and a 6-point bonus) and lists the topics as Sample Past Exam 3
+  does.  Every value in the key was checked numerically before
+  transcription.  Built like exam-2.ptx and exam-1.ptx: one exercise per
+  problem, a task per part, a solution under each, and the
+  "sec-exercises-" id prefix, so assets/unnumbered-chapter.css hides its
+  number and xsl/custom-html.xsl keeps its solutions behind knowls (it is
+  a worksheet).  The solutions carry no component: like those of Exams 1
+  and 2, they are always available.
+
+  Figures: the key's six, PreFigure for the five plane pictures and
+  Asymptote for the one solid (at the instructor's request).  Figure 3,
+  the curve of Problem 3, belongs to the problem itself, as on the exam;
+  the others sit in the solutions.  The key drew Problem 5 from the side,
+  with the positive x-axis to the right; here it is a rotatable 3D
+  Asymptote figure of the same objects, and its caption says what the
+  side view showed.  Included from main.ptx right after Sample Past Exam
+  3, in the skeletal book (MATH14-Skeletal), the skeletal instructor book
+  and the completed instructor book; the three copies are identical.
+-->
+<worksheet xml:id="sec-exercises-exam-3" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Exam 3</title>
+
+  <introduction>
+    <p>
+      The third exam of Fall 2026, with solutions. It had five problems
+      worth 20 points in all, and a bonus problem worth 6 more. Each
+      solution ends with the grading notes of the key, which show how the
+      points were given. Try the exam under exam conditions before you look
+      at the solutions. The topics it covers, with links to the notes:
+    </p>
+    <p>
+      <ul>
+        <li><p><xref ref="section-mass-center-of-mass" text="title"/></p></li>
+        <li><p><xref ref="section-jacobian-substitution" text="title"/></p></li>
+        <li><p><xref ref="section-surface-integrals" text="title"/></p></li>
+        <li><p><xref ref="section-greens-theorem" text="title"/></p></li>
+        <li><p><xref ref="section-stokes-theorem" text="title"/></p></li>
+      </ul>
+    </p>
+    <p>
+      The bonus problem asks for the signs of three triple integrals,
+      without computing them.
+    </p>
+  </introduction>
+
+  <!-- ===================== Problem 1 ===================== -->
+  <exercise xml:id="exam3-q1">
+    <title>(4 points)</title>
+    <statement>
+      <p>
+        Consider the integral
+        <me>
+          \int_0^2\!\!\int_0^1\!\!\int_{3x}^{3x+6}
+          \left(\frac{y-3x}{3} + \frac{z}{2}\right) dy\,dx\,dz .
+        </me>
+        Rewrite (<alert>do not evaluate</alert>) this integral in such a
+        way that the limits of integration are all constants (as opposed to
+        functions).
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The limits on <m>x</m> and <m>z</m> are already constants; only the
+        limits on <m>y</m>, <m>3x \le y \le 3x + 6</m>, depend on
+        <m>x</m>. They say <m>0 \le y - 3x \le 6</m>: in the
+        <m>xy</m>-plane the region is the parallelogram of
+        <xref ref="fig-exam3-q1-region"/>. The integrand contains the same
+        combination <m>\frac{y-3x}{3}</m>, together with
+        <m>\frac{z}{2}</m>, so let
+        <me>
+          u = \frac{y-3x}{3}, \quad v = x, \quad w = \frac{z}{2} .
+        </me>
+      </p>
+      <figure xml:id="fig-exam3-q1-region">
+        <caption>
+          The region of integration of <xref ref="exam3-q1"/> in the <m>xy</m>-plane: the parallelogram <m>0 \le x \le 1</m>, <m>3x \le y \le 3x + 6</m>. The substitution <m>u = (y - 3x)/3</m>, <m>v = x</m> carries it to the rectangle <m>0 \le u \le 2</m>, <m>0 \le v \le 1</m>.
+        </caption>
+        <image width="40%">
+          <shortdescription>
+          A shaded parallelogram with vertices at the origin, one comma three, one comma nine and zero comma six, bounded below by the line y equals three x and above by the line y equals three x plus six.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and y. A parallelogram is shaded tan. Its left side lies on the y axis, from the origin up to zero comma six; its right side is the vertical segment x equals one, from one comma three up to one comma nine. Its bottom edge is the blue line y equals three x, from the origin to one comma three, and its top edge is the blue line y equals three x plus six, from zero comma six to one comma nine. A dashed vertical line drops from one comma three to the x axis at one.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-exam3-q1-region">
+            <diagram dimensions="(270,330)" margins="10">
+              <coordinates bbox="(-0.55,-1.1,2.05,10.6)">
+              <polygon at="q1-region" points="((0,0),(1,3),(1,9),(0,6))" fill="#fbe3d0" stroke="none" closed="yes"/>
+              <axes at="q1-axes" xlabel="x" ylabel="y" hlabels="(1,1,1)" vlabels="(3,3,9)" arrows="1"/>
+              <line at="q1-drop" endpoints="((1,0),(1,3))" stroke="#555555" thickness="1.5" dash="5 4"/>
+              <line at="q1-right" endpoints="((1,3),(1,9))" stroke="black" thickness="1.5"/>
+              <line at="q1-low" endpoints="((0,0),(1,3))" stroke="#0072B2" thickness="3"/>
+              <line at="q1-high" endpoints="((0,6),(1,9))" stroke="#0072B2" thickness="3"/>
+              <point at="q1-p3" p="(1,3)" fill="black" size="3"/>
+              <point at="q1-p9" p="(1,9)" fill="black" size="3"/>
+              <point at="q1-p6" p="(0,6)" fill="black" size="3"/>
+              <label at="q1-lowlab" anchor="(1,3)" alignment="e" offset="(6,0)" color="#0072B2"><m>y = 3x</m></label>
+              <label at="q1-highlab" anchor="(1,9)" alignment="e" offset="(6,0)" color="#0072B2"><m>y = 3x + 6</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The parallelogram between the lines y equals three x and y equals three x plus six, for x from zero to one.">
+                <annotation ref="q1-region" text="The shaded parallelogram, the region of integration."/>
+                <annotation ref="q1-low" text="The line y equals three x, from the origin to one comma three, the bottom edge."/>
+                <annotation ref="q1-high" text="The line y equals three x plus six, from zero comma six to one comma nine, the top edge."/>
+                <annotation ref="q1-right" text="The vertical side x equals one, from one comma three to one comma nine."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+        <em>New limits.</em> <m>0 \le y - 3x \le 6</m> gives
+        <m>0 \le u \le 2</m>; <m>0 \le x \le 1</m> gives
+        <m>0 \le v \le 1</m>; <m>0 \le z \le 2</m> gives
+        <m>0 \le w \le 1</m>.
+      </p>
+      <p>
+        <em>Jacobian.</em> Solving for the old variables,
+        <m>x = v</m>, <m>y = 3u + 3v</m>, <m>z = 2w</m>, so
+        <me>
+          \begin{aligned}
+          \frac{\partial(x,y,z)}{\partial(u,v,w)}
+          \amp = \begin{vmatrix} 0 \amp 1 \amp 0\\ 3 \amp 3 \amp 0\\ 0 \amp 0 \amp 2 \end{vmatrix}\\
+          \amp = 2\,(0 \cdot 3 - 1 \cdot 3) = -6,
+          \end{aligned}
+        </me>
+        and <m>dy\,dx\,dz = |-6|\,du\,dv\,dw = 6\,du\,dv\,dw</m>.
+      </p>
+      <p>
+        <em>The integral.</em> The integrand becomes <m>u + w</m>, so
+        <md>
+          <mrow>
+            \amp \int_0^2\!\!\int_0^1\!\!\int_{3x}^{3x+6}
+          </mrow>
+          <mrow>
+            \amp \qquad \left(\frac{y-3x}{3} + \frac{z}{2}\right) dy\,dx\,dz
+          </mrow>
+          <mrow>
+            \amp \quad = \int_0^1\!\!\int_0^1\!\!\int_0^2 6\,(u + w)\,du\,dv\,dw .
+          </mrow>
+        </md>
+      </p>
+      <p>
+        <em>Other substitutions are equally correct.</em> For example
+        <m>u = y - 3x</m>, <m>v = x</m>, <m>w = z</m> has Jacobian
+        <m>1</m> and gives
+        <me>
+          \int_0^2\!\!\int_0^1\!\!\int_0^6
+          \left(\frac{u}{3} + \frac{w}{2}\right) du\,dv\,dw .
+        </me>
+      </p>
+      <p>
+        <em>Value</em> (not required):
+        <md>
+          <mrow>
+            \amp \int_0^1\!\!\int_0^1\!\!\int_0^2 6\,(u + w)\,du\,dv\,dw
+          </mrow>
+          <mrow>
+            \amp \quad = \int_0^1 (12 + 12w)\,dw = 18 .
+          </mrow>
+        </md>
+      </p>
+      <p>
+        <em>Grading.</em> 1 point for a substitution that makes the
+        <m>y</m>-limits constant; 1 point for the new limits; 1 point for
+        the Jacobian; 1 point for the transformed integrand and the final
+        integral.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Problem 2 ===================== -->
+  <exercise xml:id="exam3-q2">
+    <title>(4 points)</title>
+    <statement>
+      <p>
+        A two-dimensional object has the shape of the petal of the rose
+        <m>r = \sin(2\theta)</m> that lies in the first quadrant, and its
+        density is <m>\delta(r,\theta) = 2 - r</m>. Set up
+        (<alert>do not evaluate</alert>) all the integrals required to
+        compute the center of mass of this object.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <em>The region.</em> On <m>0 \le \theta \le \pi/2</m> we have
+        <m>\sin(2\theta) \ge 0</m>, with <m>r = 0</m> at <m>\theta = 0</m>
+        and at <m>\theta = \pi/2</m>: as <m>\theta</m> runs from <m>0</m>
+        to <m>\pi/2</m> the curve leaves the origin and returns to it,
+        tracing the petal in the first quadrant
+        (<xref ref="fig-exam3-q2-petal"/>). So the object is
+        <md alignment="gather">
+          <mrow>R:\quad 0 \le \theta \le \frac{\pi}{2},</mrow>
+          <mrow>0 \le r \le \sin(2\theta) .</mrow>
+        </md>
+      </p>
+      <figure xml:id="fig-exam3-q2-petal">
+        <caption>
+          The object of <xref ref="exam3-q2"/>: the petal of <m>r = \sin(2\theta)</m> in the first quadrant. A ray at angle <m>\theta</m>, <m>0 \le \theta \le \pi/2</m>, crosses it for <m>0 \le r \le \sin(2\theta)</m>.
+        </caption>
+        <image width="45%">
+          <shortdescription>
+          A shaded petal in the first quadrant, starting and ending at the origin, with a ray from the origin at angle theta ending on its boundary and a dot marking the center of mass.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and y. A petal of the rose r equals sine two theta is shaded tan in the first quadrant: its blue boundary leaves the origin along the x axis, swings out to a farthest point at distance one along the line y equals x, and returns to the origin along the y axis. A green ray from the origin at a small angle theta above the x axis ends on the boundary, and a small arc marks the angle. A black dot inside the petal, on the line y equals x, marks the center of mass x bar comma y bar.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-exam3-q2-petal">
+            <diagram dimensions="(300,272)" margins="10">
+              <definition>petal(t) = (sin(2*t)*cos(t), sin(2*t)*sin(t))</definition>
+              <coordinates bbox="(-0.2,-0.18,1.25,1.13)">
+              <polygon at="q2-region" points="((0,0),(0.05232,0.00137),(0.1044,0.005471),(0.156,0.01227),(0.2068,0.02173),(0.2566,0.03378),(0.3052,0.04834),(0.3524,0.06531),(0.3978,0.08457),(0.4414,0.106),(0.483,0.1294),(0.5222,0.1547),(0.559,0.1816),(0.5932,0.2101),(0.6247,0.2398),(0.6533,0.2706),(0.6789,0.3023),(0.7014,0.3346),(0.7208,0.3673),(0.737,0.4002),(0.75,0.433),(0.7597,0.4655),(0.7662,0.4976),(0.7694,0.5288),(0.7694,0.559),(0.7663,0.588),(0.7602,0.6156),(0.751,0.6415),(0.7391,0.6655),(0.7244,0.6874),(0.7071,0.7071),(0.6874,0.7244),(0.6655,0.7391),(0.6415,0.751),(0.6156,0.7602),(0.588,0.7663),(0.559,0.7694),(0.5288,0.7694),(0.4976,0.7662),(0.4655,0.7597),(0.433,0.75),(0.4002,0.737),(0.3673,0.7208),(0.3346,0.7014),(0.3023,0.6789),(0.2706,0.6533),(0.2398,0.6247),(0.2101,0.5932),(0.1816,0.559),(0.1547,0.5222),(0.1294,0.483),(0.106,0.4414),(0.08457,0.3978),(0.06531,0.3524),(0.04834,0.3052),(0.03378,0.2566),(0.02173,0.2068),(0.01227,0.156),(0.005471,0.1044),(0.00137,0.05232),(1.605e-31,5.666e-16))" fill="#fbe3d0" stroke="none" closed="yes"/>
+              <axes at="q2-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <parametric-curve at="q2-petal" function="petal" domain="(0,pi/2)" stroke="#0072B2" thickness="3"/>
+              <line at="q2-ray" endpoints="((0,0),(0.6040,0.2198))" stroke="#009E73" thickness="2.5"/>
+              <arc at="q2-angle" center="(0,0)" radius="0.22" range="(0,20)" stroke="#009E73" thickness="2"/>
+              <point at="q2-end" p="(0.6040,0.2198)" fill="#009E73" size="3"/>
+              <point at="q2-cm" p="(0.3608,0.3608)" fill="black" size="3.5"/>
+              <label at="q2-thetalab" anchor="(0.24,0.045)" alignment="e" color="#009E73"><m>\theta</m></label>
+              <label at="q2-cmlab" anchor="(0.3608,0.3608)" alignment="n" offset="(0,4)"><m>(\bar x, \bar y)</m></label>
+              <label at="q2-rlab" anchor="(0.74,0.74)" alignment="ne" offset="(2,2)" color="#0072B2"><m>r = \sin(2\theta)</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The petal of the rose r equals sine two theta in the first quadrant, the object.">
+                <annotation ref="q2-region" text="The shaded petal."/>
+                <annotation ref="q2-petal" text="Its boundary, r equals sine two theta for theta from zero to pi over two, which leaves the origin and returns to it." sonify="yes"/>
+                <annotation ref="q2-ray" text="A ray from the origin at angle theta, which crosses the petal for r from zero to sine two theta."/>
+                <annotation ref="q2-cm" text="The center of mass, on the line y equals x."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+        <em>The integrals.</em> In polar coordinates
+        <m>dA = r\,dr\,d\theta</m>, <m>x = r\cos\theta</m> and
+        <m>y = r\sin\theta</m>. The mass and the two moments are
+        <md>
+          <mrow>
+            M \amp = \iint_R \delta\,dA
+          </mrow>
+          <mrow>
+            \amp = \int_0^{\pi/2}\!\!\int_0^{\sin(2\theta)} (2 - r)\,r\,dr\,d\theta,
+          </mrow>
+          <mrow>
+            M_y \amp = \iint_R x\,\delta\,dA
+          </mrow>
+          <mrow>
+            \amp = \int_0^{\pi/2}\!\!\int_0^{\sin(2\theta)}
+          </mrow>
+          <mrow>
+            \amp \qquad (r\cos\theta)\,(2 - r)\,r\,dr\,d\theta,
+          </mrow>
+          <mrow>
+            M_x \amp = \iint_R y\,\delta\,dA
+          </mrow>
+          <mrow>
+            \amp = \int_0^{\pi/2}\!\!\int_0^{\sin(2\theta)}
+          </mrow>
+          <mrow>
+            \amp \qquad (r\sin\theta)\,(2 - r)\,r\,dr\,d\theta,
+          </mrow>
+        </md>
+        and the center of mass is
+        <me>
+          \bar x = \frac{M_y}{M}, \qquad \bar y = \frac{M_x}{M} .
+        </me>
+      </p>
+      <p>
+        <em>Values</em> (not required): <m>M = \frac{\pi}{4} - \frac29</m>
+        and <m>M_x = M_y = \frac{64}{315}</m>, so
+        <m>\bar x = \bar y = \dfrac{64/315}{\pi/4 - 2/9} \approx 0.36</m>.
+        The two coordinates agree because the petal and the density are
+        symmetric about the line <m>y = x</m>.
+      </p>
+      <p>
+        <em>Grading.</em> 1 point for the region
+        (<m>0 \le \theta \le \pi/2</m>, <m>0 \le r \le \sin 2\theta</m>);
+        1 point for <m>M</m>, with the density and
+        <m>dA = r\,dr\,d\theta</m>; 1 point for the two moments, with the
+        lever arms <m>r\cos\theta</m> and <m>r\sin\theta</m>; 1 point for
+        <m>\bar x = M_y/M</m> and <m>\bar y = M_x/M</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Problem 3 ===================== -->
+  <exercise xml:id="exam3-q3">
+    <title>(4 points)</title>
+    <introduction>
+      <p>
+        Let <m>C</m> be the closed curve parametrized by
+        <m>\mathbf{r}(t) = \left\langle t - t^3,\ t^2 \right\rangle</m> on
+        <m>-1 \le t \le 1</m>, enclosing the region <m>R</m>
+        (<xref ref="fig-exam3-q3-curve"/>).
+      </p>
+      <figure xml:id="fig-exam3-q3-curve">
+        <caption>
+          The curve <m>C</m> of <xref ref="exam3-q3"/> and the region <m>R</m> it encloses. As <m>t</m> increases from <m>-1</m> to <m>1</m> the point <m>\mathbf{r}(t)</m> leaves <m>(0,1)</m>, comes down the left side (where <m>x = t - t^3 \lt 0</m>), passes through the origin at <m>t = 0</m> and climbs the right side: <m>C</m> is traversed counterclockwise.
+        </caption>
+        <image width="42%">
+          <shortdescription>
+          A shaded teardrop shape with its point at zero comma one and its rounded bottom at the origin, with arrowheads showing that the boundary curve runs down the left side and up the right side.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and y. A teardrop-shaped region R is shaded tan. Its blue boundary C starts at the point zero comma one on the y axis, marked by a dot and labelled t equals plus or minus one, bulges out to the left, comes down to the origin, labelled t equals zero, and climbs the right side back up to zero comma one. Arrowheads on the left side point down and on the right side point up, so the curve is traversed counterclockwise.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-exam3-q3-curve">
+            <diagram dimensions="(300,268)" margins="10">
+              <definition>tear(t) = (t - t^3, t^2)</definition>
+              <coordinates bbox="(-0.8,-0.2,0.95,1.3)">
+              <polygon at="q3-region" points="((0,1),(-0.06337,0.9344),(-0.1203,0.8711),(-0.171,0.81),(-0.2157,0.7511),(-0.2546,0.6944),(-0.288,0.64),(-0.316,0.5878),(-0.339,0.5378),(-0.357,0.49),(-0.3704,0.4444),(-0.3793,0.4011),(-0.384,0.36),(-0.3847,0.3211),(-0.3816,0.2844),(-0.375,0.25),(-0.365,0.2178),(-0.352,0.1878),(-0.336,0.16),(-0.3174,0.1344),(-0.2963,0.1111),(-0.273,0.09),(-0.2477,0.07111),(-0.2206,0.05444),(-0.192,0.04),(-0.162,0.02778),(-0.131,0.01778),(-0.099,0.01),(-0.06637,0.004444),(-0.0333,0.001111),(0,0),(0.0333,0.001111),(0.06637,0.004444),(0.099,0.01),(0.131,0.01778),(0.162,0.02778),(0.192,0.04),(0.2206,0.05444),(0.2477,0.07111),(0.273,0.09),(0.2963,0.1111),(0.3174,0.1344),(0.336,0.16),(0.352,0.1878),(0.365,0.2178),(0.375,0.25),(0.3816,0.2844),(0.3847,0.3211),(0.384,0.36),(0.3793,0.4011),(0.3704,0.4444),(0.357,0.49),(0.339,0.5378),(0.316,0.5878),(0.288,0.64),(0.2546,0.6944),(0.2157,0.7511),(0.171,0.81),(0.1203,0.8711),(0.06337,0.9344),(0,1))" fill="#fbe3d0" stroke="none" closed="yes"/>
+              <axes at="q3-axes" xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+              <parametric-curve at="q3-left" function="tear" domain="(-1,0)" stroke="#0072B2" thickness="3" arrows="1" arrow-location="-0.45"/>
+              <parametric-curve at="q3-right" function="tear" domain="(0,1)" stroke="#0072B2" thickness="3" arrows="1" arrow-location="0.55"/>
+              <point at="q3-top" p="(0,1)" fill="black" size="3.5"/>
+              <label at="q3-toplab" anchor="(0,1)" alignment="e" offset="(6,4)"><m>(0,1)\colon\ t = \pm 1</m></label>
+              <label at="q3-zerolab" anchor="(0,0)" alignment="se" offset="(3,-3)"><m>t = 0</m></label>
+              <label at="q3-rlab" anchor="(0.05,0.52)" alignment="e"><m>R</m></label>
+              <label at="q3-clab" anchor="(0.36,0.42)" alignment="e" offset="(4,0)" color="#0072B2"><m>C</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="The closed curve r of t equals t minus t cubed comma t squared and the teardrop-shaped region it encloses.">
+                <annotation ref="q3-region" text="The shaded region R."/>
+                <annotation ref="q3-left" text="The left half of C, for t from minus one to zero, running down from zero comma one to the origin." sonify="yes"/>
+                <annotation ref="q3-right" text="The right half of C, for t from zero to one, running up from the origin back to zero comma one." sonify="yes"/>
+                <annotation ref="q3-top" text="The point zero comma one, where t equals plus or minus one."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+    </introduction>
+
+    <task xml:id="exam3-q3-a">
+      <statement>
+        <p>
+          Compute the work done by the force
+          <m>\mathbf{F} = \left\langle -y,\ 0 \right\rangle</m> along the
+          closed curve <m>C</m>. (2 points)
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The velocity is
+          <m>\mathbf{r}'(t) = \left\langle 1 - 3t^2,\ 2t \right\rangle</m>,
+          and on the curve <m>y = t^2</m>, so
+          <m>\mathbf{F}(\mathbf{r}(t)) = \left\langle -t^2,\ 0 \right\rangle</m>.
+          The work is
+          <md>
+            <mrow>
+              W \amp = \oint_C \mathbf{F} \cdot d\mathbf{r}
+            </mrow>
+            <mrow>
+              \amp = \int_{-1}^{1} \mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)\,dt
+            </mrow>
+            <mrow>
+              \amp = \int_{-1}^{1} \langle -t^2, 0 \rangle \cdot
+              \langle 1 - 3t^2, 2t \rangle\,dt
+            </mrow>
+            <mrow>
+              \amp = \int_{-1}^{1} \left(3t^4 - t^2\right) dt
+            </mrow>
+            <mrow>
+              \amp = \left[\frac{3t^5}{5} - \frac{t^3}{3}\right]_{-1}^{1}
+            </mrow>
+            <mrow>
+              \amp = \frac65 - \frac23 = \frac{8}{15} .
+            </mrow>
+          </md>
+        </p>
+        <p>
+          <em>Grading.</em> 1 point for <m>\mathbf{r}'(t)</m> and the
+          integrand <m>\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)</m>; 1
+          point for the value <m>\frac{8}{15}</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="exam3-q3-b">
+      <statement>
+        <p>
+          Use Green's theorem with the field
+          <m>\mathbf{F} = \left\langle -y,\ 0 \right\rangle</m> of part (a)
+          to show that the area of <m>R</m> is equal to the line integral
+          <m>\displaystyle\oint_C \mathbf{F} \cdot d\mathbf{r}</m>. Then find
+          the area of <m>R</m>. (2 points)
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Write <m>\mathbf{F} = \langle M, N \rangle</m> with
+          <m>M = -y</m> and <m>N = 0</m>. Then
+          <me>
+            \frac{\partial N}{\partial x} - \frac{\partial M}{\partial y} = 0 - (-1) = 1 .
+          </me>
+          The curve <m>C</m> is a simple closed curve traversed
+          counterclockwise (<xref ref="fig-exam3-q3-curve"/>), and
+          <m>M</m>, <m>N</m> have continuous partial derivatives everywhere,
+          so Green's theorem applies:
+          <md>
+            <mrow>
+              \amp \oint_C \mathbf{F} \cdot d\mathbf{r} = \oint_C M\,dx + N\,dy
+            </mrow>
+            <mrow>
+              \amp \quad = \iint_R \left(\frac{\partial N}{\partial x}
+              - \frac{\partial M}{\partial y}\right) dA
+            </mrow>
+            <mrow>
+              \amp \quad = \iint_R 1\,dA = \operatorname{Area}(R) .
+            </mrow>
+          </md>
+          By part (a), <m>\operatorname{Area}(R) = \frac{8}{15}</m>.
+        </p>
+        <p>
+          <em>Grading.</em> 1 point for <m>N_x - M_y = 1</m> and Green's
+          theorem giving
+          <m>\oint_C \mathbf{F} \cdot d\mathbf{r} = \operatorname{Area}(R)</m>
+          (the counterclockwise direction should be mentioned); 1 point for
+          the area <m>\frac{8}{15}</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ===================== Problem 4 ===================== -->
+  <exercise xml:id="exam3-q4">
+    <title>(4 points)</title>
+    <statement>
+      <p>
+        Let <m>S</m> be the upper hemisphere
+        <m>x^2 + y^2 + z^2 = 4</m>, <m>z \ge 0</m>, oriented by its upward
+        unit normal <m>\hat{\mathbf{n}}</m>. Compute the flux of the vector
+        field
+        <me>
+          \mathbf{F} = (x + 2y)\,\mathbf{i} + (y - 2x)\,\mathbf{j} + z\,\mathbf{k}
+        </me>
+        through <m>S</m>, that is,
+        <m>\displaystyle\iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,d\sigma</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <em>The normal.</em> <m>S</m> is part of the sphere of radius
+        <m>2</m> centered at the origin. At a point <m>(x,y,z)</m> of a
+        sphere centered at the origin, the outward unit normal is the
+        position vector divided by its length
+        (<xref ref="fig-exam3-q4-section"/>):
+        <me>
+          \hat{\mathbf{n}} = \frac{\langle x,\ y,\ z \rangle}{2} .
+        </me>
+        Its <m>\mathbf{k}</m>-component <m>z/2</m> is <m>\ge 0</m> on
+        <m>S</m>, so this is the upward normal. No parametrization is
+        needed.
+      </p>
+      <figure xml:id="fig-exam3-q4-section">
+        <caption>
+          A cross-section of the hemisphere <m>S</m> of <xref ref="exam3-q4"/>. The unit normal at each point is radial: it is the position vector <m>\langle x, y, z \rangle</m> divided by the radius <m>2</m>.
+        </caption>
+        <image width="50%">
+          <shortdescription>
+          A shaded half disk of radius two above the x axis, with arrows pointing straight out from its curved edge and a dashed radius of length two.
+          </shortdescription>
+          <description>
+            <p>
+            Coordinate axes x and z. The upper half of the disk of radius two centered at the origin is shaded light blue, with its blue semicircular edge labelled S running from minus two comma zero over the top to two comma zero. Five orange arrows point radially outward from points of the semicircle. A dashed segment of length two joins the origin to the foot of one of them, labelled n hat equals one half x comma y comma z.
+            </p>
+          </description>
+          <prefigure xmlns="https://prefigure.org" label="prefigure-exam3-q4-section">
+            <diagram dimensions="(360,232)" margins="10">
+              <definition>semi(t) = (2*cos(t), 2*sin(t))</definition>
+              <coordinates bbox="(-3.05,-0.55,3.35,3.25)">
+              <polygon at="q4-region" points="((2,0),(1.996,0.1308),(1.983,0.2611),(1.962,0.3902),(1.932,0.5176),(1.894,0.6429),(1.848,0.7654),(1.794,0.8846),(1.732,1),(1.663,1.111),(1.587,1.218),(1.504,1.319),(1.414,1.414),(1.319,1.504),(1.218,1.587),(1.111,1.663),(1,1.732),(0.8846,1.794),(0.7654,1.848),(0.6429,1.894),(0.5176,1.932),(0.3902,1.962),(0.2611,1.983),(0.1308,1.996),(1.225e-16,2),(-0.1308,1.996),(-0.2611,1.983),(-0.3902,1.962),(-0.5176,1.932),(-0.6429,1.894),(-0.7654,1.848),(-0.8846,1.794),(-1,1.732),(-1.111,1.663),(-1.218,1.587),(-1.319,1.504),(-1.414,1.414),(-1.504,1.319),(-1.587,1.218),(-1.663,1.111),(-1.732,1),(-1.794,0.8846),(-1.848,0.7654),(-1.894,0.6429),(-1.932,0.5176),(-1.962,0.3902),(-1.983,0.2611),(-1.996,0.1308),(-2,2.449e-16))" fill="#d9e7f3" stroke="none" closed="yes"/>
+              <axes at="q4-axes" xlabel="x" ylabel="z" decorations="no" arrows="1"/>
+              <parametric-curve at="q4-semi" function="semi" domain="(0,pi)" stroke="#0072B2" thickness="3"/>
+              <line at="q4-radius" endpoints="((0,0),(1.147,1.638))" stroke="black" thickness="1.5" dash="4 4"/>
+              <line at="q4-n1" endpoints="((1.879,0.684),(2.537,0.923))" stroke="#D55E00" thickness="2" arrows="1"/>
+              <line at="q4-n2" endpoints="((1.147,1.638),(1.549,2.212))" stroke="#D55E00" thickness="2" arrows="1"/>
+              <line at="q4-n3" endpoints="((0,2),(0,2.7))" stroke="#D55E00" thickness="2" arrows="1"/>
+              <line at="q4-n4" endpoints="((-1.147,1.638),(-1.549,2.212))" stroke="#D55E00" thickness="2" arrows="1"/>
+              <line at="q4-n5" endpoints="((-1.879,0.684),(-2.537,0.923))" stroke="#D55E00" thickness="2" arrows="1"/>
+              <point at="q4-foot" p="(1.147,1.638)" fill="black" size="3"/>
+              <label at="q4-rlab" anchor="(0.57,0.82)" alignment="w" offset="(-3,0)"><m>2</m></label>
+              <label at="q4-nlab" anchor="(1.549,2.212)" alignment="ne" offset="(2,2)" color="#D55E00"><m>\hat{\mathbf{n}} = \tfrac12\langle x, y, z\rangle</m></label>
+              <label at="q4-slab" anchor="(-1.65,1.5)" alignment="w" offset="(-4,0)" color="#0072B2"><m>S</m></label>
+              <label at="q4-m2" anchor="(-2,0)" alignment="s" offset="(0,-4)"><m>-2</m></label>
+              <label at="q4-p2" anchor="(2,0)" alignment="s" offset="(0,-4)"><m>2</m></label>
+              </coordinates>
+              <annotations>
+              <annotation ref="figure" text="A cross-section of the upper hemisphere of radius two, with its radial unit normals.">
+                <annotation ref="q4-region" text="The shaded upper half disk of radius two."/>
+                <annotation ref="q4-semi" text="The semicircle of radius two, the cross-section of the hemisphere S." sonify="yes"/>
+                <annotation ref="q4-radius" text="A dashed radius of length two from the origin to a point of the hemisphere."/>
+                <annotation ref="q4-n2" text="The unit normal at that point, pointing straight out along the radius: one half of x comma y comma z."/>
+              </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+        </image>
+      </figure>
+      <p>
+        <em>The integrand.</em> On <m>S</m>,
+        <md>
+          <mrow>
+            \amp \mathbf{F} \cdot \hat{\mathbf{n}}
+          </mrow>
+          <mrow>
+            \amp \quad = \frac{(x + 2y)\,x + (y - 2x)\,y + z \cdot z}{2}
+          </mrow>
+          <mrow>
+            \amp \quad = \frac{x^2 + y^2 + z^2}{2} = \frac42 = 2,
+          </mrow>
+        </md>
+        since the terms <m>2xy</m> and <m>-2xy</m> cancel and
+        <m>x^2 + y^2 + z^2 = 4</m> on the sphere.
+      </p>
+      <p>
+        <em>The flux.</em> The integrand is constant on <m>S</m>, so the
+        flux is that constant times the area of <m>S</m>, half the area
+        <m>4\pi \cdot 2^2</m> of the sphere:
+        <md>
+          <mrow>
+            \amp \iint_S \mathbf{F} \cdot \hat{\mathbf{n}}\,d\sigma = \iint_S 2\,d\sigma
+          </mrow>
+          <mrow>
+            \amp \quad = 2 \cdot \operatorname{Area}(S) = 2 \cdot 8\pi = 16\pi .
+          </mrow>
+        </md>
+      </p>
+      <p>
+        <em>Grading.</em> 1 point for
+        <m>\hat{\mathbf{n}} = \frac12\langle x, y, z \rangle</m>; 2 points
+        for <m>\mathbf{F} \cdot \hat{\mathbf{n}} = 2</m> on <m>S</m> (1 for
+        the dot product, 1 for simplifying it with
+        <m>x^2 + y^2 + z^2 = 4</m>); 1 point for the flux
+        <m>2 \cdot \operatorname{Area}(S) = 16\pi</m>. A correct computation
+        from a parametrization earns full credit.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Problem 5 ===================== -->
+  <exercise xml:id="exam3-q5">
+    <title>(4 points)</title>
+    <statement>
+      <p>
+        Let <m>C</m> be the curve in which the plane <m>x + z = 3</m> cuts
+        the cylinder <m>x^2 + y^2 = 4</m>, traversed counterclockwise when
+        seen from above. Evaluate
+        <me>
+          \oint_C \mathbf{F} \cdot d\mathbf{r} \qquad\text{for}\qquad
+          \mathbf{F} = \langle z,\ 0,\ x \rangle .
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The quickest route is Stokes' theorem.
+      </p>
+      <p>
+        <em>The curl.</em>
+        <me>
+          \begin{aligned}
+          \nabla \times \mathbf{F}
+          \amp = \begin{vmatrix}
+          \mathbf{i} \amp \mathbf{j} \amp \mathbf{k}\\
+          \dfrac{\partial}{\partial x} \amp \dfrac{\partial}{\partial y} \amp \dfrac{\partial}{\partial z}\\
+          z \amp 0 \amp x
+          \end{vmatrix}\\
+          \amp = (0 - 0)\,\mathbf{i} - (1 - 1)\,\mathbf{j}\\
+          \amp \qquad + (0 - 0)\,\mathbf{k} = \mathbf{0} .
+          \end{aligned}
+        </me>
+      </p>
+      <p>
+        <em>The surface.</em> Let <m>S</m> be the part of the plane
+        <m>x + z = 3</m> inside the cylinder
+        (<xref ref="fig-exam3-q5-ellipse"/>), oriented by its upward unit
+        normal
+        <m>\hat{\mathbf{n}} = \dfrac{\langle 1,\ 0,\ 1 \rangle}{\sqrt2}</m>;
+        its boundary is <m>C</m>, and the upward normal matches the
+        counterclockwise direction on <m>C</m> by the right-hand rule.
+      </p>
+      <figure xml:id="fig-exam3-q5-ellipse">
+        <caption>
+          The curve <m>C</m> of <xref ref="exam3-q5"/>: the plane <m>x + z = 3</m> cuts the cylinder <m>x^2 + y^2 = 4</m> in an ellipse that rises from <m>z = 1</m> (at <m>x = 2</m>) to <m>z = 5</m> (at <m>x = -2</m>), traversed counterclockwise when seen from above. <m>S</m> is the part of the plane inside the cylinder, with its upward normal <m>\hat{\mathbf{n}}</m>.
+        </caption>
+        <image xml:id="image-exam3-q5-ellipse" width="60%">
+          <shortdescription>
+          A vertical cylinder cut by a tilted plane, with the tilted elliptical disk inside it shaded, arrowheads running counterclockwise around its edge, and a normal arrow pointing up out of the disk.
+          </shortdescription>
+          <description>
+            <p>
+            Seen from the side, with the x axis to the right and the z axis up. A translucent gray vertical cylinder of radius two stands on the xy-plane. A tilted plane cuts it in a blue ellipse C, lowest at the point two comma zero comma one, labelled z equals one, and highest at the point minus two comma zero comma five, labelled z equals five. The part S of the plane inside the cylinder is a tan elliptical disk. Arrowheads on C show that it runs counterclockwise when seen from above, and an orange arrow labelled n hat leaves the center of the disk, zero comma zero comma three, pointing up and toward the positive x direction, perpendicular to the plane.
+            </p>
+          </description>
+          <asymptote>
+<![CDATA[// The curve C in which the plane x + z = 3 cuts the cylinder x^2 + y^2 = 4, the part S of the
+// plane inside the cylinder, and S's upward unit normal <1, 0, 1>/sqrt(2).
+import graph3;
+if(settings.outformat != "html") settings.render=0;  // vector PDF, no OpenGL
+size(11cm);
+triple camdir = (1.5, -5, 2.3);   // from the side, with the positive x-axis to the right, as in the key
+currentprojection = orthographic(camdir);
+currentlight = Headlamp;
+currentlight.background = white;
+pen oiblue = rgb(0/255, 114/255, 178/255);
+pen oiver  = rgb(213/255, 94/255, 0/255);
+pen oitan  = rgb(240/255, 190/255, 150/255);
+pen axispen = gray(0.25) + linewidth(0.7pt);
+// arrowheads along a closed curve: short pieces of it, each ending in a head
+void heads(triple f(real), real[] at, pen p, real len=0.22) {
+  for (real t : at) draw(graph(f, t - len, t, 12), p, Arrow3(size=14));
+}
+material soft(pen c, real op) { return material(c + opacity(op), emissivepen=0.35*c, specularpen=gray(0.05)); }
+// the cylinder x^2 + y^2 = 4 from z = 0 to z = 6, with its rims
+triple cyl(pair q) { return (2*cos(q.x), 2*sin(q.x), q.y); }
+draw(surface(cyl, (0, 0), (2pi, 6), 12, 1, Spline), surfacepen=soft(gray(0.6), 0.16));
+pen rim = gray(0.55) + linewidth(0.6pt);
+draw(graph(new triple(real t) { return cyl((t, 0)); }, 0, 2pi, 90), rim);
+draw(graph(new triple(real t) { return cyl((t, 6)); }, 0, 2pi, 90), rim);
+// S: the part of the plane z = 3 - x inside the cylinder, on polar coordinates (theta, r)
+triple Sf(pair q) { return (q.y*cos(q.x), q.y*sin(q.x), 3 - q.y*cos(q.x)); }
+draw(surface(Sf, (0, 0.01), (2pi, 2), 36, 4, Spline), surfacepen=material(oitan, emissivepen=0.35*oitan, specularpen=gray(0.05)));
+// C, counterclockwise seen from above (theta increasing)
+triple C(real t) { return (2*cos(t), 2*sin(t), 3 - 2*cos(t)); }
+draw(graph(C, 0, 2pi, 160), oiblue + linewidth(1.8pt));
+heads(C, new real[] {0.95, 2.6, 4.25, 5.6}, oiblue + linewidth(1.8pt));
+// the upward unit normal at the center (0, 0, 3), drawn at length 1.4
+triple c0 = (0, 0, 3);
+draw(c0--c0 + 1.4*unit((1, 0, 1)), oiver + linewidth(1.4pt), Arrow3(size=9));
+dot(c0, oiver + linewidth(3.5pt));
+// the lowest and highest points of C
+dot(C(0), linewidth(4pt));
+dot(C(pi), linewidth(4pt));
+label("$z=1$", C(0), E, fontsize(15pt));
+label("$z=5$", C(pi), W, fontsize(15pt));
+label("$\hat{\mathbf{n}}$", c0 + 1.4*unit((1, 0, 1)), N, oiver + fontsize(17pt));
+triple toviewer = 0.35*unit(camdir);
+label("$S$", (-0.7, -0.9, 3.7) + toviewer, 0.6*oiver + fontsize(17pt));
+label("$C$", C(-1.57) + toviewer, 2*S, oiblue + fontsize(17pt));
+label("$x^2+y^2=4$", cyl((-0.45, 6)), NE, gray(0.4) + fontsize(14pt));
+// the x- and z-axes (the y-axis points away from the viewer, hidden behind S)
+draw(Label("$x$", EndPoint, fontsize(16pt)), O--3.3*X, axispen, Arrow3(size=8));
+draw(Label("$z$", EndPoint, fontsize(16pt)), O--7.0*Z, axispen, Arrow3(size=8));
+]]>
+          </asymptote>
+        </image>
+      </figure>
+      <p>
+        <em>The integral.</em> By Stokes' theorem,
+        <md>
+          <mrow>
+            \amp \oint_C \mathbf{F} \cdot d\mathbf{r}
+            = \iint_S (\nabla \times \mathbf{F}) \cdot \hat{\mathbf{n}}\,d\sigma
+          </mrow>
+          <mrow>
+            \amp \quad = \iint_S \mathbf{0} \cdot \hat{\mathbf{n}}\,d\sigma = 0 .
+          </mrow>
+        </md>
+        Since the curl vanishes identically, neither the normal nor
+        <m>d\sigma</m> has to be computed, and any surface with boundary
+        <m>C</m> gives the same answer.
+      </p>
+      <p>
+        <em>Other methods.</em> The problem does not prescribe a method, and
+        two others are equally correct. (i)
+        <m>\mathbf{F} = \langle z, 0, x \rangle = \nabla(xz)</m> is
+        conservative, so its line integral around any closed curve is
+        <m>0</m>. (ii) Directly: with
+        <m>\mathbf{r}(t) = \langle 2\cos t,\ 2\sin t,\ 3 - 2\cos t \rangle</m>,
+        <m>0 \le t \le 2\pi</m>, we get
+        <m>\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) = -6\sin t + 8\sin t\cos t</m>,
+        whose integral over <m>[0, 2\pi]</m> is <m>0</m>.
+      </p>
+      <p>
+        <em>Grading.</em> By Stokes' theorem: 2 points for
+        <m>\nabla \times \mathbf{F} = \mathbf{0}</m>; 1 point for stating
+        Stokes' theorem with a surface <m>S</m> whose boundary is
+        <m>C</m>; 1 point for the value <m>0</m>. By a potential: 3 points
+        for <m>\mathbf{F} = \nabla(xz)</m> (or for checking that
+        <m>\mathbf{F}</m> is conservative); 1 point for the conclusion.
+        Directly: 1 point for a correct parametrization of <m>C</m> with
+        the right direction; 2 points for the integrand; 1 point for the
+        value <m>0</m>.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ===================== Problem 6 ===================== -->
+  <exercise xml:id="exam3-q6">
+    <title>(bonus, 6 points)</title>
+    <introduction>
+      <p>
+        <alert>Without calculating the integrals</alert>, decide whether
+        each of the following integrals is positive, negative, or zero.
+        Let <m>S</m> be the solid above
+        <m>z = -\sqrt{4 - x^2 - y^2}</m> and below
+        <m>z = -\sqrt{3x^2 + 3y^2}</m>. Remember to justify your
+        responses.
+      </p>
+    </introduction>
+
+    <task xml:id="exam3-q6-a">
+      <statement>
+        <p>
+          <m>\displaystyle\iiint_S \left(z^2 - 3x^2 - 3y^2\right) dV</m> (2 points)
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First locate <m>S</m>. The surface
+          <m>z = -\sqrt{4 - x^2 - y^2}</m> is the lower half of the sphere
+          <m>x^2 + y^2 + z^2 = 4</m>, and
+          <m>z = -\sqrt{3x^2 + 3y^2}</m> is the lower half of the cone
+          <m>z^2 = 3\left(x^2 + y^2\right)</m>. Writing
+          <m>r^2 = x^2 + y^2</m>, they meet where <m>4 - r^2 = 3r^2</m>,
+          that is, on the circle <m>x^2 + y^2 = 1</m> at height
+          <m>z = -\sqrt3</m>, and inside that circle the cone is on top. So
+          <md>
+            <mrow>\amp S:\quad x^2 + y^2 \le 1,</mrow>
+            <mrow>\amp -\sqrt{4 - x^2 - y^2} \le z</mrow>
+            <mrow>\amp \qquad \le -\sqrt{3x^2 + 3y^2}</mrow>
+          </md>
+          (<xref ref="fig-exam3-q6-section"/>): an upside-down ice-cream
+          cone.
+        </p>
+        <figure xml:id="fig-exam3-q6-section">
+          <caption>
+            A vertical cross-section of the solid <m>S</m> of <xref ref="exam3-q6"/> through the <m>z</m>-axis (shaded); <m>r</m> is the distance from the <m>z</m>-axis. The sphere and the cone meet at <m>r = 1</m>, <m>z = -\sqrt3</m>.
+          </caption>
+          <image width="60%">
+            <shortdescription>
+            The lower half of a circle of radius two below a horizontal r axis, with two lines from the origin going down at sixty degrees from the horizontal; the region between the two lines and above the arc is shaded.
+            </shortdescription>
+            <description>
+              <p>
+              A horizontal axis r and a vertical axis z meet at the origin. A blue lower semicircle of radius two, labelled x squared plus y squared plus z squared equals four, hangs below the r axis. Two orange lines, labelled z equals minus root three r, run down from the origin to either side, steeply, and meet the semicircle at the points r equals plus and minus one, z equals minus root three; the right one is marked one comma minus root three. The wedge between the two lines, above the arc of the semicircle that joins those two points, is shaded light blue: the cross-section of the upside-down ice-cream cone S.
+              </p>
+            </description>
+            <prefigure xmlns="https://prefigure.org" label="prefigure-exam3-q6-section">
+              <diagram dimensions="(420,262)" margins="10">
+                <definition>lowsemi(t) = (2*cos(t), 2*sin(t))</definition>
+                <coordinates bbox="(-2.45,-2.75,3.75,0.95)">
+                <polygon at="q6-region" points="((0,0),(1,-1.732),(0.9389,-1.766),(0.8767,-1.798),(0.8135,-1.827),(0.7492,-1.854),(0.684,-1.879),(0.618,-1.902),(0.5513,-1.923),(0.4838,-1.941),(0.4158,-1.956),(0.3473,-1.97),(0.2783,-1.981),(0.2091,-1.989),(0.1395,-1.995),(0.0698,-1.999),(1.225e-16,-2),(-0.0698,-1.999),(-0.1395,-1.995),(-0.2091,-1.989),(-0.2783,-1.981),(-0.3473,-1.97),(-0.4158,-1.956),(-0.4838,-1.941),(-0.5513,-1.923),(-0.618,-1.902),(-0.684,-1.879),(-0.7492,-1.854),(-0.8135,-1.827),(-0.8767,-1.798),(-0.9389,-1.766),(-1,-1.732))" fill="#d9e7f3" stroke="none" closed="yes"/>
+                <axes at="q6-axes" xlabel="r" ylabel="z" decorations="no" arrows="1"/>
+                <parametric-curve at="q6-sphere" function="lowsemi" domain="(pi,2*pi)" stroke="#0072B2" thickness="3"/>
+                <line at="q6-cone-r" endpoints="((0,0),(1.3,-2.252))" stroke="#D55E00" thickness="2.5"/>
+                <line at="q6-cone-l" endpoints="((0,0),(-1.3,-2.252))" stroke="#D55E00" thickness="2.5"/>
+                <point at="q6-meet" p="(1,-1.732)" fill="black" size="3.5"/>
+                <label at="q6-meetlab" anchor="(1,-1.732)" alignment="se" offset="(4,-2)"><m>(1, -\sqrt3)</m></label>
+                <label at="q6-spherelab" anchor="(1.75,-0.95)" alignment="e" offset="(4,0)" color="#0072B2"><m>x^2+y^2+z^2=4</m></label>
+                <label at="q6-conelab" anchor="(-1.25,-2.17)" alignment="w" offset="(-4,0)" color="#D55E00"><m>z = -\sqrt3\,r</m></label>
+                </coordinates>
+                <annotations>
+                <annotation ref="figure" text="A vertical cross-section of the solid S through the z axis: the wedge between the two cone lines, above the lower semicircle of radius two.">
+                  <annotation ref="q6-region" text="The shaded cross-section of S."/>
+                  <annotation ref="q6-sphere" text="The lower semicircle of radius two, the cross-section of the lower half of the sphere." sonify="yes"/>
+                  <annotation ref="q6-cone-r" text="The line z equals minus root three r, one side of the cone."/>
+                  <annotation ref="q6-cone-l" text="The other side of the cone, its mirror image in the z axis."/>
+                  <annotation ref="q6-meet" text="The point r equals one, z equals minus root three, where the cone meets the sphere."/>
+                </annotation>
+                </annotations>
+              </diagram>
+            </prefigure>
+          </image>
+        </figure>
+        <p>
+          <alert>Positive.</alert> On <m>S</m> we have
+          <m>z \le -\sqrt{3x^2 + 3y^2} \le 0</m>, so
+          <m>|z| \ge \sqrt{3x^2 + 3y^2}</m> and therefore
+          <m>z^2 \ge 3x^2 + 3y^2</m>. The integrand
+          <m>z^2 - 3x^2 - 3y^2</m> is <m>\ge 0</m> throughout <m>S</m>, and
+          it is <m>0</m> only on the cone, a surface of zero volume. An
+          integrand that is positive throughout the solid except on a
+          surface of zero volume has a positive integral. (Its value is
+          <m>\frac{64\pi}{15}\left(3\sqrt3 - 5\right) \approx 2.63</m>, but
+          no calculation is expected.)
+        </p>
+        <p>
+          <em>Grading.</em> 1 point for the correct sign, 1 point for the
+          justification; a correct sign with no or wrong reasoning earns at
+          most <m>\frac12</m> point. The description of <m>S</m> by
+          inequalities is part of the justification of all three parts.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="exam3-q6-b">
+      <statement>
+        <p>
+          <m>\displaystyle\iiint_S \left(y^4 - y^2\right) dV</m> (2 points)
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <alert>Negative.</alert> Factor:
+          <m>y^4 - y^2 = y^2\left(y^2 - 1\right)</m>. On <m>S</m>,
+          described in the solution of part (a), we have
+          <m>y^2 \le x^2 + y^2 \le 1</m>, so <m>y^2 \ge 0</m> and
+          <m>y^2 - 1 \le 0</m>: the integrand is <m>\le 0</m> throughout
+          <m>S</m>, and it is <m>0</m> only where <m>y = 0</m> or
+          <m>y = \pm 1</m>, a set of zero volume. So the integral is
+          negative. (Its value is
+          <m>\frac{\pi}{105}\left(320 - 189\sqrt3\right) \approx -0.22</m>.)
+        </p>
+        <p>
+          <em>Grading.</em> 1 point for the correct sign, 1 point for the
+          justification; a correct sign with no or wrong reasoning earns at
+          most <m>\frac12</m> point. The description of <m>S</m> by
+          inequalities is part of the justification of all three parts.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="exam3-q6-c">
+      <statement>
+        <p>
+          <m>\displaystyle\iiint_S x\,z^2\,dV</m> (2 points)
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <alert>Zero.</alert> <m>S</m>, described in the solution of part
+          (a), is symmetric about the plane <m>x = 0</m>: its bounding
+          surfaces involve <m>x</m> only through <m>x^2</m>, so the
+          reflection <m>x \mapsto -x</m> maps <m>S</m> onto itself. The
+          integrand is odd under that reflection,
+          <m>(-x)\,z^2 = -x\,z^2</m>: the half <m>x \ge 0</m> of <m>S</m>
+          and the half <m>x \le 0</m> contribute opposite amounts, and the
+          integral is <m>0</m>.
+        </p>
+        <p>
+          <em>Grading.</em> 1 point for the correct sign, 1 point for the
+          justification; a correct sign with no or wrong reasoning earns at
+          most <m>\frac12</m> point. The description of <m>S</m> by
+          inequalities is part of the justification of all three parts.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+</worksheet>
