@@ -4,11 +4,11 @@
 
   Transcribed from the instructor's solutions of the Fall 2026 third exam
   (MATH14-Exam3-Fall2026-Solutions.pdf): the five problems and the bonus
-  problem with their point values, the solutions of the key, and its
-  grading notes, which close each solution.  The key has no cover page,
-  so the introduction says only what the key does (five problems, 20
-  points, and a 6-point bonus) and lists the topics as Sample Past Exam 3
-  does.  Every value in the key was checked numerically before
+  problem with their point values and the solutions of the key.  Its
+  grading notes are left out (at the instructor's request, Nov 2026).
+  The key has no cover page, so the introduction says only what the key
+  does (five problems, 20 points, and a 6-point bonus) and lists the
+  topics as Sample Past Exam 3 does.  Every value in the key was checked numerically before
   transcription.  Built like exam-2.ptx and exam-1.ptx: one exercise per
   problem, a task per part, a solution under each, and the
   "sec-exercises-" id prefix, so assets/unnumbered-chapter.css hides its
@@ -32,10 +32,9 @@
   <introduction>
     <p>
       The third exam of Fall 2026, with solutions. It had five problems
-      worth 20 points in all, and a bonus problem worth 6 more. Each
-      solution ends with the grading notes of the key, which show how the
-      points were given. Try the exam under exam conditions before you look
-      at the solutions. The topics it covers, with links to the notes:
+      worth 20 points in all, and a bonus problem worth 6 more. Try the
+      exam under exam conditions before you look at the solutions. The
+      topics it covers, with links to the notes:
     </p>
     <p>
       <ul>
@@ -172,12 +171,6 @@
           </mrow>
         </md>
       </p>
-      <p>
-        <em>Grading.</em> 1 point for a substitution that makes the
-        <m>y</m>-limits constant; 1 point for the new limits; 1 point for
-        the Jacobian; 1 point for the transformed integrand and the final
-        integral.
-      </p>
     </solution>
   </exercise>
 
@@ -288,14 +281,6 @@
         The two coordinates agree because the petal and the density are
         symmetric about the line <m>y = x</m>.
       </p>
-      <p>
-        <em>Grading.</em> 1 point for the region
-        (<m>0 \le \theta \le \pi/2</m>, <m>0 \le r \le \sin 2\theta</m>);
-        1 point for <m>M</m>, with the density and
-        <m>dA = r\,dr\,d\theta</m>; 1 point for the two moments, with the
-        lever arms <m>r\cos\theta</m> and <m>r\sin\theta</m>; 1 point for
-        <m>\bar x = M_y/M</m> and <m>\bar y = M_x/M</m>.
-      </p>
     </solution>
   </exercise>
 
@@ -387,11 +372,6 @@
             </mrow>
           </md>
         </p>
-        <p>
-          <em>Grading.</em> 1 point for <m>\mathbf{r}'(t)</m> and the
-          integrand <m>\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t)</m>; 1
-          point for the value <m>\frac{8}{15}</m>.
-        </p>
       </solution>
     </task>
 
@@ -429,13 +409,6 @@
             </mrow>
           </md>
           By part (a), <m>\operatorname{Area}(R) = \frac{8}{15}</m>.
-        </p>
-        <p>
-          <em>Grading.</em> 1 point for <m>N_x - M_y = 1</m> and Green's
-          theorem giving
-          <m>\oint_C \mathbf{F} \cdot d\mathbf{r} = \operatorname{Area}(R)</m>
-          (the counterclockwise direction should be mentioned); 1 point for
-          the area <m>\frac{8}{15}</m>.
         </p>
       </solution>
     </task>
@@ -544,15 +517,6 @@
             \amp \quad = 2 \cdot \operatorname{Area}(S) = 2 \cdot 8\pi = 16\pi .
           </mrow>
         </md>
-      </p>
-      <p>
-        <em>Grading.</em> 1 point for
-        <m>\hat{\mathbf{n}} = \frac12\langle x, y, z \rangle</m>; 2 points
-        for <m>\mathbf{F} \cdot \hat{\mathbf{n}} = 2</m> on <m>S</m> (1 for
-        the dot product, 1 for simplifying it with
-        <m>x^2 + y^2 + z^2 = 4</m>); 1 point for the flux
-        <m>2 \cdot \operatorname{Area}(S) = 16\pi</m>. A correct computation
-        from a parametrization earns full credit.
       </p>
     </solution>
   </exercise>
@@ -691,17 +655,6 @@ draw(Label("$z$", EndPoint, fontsize(16pt)), O--7.0*Z, axispen, Arrow3(size=8));
         <m>\mathbf{F}(\mathbf{r}(t)) \cdot \mathbf{r}'(t) = -6\sin t + 8\sin t\cos t</m>,
         whose integral over <m>[0, 2\pi]</m> is <m>0</m>.
       </p>
-      <p>
-        <em>Grading.</em> By Stokes' theorem: 2 points for
-        <m>\nabla \times \mathbf{F} = \mathbf{0}</m>; 1 point for stating
-        Stokes' theorem with a surface <m>S</m> whose boundary is
-        <m>C</m>; 1 point for the value <m>0</m>. By a potential: 3 points
-        for <m>\mathbf{F} = \nabla(xz)</m> (or for checking that
-        <m>\mathbf{F}</m> is conservative); 1 point for the conclusion.
-        Directly: 1 point for a correct parametrization of <m>C</m> with
-        the right direction; 2 points for the integrand; 1 point for the
-        value <m>0</m>.
-      </p>
     </solution>
   </exercise>
 
@@ -795,12 +748,6 @@ draw(Label("$z$", EndPoint, fontsize(16pt)), O--7.0*Z, axispen, Arrow3(size=8));
           <m>\frac{64\pi}{15}\left(3\sqrt3 - 5\right) \approx 2.63</m>, but
           no calculation is expected.)
         </p>
-        <p>
-          <em>Grading.</em> 1 point for the correct sign, 1 point for the
-          justification; a correct sign with no or wrong reasoning earns at
-          most <m>\frac12</m> point. The description of <m>S</m> by
-          inequalities is part of the justification of all three parts.
-        </p>
       </solution>
     </task>
 
@@ -822,12 +769,6 @@ draw(Label("$z$", EndPoint, fontsize(16pt)), O--7.0*Z, axispen, Arrow3(size=8));
           negative. (Its value is
           <m>\frac{\pi}{105}\left(320 - 189\sqrt3\right) \approx -0.22</m>.)
         </p>
-        <p>
-          <em>Grading.</em> 1 point for the correct sign, 1 point for the
-          justification; a correct sign with no or wrong reasoning earns at
-          most <m>\frac12</m> point. The description of <m>S</m> by
-          inequalities is part of the justification of all three parts.
-        </p>
       </solution>
     </task>
 
@@ -847,12 +788,6 @@ draw(Label("$z$", EndPoint, fontsize(16pt)), O--7.0*Z, axispen, Arrow3(size=8));
           <m>(-x)\,z^2 = -x\,z^2</m>: the half <m>x \ge 0</m> of <m>S</m>
           and the half <m>x \le 0</m> contribute opposite amounts, and the
           integral is <m>0</m>.
-        </p>
-        <p>
-          <em>Grading.</em> 1 point for the correct sign, 1 point for the
-          justification; a correct sign with no or wrong reasoning earns at
-          most <m>\frac12</m> point. The description of <m>S</m> by
-          inequalities is part of the justification of all three parts.
         </p>
       </solution>
     </task>
