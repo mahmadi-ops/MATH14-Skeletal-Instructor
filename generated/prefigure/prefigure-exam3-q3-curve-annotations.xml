@@ -1,0 +1,54 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-exam3-q3-curve-figure" speech2="The closed curve r of t equals t minus t cubed comma t squared and the teardrop-shaped region it encloses.">
+      <grouped>prefigure-exam3-q3-curve-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-exam3-q3-curve-q3-region</active>
+        <active>prefigure-exam3-q3-curve-q3-left</active>
+        <active>prefigure-exam3-q3-curve-q3-right</active>
+        <active>prefigure-exam3-q3-curve-q3-top</active>
+      </children>
+      <components>
+        <active>prefigure-exam3-q3-curve-q3-region</active>
+        <active>prefigure-exam3-q3-curve-q3-left</active>
+        <active>prefigure-exam3-q3-curve-q3-right</active>
+        <active>prefigure-exam3-q3-curve-q3-top</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-exam3-q3-curve-q3-region" speech2="The shaded region R.">
+      <active>prefigure-exam3-q3-curve-q3-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-exam3-q3-curve-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q3-curve-q3-left" speech2="The left half of C, for t from minus one to zero, running down from zero comma one to the origin." sonify="yes">
+      <active>prefigure-exam3-q3-curve-q3-left</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-exam3-q3-curve-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-exam3-q3-curve-q3-left</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-exam3-q3-curve-q3-right" speech2="The right half of C, for t from zero to one, running up from the origin back to zero comma one." sonify="yes">
+      <active>prefigure-exam3-q3-curve-q3-right</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-exam3-q3-curve-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-exam3-q3-curve-q3-right</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-exam3-q3-curve-q3-top" speech2="The point zero comma one, where t equals plus or minus one.">
+      <active>prefigure-exam3-q3-curve-q3-top</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-exam3-q3-curve-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

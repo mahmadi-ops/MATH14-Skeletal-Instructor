@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Divergence and curl in a moving fluid</title>
+<!-- The animated figure fig-div-curl-manim of "Green's Theorem in the
+     Plane", placed after the subsections on divergence and curl: a plane
+     vector field F = M i + N j drawn as arrows, with a fluid of tracer
+     dots carried along by it, and a small circle around a point P that
+     can be dragged anywhere.  On the circle, arrows show the normal
+     component F.n (green where fluid leaves, red where it enters) and the
+     tangential component F.T (blue with the counterclockwise direction,
+     orange against it), and a paddle wheel at P turns at the rate a small
+     wheel in the fluid would, half the k-component of the curl.
+
+     The card divides the outward flux and the counterclockwise circulation
+     of F across and around the circle by the area of the circle (each by a
+     360-point sum), so that as the circle shrinks the two ratios close in
+     on div F and curl F . k at P.
+
+     The fields are the figure's own, chosen to be none of the fields of
+     the section's examples or of the assignments: a shear flow, a saddle,
+     a spiral, and two fields whose divergence or curl changes from place
+     to place.
+
+     SKELETAL (below) is false in the completed books and true in the
+     skeletal ones: there the card shows P and the two measured ratios only,
+     as the check on the divergence and curl the student computes, and
+     never the values of div F and curl F . k themselves.
+
+     Same stage, palette and controls as jacobian-area-manim.html and the
+     other animated figures, drawn on a 2D canvas. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<style>
+  :root {
+    --bg:        #06070a;
+    --panel:     #101218;
+    --edge:      #262a36;
+    --ink:       #ece6e2;
+    --dim:       #9aa0ad;
+    --blue:      #58c4dd;   /* F.T with the counterclockwise direction */
+    --orange:    #f0a04b;   /* F.T against it */
+    --red:       #fc6255;   /* F.n inward */
+    --green:     #83c167;   /* F.n outward */
+    --yellow:    #ffe14d;   /* the circle */
+    --violet:    #caa3e8;   /* the paddle wheel */
+    --sans:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif: "PT Serif", "Times New Roman", Times, serif;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: var(--bg); }
+  body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  #app { width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
+
+  #stage { position: relative; width: 100%; background: var(--bg); flex: 1 1 auto; min-height: 0; overflow: hidden; }
+  canvas { display: block; cursor: crosshair; touch-action: none; }
+  .overlay { position: absolute; pointer-events: none; }
+
+  #eqcard {
+    top: 12px; left: 14px; z-index: 2;
+    padding: 9px 13px 10px 13px;
+    background: rgba(16,18,24,0.8);
+    border: 1px solid var(--edge);
+    border-left: 3px solid var(--yellow);
+    border-radius: 6px;
+    line-height: 1.5;
+  }
+  .math { font-family: var(--serif); font-size: 17px; }
+  .math i { font-style: italic; }
+  .math sub { font-size: 72%; vertical-align: -0.28em; line-height: 0; }
+  .math sup { font-size: 72%; vertical-align: 0.5em; line-height: 0; }
+  .vec { font-weight: 700; font-style: normal; }
+  .num { font-variant-numeric: tabular-nums; display: inline-block; min-width: 3.4em; }
+  #eqcard .line { white-space: nowrap; }
+  #eqcard .note { font-family: var(--sans); font-size: 12.5px; color: var(--dim); max-width: 22em; white-space: normal; }
+
+  #caption {
+    left: 50%; transform: translateX(-50%); z-index: 3;
+    bottom: 14px; max-width: 78%;
+    text-align: center; font-size: 15px; line-height: 1.45;
+    background: rgba(6,7,10,0.86);
+    padding: 7px 14px; border-radius: 6px;
+    opacity: 0; transition: opacity .45s ease;
+  }
+  #caption.show { opacity: 1; }
+  #caption .m { font-family: var(--serif); font-size: 16px; }
+
+  #panel { flex: 0 0 auto; border-top: 1px solid var(--edge); background: var(--panel);
+           padding: 9px 12px 11px 12px; box-sizing: border-box; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .row + .row { margin-top: 9px; }
+  .slider { display: inline-flex; align-items: center; gap: 6px; flex: 1 1 150px; min-width: 120px; }
+  .slider span { font-family: var(--serif); font-size: 15px; white-space: nowrap; }
+  input[type=range] { -webkit-appearance: none; appearance: none; flex: 1 1 auto; min-width: 60px;
+                      height: 4px; border-radius: 2px; background: #2a2f3c; outline: none; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 15px; height: 15px;
+                      border-radius: 50%; background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 13px; height: 13px; border-radius: 50%;
+                      background: var(--c, var(--ink)); border: 2px solid #06070a; cursor: pointer; }
+
+  select { font: inherit; font-family: var(--serif); font-size: 15px; padding: 4px 10px; border-radius: 999px;
+           color: var(--ink); background: #1a1d26; border: 1px solid var(--edge); cursor: pointer; max-width: 100%; }
+  button { font: inherit; font-size: 13.5px; padding: 5px 12px; border-radius: 999px;
+           color: var(--ink); background: #1a1d26; border: 1px solid var(--edge);
+           cursor: pointer; transition: background .15s, border-color .15s, color .15s; }
+  button:hover, select:hover { background: #232734; }
+  #btnTour.running { background: var(--yellow); border-color: var(--yellow); color: #06070a; font-weight: 600; }
+  #btnFlow.active  { background: var(--ink);    border-color: var(--ink);    color: #06070a; font-weight: 600; }
+  #btnFlux.active  { background: var(--green);  border-color: var(--green);  color: #06070a; font-weight: 600; }
+  #btnCirc.active  { background: var(--blue);   border-color: var(--blue);   color: #06070a; font-weight: 600; }
+  #btnWheel.active { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
+  #btnFull.active  { background: var(--violet); border-color: var(--violet); color: #06070a; font-weight: 600; }
+
+  @media (max-width: 560px) {
+    #eqcard { position: static; padding: 7px 12px 8px 12px; border: none; border-bottom: 1px solid var(--edge);
+              border-radius: 0; background: var(--panel); line-height: 1.35; }
+    .math { font-size: 15px; }
+    #eqcard .note { display: none; }
+    #panel { padding: 7px 10px 8px 10px; }
+    .row + .row { margin-top: 7px; }
+    .long { display: none; }
+    button { font-size: 13px; padding: 4px 10px; }
+    #caption { font-size: 13px; max-width: 92%; bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage">
+    <div id="eqcard" class="overlay math"></div>
+    <canvas id="cv" aria-label="A vector field drawn as gray arrows over the x y plane, with moving dots carried by the field, and a small yellow circle around a point P with arrows showing the field's normal and tangential components on the circle and a paddle wheel at P."></canvas>
+    <div id="caption" class="overlay"></div>
+  </div>
+
+  <div id="panel">
+    <div class="row">
+      <select id="selField" aria-label="The vector field" title="Pick a vector field"></select>
+      <label class="slider" title="The size of the circle around P">
+        <span>circle</span><input id="sR" type="range" min="0" max="1000" style="--c:#ffe14d"></label>
+    </div>
+    <div class="row">
+      <button id="btnTour" aria-label="Play the guided tour" title="A guided tour of flux, circulation and the paddle wheel">&#9654;<span class="long">&nbsp;Play</span></button>
+      <button id="btnFlow" class="active" title="The fluid carried by the field">Flow</button>
+      <button id="btnFlux" class="active" title="The normal component of F on the circle: fluid leaving and entering">Flux</button>
+      <button id="btnCirc" title="The tangential component of F on the circle: flow along it">Circulation</button>
+      <button id="btnWheel" class="active" title="A paddle wheel at P, turned by the fluid">Paddle wheel</button>
+      <span style="flex:1"></span>
+      <button id="btnFull" aria-label="Full screen" title="Show the figure full screen">&#x26F6;<span class="long">&nbsp;Full screen</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // false in the completed notes; true in the skeletal notes, where the
+  // card never shows div F or curl F . k themselves (see the top)
+  var SKELETAL = true;
+
+  var BLUE = "#58c4dd", ORANGE = "#f0a04b", RED = "#fc6255", GREEN = "#83c167", YELLOW = "#ffe14d",
+      VIOLET = "#caa3e8", INK = "#ece6e2", BG = "#06070a", AXIS = "rgba(236,230,226,0.45)";
+
+  // ---------- the fields (HTML for the card, plain text for the menu) ----------
+  var I = function (s) { return "<i>" + s + "</i>"; };
+  var FIELDS = [
+    { key: "spiral", menu: "⟨x − y, x + y⟩", html: "⟨" + I("x") + " − " + I("y") + ", " + I("x") + " + " + I("y") + "⟩",
+      f: function (x, y) { return [x - y, x + y]; } },
+    { key: "shear", menu: "⟨y, 0⟩", html: "⟨" + I("y") + ", 0⟩",
+      f: function (x, y) { return [y, 0]; } },
+    { key: "saddle", menu: "⟨x, −y⟩", html: "⟨" + I("x") + ", −" + I("y") + "⟩",
+      f: function (x, y) { return [x, -y]; } },
+    { key: "cells", menu: "⟨sin y, sin x⟩", html: "⟨sin " + I("y") + ", sin " + I("x") + "⟩",
+      f: function (x, y) { return [Math.sin(y), Math.sin(x)]; } },
+    { key: "waves", menu: "⟨sin x, cos y⟩", html: "⟨sin " + I("x") + ", cos " + I("y") + "⟩",
+      f: function (x, y) { return [Math.sin(x), Math.cos(y)]; } }
+  ];
+  var field = FIELDS[0];
+  function F(x, y) { return field.f(x, y); }
+
+  // div F and curl F . k by central differences (shown only in the completed notes)
+  function divcurl(x, y) {
+    var h = 1e-4, fx1 = F(x + h, y), fx0 = F(x - h, y), fy1 = F(x, y + h), fy0 = F(x, y - h);
+    var Mx = (fx1[0] - fx0[0]) / (2 * h), Nx = (fx1[1] - fx0[1]) / (2 * h);
+    var My = (fy1[0] - fy0[0]) / (2 * h), Ny = (fy1[1] - fy0[1]) / (2 * h);
+    return { div: Mx + Ny, curl: Nx - My };
+  }
+  // the outward flux and the counterclockwise circulation over the circle of radius r about (x, y)
+  function circleIntegrals(x, y, r) {
+    var n = 360, flux = 0, circ = 0, ds = 2 * Math.PI * r / n;
+    for (var k = 0; k < n; k++) {
+      var t = 2 * Math.PI * (k + 0.5) / n, c = Math.cos(t), s = Math.sin(t), v = F(x + r * c, y + r * s);
+      flux += (v[0] * c + v[1] * s) * ds;
+      circ += (-v[0] * s + v[1] * c) * ds;
+    }
+    var A = Math.PI * r * r;
+    return { flux: flux / A, circ: circ / A };
+  }
+
+  // ---------- state: every animated quantity eases toward its target ----------
+  var RR = [0.06, 1.3];                             // the circle's radius range (never shown)
+  var S = {
+    px:    { v: 0.9, t: 0.9, k: 9 },
+    py:    { v: 0.7, t: 0.7, k: 9 },
+    r:     { v: 0.75, t: 0.75, k: 4 },
+    flow:  { v: 1, t: 1, k: 5 },
+    flux:  { v: 1, t: 1, k: 5 },
+    circ:  { v: 0, t: 0, k: 5 },
+    wheel: { v: 1, t: 1, k: 5 }
+  };
+  var TS = 0.42;                                    // time scale: the fluid moves at TS * F
+  var BOX = 3.2;                                    // the plane shown is [-BOX, BOX] x [-BOX, BOX]
+
+  // ---------- canvas and layout ----------
+  var stage = document.getElementById("stage"), card = document.getElementById("eqcard");
+  var cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+  var W = 0, Hc = 0, DPR = 1, VW = { s: 1, ax: 0, ay: 0 };
+  function layout() {
+    var s = Math.min(W, Hc) / (2 * BOX + 0.3);
+    VW = { s: s, ax: W / 2, ay: Hc / 2 };
+  }
+  function sc(p) { return [VW.ax + VW.s * p[0], VW.ay - VW.s * p[1]]; }
+  function world(q) { return [(q[0] - VW.ax) / VW.s, (VW.ay - q[1]) / VW.s]; }
+  function halfW() { return Math.min(BOX + 1, W / (2 * VW.s)); }
+  function halfH() { return Math.min(BOX + 1, Hc / (2 * VW.s)); }
+
+  // ---------- drawing helpers ----------
+  function arrowS(x0, y0, x1, y1, color, width, head, alpha) {
+    var dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy);
+    if (L < 1.5 || alpha <= 0.005) return;
+    head = Math.min(head || 9, 0.45 * L);
+    var ux = dx / L, uy = dy / L, bx = x1 - ux * head, by = y1 - uy * head;
+    ctx.globalAlpha = alpha; ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width; ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(bx, by); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x1, y1);
+    ctx.lineTo(bx - uy * head * 0.42, by + ux * head * 0.42); ctx.lineTo(bx + uy * head * 0.42, by - ux * head * 0.42);
+    ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
+  }
+  function arrowW(from, vec, color, width, head, alpha) {
+    var a = sc(from), b = sc([from[0] + vec[0], from[1] + vec[1]]);
+    arrowS(a[0], a[1], b[0], b[1], color, width, head, alpha);
+  }
+  // a label in math type: segs are [text, kind], kind "i" italic, "r" roman, "b" bold, "s" an italic subscript
+  function label(x, y, segs, color, align, size, alpha) {
+    if (alpha !== undefined && alpha <= 0.005) return;
+    size = size || 17;
+    var parts = segs.map(function (g) {
+      var k = g[1] || "i", fs = k === "s" ? Math.round(size * 0.72) : size;
+      var font = (k === "i" || k === "s" ? "italic " : k === "b" ? "bold " : "") + fs + "px 'PT Serif', 'Times New Roman', serif";
+      ctx.font = font;
+      return { t: g[0], font: font, w: ctx.measureText(g[0]).width, dy: k === "s" ? size * 0.3 : 0 };
+    });
+    var w = parts.reduce(function (a, p) { return a + p.w; }, 0);
+    var x0 = align === "center" ? x - w / 2 : align === "right" ? x - w : x;
+    ctx.globalAlpha = alpha === undefined ? 1 : alpha; ctx.textBaseline = "middle";
+    ctx.lineJoin = "round"; ctx.lineWidth = 4; ctx.strokeStyle = BG; ctx.fillStyle = color;
+    parts.forEach(function (p) { ctx.font = p.font; ctx.strokeText(p.t, x0, y + p.dy); ctx.fillText(p.t, x0, y + p.dy); x0 += p.w; });
+    ctx.globalAlpha = 1;
+  }
+
+  // slate to pale: the colour of a field arrow of relative strength t in [0, 1]
+  function ramp(t) {
+    var A = [[70, 96, 128], [128, 156, 186], [226, 234, 242]], u = 2 * t, i = Math.min(1, Math.floor(u)), f = u - i;
+    var c = A[i].map(function (a, j) { return Math.round(a + f * (A[i + 1][j] - a)); });
+    return "rgb(" + c.join(",") + ")";
+  }
+
+  // ---------- the fluid: tracer dots with short fading tails ----------
+  var NP = 340, TAIL = 8, parts = [];
+  function spawn(p, fresh) {
+    var hw = halfW(), hh = halfH();
+    p.x = (2 * Math.random() - 1) * hw; p.y = (2 * Math.random() - 1) * hh;
+    p.life = 2.2 + 2.8 * Math.random(); p.age = fresh ? Math.random() * p.life : 0;
+    p.hx = [p.x]; p.hy = [p.y];
+  }
+  function resetParticles() { parts = []; for (var i = 0; i < NP; i++) { var p = {}; spawn(p, true); parts.push(p); } }
+  function stepParticles(dt) {
+    var hw = halfW() + 0.2, hh = halfH() + 0.2;
+    parts.forEach(function (p) {
+      var a = F(p.x, p.y), mx = p.x + 0.5 * dt * TS * a[0], my = p.y + 0.5 * dt * TS * a[1], b = F(mx, my);
+      p.x += dt * TS * b[0]; p.y += dt * TS * b[1]; p.age += dt;
+      p.hx.push(p.x); p.hy.push(p.y);
+      if (p.hx.length > TAIL) { p.hx.shift(); p.hy.shift(); }
+      if (p.age > p.life || Math.abs(p.x) > hw || Math.abs(p.y) > hh) spawn(p, false);
+    });
+  }
+  function drawParticles(alpha) {
+    if (alpha <= 0.01) return;
+    ctx.lineCap = "round";
+    parts.forEach(function (p) {
+      var fade = Math.min(1, p.age / 0.4, (p.life - p.age) / 0.6);
+      if (fade <= 0.02) return;
+      var n = p.hx.length;
+      for (var k = 1; k < n; k++) {
+        var a = sc([p.hx[k - 1], p.hy[k - 1]]), b = sc([p.hx[k], p.hy[k]]);
+        ctx.globalAlpha = alpha * fade * 0.38 * k / n; ctx.strokeStyle = INK; ctx.lineWidth = 1.4;
+        ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+      }
+      var q = sc([p.x, p.y]);
+      ctx.globalAlpha = alpha * fade * 0.7; ctx.fillStyle = INK;
+      ctx.beginPath(); ctx.arc(q[0], q[1], 1.4, 0, 2 * Math.PI); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  // ---------- the picture ----------
+  var wheelAngle = 0, last = { flux: 0, circ: 0, div: 0, curl: 0 };
+  function draw() {
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.fillStyle = BG; ctx.fillRect(0, 0, W, Hc);
+    var hw = halfW(), hh = halfH();
+
+    // grid and axes
+    ctx.strokeStyle = "rgba(88,196,221,0.10)"; ctx.lineWidth = 1;
+    for (var g = -Math.floor(hw); g <= hw; g++) { var a = sc([g, -hh]), b = sc([g, hh]); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke(); }
+    for (var h = -Math.floor(hh); h <= hh; h++) { var c = sc([-hw, h]), d = sc([hw, h]); ctx.beginPath(); ctx.moveTo(c[0], c[1]); ctx.lineTo(d[0], d[1]); ctx.stroke(); }
+    var o = sc([0, 0]), xr = sc([hw - 0.08, 0]), yt = sc([0, hh - 0.08]);
+    arrowS(sc([-hw + 0.05, 0])[0], o[1], xr[0], o[1], AXIS, 1.4, 9, 1);
+    arrowS(o[0], sc([0, -hh + 0.05])[1], o[0], yt[1], AXIS, 1.4, 9, 1);
+    label(xr[0] - 4, o[1] + 14, [["x"]], INK, "right", 17, 0.8);
+    label(o[0] + 10, yt[1] + 6, [["y"]], INK, "left", 17, 0.8);
+
+    // the field: arrows on a lattice, their length growing with |F| but capped, coloured from
+    // slate (weak) to pale (strong), out of the way of the circle's colours
+    var step = 0.5;
+    for (var gx = -Math.floor(hw / step) * step; gx <= hw; gx += step) {
+      for (var gy = -Math.floor(hh / step) * step; gy <= hh; gy += step) {
+        var v = F(gx, gy), m = Math.hypot(v[0], v[1]);
+        if (m < 1e-6) continue;
+        var L = 0.72 * step * Math.tanh(m / 1.6) / m, t = Math.min(1, m / 4.5);
+        var p0 = [gx - 0.5 * L * v[0], gy - 0.5 * L * v[1]];
+        arrowW(p0, [L * v[0], L * v[1]], ramp(t), 2, 7, 0.9);
+      }
+    }
+
+    drawParticles(S.flow.v);
+
+    // the circle about P, and the components of F on it
+    var P = [S.px.v, S.py.v], r = S.r.v, rp = r * VW.s, cq = sc(P);
+    ctx.globalAlpha = 0.16; ctx.fillStyle = YELLOW;
+    ctx.beginPath(); ctx.arc(cq[0], cq[1], rp, 0, 2 * Math.PI); ctx.fill();
+    ctx.globalAlpha = 1; ctx.strokeStyle = YELLOW; ctx.lineWidth = 2.2;
+    ctx.beginPath(); ctx.arc(cq[0], cq[1], rp, 0, 2 * Math.PI); ctx.stroke();
+    var na = 16, kA = 0.32 * Math.max(0.35, Math.min(1, r / 0.75));
+    for (var j = 0; j < na; j++) {
+      var th = 2 * Math.PI * j / na, cs = Math.cos(th), sn = Math.sin(th);
+      var Q = [P[0] + r * cs, P[1] + r * sn], w = F(Q[0], Q[1]);
+      var fn = w[0] * cs + w[1] * sn, ft = -w[0] * sn + w[1] * cs;
+      if (S.flux.v > 0.01) arrowW(Q, [kA * fn * cs, kA * fn * sn], fn >= 0 ? GREEN : RED, 2.3, 8, S.flux.v);
+      if (S.circ.v > 0.01) arrowW(Q, [-kA * ft * sn, kA * ft * cs], ft >= 0 ? BLUE : ORANGE, 2.3, 8, S.circ.v);
+    }
+
+    // the paddle wheel at P: four blades on a hub
+    var dc = divcurl(P[0], P[1]); last.div = dc.div; last.curl = dc.curl;
+    if (S.wheel.v > 0.01) {
+      var R = Math.max(13, Math.min(0.62 * rp, 46));
+      ctx.globalAlpha = S.wheel.v; ctx.strokeStyle = VIOLET; ctx.lineWidth = 3; ctx.lineCap = "round";
+      for (var bl = 0; bl < 4; bl++) {
+        var ang = wheelAngle + bl * Math.PI / 2, ex = cq[0] + R * Math.cos(ang), ey = cq[1] - R * Math.sin(ang);
+        ctx.beginPath(); ctx.moveTo(cq[0], cq[1]); ctx.lineTo(ex, ey); ctx.stroke();
+        var px2 = -Math.sin(ang), py2 = -Math.cos(ang), pw = 0.28 * R;      // the paddle at the blade's end
+        ctx.beginPath(); ctx.moveTo(ex - px2 * pw, ey - py2 * pw); ctx.lineTo(ex + px2 * pw, ey + py2 * pw); ctx.stroke();
+      }
+      ctx.fillStyle = VIOLET; ctx.beginPath(); ctx.arc(cq[0], cq[1], 4.2, 0, 2 * Math.PI); ctx.fill();
+      ctx.globalAlpha = 1;
+    } else {
+      ctx.fillStyle = INK; ctx.strokeStyle = BG; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cq[0], cq[1], 4.5, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
+    }
+    label(cq[0] + Math.max(rp, 14) * 0.72 + 6, cq[1] - Math.max(rp, 14) * 0.72 - 6, [["P"]], YELLOW, "left", 18, 1);
+
+    var ci = circleIntegrals(P[0], P[1], r); last.flux = ci.flux; last.circ = ci.circ;
+    updateCard();
+  }
+
+  // ---------- the card ----------
+  var Fb = '<span class="vec">F</span>';
+  card.innerHTML =
+    '<div class="line">' + Fb + " = <span id=\"vField\"></span></div>" +
+    '<div class="line" style="color:#ffe14d">' + I("P") + ' = <span id="vP"></span></div>' +
+    '<div class="line" style="color:#83c167">outward flux ÷ area = <span id="vFlux" class="num"></span></div>' +
+    '<div class="line" style="color:#58c4dd">circulation ÷ area = <span id="vCirc" class="num"></span></div>' +
+    (SKELETAL
+      ? '<div class="note">Both are over the circle around ' + I("P") + '. Shrink it, and compare the two ratios with what you compute at ' + I("P") + ".</div>"
+      : '<div class="line" style="color:#caa3e8">div ' + Fb + ' = <span id="vDiv" class="num"></span> &nbsp; curl ' + Fb + " · " +
+        '<span class="vec">k</span> = <span id="vCurl" class="num"></span></div>' +
+        '<div class="note">Shrink the circle: the two ratios close in on div ' + Fb + " and curl " + Fb + " · " + '<span class="vec">k</span> at ' + I("P") + ".</div>");
+  var elField = document.getElementById("vField"), elP = document.getElementById("vP"),
+      elFlux = document.getElementById("vFlux"), elCirc = document.getElementById("vCirc"),
+      elDiv = document.getElementById("vDiv"), elCurl = document.getElementById("vCurl");
+  function num(x, d) { var s = (Math.abs(x) < 0.5 * Math.pow(10, -d) ? 0 : x).toFixed(d); return s.charAt(0) === "-" ? "−" + s.slice(1) : s; }
+  function updateCard() {
+    elField.innerHTML = field.html;
+    elP.textContent = "(" + num(S.px.v, 2) + ", " + num(S.py.v, 2) + ")";
+    elFlux.textContent = num(last.flux, 3); elCirc.textContent = num(last.circ, 3);
+    if (elDiv) { elDiv.textContent = num(last.div, 3); elCurl.textContent = num(last.curl, 3); }
+  }
+
+  // ---------- the loop: runs while anything moves and the figure is on screen ----------
+  var rafId = null, lastT = 0, onScreen = true, needsDraw = false;
+  function animating() { return S.flow.t > 0.5 || (S.wheel.t > 0.5 && Math.abs(last.curl) > 1e-6); }
+  function frame(now) {
+    rafId = requestAnimationFrame(frame);
+    var dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0; lastT = now;
+    var busy = false;
+    Object.keys(S).forEach(function (key) {
+      var q = S[key];
+      if (Math.abs(q.v - q.t) > 1e-6) {
+        q.v += (q.t - q.v) * (1 - Math.exp(-q.k * dt));
+        if (Math.abs(q.v - q.t) < 1e-5) q.v = q.t;
+        busy = true;
+      }
+    });
+    if (S.flow.v > 0.01) stepParticles(dt);
+    wheelAngle += dt * TS * 0.5 * last.curl;        // a small wheel turns at half the curl
+    draw(); syncSlider();
+    if (!busy && !tour.running && !needsDraw && (!animating() || !onScreen || document.hidden)) {
+      cancelAnimationFrame(rafId); rafId = null; lastT = 0;
+    }
+    needsDraw = false;
+  }
+  function ensureLoop() { if (rafId === null) { lastT = 0; rafId = requestAnimationFrame(frame); } }
+  function set(key, val) { S[key].t = val; ensureLoop(); }
+  function kick() { needsDraw = true; ensureLoop(); }
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) ensureLoop(); });
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { onScreen = es[0].isIntersecting; if (onScreen) ensureLoop(); }).observe(cv);
+  }
+
+  // ---------- controls ----------
+  var sel = document.getElementById("selField");
+  FIELDS.forEach(function (f, i) { var op = document.createElement("option"); op.value = i; op.textContent = "F = " + f.menu; sel.appendChild(op); });
+  function setField(i) { field = FIELDS[i]; sel.value = i; resetParticles(); kick(); }
+  sel.addEventListener("change", function () { if (tour.running) stopTour(); setField(+sel.value); });
+
+  var sR = document.getElementById("sR"), sliding = false;
+  // the slider moves the radius on a log scale, so that small circles get room
+  function toSl(r) { return Math.round(1000 * Math.log(r / RR[0]) / Math.log(RR[1] / RR[0])); }
+  function fromSl(x) { return RR[0] * Math.pow(RR[1] / RR[0], x / 1000); }
+  function syncSlider() { if (!sliding) sR.value = toSl(S.r.v); }
+  sR.addEventListener("input", function () { if (tour.running) stopTour(); sliding = true; S.r.t = fromSl(+sR.value); ensureLoop(); });
+  sR.addEventListener("change", function () { sliding = false; });
+
+  function toggle(btn, key) {
+    function setIt(on) { set(key, on ? 1 : 0); btn.classList.toggle("active", on); }
+    btn.addEventListener("click", function () { if (tour.running) stopTour(); setIt(S[key].t < 0.5); });
+    return setIt;
+  }
+  var setFlow = toggle(document.getElementById("btnFlow"), "flow"),
+      setFlux = toggle(document.getElementById("btnFlux"), "flux"),
+      setCirc = toggle(document.getElementById("btnCirc"), "circ"),
+      setWheel = toggle(document.getElementById("btnWheel"), "wheel");
+
+  // ---------- moving P: click or drag anywhere on the plane ----------
+  var drag = false;
+  function local(e) { var b = cv.getBoundingClientRect(); return [e.clientX - b.left, e.clientY - b.top]; }
+  function moveP(e, snap) {
+    var w = world(local(e)), lim = BOX - 0.15;
+    S.px.t = Math.max(-lim, Math.min(lim, w[0])); S.py.t = Math.max(-lim, Math.min(lim, w[1]));
+    if (snap) { S.px.v = S.px.t; S.py.v = S.py.t; }
+    kick();
+  }
+  cv.addEventListener("pointerdown", function (e) {
+    if (tour.running) stopTour();
+    drag = true; try { cv.setPointerCapture(e.pointerId); } catch (err) { /* older browsers */ }
+    moveP(e, false); e.preventDefault();
+  });
+  cv.addEventListener("pointermove", function (e) { if (drag) moveP(e, true); });
+  function endDrag() { drag = false; }
+  cv.addEventListener("pointerup", endDrag);
+  cv.addEventListener("pointercancel", endDrag);
+
+  // ---------- the guided tour ----------
+  var elCaption = document.getElementById("caption");
+  function say(html) {
+    elCaption.classList.remove("show");
+    window.setTimeout(function () { elCaption.innerHTML = html; if (html) elCaption.classList.add("show"); }, html ? 160 : 0);
+  }
+  var M = function (s) { return '<span class="m">' + s + "</span>"; };
+  var C = function (col, s) { return '<span style="color:' + col + '">' + s + "</span>"; };
+  var STORY = [
+    { say: "The gray arrows are a vector field " + M(Fb) + ", and the dots are a fluid moving with it.",
+      field: 0, st: { flow: 1, flux: 0, circ: 0, wheel: 0 }, at: [0.9, 0.7], r: 0.75, hold: 4.2 },
+    { say: "Draw a small circle around a point " + C(YELLOW, M(I("P"))) + ". On it, " + C(GREEN, "green") +
+           " arrows show fluid leaving and " + C(RED, "red") + " arrows fluid entering.",
+      st: { flux: 1 }, hold: 4.8 },
+    { say: "The card divides the net outward flux by the area of the circle. Shrink the circle and watch the ratio settle.",
+      r: 0.12, hold: 5.2 },
+    { say: "Now the flow " + I("along") + " the circle: " + C(BLUE, "blue") + " with the counterclockwise direction, " +
+           C(ORANGE, "orange") + " against it. The card divides the circulation by the area too.",
+      st: { flux: 0, circ: 1 }, r: 0.75, hold: 5.4 },
+    { say: "A small " + C(VIOLET, "paddle wheel") + " at " + M(I("P")) + " is turned by the fluid: counterclockwise where the circulation is positive.",
+      st: { wheel: 1 }, hold: 4.8 },
+    { say: "A shear flow: every dot moves in a straight line, yet the wheel turns.",
+      field: 1, at: [0.2, 1.2], hold: 5.0 },
+    { say: "A saddle: the fluid is squeezed one way and stretched the other. Watch both ratios.",
+      field: 2, st: { flux: 1, circ: 1 }, at: [1.0, -0.8], hold: 5.4 },
+    { say: "Here the field changes from cell to cell: move " + M(I("P")) + " and the wheel slows, stops and turns back.",
+      field: 3, st: { flux: 0 }, at: [1.57, 0], r: 0.5, hold: 3.6 },
+    { at: [0, 1.57], hold: 3.6, say: "" },
+    { say: "Your turn: pick a field, drag " + M(I("P")) + ", and shrink or grow the circle.",
+      st: { flux: 1, circ: 0 }, hold: 2.2 }
+  ];
+  var tour = { running: false, i: 0, timer: null };
+  var btnTour = document.getElementById("btnTour");
+  var SETTERS = { flow: setFlow, flux: setFlux, circ: setCirc, wheel: setWheel };
+  function tourStep() {
+    if (!tour.running) return;
+    if (tour.i >= STORY.length) { stopTour(); return; }
+    var beat = STORY[tour.i++];
+    if (beat.field !== undefined) setField(beat.field);
+    if (beat.st) Object.keys(beat.st).forEach(function (k) { SETTERS[k](beat.st[k] > 0.5); });
+    if (beat.at) { S.px.t = beat.at[0]; S.py.t = beat.at[1]; }
+    if (beat.r !== undefined) S.r.t = beat.r;
+    if (beat.say) say(beat.say);
+    ensureLoop();
+    tour.timer = window.setTimeout(tourStep, beat.hold * 1000);
+  }
+  function startTour() {
+    tour.running = true; tour.i = 0;
+    btnTour.innerHTML = "&#10074;&#10074;<span class=\"long\">&nbsp;Stop</span>"; btnTour.classList.add("running");
+    ensureLoop(); tourStep();
+  }
+  function stopTour() {
+    tour.running = false;
+    if (tour.timer) { window.clearTimeout(tour.timer); tour.timer = null; }
+    btnTour.innerHTML = "&#9654;<span class=\"long\">&nbsp;Play</span>"; btnTour.classList.remove("running");
+    say(""); ensureLoop();
+  }
+  btnTour.addEventListener("click", function () { tour.running ? stopTour() : startTour(); });
+
+  // ---------- full screen ----------
+  var btnFull = document.getElementById("btnFull"), docEl = document.documentElement;
+  function fsElement() { return document.fullscreenElement || document.webkitFullscreenElement || null; }
+  function openStandalone() { window.open(window.location.href, "_blank", "noopener"); }
+  btnFull.addEventListener("click", function () {
+    if (fsElement()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    var req = docEl.requestFullscreen || docEl.webkitRequestFullscreen;
+    if (!req) { openStandalone(); return; }
+    try { var p = req.call(docEl); if (p && p.catch) p.catch(openStandalone); } catch (e) { openStandalone(); }
+  });
+  function onFs() {
+    var on = !!fsElement(); btnFull.classList.toggle("active", on);
+    btnFull.innerHTML = on ? "&#x26F6;<span class=\"long\">&nbsp;Exit full screen</span>" : "&#x26F6;<span class=\"long\">&nbsp;Full screen</span>";
+    window.setTimeout(resize, 50);
+  }
+  document.addEventListener("fullscreenchange", onFs);
+  document.addEventListener("webkitfullscreenchange", onFs);
+
+  // ---------- sizing ----------
+  function resize() {
+    var stacked = window.getComputedStyle(card).position === "static";
+    W = stage.clientWidth;
+    Hc = Math.max(120, stage.clientHeight - (stacked ? card.offsetHeight : 0));
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = Math.round(W * DPR); cv.height = Math.round(Hc * DPR);
+    cv.style.width = W + "px"; cv.style.height = Hc + "px";
+    layout(); draw();
+  }
+  window.addEventListener("resize", resize);
+
+  setField(0);
+  resize();
+  ensureLoop();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { resize(); });
+})();
+</script>
+</body>
+</html>

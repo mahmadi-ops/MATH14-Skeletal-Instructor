@@ -1,0 +1,51 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-exam3-q4-section-figure" speech2="A cross-section of the upper hemisphere of radius two, with its radial unit normals.">
+      <grouped>prefigure-exam3-q4-section-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-exam3-q4-section-q4-region</active>
+        <active>prefigure-exam3-q4-section-q4-semi</active>
+        <active>prefigure-exam3-q4-section-q4-radius</active>
+        <active>prefigure-exam3-q4-section-q4-n2</active>
+      </children>
+      <components>
+        <active>prefigure-exam3-q4-section-q4-region</active>
+        <active>prefigure-exam3-q4-section-q4-semi</active>
+        <active>prefigure-exam3-q4-section-q4-radius</active>
+        <active>prefigure-exam3-q4-section-q4-n2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-exam3-q4-section-q4-region" speech2="The shaded upper half disk of radius two.">
+      <active>prefigure-exam3-q4-section-q4-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-exam3-q4-section-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q4-section-q4-semi" speech2="The semicircle of radius two, the cross-section of the hemisphere S." sonify="yes">
+      <active>prefigure-exam3-q4-section-q4-semi</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-exam3-q4-section-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-exam3-q4-section-q4-semi</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-exam3-q4-section-q4-radius" speech2="A dashed radius of length two from the origin to a point of the hemisphere.">
+      <active>prefigure-exam3-q4-section-q4-radius</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-exam3-q4-section-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q4-section-q4-n2" speech2="The unit normal at that point, pointing straight out along the radius: one half of x comma y comma z.">
+      <active>prefigure-exam3-q4-section-q4-n2</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-exam3-q4-section-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

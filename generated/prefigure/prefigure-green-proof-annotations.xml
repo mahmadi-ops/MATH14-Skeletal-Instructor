@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-green-proof-figure" speech2="A shaded region R in the plane lying between a lower curve y equals f two of x and an upper curve y equals f one of x, for x between a and b. The boundary is drawn in blue with an arrowhead on the lower curve pointing right and one on the upper curve pointing left, so the boundary is travelled counterclockwise. Short vertical sides close the region at x equals a and x equals b.">
+      <grouped>prefigure-green-proof-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-green-proof-gp-region</active>
+        <active>prefigure-green-proof-gp-bottom</active>
+        <active>prefigure-green-proof-gp-top</active>
+        <active>prefigure-green-proof-gp-left</active>
+        <active>prefigure-green-proof-gp-right</active>
+      </children>
+      <components>
+        <active>prefigure-green-proof-gp-region</active>
+        <active>prefigure-green-proof-gp-bottom</active>
+        <active>prefigure-green-proof-gp-top</active>
+        <active>prefigure-green-proof-gp-left</active>
+        <active>prefigure-green-proof-gp-right</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-green-proof-gp-region" speech2="The region R, between the two curves.">
+      <active>prefigure-green-proof-gp-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-green-proof-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-proof-gp-bottom" speech2="The lower boundary curve y equals f two of x, travelled from left to right.">
+      <active>prefigure-green-proof-gp-bottom</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-green-proof-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-proof-gp-top" speech2="The upper boundary curve y equals f one of x, travelled from right to left.">
+      <active>prefigure-green-proof-gp-top</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-green-proof-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-proof-gp-left" speech2="The vertical side at x equals a.">
+      <active>prefigure-green-proof-gp-left</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-green-proof-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-green-proof-gp-right" speech2="The vertical side at x equals b.">
+      <active>prefigure-green-proof-gp-right</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-green-proof-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

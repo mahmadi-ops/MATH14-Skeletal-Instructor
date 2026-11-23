@@ -1,0 +1,60 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-exam3-q6-section-figure" speech2="A vertical cross-section of the solid S through the z axis: the wedge between the two cone lines, above the lower semicircle of radius two.">
+      <grouped>prefigure-exam3-q6-section-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-exam3-q6-section-q6-region</active>
+        <active>prefigure-exam3-q6-section-q6-sphere</active>
+        <active>prefigure-exam3-q6-section-q6-cone-r</active>
+        <active>prefigure-exam3-q6-section-q6-cone-l</active>
+        <active>prefigure-exam3-q6-section-q6-meet</active>
+      </children>
+      <components>
+        <active>prefigure-exam3-q6-section-q6-region</active>
+        <active>prefigure-exam3-q6-section-q6-sphere</active>
+        <active>prefigure-exam3-q6-section-q6-cone-r</active>
+        <active>prefigure-exam3-q6-section-q6-cone-l</active>
+        <active>prefigure-exam3-q6-section-q6-meet</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-exam3-q6-section-q6-region" speech2="The shaded cross-section of S.">
+      <active>prefigure-exam3-q6-section-q6-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-exam3-q6-section-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q6-section-q6-sphere" speech2="The lower semicircle of radius two, the cross-section of the lower half of the sphere." sonify="yes">
+      <active>prefigure-exam3-q6-section-q6-sphere</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-exam3-q6-section-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-exam3-q6-section-q6-sphere</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-exam3-q6-section-q6-cone-r" speech2="The line z equals minus root three r, one side of the cone.">
+      <active>prefigure-exam3-q6-section-q6-cone-r</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-exam3-q6-section-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q6-section-q6-cone-l" speech2="The other side of the cone, its mirror image in the z axis.">
+      <active>prefigure-exam3-q6-section-q6-cone-l</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-exam3-q6-section-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q6-section-q6-meet" speech2="The point r equals one, z equals minus root three, where the cone meets the sphere.">
+      <active>prefigure-exam3-q6-section-q6-meet</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-exam3-q6-section-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

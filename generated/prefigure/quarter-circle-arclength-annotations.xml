@@ -1,0 +1,100 @@
+<diagram>
+  <annotations>
+    <annotation id="quarter-circle-arclength-figure" speech2="A quarter of the unit circle parametrized by r of t equals cosine t, sine t, for t between 0 and pi over 2, showing the position and unit velocity vectors">
+      <grouped>quarter-circle-arclength-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>quarter-circle-arclength-grid-axes</active>
+        <active>quarter-circle-arclength-grid</active>
+        <active>quarter-circle-arclength-axes</active>
+        <active>quarter-circle-arclength-arc</active>
+        <active>quarter-circle-arclength-endpoints</active>
+        <active>quarter-circle-arclength-radius</active>
+        <active>quarter-circle-arclength-velocity</active>
+      </children>
+      <components>
+        <active>quarter-circle-arclength-grid-axes</active>
+        <active>quarter-circle-arclength-grid</active>
+        <active>quarter-circle-arclength-axes</active>
+        <active>quarter-circle-arclength-arc</active>
+        <active>quarter-circle-arclength-endpoints</active>
+        <active>quarter-circle-arclength-radius</active>
+        <active>quarter-circle-arclength-velocity</active>
+      </components>
+    </annotation>
+    <annotation id="quarter-circle-arclength-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>quarter-circle-arclength-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>quarter-circle-arclength-grid</active>
+        <active>quarter-circle-arclength-axes</active>
+      </children>
+      <components>
+        <active>quarter-circle-arclength-grid</active>
+        <active>quarter-circle-arclength-axes</active>
+      </components>
+      <parents>
+        <grouped>quarter-circle-arclength-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="quarter-circle-arclength-grid" speech2="The coordinate grid">
+      <active>quarter-circle-arclength-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>quarter-circle-arclength-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="quarter-circle-arclength-axes" speech2="The coordinate axes">
+      <active>quarter-circle-arclength-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>quarter-circle-arclength-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="quarter-circle-arclength-grid" speech2="The coordinate grid">
+      <active>quarter-circle-arclength-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>quarter-circle-arclength-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="quarter-circle-arclength-axes" speech2="The coordinate axes">
+      <active>quarter-circle-arclength-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>quarter-circle-arclength-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="quarter-circle-arclength-arc" speech2="The quarter circle arc from the point 1 comma 0 to the point 0 comma 1" sonify="yes">
+      <active>quarter-circle-arclength-arc</active>
+      <position>4</position>
+      <parents>
+        <grouped>quarter-circle-arclength-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>quarter-circle-arclength-arc</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="quarter-circle-arclength-endpoints" speech2="The endpoints 1 comma 0 and 0 comma 1">
+      <active>quarter-circle-arclength-endpoints</active>
+      <position>5</position>
+      <parents>
+        <grouped>quarter-circle-arclength-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="quarter-circle-arclength-radius" speech2="The position vector r of t from the origin to a point on the arc">
+      <active>quarter-circle-arclength-radius</active>
+      <position>6</position>
+      <parents>
+        <grouped>quarter-circle-arclength-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="quarter-circle-arclength-velocity" speech2="The velocity vector v of t, tangent to the arc, which has length one">
+      <active>quarter-circle-arclength-velocity</active>
+      <position>7</position>
+      <parents>
+        <grouped>quarter-circle-arclength-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

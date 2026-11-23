@@ -1,0 +1,91 @@
+<diagram>
+  <annotations>
+    <annotation id="trajectory-figure" speech2="The trajectory of a point moving in the plane,                                 with its position at the instant t nought read                                 off on the two coordinate axes">
+      <grouped>trajectory-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>trajectory-grid-axes</active>
+        <active>trajectory-grid</active>
+        <active>trajectory-axes</active>
+        <active>trajectory-curve</active>
+        <active>trajectory-ends</active>
+        <active>trajectory-readout</active>
+      </children>
+      <components>
+        <active>trajectory-grid-axes</active>
+        <active>trajectory-grid</active>
+        <active>trajectory-axes</active>
+        <active>trajectory-curve</active>
+        <active>trajectory-ends</active>
+        <active>trajectory-readout</active>
+      </components>
+    </annotation>
+    <annotation id="trajectory-grid-axes" speech2="The coordinate grid and axes">
+      <grouped>trajectory-grid-axes</grouped>
+      <position>1</position>
+      <children>
+        <active>trajectory-grid</active>
+        <active>trajectory-axes</active>
+      </children>
+      <components>
+        <active>trajectory-grid</active>
+        <active>trajectory-axes</active>
+      </components>
+      <parents>
+        <grouped>trajectory-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="trajectory-grid" speech2="The coordinate grid">
+      <active>trajectory-grid</active>
+      <position>1</position>
+      <parents>
+        <grouped>trajectory-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="trajectory-axes" speech2="The coordinate axes">
+      <active>trajectory-axes</active>
+      <position>2</position>
+      <parents>
+        <grouped>trajectory-grid-axes</grouped>
+      </parents>
+    </annotation>
+    <annotation id="trajectory-grid" speech2="The coordinate grid">
+      <active>trajectory-grid</active>
+      <position>2</position>
+      <parents>
+        <grouped>trajectory-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="trajectory-axes" speech2="The coordinate axes">
+      <active>trajectory-axes</active>
+      <position>3</position>
+      <parents>
+        <grouped>trajectory-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="trajectory-curve" speech2="The trajectory C, traced in the direction of                                   increasing t" sonify="yes">
+      <active>trajectory-curve</active>
+      <position>4</position>
+      <parents>
+        <grouped>trajectory-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>trajectory-curve</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="trajectory-ends" speech2="The starting point A at time t equals a and                                   the ending point B at time t equals b">
+      <active>trajectory-ends</active>
+      <position>5</position>
+      <parents>
+        <grouped>trajectory-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="trajectory-readout" speech2="The position of the point at the instant t                                   nought, with dashed segments to the axes                                   showing its coordinates f of t nought and g                                   of t nought">
+      <active>trajectory-readout</active>
+      <position>6</position>
+      <parents>
+        <grouped>trajectory-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,48 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-exam3-q1-region-figure" speech2="The parallelogram between the lines y equals three x and y equals three x plus six, for x from zero to one.">
+      <grouped>prefigure-exam3-q1-region-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-exam3-q1-region-q1-region</active>
+        <active>prefigure-exam3-q1-region-q1-low</active>
+        <active>prefigure-exam3-q1-region-q1-high</active>
+        <active>prefigure-exam3-q1-region-q1-right</active>
+      </children>
+      <components>
+        <active>prefigure-exam3-q1-region-q1-region</active>
+        <active>prefigure-exam3-q1-region-q1-low</active>
+        <active>prefigure-exam3-q1-region-q1-high</active>
+        <active>prefigure-exam3-q1-region-q1-right</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-exam3-q1-region-q1-region" speech2="The shaded parallelogram, the region of integration.">
+      <active>prefigure-exam3-q1-region-q1-region</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-exam3-q1-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q1-region-q1-low" speech2="The line y equals three x, from the origin to one comma three, the bottom edge.">
+      <active>prefigure-exam3-q1-region-q1-low</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-exam3-q1-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q1-region-q1-high" speech2="The line y equals three x plus six, from zero comma six to one comma nine, the top edge.">
+      <active>prefigure-exam3-q1-region-q1-high</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-exam3-q1-region-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-exam3-q1-region-q1-right" speech2="The vertical side x equals one, from one comma three to one comma nine.">
+      <active>prefigure-exam3-q1-region-q1-right</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-exam3-q1-region-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
