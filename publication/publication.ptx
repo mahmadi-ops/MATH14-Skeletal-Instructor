@@ -54,6 +54,9 @@
        Must end with a slash. -->
   <html>
     <baseurl href="https://mahmadi-ops.github.io/MATH14-Skeletal-Instructor/"/>
+    <!-- Google Analytics 4 (anonymous visit counts).  One property covers   -->
+    <!-- every book on mahmadi-ops.github.io; reports split them by path.    -->
+    <analytics google-gst="G-HLPGGP7XJ2"/>
   </html>
 
   <!-- Table of contents down to subsections, so the sidebar lists every
